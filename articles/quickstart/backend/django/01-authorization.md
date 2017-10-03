@@ -27,7 +27,7 @@ This guide demonstrates how to add authorization to your Python API using [Djang
 
 ## Install the Dependencies
 
- Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt'.
+ Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
 ```python
 django
@@ -56,7 +56,7 @@ The `settings.py` file contains the configuration of the Django project.
 Add the following imports in `settings.py` file.
 
 ```python
-# apiexample\settings.py
+# apiexample/settings.py
 
 import json
 from six.moves.urllib import request
@@ -68,7 +68,7 @@ from cryptography.hazmat.backends import default_backend
 Add `rest_framework` app to the `INSTALLED_APPS` entry.
 
 ```python
-# apiexample\settings.py
+# apiexample/settings.py
 
 INSTALLED_APPS = [
     # ...
@@ -79,7 +79,7 @@ INSTALLED_APPS = [
 Add `JSONWebTokenAuthentication` to Django REST framework's `DEFAULT_AUTHENTICATION_CLASSES`.
 
 ```python
-# apiexample\settings.py
+# apiexample/settings.py
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -100,7 +100,7 @@ Obtain the public key from your [JWKS](/jwks). Then set the settings for [REST F
 Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default those values will be retrieved from the `.env` file.
 
 ```python
-# apiexample\settings.py
+# apiexample/settings.py
 
 jsonurl = request.urlopen("https://${account.namespace}/.well-known/jwks.json")
 jwks = json.loads(jsonurl.read())
@@ -140,7 +140,7 @@ Then create a user in Django authentication system. Please check the Django docu
 In the file `views.py` add `public` and `private` endpoints. Add the `@api_view` decorator to the `private` endpoint to indicate that the method requires authentication.
 
 ```python
-# auth0authorization\views.py
+# auth0authorization/views.py
 
 from functools import wraps
 
@@ -170,7 +170,7 @@ API endpoints can be configured to look for a particular `scope` in the `access_
 Add the following methods to the `views.py` file to extract the granted scopes from the access_token.
 
 ```python
-# auth0authorization\views.py
+# auth0authorization/views.py
 
 def get_token_auth_header(request):
     """Obtains the access token from the Authorization Header
@@ -203,7 +203,7 @@ def requires_scope(required_scope):
 Use the decorator in the methods that require specific scopes granted. The method below requires the `read:messages` scope granted. 
 
 ```python
-# auth0authorization\views.py
+# auth0authorization/views.py
 
 @api_view(['GET'])
 @requires_scope('read:messages')
@@ -221,7 +221,7 @@ https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL 
 Create the file `urls.py` in your application folder. Add the URLs patterns.
 
 ```python
-// auth0authorization/views.py
+# auth0authorization/views.py
 
 from django.conf.urls import url
 
@@ -237,7 +237,7 @@ urlpatterns = [
 The Django project also has a `urls.py` file. Add a reference to your application's `urls.py` file.
 
 ```python
-// apiexample/urls.py
+# apiexample/urls.py
 
 from django.conf.urls import url, include
 from django.contrib import admin
