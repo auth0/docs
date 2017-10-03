@@ -115,6 +115,14 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
+## Cross-Origin Authentication
+
+Using Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you must do the following:
+
+* Set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to true
+* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
+* In the client settings area of the [Dashboard]($manage_url}), set OIDC Conformant and Cross Origin Authentication to true.
+
 ## Browser Compatibility
 
 Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
