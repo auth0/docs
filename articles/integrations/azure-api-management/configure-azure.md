@@ -82,7 +82,7 @@ Navigate to **Security** > **OAuth 2.0**.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/oauth2-servers.png)
 
-Click on **Add Authorization Server**. You'll see the configuration screen that lets you provide details about your Auth0 tenant.
+Click on **Add Authorization Server**. You'll see the configuration screen that lets you provide details about your Auth0 domain.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/new-oauth2-server-config.png)
 
@@ -177,7 +177,7 @@ Scroll to the bottom, and click **Send** to send your request. If successful, yo
 
 In this tutorial, you've:
 
-1. Configured your Auth0 tenant to act as an OAuth 2.0 server.
+1. Configured your Auth0 domain to act as an OAuth 2.0 server.
 2. Set up an API Management Service in Azure.
 3. Imported an API that's managed by Azure's API Management Service.
 4. Secured your API using Auth0.

@@ -28,8 +28,8 @@ Complete the form.
 
 In the fields below, enter the following:
 
-* **App URL**: `https://YOUR_TENANT.auth0.com`
-* **Redirection URL**: `https://YOUR_TENANT.auth0.com/login/callback`
+* **App URL**: `https://${account.tenant}.auth0.com`
+* **Redirection URL**: `https://${account.tenant}.auth0.com/login/callback`
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-2.png)
 

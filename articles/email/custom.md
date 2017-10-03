@@ -7,8 +7,8 @@ toc: true
 The default email flow in Auth0 can address the requirements of most applications, but there may be instances where more flexibility is required. For example:
 
  * Localization
- * Custom **Redirect To** URLs based on the user or tenant
- * Different email templates per application or tenant
+ * Custom **Redirect To** URLs based on the user or domain
+ * Different email templates per application or domain
 
 The Auth0 Management API provides endpoints that allow you to completely manage email flow, and control when and how emails are sent.
 
@@ -57,7 +57,7 @@ function (user, context, callback) {
 
 ### Custom redirect
 
-A custom redirect is useful when you want to direct users to certain URLs based on user attributes or on the tenant.
+A custom redirect is useful when you want to direct users to certain URLs based on user attributes or on the domain.
 
 The Auth0 Management API provides a [post_verification_email](/api/v2#!/Tickets/post_email_verification) endpoint that generates the verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 

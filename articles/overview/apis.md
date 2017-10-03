@@ -41,7 +41,7 @@ You need to provide the following information for your API:
 
 - **Identifier**: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value **cannot be modified** afterwards.
 
-- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the tenant's private key. For more details on the signing algorithms go to the [Signing Algorithms paragraph](#signing-algorithms).
+- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the domain's private key. For more details on the signing algorithms go to the [Signing Algorithms paragraph](#signing-algorithms).
 
 Fill in the required information and click the **Create** button.
 
@@ -79,7 +79,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Allow Offline Access**: If this setting is enabled, Auth0 will allow clients to ask for Refresh Tokens for this API.
 
-- **Signing Algorithm**: The algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended) the token will be signed with the tenant's private key. This value is set upon API creation and cannot be modified afterwards. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
+- **Signing Algorithm**: The algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended) the token will be signed with the domain's private key. This value is set upon API creation and cannot be modified afterwards. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
 
 ### Signing Algorithms
 
@@ -108,7 +108,7 @@ You can find the Public Key you can use to verify the signature of an RS256 sign
 
 If you want to use the Public Key to verify a JWT signature on [JWT.io](https://jwt.io/), you can copy the Public Key and paste it in the **Public Key or Certificate** field under the **Verify Signature** section on the [JWT.io](https://jwt.io/) website.
 
-If you want to verify the signature of a token from one of your applications, it is recommended that you obtain the Public Key from your tenant's [JSON Web Key Set (JWKS)](https://auth0.com/docs/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+If you want to verify the signature of a token from one of your applications, it is recommended that you obtain the Public Key from your domain's [JSON Web Key Set (JWKS)](https://auth0.com/docs/jwks). Your domain's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 For more information ob how to do this, please refer the [Verify Access Tokens](/api-auth/tutorials/verify-access-token#verify-the-signature).
 :::

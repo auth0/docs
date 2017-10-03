@@ -101,9 +101,9 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
  ![Add Reply URL](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
 
- It has the following format `https://<domain>.<region>.auth0.com/login/callback` (`region` is omitted if the Auth0 tenant was created in the US)
+ It has the following format `https://<domain>.<region>.auth0.com/login/callback` (`region` is omitted if the Auth0 domain was created in the US)
 
- Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
+ Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact domain name and missing callback url.
 
 ## 6. Copy the Client ID and Client Secret to Auth0
 

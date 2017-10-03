@@ -116,7 +116,7 @@ Once you have finished making your desired changes, click **Save**.
 
 ## Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Tenant Settings](${manage_url}/#/tenant) page. You may also reach the **Tenant Settings** page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Domain Settings](${manage_url}/#/tenant) page. You may also reach the **Domain Settings** page by clicking on your domain name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
@@ -144,7 +144,7 @@ Here are all the possible events related to MFA:
 | `gd_start_enroll` | Second factor auth enrollment is started |
 | `gd_enrollment_complete` | Second factor enrollment has been completed |
 | `gd_module_switch` | When changing feature config |
-| `gd_tenant_update` | When tenant info has been updated |
+| `gd_tenant_update` | When domain info has been updated |
 | `gd_user_delete` | When calling (user delete => unenroll) |
 | `gd_auth_failed` | When second factor login has failed |
 | `gd_auth_succeed` | When second factor authentication has succeeded |

@@ -9,7 +9,7 @@ crews: crew-2
 :::panel-warning Notice
 This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock v. 8, check the notice panels (like this one) for information on differences between the two flows.
 
-To determine the flow version you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
+To determine the flow version you are using, navigate to [Dashboard > Domain Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
 
 We strongly encourage you to enable **Change Password flow v2** and upgrade to Lock version 9 and above. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
 :::
@@ -120,7 +120,7 @@ After submitting the new password, the user will be able to login with their new
 Users will not receive notification that their password has been manually changed.
 :::
 
-You, or anyone with administrative privileges to your Auth0 tenant, can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
+You, or anyone with administrative privileges to your Auth0 domain, can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
 
 Click on the name of the user for whom you want to change the password. Then, click on the **Actions** button on the right side of the page, and select **Change Password**.
 

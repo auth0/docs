@@ -38,7 +38,7 @@ You have to provide a login script to authenticate the user that will execute ea
 When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure that you have implemented both. Refer to the [Dashboard](${manage_url}) for sample scripts.
 :::
 
-These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+These custom scripts are *Node.js* code that run in the domain's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
 This article shows how to implement the login script for **MySQL**. If you want a sample script for another action (sign-up, password reset, etc) or another database, use the dropdown options at the [Dashboard](${manage_url}).
 

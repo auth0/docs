@@ -41,7 +41,7 @@ curl --request GET \
 
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter. The URL should be included in any the appropriate `Allowed Logout URLs` list:
 - If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the client level (see [Setting Allowed Logout URLs at the App Level](/logout#set-the-allowed-logout-urls-at-the-client-level)).
-- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the tenant level (see [Setting Allowed Logout URLs at the Tenant Level](/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
+- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the domain level (see [Setting Allowed Logout URLs at the Domain Level](/logout#set-the-allowed-logout-urls-at-the-domain-level)).
 
 
 ### Request Parameters

@@ -9,12 +9,12 @@ The following policy governs requests for billing mechanisms within the Auth0 da
 
 ## Change of billing email address
 
-It is possible to change the billing email address, but for security reasons the request should be performed by a Tenant Administrator by filing a new ticket through our [Support Center](${env.DOMAIN_URL_SUPPORT}). A member of our support team will then contact you in that same ticket with steps on how the request will proceed.
-Please note that if you are not a Tenant Administrator, we will not process this request.
+It is possible to change the billing email address, but for security reasons the request should be performed by a Domain Administrator by filing a new ticket through our [Support Center](${env.DOMAIN_URL_SUPPORT}). A member of our support team will then contact you in that same ticket with steps on how the request will proceed.
+Please note that if you are not a Domain Administrator, we will not process this request.
 
 ### Special case
 
-Please note that the customers who created tenants via the Heroku hosting platform have to change the billing email address (or any other billing details) in those platforms. We cannot edit any billing information if you have used one of those services.
+Please note that the customers who created domains via the Heroku hosting platform have to change the billing email address (or any other billing details) in those platforms. We cannot edit any billing information if you have used one of those services.
 
 ## Why is my credit card failing?
 
@@ -35,49 +35,49 @@ If you are having issues with the service, it is not due to the credit card fail
 Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard.
 
 1. Login to the [Dashboard](${manage_url}).
-2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
+2. Click on your domain name in the top right corner to bring up the associated dropdown box.
 3. Select **Settings**.
-4. On the [Tenant Settings](${manage_url}/#/tenant/) page, click on the **Subscription** tab.
+4. On the [Domain Settings](${manage_url}/#/tenant/) page, click on the **Subscription** tab.
 5. On the **Subscription** tab, scroll down to the box associated with the Free plan and click **Checkout**.
 6. To confirm your subscription change, click **Subscribe Now**.
 
 ## Refunds
 
-### I signed up for a paid plan but haven't used my tenant since then, can I get a refund?
+### I signed up for a paid plan but haven't used my domain since then, can I get a refund?
 
-We understand that sometimes developers create tenants for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your tenant to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features.
+We understand that sometimes developers create domains for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your domain to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features.
 
-If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide information about why the tenant has not been used and for how long. Please note that this request must come from a Tenant Administrator.
+If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide information about why the domain has not been used and for how long. Please note that this request must come from a Domain Administrator.
 
-We will evaluate the case and verify that the tenant has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the tenant not to be minimal, we reserve the right to not refund your card.
+We will evaluate the case and verify that the domain has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the domain not to be minimal, we reserve the right to not refund your card.
 
-### I purchased more tenant subscriptions than desired/needed, can I get a refund?
+### I purchased more domain subscriptions than desired/needed, can I get a refund?
 
 If you bought unneeded subscriptions, you are eligible for a refund. 
 
-Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Tenant Administrator.
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Domain Administrator.
 
 ### I purchased a wrong plan in self service or trial and would like to downgrade, can I get a refund?
 
 You can get a refund only for an unused portion of subscription of 3 months or less, when there has been no logins. 
 
-Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Tenant Administrator.
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Domain Administrator.
 
 ### Any other scenario not mentioned above
 
-Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Tenant Administrator.
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Domain Administrator.
 
 ## Where can I get a copy of an invoice?
 
-Invoices can be seen directly in the Dashboard by going to the [Tenant Settings](${manage_url}/#/tenant/) and clicking on the **Payments** tab. There you view all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Tenant Administrators can see the invoices.
+Invoices can be seen directly in the Dashboard by going to the [Domain Settings](${manage_url}/#/tenant/) and clicking on the **Payments** tab. There you view all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Domain Administrators can see the invoices.
 
 ## How can I get a receipt for my payment?
 
 The way to do this is by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-Please note that you have to be a Tenant admin to do this request.
+Please note that you have to be a Domain admin to do this request.
 
-Also, more than often the email which receives the receipt is the one that created the Auth0 tenant. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+Also, more than often the email which receives the receipt is the one that created the Auth0 domain. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
@@ -95,6 +95,6 @@ On the other hand, internal users have to login everyday to their different tool
 
 Definitely. In the Dashboard, you can do this by going to the upper right corner, and selecting **Settings** from the drop down menu. Then in the **Subscriptions** tab you can select them depending on your needs. More information about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
 
-## How can I convert my tenant from a free trial to any other version?
+## How can I convert my domain from a free trial to any other version?
 
-You can do this by heading to the upper right corner of the Dashboard, clicking your tenant name and selecting **Settings**. Then in the **Subscriptions** tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).
+You can do this by heading to the upper right corner of the Dashboard, clicking your domain name and selecting **Settings**. Then in the **Subscriptions** tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).

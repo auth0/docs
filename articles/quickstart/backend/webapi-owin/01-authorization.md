@@ -122,7 +122,7 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can create a custom Authorization Attribute.
 
-Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
+Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 domain is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
 ```csharp
 // Controllers/ScopeAuthorizeAttribute.cs

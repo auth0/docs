@@ -24,12 +24,12 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 domain name with which the client is associated, and client metadata. 
 
 ```js
 /**
 @param {object} user - The user being created
-@param {string} user.tenant - Auth0 tenant name
+@param {string} user.tenant - Auth0 domain name
 @param {string} user.username - user name
 @param {string} user.password - user's password
 @param {string} user.email - email
@@ -41,7 +41,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {object} context.connection - information about the Auth0 connection
 @param {object} context.connection.id - connection id
 @param {object} context.connection.name - connection name
-@param {object} context.connection.tenant - connection tenant
+@param {object} context.connection.tenant - connection domain
 @param {object} context.webtask - webtask context
 @param {function} cb - function (error, response)
 */
@@ -92,7 +92,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 ```json
 {
   "user": {
-    "tenant": "my-tenant",
+    "tenant": "my-domain",
     "username": "user1",
     "password": "xxxxxxx",
     "email": "user1@foo.com",
@@ -111,7 +111,7 @@ Once you've modified the sample code with the specific scopes of additional clai
     "connection": {
       "id": "con_xxxxxxxxxxxxxxxx",
       "name": "Username-Password-Authentication",
-      "tenant": "my-tenant"
+      "tenant": "my-domain"
     }
   }
 }

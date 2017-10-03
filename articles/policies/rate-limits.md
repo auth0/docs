@@ -60,22 +60,22 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 ### Management API v2
 
-The rate limits for this API defer depending on whether your tenant is free or paid, production or not.
+The rate limits for this API defer depending on whether your domain is free or paid, production or not.
 
 ::: note
-- The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
-- To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
+- The domains that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
+- To set an environment for your domain (development, staging or production), go to [Support Center > Domains](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your domain, select __Assign Environment Tag__, set the environment and save changes.
 :::
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For all __free domains__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
+- For __non-production domains__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
+- For __paid__ domains, usage of the Management API is restricted to 50 requests per second.
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
-Note, that the limit is set by tenant and not by endpoint, and that it does not apply to [Private Instance deployments](/appliance).
+Note, that the limit is set by domain and not by endpoint, and that it does not apply to [Private Instance deployments](/appliance).
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
@@ -174,11 +174,11 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td></td>
   </tr>
   <tr>
-      <td>Tenants</td>
-      <td>/tenants/settings</td>
+      <td>Domains</td>
+      <td>/domains/settings</td>
       <td></td>
       <td></td>
-      <td>/tenants/settings</td>
+      <td>/domains/settings</td>
   </tr>
 </table>
 

@@ -12,7 +12,7 @@ toc: true
 
 # Connect your app to 37Signals
 
-To configure a 37Signals OAuth2 connection, you will need to register your Auth0 tenant on the [37Signals Integration Portal](https://integrate.37signals.com/).
+To configure a 37Signals OAuth2 connection, you will need to register your Auth0 domain on the [37Signals Integration Portal](https://integrate.37signals.com/).
 
 ### 1. Register a new App
 

@@ -7,7 +7,7 @@ description: Passwordless with Magic Link with Lock Android
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new domains as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link
@@ -145,7 +145,7 @@ Now, in order to use App Links, there is an additional configuration step we mus
 <!--Auth0 Lock Passwordless End-->
 ```
 
-The value `@string/auth0_domain` is your tenant's domain in Auth0, which can be found in your app's settings.
+The value `@string/auth0_domain` is your domain in Auth0, which can be found in your app's settings.
 
 In `android:pathPrefix` you must replace the package name of the application, as configured in the Auth0 account.
 

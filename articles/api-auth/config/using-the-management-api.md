@@ -22,7 +22,7 @@ Let's start by creating the Resource Server. This is the entity that represents 
 The following restrictions apply to the identifier:
 - It must be a valid URN.
 - It cannot be modified after creation.
-- It must be unique throughout your tenant.
+- It must be unique throughout your domain.
 
 We recommend using your public API endpoint as an identifier.
 

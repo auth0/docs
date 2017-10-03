@@ -113,7 +113,7 @@ To ensure that an `access_token` contains the correct `scope` you can make use o
 For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
 :::
 
-Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
+Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 domain is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
 
 ```csharp
 // HasScopeRequirement.cs

@@ -19,6 +19,6 @@ When using Auth0 as both the SAML Service and Identity Provider, you need to con
 * [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/auth0-as-service-provider)
 * [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider).
 
-## Using Two Auth0 Tenants
+## Using Two Auth0 Domains
 
-The section above assumes that you're using the same Auth0 tenant as the service provider *and* the identity provider. However, you can also implement a [SAML scenario using **two** Auth0 tenants](/samlsso-auth0-to-auth0) (usually for testing purposes), where one tenant acts as the identity provider and the other acts as the service provider.
+The section above assumes that you're using the same Auth0 domain as the service provider *and* the identity provider. However, you can also implement a [SAML scenario using **two** Auth0 domains](/samlsso-auth0-to-auth0) (usually for testing purposes), where one domain acts as the identity provider and the other acts as the service provider.

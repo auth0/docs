@@ -9,7 +9,7 @@ toc: true
 
 # Connect your app to Exact
 
-To configure an Exact OAuth2 connection, you will need to register your Auth0 tenant on the [Exact Online App Center](https://apps.exactonline.com/).
+To configure an Exact OAuth2 connection, you will need to register your Auth0 domain on the [Exact Online App Center](https://apps.exactonline.com/).
 
 ## 1. Register a new app
 

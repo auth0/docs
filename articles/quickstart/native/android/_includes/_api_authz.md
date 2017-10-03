@@ -97,7 +97,7 @@ private AuthCallback authCallback = new AuthCallback() {
 };
 ```
 
-The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
+The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the domain settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
 
 You also need to override the `onNewIntent` method in your Activity to resume the flow once the user has finished in the Browser:
 

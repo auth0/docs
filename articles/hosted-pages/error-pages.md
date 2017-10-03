@@ -11,7 +11,7 @@ Throughout the authentication process, your users may encounter errors. Auth0 pr
 
 ![Hosted Error Page](/media/articles/hosted-pages/error-pages.png)
 
-By going into the [Tenant Settings](${manage_url}/#/tenant/) page of the Management Dashboard, you may customize your Auth0 error page with the following fields:
+By going into the [Domain Settings](${manage_url}/#/tenant/) page of the Management Dashboard, you may customize your Auth0 error page with the following fields:
 
 * **Friendly Name**: the name of your company;
 * **Logo URL**: the URL to your company logo;
@@ -26,8 +26,8 @@ In addition to these fields, the error page returns the follow information to as
 * **Error**: the code corresponding to the error that occurred;
 * **Error Description**: a description of the error that occurred;
 * **Show Log URL**: the link to the error logs, if available;
-* **Title**: the friendly name of the tenant;
-* **Tenant**: the tenant information (the friendly name, logo URL, support email, and support URL fields that you may customize).
+* **Title**: the friendly name of the domain;
+* **Domain**: the domain information (the friendly name, logo URL, support email, and support URL fields that you may customize).
 
 ## Custom Error Pages
 

@@ -5,7 +5,7 @@ toc: true
 # User Impersonation
 
 ::: warning
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the **Sign in as User** button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+Impersonation functionality may be disabled by default for your domain. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the **Sign in as User** button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your domain.
 :::
 
 Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can log in to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
@@ -28,8 +28,8 @@ Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and s
 
 ::: panel I can't see this button
 In order to see this button the following conditions should apply:
-- Impersonation should be enabled for your tenant (see panel at the top of this page)
-- The Clients registered in the tenant must have at least one __callback URL__ listed
+- Impersonation should be enabled for your domain (see panel at the top of this page)
+- The Clients registered in the domain must have at least one __callback URL__ listed
 - The Clients must have the connections turned on that the users who are to be impersonated belong to
 :::
 
@@ -92,7 +92,7 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### 2. Get an Authorization Code
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Domain Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 

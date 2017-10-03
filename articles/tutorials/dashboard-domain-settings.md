@@ -1,11 +1,11 @@
 ---
-description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
-url: /dashboard-tenant-settings
+description: Explains what features and settings can be changed in the Domain Settings page of the dashboard.
+url: /dashboard-domain-settings
 toc: true
 ---
-# Tenant Settings in the Auth0 Management Dashboard
+# Domain Settings in the Auth0 Management Dashboard
 
-The [Tenant Settings](${manage_url}/#/tenant) page of the dashboard allows you to configure various settings related to your Auth0 tenant.
+The [Domain Settings](${manage_url}/#/tenant) page of the dashboard allows you to configure various settings related to your Auth0 domain.
 
 ## General
 
@@ -13,7 +13,7 @@ The [Tenant Settings](${manage_url}/#/tenant) page of the dashboard allows you t
 
 ![](/media/articles/tutorials/tenant-settings/settings.png)
 
-Use this section to customize some of the settings related to your tenant. These settings will be used in [Lock](https://auth0.com/lock), emails and various other pages being displayed to your end users.
+Use this section to customize some of the settings related to your domain. These settings will be used in [Lock](https://auth0.com/lock), emails and various other pages being displayed to your end users.
 
 * **Friendly Name**: This is the name you want to be displayed to your users, usually the name of your company or organization.
 * **Logo URL**: In this field, enter the URL where you have a square image saved. This image will appear to your users on various screens and pages.
@@ -27,7 +27,7 @@ Click **SAVE** when finished to submit your changes.
 **Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [access tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
 
 ::: note
-This setting is equivalent to appending the audience to every authorization request made to the tenant for every client. This will cause new behaviour that might result in breaking changes for some of your clients. Please contact support if you require assistance.
+This setting is equivalent to appending the audience to every authorization request made to the domain for every client. This will cause new behaviour that might result in breaking changes for some of your clients. Please contact support if you require assistance.
 :::
 
 **Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
@@ -52,7 +52,7 @@ The __Active Users__ functionality has been moved to the [Quota Utilization Repo
 
 ## Dashboard Admins
 
-Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
+Allows you to add or remove administrators for your Auth0 domain, as well as review whether administrators have Multifactor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
 
 ## Webtasks
 
@@ -66,7 +66,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ![](/media/articles/tutorials/tenant-settings/logout-urls.png)
 
-Allows you to specify the **Allowed Logout URLs** for your tenant. These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled. 
+Allows you to specify the **Allowed Logout URLs** for your domain. These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled. 
 
 Learn more about [Logout](/logout).
 

@@ -78,7 +78,7 @@ To speed resolution, please check the following before logging an issue:
 
 To speed resolution, please provide the following when logging an issue:
 
-* Name of Auth0 account/tenant
+* Name of Auth0 account/domain
 * Name of application(s)
 * Name of connection(s)
 * Description of the problem - what happens?  How far into login sequence does user get? (e.g. does issue happen before or after entering credentials, etc)
@@ -90,6 +90,6 @@ To speed resolution, please provide the following when logging an issue:
 * HTTP trace in the form of a [.har file](/har)
 
 For PSaaS Appliance Customers:
-* PSaaS Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)
+* PSaaS Appliance version/build number (top left hand corner of configuration screen on config domain, e.g. https://yourmanage.yourdomain.com/configuration#/)
 * Status of nodes https://yourmanage.yourdomain.com/configuration#/nodes
 * Status of health check https://yourmanage.yourdomain.com/configuration#/troubleshoot

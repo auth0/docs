@@ -67,7 +67,7 @@ The API needs to verify the signature. The signature is used to verify that the 
 
 Remember that the signature is created using the header and the payload of the JWT, a secret and the hashing algorithm being used (as specified in the header: HMAC, SHA256 or RSA). The way to verify it, depends on the hashing algorithm:
 - For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
-- For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+- For `RS256`, the domain's [JSON Web Key Set (JWKS)](/jwks) is used. Your domain's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 The most secure practice, and our recommendation, is to use `RS256`.
 

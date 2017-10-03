@@ -62,7 +62,7 @@ Click **Save Changes** to proceed.
 
 ### Enable a Connection on the Client
 
-When you create a new Client, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Client secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
+When you create a new Client, Auth0 enables all [Connections](/identityproviders) associated with your domain by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Client secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
 
 #### Disable All Existing Connections
 
@@ -94,7 +94,7 @@ Auth0 grants the user(s) in your Connection access to the Delegated Administrati
 
 - **Delegated Admin - User**: Grants permission to search for users, create users, open users and execute actions on these users (such as `delete`, `block`, and so on);
 
-- **Delegated Admin - Administrator**: In addition to all of the rights a user has, administrators can see all logs in the tenant and configure Hooks.
+- **Delegated Admin - Administrator**: In addition to all of the rights a user has, administrators can see all logs in the domain and configure Hooks.
 
 To use the extension, users must have either of these roles defined in one of the following fields of their user profiles:
 

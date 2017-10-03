@@ -14,4 +14,4 @@ Click on **Install Debugger** to go to the article that explains how (you only h
 
 **If you have already installed the extension, skip to the Authentication API Debugger.**
 
-The link varies according to your tenant's region: <a href="${urlUS}" target="_blank">US West</a>, <a href="${urlEU}" target="_blank">Europe Central</a> or <a href="${urlAU}" target="_blank">Australia</a>.
+The link varies according to your domain's region: <a href="${urlUS}" target="_blank">US West</a>, <a href="${urlEU}" target="_blank">Europe Central</a> or <a href="${urlAU}" target="_blank">Australia</a>.

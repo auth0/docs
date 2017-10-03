@@ -8,6 +8,6 @@ Our support team strives to assist you to the best of our ability. However, we a
 
 * Transferring data from a non-production to a production account
 
-* Renaming a tenant
+* Renaming a domain
 
 * Renaming a connection

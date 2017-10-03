@@ -43,7 +43,7 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 `https://${account.namespace}/login/callback`
 
 ::: panel Find your Auth0 domain name
-If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Tenant Name** in the top right corner. Your Auth0 domain is this name (for example `exampleco-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://exampleco-enterprises.auth0.com/login/callback`.
+If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Domain Name** in the top right corner. Your Auth0 domain is this name (for example `exampleco-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://exampleco-enterprises.auth0.com/login/callback`.
 :::
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
@@ -106,9 +106,9 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ### Create a Test App
 
-Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per tenant. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
+Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per domain. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
 
-Another option is to create another Auth0 tenant used for testing purposes. A new tenant can be created in the [Dashboard](${manage_url}) by clicking on your tenant name in the top right corner and selecting **+ Create Tenant** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
+Another option is to create another Auth0 domain used for testing purposes. A new domain can be created in the [Dashboard](${manage_url}) by clicking on your domain name in the top right corner and selecting **+ Create Domain** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
 
 ### Deauthorize Callback URL
 

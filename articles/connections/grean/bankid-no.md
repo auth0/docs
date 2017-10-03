@@ -24,9 +24,9 @@ More on this process can be found once you sign into the easyID service, and wit
 
 Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button.
 
-Once registered you will be asked to create your tenant.
+Once registered you will be asked to create your domain.
 
-![Create new tenant](/media/articles/connections/grean/easyid-signup.png)
+![Create new domain](/media/articles/connections/grean/easyid-signup.png)
 
 ## 2. Create an Application to point to Auth0
 
@@ -39,7 +39,7 @@ Click **Save** to open the next dialog.
 
 ## 3. Name the connection (prefix) as it will appear in Auth0
 
-If you do not run off the public Auth0 service, enter the  DNS name of the login tenant. Otherwise just leave the **Auth0 tenant** field as is.
+If you do not run off the public Auth0 service, enter the  DNS name of the login domain. Otherwise just leave the **Auth0 domain** field as is.
 
 Secondly enter a name to be used as the prefix for the connections created in Auth0.
 
@@ -54,7 +54,7 @@ If you are not already logged in to Auth0 in this session, you will be prompted 
 Once logged in you must grant Grean easyID consent to create connections and read the clients.
 
 ::: note
-If you have more than one Auth0 tenant, remember to select the right one in the dialog.
+If you have more than one Auth0 domain, remember to select the right one in the dialog.
 :::
 
 ![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
@@ -75,7 +75,7 @@ Remember to enable at least one client before clicking the **Try** button! For m
 
 ## 6. Create your test users
 
-With the above setup you will be ready to start testing. You will find a test user's credentials in your easyID tenant to start testing the web based flow. To get your own test users and to get the special SIM cards need to test the mobile flow, work with Grean to sign up for production use of Norwegian BankID.
+With the above setup you will be ready to start testing. You will find a test user's credentials in your easyID domain to start testing the web based flow. To get your own test users and to get the special SIM cards need to test the mobile flow, work with Grean to sign up for production use of Norwegian BankID.
 
 ## 7. Enable production use
 

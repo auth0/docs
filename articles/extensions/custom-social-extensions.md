@@ -56,7 +56,7 @@ After you have provided values for the required fields, click **Save**.
 
 #### New Connection: Apps
 
-Once you have successfully configured the connection, you will be presented with a list of apps associated with your Auth0 tenant under the **Apps** tab of the **New Connection** window.
+Once you have successfully configured the connection, you will be presented with a list of apps associated with your Auth0 domain under the **Apps** tab of the **New Connection** window.
 
 Using the slider, enable this social connection for the apps that you want to use it with.
 

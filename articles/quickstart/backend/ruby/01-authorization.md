@@ -31,7 +31,7 @@ bundle install
 
 ## Create a `JsonWebToken` Class
 
-Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` token from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
+Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` token from the `Authorization` header of the request. The public key for your Auth0 domain can be fetched to verify the token.
 
 ```rb
 # lib/jwt/json_web_token.rb

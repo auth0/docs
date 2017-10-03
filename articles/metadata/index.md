@@ -114,9 +114,9 @@ Use this:
 
 ## Searching Metadata
 
-New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. 
+New domains, starting September 1st 2017, cannot search any of the `app_metadata` fields. 
 
-Paid tenants (i.e. tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
+Paid domains (i.e. domains that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
 
 For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
 

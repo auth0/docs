@@ -44,7 +44,7 @@ Once it's installed, you'll need to configure LockActivity in your`AndroidManife
 ```
 
 ::: note
-The value `@string/auth0_client_id` is your application's clientID and `@string/auth0_domain` is your tenant's domain in Auth0, both values can be found in your app's settings.
+The value `@string/auth0_client_id` is your application's clientID and `@string/auth0_domain` is your domain in Auth0, both values can be found in your app's settings.
 :::
 
 ::: note

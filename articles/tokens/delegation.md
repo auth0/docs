@@ -8,7 +8,7 @@ description: This page explains an overview about Auth0 delegation tokens.
 With the latest Auth0 authentication pipeline, delegation tokens should not be used to exchange an ID token issued to one client for a new one issued to a different client, or to get a new ID token. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
 :::
 
-A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
+A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same domain as the calling program.
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
 

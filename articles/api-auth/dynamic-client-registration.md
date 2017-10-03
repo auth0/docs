@@ -16,7 +16,7 @@ Third party clients have the following characteristics:
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information.
 
-- They can use only tenant level connections (domain connections). These are sources of users, configured in the tenant's [dashboard](${manage_url}) as connections. These connections are enabled for every third party client and can be also enabled for selected first party (standard) clients.
+- They can use only domain level connections (domain connections). These are sources of users, configured in the domain's [dashboard](${manage_url}) as connections. These connections are enabled for every third party client and can be also enabled for selected first party (standard) clients.
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
@@ -39,19 +39,19 @@ In order to access the [Management APIv2](/api/management/v2) endpoints from a t
 
 ## Enable dynamic registration
 
-In this section we will see how you can enable the dynamic registration feature for your tenant.
+In this section we will see how you can enable the dynamic registration feature for your domain.
 
-By default, the feature is disabled for all tenants. To change this, you have to update some tenant settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
+By default, the feature is disabled for all domains. To change this, you have to update some domain settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
 
 ::: warning
-Auth0 supports Open Dynamic Registration, which means that if you enable this feature, **anyone** will be able to create clients in your tenant without a token.
+Auth0 supports Open Dynamic Registration, which means that if you enable this feature, **anyone** will be able to create clients in your domain without a token.
 :::
 
-### Update tenant settings
+### Update domain settings
 
-In order to enable the feature, you need to set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
+In order to enable the feature, you need to set the `enable_dynamic_client_registration` flag to `true` in your domain's settings.
 
-You can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
+You can update this flag using the [Update domain settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
 ```har
 {
@@ -194,7 +194,7 @@ Where:
 
 Make a note of the client ID and secret, as these are the most important pieces for executing [Authentication](/client-auth) and [Authorization](/api-auth) Flows.
 
-Also, keep in mind that Third Party Developers are not allowed to modify the client settings. In case this is necessary, they will need to contact the Tenant Owner with their request.
+Also, keep in mind that Third Party Developers are not allowed to modify the client settings. In case this is necessary, they will need to contact the Domain Owner with their request.
 
 ### Configure your Client
 

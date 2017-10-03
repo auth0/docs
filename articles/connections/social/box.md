@@ -9,7 +9,7 @@ toc: true
 
 # Connect your app to Box
 
-To configure a Box OAuth2 connection, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
+To configure a Box OAuth2 connection, you will need to register your Auth0 domain on their [developer portal](https://developers.box.com/).
 
 ## 1. Register a new Box app
 

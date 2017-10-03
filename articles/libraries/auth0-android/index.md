@@ -304,7 +304,7 @@ Note that the default scope used is `openid`
 ### Passwordless login
 
 ::: panel-warning Passwordless on Native Platforms
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
+Passwordless on native platforms is disabled by default for new domains as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
 
 Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::

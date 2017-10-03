@@ -1346,8 +1346,8 @@ module.exports = [
     to: '/connections/database/custom-db'
   },
   {
-    from: '/dashboard-account-settings',
-    to: '/dashboard-tenant-settings'
+    from: ['/dashboard-account-settings', '/dashboard-tenant-settings'],
+    to: '/dashboard-domain-settings'
   },
   {
     from: '/metadata/lock',
@@ -1372,5 +1372,13 @@ module.exports = [
   {
     from: '/libraries/lock/v9/types-of-applications',
     to: '/libraries/lock/v9/display-modes',
+  },
+  {
+    from: '/dev-lifecycle/child-tenants',
+    to: '/dev-lifecycle/child-domains'
+  },
+  {
+    from: '/tutorials/delete-reset-tenant',
+    to: '/tutorials/delete-reset-domain'
   }
 ];

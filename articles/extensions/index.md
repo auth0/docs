@@ -6,7 +6,7 @@ toc: true
 
 Auth0 Extensions enable you to install applications (such as [Webtasks](https://webtask.io/)) or run commands/scripts that extend the functionality of the Auth0 base product.
 
-Each extension is separate from all other extensions. Auth0 defines extensions per tenant, so data is stored by the pair `tenant\extension`.
+Each extension is separate from all other extensions. Auth0 defines extensions per domain, so data is stored by the pair `domain\extension`.
 
 ## Using an Extension
 

@@ -18,9 +18,9 @@ Auth0 uses the [JWK](https://tools.ietf.org/html/rfc7517) specification to repre
 > 
 > A JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
 
-At the most basic level, the JWKS is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. Auth0 exposes a JWKS endpoint for each tenant, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0 issued JWTs for this tenant. 
+At the most basic level, the JWKS is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. Auth0 exposes a JWKS endpoint for each domain, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0 issued JWTs for this domain. 
 
-This is an example of the JWKS used by a demo tenant.
+This is an example of the JWKS used by a demo domain.
 
 ```json
 {

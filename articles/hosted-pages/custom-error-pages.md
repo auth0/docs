@@ -17,10 +17,10 @@ You can select the type of error page Auth0 displays to your users in the event 
 To get to the error page settings:
 
 1. Log in to the Auth0 [Management Dashboard](${manage_url}).
-2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
-3.  Select **Settings** to open the [Tenant Settings](${manage_url}/#/tenant/) page.
+2. Click on your domain name in the top right corner to bring up the associated dropdown box.
+3.  Select **Settings** to open the [Domain Settings](${manage_url}/#/tenant/) page.
 
-![Tenant Settings](/media/articles/error-pages/account-settings.png)
+![Domain Settings](/media/articles/error-pages/account-settings.png)
 
 ### Customized Error Pages
 
@@ -33,7 +33,7 @@ If you choose to display a custom error page, you have two options:
 
 To redirect users to a custom error page:
 
-1.  On the [Tenant Settings](${manage_url}/#/tenant/) page, scroll down to the Error Pages section.
+1.  On the [Domain Settings](${manage_url}/#/tenant/) page, scroll down to the Error Pages section.
 2.  Select the option "redirect users to your own error page."
 3.  Provide the URL of the error page you would like your users to see.
 

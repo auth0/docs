@@ -9,7 +9,7 @@ toc: true
 
 # Connect your app to Baidu
 
-To configure a Baidu OAuth2 connection, you will need to register your Auth0 tenant on their [integration portal](https://developer.baidu.com/dev).
+To configure a Baidu OAuth2 connection, you will need to register your Auth0 domain on their [integration portal](https://developer.baidu.com/dev).
 
 ## 1. Log into the integration portal and register a new App:
 

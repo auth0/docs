@@ -10,7 +10,7 @@ toc: true
 
 # Connect your app to Salesforce
 
-To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
+To configure a Salesforce OAuth2 connection you will need to register your Auth0 domain on their **Administer** panel.
 
 ## 1. Register a New App
 

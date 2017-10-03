@@ -53,9 +53,9 @@ You do not need inbound connectivity enabled to the Connector unless **Kerberos*
 
 The Connector will be run using a service account that must be a domain user that at a minimum has read access to the directory. You will need the username/password of this account when performing the install.
 
-## One Connector per Auth0 Tenant/Connection
+## One Connector per Auth0 Domain/Connection
 
-If you establish multiple Auth0 tenants, perhaps to isolate development and production environments, you will need to set up an AD/LDAP connection and set up a Connector for each Auth0 tenant that needs this form of authentication.  A Connector is tied to a specific Connection within an Auth0 tenant.  It is possible to have multiple Connectors within one Auth0 tenant.  This is needed if you have multiple AD/LDAP directories against which users will authenticate, for example to support different departments or customers, each with their own directory. In addition, multiple Connectors can point to the same AD or LDAP directory, but a Connector can only be used by one Auth0 Connection within one Auth0 tenant.
+If you establish multiple Auth0 domains, perhaps to isolate development and production environments, you will need to set up an AD/LDAP connection and set up a Connector for each Auth0 domain that needs this form of authentication.  A Connector is tied to a specific Connection within an Auth0 domain.  It is possible to have multiple Connectors within one Auth0 domain.  This is needed if you have multiple AD/LDAP directories against which users will authenticate, for example to support different departments or customers, each with their own directory. In addition, multiple Connectors can point to the same AD or LDAP directory, but a Connector can only be used by one Auth0 Connection within one Auth0 domain.
 
 ## High Availability
 
