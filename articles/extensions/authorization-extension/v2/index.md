@@ -3,7 +3,16 @@ toc: true
 title: Authorization Extension
 description: Guidance on setting up and managing the Authorization Extension
 ---
-# Authorization Extension
+
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Authorization Extension</h1>
+  <p>
+    The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions.
+  </p>
+</div>
+
+## What is the Authorization Extension?
 
 The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
 
@@ -18,6 +27,18 @@ Before you can use the extension, you'll need to install it, configure the rule 
 * [Configure the Extension](/extensions/authorization-extension/v2/implementation/configuration)
 * [Set Up the Extension](/extensions/authorization-extension/v2/implementation/setup)
 
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/overview">Install the Extension</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/dashboard">Configure the Extension</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/cli">Set Up the Extension</a>
+  </li>
+</ul>
 
 ## Data Management
 
