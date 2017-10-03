@@ -15,7 +15,11 @@ Auth0 currently generates access tokens in two formats:
 * As opaque strings, when `${account.namespace}/userinfo` is the audience.
 * As a [JSON Web Token (JWT)](/jwt) when a custom API is specified as the audience.
 
-JWTs are an industry standard, and are the format access tokens are generated in by Auth0 when a custom API is the audience. When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
+::: note
+The audience is a parameter which is set during [authorization](/api/authentication#authorize-client). It contains the unique identifier of the target API.
+:::
+
+When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
 
 Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
 

@@ -6,7 +6,7 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
-When a custom API receives a request with a bearer [access token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an access token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+When a custom API receives a request with a bearer [access token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an access token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request **must** be rejected.
 
 This document lists all the validations that your API should perform:
 
