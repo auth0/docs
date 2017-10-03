@@ -11,7 +11,7 @@ Implementing MFA using YubiKey NEO requires use of the following Auth0 features 
 | Feature | Usage |
 | - | - |
 | [Webtask](https://webtask.io) | Hosts the website where the user undergoes the second authentication factor using YubiKey |
-| The [Redirect Protocol](/rules/current/redirect) | Redirects the user to the website that performs the second authentication factor using YubiKey |
+| The [Redirect Protocol](/rules/redirect) | Redirects the user to the website that performs the second authentication factor using YubiKey |
 | [Rule](/rules) | Evaluates whether the conditions you set for triggering MFA have been met or not |
 
 In this tutorial, we will walk you through the configuration required for the Webtask, redirect protocol, and rules.
