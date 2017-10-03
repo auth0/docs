@@ -2,7 +2,6 @@
 description: How to implement Multifactor Authentication Using YubiKey NEO.
 toc: true
 ---
-
 # Multifactor Authentication with YubiKey NEO
 
 This tutorial shows you how to implement Multifactor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
@@ -12,8 +11,8 @@ Implementing MFA using YubiKey NEO requires use of the following Auth0 features 
 | Feature | Usage |
 | - | - |
 | [Webtask](https://webtask.io) | Hosts the website where the user undergoes the second authentication factor using YubiKey |
-| The [Redirect Protocol](/protocols#redirect-protocol-in-rules) | Redirects the user to the website that performs the second authentication factor using YubiKey |
-| [Rules](/rules) | Evaluates whether the conditions you set for triggering MFA have been met or not |
+| The [Redirect Protocol](/rules/redirect) | Redirects the user to the website that performs the second authentication factor using YubiKey |
+| [Rule](/rules) | Evaluates whether the conditions you set for triggering MFA have been met or not |
 
 In this tutorial, we will walk you through the configuration required for the Webtask, redirect protocol, and rules.
 
