@@ -8,31 +8,25 @@ By nature, Lock and the Auth0.js SDK are different things. Lock provides a UI th
 
 For simple uses, Lock is all that is necessary. However, while using Lock, if more customization is required in an application than Lock allows, functionality from the Auth0.js SDK can be used alongside Lock to meet those needs. An example might be using Lock to handle signups and logins, while using auth0.js to [manage users](/libraries/auth0js#user-management) (read and update user metadata, link user accounts together, and similar tasks).
 
-## Using auth0.js v8
-
 ### Including auth0.js
 
-If you included the Lock script from the Auth0 CDN, you will need to also include the auth0.js script before Lock:
+If you are using the Auth0 CDN, you can also include the auth0.js script in the same manner:
 
 <div class="code-picker">
 	<div class="languages-bar">
 	  <ul>
-	    <li><a href="#cdn-v8" data-toggle="tab">Using Auth0.js v8</a></li>
-	    <li><a href="#cdn-v7" data-toggle="tab">Using Auth0.js v7</a></li>
+	    <li><a href="#cdn-v8" data-toggle="tab">Auth0.js v8</a></li>
+	    <li><a href="#cdn-v7" data-toggle="tab">Auth0.js v7</a></li>
 	  </ul>
 	</div>
 	<div class="tab-content">
 	  <div id="cdn-v8" class="tab-pane active">
-	  <pre class="hljs html"><code>
-	&lt;script src="${auth0js_urlv8}"&gt;&lt;/script&gt;
-	&lt;script src="${lock_url}"&gt;&lt;/script&gt;
-	  </code></pre>
+	  <pre class="hljs html"><code>&lt;script src="${auth0js_urlv8}"&gt;&lt;/script&gt;
+&lt;script src="${lock_url}"&gt;&lt;/script&gt;</code></pre>
 	  </div>
 	  <div id="cdn-v7" class="tab-pane">
-	  <pre class="hljs html"><code>
-	&lt;script src="${auth0js_url}"&gt;&lt;/script&gt;
-	&lt;script src="${lock_url}"&gt;&lt;/script&gt;
-	  </code></pre>
+	  <pre class="hljs html"><code>&lt;script src="${auth0js_url}"&gt;&lt;/script&gt;
+&lt;script src="${lock_url}"&gt;&lt;/script&gt;</code></pre>
 	  </div>
 	</div>
 </div>
@@ -54,22 +48,18 @@ Then, to use `auth0.js`, simply instantiate a new object:
 	</div>
 	<div class="tab-content">
 	  <div id="instantiate-v8" class="tab-pane active">
-	  <pre class="hljs js"><code>
-	var webAuth = new auth0.WebAuth({
-	  domain:       '${account.namespace}',
-	  clientID:     '${account.clientId}'
-	});
-	  </code></pre>
+	  <pre class="hljs js"><code>var webAuth = new auth0.WebAuth({
+  domain:       '${account.namespace}',
+  clientID:     '${account.clientId}'
+});</code></pre>
 	  </div>
 	  <div id="instantiate-v7" class="tab-pane">
-	  <pre class="hljs js"><code>
-	var auth0 = new Auth0({
-	  domain:       '${account.namespace}',
-	  clientID:     '${account.clientId}',
-	  callbackURL:  '{YOUR APP URL}',
-	  responseType: 'token'
-	});
-	  </code></pre>
+	  <pre class="hljs js"><code>var auth0 = new Auth0({
+  domain:       '${account.namespace}',
+  clientID:     '${account.clientId}',
+  callbackURL:  '{YOUR APP URL}',
+  responseType: 'token'
+});</code></pre>
 	  </div>
 	</div>
 </div>
