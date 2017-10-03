@@ -23,20 +23,24 @@ If you're currently using Version 1 of the Extension, see the [Migration Guide](
 
 Before you can use the extension, you'll need to install it, configure the rule controlling its behavior during login, and set up your user management.
 
-* [Install the Extension](/extensions/authorization-extension/v2/implementation/installation)
-* [Configure the Extension](/extensions/authorization-extension/v2/implementation/configuration)
-* [Set Up the Extension](/extensions/authorization-extension/v2/implementation/setup)
-
-
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/overview">Install the Extension</a>
+    <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/installation">Install the Extension</a>
+    <p>
+      Install the extension for use with your tenant
+    </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/dashboard">Configure the Extension</a>
+    <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/configuration">Configure the Extension</a>
+    <p>
+      Configure the behavior of the extension during runtime
+    </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/cli">Set Up the Extension</a>
+    <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/setup">Set Up the Extension</a>
+    <p>
+      Set up additional extension functionality
+    </p>
   </li>
 </ul>
 
