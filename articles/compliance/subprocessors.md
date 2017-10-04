@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: Auth0 Sub-Processors
+description: A listing of the sub-processors Auth0 works with and what they're used for
 ---
 # Auth0 Sub-Processors
 

@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: Auth0 as a Data Processor
+description: How Auth0 works as a data processor and its responsibilities
 ---
 # Auth0 as a Data Processor
 

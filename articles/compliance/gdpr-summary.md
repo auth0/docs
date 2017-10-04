@@ -28,9 +28,11 @@ Individuals have the right to:
 * Portability (the individual can ask for their data in a standard, machine-readable format and can transit their data to another data controller)
 * *Not* be subjected to automatic decision making (a process typically called **profiling**)
 
-## Privacy by Design vs. Privacy by Default
+## Privacy by Design and Privacy by Default
 
-*Forthcoming*
+Privacy by design means that each new implementation that uses personal data must take the protection of such data into consideration.
+
+Privacy by default means that the strictest privacy settings automatically apply once the end user acquires a new product or service (that is, without any manual change required on the part of the user).
 
 ## Requirements for Data Processors and Controllers
 
