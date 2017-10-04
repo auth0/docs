@@ -14,12 +14,14 @@ You can:
 * [Enable or disable signup mode](/libraries/lock/v10/customization#allowsignup-boolean-) in Lock
 * Implement a [custom signup process](/libraries/custom-signup)
 * Implement [progressive profiling](/user-profile/progressive-profiling) to gather only the data you need
+* Implement end-user [multifactor authentication](/multifactor-authentication) to secure access
 
 ## Notification and Consent
 
 You can:
 
 * Provide [a **User Must Accept Terms** checkbox](/libraries/lock/v10/customization#mustacceptterms-boolean-) that is displayed next to the terms and conditions the user must agree to prior to signing up with the [verbiage displayed controllable using the language dictionary](/libraries/lock/v10/customization#mustacceptterms-boolean-)
+* Use [rules](/rules) to add the date of user consent/agreement in Lock to the ID token or the user's metadata
 
 ::: note
 See [singUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for a detailed code sample.
@@ -27,7 +29,11 @@ See [singUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for 
 
 ## Withdrawal of Consent
 
-You can decide what happens if your end user withdraws their consent for you to use their data. If appropriate, you can [delete the end user from Auth0 using the Management API](/api/management/v2#!/Users/delete_users_by_id).
+You can:
+
+* [Delete the end user from Auth0 using the Management API](/api/management/v2#!/Users/delete_users_by_id).
+* Use [rules](/rule) to add the date of user consent withdrawal to the user's metadata during the authorization process
+
 
 ## Right to Access Data
 
@@ -79,7 +85,7 @@ You can limit the amount of personal information contained in the Auth0 user pro
 
 * Use [blacklisting](/tutorials/blacklisting-attributes) to prevent persistence of information
 
-* Encrypt information prior to storing it in the user profile. You can use any encryption mechanism you'd like prior to storing data in the metadata fields
+* Encrypt information prior to storing it in the user profile. You can use any encryption mechanism you'd like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt Sensitive Data in the User Profile** to implement this functionality.
 
 * Minimize information contained in URLs that might be captured by Auth0 log files (for example, consider using `health-site` or similar as your domain name instead of `cancer-treatments`)
 
