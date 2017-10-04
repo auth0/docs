@@ -9,7 +9,7 @@ You can get started by either downloading the complete project or if you would l
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-django-samples',
+  repo: 'auth0-django-web-app',
   path: '01-Login',
   requirements: [
     'Python 2.7, 3.0 and up',
