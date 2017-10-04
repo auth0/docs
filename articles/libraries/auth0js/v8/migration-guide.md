@@ -194,7 +194,7 @@ If you would rather manually parse hashes, to avoid the `parseHash` method since
 
 When a token is nearing expiration, or is expired, you may wish to simply renew the token rather than requiring a new transaction.
 
-In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can be used to acquire a new token for that user.
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and `refreshToken()` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is done via the `checkSession()` method. If a user is already authenticated, `checkSession()` can be used to acquire a new token for that user.
 
 ## Delegation
 
