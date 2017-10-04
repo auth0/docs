@@ -62,7 +62,7 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 Next you will need to add a URLScheme using your App's bundle identifier.
 
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`, please make a note of this as you will need it later:
+Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
 ```xml
 <key>CFBundleIdentifier</key>
@@ -94,8 +94,6 @@ The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the de
 ::: note
 For further reference on linking, check [the official documentation](https://facebook.github.io/react-native/docs/linking.html)
 :::
-
-<%= include('_config') %>
 
 ## Implement the login
 

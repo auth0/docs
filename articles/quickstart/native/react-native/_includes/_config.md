@@ -4,18 +4,33 @@ Callback URLs are the URLs that Auth0 invokes after the authentication process. 
 
 Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that **Allowed Callback URLs** contains the following for each platform you are supporting.
 
-### iOS
+#### iOS
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name, that you made a note of earlier.
+Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
 
-### Android
+
+Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project ths value is:
+
+```xml
+<key>CFBundleIdentifier</key>
+<string>auth0.samples.Auth0Sample</string>
+```
+
+
+#### Android
 
 ```text
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name. You can find this in the `AndroidManifest.xml` file.
+Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+
+You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project ths value is:
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.auth0sample"
+```
