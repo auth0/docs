@@ -5,7 +5,11 @@ description: How to import/export Authorization Extension Data
 
 # Authorization Extension: Import/Export Data
 
-You can import new data from or export existing authorization data to a JSON file. This can be useful when moving environments. However, remember that roles and permissions are linked to specific clients, so you'll need to update the correct `clientId`.
+You can import new data from or export existing authorization data to a JSON file. This can be useful when moving environments. 
+
+::: warning
+Roles and permissions are linked to specific clients. If you export your JSON file and import it into a different environment, you will need to change the client ID for these records.
+:::
 
 You can get to the **Import/Export** section by clicking **Configuration** on the drop-down menu accessible by clicking on your tenant name at the top right of the **Authorization Dashboard**.
 
@@ -85,9 +89,7 @@ A sample JSON file looks like this:
 }
 ```
 
-::: warning
-Roles and permissions are linked to specific clients. If you export your JSON file and import it into a different environment, you will need to change the client ID for these records.
-:::
+## Keep Reading
 
 ::: next-steps
 * [Enable API Access to the Extension](/extensions/authorization-extension/v2/api-access)

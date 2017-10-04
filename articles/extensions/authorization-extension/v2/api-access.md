@@ -56,7 +56,6 @@ You can call the API via:
 
 * An HTTML request
 * A cURL command
-* JavaScript (Node.js or basic JavaScript)
 
 You can also find detailed information about the endpoints, as well as samples on how to call each endpoint using the three methods above, in the [Authorization Extension API Explorer](/api/authorization-extension).
 
@@ -66,7 +65,10 @@ Click over to the **Explorer** page for the API documentation.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
 
+## Keep Reading
+
 ::: next-steps
 * [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
+* [Import/Export Data](/extensions/authorization-extension/v2/import-export-data)
 * [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
 :::

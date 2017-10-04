@@ -50,6 +50,16 @@ The data will be stored in the user's `app_metadata` field, and you can then use
 
 Once you've configured your rule, click **Publish Rule**. This creates a rule for your tenant that executes after each user login.
 
+### View Your Rule
+
+If you'd like to see the rule you've created, you can do so using the [Dashboard](${manage_url}/#/rules).
+
+![](/media/articles/extensions/authorization/auth-ext-rule-list.png)
+
+You can open it up to see the exact rules configuration.
+
+![](/media/articles/extensions/authorization/edit-rule.png)
+
 <%= include('./_stepnav', {
  prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"]
 }) %>

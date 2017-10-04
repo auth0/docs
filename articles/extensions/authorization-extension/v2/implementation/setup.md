@@ -6,10 +6,6 @@ toc: true
 
 # Authorization Extension: Setup
 
-Once you've configured the extension, you can manage your users, as well as the groups, roles and permissions for your users in the Authorization Extension dashboard.
-
-## Entities Available for Management
-
 In this paragraph, we'll briefly cover the basics of users, groups, roles, and permissions.
 
 Let's say that you have an application that is accessible to everyone within your corporation. The **users** are the individuals to whom you'd like to grant access to your application.
@@ -26,7 +22,7 @@ If you have a large number of users, managing the access rights and permissions 
 
 You can add users to your groups manually or dynamically based on the Connection(s) they're using to access your app. For example, if someone logs in using the Active Directory Connection and their AD profile indicates that they're in the Marketing group, the Authorization Extension can also add them to the Marketing group you're managing with the extension.
 
-Finally, we have permissions and roles, while are groups of permissions. The purpose of the latter is to make it easier to assign several permissions simultaneously to either a user or a group.
+Finally, we have permissions and roles, which are groups of permissions. The purpose of the latter is to make it easier to assign several permissions simultaneously to either a user or a group.
 
 For example, let's say that you want to grant permissions to:
 
@@ -138,6 +134,8 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 ![Create Permission](/media/articles/extensions/authorization/create-permission.png)
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
+
+## Keep Reading
 
 ::: next-steps
 * [Import and Exporting Data](/extensions/authorization-extension/v2/import-export-data)
