@@ -92,7 +92,7 @@ The `expires_in` parameter indicates how many seconds the access token will be v
 
 When the access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
-In the case of single-page applications, the [`renewAuth` method from auth0.js](https://github.com/auth0/auth0.js#api) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
+In the case of single-page applications, the [`checkSession` method from auth0.js](/libraries/auth0js#using-renewauth-to-acquire-new-tokens) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
 
 ### How to implement
 
