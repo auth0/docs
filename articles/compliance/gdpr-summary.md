@@ -56,3 +56,7 @@ Data processors must:
 * Fines for non-compliance are much higher and are determined using a tiered system
 * Supervisory authorities have greater investigative powers
 * Organizations processing data must appoint a Data Protection Officer and/or have a Data Privacy Office
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/compliance"]
+}) %>

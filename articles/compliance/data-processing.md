@@ -21,3 +21,7 @@ The personal data stored in Auth0 is used only for the purposes of providing its
 ## What Happens to Data When an End User's Account is Deleted
 
 See [Right to be Forgotten](/compliance/features-aiding-compliance#right-to-be-forgotten).
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/compliance"]
+}) %>

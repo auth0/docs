@@ -57,3 +57,7 @@ Auth0 is responsible for:
 
 * Providing the means to enable customers to retrieve, review, correct, or delete customer data via the Auth0 Dashboard and the Auth0 Management API
 * Providing a mechanism for customers to display consent terms and a consent agreement checkbox on the Lock widget. Customers can also design custom signup and login forms if more elaborate consent schemes are needed
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/compliance"]
+}) %>

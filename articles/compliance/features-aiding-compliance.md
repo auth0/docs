@@ -91,3 +91,7 @@ You can [send your logs from Auth0 to external log services](/extensions#export-
 
 * Store them for a longer period of time than that offered by your Auth0 service level 
 * Perform detailed analytics on the data
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/compliance"]
+}) %>

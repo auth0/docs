@@ -18,3 +18,7 @@ Provide regular training to all Dashboard administrators and developers on secur
 ::: note
 Make sure that you monitor any Auth0 [extensions](/extensions#export-auth0-logs-to-an-external-service) you use to send log data to logging tools with reporting capability.
 :::
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/compliance"]
+}) %>
