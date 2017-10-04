@@ -16,8 +16,6 @@ budicon: 448
 
 <%= include('_includes/_intro') %>
 
-<%= include('_includes/_config') %>
-
 <%= include('_includes/_install') %>
 
 <%= include('_includes/_login') %>

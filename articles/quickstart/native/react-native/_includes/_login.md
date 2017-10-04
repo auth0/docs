@@ -2,13 +2,25 @@ The first step in adding authentication to your application is to provide a way 
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
 
-## Native configuration
-
-Auth0 will need to handle the callback of the hosted login authentication.
+## Configuration
 
 ### Android
 
-In the file `android/app/src/main/AndroidManifest.xml` you must make sure the main activity of the app has **launchMode** value of `singleTask` and that it has the following intent filter.
+In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **MainActivity** of the app has a **launchMode** value of `singleTask` and that it has the following intent filter:
+
+```xml
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data
+        android:host="${account.namespace}"
+        android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
+        android:scheme="<%= "${applicationId}" %>" />
+</intent-filter>
+```
+
+So your **MainActivity** should look like this:
 
 ```xml
 <activity
@@ -50,14 +62,14 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 Next you will need to add a URLScheme using your App's bundle identifier.
 
-Check the `info.plist` for the existing bundle identifier e.g.
+Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`, please make a note of this as you will need it later:
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
 ```
 
-You can then register the identifier by adding the following snippet:
+and then register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -76,8 +88,14 @@ You can then register the identifier by adding the following snippet:
 ```
 
 ::: note
+The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the default for apps created with React Native CLI, you may have a different value.
+:::
+
+::: note
 For further reference on linking, check [the official documentation](https://facebook.github.io/react-native/docs/linking.html)
 :::
+
+<%= include('_config') %>
 
 ## Implement the login
 
