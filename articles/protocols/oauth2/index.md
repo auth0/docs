@@ -156,7 +156,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
   </html>
   ```
 
-- `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. Basically it enables your single-page application to perform a sign-in flow in an iFrame or a popup window, and get the tokens in the parent page securely, and without leaving the context of that page. To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Client's settings](${manage_url}/#/clients/${account.clientId}/settings).
+- `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Client's settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 ### Token Endpoint
 
