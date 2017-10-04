@@ -147,5 +147,6 @@ Once you have your permissions created, you can associate them with [Roles](#rol
 :::
 
 <%= include('./_stepnav', {
- prev: ["Configure the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]
+ prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"],
+ next: ["Setup the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]
 }) %>

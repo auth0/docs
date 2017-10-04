@@ -1,7 +1,7 @@
 ---
 toc: true
 title: Authorization Extension
-description: Guidance on setting up and managing the Authorization Extension
+description: Control user authorization behavior during runtime with the Authorization Extension
 ---
 
 <div class="topic-page-header">
@@ -9,12 +9,10 @@ description: Guidance on setting up and managing the Authorization Extension
   <h1>Authorization Extension</h1>
   <p>
     The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
+
+    You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context.
   </p>
 </div>
-
-:::
-If you're currently using Version 1 of the Extension, see the [Migration Guide](/extensions/authorization-extension/v2/migration) for upgrade instructions.
-:::
 
 ## Get Started
 
