@@ -28,7 +28,7 @@ The quickstart will walk you through creating a simple GCE API with a single end
     "queryString" : [
       {
         "name": "iataCode",
-        "value": "SFO",
+        "value": "SFO"
       }
     ]
 }
@@ -163,7 +163,7 @@ Once you've redeployed, call the API again with no security.
     "queryString" : [
       {
         "name": "iataCode",
-        "value": "SFO",
+        "value": "SFO"
       }
     ]
 }
@@ -203,7 +203,7 @@ Perform a `GET` request to your API with an Authorization Header of `Bearer {ACC
     "queryString" : [
       {
         "name": "iataCode",
-        "value": "SFO",
+        "value": "SFO"
       }
     ]
 }
