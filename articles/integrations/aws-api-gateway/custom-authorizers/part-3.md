@@ -228,7 +228,7 @@ Set the following parameters:
 | **Lambda function** | `jwtRsaCustomAuthorizer` |
 | **Authorizer name** | `jwt-rsa-custom-authorizer` |
 | **Execution role** | The IAM Role ARN you copied above |
-| **Identity token source** | `method.request.header.Authorization` |
+| **Identity token source** | `Authorization` |
 | **Token validation expression** | `^Bearer [-0-9a-zA-z\.]*$` |
 | **Result TTL in seconds** | `3600` |
 
