@@ -93,7 +93,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json). 
+By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json).
 
 Obtain the public key from your [JWKS](/jwks). Then set the settings for [REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/).
 
@@ -124,7 +124,7 @@ JWT_AUTH = {
 
 You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
 
-Create `user.py` file in your application's folder and define a function that maps the  `sub` field from the `access_token` to the username.
+Create `user.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username.
 
 ```python
 # auth0authorization/user.py
@@ -133,7 +133,7 @@ def jwt_get_username_from_payload_handler(payload):
     return payload.get('sub')
 ```
 
-Then create a user in Django authentication system. Please check the Django documentation [Django documentation](https://docs.djangoproject.com/en/1.11/topics/auth/default/#creating-users) for more information. 
+Then create a user in Django authentication system. Please check the Django documentation [Django documentation](https://docs.djangoproject.com/en/1.11/topics/auth/default/#creating-users) for more information.
 
 ## Protect Individual Endpoints
 
@@ -167,7 +167,7 @@ This example uses the read:messages scopes.
 
 API endpoints can be configured to look for a particular `scope` in the `access_token`.
 
-Add the following methods to the `views.py` file to extract the granted scopes from the access_token.
+Add the following methods to the `views.py` file to extract the granted scopes from the `access_token`.
 
 ```python
 # auth0authorization/views.py
@@ -200,7 +200,7 @@ def requires_scope(required_scope):
     return require_scope
 ```
 
-Use the decorator in the methods that require specific scopes granted. The method below requires the `read:messages` scope granted. 
+Use the decorator in the methods that require specific scopes granted. The method below requires the `read:messages` scope granted.
 
 ```python
 # auth0authorization/views.py
@@ -218,7 +218,7 @@ In previous steps we added methods to the `views.py` file. We need to map those 
 Django has a [URL dispatcher](
 https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
 
-Create the file `urls.py` in your application folder. Add the URLs patterns.
+Create the file `urls.py` in your application folder. Add the URL patterns.
 
 ```python
 # auth0authorization/views.py
