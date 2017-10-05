@@ -135,15 +135,6 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
 
-## Keep Reading
-
-::: next-steps
-* [Import and Exporting Data](/extensions/authorization-extension/v2/import-export-data)
-* [Enable API Access to the Extension](/extensions/authorization-extension/v2/api-access)
-* [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
-* [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
-:::
-
 <%= include('./_stepnav', {
  prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"],
  next: ["Setup the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]

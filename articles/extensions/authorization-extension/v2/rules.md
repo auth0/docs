@@ -98,7 +98,7 @@ function (user, context, callback) {
 ## Keep Reading
 
 ::: next-steps
-* [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
 * [Import/Export Data](/extensions/authorization-extension/v2/import-export-data)
 * [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
+* [Enable API Access to the Extension](/extensions/authorization-extension/v2/api-access)
 :::
