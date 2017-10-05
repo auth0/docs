@@ -48,7 +48,7 @@ To search users using the [Management API Explorer](/api/management/v2#!/Users/g
 
 ### Search using Postman
 
-You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](https://auth0.com/docs/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
+You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
 
 Once you have downloaded the collection, and configured your environment, select the **Management API** collection. Navigate to the **Users** folder and select **List or search users**. You can enter your query in the `q` parameter of the URL:
 
