@@ -10,6 +10,8 @@ crews: crew-2
 
 Auth0's Hosted Login Page is the most secure way to easily authenticate users for your applications. The Hosted Login Page is easily customizable right from the [Dashboard](${manage_url}). By default, the Hosted Login Page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the Hosted Login Page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
+The Hosted Login Page is the safest way to authenticate your users with Auth0. Because the Hosted Login Page does not involve embedding authentication in an application, [cross-origin authentication](/cross-origin-authentication) can be avoided.
+
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
 ### How Does the Hosted Login Page Work

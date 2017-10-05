@@ -121,7 +121,7 @@ Using Lock within your application, rather than using the [Hosted Login Page](/h
 
 * Set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to true
 * Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), set OIDC Conformant and Cross Origin Authentication to true.
+* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the OIDC Conformant and Cross Origin Authentication settings.
 
 ## Browser Compatibility
 

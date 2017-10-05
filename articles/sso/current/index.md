@@ -35,7 +35,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
-1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. This time Auth0 finds an SSO cookie and (if using Lock) instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
@@ -43,6 +43,8 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
+
+The [Hosted Login Page](/hosted-pages/login) is the easiest and most secure way to implement SSO with Auth0. If, however, you need to use embedded Lock or an embedded custom authentication UI in your application, you can read here about safely conducting SSO with [cross-origin authentication](/cross-origin-authentication).
 
 ## How to Implement SSO with Auth0
 
