@@ -32,6 +32,10 @@ For more information on user related metadata refer to [User Metadata](/metadata
 
 ## Search for Users Using the Management API
 
+::: warning
+Auth0 limits the number of users you can retrieve; if the number of users you're retrieving exceeds this threshold, please [contact support](${env.DOMAIN_URL_SUPPORT}) for further assistance.
+:::
+
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
 In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
@@ -44,7 +48,7 @@ To search users using the [Management API Explorer](/api/management/v2#!/Users/g
 
 ### Search using Postman
 
-You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](https://auth0.com/docs/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
+You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
 
 Once you have downloaded the collection, and configured your environment, select the **Management API** collection. Navigate to the **Users** folder and select **List or search users**. You can enter your query in the `q` parameter of the URL:
 
