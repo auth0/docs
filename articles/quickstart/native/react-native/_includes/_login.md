@@ -91,10 +91,6 @@ and then register a URL type entry using the value of `CFBundleIdentifier` as th
 The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the default for apps created with React Native CLI, you may have a different value.
 :::
 
-::: note
-For further reference on linking, check [the official documentation](https://facebook.github.io/react-native/docs/linking.html)
-:::
-
 ## Implement the login
 
 First, import the `Auth0` module and create a new `Auth0` instance.
