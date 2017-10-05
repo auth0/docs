@@ -23,7 +23,7 @@ The quickstart will walk you through creating a simple GCE API with a single end
 ```har
 {
     "method": "GET",
-    "url": "https://{YOUR_GCE_PROJECT}.appspot.com/airportName",
+    "url": "https://YOUR_GCE_PROJECT.appspot.com/airportName",
     "headers": [],
     "queryString" : [
       {
@@ -109,7 +109,7 @@ info:
   title: "Airport Codes"
   description: "Get the name of an airport from its three-letter IATA code."
   version: "1.0.0"
-host: "{YOUR_GCE_PROJECT}.appspot.com"
+host: "YOUR_GCE_PROJECT.appspot.com"
 schemes:
   - "https"
 paths:
@@ -158,7 +158,7 @@ Once you've redeployed, call the API again with no security.
 ```har
 {
     "method": "GET",
-    "url": "https://{YOUR_GCE_PROJECT}.appspot.com/airportName",
+    "url": "https://YOUR_GCE_PROJECT.appspot.com/airportName",
     "headers": [],
     "queryString" : [
       {
@@ -196,7 +196,7 @@ Perform a `GET` request to your API with an Authorization Header of `Bearer {ACC
 ```har
 {
     "method": "GET",
-    "url": "https://{YOUR_GCE_PROJECT}.appspot.com/airportName",
+    "url": "https://YOUR_GCE_PROJECT.appspot.com/airportName",
     "headers": [
       { "name": "Authorization", "value": "Bearer {ACCESS_TOKEN}" }
     ],
