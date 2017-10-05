@@ -9,12 +9,13 @@ description: Control user authorization behavior during runtime with the Authori
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Authorization Extension</h1>
   <p>
-    The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a <a href="/rules">rule</a> that's executed during runtime.
-  </p>
-  <p>
-    You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context.
+    How to configure user authorization in your application using the Authorization Extension.
   </p>
 </div>
+
+The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
+
+You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context.
 
 ## Get Started
 
@@ -23,12 +24,15 @@ Before you can use the extension, you'll need to install it, configure the rule 
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/installation">Install the Extension</a>
+    <p>Walk through the process of installing the Authorization Extension.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/setup">Set Up the Extension</a>
+    <p>Learn the basics of users, groups, roles, and permissions, and how to configure them.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/implementation/configuration">Configure the Extension</a>
+    <p>Configure how the extension will behave during the login transaction.</p>
   </li>
 </ul>
 
@@ -39,6 +43,7 @@ You can easily move data into or out of the Extension.
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/import-export-data">Importing Existing Data into/Exporting Data from the Extension</a>
+    <p>Learn how you can import or export authorization data using a JSON file.</p>
   </li>
 </ul>
 
@@ -49,9 +54,11 @@ Once your extension is up and running, you can add additional functionality to i
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/api-access">Enable API Access to the Extension</a>
+    <p>Learn how you can automate provisioning and query the authorization context of your users in real-time, using the extension's API.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/rules">Use the Authorization Extension's Data in Rules</a>
+    <p>Learn how you can use rules to configure extra logic to your logins.</p>
   </li>
 </ul>
 
@@ -62,5 +69,6 @@ Review our tips for troubleshooting commonly-seen issues.
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/troubleshooting">Troubleshoot Errors</a>
+    <p>Common problems and tips to help you identify their cause.</p>
   </li>
 </ul>
