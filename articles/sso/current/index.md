@@ -18,9 +18,9 @@ Single Sign On usually makes use of a **Central Service** which orchestrates the
 
 ## An overview of how SSO works with Auth0
 
-In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server.
+In the case of SSO with Auth0, the **Central Service** is the Auth0 Authorization Server.
 
-Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
+Let's look at an example of how the SSO flow looks when using Auth0 and the [Lock](/libraries/lock) widget and a user visits your application for the first time:
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can log in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
@@ -29,13 +29,13 @@ Let's look at how the SSO flow looks when using Auth0 and a user visits your app
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
 1. Once the user has logged in, Auth0 will set an SSO cookie
-1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity 1f the user.
+1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
-1. This time Auth0 finds an SSO cookie and (if using Lock) instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
