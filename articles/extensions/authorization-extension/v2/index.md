@@ -9,7 +9,7 @@ description: Control user authorization behavior during runtime with the Authori
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Authorization Extension</h1>
   <p>
-    The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
+    The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a <a href="/rules">rule</a> that's executed during runtime.
 
     You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context.
   </p>
