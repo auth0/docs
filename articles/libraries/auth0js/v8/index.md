@@ -487,12 +487,16 @@ The user will then receive an email which will contain a link that they can foll
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
+To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the API token for the **primary identity**. 
+
+::: note
+In the case of linking users, the **primary identity** is the user profile with the data that you intend to **keep** upon linking (the other identities will lose their data), the one to which you plan to link the other identities.
+:::
 
 ```js
 var auth0Manage = new auth0.Management({
   domain: '${account.namespace}',
-  token: "YOUR_PRIMARY_IDENTITY_TOKEN"
+  token: 'API_TOKEN'
 });
 ```
 
