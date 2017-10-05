@@ -35,7 +35,7 @@ You can use JavaScript to retrieve the following custom variables:
 | `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
 
 ::: note
-You can set/check the values for your `domain` variables in the **Settings** area in [Domain Settings](${manage_url}/#/tenant)
+You can set/check the values for your `domain` variables in the **Settings** area in [Domain Settings](${manage_url}/#/domain)
 :::
 
 Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
@@ -81,7 +81,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   </script>
 ```
 
-Notice that the sample template uses the `domain.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Domain Settings](${manage_url}/#/tenant). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
+Notice that the sample template uses the `domain.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Domain Settings](${manage_url}/#/domain). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
 
 ```js
   <script>

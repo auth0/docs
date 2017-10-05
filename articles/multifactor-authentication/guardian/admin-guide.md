@@ -116,7 +116,7 @@ Once you have finished making your desired changes, click **Save**.
 
 ## Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Domain Settings](${manage_url}/#/tenant) page. You may also reach the **Domain Settings** page by clicking on your domain name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Domain Settings](${manage_url}/#/domain) page. You may also reach the **Domain Settings** page by clicking on your domain name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 

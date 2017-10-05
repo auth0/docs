@@ -154,7 +154,7 @@ You can add logic to your rules to alter their behavior for these exchanges by c
 - `oauth2-password` indicates the password (and password-realm) exchange
 - `oauth2-refresh-token` indicates the refresh token exchange
 
-If you would like to enable the new behavior on this domain for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Domain Settings > Advanced](${manage_url}/#/tenant/advanced).
+If you would like to enable the new behavior on this domain for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Domain Settings > Advanced](${manage_url}/#/domain/advanced).
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 

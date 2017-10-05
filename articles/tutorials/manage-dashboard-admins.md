@@ -7,7 +7,7 @@ description: How to add and remove domain admins in the Auth0 dashboard.
 Please see [Reset Your Auth0 Account Password](/tutorials/reset-account-password) if you're having issues logging in.
 :::
 
-Domain Administrators can be added and removed from the dashboard, by going to **Domain Settings** and choosing the [Dashboard Admins](${manage_url}/#/tenant/admins) tab.
+Domain Administrators can be added and removed from the dashboard, by going to **Domain Settings** and choosing the [Dashboard Admins](${manage_url}/#/domain/admins) tab.
 
 ![Change Dashboard Admins](/media/articles/tutorials/manage-admins.png)
 

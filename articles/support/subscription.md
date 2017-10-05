@@ -14,7 +14,7 @@ While you can change your subscription plan using the Management Dashboard, you 
 
   ![](/media/articles/support/subscriptions/account-dropdown.png)
 
-3.  Select **Settings** to open the [Domain Settings](${manage_url}/#/tenant/) page.
+3.  Select **Settings** to open the [Domain Settings](${manage_url}/#/domain/) page.
 4. On the **Domain Settings** page, click on the **Subscription** tab. Note that you have the option of paying for your plan on a **monthly** or **yearly** basis.
 
   ![](/media/articles/support/subscriptions/subscription.png)

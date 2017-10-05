@@ -5,7 +5,7 @@ toc: true
 ---
 # Domain Settings in the Auth0 Management Dashboard
 
-The [Domain Settings](${manage_url}/#/tenant) page of the dashboard allows you to configure various settings related to your Auth0 domain.
+The [Domain Settings](${manage_url}/#/domain) page of the dashboard allows you to configure various settings related to your Auth0 domain.
 
 ## General
 

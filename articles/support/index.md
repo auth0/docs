@@ -198,7 +198,7 @@ We provide all technical support in English, but we will make an effort to accom
 
 ## Pricing
 
-For pricing information on Auth0's subscription plans, please see [Pricing Page](https://auth0.com/pricing) or your [Domain Settings](${manage_url}/#/tenant/billing/subscription).
+For pricing information on Auth0's subscription plans, please see [Pricing Page](https://auth0.com/pricing) or your [Domain Settings](${manage_url}/#/domain/billing/subscription).
 
 ## Additional Support Resources
 

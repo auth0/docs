@@ -3,7 +3,7 @@ description: How to Customize the Guardian Widget
 ---
 # Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Domain Settings](${manage_url}/#/tenant). You can also reach the Domain Settings page by clicking on your domain name on the top right of the page and then selecting **Settings** from the dropdown menu.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Domain Settings](${manage_url}/#/domain). You can also reach the Domain Settings page by clicking on your domain name on the top right of the page and then selecting **Settings** from the dropdown menu.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 

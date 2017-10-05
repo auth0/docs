@@ -16,7 +16,7 @@ Before beginning this tutorial, please:
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` domain setting.
 
-1. Open the [Dashboard](${manage_url}) and browse to your [Domain Settings](${manage_url}/#/tenant).
+1. Open the [Dashboard](${manage_url}) and browse to your [Domain Settings](${manage_url}/#/domain).
 1. Scroll down to the __Settings__ section and locate the __Default Directory__ setting.
 1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
 

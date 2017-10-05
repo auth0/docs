@@ -37,7 +37,7 @@ Please proceed by downgrading your subscription to free or by cancelling your su
 1. Login to the [Dashboard](${manage_url}).
 2. Click on your domain name in the top right corner to bring up the associated dropdown box.
 3. Select **Settings**.
-4. On the [Domain Settings](${manage_url}/#/tenant/) page, click on the **Subscription** tab.
+4. On the [Domain Settings](${manage_url}/#/domain/) page, click on the **Subscription** tab.
 5. On the **Subscription** tab, scroll down to the box associated with the Free plan and click **Checkout**.
 6. To confirm your subscription change, click **Subscribe Now**.
 
@@ -69,7 +69,7 @@ Please explain the situation by filing a ticket trough our [Support Center](${en
 
 ## Where can I get a copy of an invoice?
 
-Invoices can be seen directly in the Dashboard by going to the [Domain Settings](${manage_url}/#/tenant/) and clicking on the **Payments** tab. There you view all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Domain Administrators can see the invoices.
+Invoices can be seen directly in the Dashboard by going to the [Domain Settings](${manage_url}/#/domain/) and clicking on the **Payments** tab. There you view all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Domain Administrators can see the invoices.
 
 ## How can I get a receipt for my payment?
 

@@ -63,7 +63,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 The rate limits for this API defer depending on whether your domain is free or paid, production or not.
 
 ::: note
-- The domains that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
+- The domains that have no credit card associated in the [Dashboard](${manage_url}/#/domain/billing/payment) are free.
 - To set an environment for your domain (development, staging or production), go to [Support Center > Domains](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your domain, select __Assign Environment Tag__, set the environment and save changes.
 :::
 

@@ -36,7 +36,7 @@ No actual key values are hard-coded into the Webtask code. Your Yubico Client ID
 
 Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 
-To use the Webtask CLI, you'll need to install it using instructions that can be found under [Domain Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 Dashboard.
+To use the Webtask CLI, you'll need to install it using instructions that can be found under [Domain Settings > Webtasks](${manage_url}/#/domain/webtasks) on the Auth0 Dashboard.
 
 ![](/media/articles/mfa/yubi-1.png)
 
@@ -47,7 +47,7 @@ wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --sec
 ```
 
 ::: note
-You can get your `WEBTASK PROFILE` value (needed for the-p parameter shown at the end of the code above) in **Step 2** of the Webtask installation instructions shown on the [Domain Settings > Webtasks](${manage_url}/#/tenant/webtasks) page.
+You can get your `WEBTASK PROFILE` value (needed for the-p parameter shown at the end of the code above) in **Step 2** of the Webtask installation instructions shown on the [Domain Settings > Webtasks](${manage_url}/#/domain/webtasks) page.
 :::
 
 Running the `create` command as shown above will generate a URL that looks like this:
