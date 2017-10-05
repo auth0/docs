@@ -8,14 +8,14 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 For most situations, Auth0 recommends that authentication transactions be handled at the [Hosted Login Page](/hosted-pages/login). Doing so offers the easiest and most secure way to authenticate users. It is, however, understood that some scenarios necessitate that the Lock widget or a custom login form be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
 ::: panel Limitations of Third-Party Cookies
-Cross-origin authentication is achieved using [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies), and the users must have a browser that supports third-party cookies, and must not have disabled them, in some cases (see the [browser testing matrix](#browser-testing-matrix)). 
+Cross-origin authentication is achieved using [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The users must not only have a browser that supports third-party cookies, but in some cases, the user must also not have disable them (see the [browser testing matrix](#browser-testing-matrix)). 
 
-If you wish to use cross-origin authentication, you must must ask your users to enable third party cookies, or must ask them to switch browsers (or else inform users of the non-support of those browsers when third party cookies are disabled). This is another reason why, if at all possible, the more practical solution is to use the [Hosted Login Page](/hosted-pages/login) and circumvent these issues entirely.
+If you wish to use cross-origin authentication, you must must ask your users to leave third party cookies enabled or to switch browsers. Minimally, you could also simply inform users of the non-support of those browsers when third party cookies are disabled. This is another reason why, if at all possible, the more practical solution is to use the [Hosted Login Page](/hosted-pages/login) and circumvent these issues entirely.
 :::
 
 ## What is Cross-Origin Authentication? 
 
-When authentication requests are made from the Lock widget or a custom login form in your application to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack. 
+When authentication requests are made from your application (via the Lock widget or a custom login form) to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack. 
 
 Auth0 provides a [cross-origin authentication flow](https://github.com/jaredhanson/draft-openid-connect-cross-origin-authentication/blob/master/Draft-1.0.txt) which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a single sign-on experience with the Lock widget or a custom login form in your application and it also helps to create a secure login experience even if single sign-on is not the goal.
 
@@ -44,7 +44,7 @@ There are some cases when third party cookies will not be available. Certain bro
 Note that using `crossOriginAuthenticationCallback` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled" - the browsers which are marked **No** will never work if third party cookies are disabled.
 :::
 
-Provide a page in your application which instantiates `WebAuth` from **auth0.js**. Call `crossOriginAuthenticationCallback` immediately. The name of the page is at your discretion.
+Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginAuthenticationCallback` immediately. The name of the page is at your discretion.
 
 ```html
 <!-- callback-cross-auth.html -->
