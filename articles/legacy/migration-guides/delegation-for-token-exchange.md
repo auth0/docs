@@ -25,7 +25,6 @@ You are impacted if you are using the delegation API to exchange an ID token iss
 
 Various [Auth0 SDKs](/support/matrix#sdks-and-libraries) provide this functionality using a function call such as `getDelegationToken()` in [auth0.js](/libraries/auth0js). If you are not sure about which of your clients might be using this feature, you can check your tenant logs for `TBD MESSAGE` to confirm.
 
-
 ## What should I do?
 
 The optimal solution, depends on your [client's type](/clients/client-types):
@@ -42,7 +41,7 @@ If you do not have your own API, you can use `https://${account.namespace}/useri
 :::
 
 ::: note
-If you've defined a custom API in the Dashboard, the API should allow offline access to issue refresh tokens. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url/#/apis}). Once you have a refresh token, you can use [the refresh token exchange endpoint](/api/authentication#refresh-token) to get a new Access token or ID token. For details see [Refresh Token](/tokens/refresh-token).
+If you've defined a custom API in the Dashboard, the API should allow offline access to issue refresh tokens. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis). Once you have a refresh token, you can use [the refresh token exchange endpoint](/api/authentication#refresh-token) to get a new Access token or ID token. For details see [Refresh Token](/tokens/refresh-token).
 :::
 
 - If you are modeling your APIs as Auth0 Clients, then you should [create APIs](/apis#how-to-configure-an-api-in-auth0) and use [Access tokens](/tokens/access-token) instead.
