@@ -4,8 +4,6 @@ toc: true
 ---
 # Using Delegation for Token Exchange
 
-Using Delegation for Token Exchange
-
 As of the 1st of February 2018, Auth0 customers will no longer be able to use Delegation for:
 
 - exchanging an ID token issued to one client for a new one issued to a different client
