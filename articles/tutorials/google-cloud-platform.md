@@ -36,7 +36,7 @@ The quickstart will walk you through creating a simple GCE API with a single end
 
 ## Define the API in Auth0
 
-Open [APIs > Auth0 Dashboard](${manage_url}/#/apis) and create a new API.
+Open [Dashboard > APIs](${manage_url}/#/apis) and create a new API.
 
 ![Create API](/media/articles/tutorials/gce-create-api.png)
 
