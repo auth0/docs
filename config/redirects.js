@@ -620,8 +620,8 @@ module.exports = [
     to: '/api/management/v2'
   },
   {
-    from: ['/apiv2Changes', '/api/v2/changes'],
-    to: '/api/management/v2/changes'
+    from: ['/apiv2Changes', '/api/v2/changes', '/api/management/v2/changes'],
+    to: '/legacy/migration-guides/management-api-v1'
   },
   {
     from: ['/tokens/apiv2', '/api/v2/tokens'],

@@ -19,7 +19,7 @@ Impacted customers will receive a separate notice for each legacy feature migrat
 Deprecated Feature | Removal date | Documentation
 -- | -- | --
 Using the [/delegation](/api/authentication#delegation) endpoint for ID Token and Refresh Token Exchange | January 31, 2018 | [Migration Guide](/legacy/migration-guides/delegation-for-token-exchange)
-Management API v1 | Q1 2018 | [Migration Guide](/api/management/v2/changes)
+Management API v1 | Q1 2018 | [Migration Guide](/legacy/migration-guides/management-api-v1)
 The [/oauth/ro](/api/authentication#resource-owner) endpoint | Q1 2018 | Coming soon
 The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint | Q1 2018 | Coming soon
 Using the [/delegation](/api/authentication#delegation) endpoint for 3rd Party API Access Tokens | Q2 2018 | Coming soon
