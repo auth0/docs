@@ -52,22 +52,22 @@ Open the configuration file and add a new `securityDefinitions` section. In this
 
 Field | Description
 ------|------------
-`authorizationUrl` | The authorization URL, should be set to `"https://${account.tenant}.auth0.com/authorize"`
+`authorizationUrl` | The authorization URL, should be set to `"https://${account.namespace}/authorize"`
 `flow` | The flow used by the OAuth2 security scheme. Valid values are `"implicit"`, `"password"`, `"application"` or `"accessCode"`.
 `type` | The type of the security scheme. Valid values are `"basic"`, `"apiKey"` or `"oauth2"`
-`x-google-issuer` | The issuer of a credential, should be set to `"https://${account.tenant}.auth0.com/"`
-`x-google-jwks_uri` | The URI of the public key set to validate the JSON Web Token signature. Set this to `"https://${account.tenant}.auth0.com/.well-known/jwks.json"`
+`x-google-issuer` | The issuer of a credential, should be set to `"https://${account.namespace}/"`
+`x-google-jwks_uri` | The URI of the public key set to validate the JSON Web Token signature. Set this to `"https://${account.namespace}/.well-known/jwks.json"`
 `x-google-audiences` | The API's identifier, make sure this value matches what you defined on the Auth0 dashboard for the API.
 
 
 ```yaml
 securityDefinitions:
   auth0_jwt:
-    authorizationUrl: "https://${account.tenant}.auth0.com/authorize"
+    authorizationUrl: "https://${account.namespace}/authorize"
     flow: "implicit"
     type: "oauth2"
-    x-google-issuer: "https://${account.tenant}.auth0.com/"
-    x-google-jwks_uri: "https://${account.tenant}.auth0.com/.well-known/jwks.json"
+    x-google-issuer: "https://${account.namespace}/"
+    x-google-jwks_uri: "https://${account.namespace}/.well-known/jwks.json"
     x-google-audiences: "{YOUR_API_IDENTIFIER}"
 ```
 
@@ -134,11 +134,11 @@ paths:
        - auth0_jwt: []
 securityDefinitions:
   auth0_jwt:
-    authorizationUrl: "https://${account.tenant}.auth0.com/authorize"
+    authorizationUrl: "https://${account.namespace}/authorize"
     flow: "implicit"
     type: "oauth2"
-    x-google-issuer: "https://${account.tenant}.auth0.com/"
-    x-google-jwks_uri: "https://${account.tenant}.auth0.com/.well-known/jwks.json"
+    x-google-issuer: "https://${account.namespace}/"
+    x-google-jwks_uri: "https://${account.namespace}/.well-known/jwks.json"
     x-google-audiences: "{YOUR_API_IDENTIFIER}"
 ```
 
