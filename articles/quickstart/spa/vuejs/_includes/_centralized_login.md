@@ -40,7 +40,9 @@ export default class AuthService {
 
 ### Finish Out the Service
 
-Add some additional methods to the `Auth` service to fully handle authentication in the app.
+Add some additional methods to the `Auth` service to fully handle authentication in the app. Don't forget to install the new packages.
+
+`npm install --save EventEmitter`
 
 ```js
 // src/Auth/AuthService.js
