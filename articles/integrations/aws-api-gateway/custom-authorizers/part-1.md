@@ -26,8 +26,6 @@ You can refer to the **Settings** page for the details of your newly-created API
 
 ![](/media/articles/integrations/aws-api-gateway-2/api-3.png)
 
-More specifically, you'll need to refer to your API's **Identifier** (or `audience` parameter) when you [configure your API Gateway custom authorizer in step 3](/integrations/aws-api-gateway/custom-authorizers/part-3#prepare-the-custom-authorizer) of this tutorial.
-
 <%= include('./_stepnav', {
  prev: ["Introduction", "/integrations/aws-api-gateway/custom-authorizers"],
  next: ["Import and Deploy the API Gateway API", "/integrations/aws-api-gateway/custom-authorizers/part-2"]
