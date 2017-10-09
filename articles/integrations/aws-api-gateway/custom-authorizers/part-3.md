@@ -28,7 +28,7 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration |
+| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration. See [Client Settings](/clients/client-settings) for information on finding your Client ID |
 
 As an example, the text of your .env file should look something like this when complete:
 
@@ -170,7 +170,7 @@ b. Then, create the following three **Environment variables**. Note that this in
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
-| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration. See [Client Settings](/clients/client-settings) for information on finding your Client ID |
+| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration |
 
 c. In the **Lambda function handler and role** section, set the following values:
 
