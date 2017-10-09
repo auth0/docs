@@ -74,13 +74,6 @@ The following table lists the codes associated with the appropriate log events.
     <td>Code/Link Sent</td>
     <td>Passwordless login code/link has been sent</td>
     <td><a href="/passwordless">Passwordless</a></td>
-  </tr>
-    <tr>
-    <td><code>cs</code></td>
-    <td>Code Sent</td>
-    <td>Passwordless login code has been sent</td>
-    <td><a href="/passwordless">Passwordless</a></td>
-  </tr>
   <tr>
     <td><code>coff</code></td>
     <td>Connector Offline</td>
@@ -93,11 +86,12 @@ The following table lists the codes associated with the appropriate log events.
     <td>AD/LDAP Connector is online and working</td>
     <td><a href="/connector">Active Directory/LDAP Connector</a></td>
   </tr>
-  <tr>
-    <td><code>fc</code></td>
-    <td>Failed by Connector</td>
-    <td></td>
-    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+    <tr>
+    <td><code>cs</code></td>
+    <td>Code Sent</td>
+    <td>Passwordless login code has been sent</td>
+    <td><a href="/passwordless">Passwordless</a></td>
   </tr>
   <tr>
     <td><code>du</code></td>
@@ -118,6 +112,12 @@ The following table lists the codes associated with the appropriate log events.
     <td></td>
   </tr>
   <tr>
+    <td><code>fc</code></td>
+    <td>Failed by Connector</td>
+    <td></td>
+    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+  <tr>
     <td><code>fce</code></td>
     <td>Failed Change Email</td>
     <td>Failed to change user email</td>
@@ -130,10 +130,22 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/clients#client-settings">Clients</a></td>
   </tr>
   <tr>
+    <td><code>fcoa</code></td>
+    <td>Failed cross origin authentication</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td><code>fcp</code></td>
     <td>Failed Change Password</td>
     <td></td>
     <td><a href="/connections/database/password-change">Changing a User's Password</a></td>
+  </tr>
+  <tr>
+    <td><code>fcph</code></td>
+    <td>Failed Post Change Password Hook</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fcpn</code></td>
@@ -172,12 +184,6 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/user-profile">User Profile</a></td>
   </tr>
   <tr>
-    <td><code>sdu</code></td>
-    <td>Success User Deletion</td>
-    <td>User successfully deleted</td>
-    <td><a href="/user-profile">User Profile</a></td>
-  </tr>
-  <tr>
     <td><code>feacft</code></td>
     <td>Failed Exchange</td>
     <td>Failed to exchange authorization code for Access Token</td>
@@ -190,10 +196,34 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/api-auth/config/asking-for-access-tokens">Asking for Access Tokens for a Client Credentials Grant</a></td>
   </tr>
   <tr>
-    <td><code>slo</code></td>
-    <td>Success Logout</td>
-    <td>User successfully logged out</td>
-    <td><a href="/logout">Logout</a></td>
+    <td><code>feoobft</code></td>
+    <td>Failed Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>feotpft</code></td>
+    <td>Failed Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fepft</code></td>
+    <td>Failed Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fercft</code></td>
+    <td>Failed Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fertft</code></td>
+    <td>Failed Exchange</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>flo</code></td>
@@ -220,6 +250,12 @@ The following table lists the codes associated with the appropriate log events.
     <td></td>
   </tr>
   <tr>
+    <td><code>fsa</code></td>
+    <td>Failed Silent Auth</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td><code>fu</code></td>
     <td>Failed Login (Invalid Email/Username)</td>
     <td></td>
@@ -229,12 +265,6 @@ The following table lists the codes associated with the appropriate log events.
     <td><code>fui</code></td>
     <td>Failed users import</td>
     <td>Failed to import users</td>
-    <td><a href="/extensions/user-import-export">User Import/Export</a></td>
-  </tr>
-    <tr>
-    <td><code>sui</code></td>
-    <td>Success users import</td>
-    <td>Successfuly imported users</td>
     <td><a href="/extensions/user-import-export">User Import/Export</a></td>
   </tr>
   <tr>
@@ -266,6 +296,12 @@ The following table lists the codes associated with the appropriate log events.
     <td>OTP Auth success</td>
     <td>One-time password authentication success.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_enrollment_complete</code></td>
+    <td>Guardian enrollment complete</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>gd_module_switch</code></td>
@@ -369,6 +405,12 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/anomaly-detection">Anomaly Detection</a></td>
   </tr>
   <tr>
+    <td><code>pwd_leak</code></td>
+    <td>Breached password</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td><code>s</code></td>
     <td>Success Login</td>
     <td>Successful login event.</td>
@@ -393,14 +435,20 @@ The following table lists the codes associated with the appropriate log events.
     <td></td>
   </tr>
   <tr>
-    <td><code>scpr</code></td>
-    <td>Success Change Password Request</td>
+    <td><code>scph</code></td>
+    <td>Success Post Change Password Hook</td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td><code>scpn</code></td>
     <td>Success Change Phone Number</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>scpr</code></td>
+    <td>Success Change Password Request</td>
     <td></td>
     <td></td>
   </tr>
@@ -417,6 +465,12 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/tokens/delegation">Delegation Tokens</a></td>
   </tr>
   <tr>
+    <td><code>sdu</code></td>
+    <td>Success User Deletion</td>
+    <td>User successfully deleted</td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
     <td><code>seacft</code></td>
     <td>Success Exchange</td>
     <td>Successful exchange of authorization code for Access Token</td>
@@ -429,10 +483,58 @@ The following table lists the codes associated with the appropriate log events.
     <td><a href="/api-auth/config/asking-for-access-tokens">Asking for Access Tokens for a Client Credentials Grant</a></td>
   </tr>
   <tr>
+    <td><code>seoobft</code></td>
+    <td>Success Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>seotpft</code></td>
+    <td>Success Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sepft</code></td>
+    <td>Success Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sercft</code></td>
+    <td>Success Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sertft</code></td>
+    <td>Success Exchange</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>slo</code></td>
+    <td>Success Logout</td>
+    <td>User successfully logged out</td>
+    <td><a href="/logout">Logout</a></td>
+  </tr>
+  <tr>
     <td><code>ss</code></td>
     <td>Success Signup</td>
     <td></td>
     <td></td>
+  </tr>
+  <tr>
+    <td><code>ssa</code></td>
+    <td>Success Silent Auth</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sui</code></td>
+    <td>Success users import</td>
+    <td>Successfuly imported users</td>
+    <td><a href="/extensions/user-import-export">User Import/Export</a></td>
   </tr>
   <tr>
     <td><code>sv</code></td>
@@ -471,15 +573,15 @@ The following table lists the codes associated with the appropriate log events.
     <td></td>
   </tr>
   <tr>
-    <td><code>w</code></td>
-    <td>Warnings During Login</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><code>ublkdu</code></td>
     <td>User login block released</td>
     <td>User block setup by anomaly detection has been released</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>w</code></td>
+    <td>Warnings During Login</td>
+    <td></td>
     <td></td>
   </tr>
   </tbody>
