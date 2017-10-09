@@ -1,26 +1,78 @@
 ---
 description: Describes the major differences between Auth0's Management API v1 and Management API v2, and details the reasons for each change.
-section: apis
 crews: crew-2
 toc: true
 ---
-# Management API v1 vs v2
+# Management API v1 Migration Guide
 
-This document describes the major differences between Auth0's Management API v1 and the new Management API v2, and details the reasons for each change.
+As of the `DATE_TO_BE_UPDATED`, Auth0 customers will no longer be able to use the [Management API v1](/api/management/v1).
 
-## tl;dr
+Customers using any of its endpoints should move to [Management API v2](/api/management/v2).
 
-* v2 uses JWTs instead of opaque tokens.
-* v2 allows you to send an `id_token` to perform operations on the user to which the `id_token` refers.
-* v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
-* Fewer endpoints on existing features make development easier.
-* All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
-* New formats for `user_id` (available as `v2_id` with the "usr\_" prefix) and `clientID` (with the "cli\_" prefix) recognize the entity type based on its id.
-* Improved input validation and error messages.
-* Only one connection is exposed per tenant, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
-* When updating field values, v2 removes fields with `null` values, instead of storing them with the value `null`
+This document describes the major differences between Auth0's Management API v1 and Management API v2, and details how to migrate your implementation to the latest API.
 
-### User endpoints
+## Am I affected by this?
+
+You are impacted if you are using any of the [Management API v1](/api/management/v1) endpoints.
+
+## What should I do?
+
+If your implementation uses any of the [Management API v1](/api/management/v1) endpoints, you have to update it in order to invoke the matching [Management API v2](/api/management/v2) endpoint. Before you make any changes refer to the [Endpoints Mapping Matrix](#endpoints-mapping-matrix) to find the suitable alternative for your case.
+
+There are also some other more generic changes. The most prominent one is that the authentication mechanism for the API changes. This means that you have to change how you get a token in order to authenticate with the API and access any of its endpoints. For more information refer to [Update the API Authentication Mechanism](#update-the-api-authentication-mechanism).
+
+Other generic changes include:
+
+- [The user metadata structure](#user-metadata-structure)
+- [Connections-related changes](#connections-related-changes)
+- [Consolidation of endpoints](#consolidation-of-endpoints)
+- [Input validation and error messages](#input-validation-and-error-messages)
+- [How `null` values in `PATCH` calls are handled](#update-fields-with-null-values)
+- [All endpoints require IDs](#all-endpoints-require-ids)
+
+### Update the API Authentication Mechanism
+
+Management API v1 requires sending an `access_token` obtained by performing a `POST /oauth/token` request along with the **Client Id** and **Client Secret**. All subsequent requests must include this `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
+
+Management API v2 lets you issue a [JWT](/jwt) token with specific granted permissions (known as scopes), and is signed with a client API key and secret for the entire tenant.
+
+For example, the [GET /api/v2/clients](/api/management/v2#!/Clients/get_clients) (which retrieves a list of all the client applications defined in the [Dashboard](${manage_url})) requires two scopes: 
+
+- `read:clients`, and 
+- `read:client_keys`
+
+These are scopes that your `access_token` should include. If, however, you try to use the same token for the [POST /api/v2/clients](/api/management/v2#!/Clients/post_clients) (which creates a new client) you will get an authorization error. The reason is that that endpoint requires the `create:clients` scope which your `access_token` did not include.
+
+All requests to the API v2 must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
+
+What you should do here is migrate your implementation to use the new tokens. For more information on how to generate and use such a token refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+
+#### The id_token and special scopes
+
+An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
+```
+{
+  "iss": "https://contoso.auth0.com/",
+  "sub": "google-oauth2|200076635456998357447",
+  "aud": "rs3sdOssVWaZlg0PzyPtIgWFCzcurlm5",
+  "exp": 1418452802,
+  "iat": 1418416802
+}
+```
+
+When this token is sent to the API in the `Authorization` header (`Authorization: Bearer {id_token}`), the following scopes will be granted automatically:
+
+* `read:current_user`
+* `update:current_user_identities`
+* `create:current_user_metadata`
+* `update:current_user_metadata`
+* `delete:current_user_metadata`
+
+Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
+
+### Endpoints Mapping Matrix
+
+#### User endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -48,8 +100,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [DELETE /api/users/{user\_id}/publickey?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 | [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
 
-
-### Client endpoints
+#### Client endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -59,7 +110,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None. | [PATCH /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
 | [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/Clients/delete_clients_by_id) |
 
-### Connection endpoints
+#### Connection endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -72,10 +123,10 @@ This document describes the major differences between Auth0's Management API v1 
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
 
 ::: note
-For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
+For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`.
 :::
 
-### Rules endpoints
+#### Rules endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -84,44 +135,11 @@ For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (searc
 | [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
 | [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
 
-### Logs endpoints
+#### Logs endpoints
 
 Logs endpoints have not been implemented in Management API v2. Logs must first be indexed in Elastic Search.
 
-## Authentication mechanism
-
-Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
-
-As explained in [Using JSON Web Tokens as API Keys](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/), Auth0's API v2 allows you to issue an API JWT of specific scope, referred to below as `api_jwt_token`. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer {api_jwt_token}`.
-
-### Scopes
-
-To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
-
-### The id_token and special scopes
-
-An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
-```
-{
-  "iss": "https://contoso.auth0.com/",
-  "sub": "google-oauth2|200076635456998357447",
-  "aud": "rs3sdOssVWaZlg0PzyPtIgWFCzcurlm5",
-  "exp": 1418452802,
-  "iat": 1418416802
-}
-```
-
-When this token is sent to the API in the `Authorization` header (`Authorization: Bearer {id_token}`), the following scopes will be granted automatically:
-
-* `read:current_user`
-* `update:current_user_identities`
-* `create:current_user_metadata`
-* `update:current_user_metadata`
-* `delete:current_user_metadata`
-
-Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
-
-## User metadata
+### User Metadata Structure
 
 In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional information about a user which is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
 
@@ -144,15 +162,13 @@ Note that `user.metadata.hobby` is not being used.
 
 This automatic merging caused confusion for our customers. Also, having a single bucket for all metadata did not work well with our new permissions model for the following reasons:
 
-* You may want to store information in `metadata` that was core to your application's functionality.
-* You may want to allow your users to update their own metadata.
-
-### app\_metadata and user\_metadata
+- You may want to store information in `metadata` that was core to your application's functionality.
+- You may want to allow your users to update their own metadata.
 
 In API v2 the concept of `metadata` is divided into:
 
-* `app_metadata`: Data related to the user that affects the application's core functionality.
-* `user_metadata`: Data related to the user that does not affect the application's core functionality.
+- `app_metadata`: Data related to the user that affects the application's core functionality.
+- `user_metadata`: Data related to the user that does NOT affect the application's core functionality.
 
 Neither of these two properties are merged into the root `user` object. If you stored:
 
@@ -179,7 +195,13 @@ console.log(user.app_metadata.plan); // "full"
 User data previously stored under `metadata` will be available under `app_metadata`.
 :::
 
-## Connections
+### All endpoints require IDs
+
+All endpoints receive an id. This change affects **Rules** and **Connections** particularly.
+
+Some endpoints, such as [`PUT /api/users/{email}/password`](/api/v1#!#put--api-users--email--password), are no longer available.
+
+### Connections-related changes
 
 For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's clients.
 
@@ -200,41 +222,33 @@ curl -H "Authorization: Bearer {API_TOKEN}"
 https://{YOUR_TENANT}.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
 ```
 
-## Endpoints
+### Consolidation of endpoints
 
-Some of the changes to endpoints are detailed below.
+In Management API v1, different endpoints are used to update the various user properties. For example:
 
-### Consolidation
-
-In Management API v1, different endpoints are used to update the various user properties. For example, changing the following user properties requires using these separate endpoints:
-
-* [`PUT /api/users/{user_id}/email`](/api/v1#!#put--api-users--user_id--email)
-* [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
-* [`PUT /api/users/{user_id}/password`](/api/v1#!#put--api-users--user_id--password)
+- To update the user's email, you'd use [`PUT /api/users/{user_id}/email`](/api/v1#!#put--api-users--user_id--email)
+- To update the user's metadata, you'd use [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
+- To update the user's password, you'd use [`PUT /api/users/{user_id}/password`](/api/v1#!#put--api-users--user_id--password)
 
 In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/users/patch_users_by_id) which allows you to modify these (and other) user properties.
 
-### All endpoints require ids
-
-All endpoints receive an id. This change affects **Rules** and **Connections** particularly.
-
-Some endpoints, such as [`PUT /api/users/{email}/password`](/api/v1#!#put--api-users--email--password), are no longer available.
-
-### Improved input validation and error messages
+### Input validation and error messages
 
 In Management API v2, all endpoints use [JSON schemas](http://json-schema.org) to validate input. Also, descriptive error messages are returned when a schema's constraints are not met.
 
-For an example, see the methods in our [Management API v2 explorer](/api/v2).
+Using our [Management API v2 explorer](/api/v2) you can see the response schema and a response sample per endpoint. Go to the endpoint you want and click the **Show samples** link right next to the endpoint's title.
 
-## PATCH with null values
+What you should do here is migrate your implementation to expect the proper response per endpoint.
 
-In API v1, when updating field values, if the field is `null`, it will be saved as `null` in the database. In API v2, a `null` field will result in the field being deleted from the database.
+### Update fields with null values
 
-Example: `{metadata: {color: null}}`
+In API v1, when updating field values, if the field is `null`, it will be saved as `null` in the database. 
 
-Will be stored as follows:
+In API v2, a `null` field will result in the field being deleted from the database.
 
-* When using API v1: `{metadata: {color: null}}`
-* When using API v2: `{user_metadata: {}}`
+For example, `{metadata: {color: null}}` will be stored as:
+
+* `{metadata: {color: null}}`, when using API v1
+* `{user_metadata: {}}`, when using API v2
 
 So, in API v1, the field's value is stored as `null`, but in API v2, the field is simply removed.
