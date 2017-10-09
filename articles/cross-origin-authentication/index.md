@@ -29,13 +29,11 @@ Configuring your client for cross-origin authentication is a process that requir
 1. Also ensure that the **OIDC Conformant** switch is toggled on in the same settings panel. 
   ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 1. Ensure that your application is using [Lock](/libraries/lock) version 10.22 or higher, or [Auth0.js](/libraries/auth0js) version 8.7 or higher.
-1. Make sure that you are using the following options:
-    * If using Lock, [oidcconformant](/libraries/lock/v10/customization#oidcconformant-boolean-) and [audience](/libraries/lock/v10/customization#audience-string-)
-    * If using Auth0.js, [audience](/libraries/auth0js/v8#available-parameters)
+1. If you are using Lock, make sure that you are using the [oidcconformant](/libraries/lock/v10/customization#oidcconformant-boolean-) option.
 1. Third-party cookies do not work in some browsers. To handle these cases, you will need to author a page which uses **auth0.js** to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
 ::: note
-Using `oidcconformant` option in Lock without both toggling the **Cross Origin Authentication Mode** in client settings as well as passing an `audience` parameter will not work.
+Using `oidcconformant: true` option in Lock without toggling the **Cross Origin Authentication Mode** on in the client's settings will not work.
 :::
 
 ## Create a Cross-Origin Fallback Page
