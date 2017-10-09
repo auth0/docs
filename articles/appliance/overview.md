@@ -8,12 +8,11 @@ The Auth0 Private SaaS (Software as a Service) Appliance, or PSaaS Appliance, is
 
 ## What is the Auth0 PSaaS Appliance?
 
-The Auth0 Private SaaS Appliance (PSaaS Appliance) is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 PSaaS Appliance can be deployed in one of three
-places:
+The Auth0 Private SaaS Appliance (PSaaS Appliance) is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 PSaaS Appliance can be deployed in one of three places:
 
-* A dedicated cloud environment hosted by Auth0.
-* Your cloud environment using Amazon AWS or Microsoft Azure.
-* Your own datacenter (as a managed service) using VMWare or Microsoft Hyper-V
+* A dedicated cloud environment hosted by Auth0
+* Your cloud environment using Amazon AWS or Microsoft Azure
+* Your own datacenter using VMWare or Microsoft Hyper-V (where the PSaaS Appliance is a managed service)
 
 ## Value Proposition
 
@@ -42,13 +41,13 @@ Similar to option 1, this configuration permits an external Auth0 Jumphost to co
 *Pros*: 
 
 * Jumphost provides a single point of access and auditing
-* Audit, session recording, VPN access to Jumphost, and Identity Management done by Auth0
+* Audit, session recording, VPN access to Jumphost, and Identity Management is done by Auth0
 * Disabling Auth0 access is as simple as shutting down a server
 * Could be installed in DMZ if needed
 
 *Cons*: 
 
-* Additional virtual Jumphost required in customer infrastructure.
+* Additional virtual Jumphost required in customer infrastructure
 
 ### Option 3: VPN
 
