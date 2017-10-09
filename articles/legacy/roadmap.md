@@ -21,11 +21,11 @@ Deprecated Feature | Removal date | Documentation
 Using the [/delegation](/api/authentication#delegation) endpoint for ID Token and Refresh Token Exchange | January 31, 2018 | [Migration Guide](/legacy/migration-guides/delegation-for-token-exchange)
 Management API v1 | Q1 2018 | [Migration Guide](/legacy/migration-guides/management-api-v1)
 The [/oauth/ro](/api/authentication#resource-owner) endpoint | Q1 2018 | Coming soon
-The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint | Q1 2018 | Coming soon
-Using the [/delegation](/api/authentication#delegation) endpoint for 3rd Party API Access Tokens | Q2 2018 | Coming soon
+The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint | Q1 2018 (support on oauth/token coming in Q4 2017) | Coming soon
+Using the [/delegation](/api/authentication#delegation) endpoint for 3rd Party API Access Tokens | Q2 2018 (API Authorization for 3rd party APIs coming in Q4 2017) | Coming soon
 The /ssodata, [/tokeninfo](/api/authentication#get-token-info), and [/usernamepassword/login](/sso/legacy/sso-username-password) endpoints | Q2 2018 | Coming soon
 Using ID Tokens for Management API Authentication (applies to all /api/v2/ endpoints) | Q2 2018 | Coming soon
-The [/users/{user_id}/impersonate](/api/authentication#impersonation) endpoint | Q2 2018 | Coming soon
+The [/users/{user_id}/impersonate](/api/authentication#impersonation) endpoint | Q2 2018 (Impersonation v2 available Q1 2018) | Coming soon
 
 As with any software engineering effort, all deadlines are subject to change, and subscribers should plan accordingly. Auth0 will publish any and all related updates to this page, and we will send out a notification to subscribers if there are material changes.
 
