@@ -72,55 +72,59 @@ Therefore, with an `id_token`, all the user's information can be read and writte
 
 ### Endpoints Mapping Matrix
 
+In this section you can find the mappings between the two versions of the Management API. At the very minimum you have to update your implementation with the new endpoint URL. 
+
+The column **Change** describes any additional changes that you might have to do.
+
 #### User endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
-| [GET /api/users](/api/v1#!#get--api-users) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) |
-| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | Implemented using Elastic Search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None. | [GET /api/v2/users/{id}](/api/v2#!/Users/get_users_by_id) also accepts `v2\_id` |
-| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available. | TBD. |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available. | TBD. |
-| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:'auth0'` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available. | Not available. |
-| [POST /api/users](/api/v1#!#post--api-users) | None. | [POST /api/v2/users](/api/v2#!/Users/post_users) |
-| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available. | TBD. |
-| [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None. | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
-| [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None. | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
+| [GET /api/users](/api/v1#!#get--api-users) | None | [GET /api/v2/users](/api/v2#!/Users/get_users) |
+| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax | Implemented using Elastic Search, see the [get_users](/api/v2#!/Users/get_users) documentation |
+| [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None | [GET /api/v2/users/{id}](/api/v2#!/Users/get_users_by_id) also accepts `v2\_id` |
+| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available | TBD |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available | TBD |
+| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search | Available using `q=identities.isSocial:false AND NOT identities.provider:'auth0'` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search | Available using `q=identities.isSocial:true` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available | Not available |
+| [POST /api/users](/api/v1#!#post--api-users) | None | [POST /api/v2/users](/api/v2#!/Users/post_users) |
+| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available | TBD |
+| [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
+| [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
 | [POST /api/users/{user\_id}/publickey](/api/v1#!#post--api-users--user_id--publickey) | Keys are created per device, not per user. | [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials) |
-| [PUT /api/users/{user\_id}/email](/api/v1#!#put--api-users--user_id--email) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id`. |
-| [PUT /api/users/{user\_id}/metadata](/api/v1#!#put--api-users--user_id--metadata) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
-| [PUT /api/users/{user\_id}/password](/api/v1#!#put--api-users--user_id--password) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
-| [PUT /api/users/{email}/password](/api/v1#!#put--api-users--email--password) | Removed. | Endpoints only accept ids, not strings. |
-| [PATCH /api/users/{user\_id}/metadata](/api/v1#!#patch--api-users--user_id--metadata) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
-| [DELETE /api/users](/api/v1#!#delete--api-users) | None. | [DELETE /api/v2/users](/api/v2#!/Users/delete_users) |
-| [DELETE /api/users/{user\_id}](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/Users/delete_users_by_id) also accepts `v2_id` |
-| [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
-| [DELETE /api/users/{user\_id}/publickey?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
-| [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
+| [PUT /api/users/{user\_id}/email](/api/v1#!#put--api-users--user_id--email) | Removed | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
+| [PUT /api/users/{user\_id}/metadata](/api/v1#!#put--api-users--user_id--metadata) | Removed | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
+| [PUT /api/users/{user\_id}/password](/api/v1#!#put--api-users--user_id--password) | Removed | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
+| [PUT /api/users/{email}/password](/api/v1#!#put--api-users--email--password) | Removed | Endpoints only accept ids, not strings. |
+| [PATCH /api/users/{user\_id}/metadata](/api/v1#!#patch--api-users--user_id--metadata) | Removed | [PATCH /api/v2/users/{id}](/api/v2#!/Users/patch_users_by_id) also accepts `v2_id` |
+| [DELETE /api/users](/api/v1#!#delete--api-users) | None | [DELETE /api/v2/users](/api/v2#!/Users/delete_users) |
+| [DELETE /api/users/{user\_id}](/api/v1#!#delete--api-users--user_id-) | None | [DELETE /api/v2/users/{id}](/api/v2#!/Users/delete_users_by_id) also accepts `v2_id` |
+| [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| [DELETE /api/users/{user\_id}/publickey?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
 
 #### Client endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
-| [GET /api/clients](/api/v1#!#get--api-clients) | None. | [GET /api/v2/clients](/api/v2#!/Clients/get_clients) |
-| [POST /api/clients](/api/v1#!#post--api-clients) | None. | [POST /api/v2/clients](/api/v2#!/Clients/post_clients) |
-| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Not available. | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
-| [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None. | [PATCH /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
-| [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/Clients/delete_clients_by_id) |
+| [GET /api/clients](/api/v1#!#get--api-clients) | None | [GET /api/v2/clients](/api/v2#!/Clients/get_clients) |
+| [POST /api/clients](/api/v1#!#post--api-clients) | None | [POST /api/v2/clients](/api/v2#!/Clients/post_clients) |
+| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Not available | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
+| [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None | [PATCH /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
+| [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None | [DELETE /api/v2/clients/{id}](/api/v2#!/Clients/delete_clients_by_id) |
 
 #### Connection endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
-| [GET /api/connections](/api/v1#!#get--api-connections) | None. | [GET /api/v2/connections](/api/v2#!/Connections/get_connections) |
+| [GET /api/connections](/api/v1#!#get--api-connections) | None | [GET /api/v2/connections](/api/v2#!/Connections/get_connections) |
 | [GET /api/connections/{connection-name}](/api/v1#!#get--api-connections--connection-name-) | Changed `connection-name` to `id`. | [GET /api/connections/{id}](/api/v2#!/Connections/get_connections_by_id) |
-| [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property. | [POST /api/v2/connections](/api/v2#!/Connections/post_connections) |
+| [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property | [POST /api/v2/connections](/api/v2#!/Connections/post_connections) |
 | [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Not available. Changed `connection-name` to `id`. | [PATCH /api/v2/connections/{id}](/api/v2#!/Connections/patch_connections_by_id) |
-| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id`. | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
-| [GET /api/connections/{connection}/users](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
+| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id` | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
+| [GET /api/connections/{connection}/users](/api/v1) | None | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
 
 ::: note
 For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`.
@@ -130,8 +134,8 @@ For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (searc
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
-| [GET /api/rules](/api/v1#!#get--api-rules-) | None. | [GET /api/v2/rules](/api/v2#!/Rules/get_rules) |
-| [POST /api/rules](/api/v1#!#post--api-rules) | None. | [POST /api/v2/rules](/api/v2#!/Rules/post_rules-) |
+| [GET /api/rules](/api/v1#!#get--api-rules-) | None | [GET /api/v2/rules](/api/v2#!/Rules/get_rules) |
+| [POST /api/rules](/api/v1#!#post--api-rules) | None | [POST /api/v2/rules](/api/v2#!/Rules/post_rules-) |
 | [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
 | [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
 
