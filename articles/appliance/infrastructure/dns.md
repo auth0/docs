@@ -90,7 +90,7 @@ The hostname (e.g. **manage-project**.yourdomain.com) must be at least three cha
 
 The following are reserved tenant names and **may not** be used for the **app** tenant.
 
-<table>
+<table class="table">
     <tr>
         <td>login</td>
         <td>admin</td>
@@ -152,7 +152,7 @@ In the PSaaS Appliance, you may map any arbitrary domain name to a tenant using 
 
 Suppose these were your standard domains:
 
-<table>
+<table class="table">
     <tr>
         <td>Root Tenant Authority</td>
         <td>Sample Tenant</td>
