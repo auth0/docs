@@ -1,12 +1,10 @@
 ---
 description: An overview of the Auth0 Management API v1 which has been deprecated.
 ---
-
 # Management API v1 (deprecated)
 
 ::: warning
-This version of the Management API has been deprecated.
-Please use the [new version](/api/v2) instead.
+This version of the Management API has been deprecated. Please use the [new version](/api/v2) instead. For details on how to migrate refer to the [Management API v1 Migration Guide Migration Guide](/legacy/migration-guides/management-api-v1).
 :::
 
 ## Authentication
