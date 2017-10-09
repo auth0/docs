@@ -13,10 +13,6 @@ Auth0 generates access tokens in [JSON Web Token (JWT)](/jwt) format, an industr
 - The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
-::: note
-The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token.
-:::
-
 ## How to get an access token
 
 Access tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
