@@ -510,7 +510,7 @@ For more details about supported parameters check the [Authentication Parameters
 Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v10/popup-mode) is chosen.
 
 ::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
+There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. For more info refer to this [Auth0 Community thread](https://community.auth0.com/questions/9768/popup-login-window-is-not-closed-after-authenticat).
 :::
 
 ```js
