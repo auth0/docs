@@ -22,9 +22,11 @@ Because the PSaaS Appliance runs on dedicated cloud or customer infrastructure, 
 
 When the PSaaS Appliance is hosted in your cloud environment or datacenter, it requires regular access by our managed service engineering team to keep it up to date, fix problems, and optimize security and performance. There is a trade-off between maintaining strict isolation behind the customer’s firewall and the service level that we can offer. The options presented below offer the best balance between a high degree of isolation and support. Note that all options provide end-to-end SSH encryption of PSaaS Appliance management traffic and allow the customer to disable Auth0 access if needed.
 
-### Option 1: Jumphost + Firewall Whitelist
-
+::: panel Jumphost
 A Jumphost is a security-hardened virtual machine with the ability to act as a secure communication relay through SSH to the Auth0 PSaaS Appliance VMs. Jumphost initiates the connection from a whitelisted IP address provided by Auth0. You would open/close access to Jumphost on demand in situations where we require access, such as maintenance or support events. These connections originate from a VPN-secured network using public key access to your Jumphost, so that only authorized Auth0 managed service engineers can access your environment from a secure connection within Auth0.
+:::
+
+### Option 1: Jumphost + Firewall Whitelist
 
 In this configuration, an external Auth0-managed Jumphost is permitted sole SSH management access to the PSaaS Appliance.
 
