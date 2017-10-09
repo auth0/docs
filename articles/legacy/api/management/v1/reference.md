@@ -2,7 +2,7 @@
 description: Management API V1 reference page.
 toc: true
 ---
-# Auth0 Management API Reference
+# Management API v1 Reference (deprecated)
 
 ::: warning
 This version of the Management API has been deprecated. Please use the [new version](/api/v2) instead. For details on how to migrate refer to the [Management API v1 Migration Guide Migration Guide](/legacy/migration-guides/management-api-v1).
