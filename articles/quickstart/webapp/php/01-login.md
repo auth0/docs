@@ -34,6 +34,7 @@ $auth0 = new Auth0([
   'client_secret' => '${account.clientSecret}',
   'redirect_uri' => '${account.callback}',
   'audience' => 'https://${account.namespace}/userinfo',
+  'scope' => 'openid profile',
   'persist_id_token' => true,
   'persist_access_token' => true,
   'persist_refresh_token' => true,
@@ -45,7 +46,7 @@ $auth0 = new Auth0([
 Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
 
 ```php
-// callback.php
+// index.php
 
 ...
 $userInfo = $auth0->getUser();
@@ -67,39 +68,27 @@ ${include('../_callbackRegularWebApp')}
 In this case, the redirectUrl should look something like:
 
 ```text
-http://yourUrl/callback.php
+http://yourUrl/
 ```
 
-## Integrating Auth0.js
+## Trigger Login With Auth0 PHP Plugin
 
 ```html
 <!-- index.php -->
 
-<a class="btn btn-primary btn-lg btn-login btn-block">SignIn</a>
+<a class="btn btn-primary btn-lg btn-login btn-block" href="login.php">SignIn</a>
 ```
 
-```js
-// public/app.js
+```php
+// login.php
 
-$(document).ready(function() {
-  var webAuth = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    redirectUri: '${account.callback}',
-    audience: `https://${account.namespace}/userinfo`,
-    responseType: 'code',
-    scope: 'openid profile'
-  });
-
-  $('.btn-login').click(function(e) {
-    e.preventDefault();
-    webAuth.authorize();
-  });
-});
+<?php
+  // ...
+  $auth0->login();
 ```
 
 ::: note
-The `redirectUrl` specified in the `webAuth` constructor **must match** the one specified in the previous step
+The `redirect_uri` specified in the `Auth0` constructor **must match** the one specified in the previous step
 :::
 
 ## Accessing User Information
@@ -108,7 +97,9 @@ You can access the user information via the `getUser` method from Auth0
 
 ```php
 <?php
-...
+// index.php
+
+// ...
 $userInfo = $auth0->getUser();
 ?>
 <html>
