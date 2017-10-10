@@ -89,10 +89,6 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 	"postData": {
 		"mimeType": "application/json",
 		"text": "{ \"blocked\": false, \"email_verified\": false, \"email\": \"\", \"verify_email\": false, \"phone_number\": \"\", \"phone_verified\": false, \"verify_phone_number\": false, \"password\": \"\", \"verify_password\": false,\"user_metadata\": {},\"app_metadata\": { \"useMfa\": true }, \"connection\": \"\", \"username\": \"\",\"client_id\": \"DaM8...rdyX\"}"
-	}
-  \"connection\": \"\",
-  \"username\": \"\",
-  \"client_id\": \"DaM8...rdyX\"}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
