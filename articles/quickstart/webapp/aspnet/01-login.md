@@ -11,7 +11,7 @@ budicon: 448
   path: 'Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample/',
   requirements: [
     'Microsoft Visual Studio 2017',
-    'Auth0-ASPNET v2.0.0'
+    'Auth0-ASPNET v2.1.0'
   ]
 }) %>
 
@@ -70,7 +70,6 @@ public ActionResult Login(string returnUrl)
 
     return new RedirectResult(authorizeUrlBuilder.Build().ToString());
 }
-</script>
 ```
 
 
