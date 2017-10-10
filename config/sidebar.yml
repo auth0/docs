@@ -23,7 +23,10 @@ articles:
       
       - title: Hello World
         url: /getting-started/hello-world
-      
+
+      - title: The Authentication Flow
+        url: /getting-started/the-authentication-flow
+        
       - title: FAQ
         url: /getting-started/faq
       
