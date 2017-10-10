@@ -890,6 +890,10 @@ module.exports = [
     to: '/overview/deployment-models'
   },
   {
+    from: '/overview',
+    to: '/getting-started/overview'
+  },
+  {
     from: '/java-overview',
     to: '/dev-centers/java'
   },

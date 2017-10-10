@@ -7,10 +7,10 @@
 articles:
 
   - title: Getting Started
-    url: "/overview"
+    url: "/getting-started/overview"
     children:
-      - title: Overview
-        url: /overview
+      - title: Auth0 Overview
+        url: /getting-started/overview
 
       - title: Developer Videos
         url: /videos
