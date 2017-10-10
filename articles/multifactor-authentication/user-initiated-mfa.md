@@ -1,6 +1,10 @@
 # User-Initiated Multifactor Authentication
 
-Customer end goal: enable user initiated MFA (using SMS) (i.e. a user can select to enable MFA). Is this possible, or does MFA have to be initiated after registration?
+In this tutorial, we will show you how to implement and enable user-initiated MFA. We will cover how to:
+
+* Enable MFA using Auth0's Management Dashboard
+* Programmatically flag users for MFA
+* Set the users up to initiate MFA enrollment when logging in for the first time.
 
 ## Enable Multifactor Authentication
 
@@ -52,28 +56,7 @@ You'll need to [get an access token](/api/management/v2/tokens) to call the [Man
 
 Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `useMfa = true`.
 
-You can do this by making the appropriate `PATCH` call to the [Update a User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
-
-```json
-{
-  "\blocked"\: false,
-  "\email_verified"\: false,
-  "\email"\: "\"\,
-  "\verify_email"\: false,
-  "\phone_number"\: "\"\,
-  "\phone_verified"\: false,
-  "\verify_phone_number"\: false,
-  "\password"\: "\"\,
-  "\verify_password"\: false,
-  "\user_metadata"\: {},
-  "\app_metadata"\: {
-      "\useMfa"\: true
-  },
-  "\connection"\: "\"\,
-  "\username"\: "\"\,
-  "\client_id"\: "\DaM8...rdyX"\
-}
-```
+You can do this by making the appropriate `PATCH` call to the [Update a User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id). Note that the body of the call omits most of the extra details (such as email and phone number) you might need to include.
 
 ```har
 {
@@ -100,4 +83,25 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 
 You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`.
 
-Call https://auth0.com/docs/api/management/v2#!/Guardian/post_ticket, which initiates an out-of-band Guardian enrollment
+You can enroll a user in Guardian MFA by making the appropriate `POST` call to the [Create a Guardian Enrollment Ticket endpoint of the Management API](/api/management/v2#!/Guardian/post_ticket).
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}.auth0.com/api/v2/guardian/enrollments/ticket",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"user_id\": \"\", \"email\": \"\", \"send_mail\": false }",
+		"headersSize": -1,
+		"bodySize": -1,
+		"comment": ""
+	}
+}
+```
