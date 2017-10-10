@@ -22,17 +22,15 @@ You should configure the Client ID and Secret for each social connection.
 
 * Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
-```js
+```html
 <script src="${auth0js_urlv8}"></script>
 <script type="application/javascript">
-
   var webAuth = new auth0.WebAuth({
-    domain:                 '${account.namespace}',
-    clientID:               '${account.clientId}',
-    redirectUri:            'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    redirectUri:  'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
     responseType: 'token'
   });
-
 </script>
 ```
 
@@ -55,25 +53,25 @@ $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
 
 // After authentication occurs, the parseHash method parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
-  var result = webAuth.parseHash(window.location.hash);
-
-  if (result && result.idToken) {
-    webAuth.getProfile(result.idToken, function (err, profile) {
-      // normalized attributes from Auth0
-      $('#INPUT_1').val(profile.name);
-      $('#INPUT_2').val(profile.email);
-      $('#INPUT_3').val(profile.given_name);
-      $('#INPUT_4').val(profile.family_name);
-      $('#INPUT_5').val(profile.nickname);
-      $('#INPUT_6').val(profile.picture);
-
-      // provider-speicifc attributes
-      if (profile.headline) $('#INPUT_7').val(profile.headline);
-    });
-  } else if (result && result.error) {
-    alert('error: ' + result.error);
+webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
+  if (err) {
+    return console.log(err);
   }
- 
+
+  // Use the accessToken to collect userInfo
+  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+    // normalized attributes from Auth0
+    $('#INPUT_1').val(user.name);
+    $('#INPUT_2').val(user.email);
+    $('#INPUT_3').val(user.given_name);
+    $('#INPUT_4').val(user.family_name);
+    $('#INPUT_5').val(user.nickname);
+    $('#INPUT_6').val(user.picture);
+
+    // provider-specific attributes
+    if (user.headline) $('#INPUT_7').val(user.headline);
+  });
+});
 ```
 
-That's it! Now you will be able to see the information provided by the IdP in the `Leads` section of your Unbounce Admin Panel, after the user submits the form.
+Now you will be able to see the information provided by the IdP in the `Leads` section of your Unbounce Admin Panel, after the user submits the form.
