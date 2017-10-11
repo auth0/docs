@@ -487,7 +487,7 @@ The user will then receive an email which will contain a link that they can foll
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the API token for the **primary identity**. 
+To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the `id_token` for the **primary identity**. 
 
 ::: note
 In the case of linking users, the **primary identity** is the user profile with the data that you intend to **keep** upon linking (the other identities will lose their data), the one to which you plan to link the other identities.
@@ -496,7 +496,7 @@ In the case of linking users, the **primary identity** is the user profile with 
 ```js
 var auth0Manage = new auth0.Management({
   domain: '${account.namespace}',
-  token: 'API_TOKEN'
+  token: 'ID_TOKEN'
 });
 ```
 
@@ -520,7 +520,7 @@ auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
+The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's `id_token` (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
 
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
