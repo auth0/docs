@@ -11,38 +11,40 @@ Google's implementation of login for their products, such as Gmail, YouTube, Goo
 Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
-2. The user receives a Google Accounts-generated cookie.
-3. The user navigates to another Google product.
-4. The user is redirected again to Google Accounts.
-5. Google Accounts sees that the user already has an authentication-related cookie, so it redirects the user to the requested product.
+1. The user receives a Google Accounts-generated cookie.
+1. The user navigates to another Google product.
+1. The user is redirected again to Google Accounts.
+1. Google Accounts sees that the user already has an authentication-related cookie, so it redirects the user to the requested product.
 
 ## An overview of how SSO works with Auth0
 
-In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server.
+In the case of SSO with Auth0, the **Central Service** is the Auth0 Authorization Server.
 
-Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
+Let's look at an example of how the SSO flow looks when using Auth0 and the [Lock](/libraries/lock) widget and a user visits your application for the first time:
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can log in.
-2. Auth0 will check to see whether there is an existing SSO cookie.
-3. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+1. Auth0 will check to see whether there is an existing SSO cookie.
+1. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
-4. Once the user has logged in, Auth0 will set an SSO cookie
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+1. Once the user has logged in, Auth0 will set an SSO cookie
+1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
-2. Auth0 will check to see whether there is an existing SSO cookie.
-3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. Auth0 will check to see whether there is an existing SSO cookie.
+1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
-4. Auth0 will update the SSO cookie if required
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+1. Auth0 will update the SSO cookie if required
+1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
+
+The [Hosted Login Page](/hosted-pages/login) is the easiest and most secure way to implement SSO with Auth0. If, however, you need to use embedded Lock or an embedded custom authentication UI in your application, you can read here about safely conducting SSO with [cross-origin authentication](/cross-origin-authentication).
 
 ## How to Implement SSO with Auth0
 
