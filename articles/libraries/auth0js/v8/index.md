@@ -355,10 +355,10 @@ webAuth.authorize({nonce: '1234', responseType: 'token id_token'});
 webAuth.parseHash({nonce: '1234'}, callback);
 ```
 
-If you're calling `webAuth.renewAuth` instead of `webAuth.authorize`, then you only have to specify your custom `nonce` as an option to `renewAuth`:
+If you're calling `webAuth.checkSession` instead of `webAuth.authorize`, then you only have to specify your custom `nonce` as an option to `checkSession`:
 
 ```js
-webAuth.renewAuth({
+webAuth.checkSession({
   audience: 'https://example.com/api/v2',
   scope: 'openid read:something write:otherthing',
   responseType: 'token id_token',
@@ -369,7 +369,7 @@ webAuth.renewAuth({
 });
 ```
 
-The `webAuth.renewAuth` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
+The `webAuth.checkSession` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
 
 ## Logout
 
@@ -424,12 +424,12 @@ Signups should be for database connections. Here is an example of the `signup` m
 </script>
 ```
 
-## Using renewAuth to acquire new tokens
+## Using checkSession to acquire new tokens
 
-The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
 
 ```js
-webAuth.renewAuth({
+webAuth.checkSession({
   audience: 'https://example.com/api/v2',
   scope: 'read:something write:otherthing',
   redirectUri: 'https://example.com/auth/silent-callback',
@@ -440,26 +440,12 @@ webAuth.renewAuth({
 });
 ```
 
-The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
+The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
-This callback page should simply pass the local URL hash to the parent document via postMessage. The `webAuth.renewAuth` method will receive the hash string and automatically perform a `webAuth.parseHash`, passing the `err` or `authResult` to the callback function. The callback page should be something like the following one:
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <script type="text/javascript">
-      parent.postMessage(window.location.hash, "https://example.com/");
-    </script>
-  </head>
-  <body></body>
-</html>
-```
-
-Remember to add the URL of the silent authentication callback page that you create to the **Allowed Callback URLs** list of your Auth0 client in the [Auth0 Dashboard](${manage_url}) under your client's *Settings*.
+Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 client in the [Dashboard](${manage_url}) under your client's **Settings**.
 
 ::: warning
-If the connection is a social connection and you are using Auth0 dev keys, the `renewAuth` call will always return `login_required`.
+If the connection is a social connection and you are using Auth0 dev keys, the `checkSession` call will always return `login_required`.
 :::
 
 ## Password reset requests
