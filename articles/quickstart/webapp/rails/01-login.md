@@ -83,7 +83,7 @@ get "/auth/oauth2/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-## Trigger Login with Auth0.js
+## Trigger Login with Omniauth
 
 Create a file called `session_helper.rb`:
 
@@ -100,30 +100,35 @@ module SessionHelper
 end
 ```
 
-Create an instance of `WebAuth` from auth0.js and configure it with the keys for your client.
+Use the following command to create the controller that will handle user login:
 
-```html
-<script src="${auth0js_urlv8}"></script>
-<script>
-  var webAuth = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    redirectUri: '${account.callback}',
-    audience: 'https://${account.namespace}/userinfo',
-    responseType: 'code',
-    scope: 'openid profile',
-    state: '${ "<%= get_state %>" }'
-  });
-
-  function signin() {
-    webAuth.authorize();
-  }
-</script>
+```bash
+rails generate controller home
 ```
 
-::: note
-The `redirectUri` specified in the `WebAuth` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
-:::
+In the controller `home_controller.rb` add the `show` action.
+
+```ruby
+# app/controllers/home_controller.rb
+
+class HomeController < ApplicationController
+  def show
+  end
+end
+```
+
+Create a file called `show.html.erb` to add the template for `show` action. Add a link to `/auth/auth0` to trigger user login.
+
+```html
+<!-- app/views/home/show.html.erb -->
+
+<section class="jumbotron text-center">
+  <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
+  <h1>RoR Auth0 Sample</h1>
+  <p>Step 1 - Login.</p>
+  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+</section>
+```
 
 ## Check the User's Authentication Status
 
