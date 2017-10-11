@@ -87,7 +87,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 
 In this step, we'll initiate Guardian Enrollment for users who have been flagged for MFA. Note that you can use any MFA provider that integrates with Auth0 -- you do not necessarily have to use Guardian.
 
-You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the access token when you make the initial request un the previous step in lieu of making two separate requests, each resulting in a token with a different scope.
+You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the access token when you make the initial request in the [previous step](#Flag-New-Users-for-MFA) in lieu of making two separate requests, each resulting in a token with a different scope.
 
 You can enroll a user in Guardian MFA by making the appropriate `POST` call to the [Create a Guardian Enrollment Ticket endpoint of the Management API](/api/management/v2#!/Guardian/post_ticket).
 
