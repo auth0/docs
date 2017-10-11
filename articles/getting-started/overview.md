@@ -1,81 +1,67 @@
 ---
+description: Learn what Auth0 is and how you can use it
 toc: true
-description: Learn the basics of Auth0 including how it can help secure your application, how you can extend Auth0 to meet the exact needs of your project, and about the flexible deployment options in both the cloud and even your own datacenter.
 ---
 # Auth0 Overview
 
-Auth0 is a service that abstracts how users authenticate to applications.
+Auth0 provides authentication and authorization as a service.
 
-![](/media/articles/overview/overview.png)
+We are here to give developers and companies the building blocks they need in order to secure their applications, without having to become security experts.
 
-You can connect any application (written in any language or on any stack) to Auth0 and define its [connection](/connections), the method used to authenticate the users of that application:
+You can connect any application (written in any language or on any stack) to Auth0 and define the identity providers you want to use (how you want your users to log in). 
 
-* [Custom credentials](/connections/database): username + passwords
-* [Social network logins](/identityproviders#social): Google, Facebook, Twitter, and any OAuth2, OAuth1 or OpenID Connect provider
-* [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, etc.
-* [Passwordless systems](/connections/passwordless): Touch ID, one time codes on SMS, or email
+Based on your app's technology choose one of our SDKs (or call our API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will verify their identity and send back to your app the info it needs.
 
-## Video: Developer Overview
+![Auth0 Overview](/media/articles/getting-started/overview.png)
 
-This video will give you a walkthrough of Auth0 and how it will help save you time adding identity to your application.
+## What can I use Auth0 for?
 
-<%= include('../videos/_video', { id: 's15ysw45uy' }) %>
+Let's see some of the use cases for which you can use Auth0.
 
-## Integrate Auth0 with your Application
+- You built an awesome app and you want to add user authentication and authorization. Your users should be able to log in either with username/password or with their social accounts (Facebook, Twitter, etc). You want to retrieve the user's profile after the login so you can customize the UI and apply your authorization policies.
 
-The default [protocol](/protocols) between your application and Auth0 is [OpenID Connect](/protocols/oidc), a modern, lightweight, simple to use, and simple to integrate protocol.
+- You built an API and you want to secure it with [OAuth 2.0](/protocols/oauth2).
 
-<%= include('../_includes/_pipeline2') %>
+- You have more than one apps and you want to implement [Single Sign On](/sso).
 
-Auth0 ships [SDKs for all major platforms](/support/matrix#sdks) (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not required. Virtually anything able to send HTTP requests can integrate with Auth0.
+- You built a JavaScript front-end app and a mobile app and you want them both to securely access an API of yours.
 
-Auth0 also supports other common identity protocols, such as [WS-Federation](/protocols/ws-fed) and [SAML](/protocols/saml). Applications that are already "claims enabled" can easily connect to Auth0.
+- You have a web app which needs to authenticate users using SAML.
 
-The **best** solution for integrating Auth0 with your application is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and circumvents the dangers of cross-origin authentication. The Hosted Login Page uses the [Lock](/libraries/lock) widget to allow your users to authenticate by default, but has other starting templates as well. You can customize the login page in the [Hosted Pages Editor](${manage_url}/#/login_page) in your dashboard.
+- You believe passwords are broken and you want your users to log in with one-time codes delivered by email or SMS.
 
-## Access your APIs
+- If one of your user's email address is compromised in some site's public data breach, you want to be notified, and also notify the users and/or block them from logging in to your app until they reset their password.
 
-Auth0's [API authorization](/api-auth) features allow you to manage the authorization requirements for server-to-server and client-to-server applications, using the [OAuth 2.0 protocol](/protocols/oauth2). Using Auth0, you can easily support [different flows](/api-auth/which-oauth-flow-to-use) in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
+- You want to act proactively and block suspicious IP addresses if they make consecutive failed login attempts, in order to avoid DDoS attacks.
 
-## An Extensible Platform
+- You are part of a large organization who wants to federate their existing enterprise directory service to allow employees to log in to the various internal, as well as 3rd party applications, using their existing enterprise credentials.
 
-Auth0 offers several ways to extend the platform's functionality:
+- You don't want (or know how) to implement your own user management solution. Password resets, creating, provisioning, blocking, and deleting users, and the UI to manage all these. You just want to focus on your app.
 
-- **Rules**: [Rules](/rules) are functions written in JavaScript or C#, that are executed in Auth0 just after successful authentication and before control returns to your app. Rules can be chained together for modular coding and can be turned on and off individually. They can be used for Access Control, Webhooks, Profile Enrichment, Multi-factor Authentication, and many other things.
+- You want to enforce [multifactor authentication](/multifactor-authentication) when your users want to access sensitive data.
 
-- **Hooks**: [Hooks](/hooks) allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). They are [Webtasks](https://webtask.io) associated with specific [extensibility points](/hooks/extensibility-points) of the Auth0 platform. Auth0 invokes the Hooks at runtime to execute your custom logic. Hooks will eventually replace Rules, the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
+- You are looking for an identity solution that will help you stay on top of the constantly growing compliance requirements of SOC2, GDPR, OpenID Connect and others.
 
-- **Extensions**: [Auth0 Extensions](/extensions) enable you to install applications or run commands/scripts that extend the functionality of the Auth0 base product. You can either use one of the [pre-defined extensions](/extensions#using-an-auth0-provided-extension), provided by Auth0, or [create your own](/extensions#creating-your-own-extension). Some of the actions you can do with extensions are manage the authorizations for users (using groups, roles and permissions), import/export users, export logs to other services, deploy scripts from external repositories, and more.
+- You want to use analytics to track users on your site or application. You plan on using this data to create funnels, measure user retention, and improve your sign up flow.
 
-## Deployment Models
+- The list goes on and on...
 
-Auth0 is a service usually running in the cloud, but it can also be deployed in **Private Instances** (PI). PIs are dedicated installations of Auth0. You may choose to run PIs in Auth0's datacenters (which are separate from those that run the multi-tenant services), in your own cloud hosting environments (e.g. AWS, Azure, Rackspace, DigitalOcean), or even [on-premises](/appliance).
+## What Industry Standards does Auth0 use?
 
-## Domain Names
+Once upon a time, when computers were standalone systems, all the authentication and user data lived in a single machine. The times have changed, and now you can use the same login information across multiple apps and sites. This was achieved due to the identity industry standards that were widely adopted across the web.
 
-The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
+These are a set of open specifications and protocols that tell you how to design an authentication and authorization system. They tell us how we should manage identity, move personal data securely, and decide who can access applications and data.
 
-* `{account-name}.auth0.com`
-* `{account-name}.{location}.auth0.com`
+The identity industry standards that we use here in Auth0 are:
 
-For example, if your company is **My Company**, you would receive some or all of the following addresses:
+- **OAuth 1**: the original standard for access delegation. Used as a way for a user to grant websites access to their information on other websites or apps, but without giving them the credentials.
 
-```
-mycompany.auth0.com
-mycompany.eu.auth0.com
-mycompany.au.auth0.com
-```
+- **OAuth 2**: an authorization standard that allows a user to grant limited access to their resources on one site, to another site, without having to expose their credentials. You use this standard every time you log in to some site using your Google account and you are asked if you agree with sharing your email address and your contacts list with that site.
 
-::: note
-With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
-:::
+- **Open ID Connect**: an identity layer that sits on top of OAuth 2 and allows for easy verification of the user's identity, as well the ability to get basic profile information from the identity provider.
 
-You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
+- **JSON Web Tokens**: an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
 
-* The Auth0-managed cloud
-* A customer-managed cloud
-* An on-premise installation
+- **Security Assertion Markup Language (SAML)**: an open-standard, XML-based data format that allows businesses to communicate user authentication and authorization information to partner companies and enterprise applications their employees may use.
 
-Due to the additional features offered by these three options, these deployment options do come with a higher cost.
-
-If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the PSaaS Appliance](/appliance).
+- **WS-Federation**: a standard developed by Microsoft, and used extensively in their applications. It defines the way security tokens can be transported between different entities to exchange identity and authorization information.
