@@ -198,31 +198,31 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>feoobft</code></td>
     <td>Failed Exchange</td>
-    <td></td>
+    <td>Failed exchange of Password and OOB Challenge for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>feotpft</code></td>
     <td>Failed Exchange</td>
-    <td></td>
+    <td>Failed exchange of Password and OTP Challenge for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>fepft</code></td>
     <td>Failed Exchange</td>
-    <td></td>
+    <td>Failed exchange of Password for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>fercft</code></td>
     <td>Failed Exchange</td>
-    <td></td>
+    <td>Failed Exchange of Password and MFA Recovery code for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>fertft</code></td>
     <td>Failed Exchange</td>
-    <td></td>
+    <td>Failed Exchange of Refresh Token for Access Token</td>
     <td></td>
   </tr>
   <tr>
@@ -485,31 +485,31 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>seoobft</code></td>
     <td>Success Exchange</td>
-    <td></td>
+    <td>Successful exchange of Password and OOB Challenge for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>seotpft</code></td>
     <td>Success Exchange</td>
-    <td></td>
+    <td>Successful exchange of Password and OTP Challenge for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>sepft</code></td>
     <td>Success Exchange</td>
-    <td></td>
+    <td>Successful exchange of Password for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>sercft</code></td>
     <td>Success Exchange</td>
-    <td></td>
+    <td>Successful exchange of Password and MFA Recovery code for Access Token</td>
     <td></td>
   </tr>
   <tr>
     <td><code>sertft</code></td>
     <td>Success Exchange</td>
-    <td></td>
+    <td>Successful exchange of Refresh Token for Access Token</td>
     <td></td>
   </tr>
   <tr>
