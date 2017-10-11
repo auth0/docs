@@ -22,24 +22,34 @@ Upon successful authentication, **OmniAuth** sets the authentication hash of a r
 get "/auth/oauth2/callback" => "auth0#callback"
 ```
 
-Store the user information in the session in `auth0_controller\callback`.
+Store the user information in the session in `auth0_controller/callback`.
 
 ```ruby
-  def callback
-    # This stores all the user information that came from Auth0
-    # and the IdP
-    session[:userinfo] = request.env['omniauth.auth']
+# app/controllers/auth0_controller.rb
 
-    # Redirect to the URL you want after successful auth
-    redirect_to '/dashboard'
-  end
+def callback
+  # This stores all the user information that came from Auth0
+  # and the IdP
+  session[:userinfo] = request.env['omniauth.auth']
+
+  # Redirect to the URL you want after successful auth
+  redirect_to '/dashboard'
+end
 ```
 
 ## Logout Action
 
-To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller\logout` method. [Learn more about `reset_session` here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+Use the following command to create the controller that will handle user logout:
+
+```bash
+rails generate controller logout
+```
+
+To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about `reset_session` here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
 ```ruby
+# app/controllers/logout_controller.rb
+
 class LogoutController < ApplicationController
   include LogoutHelper
   def logout
@@ -49,9 +59,11 @@ class LogoutController < ApplicationController
 end
 ```
 
-You can use the Auth0 SDK to generate the logout URL.
+In `logout_helper.rb` file add the methods to generate the logout URL.
 
 ```ruby
+# app/helpers/logout_helper.rb
+
 module LogoutHelper
   def logout_url
     domain = Rails.application.secrets.auth0_domain
