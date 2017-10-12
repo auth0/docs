@@ -1,3 +1,8 @@
+---
+title: User-Initiated Multifactor Authentication (MFA)
+description: How to set up user-initiated multifactor authentication
+toc: true
+---
 # User-Initiated Multifactor Authentication
 
 In this tutorial, we will show you how to implement and enable user-initiated multifactor authentication (MFA). We will cover how to:
