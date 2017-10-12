@@ -70,7 +70,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/users/USER_ID",
+	"url": "https://${account.namespace}/api/v2/users/USER_ID",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -99,7 +99,7 @@ You can enroll a user in Guardian MFA by making the appropriate `POST` call to t
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/guardian/enrollments/ticket",
+	"url": "https://${account.namespace}/api/v2/guardian/enrollments/ticket",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
