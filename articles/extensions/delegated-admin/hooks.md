@@ -123,7 +123,7 @@ function(ctx, callback) {
   }
 
   // Return the lucene query.
-  return callback(null, 'app_metadata.department:"' + department + '"');
+  return callback(null, 'app_metadata.department = "' + department + '"');
 }
 ```
 
