@@ -4,7 +4,7 @@ The first step in adding authentication to your application is to provide a way 
 
 ## Configuration
 
-### Android
+### Configure Android
 
 In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **MainActivity** of the app has a **launchMode** value of `singleTask` and that it has the following intent filter:
 
@@ -45,7 +45,7 @@ android:windowSoftInputMode="adjustResize">
 </activity>
 ```
 
-### iOS
+### Configure iOS
 
 In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
@@ -91,7 +91,14 @@ and then register a URL type entry using the value of `CFBundleIdentifier` as th
 The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the default for apps created with React Native CLI, you may have a different value.
 :::
 
-## Implement the login
+## Add Authentication with Auth0
+
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
+
+::: note
+You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form).
+:::
 
 First, import the `Auth0` module and create a new `Auth0` instance.
 
