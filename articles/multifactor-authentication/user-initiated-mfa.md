@@ -41,7 +41,7 @@ function (user, context, callback) {
     var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
     
     if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
-        if (user.user_metadata && user.user_metadata.use_mfa){
+        if (user.app_metadata && user.app_metadata.use_mfa){
 
             context.multifactor = {
                 // required
