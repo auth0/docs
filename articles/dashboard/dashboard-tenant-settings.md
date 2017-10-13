@@ -9,6 +9,8 @@ The [Tenant Settings](${manage_url}/#/tenant) page of the dashboard allows you t
 
 ## General
 
+The following sections can be found on the initial page you're redirected to when opening up the settings area.
+
 ### Settings
 
 ![](/media/articles/tutorials/tenant-settings/settings.png)
