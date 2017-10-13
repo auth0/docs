@@ -32,9 +32,9 @@ Alternatively you can use `SimpleKeychain` directly, without the added benefits 
 
 ## On Login: Store the user's credentials
 
-You will store user's credentials **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched. You will be using the `offline_access` scope to request that a [Refresh Token](/refresh-token) is returned during authentication. The `refreshToken` can be used to request a new `accessToken` after the current one has expired. 
+You will store user's credentials **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched. You will be using the `offline_access` scope to ensure that a [refresh token](/refresh-token) is returned during authentication. The `refreshToken` can be used to request a new `accessToken` if the current `accessToken` one has expired. 
 
-First, import the `Auth0` module in the file where you want to present the hosted login page (HLP).
+First, import the `Auth0` module in the file where you want to present the hosted login page (HLP):
 
 ${snippet(meta.snippets.setup)}
 
@@ -65,14 +65,13 @@ Auth0
 
 ## On Startup: Check Credentials
 
-The main purpose of storing the credentials is to save the user from having to re-enter login credentials upon relaunch of the app. So, **once the app has launched**, you need to check for the existence of valid credentials to see if you can automatically log the user in and redirect the user straight into the app's main flow, skipping any login steps.
+You need to check for the existence of valid credentials to see if you can automatically log the user in and redirect the user straight into the app's main flow, skipping any additional login steps.
 
 ::: note
 It's recommended that you download the sample project from this tutorial and take a look at its implementation, focusing on the `SessionManager` class, which is in charge of dealing with the management of the user's credentials and profile.
 :::
 
-
-To do so, first, you can check if the credentials manager has valid credentials.
+First, you can check if the credentials manager has valid credentials:
 
 ```swift
 // SessionManager.swift
@@ -82,7 +81,7 @@ guard credentialsManager.hasValid() else {
 }
 ```
 
-Next, retrieve the credentials. If they have expired the credentials manager will automatically renew them using the refresh token.
+Next, retrieve the credentials:
 
 ```swift
 // SessionManager.swift
@@ -97,6 +96,8 @@ credentialsManager.credentials { error, credentials in
 } 
 ```
 
+If they have expired the credentials manager will automatically renew them for you using the refresh token.
+
 ## On Logout: Clear the Keychain
 
 Whenever you need to log the user out, you should remove the credentials from the keychain:
@@ -107,7 +108,7 @@ Whenever you need to log the user out, you should remove the credentials from th
 credentialsManager.clear()
 ```
 
-That's it! You've already dealt with the basic concepts of session handling in your app.
+That's it. You've already dealt with the basic concepts of session handling in your app.
 
 ## Fetch the User Profile
 
