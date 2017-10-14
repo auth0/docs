@@ -2,21 +2,9 @@
 title:
 description:
 ---
-# Explaining Auth0 Private SaaS Appliance
+# PSaaS Appliance Remote Access Options
 
-The Auth0 Private SaaS (Software as a Service) Appliance, or PSaaS Appliance, is an Auth0 deployment that exists in a dedicated area of Auth0's cloud, a cloud under your control, or your own data center.
-
-## What is the Auth0 PSaaS Appliance?
-
-The Auth0 Private SaaS Appliance (PSaaS Appliance) is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 PSaaS Appliance can be deployed in one of three places:
-
-* A dedicated cloud environment hosted by Auth0
-* Your cloud environment using Amazon AWS or Microsoft Azure
-* Your own datacenter using VMWare or Microsoft Hyper-V (where the PSaaS Appliance is a managed service)
-
-## Value Proposition
-
-Because the PSaaS Appliance runs on dedicated cloud or customer infrastructure, customers can meet unique compliance and regulatory hurdles and customize certain implementation details to address specific use cases and threat profiles. Yet as a PSaaS Appliance, this solution is supported by a dedicated team of Auth0 engineers who provide hardened builds, up-to-date installation, guaranteed SLA, and rapid response times. Customers get the full benefits of private Auth0 security without the burden of managing Auth0 internals.
+The Auth0 Private SaaS (Software as a Service) Appliance, or PSaaS Appliance, is an Auth0 deployment that exists in a dedicated area of Auth0's cloud, a cloud under your control, or your own data center. This article covers the remote options available to you if you opt for the PSaaS Appliance.
 
 ## Customer Choices
 
