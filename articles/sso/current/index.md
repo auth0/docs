@@ -35,7 +35,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
-1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know who the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
