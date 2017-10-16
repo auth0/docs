@@ -23,6 +23,10 @@ Lock makes it easy to integrate SSO in your app. You won't have to worry about:
 ![Lock Sign Up](/media/articles/libraries/lock/v9/lock-signup.png)
 
 ::: note
+Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
+:::
+
+::: note
 You can try it out yourself online at our [Auth0 Lock playground][playground-url].
 :::
 

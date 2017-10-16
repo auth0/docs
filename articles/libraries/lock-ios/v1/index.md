@@ -23,6 +23,10 @@ Auth0 is an authentication broker that supports social identity providers as wel
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
 * Passwordless authentication using **Touch ID** and **SMS**.
 
+::: note
+Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
+:::
+
 ## Requirements
 
 iOS 7+. If you need to use our SDK with an earlier version, use the previous SDK pod `Auth0Client`, or see the [old-sdk](https://github.com/auth0/Lock.iOS-OSX/tree/old-sdk) branch of the Lock.iOS-OSX repo.

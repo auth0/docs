@@ -9,6 +9,10 @@ mobileimg: media/articles/libraries/lock-android.png
 
 <%= include('../_includes/_lock-version') %>
 
+::: note
+Check out the [Lock.Android repository](https://github.com/auth0/Lock.Android) on GitHub.
+:::
+
 ## Requirements
 
 Android API level 15+ is required in order to use Lock's UI.

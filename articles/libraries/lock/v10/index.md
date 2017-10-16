@@ -10,7 +10,11 @@ img: media/articles/libraries/lock-web.png
 Lock is an embeddable login form, [configurable to your needs][lock-configuration] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: note
-Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method by which to authenticate users for your applications.
+Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
+:::
+
+::: note
+Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method to authenticate users for your applications.
 :::
 
 ## Lock 10 Installation
