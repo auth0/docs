@@ -551,35 +551,35 @@ libraries:
     url: "/libraries"
 
   - title: "Lock for Web"
-    url: "/libraries/lock/v10"
+    url: "/libraries/lock/v11"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock/v10"
+        url: "/libraries/lock/v11"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/configuration"
+        url: "/libraries/lock/v11/configuration"
 
       - title: "API Reference"
-        url: "/libraries/lock/v10/api"
+        url: "/libraries/lock/v11/api"
 
       - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"
+        url: "/libraries/lock/v11/ui-customization"
 
       - title: "Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"
+        url: "/libraries/lock/v11/migration-guide"
 
       - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"
+        url: "/libraries/lock/v11/i18n"
 
       - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"
+        url: "/libraries/lock/v11/customizing-error-messages"
 
       - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"
+        url: "/libraries/lock/v11/auth0js"
 
       - title: "Authentication Modes"
-        url: "/libraries/lock/v10/authentication-modes"
+        url: "/libraries/lock/v11/authentication-modes"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios/v2"
