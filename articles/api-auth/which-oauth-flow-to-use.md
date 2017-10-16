@@ -36,7 +36,7 @@ If this case matches your needs, then for more information on how this flow work
 
 ## Is the Client absolutely trusted with user credentials?
 
-This decision point may result to suggesting the **Resource Owner Password Credentials Grant**. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
+This decision point may result to suggesting the **Resource Owner Password Credentials Grant**. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is sent to the backend and from there to Auth0. It is therefore imperative that the Client is absolutely trusted with this information.
 
 ## Is the Client a native app or a SPA?
 
