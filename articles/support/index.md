@@ -138,8 +138,7 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 | - | - |
 | 1 (Urgent) | **Emergency Issue**. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users. |
 | 2 (High) | **Significant Business Impact**. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality. |
-| 3 (Normal) | **Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **-or-**
-an inquiry by your representatives regarding general technical issues/questions |
+| 3 (Normal) | **Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions |
 | 4 (Low) | **Minor Problem / Enhancement Request**. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request. |
 
 ### Defect Responses
