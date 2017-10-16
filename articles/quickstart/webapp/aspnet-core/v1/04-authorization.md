@@ -7,12 +7,12 @@ budicon: 546
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/05-Authorization',
-  branch: 'master',
+  branch: 'v1',
+  path: 'Quickstart/04-Authorization',
   requirements: [
-    '.NET Core SDK 2.0',
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0'
+    '.NET Core 1.1.0',
+    'ASP.NET Core 1.1.1',
+    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
   ]
 }) %>
 
@@ -57,43 +57,37 @@ For more information on custom claims please see [User profile claims and scope]
 
 ## Restrict an Action Based on a User's Roles
 
-Next you will need to configure the OIDC authentication handler registration inside your ASP.NET application to inform it which claim in the `id_token` contains the role information. Alter your OIDC authentication handler registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
+Next you will need to configure the OIDC middleware registration inside your ASP.NET application to inform it which claim in the `id_token` contains the role information. Alter your OIDC middleware registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
 {
-    // Add authentication services
-    services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    })
-    .AddCookie())
-    .AddOpenIdConnect("Auth0", options => {
-        // ...
+  [...] // code omitted for brevity
 
-        // Configure the scope
-        options.Scope.Clear();
-        options.Scope.Add("openid");
-        options.Scope.Add("profile");
-        options.Scope.Add("email");
+  var options = new OpenIdConnectOptions("Auth0")
+  {
+    [...] // code omitted for brevity
 
-        // Set the correct name claim type
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = "name",
-            RoleClaimType = "https://schemas.quickstarts.com/roles"
-        };
+    // Set the correct name claim type
+    TokenValidationParameters = new TokenValidationParameters
+    {
+      NameClaimType = "name",
+      RoleClaimType = "https://schemas.quickstarts.com/roles"
+    },
 
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                // ...
-            }
-        };   
-    });
+    Events = new OpenIdConnectEvents
+    {
+      // handle the logout redirection 
+      OnRedirectToIdentityProviderForSignOut = (context) =>
+      {
+          [...] // code omitted for brevity
+      }
+    }
+  };
+  options.Scope.Clear();
+  options.Scope.Add("openid");
+  options.Scope.Add("profile");
+  app.UseOpenIdConnectAuthentication(options);
 }
 ```
 
