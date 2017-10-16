@@ -17,7 +17,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
-| [allowAutoComplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
+| [allowAutocomplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
 | [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
 | [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
@@ -98,13 +98,13 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 ## Display Options
 
-### allowAutoComplete {Boolean}
+### allowAutocomplete {Boolean}
 
 Determines whether or not the email or username inputs will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
 
 ```js
 var options = {
-  allowAutoComplete: true
+  allowAutocomplete: true
 };
 ```
 

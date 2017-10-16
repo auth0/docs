@@ -188,7 +188,7 @@ Remember that if the token is being validated anywhere else, changes might be ne
 
 ### Manually Parsing Hashes
 
-If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [this example](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js#L97) or [this one](https://github.com/auth0/auth0.js/blob/master/src/helper/qs.js#L10) to help you get started.
+If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [what parseHash is doing](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js) to help you get started replicating that.
 
 ## Refreshing Tokens
 
