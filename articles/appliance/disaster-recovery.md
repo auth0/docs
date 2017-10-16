@@ -54,7 +54,7 @@ The following outlines the basic steps required for restoring your PSaaS Applian
 Use the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) to [reconfigure the IP addresses](/appliance/cli/reconfiguring-ip) of the VM(s).
 
 ::: panel VMWare's Site Recovery Manager
-If you are hosting your PSaaS Appliance instances using VMware, you may also implement a similar backup/recovery scenario using VMWare's  Site Recovery Manager (SRM). SRM provides an automated mechanism to move your snapshots to a secondary site, where they can be retrieved if you ever need your data restored. If you choose this option, Auth0 will help you set up and test your implementation. SRM will change the IP address(es) for your instance(s), and you can
+If you are hosting your PSaaS Appliance instances using VMware, you may also implement a similar backup/recovery scenario using VMWare's  Site Recovery Manager (SRM). SRM provides an automated mechanism to move your snapshots to a secondary site, where they can be retrieved if you ever need your data restored. If you choose this option, Auth0 will help you set up and test your implementation. SRM will change the IP address(es) for your instance(s).
 
 We have tested that it will change the IP for the box and you can [run re-ip](/appliance/cli/reconfiguring-ip) as long as you have prepared the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) ahead of time and uploaded the certificate.
 :::
