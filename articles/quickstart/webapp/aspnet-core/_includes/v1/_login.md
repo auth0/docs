@@ -245,6 +245,4 @@ Now, when you run the application you can select the Login link to log into the 
 
 ## Next Steps
 
-If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-core/v1/02-login-custom). 
-
-Alternatively, you can simply carry on to the [Storing Tokens step](/quickstart/webapp/aspnet-core/v1/03-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
+Continue to the [Storing Tokens step](/quickstart/webapp/aspnet-core/v1/02-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
