@@ -71,7 +71,7 @@ For more detailed information on how to implement this, please refer to the foll
 * [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso)
 
 ::: note
-Please see the [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo for an example of OIDC-compliance SSO.
+Please see the [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo for an example of how to implement OIDC-compliant SSO.
 
 ### Length of SSO Sessions
 
