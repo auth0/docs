@@ -5,6 +5,8 @@ description: Explains the different types of support options provided by Auth0.
 ---
 # Support Options
 
+The following page contains information about the Auth0 support program.
+
 ## Support Options Overview
 
 Auth0 offers the following support plans:
@@ -93,120 +95,95 @@ Using this page, you can:
 * See the account details for users;
 * Revoke privileges.
 
-## Ticket Response Times
+## Definitions
 
-Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the [Auth0 Community](${auth0_community}).
+For the purposes of this Support Program description, the following capitalized words and phrases are ascribed the following meanings:
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Standard Support</th>
-      <th>Enterprise Support</th>
-      <th>Preferred Support</th>
-    </tr>
-  </thead>
-  <tbody>
-     <tr>
-      <th>Subscription Plan</th>
-      <td>Developer, Developer Pro. Legacy plans: Gold, Silver and Home Grown</td>
-      <td>Enterprise</td>
-      <td>Enterprise with Preferred Support Option</td>
-    </tr>
-    <tr>
-      <th><a href="#support-hours">Support Hours</a></th>
-      <td>Standard: 24 hours per day, Monday - Friday</td>
-      <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
-      <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
-    </tr>
-    <tr>
-      <th>First Response Time Target</th>
-      <td>2 Business Days</td>
-      <td>Standard: 3 business hours / Critical Outage: 1 hour</td>
-      <td>Standard: 1 business hour / Critical Outage: 1 hour</td>
-    </tr>
-    <tr>
-      <th>Subsequent Response Time Target</th>
-      <td>Standard: 2 business days</td>
-      <td>Standard: 1 business day / Critical Outage: ongoing within support hours</td>
-      <td>Standard: 4 business hours / Critical Outage: ongoing within support hours</td>
-    </tr>
-    <tr>
-      <th>Ticket Response Channels</th>
-      <td class="warning">Support Center</td>
-      <td class="success">Support Center, chat, web conference</td>
-      <td class="success">Support Center, chat, web conference</td>
-    </tr>
-    <tr>
-      <th><a href="/onboarding/sprint#sprint-benefits-by-support-plan">Onboarding Experience</a></th>
-      <td>Self-service in app and email</td>
-      <td>Sprint</td>
-      <td>Sprint Preferred</td>
-    </tr>
-    <tr>
-      <th><a href="/onboarding/sprint#what-happens-after-the-sprint-program-finishes-">Ongoing Customer Success Engagement</a> </th>
-      <td>Not Included</td>
-      <td>Customer Success Team </td>
-      <td>Allocated Customer Success Manager</td>
-    </tr>
-  </tbody>
-</table>
+**“Defect”** means a failure of the Auth0 Platform, in the form provided or modified by Auth0, to conform to its applicable specifications set forth in the Documentation. A Defect includes a failure of one or more components of the environment or infrastructure provided by Auth0 or AWS to perform in accordance with their applicable documentation or specifications.
 
-### Support Hours
+**“Demand Services”** has the meaning ascribed to it in Section 7 below.
 
-Auth0's Business Hours are as follows:
+**“Fix”** means a modification or an addition to the Auth0 Platform that overcomes a Defect when made or added to the Auth0 Platform. Auth0 may provide a Workaround in lieu of a Fix in Auth0’s sole discretion, but will provide a Fix to you as specified in Section 3.2 below.
 
-**Standard Business Hours**
-Monday, 6:00 am CST/UTC+8 hours - Friday, 6:00 pm PDT/UTC-7 hours | 24/5 coverage during this period
+**“Response Time”** means, for purposes of this Support Program description, the time between Auth0’s receipt of a Defect notification from you, and Auth0’s confirmation via one of its personnel that Auth0 is working on resolution of the Defect. (While your submission of a trouble ticket may trigger an automated response from Auth0, automated responses are disregarded for purposes of determining Response Times.)
 
-**Critical Support Hours**
-Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/365
+**“Update”** means a patch, correction, or other modification or addition to the Auth0 Platform that Auth0 makes generally available to you for maintenance fixes, Defect corrections, and minor improvements to the Auth0 Platform, including fixes, patches, updates and releases to address any security vulnerabilities. “Update” also includes significant enhancements, or new features or functionalities that Auth0 makes generally available to you.  
 
-Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
+**“Workaround”** means a set of procedures that you may follow to circumvent or mitigate the impact of a Defect, notwithstanding that the Defect still exists.
 
-If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
+## Program Features
 
-## Ticket Severity
+The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
 
-Standard: Defined as an Auth0 issue impacting your live or in-production systems or your ability to progress to production where:
+Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
 
-- Business processes and functions are degraded;
-- A group or groups of users are impacted;
-- There is a reasonable workaround;
-- Application is not yet in live, production status.
+| Support Feature | Standard | Enterprise |
+| - | - | - |
+| Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations | Yes | Yes |
+| Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality | Yes | Yes |
+| Isolate, document, and find alternative solutions for reported Defects. | Yes | Yes |
+| Work with Auth0 Operations, Product, Software Development, and QA staff to submit Change Requests, Enhancement Requests, and provide Fixes for the Auth0 Platform as necessary. | Yes | Yes |
+| Address your concerns with online or printed documentation, providing additional examples or explanation for concepts requiring clarification. | Yes | Yes |
+| Access to online release notes for Updates. | Yes | Yes |
+| Access to Auth0’s online library of Support webinars and knowledgebase | Yes | Yes |
+| Access to Auth0’s Customer Community forums to collaborate with fellow Auth0 customers. | Yes | Yes |
+| Enhanced Response Times | No | Yes |
+| Enhanced Hours of Support | No | Yes |
 
-Critical: Defined as an Auth0 issue severely impacting your live or in-production systems where:
+## Defect Resolution Procedures
 
-- Major business processes and functions are stopped for all or most users;
-- Majority of users are significantly impacted, for example: unable to log in;
-- There is no workaround;
-- Application is in live, production status.
+Auth0 will assign all Defects one of four response priorities, dependent upon the problems caused by the Defect. Auth0 may re-assign prioritization levels assigned by you in Auth0’s trouble ticketing system, to reflect the problem descriptions below. Auth0’s assignment will be consistent with the problem descriptions described below. Priority categories are as follows:
 
-Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
+| Severity Level | Description |
+| - | - |
+| 1 (Urgent) | **Emergency Issue**. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users. |
+| 2 (High) | **Significant Business Impact**. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality. |
+| 3 (Normal) | **Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **-or-**
+an inquiry by your representatives regarding general technical issues/questions |
+| 4 (Low) | **Minor Problem / Enhancement Request**. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request. |
 
-### Legacy Subscription Plan Mapping
+### Defect Responses
 
-- Subscriptions previously known as "Free" map to the current "Free" support classification
-- Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan.
-- Customers that have Developer or Developer Pro subscriptions map to the current "Standard" support plan.
-- Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
-- The "Preferred" support plan is a new plan available for purchase as of October 2016.
+The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-### Support Languages
+| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Solution Definition (one or more of the following) |
+| - | - | - | - |
+| 1 (Urgent) | 1 business hours | 30 minutes | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
+| 2 (High) | 4 business hours | 2 hours | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
+| 3 (Normal) | 1 business day | 12 hours | Issue is resolved. Workaround is provided. Fix incorporated into future release. Answer to question is provided. |
+| 4 (Low) | 2 business days | 24 hours | Answer to question is provided. Enhancement request logged. |
+
+## Program Hours
+
+Auth0 will provide support for Severity Level 1 Defects on a 24x7x365 basis.
+
+For all other defects, Auth0 will provide support during the hours specified below:
+
+| Standard | Enterprise |
+| - | - |
+| 6AM to 6PM (your local time) Monday to Friday | 24 hours a day, Monday to Friday (your local time) |
+
+## Support Languages
 
 We provide all technical support in English, but we will make an effort to accommodate other languages if possible.
+
+## Upgrades
+
+During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you. 
+
+## Demand Services
+
+You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutual agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
 
 ## Pricing
 
 For pricing information on Auth0's subscription plans, please see [Pricing Page](https://auth0.com/pricing) or your [Tenant Settings](${manage_url}/#/tenant/billing/subscription).
 
-## Additional Support Resources
-
-### Auth0 Status
+## Auth0 Status
 The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page.
 
 Please check the [status page](https://status.auth0.com) before filing a ticket.  If the status page contains a notification about an outage, our team will already be working on restoring service as quickly as possible.  Once the issue is resolved, the status page will be updated to reflect that.  There is a button on the page to subscribe to notifications of any changes.  A root-cause analysis will be published to the status page once an investigation has been done.
 
-### Whitehat Support Tickets
+## Whitehat Support Tickets
 
 All customers, even those with free subscription plans, may report security concerns via [Auth0 Whitehat](https://auth0.com/whitehat).
