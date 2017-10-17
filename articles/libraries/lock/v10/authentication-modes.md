@@ -9,9 +9,15 @@ Lock can function in two different modes. The default mode is **redirect mode**.
 
 ## Redirect Mode
 
+![Lock - Redirect](/media/articles/libraries/lock/v10/gif/redirect.gif)
+
 When you click the IdP button (For example, Facebook) with redirect mode, you are redirected to Facebook momentarily. Redirect mode is the default with Lock 10, and is the recommended mode for almost all use cases. Once you successfully login (to Facebook, in this example), Facebook will redirect you back to your app (through Auth0). The majority of examples or samples in the reference documentation employ redirect mode.
 
+![Lock - Social Redirect](/media/articles/libraries/lock/v10/gif/social-redirect.gif)
+
 ## Popup Mode
+
+![Lock - Redirect](/media/articles/libraries/lock/v10/gif/social-popup.gif)
 
 If after you click on the IdP button (Facebook for example), a popup (new tab or window) is opened, it means you are using popup mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your web app will recognize that the user has been authenticated. The web app has **never been redirected to any other page**.
 
@@ -34,6 +40,8 @@ var lock = new Auth0Lock(
 ```
 
 ## Database connections and popup mode
+
+![Lock - Popup](/media/articles/libraries/lock/v10/gif/popup.gif)
 
 Some Auth0 features such as [MFA](/multifactor-authentication) and [SSO](/sso/single-sign-on) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
 
