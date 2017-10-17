@@ -10,7 +10,7 @@ mobileimg: media/articles/libraries/lock-android.png
 <%= include('../_includes/_lock-version') %>
 
 ::: note
-Check out the [Lock.Android repository](https://github.com/auth0/Lock.Android) on GitHub.
+Check out the [Lock.Android repository](https://github.com/auth0/Lock.Android/tree/v1) on GitHub.
 :::
 
 ## Requirements

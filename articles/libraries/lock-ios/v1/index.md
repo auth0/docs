@@ -24,7 +24,7 @@ Auth0 is an authentication broker that supports social identity providers as wel
 * Passwordless authentication using **Touch ID** and **SMS**.
 
 ::: note
-Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
+Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift/tree/v1) on GitHub.
 :::
 
 ## Requirements
