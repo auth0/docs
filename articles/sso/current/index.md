@@ -71,12 +71,10 @@ Whenever you need to determine the user's SSO status, you'll need to check the f
 
 If you don't have a valid `accessToken`, the user is *not* logged in. However, they may be logged in via SSO to another associated application -- you can determine if this is the case or not by calling the `renewAuth` method of the auth0.js library, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
 
-For more detailed information on how to implement this, please refer to the following:
-
-* [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso)
+For more detailed information on how to implement this, please refer to [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso).
 
 ::: note
-Please see the [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo for an example of how to implement OIDC-compliant SSO.
+The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo is an example of how to implement OIDC-compliant SSO.
 :::
 
 ### Length of SSO Sessions
