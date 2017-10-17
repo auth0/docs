@@ -33,7 +33,7 @@ If it is not already enabled, toggle the **Customize Login Page** to enable the 
 Toward the bottom of the object configuring the Lock widget, add the following line (after the `closable` setting works well):
 
 ```text
-allowSignUp: !config.extraParams.prevent_sign_ups,
+allowSignUp: !config.extraParams.prevent_sign_up,
 ```
 
 ![Updating the Hosted Page](/media/articles/extensions/account-link/hosted-page-code.png)
