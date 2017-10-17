@@ -10,14 +10,14 @@ Auth0 [normalizes](/user-profile/normalized) common profile properties in the Us
 
 ## Change a User's Picture
 
-The `user.picture` attribute is not directly editable. As an alternative, you can use the [User Metadata](/metadata) to store a picture attribute which you can then use in your front-end as desired. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
+The `user.picture` attribute is not directly editable. As an alternative, you can use the [User Metadata](/metadata) to store a picture attribute which you can then use in your application as desired. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
 
 For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`:
 
 ```har
 {
   "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/users/{id}",
+  "url": "https://${account.namespace}/api/v2/users/\{id\}",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
