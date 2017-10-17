@@ -64,7 +64,7 @@ Alternatively you can also set the Client's SSO flag using the [Auth0 Management
 
 ### Checking the User's SSO Status from the Client
 
-You'll need to check two things to determine if the user is logged in or not:
+Whenever you need to determine the user's SSO status, you'll need to check the following:
 
 * The Auth0 `accessToken`, which is used to access the desired resource
 * The `expirationDate` on the `accessToken`, which is calculated using the `expires_in` response parameter after successful authentication on the part of the user
