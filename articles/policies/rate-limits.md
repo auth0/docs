@@ -32,13 +32,7 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 ## Exceeding the Rate Limit
 
-If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response with the following message:
-
-```text
-{
-    "message": "Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers."
-}
-```
+If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
 Actions such as rapidly updating configuration settings, aggressive polling, or making highy concurrent API calls may result in your app being rate limited.
 
@@ -46,11 +40,11 @@ If your app triggers the rate limit, please refrain from making additional reque
 
 ## HTTP Response Headers
 
-API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
+API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
-* **X-RateLimit-Limit**: Request limit
-* **X-RateLimit-Remaining**: Requests available for the current time frame
-* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
+* **X-RateLimit-Limit**: The maximum number of requests available in the current time frame.
+* **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
+* **X-RateLimit-Reset**: A [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) of the expected time when the rate limit will reset.
 
 ## Endpoints with Rate Limits
 
