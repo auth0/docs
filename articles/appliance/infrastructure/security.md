@@ -67,7 +67,7 @@ The PSaaS Appliance supports STARTTLS, but it is not required.
 
 ## Auth0 Remote Access
 
-Auth0 requires remote access to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
+Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
 
 ### Initial Configuration
 
