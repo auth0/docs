@@ -17,7 +17,7 @@ For example, if your app provides a way to upload profile pictures, once the pic
 ```har
 {
   "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/users/\{id\}",
+  "url": "https://${account.namespace}/api/v2/users/USER_ID",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
