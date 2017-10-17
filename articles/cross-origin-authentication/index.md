@@ -21,7 +21,7 @@ Cross-origin authentication is only necessary when authenticating against a dire
 
 Because cross-origin authentication is achieved using third-party cookies, the user must have a browser that supports third-party cookies. Additionally, in some browsers, disabling third-party cookies will make cross-origin authentication fail (see the [browser testing matrix](#browser-testing-matrix) below). 
 
-If you wish to use cross-origin authentication, in order to avoid situations in which your users would be unable to authenticate, you may wish to ask your users to leave third party cookies enabled or to switch browsers. You could also simply inform users of the non-support of those browsers when third party cookies are disabled. 
+If you wish to use cross-origin authentication, in order to avoid situations in which your users would be unable to authenticate, you may wish to ask your users to [enable third party cookies](/cross-origin-authentication/third-party-cookies) or to switch browsers. You could also simply inform users of the non-support of those browsers when third party cookies are disabled. 
 
 This limitation is another reason why the more practical solution, where possible, is to use the [Hosted Login Page](/hosted-pages/login) and circumvent this issue entirely.
 
