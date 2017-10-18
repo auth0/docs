@@ -74,7 +74,7 @@ In this case, the redirectUrl should look something like:
 http://yourUrl/
 ```
 
-## Trigger Login With Auth0 PHP Plugin
+## Trigger Login With Auth0 PHP SDK
 
 ```html
 <!-- index.php -->
