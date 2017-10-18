@@ -565,7 +565,7 @@ var options = {
 
 #### sso {Boolean}
 
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or domain' settings.
 
 ::: warning
 Failing to set this to true will result in multifactor authentication not working correctly.

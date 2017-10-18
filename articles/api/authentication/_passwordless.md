@@ -192,7 +192,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+This feature is disabled by default for new domains as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
 :::
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.

@@ -9,7 +9,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Check the URLs in your allowed callbacks, CORS and allowed redirect URLs for Logout to make sure they are correct, complete, and do not involve use of `file:///` or `localhost`.  Minimize the use of wildcards and consider carefully the security ramifications of wildcards.
 
-* Separate production use from ongoing development work by [using separate tenants for prod, test and dev.](/dev-lifecycle/setting-up-env)
+* Separate production use from ongoing development work by [using separate domains for prod, test and dev.](/dev-lifecycle/setting-up-env)
 
 * Configure your network correctly to allow traffic to and from our sets of public APIs (prod envs might have a different setup than dev/staging).
 
@@ -39,7 +39,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Review your [Anomaly Detection settings](${manage_url}/#/anomaly) and read the [Anomaly Detection doc](/anomaly-detection) to understand how to unblock users that have been blocked.
 
-* Review your [Tenant Settings Admin section](${manage_url}/#/tenant/admins) to make sure that only appropriate admins have access to the Auth0 dashboard.
+* Review your [Domain Settings Admin section](${manage_url}/#/domain/admins) to make sure that only appropriate admins have access to the Auth0 dashboard.
 
 * Make sure you have tested all core use cases for your application on all devices that might be used by the end-user population for your application.  Be sure to test both login, single-sign-on (if supported) and log as well as what happens if a user runs your application in multiple browser tabs.
 
@@ -47,7 +47,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Review your rule code, any custom DB scripts and any custom code in the hosted login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
 
-* Configure your application name, support URL and support email in the [Tenant Settings General](${manage_url}/#/tenant) section so when an error occurs your end users will be directed to an appropriate page.
+* Configure your application name, support URL and support email in the [Domain Settings General](${manage_url}/#/domain) section so when an error occurs your end users will be directed to an appropriate page.
 
 * Make sure that your application is [dynamically obtaining a management API token](/api/management/v2/tokens) and make sure to read the [FAQ about API tokens](/api/management/v2/tokens#frequently-asked-questions).
 

@@ -77,7 +77,7 @@ In order to get started using the Hosted Login Page, you'll first want to choose
 
 You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
+All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **domain** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
 
 #### Query String Parameters
 
@@ -137,28 +137,28 @@ webAuth.authorize({
 });
 ```
 
-## Configure Multiple Pages by Using Separate Tenants
+## Configure Multiple Pages by Using Separate Domains
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page. 
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the domain level (every client app you have set up on a single domain would use the same Hosted Login Page), you would have to create a new domain for each client that requires a different hosted page. 
 
-In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
+In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same domain, will allow you to share the resources that would otherwise need to be separated across multiple domains.
 
-Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
+Creating a separate domain is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 domains, each with their own hosted pages set up for that brand or product's specific needs. 
 
-Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of clients, users, settings, etc. as these things are not shared between tenants.
+Bear in mind that separating domains with the goal of having separate hosted pages will also mean that those separate domains will have two distinct sets of clients, users, settings, etc. as these things are not shared between domains.
 
-### Creating New Tenants
+### Creating New Domains
 
 If your use case requires separate sets of custom pages, let's see how you would go about creating them.
 
 If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
 
-- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will all share.
-- Create a second tenant, configure a new client for `app4`, and configure the hosted login page for this client.
-- Create a third tenant, configure a new client for `app5`, and configure the hosted login page for this client.
+- If you already have an account, you have a domain configured. Configure three clients under this domain, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will all share.
+- Create a second domain, configure a new client for `app4`, and configure the hosted login page for this client.
+- Create a third domain, configure a new client for `app5`, and configure the hosted login page for this client.
 
-To create a new tenant go to the [Dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
+To create a new domain go to the [Dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
 
-![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
+![Create new domain](/media/articles/hosted-pages/create-new-tenant.png)
 
-You can easily switch between tenants using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
+You can easily switch between domains using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).

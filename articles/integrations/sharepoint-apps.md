@@ -17,7 +17,7 @@ Just register a new client in Auth0 as you would normally do: __Clients > NEW__.
 You need to obtain a __Client ID__ and a __Client Secret__ for your client. There are many ways of registering your client depending on the expected usage.
 
 ::: note
-[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your client in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
+[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your client in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific domain (yours).
 :::
 
 #### Open SharePoint Online

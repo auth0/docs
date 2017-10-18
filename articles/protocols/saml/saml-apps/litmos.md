@@ -43,7 +43,7 @@ ${include('./\_header')}
                 IssueInstant="2014-05-08T15:28:51Z"
                 Destination="https://{YOUR DOMAIN}.litmos.com/integration/samllogin"
                 >
-    <saml:Issuer>urn:{tenant}.auth0.com</saml:Issuer>
+    <saml:Issuer>urn:{domain}.auth0.com</saml:Issuer>
     <samlp:Status>
         <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
     </samlp:Status>
@@ -53,7 +53,7 @@ ${include('./\_header')}
                     ID="pfx6bf65a3b-b37f-0347-75bd-0c5f24f32c50"
                     IssueInstant="2014-05-08T15:28:51Z"
                     >
-        <saml:Issuer>urn:{tenant}.auth0.com</saml:Issuer>
+        <saml:Issuer>urn:{domain}.auth0.com</saml:Issuer>
         <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
             <ds:SignedInfo>
                 <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />

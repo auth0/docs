@@ -26,11 +26,11 @@ They Auth0 developer keys are to be used for testing purposes so there are a few
 
     ![](/media/articles/connections/social/devkeys/consent-screen.png)
 
-2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, i.e.  `https://${account.namespace}/login/callback`.
+2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own domain, i.e.  `https://${account.namespace}/login/callback`.
 
-    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your client to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
+    This results in the SSO cookie not being set on your own domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your client to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
 
-3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
+3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and domain agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 
 4. [Federated Logout](/logout#log-out-a-user) does not work. When using the Auth0 developer keys, calling `/v2/logout?federated` will sign the user out of Auth0, but not out of the Social Identity Provider.
 

@@ -15,7 +15,7 @@ You will be asked to supply the following details for your API:
 
 - __Name__: a friendly name for the API. Does not affect any functionality.
 - __Identifier__: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value cannot be modified afterwards.
-- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
+- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the domain's private key. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
 
 ![Create API](/media/articles/architecture-scenarios/spa-api/create-api.png)
 
@@ -75,7 +75,7 @@ That's it for now. When we are done with the SPA implementation we will revisit 
 
 ## Configure the Authorization Extension
 
-You will need to ensure that the Authorization Extension is installed for your tenant. You can refer to the [Authorization Extension documentation](/extensions/authorization-extension#how-to-install) for details on how to do this.
+You will need to ensure that the Authorization Extension is installed for your domain. You can refer to the [Authorization Extension documentation](/extensions/authorization-extension#how-to-install) for details on how to do this.
 
 ### Define Permissions 
 

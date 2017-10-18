@@ -14,8 +14,8 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | ---- | ----------- |
 | [Allowed Callback Urls](tutorials/redirecting-users) Not Localhost | Validates the [Client Allowed Callback URLs do not point to localhost](${manage_url}/#/clients), 127.0.0.1, etc |
 | Configure [Guardian SMS Provider](/multifactor-authentication/administrator/twilio-configuration) (Dependency: Guardian is Configured) | Ensures that [Twilio SMS is configured](${manage_url}/#/guardian) if you're using Guardian MFA |
-| Configure Tenant Environment Tag | Ensures the [tenant environment tag is set](${env.DOMAIN_URL_SUPPORT}/tenants/public) appropriately to Production, Staging or Development |
+| Configure Domain Environment Tag | Ensures the [domain environment tag is set](${env.DOMAIN_URL_SUPPORT}/tenants/public) appropriately to Production, Staging or Development |
 | [Email Provider](/email/providers) Configured | Verifies that the [custom email provider has been configured](${manage_url}/#/emails/provider) |
 | [Social Connections](/connections/social/devkeys) Auth0 Dev Keys | Verifies that [Social Connections are not using the default Auth0 developer keys](${manage_url}/#/connections/social) |
-| Support Email is Configured | Ensures the [Support Email is configured](${manage_url}/#/account) in Tenant Settings |
-| Support URL is Configured | Ensures the [Support URL is configured](${manage_url}/#/account) in Tenant Settings |
+| Support Email is Configured | Ensures the [Support Email is configured](${manage_url}/#/account) in Domain Settings |
+| Support URL is Configured | Ensures the [Support URL is configured](${manage_url}/#/account) in Domain Settings |

@@ -34,7 +34,7 @@ bundle install
 
 <%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-rubyonrails-api-samples/tree/OIDC/02-Authentication-HS256' }) %>
 
-Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` taken from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
+Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` taken from the `Authorization` header of the request. The public key for your Auth0 domain can be fetched to verify the token.
 
 ```rb
 # lib/json_web_token.rb

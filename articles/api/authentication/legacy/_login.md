@@ -64,7 +64,7 @@ xhr.send(params);
 ::: warning
 This endpoint is part of the legacy authentication pipeline. We recommend that you open the browser to do social authentication instead, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 
-This feature is disabled by default for new tenants as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+This feature is disabled by default for new domains as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
 
 :::
 

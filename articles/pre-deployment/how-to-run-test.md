@@ -8,17 +8,17 @@ The Pre-Deployment Tests are available via the [Auth0 Support Center](${env.DOMA
 
 ![](/media/articles/support/pre-deployment-tests/support-home.png)
 
-Once you've logged in to your account, click **Tenants** in the navigation bar.
+Once you've logged in to your account, click **Domains** in the navigation bar.
 
 ![](/media/articles/support/pre-deployment-tests/tenants.png)
 
-You'll see a listing of all tenants associated with your Auth0 account. Each tenant displays in its own box. Identify the tenant for which you want to run the Pre-Deployment Tests, and click on the **gear icon** located in the top right-hand corner of its box.
+You'll see a listing of all domains associated with your Auth0 account. Each domain displays in its own box. Identify the domain for which you want to run the Pre-Deployment Tests, and click on the **gear icon** located in the top right-hand corner of its box.
 
 ![](/media/articles/support/pre-deployment-tests/tenants-tests.png)
 
 Click **Run Production Check** to launch the testing interface.
 
-At this point, you'll be able to select one or more [Clients](/clients) associated with this tenant for which you want tests run.
+At this point, you'll be able to select one or more [Clients](/clients) associated with this domain for which you want tests run.
 
 ![](/media/articles/support/pre-deployment-tests//choose-clients.png)
 

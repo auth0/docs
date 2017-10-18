@@ -56,7 +56,7 @@ Set the following configuration variables:
 
 * **Authentication Type**: Set as *SAML*;
 * **Single sign-on URL**: Paste the *Identity Provider Login URL* copied from the Auth0 Dashboard here;
-* **Issuer**: Paste the *Issuer* value copied from the Auth0 Dashboard here. The format of the value is `urn:<tenant>.auth0.com`.
+* **Issuer**: Paste the *Issuer* value copied from the Auth0 Dashboard here. The format of the value is `urn:<domain>.auth0.com`.
 
 Upload the Auth0 Certificate you downloaded under **Replace Certificate**.
 

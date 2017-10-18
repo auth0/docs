@@ -34,7 +34,7 @@ Diagrams or information you deem relevant should be provided prior to our sessio
 
 The Programming Advisory phase includes **two** working sessions where an Auth0 Solutions Architect works with and provides guidance to your development team on topics like:
 
-* Auth0 tenant configuration
+* Auth0 domain configuration
 * Auth0 extensibility endpoints
 * Your application integration with Auth0
 

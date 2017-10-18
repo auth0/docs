@@ -50,7 +50,7 @@ You must first create a client in the Auth0 dashboard before you can configure t
 * **Domain:** The app domain copied from the app settings in your dashboard.
 * **Client Id:** The app client id copied from the app settings in your dashboard.
 * **Client Secret:** The app client secret copied from the app settings in your dashboard.
-* **Client token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
+* **Client token:** The token required to allow the plugin to communicate with Auth0 to update your domain settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
 * **Allow signup:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
 

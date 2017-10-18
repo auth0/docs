@@ -39,14 +39,14 @@ For detailed steps on implementing the grant, please refer to [Using Hooks with 
 
 After you've created a new Hook that uses the Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 domain name with which the client is associated, and client metadata. 
 
 ```js
 /**
 @param {object} client - information about the client
 @param {string} client.name - name of client
 @param {string} client.id - client id
-@param {string} client.tenant - Auth0 tenant name
+@param {string} client.tenant - Auth0 domain name
 @param {object} client.metadata - client metadata
 @param {array|undefined} scope - array of strings representing the scope claim or undefined
 @param {string} audience - token's audience claim
@@ -88,11 +88,11 @@ Once you've modified the sample code with the specific scopes of additional clai
 
 ```json
 {
-  "audience": "https://my-tenant.auth0.com/api/v2/",
+  "audience": "https://my-domain.auth0.com/api/v2/",
   "client": {
     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "name": "client-name",
-    "tenant": "my-tenant",
+    "tenant": "my-domain",
     "metadata": {
       "plan": "full"
     }

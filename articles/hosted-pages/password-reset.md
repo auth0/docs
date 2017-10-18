@@ -15,7 +15,7 @@ Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your
 
 ## Edit the Custom Password Reset Page
 
-Once you've enabled the Password Reset Page for your tenant, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
+Once you've enabled the Password Reset Page for your domain, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
 
 ### Custom Variables
 
@@ -26,16 +26,16 @@ You can use JavaScript to retrieve the following custom variables:
 | `email` | The email address of the user requesting the password change | 
 | `ticket` | The ticket representing the given password reset request | 
 | `csrf_token` | Token used to prevent CSRF activity | 
-| `tenant.name` | The name associated with your Auth0 tenant | 
-| `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
-| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
-| `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
+| `domain.name` | The name associated with your Auth0 domain | 
+| `domain.friendly_name` | The name displayed for your Auth0 domain | 
+| `domain.picture_url` | The URL leading to the logo representing you in Auth0 | 
+| `domain.support_email` | The support email address for your company displayed to your Auth0 users | 
+| `domain.support_url` | The support URL for your company displayed to your Auth0 users | 
 | `lang` | The user's language | 
 | `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
 
 ::: note
-You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
+You can set/check the values for your `domain` variables in the **Settings** area in [Domain Settings](${manage_url}/#/domain)
 :::
 
 Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
@@ -49,7 +49,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
       ticket:            '{{ticket}}',                           // DO NOT CHANGE THIS
       password_policy:   '{{password_policy}}',                  // DO NOT CHANGE THIS
       theme: {
-        icon: "{{tenant.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
+        icon: "{{domain.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
         primaryColor: "#ea5323"
       },
       dict: {
@@ -81,13 +81,13 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   </script>
 ```
 
-Notice that the sample template uses the `tenant.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Tenant Settings](${manage_url}/#/tenant). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
+Notice that the sample template uses the `domain.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Domain Settings](${manage_url}/#/domain). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
 
 ```js
   <script>
     new Auth0ChangePassword({
       theme: {
-        icon: "{{tenant.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
+        icon: "{{domain.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
       }
     });
   </script>

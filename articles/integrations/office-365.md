@@ -112,7 +112,7 @@ When users navigate to [https://portal.office.com](https://portal.office.com) th
 
 Auth0 exposes an endpoint that can immediately start the login without showing the Azure AD login page. The format is as follows:
 
-`https://{tenant}.auth0.com/wsfed/{client-id}?whr={AD-connection-name}`
+`https://{domain}.auth0.com/wsfed/{client-id}?whr={AD-connection-name}`
 
 For Fabrikam's SSO Integration the URL will look like this:
 

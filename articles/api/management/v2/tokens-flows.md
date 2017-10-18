@@ -66,7 +66,7 @@ To generate a token follow the next steps:
 
 1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
 
-2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)) and check the __secret base64 encoded__ flag.
+2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Domain Settings](${manage_url}/#/domain/advanced)) and check the __secret base64 encoded__ flag.
 
 3. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
 
@@ -90,9 +90,9 @@ To generate a token follow the next steps:
 
   Where:
 
-  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+  - __iss__: Who issued the token. Use your __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
+  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your domain. You can find this value at [Advanced Domain Settings](${manage_url}/#/domain/advanced).
 
   - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 
@@ -127,9 +127,9 @@ To generate a token follow the next steps:
 
   Note the following:
 
-  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
+  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Domain Settings](${manage_url}/#/domain/advanced)).
 
-  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
+  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Domain Settings](${manage_url}/#/domain/advanced)).
 
   - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 

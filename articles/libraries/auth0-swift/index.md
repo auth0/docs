@@ -244,7 +244,7 @@ Auth0
 ### Passwordless
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types).
+This feature is disabled by default for new domains as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types).
 :::
 
 Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.

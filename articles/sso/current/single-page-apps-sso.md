@@ -49,7 +49,7 @@ Because client applications cannot query Auth0 directly to determine if users ar
 To bypass displaying the Lock screen when logging in a user, you must:
 
 * Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients/${account.clientId}/settings);
-* Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
+* Have a SSO cookie for the domain's url (in other words, the user has previously signed in and their saved cookie is still valid);
 * Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
   * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
   * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#implicit-grant).

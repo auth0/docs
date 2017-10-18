@@ -19,7 +19,7 @@ At this point you should set the following configuration variables:
 - __Auth0_Global_Client_Secret__: The Global Client Secret of your Auth0 client.
 
 ::: note
-You can find the __Global Client ID__ and __Global Client Secret__ information at the __Global Client information__ section of [your Tenant Advanced Settings](${manage_url}/#/tenant/advanced).
+You can find the __Global Client ID__ and __Global Client Secret__ information at the __Global Client information__ section of [your Domain Advanced Settings](${manage_url}/#/domain/advanced).
 :::
 
 - __Loggly_Customer_Token__: The identifying token assigned to you by Loggly at set-up.

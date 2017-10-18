@@ -17,7 +17,7 @@ For each endpoint in this explorer, you will find sample snippets you can use, i
 
 ## Find your extension URL
 
-All endpoints in this explorer, start with `https://{extension_url}`. This is the URL of your Authorization Dashboard. It differs based on you tenant's region:
+All endpoints in this explorer, start with `https://{extension_url}`. This is the URL of your Authorization Dashboard. It differs based on you domain's region:
 
 <%
   var urlUS = 'https://' + account.tenant + '.us.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api';
@@ -33,7 +33,7 @@ All endpoints in this explorer, start with `https://{extension_url}`. This is th
 
 ## Get an Access Token
 
-When you [enabled API access for your tenant](/extensions/authorization-extension/v2#enable-api-access), an API was created at your [dashboard](${manage_url}), which you can use to access the Authorization Extension API.
+When you [enabled API access for your domain](/extensions/authorization-extension/v2#enable-api-access), an API was created at your [dashboard](${manage_url}), which you can use to access the Authorization Extension API.
 
 To do so you will have to configure a non interactive client which will have access to this API and which you will use to get an [access token](/tokens/access-token).
 

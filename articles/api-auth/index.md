@@ -150,7 +150,7 @@ Using Auth0, you can easily support different flows in your own APIs without wor
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/dynamic-client-registration">Dynamic Client Registration</a>
     <p>
-      Learn how to allow third party developers to create clients under your tenant following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration specification</a>.
+      Learn how to allow third party developers to create clients under your domain following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration specification</a>.
     </p>
   </li>
   <li>

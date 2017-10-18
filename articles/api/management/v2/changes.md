@@ -17,7 +17,7 @@ This document describes the major differences between Auth0's Management API v1 
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
 * New formats for `user_id` (available as `v2_id` with the "usr\_" prefix) and `clientID` (with the "cli\_" prefix) recognize the entity type based on its id.
 * Improved input validation and error messages.
-* Only one connection is exposed per tenant, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
+* Only one connection is exposed per domain, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
 * When updating field values, v2 removes fields with `null` values, instead of storing them with the value `null`
 
 ### User endpoints
@@ -181,23 +181,23 @@ User data previously stored under `metadata` will be available under `app_metada
 
 ## Connections
 
-For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's clients.
+For every domain-created, named connection, Management API v1 exposes an individual connection for each of the domain's clients.
 
-However, given a named connection, Management API v2 exposes only one connection per tenant. Management of connection-enabled clients is performed using the `enabled_clients` property.
+However, given a named connection, Management API v2 exposes only one connection per domain. Management of connection-enabled clients is performed using the `enabled_clients` property.
 
 For example, to create a connection that is enabled for clients `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV`:
 
 ```text
 curl -H "Authorization: Bearer {API_TOKEN}" -X POST -H "Content-Type: application/json"
 -d '{"name":"new-connection","strategy":"auth0","enabled_clients":["AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ","DaM8bokEXBWrTUFZiXjWn50jei6ardyV"]}'
-https://{YOUR_TENANT}.auth0.com/api/v2/connections
+https://${account.tenant}.auth0.com/api/v2/connections
 ```
 
 Connection names cannot be used to manage connections. Instead use the new `id` property. For example, to retrieve the connection with id `'con_UITxoKznrqb1oxIU'`:
 
 ```text
 curl -H "Authorization: Bearer {API_TOKEN}"
-https://{YOUR_TENANT}.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
+https://${account.tenant}.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
 ```
 
 ## Endpoints

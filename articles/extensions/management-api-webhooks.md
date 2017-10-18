@@ -68,7 +68,7 @@ Here is an example of the payload that will be sent:
          "custom_login_page_on":true,
          "global":false,
          "name":"auth0-webhooks",
-         "tenant":"test-tenant"
+         "tenant":"test-domain"
       }
    }
 }

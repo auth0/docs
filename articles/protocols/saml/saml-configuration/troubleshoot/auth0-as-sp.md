@@ -66,10 +66,10 @@ After retrieving and decoding the SAML message, check the following fields:
 
 Field | Description 
 ------|-------------
-Destination | Check that the destination for the SAML response is the correct Auth0 Tenant and Connection (`https://{TENANT}.auth0.com/login/callback?connection={CONNECTION}`).
+Destination | Check that the destination for the SAML response is the correct Auth0 Domain and Connection (`https://{Domain}.auth0.com/login/callback?connection={CONNECTION}`).
 Status Field | This field should indicate success. (`<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`).
-Recipient | Check that the `<saml:SubjectConfirmation` Method element contains correct tenant and connection in the “Recipient” field (`https://{TENANT}.auth0.com/login/callback?connection={CONNECTION}`).
-Audience | Check that the SAML Audience restriction field contains the correct tenant and connection information (`<saml:AudienceRestriction><saml:Audience>urn:auth0:{TENANT}:{CONNECTION}</saml:Audience>`).
+Recipient | Check that the `<saml:SubjectConfirmation` Method element contains correct domain and connection in the “Recipient” field (`https://{Domain}.auth0.com/login/callback?connection={CONNECTION}`).
+Audience | Check that the SAML Audience restriction field contains the correct domain and connection information (`<saml:AudienceRestriction><saml:Audience>urn:auth0:{Domain}:{CONNECTION}</saml:Audience>`).
 Naming | The attribute identified by the `NameIdentifier` field should be known to the application. If it's not, the identifier should be some other attribute within the assertion (such as an internal IdP identifier for the user or an email address).
 Signature Key | Check that the value indicated by the `X509Certificate` element matches the value provided to your connection.
 Certificate | Compare the certificate sent to the one that you provided to the application
@@ -149,7 +149,7 @@ Field | Description
 Destination | The application URL that consumes the SAML assertion, also known as the Assertion Callback URL.
 Status Field | This field should indicate success. (`<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`).
 Recipient | Check that the correct URL appears in the recipient field (indicated by the `<saml:SubjectConfirmation Method…` parameter).
-Audience | Check that the SAML Audience restriction field contains the correct tenant and connection information (`<saml:AudienceRestriction><saml:Audience>urn:auth0:{TENANT}:{CONNECTION}</saml:Audience>`).
+Audience | Check that the SAML Audience restriction field contains the correct domain and connection information (`<saml:AudienceRestriction><saml:Audience>urn:auth0:{Domain}:{CONNECTION}</saml:Audience>`).
 Naming | The attribute identified by the `NameIdentifier` field should be known to the application. If it's not, the identifier should be some other attribute within the assertion (such as an internal IdP identifier for the user or an email address).
 Signature Key | Check that the value indicated by the `X509Certificate` element matches the value provided to your connection.
 Certificate | Compare the certificate sent to the one that you provided to the application.

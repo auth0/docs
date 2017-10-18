@@ -1,5 +1,5 @@
 ---
-description: To cancel your Auth0 subscription, you can downgrade to a free subscription or delete your tenant.
+description: To cancel your Auth0 subscription, you can downgrade to a free subscription or delete your domain.
 crews: crew-2
 ---
 
@@ -8,17 +8,17 @@ crews: crew-2
 If you wish to cancel your Auth0 subscription, you have two options:
 
 1. [Downgrade](#downgrade-a-paid-subscription-to-a-free-subscription) a paid subscription to a free subscription;
-2. [Delete](#close-your-auth0-account) your Auth0 tenant.
+2. [Delete](#close-your-auth0-account) your Auth0 domain.
 
 ## Downgrade a Paid Subscription to a Free Subscription
 
 1. Log in to the Auth0 [Management Dashboard](${manage_url}).
-2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
+2. Click on your domain name in the top right corner to bring up the associated dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)
 
-3. Select **Settings** to open the **Tenant Settings** page.
-4. On the **Tenant Settings** page, click on the **Subscription** tab.
+3. Select **Settings** to open the **Domain Settings** page.
+4. On the **Domain Settings** page, click on the **Subscription** tab.
 
 ![](/media/articles/subscriptions/subscription.png)
 
@@ -28,7 +28,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 6. To confirm your subscription change, click **Subscribe Now**.
 
-## Delete Your Auth0 Tenant
+## Delete Your Auth0 Domain
 
 ::: warning
 This action cannot be undone.
@@ -39,8 +39,8 @@ This action cannot be undone.
 
 ![](/media/articles/subscriptions/dashboard.png)
 
-3. Select **Settings** to open the **Tenant Settings** page.
-4. On the **Tenant Settings** page is open, click on the **Advanced** tab.
+3. Select **Settings** to open the **Domain Settings** page.
+4. On the **Domain Settings** page is open, click on the **Advanced** tab.
 
 ![](/media/articles/subscriptions/advanced.png)
 

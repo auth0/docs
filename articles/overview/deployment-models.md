@@ -109,7 +109,7 @@ The following table describes operational and feature differences between each o
             <td>Simple attribute search or Lucene queries</td>
         </tr>
         <tr>
-            <th>Tenant Log Search</th>
+            <th>Domain Log Search</th>
             <td>Lucene queries</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
