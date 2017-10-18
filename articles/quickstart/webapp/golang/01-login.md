@@ -13,6 +13,8 @@ budicon: 448
 	]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000' }) %>
+
 ## Add Dependencies
 
 Install the following dependencies using `go get`
