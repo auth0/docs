@@ -65,6 +65,8 @@ When done, you'll see the following **Completed** message.
 
 ![](/media/articles/extensions/user-import-export/import-complete.png)
 
+Once you've imported your users, you can manage them individually using the [Users section of the Dashboard](${manage_url/#/users})
+
 ### Export Users
 
 To export your existing Auth0 users associated with database connections, select **Export** in the left-hand navigation bar.
