@@ -16,7 +16,7 @@ The **User Import / Export Extension** allows you to:
 
 You must be a Dashboard Admin to use this extension.
 
-::: note
+::: warning
 You can export a maximum of 10,000 users. If you need to export more users, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
