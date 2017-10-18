@@ -5,40 +5,91 @@ description: The User Import / Export is an extension that allows you to import 
 ---
 # User Import / Export
 
-The __User Import / Export__ is an extension that allows you to import / export users from or to any database you have configured in your account. Please note that you need to be a Dashboard Admin in order to use this extension.
-
 ::: note
-Export is limited to 10 thousand users. If you require to export more than this please [contact support](${env.DOMAIN_URL_SUPPORT}).
+The User Import / Export extension is available in the PSaaS Appliance beginning with version 10755 when User search is enabled.
 :::
 
-## Configuring the Extension
+The **User Import / Export Extension** allows you to:
 
-To install this extension, click on __User Import / Export__ in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Dashboard](${manage_url}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
+* Bulk import your existing database users into Auth0
+* Search for and export some (or all) of you Auth0 database users
 
- - __Users__: create and read your users
- - __Connections__: read your connections
- - __Profile__: access to your profile
+You must be a Dashboard Admin to use this extension.
 
-Once you have provided the appropriate values for the above fields, click on "Install" to proceed.
+::: note
+You can export a maximum of 10,000 users. If you need to export more users, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
+:::
 
-## Using Your Installed Extension
+## Install the Extension
 
-There are two ways of using this extension, they are described below:
+To install this extension, click on **User Import / Export** in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Dashboard](${manage_url}). 
 
-### Import of users
+The extension does not require any additional configuration before it can be installed, so click **Install** in the informational pop-up window to proceed.
 
-1. Select the Import option in the menu from the left.
-2. You may drop a valid JSON file ([schema and examples here](/tutorials/bulk-importing-users-into-auth0)) in the square area or click there to browse your files and search for a valid JSON file. This JSON file should contain the list of users that you are planning to import.
-3. Select the database connection where these users will be imported. Please make sure that the connection is enabled for at least one client.
-4. Click on the `Start importing users` blue button.
+![](/media/articles/extensions/user-import-export/install-extension.png)
 
-### Export of users
+## Use the Extension
 
-1. Select the Export option in the menu from the left.
-2. You can query the users that you want to export by using the [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) in the search bar. For example, to return all the users that have the `nickname` attribute you can use: `_exists_:nickname`.
-3. In the columns section you can decide which attributes should be included in the export. The user attribute can be a static value like `user.user_metadata.name` or a Javascript expression like `user.user_metadata.name || user.name` which will then be evaluated during the export. The column name is how the value will be represented in the export. A good way of seeing an example of this is by clicking on the `Add default columns` blue button on the right.
-4. In the settings section you can configure the sorting options of the output by writing a `User Attribute` in the text field, and the sorting order (descending or ascending) by toggling the button on and off respectively. You can also choose between two output formats, either a `.csv` or `.json` file.
+After you've installed your extension, you'll see it listed in your list of installed extensions. Click on **Import / Export Extension** to launch.
 
-### Observations
+![](/media/articles/extensions/user-import-export/installed-extensions-list.png)
 
-The User Import / Export extension is available in the PSaaS Appliance beginning with version 10755 when User search is enabled.
+You'll be asked to grant permission for the extension to access your Auth0 account for the listed activities the first time you launch the extension.
+
+![](/media/articles/extensions/user-import-export/permissions.png)
+
+Click the **check mark** to proceed.
+
+There are two ways of using this extension:
+
+* Bulk import your existing database users into Auth0
+* Search for and export some (or all) of you Auth0 database users
+
+Both use cases are explained in further detail below.
+
+### Import Users
+
+By default, any time you open the extension, you'll see the **User Import** screen (if you're on the export screen, you can return to this screen by click **Import** in the left-hand navigation bar).
+
+![](/media/articles/extensions/user-import-export/import.png)
+
+To import your users, drag and drop a valid JSON file ([schema and examples here](/tutorials/bulk-importing-users-into-auth0)) onto the area that says **Drop your file here, or click to select**. Alternatively, you can click on this area to browse your files and select the appropriate JSON file. The JSON file should contain the list of users that you are planning to import.
+
+Select the database connection for which your users will be imported. Please make sure that the connection you choose has been enabled for at least one client.
+
+![](/media/articles/extensions/user-import-export/ready-for-import.png)
+
+Click **Start Importing Users** to begin the import process.
+
+When done, you'll see the following **Completed** message.
+
+![](/media/articles/extensions/user-import-export/import-complete.png)
+
+### Export Users
+
+To export your existing Auth0 users associated with database connections, select **Export** in the left-hand navigation bar.
+
+![](/media/articles/extensions/user-import-export/export-users.png)
+
+You can query the users that you want to export using [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) in the search bar. For example, to return all the users that have the `nickname` attribute you can use: `_exists_:nickname`.
+
+Under **Columns**, you can decide which user attributes or expressions should be included in the export. The user attribute can be a static value like `user.user_metadata.name`, or it can be a JavaScript expression like `user.user_metadata.name || user.name`. Expressions will be evaluated during the export runtime. The **column name** value is how the value will be represented in the export. 
+
+You can use the **Add Default Columns** button to automatically select the default attributes and populate their column names (this is also a good way for you to visualize how parameters/expressions will appear).
+
+You can remove extraneous attributes/expressions by clicking on its associated **trash can** icon.
+
+![](/media/articles/extensions/user-import-export/default-columns.png)
+
+Under **Settings**, you can:
+
+* Configure how your exported users are listed by providing a **User Attribute** by which users should be sorted (as well as whether the users should be sorted in ascending or descending order)
+* Choose your **Export Format**; you can choose between JSON and CSV files
+
+![](/media/articles/extensions/user-import-export/settings.png)
+
+When you're ready, click **Export X Users** (where `X` is the number of users you're exporting).
+
+You can download the file containing your users when the export is complete.
+
+![](/media/articles/extensions/user-import-export/export-complete.png)
