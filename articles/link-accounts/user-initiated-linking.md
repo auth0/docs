@@ -72,7 +72,6 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
 
     function linkPasswordAccount(connection){
       var opts = { 
-        rememberLastLogin: false,
         dict: {
           signin: {
             title: 'Link another account'
@@ -121,7 +120,6 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
 
       var opts = {
         autoclose: true,
-        rememberLastLogin: false,
         dict:{
           phone: {
             headerText: "Enter your phone to sign in <br>or create an account to link to."

@@ -215,6 +215,10 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
+::: note
+Note that in order to use `loginWithCredentials` you should enable the [Cross-Origin Authentication](/cross-origin-authentication) setting in your [Dashboard](${manage_url}) under Client settings -> Advanced -> OAuth.
+:::
+
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "GET",
