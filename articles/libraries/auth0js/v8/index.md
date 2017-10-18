@@ -155,7 +155,7 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
 However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
@@ -174,6 +174,30 @@ webAuth.popup.loginWithCredentials({
 });
 ```
 
+### webAuth.login()
+
+The `login` method allows for [cross-origin auth](/cross-origin-authentication) using database connections, using `/co/authenticate`.
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `username` | optional | (String) The username to present for authentication. **Either** `username` or `email` must be present. |
+| `email` | optional | (String) The email to present for authentication. **Either** `username` or `email` must be present.|
+| `password` | required | (String) The password to present for authentication. |
+| `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
+
+```js
+webAuth.login({
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+});
+```
+
+### webAuth.crossOriginAuthenticationCallback()
+
+The `crossOriginAuthenticationCallback()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
+
+>>>>>>> Adding some missing documentation for login method, crossoriginauth
 ### buildAuthorizeUrl(options)
 
 The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
