@@ -5,23 +5,39 @@ description: Lock 10 to Lock 11 Migration Guide
 ---
 # Lock 10 to Lock 11 Migration Guide
 
-The following instructions assume you are migrating from **Lock 10** to the latest **Lock 11**. 
+This document lists all the changes you should be aware of between versions 10 and 11 of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
+
+You are encouraged to use the latest, and more secure, version of the widget, but before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
+
+If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 
 ## Changes and Additions
 
-### OIDC Conformant and Cross-Origin Authentication
+###Hosted Login Pages
 
-The latest version of Lock caters to ease of use for the developer more than ever. Lock 11 makes it even simpler to start using an [OIDC](/cross-origin-authentication) authentication flow than ever before.
+Lock 11 is a new version, designed for embedded login scenarios (i.e. implementations where the Lock widget is embedded in your application), and is not supported in centralized login scenarios (i.e. [Hosted Login Pages](/hosted-pages/login)).
 
-When embedding Lock in your application, you will no longer need to use the `oidcconformant` option. Lock 11 **assumes** that your client is OIDC Conformant. You can verify this in your [Dashboard](${manage_url}), in the Client Settings screen, under "Advanced" and then "OAuth".
+If you are using a Hosted Login Page, keep using Lock 10. If you have the widget embedded in your application consider upgrading to the latest Lock version. 
 
-![Cross Origin Settings](/media/articles/cross-origin-authentication/cross-origin-settings.png)
+### Cross-Origin Authentication
 
-Additionally, when including Lock 11 in your application, [cross-origin authentication](/cross-origin-authentication) must be used. You can check to ensure that this setting is also toggled on in the same OAuth settings screen for your client.
+Ιn order to use Lock 11, you need to have Cross-Origin Authentication (COA) enabled.
 
-### Hosted Login
+You can enable cross-origin authentication using the Dashboard, for details refer to [Configure Your Client for Cross-Origin Authentication](/cross-origin-authentication).
 
-If you use Lock in the Auth0 [Hosted Login Page](/hosted-pages/login), you will need to continue using Lock 10 for the time being. 
+::: note
+Cross Origin Authentication has some limitations. Before you enable it for your app make sure that you are aware of them. For details refer to [Cross Origin Authentication](/cross-origin-authentication).
+:::
+
+## Removed Methods and Options
+
+### oidcConformant
+
+The `oidcConformant` configuration option has been removed. Lock 11 is only used in embedded login scenarios, and all of them are OIDC conformant and use cross-origin authentication by default.
+
+### rememberLastLogin
+
+The `rememberLastLogin` option no longer exists in Lock 11. 
 
 ## Further Reading
 

@@ -9,8 +9,8 @@ img: media/articles/libraries/lock-web.png
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
-::: note
-Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method by which to authenticate users for your applications.
+::: panel Hosted Login Page
+Lock 11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), Lock 11 is not necessary and does not work inside the Hosted Login Page. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock 11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
 :::
 
 ## Lock Installation
@@ -56,6 +56,12 @@ If you are targeting mobile audiences, Auth0 recommends that you add the followi
 ### Bundling Dependencies
 
 If you are using browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you will need to bundle it with all its dependencies. Examples are available for [Browserify](https://github.com/auth0/lock/tree/master/examples/bundling/browserify) and [webpack](https://github.com/auth0/lock/tree/master/examples/bundling/webpack).
+
+### Cross-Origin Authentication
+
+Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you ensure that the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, ensure that the **OIDC Conformant** and **Cross Origin Authentication** settings are turned on.
+
+![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
 ## Usage
 
@@ -114,12 +120,6 @@ document.getElementById('btn-login').addEventListener('click', function() {
   lock.show();
 });
 ```
-
-## Cross-Origin Authentication
-
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you ensure that the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, ensure that the **OIDC Conformant** and **Cross Origin Authentication** settings are turned on.
-
-![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
 ## Browser Compatibility
 
