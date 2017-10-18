@@ -11,7 +11,8 @@ budicon: 448
   path: '00-Starter-Seed/basic-webapp',
   requirements: [
     'Apache 2.4.4',
-    'PHP 5.6.14 and up'
+    'PHP 5.6.14 and up',
+    'Auth0-PHP 5.0 and up'
   ]
 }) %>
 
@@ -23,7 +24,9 @@ ${snippet(meta.snippets.dependencies)}
 This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 :::
 
-## Configure Auth0 PHP Plugin
+## Configure Auth0 PHP SDK
+
+Configure the Auth0 PHP SDK in each page that will use it.
 
 ```php
 use Auth0\SDK\Auth0;
@@ -93,7 +96,7 @@ The `redirect_uri` specified in the `Auth0` constructor **must match** the one s
 
 ## Accessing User Information
 
-You can access the user information via the `getUser` method from Auth0
+You can access the user information via the `getUser` method from Auth0.
 
 ```php
 <?php
