@@ -16,6 +16,9 @@ budicon: 448
   ]
 }) %>
 
+
+<%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000' }) %>
+
 ## Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
@@ -43,10 +46,15 @@ $auth0 = new Auth0([
   'persist_refresh_token' => true,
 ]);
 ```
+::: note
+The `redirect_uri` specified in the `Auth0` constructor **must match** the one specified in the previous step
+:::
 
 ## Add Auth0 Callback Handler
 
-Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
+When you call `$auth0->getUser()`, the SDK will look for the `code` included by Auth0 when redirecting to the callback page, and retrieve the user information. 
+
+In this example, we will use the `index.php` as the callback page, and will include the lines below:
 
 ```php
 // index.php
@@ -66,15 +74,9 @@ if (!$userInfo) {
 
 Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
 
-${include('../_callbackRegularWebApp')}
-
-In this case, the redirectUrl should look something like:
-
-```text
-http://yourUrl/
-```
-
 ## Trigger Login With Auth0 PHP SDK
+
+Add a button in the home page that redirects to `login.php`.
 
 ```html
 <!-- index.php -->
@@ -89,10 +91,6 @@ http://yourUrl/
   // ...
   $auth0->login();
 ```
-
-::: note
-The `redirect_uri` specified in the `Auth0` constructor **must match** the one specified in the previous step
-:::
 
 ## Accessing User Information
 
