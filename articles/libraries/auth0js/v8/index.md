@@ -193,6 +193,10 @@ webAuth.login({
 });
 ```
 
+### webAuth.crossOriginAuthenticationCallback()
+
+The `crossOriginAuthenticationCallback()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
+
 ### buildAuthorizeUrl(options)
 
 The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
