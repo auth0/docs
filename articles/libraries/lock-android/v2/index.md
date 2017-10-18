@@ -11,6 +11,10 @@ Lock for Android can integrate into your native Android apps to provide a beauti
 
 Get started using Lock for Android below, or if you're looking for a specific document beyond basic setup of Lock, try the listing of [next steps](#next-steps) for working with Lock for Android.
 
+::: note
+Check out the [Lock.Android repository](https://github.com/auth0/Lock.Android) on GitHub.
+:::
+
 ## Requirements
 
 To use Lock's UI or your own UI via the [Auth0.Android library](https://github.com/auth0/Auth0.Android) the minimum required Android API level is 15+.
