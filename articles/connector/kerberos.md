@@ -47,6 +47,10 @@ On the other hand, when users are not in the corporate network (e.g.: at a custo
 
 ## Auto-login with Lock
 
+::: warning
+Windows Authentication works for Lock up to version 10.
+:::
+
 When an application is using the Login Page hosted by Auth0 (typicaly used for SAML/WS-Federation protocols and SSO Integrations) the Lock will show a button which allows users to authenticate using "Windows Authentication". If they don't want to use this they can continue and have the Lock show all other available connections.
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page (or to your own page hosting the Lock) to automatically sign in the user if Kerberos is possible:
