@@ -62,16 +62,19 @@ Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP 
 
 Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag for your Client, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the `getSSOData()` function in the [auth0.js library](/libraries/auth0js#sso).
+### Checking the User's SSO Status from the Client
 
-The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
+Whenever you need to determine the user's SSO status, you'll need to check the following:
 
-For more detailed information on how to implement this, please refer to the following:
+* The Auth0 `accessToken`, which is used to access the desired resource
+* The `expirationDate` on the `accessToken`, which is calculated using the `expires_in` response parameter after successful authentication on the part of the user
 
-* [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso)
+If you don't have a valid `accessToken`, the user is *not* logged in. However, they may be logged in via SSO to another associated application -- you can determine if this is the case or not by calling the `renewAuth` method of the auth0.js library, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
+
+For more detailed information on how to implement this, please refer to [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso).
 
 ::: note
-Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo is an example of how to implement OIDC-compliant SSO.
 :::
 
 ### Length of SSO Sessions
