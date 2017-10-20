@@ -46,3 +46,23 @@ There are two ways of using this extension:
 * Search for and export some (or all) of you Auth0 database users
 
 Both use cases are explained in further detail below.
+
+### Import Users
+
+By default, any time you open the extension, you'll see the **User Import** screen (if you're on the export screen, you can return to this screen by click **Import** in the left-hand navigation bar).
+
+![](/media/articles/extensions/user-import-export/import.png)
+
+To import your users, drag and drop a valid JSON file ([schema and examples here](/tutorials/bulk-importing-users-into-auth0)) onto the area that says **Drop your file here, or click to select**. Alternatively, you can click on this area to browse your files and select the appropriate JSON file. The JSON file should contain the list of users that you are planning to import.
+
+Select the database connection for which your users will be imported. Please make sure that the connection you choose has been enabled for at least one client.
+
+![](/media/articles/extensions/user-import-export/ready-for-import.png)
+
+Click **Start Importing Users** to begin the import process.
+
+When done, you'll see the following **Completed** message.
+
+![](/media/articles/extensions/user-import-export/import-complete.png)
+
+Once you've imported your users, you can manage them individually using the [Users section of the Dashboard](${manage_url/#/users})
