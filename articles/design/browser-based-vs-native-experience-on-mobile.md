@@ -58,6 +58,10 @@ However, it's worth noting that the number of times a user logs in with the mobi
 
 As explained in the [RFC 8252 OAuth 2.0 for Native Apps](https://tools.ietf.org/html/rfc8252), OAuth 2.0 authorization requests from native apps should only be made through external user-agents, primarily the user's browser.  The specification details the security and usability reasons why this is the case.
 
+::: note
+For an overview of RFC 8252, refer to [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps).
+:::
+
 ## Conclusion
 
 There are upsides and downsides to using either a browser-based or native login flow on mobile devices, but regardless of which option you choose, Auth0 supports either.
