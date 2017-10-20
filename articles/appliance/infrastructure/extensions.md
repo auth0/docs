@@ -49,6 +49,10 @@ Once you have met the requirements for enabling Webtasks, submit a Support ticke
 * Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`)
 * Update your PSaaS Appliance to version `8986`. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
 
+## Dedicated Domains
+
+Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a [dedicated domain](/appliance/webtask/dedicated-domains). This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).
+
 ## Keep reading
 
 ::: next-steps
