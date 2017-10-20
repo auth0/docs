@@ -45,6 +45,10 @@ Note that using `crossOriginVerification` as a fallback will only work if the br
 
 Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
 
+![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-settings.png)
+
+This URL should be added to the [Dashboard](${manage_url}) client settings (Advanced -> OAuth) in the **Cross Origin Authentication Location** field.
+
 ```html
 <!-- callback-cross-auth.html -->
 
