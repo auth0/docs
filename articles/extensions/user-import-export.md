@@ -27,3 +27,22 @@ To install this extension, click on **User Import / Export** in the list of prov
 The extension does not require any additional configuration before it can be installed, so click **Install** in the informational pop-up window to proceed.
 
 ![](/media/articles/extensions/user-import-export/install-extension.png)
+
+## Use the Extension
+
+After you've installed your extension, you'll see it listed in your list of installed extensions. Click on **Import / Export Extension** to launch.
+
+![](/media/articles/extensions/user-import-export/installed-extensions-list.png)
+
+You'll be asked to grant permission for the extension to access your Auth0 account for the listed activities the first time you launch the extension.
+
+![](/media/articles/extensions/user-import-export/permissions.png)
+
+Click the **check mark** to proceed.
+
+There are two ways of using this extension:
+
+* Bulk import your existing database users into Auth0
+* Search for and export some (or all) of you Auth0 database users
+
+Both use cases are explained in further detail below.
