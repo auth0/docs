@@ -36,20 +36,6 @@ You can enable COA using the Dashboard, for details refer to [Configure Your Cli
 Cross Origin Authentication has some limitations, before you enable it for your app make sure that you are aware of them. For details refer to [Cross Origin Authentication](/cross-origin-authentication).
 :::
 
-### checkSession Error Response
-
-The `checkSession` method attempts to get a new token from Auth0 by using [silent authentication](/api-auth/tutorials/silent-authentication) or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
-
-In the case of callback with an error, Auth0.js 8 was returning a string with an error, for example `login_required`.
-
-Auth0.js 9 will return a JSON object instead. For example:
-
-```text
-{
-  error: 'login_required'
-}
-```
-
 ### Deprecated Methods
 
 #### getSSOData
@@ -78,6 +64,14 @@ auth0.checkSession({
 });
 ```
 
+In case of error the response will include a JSON object, for example:
+
+```text
+{
+  error: 'login_required'
+}
+```
+
 You can use this method when a page loads. If the user was already logged in via SSO, Auth0 will respond exactly as if the user had authenticated manually through the SSO login page.
 
 For example, if you using the [Implicit Grant](/api-auth/grant/implicit) in your SPA, Auth0 will respond with an `access_token` in the hash fragment of the URI:
@@ -88,14 +82,15 @@ Location: http://YOUR-APP-URL#access_token=TOKEN&state=STATE&token_type=TYPE&exp
 ```
 
 In this case you would extract the tokens from the hash fragment and display a Logout button in the page.
+
 If the user was not logged in via SSO or their SSO session had expired, Auth0 will redirect to the specified `redirect_uri` (callback URL) with an error:
 
 ```text
-GET https://your_callback_url/
-    ?error=ERROR_CODE&
-    error_description=ERROR_DESCRIPTION&
-    state=...
+{
+  error: 'login_required'
+}
 ```
 
 In this case you will want to display a Login button in the page so the user can authenticate. 
+
 For more information on Silent Authentication and how to implement it, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
