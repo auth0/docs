@@ -224,8 +224,13 @@ Adding buttons directly to Lock's DOM is not officially supported, so make sure 
 :::
 
 ```js
+<<<<<<< HEAD
 <script src="${lock_url}"></script>
 <script src="${auth0js_url}"></script>
+=======
+<script src="${lock_urlv11}"></script>
+<script src="${auth0js_urlv9}"></script>
+>>>>>>> Version URL updates
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad';

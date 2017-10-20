@@ -472,7 +472,11 @@ And add a file called `silent.html`:
 <html>
 <head>
   <meta charset="utf-8">
+<<<<<<< HEAD
   <script src="${auth0js_url}"></script>
+=======
+  <script src="${auth0js_urlv9}"></script>
+>>>>>>> Version URL updates
   <script>
     var AUTH0_CLIENT_ID = '${account.clientId}';
     var AUTH0_DOMAIN = '${account.namespace}';
@@ -505,7 +509,7 @@ Next we’ll need to update the Angular SPA. Add a method to the `AuthService` w
 
 ```js
 public renewToken() {
-  this.auth0.renewAuth({
+  this.auth0.checkSession({
     audience: AUTH_CONFIG.apiUrl,
     redirectUri: AUTH_CONFIG.silentCallbackURL,
     usePostMessage: true

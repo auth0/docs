@@ -106,7 +106,11 @@ The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you 
         Log In
     </button>
   <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <script src="${auth0js_url}"></script>
+=======
+  <script src="${auth0js_urlv9}"></script>
+>>>>>>> Version URL updates
   <script>
     (function () {
       var webAuth = new auth0.WebAuth({
