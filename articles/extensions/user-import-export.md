@@ -65,4 +65,33 @@ When done, you'll see the following **Completed** message.
 
 ![](/media/articles/extensions/user-import-export/import-complete.png)
 
-Once you've imported your users, you can manage them individually using the [Users section of the Dashboard](${manage_url/#/users})
+Once you've imported your users, you can manage them individually using the [Users section of the Dashboard](${manage_url}/#/users)
+
+### Export Users
+
+To export your existing Auth0 users associated with database connections, select **Export** in the left-hand navigation bar.
+
+![](/media/articles/extensions/user-import-export/export-users.png)
+
+You can query the users that you want to export using [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) in the search bar. For example, to return all the users that have the `nickname` attribute you can use: `_exists_:nickname`.
+
+Under **Columns**, you can decide which user attributes or expressions should be included in the export. The user attribute can be a static value like `user.user_metadata.name`, or it can be a JavaScript expression like `user.user_metadata.name || user.name`. Expressions will be evaluated during the export runtime. The **column name** value is how the value will be represented in the export. 
+
+You can use the **Add Default Columns** button to automatically select the default attributes and populate their column names (this is also a good way for you to visualize how parameters/expressions will appear).
+
+You can remove extraneous attributes/expressions by clicking on its associated **trash can** icon.
+
+![](/media/articles/extensions/user-import-export/default-columns.png)
+
+Under **Settings**, you can:
+
+* Configure how your exported users are listed by providing a **User Attribute** by which users should be sorted (as well as whether the users should be sorted in ascending or descending order)
+* Choose your **Export Format**; you can choose between JSON and CSV files
+
+![](/media/articles/extensions/user-import-export/settings.png)
+
+When you're ready, click **Export X Users** (where `X` is the number of users you're exporting).
+
+You can download the file containing your users when the export is complete.
+
+![](/media/articles/extensions/user-import-export/export-complete.png)
