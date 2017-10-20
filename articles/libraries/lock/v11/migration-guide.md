@@ -61,3 +61,19 @@ The `rememberLastLogin` flag was used to determine whether or not to show a scre
 This flag, alongside with the functionality, has been removed from Lock 11.
 
 If you are migrating to Lock 11 you need to remove this flag from your implementation.
+
+#### getUserInfo
+
+Lock 10 introduced the method `getUserInfo` which you could use to get the user's profile, once they were logged in (and your app had a token as a result of the authentication process).
+
+This method has been removed from Lock 11. In order to retrieve the user's profile you will have to use the `getProfile` method, and use an `access_token` as input.
+
+Example:
+
+```js
+lock.getProfile(accessToken, function(error, profile) {
+  if (!error) {
+    alert("hello " + profile.name);
+  }
+});
+```
