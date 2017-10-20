@@ -366,8 +366,7 @@ webAuth.checkSession({
   audience: 'https://example.com/api/v2',
   scope: 'openid read:something write:otherthing',
   responseType: 'token id_token',
-  nonce: '1234',
-  usePostMessage: true
+  nonce: '1234'
 }, function (err, authResult) {
     ...
 });
@@ -436,8 +435,7 @@ The `checkSession` method allows you to acquire a new token from Auth0 for a use
 webAuth.checkSession({
   audience: 'https://example.com/api/v2',
   scope: 'read:something write:otherthing',
-  redirectUri: 'https://example.com/auth/silent-callback',
-  usePostMessage: true
+  redirectUri: 'https://example.com/auth/silent-callback'
 }, function (err, authResult) {
   // err if automatic parseHash fails
   ...
