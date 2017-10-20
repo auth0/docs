@@ -8,7 +8,7 @@ toc: true
 
 This document lists all the changes you should be aware of between versions 10 and 11 of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
 
-If you are using Lock in embedded mode, you are encouraged to use the latest, and more secure, version of the widget, but before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
+If you are using Lock in embedded mode, you are encouraged to consider migrating to the [Hosted Login Page](hosted-pages/login) instead. If you must use embedded login, you should update to Lock 11. Lock 11 is the latest version of Lock and is tailored for embedded login. Before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
 
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 
