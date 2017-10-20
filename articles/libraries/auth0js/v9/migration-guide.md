@@ -36,6 +36,20 @@ You can enable COA using the Dashboard, for details refer to [Configure Your Cli
 Cross Origin Authentication has some limitations, before you enable it for your app make sure that you are aware of them. For details refer to [Cross Origin Authentication](/cross-origin-authentication).
 :::
 
+### checkSession Error Response
+
+The `checkSession` method attempts to get a new token from Auth0 by using [silent authentication](/api-auth/tutorials/silent-authentication) or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
+
+In the case of callback with an error, Auth0.js 8 was returning a string with an error, for example `login_required`.
+
+Auth0.js 9 will return a JSON object instead. For example:
+
+```text
+{
+  error: 'login_required'
+}
+```
+
 ### Deprecated Methods
 
 #### getSSOData
