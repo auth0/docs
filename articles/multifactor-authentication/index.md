@@ -66,3 +66,7 @@ You may [configure rules](/rules) for custom MFA processes, which allow you to d
 ## MFA Using a Custom Provider
 
 For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
+
+## User-initiated MFA
+
+For details on how to implement user-initiated MFA, so you can flag users for MFA as part of the user creation/login process, refer to [User-Initiated Multifactor Authentication](/multifactor-authentication/user-initiated-mfa).

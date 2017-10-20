@@ -107,7 +107,7 @@ Custom domains are optional, and Auth0 SLAs do **not** cover this portion of the
 
 You can configure custom domain names for your app tenants' domains. 
 
-If you choose to use custom domains, you'll need to manage the DNS name records, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entries that alias the Auth0 identity.
+If you choose to use custom domains, you'll need to manage your DNS name records, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entries that alias the Auth0 identity.
 
 For example, you'll need to map `identity.<your_name>.auth0.com` to `identity.<your_name>.com`.
 

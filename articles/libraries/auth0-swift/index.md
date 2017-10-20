@@ -8,6 +8,10 @@ url: /libraries/auth0-swift
 
 Auth0.swift is a client-side library for Auth0.
 
+::: note
+Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on GitHub.
+:::
+
 ## Requirements
 
 - iOS 9 or later

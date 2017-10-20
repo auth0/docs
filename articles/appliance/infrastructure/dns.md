@@ -25,8 +25,8 @@ If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated
         <td>manage-project.yourdomain.com</td>
     </tr>
     <tr>
-        <th>Root Tenant Authority</th>
-        <td>rta-project.yourdomain.com</td>
+        <th>Configuration</th>
+        <td>config-project.yourdomain.com</td>
     </tr>
     <tr>
         <th>Webtask</th>
@@ -46,8 +46,8 @@ For a dev/test non-production PSaaS Appliance a common practice is to append “
         <td>manage-dev-project.yourdomain.com</td>
     </tr>
     <tr>
-        <th>Root Tenant Authority (Dev)</th>
-        <td>rta-dev-project.yourdomain.com</td>
+        <th>Configuration (Dev)</th>
+        <td>config-dev-project.yourdomain.com</td>
     </tr>
     <tr>
         <th>Webtask (Dev)</th>
@@ -61,7 +61,7 @@ For a dev/test non-production PSaaS Appliance a common practice is to append “
 
 ### Definitions of Terms Used in the DNS Naming Scheme
 
-* **Root Tenant Authority (RTA)**: highly-privileged tenant used to do the PSaaS Appliance baseline configuration and for managing the security of other tenants;
+* **Configuration**: highly-privileged tenant used to do the PSaaS Appliance baseline configuration and for managing the security of other tenants;
 * **App**: the name of your application;
 * **Project**: the name of the overarching project or department;
 * **yourdomain.com**: your organization's domain name.
@@ -90,7 +90,7 @@ The hostname (e.g. **manage-project**.yourdomain.com) must be at least three cha
 
 The following are reserved tenant names and **may not** be used for the **app** tenant.
 
-<table>
+<table class="table">
     <tr>
         <td>login</td>
         <td>admin</td>
@@ -152,7 +152,7 @@ In the PSaaS Appliance, you may map any arbitrary domain name to a tenant using 
 
 Suppose these were your standard domains:
 
-<table>
+<table class="table">
     <tr>
         <td>Root Tenant Authority</td>
         <td>Sample Tenant</td>
@@ -165,4 +165,4 @@ Suppose these were your standard domains:
     </tr>
 </table>
 
-Please note that all tenant names are derived from the base RTA. However, you may set your custom domain to point toward any of your tenants (in the example above, `new-name.not-example.com` maps to `auth.example.com`, and the latter may be used by your clients).
+Please note that all tenant names are derived from the base Configuration Tenant. However, you may set your custom domain to point toward any of your tenants (in the example above, `new-name.not-example.com` maps to `auth.example.com`, and the latter may be used by your clients).

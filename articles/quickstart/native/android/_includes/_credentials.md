@@ -4,8 +4,8 @@ You will require the **Client ID** and **Domain** for your client application. T
 
 ```xml
 <resources>
-    <string name="com_auth0_client_id">${account.clientId}"</string>
-    <string name="com_auth0_domain">${account.namespace}"</string>
+    <string name="com_auth0_client_id">${account.clientId}</string>
+    <string name="com_auth0_domain">${account.namespace}</string>
 </resources>
 ```
 
