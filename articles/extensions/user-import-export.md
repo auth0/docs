@@ -19,3 +19,11 @@ You must be a Dashboard Admin to use this extension.
 ::: warning
 You can export a maximum of 10,000 users. If you need to export more users, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
 :::
+
+## Install the Extension
+
+To install this extension, click on **User Import / Export** in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Dashboard](${manage_url}). 
+
+The extension does not require any additional configuration before it can be installed, so click **Install** in the informational pop-up window to proceed.
+
+![](/media/articles/extensions/user-import-export/install-extension.png)
