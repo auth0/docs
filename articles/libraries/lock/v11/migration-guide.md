@@ -36,23 +36,13 @@ You can enable COA using the Dashboard, for details refer to [Configure Your Cli
 Cross Origin Authentication has some limitations, before you enable it for your app make sure that you are aware of them. For details refer to [Cross Origin Authentication](/cross-origin-authentication).
 :::
 
-### Single Sign On using IP Ranges
+### Federating with Active Directory through the AD/LDAP Connector
 
-Up to Lock 10, you could configure IP ranges in an Active Directory/LDAP connection and use them to allow integrated Windows Authentication if the user attempting to log in was within that range. Lock would display a button enabling SSO for the user.
+Up to Lock 10, if you had configured IP ranges in an Active Directory/LDAP connection, Lock would notice you are connecting from that IP range and redirect to the Active Directory login page.
 
-![Windows Authentication in Lock 10](/media/articles/libraries/lock/windows-authentication.png)
+Lock 11 will no longer do that. It will prompt for username/password in Lock itself and authenticate with the AD directory.
 
-This functionality has been removed from Lock 11. There is no IP detection and the user will get redirected to the Active Directory login page where they will have to type their credentials.
-
-At the moment Lock 11 cannot handle Active Directory connections (we are working hard to add support for this soon), so the request will return the following response:
-
-```text
-{
-    "error":"invalid_request",
-    "error_description":"Connection strategy not supported."
-}
-
-```
+You can achieve the Lock 10 behavior by using the Hosted Login Page.
 
 ### Deprecated Methods/Properties
 
