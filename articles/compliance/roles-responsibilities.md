@@ -16,7 +16,7 @@ Auth0 handles end-user data present in user profiles, including metadata.
 
 ## Data Controller (Customer) Responsibilities
 
-Ultimately, the customer is responsible for GDPR compliance, which mostly consists of operational procedures and documentation.
+Ultimately, you, as the data controller, are responsible for GDPR compliance, which mostly consists of operational procedures and documentation.
 
 More specifically, the customer is responsible for:
 

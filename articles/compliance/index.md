@@ -8,13 +8,13 @@ classes: topic-page
   <div data-name="example" class="topic-page-badge"></div>
   <h1>General Data Protection Regulation</h1>
   <p>
-    On 27 April 2016, the European Parliament and the European Council adopted legislation known as [General Data Protection Regulation (GDPR)](http://www.eugdpr.org/), which becomes enforceable 25 May 2018. This legislation replaces European Privacy Directive 95/46/EC.
+    On 27 April 2016, the European Parliament and the European Council adopted legislation known as <a href="http://www.eugdpr.org/">General Data Protection Regulation (GDPR)</a>, which becomes enforceable 25 May 2018. This legislation replaces European Privacy Directive 95/46/EC.
   </p>
   <p>
     GDPR is intended to unify and strengthen data privacy for individuals located in the European Union (EU). GDPR also extends the applicability of EU data privacy legislation to non-EU companies who store or process data on EU residents and increases the fines that may be levied against companies who are responsible for preventing breaches of personal data or who violate GDPR requirements.
   </p>
   <p>
-    The contents of these documents are is **not** intended to be legal advice, nor should they be considered a substitute for legal assistance. The final responsibility for understanding and complying with GDPR resides with you, though Auth0 will assist you in meeting GDPR requirements where possible.
+    The contents of these documents are <b>not</b> intended to be legal advice, nor should they be considered a substitute for legal assistance. The final responsibility for understanding and complying with GDPR resides with you, though Auth0 will assist you in meeting GDPR requirements where possible.
   </p>
 </div>
 
@@ -26,7 +26,7 @@ classes: topic-page
     <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr-summary">GDPR Summary</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/auth0-as-data-processor">Auth0 as a Data Processor</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/roles-responsibilities">Roles and Responsibilities under GDPR</a>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/compliance/data-processing">Auth0 Data Processing</a>
