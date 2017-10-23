@@ -17,7 +17,7 @@ When conducting performance testing, you may encounter issues with your implemen
 
 ### The Auth0 Dashboard
 
-The [Logs section of the Auth0 Dashboard](${manage_url}/#/logs)] stores data on:
+The [Logs section of the Auth0 Dashboard](${manage_url}/#/logs) stores data on:
 
 * Actions taken in the Dashboard by administrators
 * Authentications made by your users
