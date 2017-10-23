@@ -5,13 +5,12 @@ index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
 description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
+toc: true
 ---
 
 # Connect your app to Facebook
 
 To connect your Auth0 app to Facebook, you will need an **App ID** and **App Secret** from your Facebook app, then copy these keys into your Auth0 settings and enable the connection.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Login to Facebook Developers
 
