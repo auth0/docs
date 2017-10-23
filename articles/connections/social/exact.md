@@ -4,13 +4,12 @@ connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
 description: How to obtain a Client Id and Client Secret for Exact.
+toc: true
 ---
 
 # Connect your app to Exact
 
 To configure an Exact OAuth2 connection, you will need to register your Auth0 tenant on the [Exact Online App Center](https://apps.exactonline.com/).
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Register a new app
 

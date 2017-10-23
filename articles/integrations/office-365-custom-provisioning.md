@@ -16,21 +16,22 @@ The [Office 365 tutorial](/integrations/office-365) explains how to register a c
 
 Custom provisioning uses the Azure AD Graph API to provision new users in Azure AD. In order to access the Azure AD Graph API an application must be created within the Azure AD Directory that has been linked to the Office 365 subscription.
 
-Go to [the Azure Management Portal](https://manage.windowsazure.com/@auth0testenv.onmicrosoft.com#Workspaces/ActiveDirectoryExtension) and create a new application in your Azure AD Directory:
-
-![Create Azure AD Application](/media/articles/integrations/office-365/office-365-create-app.png)
-
-Choose **Add an application my organization is developing**, give it a name (eg: **Auth0 Provisioning**). For the Sign-On Url and App ID Url any value will do (eg: **http://mycompany.com/auth0-provision**).
-
-On the **Configure** tab of the application you will be able to generate a new key. The Client ID and the key on this page will give you access to the Graph API:
-
-![Azure AD Client ID and Key](/media/articles/integrations/office-365/office-365-app-key.png)
-
-::: note
-They key generated here is valid for 1 or 2 years. Make sure you generate a new key before it expires and you update it in Auth0 accordingly.
-:::
-
-The final step in the Azure AD configuration is to give the required permissions to the application. Under **Application Permissions** (at the bottom of the page) you will need to choose **Read and write directory data**. This will allow your application to create new users in Azure AD.
+1. Log into the [Azure Portal](https://portal.azure.com).
+2. Choose [Azure Active Directory in the left navigation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+3. Select **App registrations** in the new menu.
+4. Click on **New application registration**.
+5. Fill the form:
+    1. Input a name for the application (e.g. `Auth0 Provisioning`)
+    2. Select **Web app / API** as the **Application type**.
+    3. Insert a sign-on URL. Any valid url as this won't be really used.
+5. The recently created app will appear in the **App registrations** list. Select it.
+6. In the **Settings** blade (Microsoft call these sections as blade), choose **Keys**.
+7. Input a **Description** (like `Auth0 Provision`) and choose a **Duration** for the new key. If you choose to issue non-permanent key, take note of the expiration date and create a reminder to replace the key with a new one before it expires.
+8. Click on save the key and copy the **App Key**. This key will be shown only once and it's needed for the Auth0 rule.
+![Creating a key on Azure AD apps registration](/media/articles/integrations/office-365/office-365-app-key.png)
+9. Choose **Required permissions** and click **Add** in the new blade.
+10. Select the **Microsoft Graph** API and then check `Read and write directory data` under **Application Permissions**.
+11. Back in the **Required permissions**, click on the **Grant Permissions** button and then click **Yes** to grant the requested permissions.
 
 ## Azure AD Provisioning Rule
 
@@ -40,221 +41,213 @@ The following rule shows the provisioning process:
  2. If the user was already provisioned in Azure AD, just continue with the login transaction.
  3. Get an access token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
- 5. Continue with the login transaction.
+ 5. Assign a license to the user.
+ 6. Continue with the login transaction.
 
-The username is generated with the `AAD_USERNAME_GENERATOR` function, which by default generates a username in the format `auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be`. You can change this to whatever you like, just make sure this value is unique for all your users.
+The username is generated with the `createAzureADUser` function, which by default generates a username in the format `auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be`. You can change this to whatever you like, just make sure this value is unique for all your users.
+
+Make sure you set the correct values for the `AUTH0_OFFICE365_CLIENT_ID`, `AAD_CUSTOM_DOMAIN`, `AAD_DOMAIN`, `AAD_APPLICATION_ID` and `AAD_APPLICATION_API_KEY` values in the rule code.
 
 In the code you'll also see that the rule will wait about 15 seconds after the user is provisioned. This is because it takes a few seconds before the provisioned user is available for Office 365.
 
 ```js
 function (user, context, callback) {
+  // Require the Node.js packages that we are going to use.
+  // Check this website for a complete list of the packages available:
+  // https://tehsis.github.io/webtaskio-canirequire/
+  var rp = require('request-promise');
+  var uuidv4 = require('uuid');
 
+  // The name of your Active Directory connection (if using one)
   var AUTH0_AD_CONNECTION = 'FabrikamAD';
-  var AUTH0_OFFICE365_CLIENTID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
-
-  var AAD_CUSTOM_DOMAIN = 'fabrikamcorp.be';
-  var AAD_TENANT_NAME = 'fabrikamcorp365.onmicrosoft.com';
-  var AAD_CLIENT_ID = 'AZURE_AD_CLIENT_ID';
-  var AAD_CLIENT_SECRET = 'AZURE_AD_CLIENT_SECRET';
-  // https://go.microsoft.com/fwLink/?LinkID=335775&clcid=0x409
+  // The client_id of your Office 365 SSO integration
+  // You can get it from the URL when editing the SSO integration,
+  // it will look like 
+  // https://manage.auth0.com/#/externalapps/{the_client_id}/settings
+  var AUTH0_OFFICE365_CLIENT_ID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
+  // The main domain of our company.
+  var YOUR_COMPANY_DOMAIN = 'mycompanyurl.com';
+  // Your Azure AD domain.
+  var AAD_DOMAIN = 'mycompanyurl.onmicrosoft.com';
+  // The Application ID generated while creating the Azure AD app.
+  var AAD_APPLICATION_ID = 'fc885c73-ce83-4d1e-9fo3-kako45460489';
+  // The generated API key for the Azure AD app.
+  var AAD_APPLICATION_API_KEY = 'ZqnwPIsiMP07Wz7AQkx0RsD7mYTElny1tpKot8lizE9=';
+  // The location of the users that are going to access Microsoft products.
   var AAD_USAGE_LOCATION = 'US';
-  var AAD_USER_CREATE_WAIT = 15000;
-  var AAD_USERNAME_GENERATOR = function() {
+  // Azure AD doesn't recognize the user instantly, it needs a few seconds
+  var AAD_USER_CREATE_DELAY = 15000;
+  // The key that represents the license that we want to give the new user.
+  // Take a look in the following URL for a list of the existing licenses:
+  // https://gist.github.com/Lillecarl/3c4727e6dcd1334467e0
+  var OFFICE365_KEY = 'O365_BUSINESS';
 
-    // Will generate something like:
-    // auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be
-    var uuid = require('node-uuid').v4();
-    return 'auth0-' + uuid + '@' + AAD_CUSTOM_DOMAIN;
-  };
+  // Only execute this rule for the Office 365 SSO integration.
+  if (context.clientID !== AUTH0_OFFICE365_CLIENT_ID) {
+    return callback(null, user, context);
+  }
 
   // Skip custom provisioning for AD users.
   if (context.connection === AUTH0_AD_CONNECTION) {
     return callback(null, user, context);
   }
 
-  if (context.clientID === AUTH0_OFFICE365_CLIENTID) {
-    // Check if the user was already provisioned.
-    user.app_metadata = user.app_metadata || {};
-    if (user.app_metadata.office365_provisioned) return continue_with_azuread_user();
-
-    // Generate a new uuid.
-    var uuid = require('node-uuid').v4();
-    var immutable_id = guid_to_base64(uuid);
-
-    // Log context.
-    console.log('Preparing user provisioning:');
-    console.log(' > uuid:', uuid);
-    console.log(' > immutable_id:', immutable_id);
-
-    // Get the token.
-    get_azuread_token(function(err, token) {
-      if (err) return callback(err);
-
-      var context = {
-        displayName: user.nickname,
-        mailNickname: user.email.split('@')[0],
-        userPrincipalName: 'auth0-' + uuid + '@' + AAD_CUSTOM_DOMAIN,
-        uuid: uuid,
-        immutableId: immutable_id
-      };
-
-      // Create the user.
-      provision_azuread_user(token, context, function(err) {
-        if (err) return callback(err);
-
-        console.log('Done! Storing info in user profile.');
-
-        // Update the user.
-        user.app_metadata.office365_provisioned = true;
-        user.app_metadata.office365_upn = context.userPrincipalName;
-        user.app_metadata.office365_immutable_id = context.immutableId;
-        auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-        .then(function() {
-          // Wait a little bit, it takes some time before the user is created.
-          setTimeout(function() {
-            return continue_with_azuread_user();
-          }, AAD_USER_CREATE_WAIT);
-        })
-        .catch(function(err) {
-          console.log('Error updating user profile:', err);
-          return callback(err);
-        });
-      });
-    });
-  }
-  else {
-    return callback(null, user, context);
+  // If the user is already provisioned on Microsoft AD, we skip
+  // the rest of this rule
+  user.app_metadata = user.app_metadata || {};
+  if (user.app_metadata.office365Provisioned) {
+    return connectWithUser();
   }
 
-  /*
-   * Continue the login...
-   */
-  function continue_with_azuread_user() {
-    user.app_metadata = user.app_metadata || {};
-    user.upn = user.app_metadata.office365_upn;
-    user.inmutableid = user.app_metadata.office365_immutable_id;
-    console.log('Logging in user:', {
-      upn: user.upn,
-      immutable_id: user.inmutableid
-    });
-    return callback(null, user, context);
-  }
+  // Global variables that we will use in the different steps while
+  // provisioning a new user.
+  var token;
+  var userPrincipalName;
+  var mailNickname = user.email.split('@')[0];
+  var uuid = uuidv4.v4();
+  var immutableId = new Buffer(uuid).toString('base64');
+  var userId;
 
-  /*
-   * Create the user in Azure AD.
-   */
-  function provision_azuread_user(token, context, cb) {
+  // All the steps performed to provision new Microsoft AD users.
+  // The definition of each function are below.
+  getAzureADToken()
+    .then(createAzureADUser)
+    .then(getAvailableLicenses)
+    .then(assignOffice365License)
+    .then(saveUserMetadata)
+    .then(waitCreateDelay)
+    .then(connectWithUser)
+    .catch(callback);
+
+  // Requests an access_token to interact with Windows Graph API.
+  function getAzureADToken() {
     var options = {
-      url: 'https://graph.windows.net/' + AAD_TENANT_NAME +
-              '/users?api-version=1.5',
+      method: 'POST',
+      url: 'https://login.windows.net/' + AAD_DOMAIN + '/oauth2/token?api-version=1.5',
+      headers: {
+        'Content-type': 'application/json',
+        },
+      json: true,
+      form: {
+        client_id: AAD_APPLICATION_ID,
+        client_secret: AAD_APPLICATION_API_KEY,
+        grant_type: 'client_credentials',
+        resource: 'https://graph.windows.net'
+      },
+    };
+
+    return rp(options);
+  }
+
+  // Gets the access_token requested above and assembles a new request
+  // to provision the new Microsoft AD user.
+  function createAzureADUser(response) {
+    token = response.access_token;
+    userPrincipalName = 'auth0-' + uuid + '@' + YOUR_COMPANY_DOMAIN;
+
+    var options = {
+      url: 'https://graph.windows.net/' + AAD_DOMAIN + '/users?api-version=1.6',
       headers: {
         'Content-type': 'application/json',
         'Authorization': 'Bearer ' + token
       },
       json: true,
       body: {
-        /*
-         * Additional properties are documented here (like license assignment)
-         * https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceUserEntity
-         */
         accountEnabled: true,
-        displayName: context.displayName,
-        mailNickname: context.mailNickname,
-        userPrincipalName: context.userPrincipalName,
+        displayName: user.nickname,
+        mailNickname: mailNickname,
+        userPrincipalName: userPrincipalName,
         passwordProfile: {
-          password: context.uuid,
+          password: immutableId,
           forceChangePasswordNextLogin: false
         },
-        immutableId: context.immutableId,
+        immutableId: immutableId,
         usageLocation: AAD_USAGE_LOCATION
       },
     };
 
-    console.log('Creating user in Azure AD:', options.body);
-    request.post(options, function(err, res, body) {
-      if(err) {
-        console.log('Error creating user in Azure AD.', err);
-        return cb(err);
-      }
-
-      if (body.error) {
-        console.log('Error creating user in Azure AD.', body.error_description);
-        return cb(new Error(body.error_description));
-      }
-
-      console.log('User created!');
-      return cb(null);
-    });
+    return rp(options);
   }
 
-  /*
-   * Get the token for Azure AD.
-   */
-  function get_azuread_token(cb) {
+  // After provisioning the user, we issue a request to get the list
+  // of available Microsoft products licenses.
+  function getAvailableLicenses(response) {
+    userId = response.objectId;
     var options = {
-      url: 'https://login.windows.net/' + AAD_TENANT_NAME +
-              '/oauth2/token?api-version=1.5',
+      url: 'https://graph.windows.net/' + AAD_DOMAIN + '/subscribedSkus?api-version=1.6',
+      json: true,
       headers: {
         'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      }
+    };
+    return rp(options);
+  }
+
+  // With the licenses list, we iterate over it to get the id (skuId) of the
+  // license that we want to give to the new user (office 365 in this case).
+  // We also issue a new request to the Graph API to tie the user and the
+  // license together.
+  function assignOffice365License(response) {
+    var office365License;
+
+    for (var i = 0; i < response.value.length; i++) {
+      if (response.value[i].skuPartNumber === OFFICE365_KEY) {
+        office365License = response.value[i].skuId;
+        break;
+      }
+    }
+
+    var options = {
+      url: ' https://graph.windows.net/' + AAD_DOMAIN + '/users/' + userId + '/assignLicense?api-version=1.6',
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + token
       },
       json: true,
-      form: {
-        client_id: AAD_CLIENT_ID,
-        client_secret: AAD_CLIENT_SECRET,
-        grant_type: 'client_credentials',
-        resource: 'https://graph.windows.net'
-      },
+      body: {
+        'addLicenses': [
+          {
+            'disabledPlans': [],
+            'skuId': office365License
+          }
+        ],
+        'removeLicenses': []
+      }
     };
+    return rp(options);
+  }
 
-    console.log('Getting token for Azure AD...');
-    request.post(options, function(err, res, body) {
-      if(err) {
-        console.log('Error getting token for Azure AD.', err);
-        return cb(err);
-      }
+  // After provisioning the user and giving a license to them, we record
+  // (on Auth) that this Google Apps user has already been provisioned. We
+  // also record the user's principal username and immutableId to properly
+  // redirect them on future logins.
+  function saveUserMetadata() {
+    user.app_metadata = user.app_metadata || {};
 
-      if (body.error) {
-        console.log('Error getting token for Azure AD.', body.error_description);
-        return cb(new Error(body.error_description));
-      }
+    user.app_metadata.office365Provisioned = true;
+    user.app_metadata.office365UPN = userPrincipalName;
+    user.app_metadata.office365ImmutableId = immutableId;
 
-      console.log('Token received:', body.access_token);
-      return cb(null, body.access_token);
+    return auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+  }
+
+  // As mentioned, Windows Graph API needs around 10 seconds to finish
+  // provisioning new users (even though it returns ok straight away)
+  function waitCreateDelay() {
+    return new Promise(function (resolve) {
+      setTimeout(function() {
+        resolve();
+      }, AAD_USER_CREATE_DELAY);
     });
   }
 
-  /*
-   * Create the actual immutable id.
-   */
-  function guid_to_base64(g) {
-    var le = true;
-    var hexlist = '0123456789abcdef';
-    var b64list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-    var s = g.replace(/[^0-9a-f]/ig, '').toLowerCase();
-    if (s.length !== 32) return '';
-
-    if (le) s = s.slice(6, 8) + s.slice(4, 6) + s.slice(2, 4) + s.slice(0, 2) +
-      s.slice(10, 12) + s.slice(8, 10) +
-      s.slice(14, 16) + s.slice(12, 14) +
-      s.slice(16);
-    s += '0';
-
-    var a, p, q;
-    var r = '';
-    var i = 0;
-
-    while (i < 33) {
-      a = (hexlist.indexOf(s.charAt(i++)) << 8) |
-        (hexlist.indexOf(s.charAt(i++)) << 4) |
-        (hexlist.indexOf(s.charAt(i++)));
-      p = a >> 6;
-      q = a & 63;
-
-      r += b64list.charAt(p) + b64list.charAt(q);
-    }
-    r += '==';
-
-    return r;
+  // Adds the principal username and immutableId to the user object and ends
+  // the rule.
+  function connectWithUser() {
+    user.upn = user.app_metadata.office365UPN;
+    user.inmutableid = user.app_metadata.office365ImmutableId;
+      return callback(null, user, context);
   }
 }
 ```
@@ -270,11 +263,11 @@ The easiest way for your external users to authenticate is by using IdP initiate
 You will basically need to redirect your users to the following URL (eg: using a "smart link" like `https://office.fabrikamcorp.com`):
 
 ```
-https://${account.namespace}/login?client=CLIENT_ID_OF_THIRD_PARTY_APP&protocol=wsfed&state=&redirect_uri=&
+https://${account.namespace}/login?client=AUTH0_OFFICE365_CLIENT_ID&protocol=wsfed&state=&redirect_uri=&
 ```
 
-::: panel CLIENT_ID_OF_THIRD_PARTY_APP
-The `CLIENT_ID_OF_THIRD_PARTY_APP` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `https://${account.namespace}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+::: panel AUTH0_OFFICE365_CLIENT_ID
+The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
 :::
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.

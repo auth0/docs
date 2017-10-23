@@ -262,7 +262,7 @@ articles:
             url: "/user-profile/user-profile-details"
 
           - title: "Normalized User Profile"
-            url: "/user-profile/normalized"
+            url: "/user-profile/normalized/auth0"
 
           - title: "Picture"
             url: "/user-profile/user-picture"
