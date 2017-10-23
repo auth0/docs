@@ -5,12 +5,13 @@ image: /media/connections/yahoo.png
 seo_alias: yahoo
 index: 15
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
-toc: true
 ---
 
 # Connect your app to Yahoo!
 
-These steps will guide you through how to create an application with Yahoo! and how to add it as a social connection in the Auth0 Dashboard.
+These steps will guide you through how to create an application with Yahoo! and how to add it as a social connection in the Auth0 Dashboard. 
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Add a New Application
 

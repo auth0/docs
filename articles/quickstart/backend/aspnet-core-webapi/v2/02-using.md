@@ -4,19 +4,11 @@ description: This tutorial will show you how can test your API using Postman
 budicon: 500
 ---
 
-To make calls to your API, you need an access token. 
+In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application you are building. These are referred to as authorization grant flows, and you can refer to the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your client application.
 
-::: note
-Depending on the application you are building, you obtain the access token differently. To learn more about how to get the access token, read the [API Authorization](/api-auth) section.
-:::
+Once you have obtained an `access_token` you can pass that along in the `Authorization` header of requests to your API as a Bearer token.
 
-In the HTTP request, in the `Authorization` header, add the access token as a Bearer token. 
-
-You can choose between two options:
-* Use a RAW request
-* Use [RestSharp](http://restsharp.org/)
-
-The example below shows how to use a RAW request.
+Here is a sample RAW request:
 
 ```text
 GET /api/ping/secure HTTP/1.1
@@ -24,7 +16,7 @@ Host: localhost:5000
 Authorization: Bearer <your access_token>
 ```
 
-The example below shows how to use RestSharp.
+Or using [RestSharp](http://restsharp.org/):
 
 ```csharp
 var client = new RestClient("http://localhost:5000/api/ping/secure");
@@ -33,28 +25,30 @@ request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## Test Your API in Postman
+## Testing your API in Postman
 
-During development, you may want to test your API with [Postman](https://www.getpostman.com/docs). 
-
-If you make a request to the `/ping/secure` endpoint, the API returns a 401 HTTP status code (Unauthorized):
+During development, you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-You need to pass along an access token in the HTTP Authorization header. You can obtain the token for test purposes from the **Test** tab in your [API settings](${manage_url}/#/apis):
+As mentioned, you will need to pass along an `access_token` in the HTTP Authorization header. A quick and easy way to obtain an `access_token` for test purposes is from the __Test__ tab of your API settings:
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-access-token.png)
 
-In the Authorization header, pass the access token along as a Bearer token:
+You can then use the `access_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
 
-To test the endpoints that require a scope, pass the access token containing the correct scope as a Bearer token in the Authorization header.
+To test the endpoints which require a `scope`, pass an `access_token` containing the correct `scope` as a Bearer token in the Authorization header.
 
-If the required scope is present, the API call is successful:
+If the required `scope` is present, the API call will succeed:
 
 ![](/media/articles/server-apis/aspnet-core-webapi/scope-success.png)
 
-If the required scope is not present, the API returns a 403 HTTP Status (Forbidden):
+If the required `scope` is not present, an HTTP Status 403 (Forbidden) will be returned:
 
 ![](/media/articles/server-apis/aspnet-core-webapi/scope-forbidden.png)
+
+## Further Reading
+
+* If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/aspnet-core-webapi/03-troubleshooting).

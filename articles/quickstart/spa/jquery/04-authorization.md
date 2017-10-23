@@ -67,7 +67,7 @@ function userHasScopes(scopes) {
 }
 ```
 
-## Conditionally Display UI Elements
+## Conditionally Dislay UI Elements
 
 You can use the `userHasScopes` function with the `isAuthenticated` function to conditionally show and hide certain UI elements.
 
@@ -89,7 +89,9 @@ function displayButtons() {
 
 You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `userHasScopes` function.
 
-Depending on the routing library you use, you apply the `userHasScopes` function differently. Some routing libraries provide hooks which run a function before the route is activated. This kind of hook might be called something like `beforeEnter` or `onEnter`. This is a good place to run the `userHasScopes` function to check whether the user has the scopes required to enter the route.
+Depending on the routing library you use, you apply the `userHasScopes` function differently. 
+
+Some routing libraries provide hooks which run a function before the route is activated. This kind of hook might be called something like `beforeEnter` or `onEnter`. This is a good place to run the `userHasScopes` function to check whether the user has the scopes required to enter the route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 

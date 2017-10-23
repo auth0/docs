@@ -5,12 +5,13 @@ image: /media/connections/twitter.png
 description: This page shows you how to connect your Auth0 client to Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 seo_alias: twitter
 index: 8
-toc: true
 ---
 
 # Connect your app to Twitter
 
-To connect your Auth0 client to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
+To connect your Auth0 client to Twitter, you will need to generate *Consumer* and *Secret* Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## Create a Twitter application
 
@@ -30,21 +31,21 @@ To connect your Auth0 client to Twitter, you will need to generate **Consumer** 
 
     ![](/media/articles/connections/social/twitter/twitter-api-3.png)
 
-## Get your **Consumer Key** and **Consumer Secret**
+## Get your *Consumer Key* and *Consumer Secret*
 
-1. Your **Consumer Key** and **Consumer Secret** will be displayed in the **Keys and Access Tokens** tab of your app on Twitter:
+1. Your *Consumer Key* and *Consumer Secret* will be displayed in the **Keys and Access Tokens** tab of your app on Twitter:
 
     ![](/media/articles/connections/social/twitter/twitter-api-4.png)
 
 2. Leave this window open.
 
-## Copy your **Consumer Key** and **Consumer Secret** into Auth0
+## Copy your *Consumer Key* and *Consumer Secret* into Auth0
 
 1. In a separate window, login to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
 2. Select the connection with the Twitter logo to access this connection's **Settings** page.
 
-3. Copy the **Consumer Key** and **Consumer Secret** from your app's **Keys and Access Tokens** tab on Twitter into the fields on this page on Auth0.
+3. Copy the *Consumer Key* and *Consumer Secret* from your app's **Keys and Access Tokens** tab on Twitter into the fields on this page on Auth0.
 
     ![](/media/articles/connections/social/twitter/twitter-api-5.png)
 

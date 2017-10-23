@@ -1,5 +1,5 @@
 ## Create a Resource Server (API)
 
-In the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard, click **Create API**. Provide a name and an identifier for your API. You will use the identifier as an `audience` later, when you are configuring the access token verification. For **Signing Algorithm**, select **RS256**.
+In the [APIs section](${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. The identifier you set will later be used as the `audience` when configuring `access_token` verification. Be sure to choose the RS256 signing algorithm.
 
 ![Create API](/media/articles/api-auth/create-api.png)

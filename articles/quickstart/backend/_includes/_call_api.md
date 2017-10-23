@@ -1,10 +1,6 @@
 ## Make a Call to Your API
 
-To make calls to your API, you need an access token. You can get an access token for testing purposes from the test lab in your [API settings](${manage_url}/#/apis)
-
-![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-access-token.png)
-
-Provide the access token as an `Authorization` header in your requests.
+You can now make calls to your secure API by providing the `access_token` as an `Authorization` header in your requests.
 
 ```har
 {

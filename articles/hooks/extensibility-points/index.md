@@ -6,7 +6,7 @@ beta: true
 
 # Extensibility Points
 
-Hooks allow you to customize the behavior of Auth0 with Node.js code. They are essentially [Webtask](https://webtask.io), but [Hooks](/hooks#work-with-hooks) are executed only against selected extensibility points, which are the serverless option that's analagous to the webhooks that come with a server. The following is a list of currently available extensibility points:
+The following is a list of available extensibility points:
 
 - [Credentials Exchange](/hooks/extensibility-points/credentials-exchange): change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint
 - [Pre-User Registration](/hooks/extensibility-points/pre-user-registration): prevent user registration and add custom metadata to a newly-created user

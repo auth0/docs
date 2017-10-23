@@ -4,12 +4,13 @@ connection: Box
 image: /media/connections/box.png
 seo_alias: box
 description: How to obtain a Client Id and Client Secret for Box.
-toc: true
 ---
 
 # Connect your app to Box
 
 To configure a Box OAuth2 connection, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Register a new Box app
 

@@ -3,7 +3,6 @@ connection: Auth0 OpenIDConnect
 seo_alias: auth0-oidc
 image: /media/connections/auth0.png
 description: You can use a Client on another Auth0 tenant as an identity provider in your current Auth0 tenant.
-toc: true
 ---
 
 # Authenticate using OpenIDConnect to another Auth0 Tenant

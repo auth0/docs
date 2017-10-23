@@ -14,20 +14,14 @@ budicon: 500
   ]
 }) %>
 
-This tutorial shows you how to protect your Spring Security API endpoints and limit access to resources in your API. 
+This tutorial demonstrates how to protect your Spring Security API endpoints and how to limit access based on permissions. The permissions are handled with **scopes** which are set up in your Auth0 dashboard and which can be included in the `access_token` sent by a client (user).
 
 ## Create an API
 
-Create a new API in the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard.
+Create a new API by accessing the [APIs section](${manage_url}/#/apis) of the dashboard.
+Type a name and an identifier, which will represent the `auth0.apiAudience` value that you have to set in the configuration file. Next, choose the signing algorithm. Click the **Create** button and you'll be redirected to the API you've just created. In the **Settings** tab you can change the token expiration and allow refreshing a token for that API.
 
-Enter a name and an identifier for the API. These values represent the `auth0.apiAudience` value in the configuration file. 
-
-Select the signing algorithm. In the **Settings** tab,  you can change the token expiration time and allow to refresh a token for that API.
-In the **Scopes** tab, add scopes you will use later to limit access to resources in your API. 
-
-::: note
-In this tutorial, the example API contains the Photos resource. The scopes shown on the screenshot below will be used to limit access to `PhotosController`.
-:::
+The example API in this tutorial will be centered around a **Photos** resource. Create some custom scopes to limit the access to the `PhotosController` which will be created in the next section. In the API screen, click the **Scopes** tab and add the following scopes: `create:photos`, `read:photos`, `update:photos` and `delete:photos`.
 
 ![](/media/articles/server-apis/java-spring-security/add-api-scopes.png)
 
@@ -35,38 +29,32 @@ In this tutorial, the example API contains the Photos resource. The scopes shown
 
 Add the `auth0-spring-security-api` dependency.
 
-If you are using Maven, add the dependency to your `pom.xml` file:
+If you are using Maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
 
-If you are using Gradle, add the dependency to the dependencies block:
+If you are using Gradle, add it to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
-## Configure Your Spring Security API
+## Configure your Spring Security API
 
-Your Spring Security API needs some information to authenticate against your Auth0 account. 
-
-The sample project you can download from the top of this page comes with a configuration file. You may need to update some of the entries with the values for your API. The filename is `/src/main/resources/auth0.properties` and it contains the following:
+Your Spring Security API needs some information in order to authenticate against your Auth0 account. The downloadable sample comes with a configration file already in place but you may need to update some of the entries with the valid values for your API. The file is `/src/main/resources/auth0.properties` and it contains the following:
 
 ${snippet(meta.snippets.setup)}
 
 | Attribute | Description|
 | --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.apiAudience` | The unique identifier for your API. You can find the correct value in the [APIs](${manage_url}/#/apis) section in your Auth0 dashboard. |
+| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.apiAudience` | The unique identifier for your API. You can find the correct value on the [APIs](${manage_url}/#/apis) section of the Dashboard. * |
 
 ::: note
-If you download the sample project, the `issuer` attribute is filled out for you. You must manually set the `apiAudience` attribute.
+If you download the seed project using our **Download Sample** button then the `issuer` attribute will be populated for you, unless you are not logged in or you do not have at least one registered client. Do not forget to manually set the `apiAudience` attribute.
 :::
 
 ## Configure JSON Web Token Signature Algorithm
 
-Configure your API to use the RS256 signing algorithm.
-
-::: note
-If you download the sample project, the signing algorithm is set to `RS256` by default.
-:::
+Start by configuring your API to use the RS256 signing algorithm. If you downloaded the seed project above, `RS256` is configured by default.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -91,20 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## Configure the Protected Endpoints
 
-The example below shows how to implement CRUD (create, read, update and delete) methods and a login route for the Photos resource. 
-
-For CRUD methods, you need authentication and specific scopes. 
-
-In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
-
-The routes shown below are available for the following requests: 
-
-- `GET /login`: available for non-authenticated requests
-- `GET /photos`: available for authenticated requests containing an access token with the `read:photos` scope granted
-- `POST /photos`: available for authenticated requests containing an access token with the `create:photos` scope granted
-- `PUT /photos`: available for authenticated requests containing an access token with the `update:photos` scope granted
-- `DELETE /photos`: available for authenticated requests containing an access token with the `delete:photos` scope granted
-- Any other route that doesn't match the above requires the user to be authenticated with no additional scopes
+This example assumes one entity called **Photos** and implements CRUD methods for it, along with a **login** route. The former will require authentication and specific scopes, while the latter won't. In the `AppConfig` class, edit the snippet to add the route matchers. The `hasAuthority()` method provides a way to specify the required scope for the resource.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -134,13 +109,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
+These routes will behave as such:
+
+- `GET /login` will be available for non-authenticated requests.
+- `GET /photos` will be available for authenticated requests which include an `access_token` with the `read:photos` scope granted.
+- `POST /photos` will be available for authenticated requests which include an `access_token` with the `create:photos` scope granted.
+- `PUT /photos` will be available for authenticated requests which include an `access_token` with the `update:photos` scope granted.
+- `DELETE /photos` will be available for authenticated requests which include an `access_token` with the `delete:photos` scope granted.
+- Any other route that doesn't match the above will require the user to be authenticated with no additional scopes.
+
 ## Create the Photos Controller
 
 Create a new class called `PhotosController` to handle each request to the endpoints.
 
-Next, in the `AppConfig.java` file, configure which endpoints are secure and which are not.
+Next, edit the `AppConfig.java` file to configure which endpoints are secure and which are not.
 
-## Use the API
+## Using the API
 
 To test your endpoints, start the API and send the relevant HTTP requests.
 
@@ -198,26 +182,23 @@ public class PhotosController {
 
 To build and run the seed project, use the command: `mvn spring-boot:run`.
 
-To test a non-secure endpoint, send a `GET` request to `http://localhost:3001/login`.
+To test the non-secure endpoint, send a `GET` request at `http://localhost:3001/login`.
 
 ```bash
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "http://localhost:3001/login"
 ```
 
-You should get the message:
-`All good. You DO NOT need to be authenticated to call /login`.
+You should get the message: `All good. You DO NOT need to be authenticated to call /login`.
 
-To test secure endpoints, send a `GET` request to `http://localhost:3001/photos`. In this case, you must add a valid access token as an `Authorization` header to your request.
+To test the secure endpoints send a request at `http://localhost:3001/photos`. In this case, you will also have to add a valid `access_token` as an `Authorization` header to your request.
 
 ```bash
 curl -X GET -H "Authorization: Bearer {YOUR_ACCESS_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3001/photos"
 ```
 
-You should get the message: `All good. You can see this because you are Authenticated with a Token granted the 'read:photos' scope`.
+You should get the message: `All good. You can see this because you are Authenticated with a Token granted the 'read:photos' scope`. You can try with other HTTP methods and verify that the scopes are validated as well.
 
-You can try with other HTTP methods and check if the scopes are validated as well.
-
-If the token is not specified, you will get the following JSON as a response:
+If the token is not specified you will get the following JSON as a response.
 
 ```text
 {
@@ -229,7 +210,7 @@ If the token is not specified, you will get the following JSON as a response:
 }
 ```
 
-To obtain an access token, call the `/oauth/token` endpoint of the Auth0 [Authentication API](/api/authentication/reference#resource-owner-password) with Curl:
+A quick and easy way to obtain an `access_token` is to call the `/oauth/token` endpoint of the Auth0 [Authentication API](/api/authentication/reference#resource-owner-password) using Curl:
 
 ```text
 curl --request POST \
@@ -239,10 +220,6 @@ curl --request POST \
  }'
 ```
 
-::: note
-In the example above, the `delete:photos` scope is not requested, so if you try to call `DELETE /photos` with an access token, the request will fail.
-:::
+The domain along with the `client_id` and `client_secret` values should match your Auth0 client. Check the values in the [dashboard](${manage_url}/#/clients). Use the `username` and `password` of the user you want to authenticate with. Request the API `audience` by using the API ddentifier defined at the beginning of the article and customize the `scope` to your needs. In the snippet above, the `delete:photos` scope is not requested, so calling `DELETE /photos` with the received `access_token` will fail.
 
-The domain, client ID and client secret values must match your Auth0 client. Check the values in the [dashboard](${manage_url}/#/clients). Use the username and password of the user you want to authenticate with. Request the API audience with the API identifier and customize the scope to your needs. 
-
-Pass the access token  in the `Authorization` header as a `Bearer` token.
+Now you can use the `access_token` and pass it along in the `Authorization` header as a `Bearer` token.

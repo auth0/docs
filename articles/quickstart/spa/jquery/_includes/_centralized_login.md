@@ -29,7 +29,7 @@ $('document').ready(function() {
 ```
 
 ::: note
-**Checkpoint:** Add a button with the `btn-login` class to your app. This will call the `authorize` method from auth0.js, so you can see the login page.
+**Checkpoint:** Try to add a button with the `btn-login` class to your app. This will call the `authorize` method from auth0.js, so you can see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
@@ -170,10 +170,10 @@ Provide a template with controls for the user to log in and out.
 ```
 
 ::: note
-This example uses Bootstrap styles. You can use any style library, or not use one at all.
+This example uses Bootstrap styles. You can use any style library you, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, the user is redirected to the Auth0 hosted login page.
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user to log in or out. When the user clicks **Log In**, the user is redirected to the Auth0 hosted login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
