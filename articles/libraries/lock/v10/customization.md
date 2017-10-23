@@ -86,7 +86,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
-| [oidcConformant](#oidcconformant-boolean-) | Whether or not to use OIDC Conformant mode |
 | [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
@@ -817,22 +816,6 @@ var options = {
 ```
 
 ## Other Options
-
-#### oidcConformant {Boolean}
-
-Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when using Lock at Auth0's [hosted login page](/hosted-pages/login).
-
-To enable OIDC conformant mode, pass a flag in the options object.
-
-```js
-var options = {
-  oidcConformant: true
-}
-```
-
-Using OIDC Conformant mode in Lock necessitates a cross-origin authentication flow which makes use of third party cookies to process the authentication transaction securely. Ensure that **Cross-Origin Authentication** is enabled by switching it on in the [settings](${manage_url}/#/applications/${account.clientId}/settings) for your client in the Auth0 dashboard.
-
-For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption) and the [cross-origin authentication documentation](/cross-origin-authentication).
 
 ### clientBaseUrl {String}
 

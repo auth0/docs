@@ -4,12 +4,13 @@ connection: Yammer
 image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 seo_alias: yammer
-toc: true
 ---
 
 # Connect your app to Yammer
 
 To configure Yammer for OAuth connections, you will need to register your Auth0 namespace on the Yammer Developer Center.
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Login to Yammer Developer Center
 

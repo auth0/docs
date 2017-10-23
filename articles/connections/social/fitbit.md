@@ -5,7 +5,6 @@ image: /media/connections/fitbit.png
 seo_alias: fitbit
 index: 14
 description: How to obtain a Client Id and Client Secret for Fitbit.
-toc: true
 ---
 
 # Connect your app to Fitbit
@@ -15,6 +14,8 @@ New connections with Fitbit will use OAuth 2.0. Please see the following documen
 :::
 
 To configure a Fitbit OAuth 2.0 connection, you will need to register a new application in Fitbit.
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Register a New Fitbit App
 

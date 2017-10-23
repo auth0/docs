@@ -4,16 +4,17 @@ connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify
 description: How to connect your Auth0 app to Shopify.
-toc: true
 ---
 
 # Connect your app to Shopify
 
-To connect your Auth0 app to Shopify, you will need to create an app on the Shopify Partner portal to generate  **API Key** and **Shared Secret**, copy these credentials into your Auth0 settings, and enable the connection.
+To connect your Auth0 app to Shopify, you will need to create an app on the Shopify Partner portal to generate  *API Key* and *Shared Secret*, copy these credentials into your Auth0 settings, and enable the connection.
 
 ::: panel-warning User profile not available
 Due to Shopify's OAuth implementation, successful user authentication returns the **Shop** profile, not the user profile.
 :::
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ### 1. Create an app on the Shopify Partner portal
 

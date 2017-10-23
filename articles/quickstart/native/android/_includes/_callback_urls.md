@@ -1,4 +1,6 @@
-<%= include('../../../../_includes/_callback_url') %>
+## Configure Callback URLs
+
+<%= include('../../_includes/_callback-url-introduction') %>
 
 This tutorial series uses a callback URL that looks like this:
 
@@ -6,4 +8,4 @@ This tutorial series uses a callback URL that looks like this:
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute  in the `app/build.gradle` file.

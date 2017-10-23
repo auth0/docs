@@ -1,6 +1,6 @@
 ## Make a Call to Your API
 
-You can now make calls to your secure API. Provide the access token as an `Authorization` header in your requests.
+You can now make calls to your secure API by providing the `access_token` as an `Authorization` header in your requests.
 
 ```har
 {

@@ -4,17 +4,9 @@ description: Auth0 normalizes common user properties in the User Profile.
 
 # Auth0 Normalized User Profile
 
-::: version-warning
-This version described a user's profile as normalized by Auth0. Use the dropdown for the user profile structure that conforms with the OIDC specification and includes only the standard claims.
-:::
+Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile.
 
-This article describes the claims included in the normalized user profile, as created by Auth0. This is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
-
-Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
-
-::: note
-The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
-:::
+For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
 ## Normalized User Profile Schema
 
@@ -195,6 +187,15 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 }
 ```
 
-## How to Retrieve the User Profile
+## How to retrieve the User Profile
 
-You can retrieve the user profile using the [Management API's Get a User endpoint](/api/management/v2#!/Users/get_users_by_id).
+You can retrieve the user profile using [Lock](/libraries/lock/v10/api#getuserinfo-), [Auth0.js](/libraries/auth0js#user-management), or our [Authentication API /userinfo endpoint](/api/authentication#get-user-info).
+
+We also have a __User Profile__ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
+- [Android](/quickstart/native/android)
+- [Angular 1.x](/quickstart/spa/angularjs) and [Angular 2](/quickstart/spa/angular2)
+- [React](/quickstart/spa/react)
+- [Node.js](/quickstart/webapp/nodejs)
+- [ASP .NET Core](/quickstart/webapp/aspnet-core)
+- [jQuery](/quickstart/spa/jquery)
+- and [many more](/quickstarts)
