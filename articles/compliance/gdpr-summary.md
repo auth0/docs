@@ -12,7 +12,7 @@ GDPR applies to a wide scope of territory -- it includes non-EU based services/c
 
 ## Notifications and Consent
 
-When you are request consent from your users, your notifications must be:
+Before you collect personal data from your end users, you must obtain their consent to do so. When requesting consent, your notifications must be:
 
 * Be clear and easy to understand
 * State the purpose of the data involved and how it will be processed
@@ -24,7 +24,7 @@ You must also:
 
 ## Rights of Individuals
 
-Your end-users, as individuals, have the right to:
+Your end users, as individuals, have the right to:
 
 * See the data the company has about them
 * Know how their data will be processed or used
@@ -34,15 +34,15 @@ Your end-users, as individuals, have the right to:
 
 ## Privacy by Design and Privacy by Default
 
+As the data controller, you must design your app to abide by both privacy by design and privacy by default principles.
+
 **Privacy by design** means that each new implementation that uses personal data must take the protection of such data into consideration.
 
 **Privacy by default** means that the strictest privacy settings automatically apply once the end user acquires a new product or service (that is, without any manual change required on the part of the user).
 
-As the data controller, you must design your app to abide by both privacy by design and privacy by default principles. 
-
 ## Requirements for Data Processors and Controllers
 
-You, as the data controller, must:
+As the data controller, you must:
 
 * Do due diligence to ensure that your data processors provide adequate protection of provided data
 
