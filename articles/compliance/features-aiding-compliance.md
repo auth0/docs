@@ -63,7 +63,8 @@ When you delete a user from Auth0, you remove the user's profile, as well as any
 
 ## Right to Restrict Processing
 
-When an end user restricts your right to process their data, it is your responsibility to implement the behavior that best complies with such requests.
+It is your responsibility to define what "restriction of processing" means.
+You can use [rules](/rules) to alter privileges or other attributes in the user profile that might help with this obligation.
 
 ## Choice of Providers
 
