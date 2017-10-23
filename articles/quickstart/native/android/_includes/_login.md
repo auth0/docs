@@ -24,7 +24,7 @@ You need to make sure you get a response compliant with the OpenID Connect proto
 To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**.
 :::
 
-After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callaback URL contains the final result of the authentication process. 
+After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process. 
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
