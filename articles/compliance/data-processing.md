@@ -20,7 +20,7 @@ The personal data stored in Auth0 is used only for the purposes of providing its
 
 ## What Happens to Data When an End User's Account is Deleted
 
-See [Right to be Forgotten](/compliance/features-aiding-compliance#right-to-be-forgotten).
+When an end user's account is deleted, their user profile, included metadata, is removed. See [Right to be Forgotten](/compliance/features-aiding-compliance#right-to-be-forgotten) for additional information.
 
 <%= include('./_stepnav', {
  prev: ["Go back", "/compliance"]

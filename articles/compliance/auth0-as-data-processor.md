@@ -1,8 +1,8 @@
 ---
-title: Auth0 as a Data Processor
-description: How Auth0 works as a data processor and its responsibilities
+title: Roles and Responsibilities under GDPR
+description: The roles and responsibilities of data controllers and processors under GDPR
 ---
-# Auth0 as a Data Processor
+# Roles and Responsibilities under GDPR
 
 This document lists the types of data handled by Auth0, as well as the responsibilities of Auth0 as a data processor vs. the responsibilities of the customer as the data controllers.
 
@@ -10,17 +10,11 @@ This document lists the types of data handled by Auth0, as well as the responsib
 
 Auth0 customers are **data controllers**. Auth0 is a **data processor**.
 
-## Categories of Personal Data Handled by Auth0
+## Personal Data Handled by Auth0
 
-The following are the categories of personal data handled by Auth0, including examples of each. This is **not** an exhaustive list.
+Auth0 handles end-user data present in user profiles, including metadata.
 
-| Data Category | Examples of Data |
-| - | - |
-| Customer/End User Data | User Profiles, User Metadata, User Activity Logs |
-| Customer Data | Marketing Form Data, Webinar Signup Details, Email Addresses, Auth0 Trial Signups, Dashboard Administrator Details |
-| Auth0 Employees | Human Resources Records, Payroll Records |
-
-## Customer Responsibilities
+## Data Controller (Customer) Responsibilities
 
 Ultimately, the customer is responsible for GDPR compliance, which mostly consists of operational procedures and documentation.
 
@@ -41,7 +35,7 @@ More specifically, the customer is responsible for:
 
 The customer is the party that's responsible for the security of their data. Auth0 has no knowledge of how the customer processes data, configures their applications, and so on.
 
-## Auth0 Responsibilities
+## Data Processor (Auth0) Responsibilities
 
 Auth0 is responsible for:
 

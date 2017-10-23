@@ -24,7 +24,7 @@ You can:
 * Use [rules](/rules) to add the date of user consent/agreement in Lock to the ID token or the user's metadata
 
 ::: note
-See [singUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for a detailed code sample.
+See [signUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for a detailed code sample.
 :::
 
 ## Withdrawal of Consent
@@ -59,11 +59,11 @@ Auth0 cannot be used to update user profile information in remote providers.
 
 You can decide how to handle customer requests to be forgotten. With Auth0, you can [use the Management API to delete the user](/api/management/v2#!/Users/delete_users_by_id) from Auth0 and halt further processing of that user's data.
 
-When you delete a user from Auth0, you remove the user's account, as well as any information possessed by Auth0 for that user. Going forward, the user's information will not be contained in any Auth0 logs or back-up files. However, Auth0 will **not** retroactively delete such data from logs and back-up files that already exist.
+When you delete a user from Auth0, you remove the user's profile, as well as any metadata possessed by Auth0 for that user. 
 
 ## Right to Restrict Processing
 
-Auth0 will assist, to the best of its ability, you in implementing the behavior and functionality needed when an end user restricts your right to their data.
+When an end user restricts your right to process their data, it is your responsibility to implement the behavior that best complies with such requests.
 
 ## Choice of Providers
 

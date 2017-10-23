@@ -4,23 +4,27 @@ description: A summary of how GDPR affects Auth0, its customers, and the end use
 ---
 # General Data Protection Regulation (GDPR) - A Summary
 
-The following is a summary of the rights and responsibilities of those affected by GDPR. This article also includes enforcement information.
+In this article, we summarize the rights and responsibilities of those affected by GDPR, as well as provide a high-level overview of enforcement information.
 
 ## Applicability
 
 GDPR applies to a wide scope of territory -- it includes non-EU based services/companies that possess data on EU residents.
 
-## Consent
+## Notifications and Consent
 
-Consent notifications must:
+When you are request consent from your users, your notifications must be:
 
 * Be clear and easy to understand
 * State the purpose of the data involved and how it will be processed
-* Be as easily revoked as it is to grant
+
+You must also:
+
+* Explicitly request consent
+* Make it as easy for your end-user to revoke their consent as it is to grant consent
 
 ## Rights of Individuals
 
-Individuals have the right to:
+Your end-users, as individuals, have the right to:
 
 * See the data the company has about them
 * Know how their data will be processed or used
@@ -30,32 +34,34 @@ Individuals have the right to:
 
 ## Privacy by Design and Privacy by Default
 
-Privacy by design means that each new implementation that uses personal data must take the protection of such data into consideration.
+**Privacy by design** means that each new implementation that uses personal data must take the protection of such data into consideration.
 
-Privacy by default means that the strictest privacy settings automatically apply once the end user acquires a new product or service (that is, without any manual change required on the part of the user).
+**Privacy by default** means that the strictest privacy settings automatically apply once the end user acquires a new product or service (that is, without any manual change required on the part of the user).
+
+As the data controller, you must design your app to abide by both privacy by design and privacy by default principles. 
 
 ## Requirements for Data Processors and Controllers
 
-Data controllers must:
+You, as the data controller, must:
 
-* Do due diligence to ensure their data processors provide adequate protection of provided data
+* Do due diligence to ensure that your data processors provide adequate protection of provided data
 
-Data processors must:
+Auth0, as the data processor, must:
 
 * Comply with instructions provided by data processors
-* Maintain adequate documentation (GDPR Article 30)
-* Implement adequate security (GDPR Article 32)
-* Conduct data protection impact assessments (GDPR Article 32)
-* Appoint a data protection officer or establish a privacy office (GDPR Article 37)
+* Maintain adequate documentation
+* Implement adequate security
+* Conduct data protection impact assessments
+* Appoint a data protection officer or establish a privacy office
 * Comply with rules on international data transfers
-* Agree to and sign a written data processing agreement that meets GDPR requirements (GDPR Article 28)
+* Agree to and sign a written data processing agreement that meets GDPR requirements
 
 ## Enforcement
 
-* GDPR mandates that notifications regarding data breaches must be issued within 72 hours of the incident
+* GDPR mandates that data controllers release notifications regarding data breaches within 72 hours of the incident
 * Fines for non-compliance are much higher and are determined using a tiered system
-* Supervisory authorities have greater investigative powers
-* Organizations processing data must appoint a Data Protection Officer and/or have a Data Privacy Office
+* Supervisory authorities in the European Union have greater investigative powers
+* Organizations controlling data must appoint a Data Protection Officer, while organizations processing data should have a Data Privacy Office
 
 <%= include('./_stepnav', {
  prev: ["Go back", "/compliance"]
