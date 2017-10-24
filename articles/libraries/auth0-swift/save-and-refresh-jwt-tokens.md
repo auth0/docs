@@ -9,7 +9,7 @@ When an authentication is performed with the `offline_access` scope included, it
 
 ## Credentials Manager
 
-[Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance.
+[Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. This is the preferred method to manage user credentials.
 
 First, import the `Auth0` module:
 
@@ -39,32 +39,34 @@ Auth0
 
 ### Credentials Check
 
-It can be useful to perform a quick check for valid credentials as the user can then be directed to authenticate.
+It can be useful to perform a quick sanity check that you have valid credentials, if not the user can then be directed to authenticate.
 
 ```swift
-guard self.credentialsManager.hasValid() else {
-    // Present Login Screen
+guard credentialsManager.hasValid() else {
+    // Present Hosted Login Page
 }
 ```
 
-### Renewing User Credentials
+### Returning User Credentials
 
 You can retrieve the user's credentials as follows:
 
 ```swift
-self.credentialsManager.credentials { error, credentials in
+credentialsManager.credentials { error, credentials in
     guard error == nil, let credentials = credentials else {
-        // Handle Error, Route to Login
+        // Handle Error, Present Hosted Login Page
     }
     // Valid credentials, you can access the token properties e.g. `idToken`, `accessToken`.
 }
 ```
 
-Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew, store the new credentials to the Keychain and return them in the closure.
+### Renewing User Credentials
 
-## SimpleKeychain
+Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew the credentials, then store the new credentials to the Keychain and finally return them in the closure.
 
-If you are migrating from v1, you may already be familiar with using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
+## Alternative method: SimpleKeychain
+
+If you are familiar with Lock v1, you may already be using the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) SDK to handle iOS Keychain read/write access. This section is for developers who would prefer to keep using the SimpleKeychain and not upgrade to the preferred Credentials Manager.
 
 First thing you need to do is store the tokens you need, in this case you will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
 
