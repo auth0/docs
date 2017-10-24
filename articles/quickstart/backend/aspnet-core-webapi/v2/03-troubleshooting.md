@@ -105,8 +105,8 @@ To resolve this issue, make sure you are passing the JWT as the Bearer token in 
 Make sure that the signing algorithm you used to sign your token matches the signing algorithm configured in your middleware. 
 
 The following screenshots show two messages:
-* a warning message: "Authorization failed..." 
-* a message with more information
+* A warning message: "Authorization failed..." 
+* A message with more information
 
 The following example shows that the JWT is signed with the HS256 algorithm and the middleware is configured to expect RS256 tokens:
 
@@ -170,7 +170,7 @@ To resolve this issue, make sure that you specify the correct issuer for your JW
 
 For HS256 signed tokens, specify the correct value for the `ValidIssuer` property of `TokenValidationParameters`.
 
-::: panel Using RS256 tokens
+::: note
 For RS256 tokens, the JWT middleware downloads the OIDC discovery document from `Authority` and configures the Issuer based on the `issuer` attribute specified in that document. 
 
 If you are using RS256 tokens, the system checks their signature before it checks the Issuer.

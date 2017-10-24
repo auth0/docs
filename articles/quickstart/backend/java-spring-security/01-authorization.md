@@ -53,7 +53,7 @@ ${snippet(meta.snippets.setup)}
 
 | Attribute | Description|
 | --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
 | `auth0.apiAudience` | The unique identifier for your API. You can find the correct value in the [APIs](${manage_url}/#/apis) section in your Auth0 dashboard. |
 
 ::: note

@@ -43,11 +43,9 @@ Update the `appsettings.json` file in your project with the correct domain and A
 
 <%= include('../../_includes/_api_auth_preamble') %>
 
-::: note
 This example demonstrates:
 * How to check for a JSON Web Token (JWT) in the `Authorization` header of an incoming HTTP request
 * How to check if the token is valid with the standard ASP.NET Core JWT middleware
-:::
 
 ## Install Dependencies
 
