@@ -64,7 +64,7 @@ credentialsManager.credentials { error, credentials in
 
 Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew the credentials, then store the new credentials to the Keychain and finally return them in the closure.
 
-## Alternative method: SimpleKeychain
+## Alternative Method - SimpleKeychain
 
 If you are familiar with Lock v1, you may already be using the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) SDK to handle iOS Keychain read/write access. This section is for developers who would prefer to keep using the SimpleKeychain and not upgrade to the preferred Credentials Manager.
 
