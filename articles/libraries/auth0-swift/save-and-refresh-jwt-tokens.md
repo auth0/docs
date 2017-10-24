@@ -39,7 +39,7 @@ Auth0
 
 ### Credentials Check
 
-It can be useful to perform a quick sanity check that you have valid credentials, if not the user can then be directed to authenticate.
+It can be useful to perform a quick sanity check that you have valid credentials stored in the manager. If not the user can then be directed to authenticate.
 
 ```swift
 guard credentialsManager.hasValid() else {
@@ -47,7 +47,7 @@ guard credentialsManager.hasValid() else {
 }
 ```
 
-### Returning User Credentials
+### Retrieving User Credentials
 
 You can retrieve the user's credentials as follows:
 
@@ -60,9 +60,9 @@ credentialsManager.credentials { error, credentials in
 }
 ```
 
-### Renewing User Credentials
-
-Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew the credentials, then store the new credentials to the Keychain and finally return them in the closure.
+::: note 
+Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew the credentials, then store the renewed credentials to the Keychain and finally return them in the closure.
+:::
 
 ## Alternative Method - SimpleKeychain
 
