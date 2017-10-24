@@ -673,8 +673,20 @@ appliance:
 
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
+        children:
+          - title: Troubleshoot
+            url: /appliance/dashboard/troubleshoot
+        
       - title: Monitoring Tools
         url: /appliance/monitoring
+        children:
+          - title: Instrumentation
+            url: /appliance/instrumentation
+          - title: Testall endpoint
+            url: /appliance/monitoring/testall
+          - title: Authenticated testing endpoints
+            url: /appliance/monitoring/authenticated-endpoints
+        
       - title: Command-Line Interface Tools
         url: /appliance/cli
       - title: Automatic Tenant Creation
