@@ -1548,5 +1548,9 @@ module.exports = [
   {
     from: '/tutorials/removing-auth0-exporting-data',
     to: '/support/removing-auth0-exporting-data',
+  },
+  {
+    from: '/tutorials',
+    to: '/',
   }
 ];
