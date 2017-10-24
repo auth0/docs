@@ -10,7 +10,7 @@ budicon: 448
   repo: 'auth0-symfony-php-web-app',
   path: '00-Starter-Seed',
   requirements: [
-    'PHP 5.3.9',
+    'PHP 5.6, 7.0',
     'Symfony 3.*'
   ]
 }) %>
@@ -61,6 +61,78 @@ In this case, the callbackURL should look something like:
 http://yourUrl/auth0/callback
 ```
 
+## Create Auth0 Resource Owner
+
+Add this to your `src/AppBundle/Auth0ResourceOwner.php`
+
+```php
+<?php
+
+namespace AppBundle;
+
+use Dotenv\Dotenv;
+
+use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\GenericOAuth2ResourceOwner;
+
+
+class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
+{
+    /**
+     * {@inheritdoc}
+     */
+    protected $paths = array(
+        'identifier' => 'user_id',
+        'nickname' => 'nickname',
+        'realname' => 'name',
+        'email' => 'email',
+        'profilepicture' => 'picture',
+    );
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAuthorizationUrl($redirectUri, array $extraParameters = array())
+    {
+        return parent::getAuthorizationUrl($redirectUri, array_merge(array(
+            'audience' => $this->options['audience'],
+        ), $extraParameters));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        parent::configureOptions($resolver);
+
+        $dotenv = new Dotenv(__DIR__ . '/../..');
+        $dotenv->load();
+
+        $resolver->setDefaults(array(
+            'authorization_url' => '{base_url}/authorize',
+            'access_token_url' => '{base_url}/oauth/token',
+            'infos_url' => '{base_url}/userinfo',
+            'audience' => 'https://'.getenv('AUTH0_DOMAIN').'/userinfo',
+        ));
+
+        $resolver->setRequired(array(
+            'base_url',
+        ));
+
+        $normalizer = function (Options $options, $value) {
+            return str_replace('{base_url}', $options['base_url'], $value);
+        };
+
+        $resolver->setNormalizer('authorization_url', $normalizer);
+        $resolver->setNormalizer('access_token_url', $normalizer);
+        $resolver->setNormalizer('infos_url', $normalizer);
+    }
+}
+```
+
 ## Configure the Resource Owner
 
 Add this to your `app/config/config.yml`
@@ -70,10 +142,12 @@ hwi_oauth:
     firewall_names: [secured_area]
     resource_owners:
         auth0:
-            type:                auth0
+            type:                oauth2
+            class:               'AppBundle\Auth0ResourceOwner'
             base_url:            https://${account.namespace}
             client_id:           ${account.clientId}
             client_secret:       ${account.clientSecret}
+            redirect_uri:        http://yourUrl/auth0/callback
             scope: "openid profile"
 ```
 
@@ -86,7 +160,7 @@ can use one of the predefined services that `HWIOAuthBundle` provides.
 
 This is where you set the filters to select which pages are protected (aka, needs login). You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
-This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a DB.
+This is a basic example that allows anonymous users and then restricts access to the `/secured` route. It doesn't store the users in a DB.
 
 This file is `app/config/security.yml`:
 
@@ -127,27 +201,13 @@ Set the following in `app/resources/views/index.html.twig`
 {% if app.user %}
     Welcome, {{ app.user.username }}!<br/>
     {{ dump(app.user) }}
+    <a href="{{ url('secured') }}">Protected route</a>
     <a href="{{ logout_url("secured_area") }}">
         <button>Logout</button>
     </a>
 {% else %}
     <h1>Symfony Auth0 Quickstart</h1>
-    <script src="${auth0js_urlv8}"></script>
-    <script type="text/javascript">
-        var webAuth = new auth0.WebAuth({
-            domain: '${account.namespace}',
-            clientID: '${account.clientId}',
-            redirectUri: 'http://localhost:8000/auth0/callback',
-            audience: `https://${account.namespace}/userinfo`,
-            responseType: 'code',
-            scope: 'openid profile'
-        });
-
-        function signin() {
-            webAuth.authorize();
-        }
-    </script>
-    <button onclick="window.signin();">Login</button>
+    <a href="/connect/auth0"><button>Login</button></a>
 {% endif %}
 ```
 
