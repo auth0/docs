@@ -1552,5 +1552,9 @@ module.exports = [
   {
     from: '/tutorials',
     to: '/',
+  },
+  {
+    from: '/clients/how-to-update-client-secret',
+    to: '/clients/how-to-rotate-client-secret',
   }
 ];
