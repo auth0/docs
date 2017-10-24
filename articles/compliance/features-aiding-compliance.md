@@ -70,7 +70,7 @@ You can use [rules](/rules) to alter privileges or other attributes in the user 
 
 You can choose which identity providers to use for user authentication.
 
-Using external providers means that your end users' credentials are **not** stored in Auth0 (or onsite). This eliminates the possibility of a data breach on your end.
+Using external providers means that your end users' credentials are **not** stored in Auth0 (or onsite).
 
 ::: note
 If you use LDAP connections, turn off caching to prevent end user credentials from being store in Auth0/onsite.

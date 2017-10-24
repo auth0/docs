@@ -12,7 +12,7 @@ GDPR applies to a wide scope of territory -- it includes non-EU based services/c
 
 ## Notifications and Consent
 
-Before you collect personal data from your end users, you must obtain their consent to do so. When requesting consent, your notifications must be:
+Before you collect personal data from your end users, you must obtain their consent to do so. When requesting consent, your notifications must:
 
 * Be clear and easy to understand
 * State the purpose of the data involved and how it will be processed
