@@ -21,7 +21,7 @@ Scroll to the bottom of the Settings page, and click **Save Changes**.
 
 ## Rotate the Client Secret Using the Management API
 
-You can rotate your client's secret by using the [Rotate a Client Secret endpoint of the Management API](/api/management/v2#!/Clients/post_rotate_secret).
+You can rotate your client's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
 
 ```har
 {
