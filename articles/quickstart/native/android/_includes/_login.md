@@ -7,6 +7,10 @@ You can also embed the Lock widget directly in your application. If you use this
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
+::: note
+Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
+:::
+
 In the `login` method, create a new instance of the `Auth0` class to hold user credentials. 
 
 You can use a constructor that receives an Android Context if you have added the following String resources: 
@@ -103,11 +107,3 @@ There are many options to customize the authentication with the `WebAuthProvider
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/android/login-android.png" alt="Mobile example screenshot" />
 </div>
-
-## Hosted Login Page vs Embedded Login
-
-We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
-
-You can also use the Lock widget to embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-
-To learn how to embed functionality using a custom login form in your application, follow the [Embedded Login Sample](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login).

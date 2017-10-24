@@ -24,11 +24,11 @@ You need the `Credentials` class to handle users' credentials. The class is comp
 * `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID token documentation](/tokens/id-token).
 * `refreshToken`: Refresh token that can be used to request new tokens without signing in again. To learn more, see the [refresh token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
-* `expiresIn`: The amount of seconds before the tokens expire.
+* `expiresIn`: The number of seconds before the tokens expire.
 * `expiresAt`: The date when the tokens expire.
 * `scope`: The scope that was granted to a user. This information is shown only if the granted scope is different than the requested one.
 
-The tokens are the objects used to prove your identity against the Auth0 APIs. Read more about them in the [tokens documentation](https://auth0.com/docs/tokens).
+Tokens are objects used to prove your identity against the Auth0 APIs. Read more about them in the [tokens documentation](https://auth0.com/docs/tokens).
 
 ## Before You Start
 
@@ -81,7 +81,7 @@ private final AuthCallback callback = new AuthCallback() {
 ```
 
 ::: note
-User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file. You can achieve this with the `CredentialsManager`class. For details, check the implementation in the project code. There are better and more secure ways to store tokens, but we will not cover them in this tutorial.
+User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file. You can achieve this with the `CredentialsManager` class. For details, check the implementation in the project code. There are better and more secure ways to store tokens, but we will not cover them in this tutorial.
 :::
 
 ## Check for Tokens when the Application Starts
@@ -104,7 +104,7 @@ if (accessToken == null) {
 
 If the access token exists, the next step is to check if it is valid. 
 You can choose between two options: 
-* Save the time when the user receives a new pair of credentials. When you need to use the access token, check how much time has passed since the user got the token. When it exceeds the time specified in the `expires_in` value, the token is no longer valid. 
+* Save the time when the user receives a new pair of credentials. When you need to use the access token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
 * Call the Auth0 Authentication API and check the response.
 
 ::: note 
@@ -140,7 +140,7 @@ This tutorial shows how to use a refresh token. If you want users to re-enter th
 
 ## Refresh the User's Session
 
-::: note
+::: panel Learn about refresh tokens
 Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
 It is important that you remember the following:
 * Refresh tokens must be securely saved.
@@ -156,7 +156,7 @@ Create an `AuthenticationAPIClient` instance:
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
-Use the `refresh_token` to get new credentials:
+Use the refresh token to get new credentials:
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
@@ -179,7 +179,7 @@ aClient.renewAuth(refreshToken)
       });
 ```
 
-## Log Out
+## Log the User Out
 
 To log the user out, you must remove their credentials and navigate them to the login screen.
 

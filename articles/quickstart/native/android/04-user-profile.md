@@ -21,7 +21,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
 ## Before You Start
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial. To call the API clients, you need a valid access token and ID token.
+Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API clients, you need a valid access token and ID token.
 :::
 
 Before launching the login process, you need to make sure you get a valid profile from the authorization server. To do that, ask for the `openid profile email` scope. Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email")`.
@@ -142,13 +142,13 @@ You can choose the key names and value types for subscripting the `user_metadata
 
 The `appMetadata` map contains fields that are usually added with a [Rule](/rule) or a [Hook](/hooks). For native platforms, this information is read-only.
 
-#### C. Extra information
-
-The `extraInfo` map contains additional values that are stored in Auth0 but not mapped to a `UserProfile` getter method. For native platforms, this information is read-only.
-
 ::: note
 To learn more about metadata, see the [metadata documentation](/metadata).
 :::
+
+#### C. Extra information
+
+The `extraInfo` map contains additional values that are stored in Auth0 but not mapped to a `UserProfile` getter method. For native platforms, this information is read-only.
 
 ## Update the User's Profile
 
