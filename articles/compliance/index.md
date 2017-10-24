@@ -37,7 +37,4 @@ classes: topic-page
   <li>
     <i class="icon icon-budicon-715"></i><a href="/compliance/security-advice-for-customers">Security Advice for Customers</a>
   </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/subprocessors">Auth0 Sub-Processors</a>
-  </li>
 </ul>
