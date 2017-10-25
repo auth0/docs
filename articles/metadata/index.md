@@ -1,6 +1,7 @@
 ---
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata.
+description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
 crews: crew-2
+toc: true
 ---
 # Metadata
 
@@ -16,10 +17,6 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 ## How to Read, Create or Edit Metadata
 
 You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
-
-::: warning
-Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
-:::
 
 ## Metadata Usage
 
@@ -53,7 +50,9 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
-### Naming Metadata Fields
+### Rules on Naming Metadata Fields
+
+#### Don't Use Dots
 
 Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
@@ -82,6 +81,44 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
     "preference": "light.blue"
 }
 ```
+
+#### Don't Use Dynamic Field Names
+
+Do not use dynamic field names. For example, instead of using the following structure:
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+Use this:
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
+```
+
+## Searching Metadata
+
+New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. 
+
+Paid tenants (i.e. tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
+
+For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
 
 ## Metadata Restrictions
 

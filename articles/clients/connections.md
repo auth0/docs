@@ -2,18 +2,19 @@
 description: Explains what Connections are and how they are associated with Auth0 Clients.
 crews: crew-2
 ---
-
 # Client Connections
 
 Connections are sources of users. They are categorized into Database, Social, Enterprise and Passwordless and can be shared among different applications.
 
-Connections may be shared among multiple clients. You can configure any number of connections, and then, at client level, choose which of them should be enabled for the given client.
+You can configure any number of connections, and then, at client level, choose which of them should be enabled for the given client.
 
 To view all available connections for a client navigate to [Dashboard > Clients > Connections](${manage_url}/#/clients/${account.clientId}/connections).
 
 ![Client Connections List](/media/articles/applications/connections-dashboard-list.png)
 
-To enable or disable a connection toggle the switch. In the screenshot above the user has many connections configured (a `Helpdesk` database connection, an Amazon social connection, a Bitbucket social connection, and more) but only two are enabled for this client: a database connection named `test-db` and the Facebook social connection. So when the users want to access this client, they have to either login using username and password or their Facebook connection.
+To enable or disable a connection toggle the switch. 
+
+In the screenshot above the user has many connections configured (a `Helpdesk` database connection, an Amazon social connection, a Bitbucket social connection, and more) but only two are enabled for this client: a database connection named `test-db` and the Facebook social connection. So when the users want to access this client, they have to either login using username and password or their Facebook connection.
 
 To view all the connections that you have configured or create new ones navigate to [Dashboard](${manage_url}/#/) and select the connection type you want:
 - [Database](${manage_url}/#/connections/database)

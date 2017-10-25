@@ -6,20 +6,17 @@ toc: true
 
 # Delegated Administration
 
-The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area of the Management Dashboard by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
+The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area. This is done by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
 
 :::panel PSaaS Appliance Availability
-The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who:
-
-* Are running build **10755** or later;
-* Have User Search enabled.
+The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
 :::
 
 Prior to configuring the extension, you will need to:
 
-* [Create and configure an Auth0 Client](#create-a-client);
-* [Enable a Connection on the Client](#enable-a-connection-on-the-client);
-* [Add a user to the Connection](#add-a-user-to-the-new-connection).
+* [Create and configure an Auth0 Client](#create-a-client)
+* [Enable a Connection on the Client](#enable-a-connection-on-the-client)
+* [Add a user to the Connection](#add-a-user-to-the-new-connection)
 
 ## Create a Client
 
@@ -53,9 +50,13 @@ Copy the **Client ID** value.
 
 Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
 
-Set the **JsonWebToken Signature Algorithm** to `RS256`.
+Next, set the **JsonWebToken Signature Algorithm** to `RS256`, and make sure the **OIDC Conformant** toggle is disabled.
 
-![Change JsonWebToken Signature Algorithm](/media/articles/extensions/delegated-admin/set-rs256.png)
+::: note
+The **Delegated Administration** extension requires clients to disable the **OIDC Conformant** flag. After turning off **OIDC Conformant** on the dashboard, ensure your client's authentication code is updated as well.
+:::
+
+![Change Advanced OAuth Settings](/media/articles/extensions/delegated-admin/oauth-settings.png)
 
 Click **Save Changes** to proceed.
 

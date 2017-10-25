@@ -28,13 +28,13 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
+| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration. See [Client Settings](/clients/client-settings) for information on finding your Client ID |
 
 As an example, the text of your .env file should look something like this when complete:
 
 ```text
 JWKS_URI=https://${account.namespace}/.well-known/jwks.json
-AUDIENCE=https://your-api-gateway
+AUDIENCE=hVG7...3QA1q
 TOKEN_ISSUER=https://${account.namespace}/
 ```
 
@@ -170,7 +170,7 @@ b. Then, create the following three **Environment variables**. Note that this in
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
-| **`AUDIENCE`** | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
+| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration |
 
 c. In the **Lambda function handler and role** section, set the following values:
 
@@ -228,7 +228,7 @@ Set the following parameters:
 | **Lambda function** | `jwtRsaCustomAuthorizer` |
 | **Authorizer name** | `jwt-rsa-custom-authorizer` |
 | **Execution role** | The IAM Role ARN you copied above |
-| **Identity token source** | `method.request.header.Authorization` |
+| **Identity token source** | `Authorization` |
 | **Token validation expression** | `^Bearer [-0-9a-zA-z\.]*$` |
 | **Result TTL in seconds** | `3600` |
 

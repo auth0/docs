@@ -17,9 +17,9 @@
 
     - title: Developer Videos
       url: /videos
-
-    - title: Architecture Scenarios
-      url: /architecture-scenarios
+    
+    - title: Clients
+      url: /clients
 
 - id: "ui-components"
   title: "UI Components"
@@ -64,14 +64,15 @@
   url: "/topics/guides"
   articles:
 
+    - title: "Architecture Scenarios"
+      url: /architecture-scenarios
+      
     - title: "Tokens"
       url: "/tokens"
 
     - title: "JWT"
       url: "/jwt"
 
-    - title: "Import and Migrate"
-      url: "/connections/database/migrating"
 
 - id: "apis"
   title: "APIs"

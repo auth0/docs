@@ -45,7 +45,7 @@ To attach the user's access token to HTTP calls as an `Authorization` header, ad
 We recommend you implement a custom function that adds the header automatically. 
 :::
 
-Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's access token in lokal storage. To secure the request, attache the access token as the `Authorization` header.
+Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's access token in local storage. To secure the request, attach the access token as the `Authorization` header.
 
 ```js
 // app.js

@@ -38,7 +38,7 @@ Your Development and/or Production environments must meet the following requirem
     * Please note that version 8293 required outbound access to `docker.it.auth0.com` (or `52.9.124.234`) on Port **5000**.
   * `cdn.auth0.com`
 * All nodes are able to communicate with other nodes in the same cluster using ports **8721** and **8701**.
-* All SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
+* All [SSL certificates](/appliance/infrastructure/security#ssl-certificates) have the appropriate Webtask DNS entry. Examples:
   * `webtask.<yourdomain>.com`
   * `webtask-dev.<yourdomain>.com`
 
@@ -49,12 +49,16 @@ Once you have met the requirements for enabling Webtasks, submit a Support ticke
 * Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`)
 * Update your PSaaS Appliance to version `8986`. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
 
+## Dedicated Domains
+
+Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a [dedicated domain](/appliance/webtask/dedicated-domains). This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).
+
 ## Keep reading
 
 ::: next-steps
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
 * [Web Extensions](/extensions)
 * [Delegated Admininstration extension](/extensions/delegated-admin)
-* [Webtasks](appliance/webtasks)
+* [Webtasks](appliance/webtask)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
 :::

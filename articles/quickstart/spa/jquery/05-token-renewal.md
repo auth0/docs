@@ -44,7 +44,7 @@ function renewToken() {
 }
 ```
 
-The access should be renewed when it expires. In this tutorial, the expiry time of the token is storen in local storage as `expires_at`. 
+The access should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`. 
 
 ::: note
 You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a simple `setTimeout` call. 
@@ -74,7 +74,7 @@ function scheduleRenewal() {
 }
 ```
 
-You can now include a call to the function can now be modified to include a call to the `scheduleRenewal` function in the `setSession` function.
+You can now include a call to the `scheduleRenewal` function in the `setSession` function.
 
 ```js
 // app.js

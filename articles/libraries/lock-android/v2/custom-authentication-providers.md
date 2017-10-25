@@ -1,19 +1,24 @@
 ---
 section: libraries
-toc_title: Custom Authentication Providers
+title: Lock Android v2 Custom Authentication Providers
 description: Implementing custom authentication providers
 ---
-
-# Custom Authentication Providers
+# Lock Android: Custom Authentication Providers
 
 **Auth0.Android** includes the `WebAuthProvider` class to handle the authorize flow using the Browser. But what if you want to use your own implementation or a Native version of an `AuthProvider`?
 
 ## The AuthProvider class
+
 Create a class that implements the `AuthProvider` interface and override its methods.
 
-You can also use any _Native_ implementation already provided by Auth0. Currently available are [Google](/libraries/lock-android/native-provider-google) and [Facebook](/libraries/lock-android/native-provider-facebook).
+You can also use any **Native** implementation already provided by Auth0. The [native social authentication](/libraries/lock-android/v2/native-social-authentication) providers currently available are Google and Facebook.
+
+::: warning
+The native social providers rely on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. We recommend using browser-based flows, as explained in [Authentication with Auth0 Hosted Login Page](/libraries/auth0-android#authentication-with-auth0-hosted-login-page).
+:::
 
 ## The AuthHandler class
+
 **Auth0.Android** includes an interface for you to implement and define which provider to use given a Strategy and Connection name. It has a single method that returns an `AuthProvider` for a given strategy/connection name. If no provider can handle those values, it should return `null`. On **Lock** side, when no provider is returned it will default to `WebAuthProvider`.
 
 ```java
@@ -37,9 +42,9 @@ public class MyAuthHandler implements AuthHandler {
       provider = new MyLinkedInProvider();
     } else if ("twitter".equals(strategy)) {
       if (connection.equals("twitter-dev")) {
-        provider = new TwitterDevProvider();          
+        provider = new TwitterDevProvider();
       } else {
-        provider = new TwitterProvider();          
+        provider = new TwitterProvider();
       }
     }
     return provider;
@@ -56,7 +61,7 @@ builder.withAuthHandlers(Arrays.asList(new MyAuthHandler()));
 This way when **Lock** needs to authenticate a user with OAuth, it will ask the handlers **respecting the given order**, which of them can handle a given connection/strategy name. If the first one can handle it, the second won't be called. If no handlers can match the request (Lock received `null`), Lock will internally default to use `WebAuthProvider`. Also note that `strategy` can be null.
 
 ::: note
-In this example we used `MyLinkedInProvider`, `TwitterDevProvider` and `TwitterProvider` classes _not included_ in **Lock**.
+In this example we used `MyLinkedInProvider`, `TwitterDevProvider` and `TwitterProvider` classes **not** included in **Lock**.
 :::
 
-Our [Google](https://github.com/auth0/Lock-Google.Android) and [Facebook](https://github.com/auth0/Lock-Facebook.Android) Native Providers implementations will provide `AuthHandler`s for you to use directly with **Lock**.
+Our Google and Facebook [native social providers](/libraries/lock-android/v2/native-social-authentication) will provide `AuthHandler`s for you to use directly with **Lock**.

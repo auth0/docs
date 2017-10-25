@@ -1,6 +1,5 @@
 ---
 section: libraries
-toc_title: Internationalization
 title: Internationalization in Lock v2 for iOS
 description: Internationalization support in Lock v2 for iOS
 ---

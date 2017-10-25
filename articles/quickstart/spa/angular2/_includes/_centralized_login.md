@@ -168,7 +168,7 @@ This example assumes you are using the default Angular path-based routing. If yo
 Create a component named `CallbackComponent` and add a loading indicator.
 
 ::: note
-To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
+To display a loading indicator, you need a loading spinner or another indicator in the `assets` directory. See the downloadable sample for demonstration. 
 :::
 
 ```html

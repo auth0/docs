@@ -8,7 +8,7 @@ description: Outlines additional support procedure information for enterprise su
 
 This document outlines additional support procedure information for enterprise subscription customers with an PSaaS Appliance and shoud be read in conjunction with the general [Enterprise Support Guidance document](/onboarding/enterprise-support).
 
-PSaaS Appliance customers must have [Premium Enterprise Support](/onboarding/enterprise-support#premium-enterprise-support) as a minimum. Refer to your subscription agreement to confirm if other custom support or SLA coverage has been included.
+PSaaS Appliance customers must have [Enterprise Support](/onboarding/enterprise-support#premium-enterprise-support) as a minimum. Refer to your subscription agreement to confirm if other custom support or SLA coverage has been included.
 
 Below are special procedures PSaaS Appliance customers should follow for Critical Support Issues.  All other information as outlined in the [Enterprise Support Guidance document](/onboarding/enterprise-support) is still valid and should be followed.
 

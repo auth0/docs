@@ -8,7 +8,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-cordova-samples',
-  path: '00-Starter-Seed/phonegap-basic-sample',
+  path: '01-Login',
   requirements: [
     'NodeJS 4.3',
     'Phonegap 5.5'

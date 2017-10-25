@@ -1,5 +1,5 @@
 ---
-toc_title: Customize Your UI
+title: Lock Android v1 Customize Your UI
 description: Customize the UI of Lock in your App
 ---
 # Lock Android: Customize Your UI

@@ -1,9 +1,9 @@
 ---
 section: libraries
-toc_title: Passwordless Authentication with Lock for Android
+title: Lock Android v2 Passwordless
 description: Guide on implementing Passwordless authentication with Lock for Android
 ---
-# Lock Passwordless
+# Lock Android: Passwordless
 
 ::: warning
 Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
@@ -12,12 +12,12 @@ Passwordless on native platforms is disabled by default for new tenants as of 8 
 Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
 ::: note
-You can achieve a similar result by sending a **LINK** that the user can click to finish the passwordless authentication automatically, but a few more configuration steps are involved. You can check that article [here](/libraries/lock-android/passwordless-magic-link).
+You can achieve a similar result by sending a **LINK** that the user can click to finish the passwordless authentication automatically, but a few more configuration steps are involved. You can check that article [here](/libraries/lock-android/v2/passwordless-magic-link).
 :::
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
 
-Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/libraries/lock-android/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/libraries/lock-android/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](api-auth/tutorials/adoption).
 
 ## Implementing CODE Passwordless
 

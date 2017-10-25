@@ -1,5 +1,5 @@
 ---
-toc_title: Refreshing JWT Tokens
+title: Lock Android v1 Refreshing JWT Tokens
 description: Keeping your user logged in
 ---
 # Lock Android: Refreshing JWT Tokens

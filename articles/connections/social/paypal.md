@@ -5,13 +5,12 @@ image: /media/connections/paypal.png
 seo_alias: paypal
 index: 10
 description: How to obtain a Client Id and Client Secret for PayPal.
+toc: true
 ---
 
 # Connect your app to PayPal
 
 To configure an OAuth connection with PayPal, register your Auth0 Client on the [**PayPal Developer Portal**](https://developer.paypal.com/).
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Registering Your Auth0 Client Using the PayPal Developer Portal
 
