@@ -34,10 +34,16 @@ When a sentence cannot be constructed without a pronoun, the best solution for a
 Keep paragraphs short for internet reading.
 
 ### Subheads
+
 Subheads are not intended to make independent statements. Therefore, reiterate in the paragraph text anything stated in the subhead. Do not use a subhead to introduce a separate idea and do not force the user to read the subhead to understand the text that follows.
 
 ## Abbreviations
+
 Abbreviations should be avoided, including the use of e.g. Instead, use "for example." You want the content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
+
+### Adjectives
+
+Don’t use more than two adjectives in one sentence (e.g. powerful, robust, easy-to-use, and secure).
 
 ### Contractions
 
@@ -57,9 +63,11 @@ Other commonly encountered compound words include "server side" and "client side
 Colons are useful when you are directly referring to an example, such as "Here is the relevant code:"
 
 ### Adjectives
+
 Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
 ### Punctuation and quotes
+
 In American English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as shown here, with the comma inside the quotation marks.
 
 The exception is when quoting code. If the code does not include the punctuation mark, do not place the punctuation mark inside the quotes.
@@ -73,6 +81,19 @@ Only the first level title should be in "Title Case". All subheads should be in 
 ### Menu items
 
 Use **Bold** when referring to menu items or fields in a webpage or UI.
+
+### Numbers
+
+Follow general [AP Style](https://www.apstylebook.com/) guidelines:
+- Spell out whole numbers up to and including nine, 10 and above should be written numerically (two, five, nine, 11, 16, 123, etc.)
+- Any number that starts a sentence should be spelled out, as in the Tom example above. 
+
+### Dates
+
+The following months are abbreviated when referencing a specific date: January (Jan.), February (Feb.), August (Aug.), September (Sept.), October (Oct.), November (Nov.) and December (Dec.). Months are not abbreviated when they stand alone or are paired with a year.
+- Dec. 21
+- Dec. 21, 2018
+- December 2018
 
 ### Parameters
 
