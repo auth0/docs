@@ -165,7 +165,7 @@ module.exports = function (user, context, cb) {
   });
 
   if (!userHasAccess) {  
-    return cb('You may not sign up with an email address using your current domain.');
+    return cb('Email domain not allowed');
   }
 
   const response = { user };

@@ -1,14 +1,16 @@
 ---
-toc_title: Passwordless with Magic Link
+title: Lock Android v1 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
 ---
-# Lock Android: Passwordless with Magic Link
+# Lock Android: Passwordless Magic link
 
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
 Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
+
+## Passwordless Authentication with Magic Link
 
 In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any code input involved.
 
@@ -28,7 +30,7 @@ The links will work in all versions of Android, but the dialog asking the user w
 
 In this article we'll show how Auth0 helps you set up your app to use app links to log in.
 
-## Auth0 account configuration
+### Auth0 account configuration
 
 Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](${manage_url}/#/connections/passwordless). We'll show you how to do it.
 
@@ -74,9 +76,11 @@ In the *id* field we must introduce the *client_id* of our Auth0 App, and the *b
 Don't forget to change the body to use your package name and keystore fingerprint!
 :::
 
+### Connection Configuration
+
 Next we'll have to configure either the SMS or Email connection. This is available from the dashboard, so we'll show how to do it from there.
 
-### SMS
+#### SMS
 
 In case we'll use a passwordless connection via SMS, we'll need to update the SMS message template from the [dashboard](${manage_url}/#/connections/passwordless).
 
@@ -94,7 +98,7 @@ Your verification code is: {{ code }}
 We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
 :::
 
-### Email
+#### Email
 
 Otherwise, if we'll use a passwordless connection via Email, we'll need to make sure the template is **HTML + Liquid** and that the email body contains *somewhere* a conditional like this:
 
@@ -106,9 +110,9 @@ Your verification code is: {{ code }}
 {% endif %}
 ```
 
-## Application configuration
+### Application configuration
 
-Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android#passwordless).
+Now that we have the Auth0 client configured, before we start with the Android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android#passwordless).
 
 Now, in order to use App Links, there is an additional configuration step we must follow. We must declare an intent filter in the `AndroidManifest.xml`, inside the `LockPasswordlessActivity` activity tag. This filter will allow the app lo handle the links we'll send by Email or SMS.
 
@@ -149,7 +153,7 @@ As can be seen, it's a regular *intent-filter*, with the exception of the `andro
 
 Also notice that in case we'll only use one passwordless method (SMS or Email) you could delete the other intent filter (see the last segment of the pathPrefix: `/email` or `/sms`).
 
-## Usage
+### Usage
 
 As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropiate mode.
 

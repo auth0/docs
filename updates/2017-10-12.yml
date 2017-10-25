@@ -1,0 +1,8 @@
+added:
+  -
+    title: "User-Initiated Multifactor Authentication"
+    tags:
+      - tutorial
+      - mfa
+    description: |
+      A new doc on implementing [User-Initiated Multifactor Authentication](https://auth0.com/docs/multifactor-authentication/user-initiated-mfa) was added.

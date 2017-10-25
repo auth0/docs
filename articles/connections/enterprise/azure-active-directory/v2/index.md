@@ -23,13 +23,22 @@ There are different scenarios in which you might want to integrate with Microsof
 
 * You want to let users coming from other companies' Azure ADs into your application. You may set up those external directories manually as different connections, or [create a multi-tenant application that accepts new directories dynamically](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory).
 
-If you plan on allowing users to login using a Microsoft Azure Active Directory account, either from your company or from external directories, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free. You can access the Azure management portal from your Microsoft service, or visit [https://manage.windowsazure.com](https://manage.windowsazure.com) and sign in to Azure using the global administrator account that was used to create the Office 365 organization.
+If you plan on allowing users to log in using a Microsoft Azure Active Directory account, either from your company or from external directories, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free.
+
+You can access the Azure management portal from your Microsoft service, or visit [https://manage.windowsazure.com](https://manage.windowsazure.com) and sign in to Azure using the global administrator account used to create the Office 365 organization.
 
 ::: note
 There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 :::
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+If you have an Office 365 account, you can use the account's Azure AD instance instead of creating a new one. To find your Office 365 account's Azure AD instance:
+
+1. [Sign in](https://portal.office.com) to Office 365.
+2. Navigate to the [Office 365 Admin Center](https://portal.office.com/adminportal/home#/homepage).
+3. Open the **Admin centers** menu drawer located in the left menu.
+4. Click on **Azure AD**.
+
+This will bring you to the admin center of the Azure AD instance backing your Office 365 account.
 
 ## 1. Create a new application
 

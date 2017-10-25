@@ -9,7 +9,7 @@ description: PSaaS Appliance infrastructure information about security
 
  ## SSL Certificates
 
- Each PSaaS Appliance (e.g. your production cluster PSaaS Appliance instance(s) and your development/test node PSaaS Appliance instance) requires a unique SSL certificate to be created and installed.
+ Each PSaaS Appliance (e.g. your production cluster PSaaS Appliance instance(s) and your development/test node PSaaS Appliance instance) requires a unique SSL certificate to be created and installed. If you'd like [additional DNS zones](/webtask/dedicated-domains), you'll need an additional certificate for *each* DNS zone you create.
 
  ::: note
    If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
@@ -67,20 +67,16 @@ The PSaaS Appliance supports STARTTLS, but it is not required.
 
 ## Auth0 Remote Access
 
-Auth0 may require remote access to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
+Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
 
 ### Initial Configuration
 
-Auth0's remote access method for initial configuration requires SSH access via Jumphost (the preferred method) or via VPN.
-
-After the initial configuration, please feel free to disable this connection. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.
+Auth0's remote access method for initial configuration requires SSH access via Jumphost (the preferred method) or via VPN. After the initial configuration, please feel free to disable this connection. 
 
 ### Updates, Maintenance, and Troubleshooting
 
-Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN.
-
-This connection may be enabled for and disabled after the agreed-upon time frames for work. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.
+Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN. This connection may be enabled for and disabled after the agreed-upon time frames for work.
 
 ### Around-the-Clock Accessibility for Custom SLAs
 
-Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the PSaaS Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.
+Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the PSaaS Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. 

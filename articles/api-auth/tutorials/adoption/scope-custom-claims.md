@@ -69,7 +69,7 @@ This follows a [recommendation from the OIDC specification](https://openid.net/s
 
 If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
 
-Please note that adding custom claims to id tokens trough this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+Please note that adding custom claims to id tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
 
 ## Further reading
 

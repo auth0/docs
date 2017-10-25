@@ -5,13 +5,12 @@ index: 4
 image: /media/connections/instagram.png
 seo_alias: instagram
 description: This page shows you how to connect your Auth0 app to Instagram. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+toc: true
 ---
 
 # Connect your app to Instagram
 
-To connect your Auth0 app to Instagram, you will need to generate a *Client ID* and *Client Secret* in an Instagram app, copy these keys into your Auth0 settings, and enable the connection.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+To connect your Auth0 app to Instagram, you will need to generate a **Client ID** and **Client Secret** in an Instagram app, copy these keys into your Auth0 settings, and enable the connection.
 
 ## 1. Log into the developer portal
 
@@ -43,7 +42,7 @@ Click **Register**.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-3.png)
 
-## 4. Get your *Client ID* and *Client Secret*
+## 4. Get your **Client ID** and **Client Secret**
 
 Once your app is registered, you will be navigated to the **Manage Clients** page. Click on the **Manage** button for your new client.
 
@@ -53,7 +52,7 @@ This will bring you to the page that contains your **Client ID** and **Client Se
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-4-1.png)
 
-## 5. Copy your *Client Id* and *Client Secret* into Auth0
+## 5. Copy your **Client Id** and **Client Secret** into Auth0
 
 In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth Dashboard. 
 

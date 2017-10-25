@@ -4,13 +4,12 @@ connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center
 description: How to obtain a Client Id and Client Secret for Planning Center.
+toc: true
 ---
 
 # Connect your app to Planning Center
 
 To configure an OAuth2 connection with Planning Center Online, you will need to register Auth0 with Planning Center on their Developer portal.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Log into the Planning Center Developer portal
 

@@ -32,6 +32,10 @@ For more information on user related metadata refer to [User Metadata](/metadata
 
 ## Search for Users Using the Management API
 
+::: warning
+Auth0 limits the number of users you can retrieve; if the number of users you're retrieving exceeds this threshold, please [contact support](${env.DOMAIN_URL_SUPPORT}) for further assistance.
+:::
+
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
 In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
@@ -44,7 +48,7 @@ To search users using the [Management API Explorer](/api/management/v2#!/Users/g
 
 ### Search using Postman
 
-You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](https://auth0.com/docs/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
+You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
 
 Once you have downloaded the collection, and configured your environment, select the **Management API** collection. Navigate to the **Users** folder and select **List or search users**. You can enter your query in the `q` parameter of the URL:
 
@@ -102,10 +106,10 @@ Search for all user names starting with "john" | `name:john*`
 Search for user names that start with "john" and end with "smith" | `name:john*smith`
 Search for all users whose email _is_ exactly "john@contoso\.com" | `email.raw:"john@contoso.com"`
 Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` | `email.raw:("john@contoso.com" OR "mary@contoso.com")`
-Search for users without verified email | `email_verified:false OR _missing_:email_verified`
+Search for users without verified email | `email_verified:false OR NOT _exists_:email_verified`
 Search for users who have the `user_metadata` field named `name` with the value of "John Doe" | `user_metadata.name:"John Doe"`
 Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
-Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
+Search for all users that have never logged in | `(NOT _exists_:logins_count OR logins_count:0)` 
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
 

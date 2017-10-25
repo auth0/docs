@@ -1,6 +1,6 @@
 ---
 section: libraries
-toc_title: Password Reset
+title: Password Reset
 description: All you need to know about password reset with Lock for iOS.
 ---
 
