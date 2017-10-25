@@ -53,7 +53,7 @@ manager.clearCredentials();
 //Show login screen
 ```
 
-### Obtain Credentials
+### Retrieving Credentials
 
 Because the credentials may need to be refreshed against Auth0 Servers, this method is asynchronous. Pass a callback implementation where you'd like to receive the credentials. Credentials returned by this method upon success are always valid.
 
@@ -72,7 +72,7 @@ manager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException
 ```
 
 ::: note
-If the `accessToken` has expired, the manager will automatically use the `refreshToken` and renew the credentials for you.
+If the `accessToken` has expired, the manager will automatically use the `refreshToken` and renew the credentials for you. New credentials will be stored for future access.
 :::
 
 ### Save new Credentials
@@ -108,7 +108,7 @@ private static final int RC_UNLOCK_AUTHENTICATION = 123;
 boolean available = manager.requireAuthentication(this, RC_UNLOCK_AUTHENTICATION, getString(R.string.unlock_authentication_title), getString(R.string.unlock_authentication_description));
 ```
 
-If the feature was enabled, the manager will prompt the user to authenticate using the configured Lock Screen.  The result of this call will be obtained in the `onActivityResult` method of the activity passed before as first parameter. If the feature was not enabled, Lock Screen authentication will be skipped.
+If the feature was enabled, the manager will prompt the user to authenticate using the configured Lock Screen. The result of this call will be obtained in the `onActivityResult` method of the activity passed before as first parameter. If the feature was not enabled, Lock Screen authentication will be skipped.
 
 After checking that the received request code matches the one used in the configuration step, redirect the received parameters to the manager to finish the authentication. The credentials will be yield to the original callback.
 
