@@ -73,7 +73,7 @@ You can choose which identity providers to use for user authentication.
 Using external providers means that your end users' credentials are **not** stored in Auth0 (or onsite).
 
 ::: note
-If you use LDAP connections, turn off caching to prevent end user credentials from being store in Auth0/onsite.
+If you use LDAP connections, turn off caching to prevent end user credentials from being stored in Auth0/onsite.
 :::
 
 ## Data Minimization

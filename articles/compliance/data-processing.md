@@ -12,7 +12,7 @@ All of the data Auth0 has about an end user is located in the Auth0 user profile
 
 ## Where Auth0 Data is Stored
 
-The Auth0 user profile information is stored in Auth0 when you use a database connection. If a user logs in using any other type of connection, the basic profile attributes are cached in Auth0 and updated during each subsequent login.
+The Auth0 user profile information is stored in Auth0 when you use a database connection. If a user logs in using any other type of connection (including custom database connections), Auth0 stores information provided by the external identity provider for future queries.
 
 ## How Auth0 Uses the Data It Stores
 

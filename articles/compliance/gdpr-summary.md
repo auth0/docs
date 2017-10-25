@@ -48,7 +48,7 @@ As the data controller, you must:
 
 Auth0, as the data processor, must:
 
-* Comply with instructions provided by data processors
+* Comply with instructions provided by data controllers
 * Maintain adequate documentation
 * Implement adequate security
 * Conduct data protection impact assessments
