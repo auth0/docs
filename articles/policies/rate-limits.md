@@ -181,7 +181,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
 :::note
-Rate limits are not yet enabled for all endpoints, as the rate limits for some endpoints will only be enabled at a future date. This is indicated by the <div class="label label-primary">Enabled</div> and <div class="label label-warning">Not Enabled</div> labels.
+Rate limits are not yet enabled for all endpoints, and rate limits for some endpoints will only be enabled at a future date. This is indicated by the **Enabled** column.
 :::
 
 <table class="table">
