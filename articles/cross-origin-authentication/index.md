@@ -30,6 +30,7 @@ This limitation is another reason why the more practical solution, where possibl
 Configuring your client for cross-origin authentication is a process that requires a few steps:
 
 1. In the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) for your application, click **Show Advanced Settings** > **OAuth** and find the **Cross Origin Authentication Mode** switch. Ensure that the switch is in the on position.
+![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-settings.png)
 1. Ensure that the **Allowed Origins (CORS)** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 1. Ensure that your application is using [Lock](/libraries/lock) version 10.22 or higher, or [Auth0.js](/libraries/auth0js) version 8.7 or higher.
 1. If you are using Lock 10, make sure that you are using the [oidcconformant](/libraries/lock/v10/customization#oidcconformant-boolean-) option.
