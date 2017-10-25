@@ -4,7 +4,7 @@ alias:
 languages:
   - Python
 thirdParty: false
-image: /media/platforms/python.png
+image: /media/platforms/django.png
 tags:
   - quickstart
 snippets:
