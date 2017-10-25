@@ -183,7 +183,53 @@ Authorization: 'Bearer YOUR_API_V2_TOKEN'
 }
 ```
 
-This method requires an [API V2 token](/api/v2/tokens) with `update:users` scope and is intended for use in server-side code where you can make sure that both accounts correspond to the same person.
+This method requires a [Management API Token](/api/v2/tokens) with `update:users` scope and is intended for use in server-side code where you can make sure that both accounts correspond to the same person.
+
+### Get Accounts With the Same E-mail Address
+
+To get a list of accounts with the same e-mail address, call the [Get Users By Email](/api/v2#!/users-by-email) endpoint. The request must include a [Management API Token](/api/management/v2/tokens) with the `read:users` scope:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users-by-email",
+    "httpVersion": "HTTP/1.1",
+    "headers": [
+      { "name" "Authorization", "value": "Bearer YOUR_API_V2_TOKEN" }
+    ],
+    "queryString" : [
+      {"name": "email", "value": "user@example.com"}
+    ],
+    "headersSize" : 150,
+    "bodySize" : 0
+}
+```
+
+The response would be:
+
+```json
+[{
+    "email": "user@example.com",
+    "email_verified": false,
+    "user_id": "auth0|......",
+    "picture": "https://s.gravatar.com/avatar/1234abcd.png",
+    "identities": [
+        {
+            "connection": "Username-Password-Authentication",
+            "user_id": "......",
+            "provider": "auth0",
+            "isSocial": false
+        }
+    ],
+    "updated_at": "2017-09-05T21:41:24.076Z",
+    "created_at": "2017-08-31T13:12:32.052Z",
+},
+{
+    "email": "user@example.com",
+    "email_verified": true,
+    "user_id": "auth0|......",
+}]
+```
 
 ## Scenarios
 
@@ -193,9 +239,13 @@ Below are implementation details for calling the Linking Account API in these sc
 * [User-initiated account linking](#user-initiated-account-linking)
 * [Suggested account linking](#suggested-account-linking)
 
+::: warning
+For security purposes, it is best to link accounts **only if both e-mails are verified**.
+:::
+
 ### Automatic account linking
 
-**Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address. For security purposes, it is best to link accounts **only if both e-mails are verified**.
+**Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address.
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [Management API v2 token](/api/v2/tokens) with `update:users` scope.
 
