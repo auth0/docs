@@ -17,7 +17,8 @@ description: Learn about various topics regarding how to handle sensitive data w
 
 <%= include('../_includes/_topic-links', { links: [
   'security/store-tokens',
-  'tokens'
+  'tokens',
+  'blacklisting-attributes'
 ] }) %>
 
 ## Preventing Security Attacks
