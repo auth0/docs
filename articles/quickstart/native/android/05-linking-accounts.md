@@ -31,11 +31,7 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 Your users may want to link their other accounts to the account they are logged in to. 
 
-::: note
-Use the [Auth0 Android](https://github.com/auth0/Auth0.Android) library.
-:::
-
-You need to store those values in the Intent so they can be accessed in other activities.
+To achieve this, you need to store the user id for the logged user in the Intent so they can be accessed in other activities.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -45,7 +41,7 @@ intent.putExtra(Constants.PRIMARY_USER_ID, profile.getId());
 startActivity(intent);
 ```
 
-Obtain the values in `LoginActivity`:
+Obtain the stored values in `LoginActivity`:
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -54,7 +50,7 @@ boolean linkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNT
 String userId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
 ```
 
-In the login response, check if you need to show the `MainActivity` screen, or continue to link the accounts. 
+In the login response, based on the boolean flag set in the first step, decide if you need to show the `MainActivity` screen, or continue to link the accounts. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
