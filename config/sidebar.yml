@@ -591,6 +591,7 @@ libraries:
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"
+    children:
 
       - title: "Overview"
         url: "/libraries/auth0-android"
