@@ -13,7 +13,7 @@ description: Learn about working with users in Auth0
 </div>
 
 <%= include('../_includes/_topic-links', { links: [
-  'users/bulk-importing-users-into-auth0,
+  'users/bulk-importing-users-into-auth0',
   'users/redirecting-users',
   'users/get-user-information-with-unbounce-landing-pages'
 ] }) %>
