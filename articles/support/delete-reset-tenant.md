@@ -9,3 +9,5 @@ Using the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-res
 ## Delete vs. Reset
 
 In some cases, users have opted to delete their tenant to begin with a clean slate. Unfortunately, doing so means that you don't keep your tenant name. Because tenant names have to be unique, they can only used once. As such, we recommend using the Reset Tenant Extension to remove the unwanted items and return your tenant to its initial state, since this means that you do *not* have to start over with a new tenant name.
+
+<%= include('./_delete-tenant') %>

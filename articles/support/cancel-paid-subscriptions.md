@@ -28,22 +28,4 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 6. To confirm your subscription change, click **Subscribe Now**.
 
-## Delete Your Auth0 Tenant
-
-::: warning
-This action cannot be undone.
-:::
-
-1. Log in to the Auth0 [Management Dashboard](${manage_url}).
-2. Click on your username in the top right corner to bring up the associated dropdown box.
-
-![](/media/articles/subscriptions/dashboard.png)
-
-3. Select **Settings** to open the **Tenant Settings** page.
-4. On the **Tenant Settings** page is open, click on the **Advanced** tab.
-
-![](/media/articles/subscriptions/advanced.png)
-
-5. Scroll down to the **Danger Zone** at the bottom of the page, and click **Delete**.
-
-![](/media/articles/subscriptions/danger-zone.png)
+<%= include('./_delete-tenant') %>
