@@ -70,7 +70,7 @@ This endpoint supports the following query string parameters:
 | scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `https://YOUR_APP/callback`|
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
-| state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
+| state | The state parameter will be sent back should be used for CSRF and contextual information (like a return url) |
 | nonce | A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). **This is required.** |
 
 ::: note
