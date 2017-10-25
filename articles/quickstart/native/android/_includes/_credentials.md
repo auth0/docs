@@ -1,6 +1,15 @@
 ## Set Credentials
 
-You will require the **Client ID** and **Domain** for your client application. These values can be found in your Auth0 dashboard. The suggested approach is to use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html) like `@string/com_auth0_domain` to define them instead of hard coding the value, as you might need to change them in the future and forget to update them in all the places. Edit your `res/values/strings.xml` file like this:
+Your application needs some details about your client to communicate with Auth0. You can get these details from the **Settings** section for your client in the [Auth0 dashboard](${manage_url}/#/).
+
+You need the following information: 
+
+* **Client ID**
+* **Domain**
+
+We suggest you do not hardcode these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
+
+Edit your `res/values/strings.xml` file as follows:
 
 ```xml
 <resources>
@@ -9,4 +18,6 @@ You will require the **Client ID** and **Domain** for your client application. T
 </resources>
 ```
 
-If you're logged in with your Auth0 account and download the samples from the "Download Sample" button, the values will be completed for you.
+::: note
+If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+:::
