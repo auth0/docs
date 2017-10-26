@@ -45,7 +45,7 @@ For more details about how SSO works, see the [SSO documentation](/sso).
 
 Why use the Hosted Login Page rather than embedding your login functionality within your application?
 
-Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using the Hosted Login Page for the authentication process with Auth0 prevents that from ever being a concern. Additionally, the Hosted Login Page is very easy to implement, especially if a custom UI is not required.
+Security is the primary reason, followed by ease of setup. Embedded logins, which must use cross-origin authentication for security, are more vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks) and are more challenging to set up and secure. Using the Hosted Login Page for the authentication process with Auth0 prevents that from ever being a concern. Additionally, the Hosted Login Page is very easy to implement, especially if a custom UI is not required.
 
 ### What the Hosted Login Page is Not Intended For
 
