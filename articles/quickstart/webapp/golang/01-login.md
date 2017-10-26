@@ -108,15 +108,6 @@ Remember to set this handler to the `/callback` path:
 
 ${snippet(meta.snippets.setup)}
 
-## Set the Callback URL
-
-${include('../\_callbackRegularWebApp')}
-
-In this case, the redirectUrl should look something like:
-
-```
-http://yourUrl/callback
-```
 
 ## Triggering the Login
 
@@ -186,7 +177,7 @@ Add a link to `/login` route in the `index.html` template.
 
 ## Accessing User Information
 
-You can access the user information via the `profile` you stored in the session on step 2
+You can access the user information via the `profile` you stored in the session previously.
 
 ```go
 // routes/user/user.go
