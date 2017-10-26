@@ -63,6 +63,8 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
+Please add the URL of this callback page to your [Dashboard](${manage_url}) in the **Cross Origin Verification Iframe** setting field.
+
 ::: note
 Please see the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
 :::
