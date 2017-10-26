@@ -1,10 +1,10 @@
-## Delete Your Auth0 Tenant
+## Delete your Auth0 Tenant
 
 ::: warning
 This action cannot be undone.
 :::
 
-1. Log in to the Auth0 [Management Dashboard](${manage_url}).
+1. Log in to the [dashboard](${manage_url}).
 2. Click on your username in the top right corner to bring up the associated dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)
