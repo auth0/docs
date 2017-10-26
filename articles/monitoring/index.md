@@ -4,11 +4,9 @@ description: Monitoring Your Auth0 Implementation
 classes: topic-page
 ---
 
-# Monitor Your Auth0 Implementation
-
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Private SaaS (PSaaS) Appliance</h1>
+  <h1>Monitor Your Auth0 Implementation</h1>
   <p>
     Learn how to monitor your Auth0 implementation and track your Auth0 usage, as well as how to send logs to your choice of logging suite.
   </p>
