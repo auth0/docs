@@ -3,7 +3,7 @@ description: To cancel your Auth0 subscription, you can downgrade to a free subs
 crews: crew-2
 ---
 
-# Cancelling Your Auth0 Subscription
+# Cancel your Auth0 Subscription
 
 If you wish to cancel your Auth0 subscription, you have two options:
 
@@ -12,7 +12,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 ## Downgrade a Paid Subscription to a Free Subscription
 
-1. Log in to the Auth0 [Management Dashboard](${manage_url}).
+1. Log in to the [dashboard](${manage_url}).
 2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)
