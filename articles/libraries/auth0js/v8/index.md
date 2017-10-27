@@ -21,7 +21,7 @@ The [example directory](https://github.com/auth0/auth0.js/tree/master/example) o
 
 ## Setup and initialization
 
-Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#signup), [login](#login), [logout](#logout), and more!
+Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#sign-up), [login](#login), [logout](#logout), and more!
 
 ### Installation options
 
