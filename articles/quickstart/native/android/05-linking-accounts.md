@@ -31,7 +31,7 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 Your users may want to link their other accounts to the account they are logged in to. 
 
-To achieve this, you need to store the user id for the logged user in the Intent so they can be accessed in other activities.
+To achieve this, you need to store the user ID for the logged user in the Intent so it can be accessed in other activities.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -118,7 +118,7 @@ usersClient.getProfile(userInfo.getId())
 For more information, check the [UserIdentity.java class documentation](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java).
 :::
 
-### Unlink the Accounts
+## Unlink the Accounts
 
 To unlink the accounts, you need to specify the following: 
 * user ID for the main account

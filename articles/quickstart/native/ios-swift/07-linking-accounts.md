@@ -15,53 +15,28 @@ budicon: 345
   ]
 }) %>
 
-## Before Starting
+## Before You Start
 
-You should be familiar with previous tutorials. This tutorial assumes that you've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-swift/00-login) and the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions) first.
+Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
+* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project. 
+* You are familiar with presenting the login screen. To learn more, see the [Login](/quickstart/native/ios-swift/00-login) and the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorials.
 
-::: note
-It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
-:::
+We recommend that you read the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
 
 ## Enter Account Credentials
 
-Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
+Your users may want to link their other accounts to the account they are logged in to. 
 
-Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Tutorial](/quickstart/native/ios-swift/00-login):
+To achieve this, present an additional login dialog where your users can enter the credentials for any additional account. You can present this dialog in the way described in the [Login](/quickstart/native/ios-swift/00-login#enter-account-credentials) tutorial.
 
-First, import the `Auth0` module:
+After the user authenticates, save the `idToken` value for the secondary account.
 
-${snippet(meta.snippets.setup)}
+## Link the Accounts
 
-Then present the hosted login screen:
-
-```swift
-// HomeViewController.swift
-
-Auth0
-    .webAuth()
-    .audience("https://${account.namespace}/userinfo")
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Store accessToken to retrieve user profile, store idToken for linking
-        }
-}
-```
-
-Upon success, you need to store the `idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
-
-## Link an Account
-
-Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
-
-- `id`: The `id` from the user that is logged in. (See profile.sub)
-- `idToken`: The `idToken` obtained upon your user login.
-- `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
+Now, you can link the accounts. To do this, you need the following values: 
+- `id`: the logged-in user's ID (see `profile.sub`)
+- `idToken`: the ID token for the saved account the user initially logged in to 
+- `otherUserToken`: the ID token for the second account received in the last login response
 
 ```swift
 import Auth0
@@ -83,9 +58,9 @@ Auth0
     }
 ```
 
-## Retrieve Linked Accounts
+## Retrieve the Linked Accounts
 
-Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Tutorial](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken):
+You can retrieve the linked accounts (user identities). To achieve this, fetch the user's profile as shown in the [User Sessions](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken) tutorial:
 
 ```swift
 // SessionManager.swift
@@ -102,7 +77,7 @@ Auth0
         }
 ```
 
-Once you have the `sub` from the profile you can retrieve the users identities through a management API call as follows:
+Once you have the `sub` value from the profile, you can retrieve the users' identities. Call the management API:
 
 ```swift
 // SessionManager.swift
@@ -122,12 +97,16 @@ Auth0
 ```
 
 ::: note
-Any linked account is handled as an `Identity` instance. For further information on this object, check out the [Identity class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Identity.swift)
+A linked account is handled as an `Identity` instance. Read more about this object in the [Identity class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Identity.swift).
 :::
 
-## Unlink an Account
+## Unlink the Accounts
 
-The unlinking process is quite similar to the linking one. This time, you just need the `id`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
+To unlink the accounts, you need to specify the following: 
+* the `id` value in the user's ID token
+* the `userId` and `provider` values in the `identity` object you want to unlink
+
+Unlink the accounts:
 
 ```swift
 // UserIdentitiesViewController.swift

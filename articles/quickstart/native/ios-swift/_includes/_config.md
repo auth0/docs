@@ -1,8 +1,13 @@
-## Adding Auth0 Credentials
+## Add Auth0 Credentials
 
-The dependencies listed above require your client credentials in order for them to work. If you downloaded any sample project from here, these credentials are automatically set. Either way, you have to make sure they are there otherwise your app might crash.
+Your application needs some details about your client to communicate with Auth0. You can get these details from the **Settings** section for your client in the [Auth0 dashboard](${manage_url}/#/).
 
-Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
+You need the following information: 
+
+* **Client ID**
+* **Domain**
+
+Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
 
 ```xml
 <!-- Auth0.plist -->
@@ -19,9 +24,11 @@ Add your credentials in `Auth0.plist`. You have to create that file if it doesn'
 </plist>
 ```
 
-## Configure Callback URLs
+::: note
+If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+:::
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's **Allowed Callback URLs** for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
+<%= include('../../../../_includes/_callback_url') %>
 
 In your application's `Info.plist` file, register your iOS Bundle Identifer as a custom scheme:
 
@@ -44,10 +51,10 @@ In your application's `Info.plist` file, register your iOS Bundle Identifer as a
 ```
 
 ::: note
-If your `Info.plist` is not shown in this format, you can **Right Click** on `Info.plist` in Xcode and then select **Open As / Source Code**.
+If your `Info.plist` file is not shown in the format shown above, you can right-click `Info.plist` in Xcode and select **Open As** > **Source Code**.
 :::
 
-Finally, go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that "Allowed Callback URLs" contains the following:
+Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Callback URLs** field contains the following callback URL:
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
