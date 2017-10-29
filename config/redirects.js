@@ -1552,5 +1552,9 @@ module.exports = [
   {
     from: '/tutorials',
     to: '/',
+  },
+  {
+    from: '/sso/current/single-page-apps-sso',
+    to: '/sso/current/single-page-apps'
   }
 ];

@@ -1,7 +1,9 @@
 ---
-description: How to implement client-side SSO on single page applications.
+title: Client-Side SSO on Single Page Applications
+description: Tutorial on implementing client-side SSO on single page applications.
 toc: true
 ---
+
 # Client-Side SSO on Single Page Applications
 
 Single Page Applications (SPA) are user-friendly apps that load a single HTML page. This page then dynamically updates as the users interacts with the app. If your SPA is associated with other apps or sites that asks for authentication, you can implement OIDC-compliant Single Sign On to minimize the number of times the user has to provide their credentials. This ensures both the security of the process and ease of use from the perspective of the user.
