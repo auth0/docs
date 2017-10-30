@@ -7,11 +7,9 @@ toc: true
 
 # Migrate Users to Auth0
 
-Auth0 supports automatic migration of users from a [custom database connection](/connections/database/custom-db) to Auth0. This feature allows you to configure a custom database connection which will migrate users from an external application such as Okta to Auth0.
+Auth0 supports automatic migration of users from a [custom database connection](/connections/database/custom-db) to Auth0. This feature allows you to configure a custom database connection which will migrate users from an external application, such as Okta, to Auth0. It allows for a smooth migration of users over time, without requiring users to reset their password as a result of the migration.
 
-Your users will be moved to Auth0 the first time they log in after you set up the integration, and your users are not asked to reset their password as a result of the migration.
-
-For a more detailed overview, you can also read about the [The Migration Process](/connections/database/migrating#the-migration-process).
+For a more detailed overview, also refer to [The Migration Process](/connections/database/migrating#the-migration-process).
 
 The rest of this document will walk you through to process of configuring a custom database connection which imports users from Okta. It assumes that you have an Okta account.
 
@@ -21,17 +19,17 @@ The rest of this document will walk you through to process of configuring a cust
 
 You can create a new database connection in the [Connections > Database](${manage_url}/#/connections/database) section of the Dashboard.
 
-![Create a new DB Connection]()
+![Create a new DB Connection](/media/articles/connections/database/okta/create-database-connection.png)
 
 On the **Custom Database** page, enable the **Use my own database** option:
 
-![DB Login Page in Dashboard]()
+![DB Login Page in Dashboard](/media/articles/connections/database/okta/own-database.png)
 
 ### 2. Turn on Automatic Migration
 
-On the **Settings** page for your database, enable the **Import Users to Auth0** option:
+On the **Settings** page for your database connection, enable the **Import Users to Auth0** option:
 
-![Dashboard Import Users Option]()
+![Dashboard Import Users Option](/media/articles/connections/database/okta/import-users.png)
 
 ### 3. Create the Login Script
 
@@ -92,7 +90,7 @@ The **Get User** script is executed when the user attempts to do a password rese
 
 You will also need to [Create an API token](https://developer.okta.com/docs/api/getting_started/getting_a_token.html) which must be passed to this endpoint in the `Authorization` header.
 
-If successful, Okta will return a [User object](https://developer.okta.com/docs/api/resources/users.html#user-model) with the user's information. Once again, you can then simply extract the user's information and pass it to Auth0 in the callback function.
+If successful, Okta will return a [User object](https://developer.okta.com/docs/api/resources/users.html#user-model) with the user's information. Once again, you can extract the user's information and pass it to Auth0 in the callback function.
 
 ```js
 function getByEmail(email, callback) {
@@ -131,4 +129,20 @@ You can click the **Try** button above the script to test and see whether the sc
 
 ## Testing the Custom Database Connection
 
-At this point you can test the custom database connection to ensure that it works
+At this point you can test the custom database connection to ensure that it works. 
+
+Click on **Try connection**:
+
+![Try Connection](/media/articles/connections/database/okta/try-connection.png)
+
+The Auth0 Lock widget will appear. Enter the email address and password for the Okta user, and click on **Log In**:
+
+![Try Connection - Lock](/media/articles/connections/database/okta/try-connection-lock.png)
+
+You should see a web page indicating that the connection works, with information about the user:
+
+![Try Connection - Success](/media/articles/connections/database/okta/try-connection-success.png)
+
+If you navigate to the [Users](${manage_url}/#/users) section in the Auth0 Dashboard, you will see the newly imported user listed:
+
+![Imported User](/media/articles/connections/database/okta/user-imported.png)
