@@ -7,7 +7,10 @@ classes: topic-page
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>General Data Protection Regulation</h1>
-  <p>
+  <p>How GDPR Affects You and Your Auth0 Usage</p>
+</div>
+
+<p>
     On 27 April 2016, the European Parliament and the European Council adopted legislation known as <a href="http://www.eugdpr.org/">General Data Protection Regulation (GDPR)</a>, which becomes enforceable 25 May 2018. This legislation replaces European Privacy Directive 95/46/EC.
   </p>
   <p>
@@ -16,7 +19,6 @@ classes: topic-page
   <p>
     The contents of these documents are <b>not</b> intended to be legal advice, nor should they be considered a substitute for legal assistance. The final responsibility for understanding and complying with GDPR resides with you, though Auth0 will assist you in meeting GDPR requirements where possible.
   </p>
-</div>
 
 <ul class="topic-links">
   <li>
