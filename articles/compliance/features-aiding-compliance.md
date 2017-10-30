@@ -32,7 +32,7 @@ See [signUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for 
 You can:
 
 * [Delete the end user from Auth0 using the Management API](/api/management/v2#!/Users/delete_users_by_id).
-* Use [rules](/rule) to add the date of user consent withdrawal to the user's metadata during the authorization process
+* Use [rules](/rules) to add the date of user consent withdrawal to the user's metadata during the authorization process
 
 
 ## Right to Access Data
