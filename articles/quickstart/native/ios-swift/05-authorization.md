@@ -15,9 +15,9 @@ budicon: 500
   ]
 }) %>
 
-Many identity providers supply access claims with the user, for example, roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups` .
+Many identity providers supply access claims with the user, for example, roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
 
-If an identity providers does not supply this information, you can create a rule for assiging roles to users. 
+If an identity provider does not supply this information, you can create a rule for assigning roles to users. 
 
 ## Create a Rule to Assign Roles
 
@@ -52,10 +52,10 @@ function (user, context, callback) {
 
 The rule is checked every time a user attempts to authenticate. 
 
-* If the user has a valid email and the domain is`admin.com`, the user gets the admin and user roles.
+* If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
 * If the email contains anything else, the user gets the regular user role.
 
-The claim is saved in the ID token under the name `https://access.control/roles`. Check the name on your app. 
+The claim is saved in the ID token under the name `https://access.control/roles`. 
 
 ::: note
 Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).

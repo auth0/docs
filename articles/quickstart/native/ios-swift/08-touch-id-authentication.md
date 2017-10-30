@@ -92,18 +92,14 @@ self.credentialsManager.credentials { error, credentials in
         // Handle Error
         // Route user back to Login Screen
     }
-    // There is no need to store the credentials as you did in Login.  The Credentials Manager will do this for you internally
+    // There is no need to store the credentials as you did in Login. The Credentials Manager will do this for you internally
     // Continue routing the user as authentication was a success
 }
 ```
 
-::: note
-Note that in the code sample above, there is no Touch ID prompt.
-:::
-
 ## Enable Touch ID
 
-Go back to the snippet that initialized the credentials manager and add:
+After the line that initialized the credentials manager, add a line that enables Touch ID:
 
 ```swift
 self.credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
@@ -119,7 +115,7 @@ If the user has logged out and you have cleared the credentials from the credent
 self.credentialsManager.clear()
 ```
 
-The user is stille prompted for their touch ID. This returns an error in the `credentials` closure because there are no credentials to renew from.
+The user is still prompted for their touch ID. This returns an error in the `credentials` closure because there are no credentials to renew from.
 
 The credentials manager has a `hasValid()` method that lets you know if there are valid credentials that can be returned directly or renewed and returned.
 

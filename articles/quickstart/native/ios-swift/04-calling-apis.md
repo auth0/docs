@@ -17,7 +17,7 @@ budicon: 546
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-This tutorials shows you how to get a token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
+This tutorial shows you how to get a token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
 
 ## Get the User's Credentials
 
@@ -62,7 +62,7 @@ task.resume()
 
 ### Sample project configuration
 
-When testing the sample project,  configure your URL request in the `ProfileViewController.swift` file:
+When testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
 
 ```swift
 // ProfileViewController.swift
@@ -75,5 +75,5 @@ var request = URLRequest(url: url)
 After you send a request and receive a response from your API, you can check the request status code in an alert view. 
 
 ::: note
-Read more about authentication API on the server-side in [the official documentation](/api/authentication).
+Read more about authentication API on the server-side in [the API documentation](/api/authentication).
 :::

@@ -77,7 +77,7 @@ Auth0
         }
 ```
 
-Once you have the `sub` value from the profile, you can retrieve the users' identities. Call the management API:
+Once you have the `sub` value from the profile, you can retrieve user identities. Call the management API:
 
 ```swift
 // SessionManager.swift

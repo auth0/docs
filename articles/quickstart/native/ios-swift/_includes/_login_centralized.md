@@ -51,7 +51,7 @@ You need to make sure you get a response compliant with the OpenID Connect proto
 
 * Set the audience
 * Turn on the **OIDC conformant** switch in your Auth0 dashboard
-  		  
+
 This example sets the `audience` parameter to get an OIDC-compliant response. 
 
 ::: note

@@ -31,7 +31,7 @@ You can also use `SimpleKeychain` directly, without the added benefits and conve
 
 ## Save the User's Credentials When They Log In
 
-When your users log in succesfully, save their credentials. You can then log them in automatically when they open your application again.
+When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
 To get a [refresh token](/refresh-token) during authentication, use the `offline_access` scope. You can use the refresh token to request a new access token when the previous one expires. 
 
@@ -139,7 +139,7 @@ Auth0
 
 ### Default information
 
-To show the information contained in the user profile, access its properties, for instance:
+To show the information contained in the user profile, access its properties, for example:
 
 ```swift
 // ProfileViewController.swift
@@ -159,7 +159,7 @@ You can request more information than returned in the basic profile. To do this,
 
 ## Update the User Profile
 
-You store additional user information in the user metadata. You need to perform a `patch`:
+You store additional user information in the user metadata. Perform a `patch`:
 
 ```swift
 let idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
@@ -200,7 +200,7 @@ Auth0
 }
 ```
 
-Access the user's metadata:
+Access the user's metadata. You can choose the key names and types for the `user_metadata` dictionary.
 
 ```swift
 let firstName = userMetadata["first_name"] as? String
@@ -208,7 +208,3 @@ let lastName = userMetadata["last_name"] as? String
 let country = userMetadata["country"] as? String
 let isActive = userMetadata["active"] as? Bool
 ```
-
-::: note
-You can choose the key names and value types for subscripting the `user_metadata` dictionary.
-:::

@@ -30,7 +30,7 @@ If you download the sample from the top of this page, these details are filled o
 
 <%= include('../../../../_includes/_callback_url') %>
 
-In your application's `Info.plist` file, register your iOS Bundle Identifer as a custom scheme:
+In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme:
 
 ```xml
 <!-- Info.plist -->
@@ -51,7 +51,7 @@ In your application's `Info.plist` file, register your iOS Bundle Identifer as a
 ```
 
 ::: note
-If your `Info.plist` file is not shown in the format shown above, you can right-click `Info.plist` in Xcode and select **Open As** > **Source Code**.
+If your `Info.plist` file is not in the format shown above, you can right-click `Info.plist` in Xcode and select **Open As** > **Source Code**.
 :::
 
 Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Callback URLs** field contains the following callback URL:

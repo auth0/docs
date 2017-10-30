@@ -2,7 +2,7 @@
 
 #### Carthage
 
-If you are using Carthage, add the following lines to your `Cartfile`:
+If you are using Carthage, add the following to your `Cartfile`:
 
 ```ruby
 github "auth0/Auth0.swift" ~> 1.0
@@ -16,7 +16,7 @@ For more information on how to use Carthage, read [their official documentation]
 
 #### Cocoapods
 
-If you are using [Cocoapods](https://cocoapods.org/), add the following lines lines to your `Podfile`:
+If you are using [Cocoapods](https://cocoapods.org/), add the following to your `Podfile`:
 
 ```ruby
 use_frameworks!
