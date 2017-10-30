@@ -95,7 +95,7 @@ public class LoginViewModel
 }
 ```
 
-In your `\Views\Account` folder, create a Razor view called `Login.cshtml`.  This will allow the user to enter their email address and password:
+In your `\Views\Account` folder, create a Razor view called `Login.cshtml`. This will allow the user to enter their email address and password:
 
 ```html
 <!-- Views/Account/Login.cshtml -->
