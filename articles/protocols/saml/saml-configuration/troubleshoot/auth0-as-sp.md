@@ -172,7 +172,7 @@ If your authorization flow uses an OIDC-conformant protocol, you can [capture a 
 
 If you're using an IdP-initiated flow (for example, the user starts at the identity provider in a portal application), be sure that:
 
-* The  Assertion Consumer Service (ACS) URL at the identity provider includes the connection name (for example `https://${account.namespace}.auth0.com/login/callback?connection=CONNECTION_NAME`)
+* The  Assertion Consumer Service (ACS) URL at the identity provider includes the connection name (for example `https://${account.namespace}/login/callback?connection=CONNECTION_NAME`)
 
 * The IdP-initiated configuration tab for the Connection is properly filled in, including:
 
