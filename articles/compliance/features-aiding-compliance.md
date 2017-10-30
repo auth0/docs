@@ -20,7 +20,7 @@ You can:
 
 You can:
 
-* Provide [a **User Must Accept Terms** checkbox](/libraries/lock/v10/customization#mustacceptterms-boolean-) that is displayed next to the terms and conditions the user must agree to prior to signing up with the [verbiage displayed controllable using the language dictionary](/libraries/lock/v10/customization#mustacceptterms-boolean-)
+* Provide a **User Must Accept Terms** checkbox that is displayed next to the terms and conditions the user must agree to prior to signing up with the [verbiage displayed controllable using the language dictionary](/libraries/lock/v10/customization#mustacceptterms-boolean-)
 * Use [rules](/rules) to add the date of user consent/agreement in Lock to the ID token or the user's metadata
 
 ::: note
