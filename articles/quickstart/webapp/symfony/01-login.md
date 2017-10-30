@@ -15,6 +15,8 @@ budicon: 448
   ]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
+
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Add HWIOAuthBundle to `composer.json`
@@ -51,17 +53,9 @@ auth0_logout:
     path: /auth0/logout
 ```
 
-## Configure Auth0
+## Create an Auth0 Resource Owner
 
-${include('../_callbackRegularWebApp')}
-
-In this case, the callbackURL should look something like:
-
-```text
-http://yourUrl/auth0/callback
-```
-
-## Create Auth0 Resource Owner
+We need to create an Auth0 resource owner to enable HWIOAuthBundle to connect to Auth0.
 
 Add this to your `src/AppBundle/Auth0ResourceOwner.php`
 
@@ -158,7 +152,7 @@ can use one of the predefined services that `HWIOAuthBundle` provides.
 
 ## Configure the OAuth Firewall
 
-This is where you set the filters to select which pages are protected (aka, needs login). You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
+This is where you set the filters to select which pages require authentication or authorization. You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
 This is a basic example that allows anonymous users and then restricts access to the `/secured` route. It doesn't store the users in a DB.
 
