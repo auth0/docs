@@ -16,18 +16,17 @@ budicon: 448
   ]
 }) %>
 
-
 ## Add the Auth0 Authentication SDK
 
-To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
+To log the user in, use the Auth0 Authentication SDK for .NET. Install the NuGet package:
 
 ```text
 Install-package Auth0.AuthenticationApi
 ```
 
-## Register the Middlware
+## Register the Middleware
 
-You will need to configure the cookie authentication services, so update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie authentication handler:
+Configure the cookie authentication services. Update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie authentication handler:
 
 ```csharp
 // Startup.cs
@@ -44,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Also update the `Configure` method in your `Startup` class to register the authentication middleware:
+Update the `Configure` method in your `Startup` class to register the authentication middleware:
 
 ```csharp
 // Startup.cs
@@ -75,9 +74,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Create the Login Form
 
-You need to create a Login form which will capture the user's email address and password and then use the Authentication SDK to sign the user it.
+Create a login form to capture the user's email address and password. The login form uses the Authentication SDK to log the user in.
 
-First create a view model called `LoginViewModel` to bind the values in the form to:
+Create a view model called `LoginViewModel`. You will bind the values in the form to that model.
 
 ```csharp
 // ViewModels/LoginViewModel.cs
@@ -96,7 +95,7 @@ public class LoginViewModel
 }
 ```
 
-Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which will allow the user to enter their email address and password:
+In your `\Views\Account` folder, create a Razor view called `Login.cshtml`.  This will allow the user to enter their email address and password:
 
 ```html
 <!-- Views/Account/Login.cshtml -->
@@ -133,7 +132,12 @@ Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which 
 </div>
 ```
 
-Next, you will need to update your `AccountController` as per the code below:
+Update your `AccountController`: 
+
+1. Edit the `AccountController` constructor to take a parameter called `configuration` of type `IConfiguration`. The dependency injection (DI) framework injects the application's configuration into the controller, so you can access the configuration settings from the controller.
+2. Create a `Login` action for GET requests. The action returns the login view.
+3. Create a `Login` action for POST requests. The action calls the Auth0 Authentication API to authenticate the user. If the user is successfully authenticated, their information is obtained from the token. Then, a new `ClaimsPrincipal` is created with the relevant claims. Finally, the user is signed in to the cookie middleware.
+4. Create a `Logout` method. The method signs the user out of the cookie middleware.
 
 ```csharp
 // Controllers/AccountController.cs
@@ -223,18 +227,13 @@ public class AccountController : Controller
 }
 ```
 
-This code does the following:
+## Log in with Social Identity
 
-1. First the `AccountController` constructor is changed to take a parameter called `configuration` of type `IConfiguration`. This will ensure the DI (dependency injection) framework will inject the application's configuration into the controller, so you can access the configuration settings from inside the controller.
-2. Create a `Login` action for GET requests which will return the Login view.
-3. Create a `Login` action for POST requests which will call the Auth0 Authentication API to authenticate the user. If the user is successfully authenticated, the user's information is obttained from the token and a new `ClaimsPrincipal` is created with the relevant claims. Finally the user is signed in to the Cookie middleware.
-4. Create a `Logout` method which will sign the user out of the cookie middleware.
+### Log in with Google
 
-## Signing in with Google
+If want the users to log in with their Google accounts, use the OpenID Connect (OIDC) middleware registered in the [Login tutorial](/quickstart/webapp/aspnet-core/v2/01-login).
 
-If you would like the user to sign in with their Google accounts you will need to use the OpenID Connect middleware which was registered in the [Login step](/quickstart/webapp/aspnet-core/v2/01-login).
-
-First update the `AccountController` to add a `LoginExternal` action that will be called from the Login view. This action takes a `connection` parameter which will be passed along in the `properties` when calling `ChallengeAsync`:
+Add a `LoginExternal` action to `AccountController`. When you call this action from the login view, it takes a `connection` parameter from properties in `ChallengeAsync`:
 
 ```csharp
 // Controllers/AccountController.cs
@@ -251,23 +250,21 @@ public async Task LoginExternal(string connection, string returnUrl = "/")
 }
 ```
 
-Update your `Login.cshtml` view to add a button inside the `<form>` element with the text "Login with Google". This will invoke the `LoginExternal` action created above and pass along "google-oauth2" in the `connection` parameter as the social identity provider to invoke:
+In your `Login.cshtml` view, in the `<form>` element, add a button with the text: "Log in with Google". When a user clicks the button, it invokes the `LoginExternal` action and passes along "google-oauth2" in the `connection` parameter as the social identity provider:
 
 ```html
 <!-- Views/Account/Login.cshtml -->
 
 <div class="form-group">
   <a class="btn btn-lg btn-default btn-block" asp-controller="Account" asp-action="LoginExternal" asp-route-connection="google-oauth2" asp-route-returnurl="@ViewData["ReturnUrl"]">
-    Login with Google
+    Log in with Google
   </a>
 </div>
 ```
 
-If you want to allow your users to sign in with other social identity providers, simply add extra buttons and pass in the correct value for the `connection` parameter to invoke the correct indentity provider, for example "twitter", "linkedin", "facebook", etc.
+In the `ConfigureServices` method, in your `Startup` class, register the OIDC middleware. Usually, when you challenge the OIDC middleware, the OAuth Lock is displayed. In this case, invoke the requested social identity provider you passed in `AuthenticationProperties`, in `ChallengeResult`.
 
-Finally, update the `ConfigureServices` method in your `Startup` class to register the OIDC middleware. Normally when challenging the OIDC middleware, the OAuth Lock will be displayed but this is not the desired behaviour in this case. Instead you need to invoke the requested social identity provider which was passed in the `AuthenticationProperties` of the `ChallengeResult`.
-
-In order to do this, handle the `OnRedirectToIdentityProvider` event when registering the OIDC middleware and look at that `Properties` for the requested `connection`. Add the parameter to the OIDC request which is passed along to Auth0. This will ensure that Auth0 invoke the correct social identity provider directly, instead of displaying the Lock widget:
+To do this, handle the `OnRedirectToIdentityProvider` event when registering the OIDC middleware and look at `Properties` for the requested `connection` parameter. Add the parameter to the OIDC request which is passed along to Auth0. This will ensure that Auth0 invokes the correct social identity provider directly, instead of displaying the Lock widget:
 
 ```csharp
 // Startup.cs
@@ -343,9 +340,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Adding Login and Logout Links
+### Log in with other social identity providers
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:
+You can allow your users to log in with other social identity providers, for example, Twitter, Linkedin or Facebook. In your `Login.cshtml` view, in the `<form>` element, add a button for each social identity provider you want to add. Pass in the relevant value for the `connection` parameter to invoke the correct identity provider.
+
+## Add the Log In and Log Out Buttons
+
+Lastly, add the **Log in** and **Log out** buttons to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml`. Add code to the navigation bar section to display a **Log out** button when the user is authenticated and a **Log in** when they are not. Link the buttons to the `Logout` and `Login` actions of the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -380,6 +381,6 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 </div>
 ```
 
-## Run the application
+## Run the Application
 
-You can now run your application. When you click on the Login link you will be taken to the new Login page where you can sign in with either your email address and password, or with your Google account.
+You can now run your application. When you click on the **Log in** button, you will be taken to the new Login page where you can log in with your email address and password or with your Google account.

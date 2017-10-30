@@ -1,22 +1,25 @@
-## Configure Callback URLs
+<%= include('../../../../_includes/_callback_url') %>
 
-The Callback URL of your application is the URL where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect middleware to complete the authentication process.
+Depending on the web server you use, select the callback URL to whitelist for your application:
+* If you use IIS Express, the callback URL is `http://localhost:60856/signin-auth0`.
+* If you use Kestrel, the callback URL is `http://localhost:5000/signin-auth0`.
 
-You will need to add this URL to the list of Allowed URLs for your application. The Callback URL for the seed project is `http://localhost:60856/signin-auth0` if you use IIS Express, or `http://localhost:5000/signin-auth0` if you use Kestrel, so be sure to add this to the **Allowed Callback URLs** section of your application.
+If you deploy your application to a different URL, you must add that URL to the **Allowed Callback URLs** field. For ASP.NET Core, this URL is in the format `http://YOUR_APPLICATION_URL/signin-auth0`.
 
-If you deploy your application to a different URL you will also need to ensure to add that URL to the **Allowed Callback URLs**. For ASP.NET Core this URL will take the format `http://YOUR_APPLICATION_URL/signin-auth0`  
+## Configure the JSON Web Token Signature Algorithm
 
-## Configure JSON Web Token Signature Algorithm
-
-The ASP.NET Core OpenID Connect (OIDC) middleware which will be used to authenticate the user, requires that the JSON Web Token (JWT) be signed with an asymmetric key. To configure this go to the settings for your application in the Auth0 Dashboard, scroll down and click on **Show Advanced Settings**. Go to the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to **RS256**.
-
-Save your changes.     
+Auth0 uses the ASP.NET Core OpenID Connect (OIDC) middleware to authenticate the user. This middleware requires signing the JSON Web Token (JWT) with an asymmetric key. To configure the signature:
+1. In your Auth0 dashboard, open the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
+2. Click on **Show Advanced Settings** > **OAuth**.
+3. Set the **JsonWebToken Signature Algorithm** to **RS256**.
 
 ## Dependencies
 
-To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0, including the packages for the Cookie and OIDC authentication handlers.
+To integrate Auth0 with ASP.NET Core, use the Cookie and OIDC authentication handlers. The seed project references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`), which includes all the NuGet packages that are a part of the ASP.NET Core 2.0 framework. The metapackage includes the packages for the Cookie and OIDC authentication handlers.
 
-If you are adding this to your own existing project, and you have note referenced the metapackage, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
+If you want to use those dependencies in your own project, in your application, add a note reference to the metapackage. Then, add the following packages to your application: 
+* `Microsoft.AspNetCore.Authentication.Cookies` 
+* `Microsoft.AspNetCore.Authentication.OpenIdConnect`
 
 ```bash
 Install-Package Microsoft.AspNetCore.Authentication.Cookies
