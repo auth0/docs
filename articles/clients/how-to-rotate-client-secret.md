@@ -23,6 +23,8 @@ Scroll to the bottom of the Settings page, and click **Save Changes**.
 
 You can rotate your client's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
 
+Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and access token, respectively.
+
 ::: note
 To make calls to the Management API, you'll need to [obtain and provide a valid access token](/api/management/v2/tokens).
 :::
@@ -30,7 +32,7 @@ To make calls to the Management API, you'll need to [obtain and provide a valid 
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/clients/YOUR_CLIENT_ID/rotate-secret",
+	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID/rotate-secret",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
