@@ -10,7 +10,7 @@ The following Auth0 features (listed based on the end-goal action of the user or
 
 You can:
 
-* Use [Lock to allow new user signups](/libraries/lock/v10/customization) when using [database connections](/libraries/lock/v10/customization)
+* Use [Lock to allow new user signups](/libraries/lock/v10/customization) when using database connections
 * [Enable or disable signup mode](/libraries/lock/v10/customization#allowsignup-boolean-) in Lock
 * Implement a [custom signup process](/libraries/custom-signup)
 * Implement [progressive profiling](/user-profile/progressive-profiling) to gather only the data you need
