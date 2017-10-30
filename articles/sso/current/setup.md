@@ -1,10 +1,10 @@
 ---
-title: Implement Single Sign On with Auth0
+title: Set Up Single Sign On with Auth0
 description: Tutorial on implementing Single Sign On (SSO) with Auth0.
 toc: true
 ---
 
-# Implement Single Sign On with Auth0
+# Set Up Single Sign On with Auth0
 
 This tutorial covers implementing Single Sign On (SSO) with Auth0.
 

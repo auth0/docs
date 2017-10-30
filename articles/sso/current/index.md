@@ -15,7 +15,7 @@ The [Hosted Login Page](/hosted-pages/login) is the easiest and most secure way 
 
 <%= include('../../_includes/_topic-links', { links: [
   'sso/current/introduction',
-  'sso/current/implement-with-auth0',
+  'sso/current/setup',
   'sso/current/single-page-apps-sso',
   'sso/current/integrations'
 ] }) %>
