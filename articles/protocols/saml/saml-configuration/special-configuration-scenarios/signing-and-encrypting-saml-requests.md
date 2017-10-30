@@ -1,5 +1,5 @@
 ---
-  description: Signing and encrypting SAML requests
+description: Signing and encrypting SAML requests
 ---
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests
@@ -23,7 +23,7 @@ To turn off deflate encoding, you can make a [PATCH call to the Management API's
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${account.namespace}.auth0.com/api/v2/connections/YOUR_CONNECTION_ID",
+	"url": "https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{

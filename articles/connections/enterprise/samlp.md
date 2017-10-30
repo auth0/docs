@@ -81,7 +81,7 @@ Here's how you might include the call within your application's code:
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/connections",
+	"url": "https://${account.namespace}/api/v2/connections",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
