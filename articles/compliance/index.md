@@ -7,7 +7,7 @@ classes: topic-page
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>General Data Protection Regulation</h1>
-  <p>How GDPR Affects You and Your Auth0 Usage</p>
+  <p>How GDPR affects you and your Auth0 usage</p>
 </div>
 
 <p>
