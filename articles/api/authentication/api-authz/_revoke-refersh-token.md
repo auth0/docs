@@ -4,7 +4,7 @@
 
 ```http
 POST https://${account.namespace}/oauth/revoke
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
