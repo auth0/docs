@@ -10,7 +10,7 @@ Passwordless connections do not require the user to remember a password. Instead
 
 ```http
 POST https://${account.namespace}/passwordless/start
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "connection": "email|sms",
@@ -124,7 +124,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ```http
 POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "connection": "email|sms",
