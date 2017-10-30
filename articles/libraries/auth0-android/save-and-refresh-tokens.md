@@ -1,6 +1,7 @@
 ---
 section: libraries
 description: Keeping your user logged in with Auth0.Android
+toc: true
 ---
 # Auth0.Android Saving and Renewing Tokens
 
