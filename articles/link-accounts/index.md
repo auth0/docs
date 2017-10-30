@@ -195,7 +195,7 @@ To get a list of accounts with the same e-mail address, call the [Get Users By E
     "url": "https://${account.namespace}/api/v2/users-by-email",
     "httpVersion": "HTTP/1.1",
     "headers": [
-      { "name" "Authorization", "value": "Bearer YOUR_API_V2_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_API_V2_TOKEN" }
     ],
     "queryString" : [
       {"name": "email", "value": "user@example.com"}
