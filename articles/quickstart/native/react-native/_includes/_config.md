@@ -18,6 +18,8 @@ Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's b
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project ths value is:
 
 ```xml
+// ios/<YOUR PROJECT>/Info.plist
+
 <key>CFBundleIdentifier</key>
 <string>auth0.samples.Auth0Sample</string>
 ```
@@ -32,6 +34,8 @@ Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's packa
 
 You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project ths value is:
 ```xml
+// android/app/src/main/AndroidManifest.xml
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.auth0sample"
 ```
