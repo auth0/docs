@@ -11,15 +11,15 @@ In this article, we will show you how to configure Azure CDN Profiles for use as
 
 Log in to Microsoft's [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/).
 
-![](/azure-dashboard.png)
+![](/media/articles/custom-domains/azure/azure-dashboard.png)
 
 In the navigation bar on the left, click on **+ New**. When the new blade appears, enter **CND** into the search bar, and in the results, select **CDN** (you'll see that Microsoft is the publisher and the Category is Web + Mobile). 
 
-![](/cdn.png)
+![](/media/articles/custom-domains/azure/cdn.png)
 
 On the CDN profile page, scroll to the bottom of the page and click **Create**.
 
-![](/cdn-home.png)
+![](/media/articles/custom-domains/azure/cdn-home.png)
 
 Provide the details for your CDN profile.
 
@@ -31,7 +31,7 @@ Provide the details for your CDN profile.
 | Resource group location | The Azure location where your CDN profile is stored (it has no impact on the CDN's endpoint locations) |
 | Pricing tier | Select **Premium Verizon**. |
 
-![](/cdn-profile-1.png)
+![](/media/articles/custom-domains/azure/cdn-profile-1.png)
 
 Underneath the parameters mentioned above, you'll see an option to **create a new CDN endpoint now**. Make sure that you check the box next to this option. You'll need to provide a few additional configuration values:
 
@@ -50,31 +50,31 @@ If your Auth0 tenants are **not** in a US region, you'll need to use the followi
 Be sure to replace the `tenant` placeholder value with the name of your tenant.
 :::
 
-![](/cdn-profile-2.png)
+![](/media/articles/custom-domains/azure/cdn-profile-2.png)
 
 Click **Create** to proceed.
 
 While Azure creates your CDN, it'll redirect you to the Azure Portal Dashboard. You can check on its progress using the drop-down menu under the alarm bell icon.
 
-![](/creating-profile.png)
+![](/media/articles/custom-domains/azure/creating-profile.png)
 
 When done, you'll see your new CDN profile and Endpoint under your list of resources.
 
-![](/resources.png)
+![](/media/articles/custom-domains/azure/resources.png)
 
 ### Finish Configuring the Endpoint
 
 At this point, we will need to finish configuring your newly-created endpoint. Under your list of resources (you can find this on the Dashboard page), select your endpoint to launch its configuration area.
 
-![](/endpoint.png)
+![](/media/articles/custom-domains/azure/endpoint.png)
 
 In the near-left column (under **Settings**), click **Origin**.
 
-![](/endpoint-origin.png)
+![](/media/articles/custom-domains/azure/endpoint-origin.png)
 
 Check that the **Origin hostname** and the **Origin host header** values are identical. Then, uncheck the **HTTP** box to disable the protocol (you want to allow only calls using the HTTPS protocol).
 
-![](/disable-http.png)
+![](/media/articles/custom-domains/azure/disable-http.png)
 
 Return to the top of the window and click **Save**.
 
@@ -86,23 +86,23 @@ However, before you proceed, create a CNAME entry in your DNS record for the cus
 
 At this point, return to your Azure Portal Dashboard, and open up your newly-created CDN profile.
 
-![](/new-cdn-profile.png)
+![](/media/articles/custom-domains/azure/new-cdn-profile.png)
 
 In the near-left navigation menu, select **Endpoints**, which is located under the **General** section.
 
-![](/cdn-endpoints.png)
+![](/media/articles/custom-domains/azure/cdn-endpoints.png)
 
 Select your endpoint.
 
-![](/select-endpoint.png)
+![](/media/articles/custom-domains/azure/select-endpoint.png)
 
 Click **+ Custom Domain** located in the tool bar near the top.
 
-![](/cdn-otpions.png)
+![](/media/articles/custom-domains/azure/cdn-otpions.png)
 
 In the **Custom hostname** dialog box, provide your custom domain, including the subdomain (for example `login.mydomain.com`).
 
-![](/provide-custom-hostname.png)
+![](/media/articles/custom-domains/azure/provide-custom-hostname.png)
 
 Azure will verify that the CNAME record exists and that it's pointing to the CDN's public DNS name. If successful, click **Add** to proceed.
 
@@ -116,11 +116,11 @@ In this step, you will setup the configuration for the custom domain's communica
 
 From the Azure Portal Dashboard, open up your CDN profile, and select **Manage**.
 
-![](/manage-cdn-profile.png)
+![](/media/articles/custom-domains/azure/manage-cdn-profile.png)
 
 Hover over the **HTTP Large** option and click **Rules Engine**.
 
-![](/select-rules-engine.png)
+![](/media/articles/custom-domains/azure/select-rules-engine.png)
 
 First, provide a **Name** for your rule, such as **Auth0 Custom Domain**.
 
@@ -137,7 +137,7 @@ When done, click **Add** to save your rule. All new rules require approval, whic
 We suggest you create another rule to deny usage of the `azureedge.net` CNAME.
 :::
 
-![](/configure-rule.png)
+![](/media/articles/custom-domains/azure/configure-rule.png)
 
 ## Summary
 
