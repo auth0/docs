@@ -24,9 +24,17 @@ This tutorial shows you how to get an Access Token, attach it to a request with 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have completed the [Session Handling](/quickstart/native/ios-objc/03-user-sessions) tutorial and you know how to handle the `Credentials` object.
 * You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/quickstart/backend).
+<<<<<<< HEAD
 <%= include('_includes/_calling_api_create_api') %>
+||||||| merged common ancestors
 
-<%= include('_includes/_calling_api_create_scope') %>__
+<%= include('_includes/_calling_api_create_api') %>
+=======
+
+<%= include('../_includes/_calling_api_create_api') %>
+>>>>>>> Fix paths
+
+<%= include('../_includes/_calling_api_create_scope') %>
 
 ## Get the User's Access Token
 
