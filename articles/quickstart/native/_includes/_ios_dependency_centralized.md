@@ -1,4 +1,4 @@
-## Install
+## Install Dependencies
 
 #### Carthage
 
@@ -26,5 +26,5 @@ pod 'Auth0', '~> 1.0'
 Then, run `pod install`.
 
 ::: note
-For more information on how to use Carthage, read [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+For more information on how to use Cocoapods, read the [Cocoapods documentation](http://guides.cocoapods.org/using/getting-started.html).
 :::

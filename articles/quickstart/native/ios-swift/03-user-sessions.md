@@ -29,7 +29,7 @@ This guide shows you how to use the credentials manager to store and refresh tok
 You can also use `SimpleKeychain` directly, without the added benefits and convenience of the credentials manager. To learn more, read about [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain). 
 :::
 
-## Save the User's Credentials When They Log In
+## Save the User's Credentials When They Log in
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
@@ -64,9 +64,9 @@ Auth0
 }
 ```
 
-## Check Credentials When The User Opens Your Application
+## Check for Credentials When the User Opens Your Application
 
-When the user opens your application, check for valid credentials. If they exist, you can log the user in automatically and redirect them into the app's main flow without any additional login steps.
+When the user opens your application, check for valid credentials. If they exist, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
 ::: note
 We recommend that you download the sample project from this tutorial and take a look at its implementation. Focus on the `CredentialsManager` class, which manages session handling, obtains user credentials and saves them.

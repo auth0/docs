@@ -8,16 +8,12 @@ This quickstart guide walks you through managing authentication with Auth0 in yo
 
 ## Sample Projects
 
-Each tutorial in the series includes a link to a sample project showing the features described in the article. You can find all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample).
+Each tutorial in this guide includes a link to a sample project showing the features described in the article. You can find all the samples in the [iOS Swift samples folder](https://github.com/auth0-samples/auth0-ios-swift-sample).
 
 ## Dependencies
 
 Each tutorial uses the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit. It is a toolkit that lets you communicate with many of the basic [Auth0 API](/api/info) functions in a neat way.
 
-## Create a Client
+<%= include'../_includes/_create_client') %>
 
-Create a new client application in your [Auth0 dashboard](${manage_url}/#/clients). For **Type**, select **Native**.
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
-<%= include('_includes/_config') %>
+<%= include('../_includes/_ios_config') %>

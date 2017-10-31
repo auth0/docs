@@ -31,12 +31,7 @@ To achieve this, present an additional login dialog where your users can enter t
 
 After the user authenticates, save the `idToken` value for the secondary account.
 
-## Link the Accounts
-
-Now, you can link the accounts. To do this, you need the following values: 
-- `id`: the logged-in user's ID (see `profile.sub`)
-- `idToken`: the ID token for the saved account the user initially logged in to 
-- `otherUserToken`: the ID token for the second account received in the last login response
+<%= include('../_includes/_ios_link_accounts') %>
 
 ```swift
 import Auth0
@@ -100,11 +95,7 @@ Auth0
 A linked account is handled as an `Identity` instance. Read more about this object in the [Identity class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Identity.swift).
 :::
 
-## Unlink the Accounts
-
-To unlink the accounts, you need to specify the following: 
-* the `id` value in the user's ID token
-* the `userId` and `provider` values in the `identity` object you want to unlink
+<%= include('../_includes/_ios_unlink_accounts') %>
 
 Unlink the accounts:
 

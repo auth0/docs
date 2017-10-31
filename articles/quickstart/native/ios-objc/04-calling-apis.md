@@ -15,19 +15,19 @@ budicon: 546
   ]
 }) %>
 
-The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
+Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
+This tutorial shows you how to get a token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
 
-## Get the user's credentials
+## Get the User's Credentials
 
-In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
+You need a token for your API to check if the request is authenticated. 
 
-You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
+You can retrieve the token from an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. Read the [Login](/quickstart/native/ios-objc/00-login) article for instructions on how to get credentials.
 
-${snippet(meta.snippets.setup)}
+Depending on what you need, you can use any of the token strings inside the `Credentials` instance to make authenticated requests.
 
-Then present the hosted login screen, like this:
+Then, present the login screen:
 
 ```objc
 // HomeViewController.m
@@ -45,11 +45,15 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained. Which one depends on the application usage.
-
 ## Attach the Token
 
-Supposing you need to use the `accessToken` value, here is what you would do:
+This example shows how to use the `accessToken` value. 
+
+::: note
+Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
+:::
+
+To attach an access token to a request: 
 
 ```objc
 // ProfileViewController.m
@@ -65,12 +69,9 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL U
 }] resume];
 ```
 
-Notice that how you configure your authorization header should match the standards that you're using in your API. This is just an example of what it could look like.
+### Sample project configuration
 
-
-### Sample Project Configuration
-
-When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
+When you are testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
 
 ```objc
 // ProfileViewController.m
@@ -80,8 +81,8 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL U
 // Configure your request here (method, body, etc)
 ```
 
-Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
+After you send a request and receive a response from your API, you can check the request status code in an alert view. 
 
 ::: note
-For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+Read more about authentication API on the server-side in [the API documentation](/api/authentication).
 :::

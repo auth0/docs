@@ -2,7 +2,7 @@ The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up 
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login).
+To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
@@ -11,7 +11,7 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
 :::
 
-<%= include('_dependency_centralized') %>
+<%= include('../_ios_dependency_centralized') %>
 
 ## Add the Callback
 
@@ -61,5 +61,5 @@ To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_ur
 After the user authenticates, their information is returned in a `credentials` object.
 
 ::: note
-To learn more about the `credentials` object, read [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift).
+To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::

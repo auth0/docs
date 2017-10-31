@@ -31,6 +31,10 @@ Depending on what you need, you can use any of the token strings inside the `Cre
 
 This example shows how to use the `accessToken` value. 
 
+::: note
+Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
+:::
+
 To attach an access token to a request: 
 
 ```swift
@@ -46,10 +50,6 @@ let task = URLSession.shared.dataTask(with: request) { data, response, error in
 }
 ```
 
-::: note
-Depending on the standards in your API, you configure the authorization header differently. The code above is just an example.
-:::
-
 ## Send the Request
 
 Send the request you created:
@@ -62,7 +62,7 @@ task.resume()
 
 ### Sample project configuration
 
-When testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
+When you are testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
 
 ```swift
 // ProfileViewController.swift

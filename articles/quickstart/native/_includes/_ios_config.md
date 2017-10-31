@@ -7,6 +7,10 @@ You need the following information:
 * **Client ID**
 * **Domain**
 
+::: note
+If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+:::
+
 Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
 
 ```xml
@@ -24,13 +28,9 @@ Add your credentials in the `Auth0.plist` file. If the file does not exist in yo
 </plist>
 ```
 
-::: note
-If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
-:::
+<%= include('../../../_includes/_callback_url') %>
 
-<%= include('../../../../_includes/_callback_url') %>
-
-In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme:
+In your application's `Info.plist` file, register your iOS Bundle identifier as a custom scheme:
 
 ```xml
 <!-- Info.plist -->

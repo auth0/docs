@@ -1,14 +1,23 @@
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](/hosted-pages/login).
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
+
+::: note
+You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-objc-sample/tree/embedded-login/01-Embedded-Login).
+:::
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
 
-<%= include('_dependency_centralized') %>
+::: note
+Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
+:::
+
+<%= include('../_ios_dependency_centralized') %>
 
 <%= include('_hybrid_setup') %>
 
-## Adding the callback
+# Add the Callback
 
-Auth0 will need to handle the callback of this authentication, add the following to your `AppDelegate`:
+For Auth0 to handle the authentication callback, update your `AppDelegate` file. 
 
 ${snippet(meta.snippets.setup)}
 
@@ -23,14 +32,14 @@ Then, add the following `UIApplicationDelegate` method:
 ```
 
 ::: note
-Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+To configure callback, you must configure your callback URL first. Read about the Callback URL in the [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls) step.
 :::
 
-## Implement the Login
+## Implement Login
 
 ${snippet(meta.snippets.setup)}
 
-Then present the hosted login screen, like this:
+Then, present the hosted login screen:
 
 ```objc
 // HomeViewController.m
@@ -48,13 +57,8 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-Upon successful authentication the user's `credentials` will be returned.
+After the user authenticates, their information is returned in a `credentials` object.
 
 ::: note
-For further reference on the `credentials` object, please see
-[Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift). We will cover the storage of the user's credentials in a later chapter.  By default Auth0 will not store this for you.
+To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use this login (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, you can follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-objc-sample/tree/embedded-login/01-Embedded-Login).
