@@ -35,10 +35,10 @@ You'll need to create a callback handler that Auth0 will call once it redirects 
 package callback
 
 import (
-    "context"
+	"context"
 	_ "crypto/sha512"
 	"encoding/json"
-	"github.com/auth0-samples/auth0-golang-web-app/01-Login/app"
+	"../../app"
 	"golang.org/x/oauth2"
 	"net/http"
 	"os"
@@ -57,6 +57,17 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 			AuthURL:  "https://" + domain + "/authorize",
 			TokenURL: "https://" + domain + "/oauth/token",
 		},
+	}
+	state := r.URL.Query().Get("state")
+	session, err := app.Store.Get(r, "state")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if state != session.Values["state"] {
+		http.Error(w, "Invalid state parameter", http.StatusInternalServerError)
+		return
 	}
 
 	code := r.URL.Query().Get("code")
@@ -83,7 +94,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	session, err := app.Store.Get(r, "auth-session")
+	session, err = app.Store.Get(r, "auth-session")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -124,6 +135,9 @@ import (
 	"golang.org/x/oauth2"
 	"net/http"
 	"os"
+	"crypto/rand"
+	"encoding/base64"
+	"../../app"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
@@ -146,8 +160,25 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		aud = "https://" + domain + "/userinfo"
 	}
 
+	// Generate random state
+	b := make([]byte, 32)
+	rand.Read(b)
+	state := base64.StdEncoding.EncodeToString(b)
+
+	session, err := app.Store.Get(r, "state")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	session.Values["state"] = state
+	err = session.Save(r, w)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	audience := oauth2.SetAuthURLParam("audience", aud)
-	url := conf.AuthCodeURL("state", audience)
+	url := conf.AuthCodeURL(state, audience)
 
 	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 }
