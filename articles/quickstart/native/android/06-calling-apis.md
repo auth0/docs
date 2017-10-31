@@ -28,9 +28,9 @@ Before you continue with this tutorial, make sure that you have completed the pr
 * You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/quickstart/backend).
 
 
-<%= include('_includes/_calling_api_create_api') %>
+<%= include('../_includes/_calling_api_create_api') %>
 
-<%= include('_includes/_calling_api_create_scope') %>__
+<%= include('../_includes/_calling_api_create_scope') %>__
 
 
 ## Get the User's Access Token
