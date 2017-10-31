@@ -1,5 +1,4 @@
 ---
-title: Client-Side SSO on Single Page Applications
 description: Tutorial on implementing client-side SSO on single page applications.
 toc: true
 ---

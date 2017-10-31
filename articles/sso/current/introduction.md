@@ -1,6 +1,5 @@
 ---
-title: Introduction to Single Sign On with Auth0
-description: Introduction to Single Sign On (SSO) and an overview of how SSO works with Auth0.
+description: A brief introduction to Single Sign On (SSO) and an overview of how SSO works with Auth0.
 toc: true
 ---
 

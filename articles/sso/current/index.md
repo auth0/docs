@@ -2,8 +2,8 @@
 description: Single Sign On (SSO) with Auth0.
 toc: false
 ---
-
-# Single Sign On with Auth0
+<!-- markdownlint-disable MD041 MD002 -->
+# Single Sign On (SSO) with Auth0
 
 Single Sign On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using.
 
@@ -16,10 +16,6 @@ The [Hosted Login Page](/hosted-pages/login) is the easiest and most secure way 
 <%= include('../../_includes/_topic-links', { links: [
   'sso/current/introduction',
   'sso/current/setup',
-  'sso/current/single-page-apps-sso',
+  'sso/current/single-page-apps',
   'sso/current/integrations'
 ] }) %>
-
-## Sample Applications
-
-* [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample): Example of how to implement OIDC-compliant SSO.
