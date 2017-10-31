@@ -10,10 +10,6 @@ Auth0 allows you to map your the domain for your tenant to a custom domain of yo
 
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
 
-## Sample Configuration
-
-You will need to do the following
-
 ## How to Configure Custom Domains
 
 Setting up your custom domain requires you to do the following steps:
@@ -21,7 +17,7 @@ Setting up your custom domain requires you to do the following steps:
 1. Provide your domain name to Auth0 and verify ownership
 1. Configure the reverse proxy
 1. Configure the hosted login page
-1. Set the domain as `active`
+1. *Optional*: Enable custom domains in Auth0 emails
 
 ### Step 1: Configure Auth0
 
@@ -57,16 +53,18 @@ If you're using a [Hosted Login Page](/hosted-pages/login), you'll need to updat
     });
 ```
 
-### Step 4: Set the Domain as `active`
+### Step 4: Enable Custom Domains in Auth0 Emails
 
-Set domain to `active` so that emails will be sent using your new domain
+This is an **optional** step.
+
+If you would like your custom domain used with your Auth0 emails, you'll need to enable this feature in the [Dashboard](${manage_url}/#/tenant). You can do this by clicking the toggle associated with the **Use Custom Domain in Emails**. When the toggle is green, this feature is enabled.
 
 ## FAQ
 
 1. **If I use a custom domain, will I still be able to use my `tenant.auth0.com` domain to access Auth0?**
 
-	You can use `tenant.auth0.com` as long as you have *not* updated your hosted login page to support the custom domain.
+	You can use `tenant.auth0.com` for centralized login as long as you have *not* updated your hosted login page to support the custom domain.
 
-1. **Can I use my CNAME to access back-end flows, even if they aren't officially supported by Auth0?**
+1. **Can I use my CNAME to access back-end flows?**
 
-	While your implementation may technically work, we strongly suggest that you use `tenant.auth0.com` for such instances since any other implementation isn't supported by Auth0.
+	We only support the use of your `tenant.auth0.com` domain for back-end flows (such as `/oauth/token`).
