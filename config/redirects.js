@@ -1564,5 +1564,25 @@ module.exports = [
   {
     from: '/integrations/integrating-with-slack',
     to: '/sso/current/integrations/slack'
+  },
+  {
+    from: '/integrations/ad-rms',
+    to: '/sso/current/integrations/ad-rms'
+  },
+  {
+    from: '/integrations/box',
+    to: '/sso/current/integrations/box'
+  },
+  {
+    from: '/integrations/cloudbees',
+    to: '/sso/current/integrations/cloudbees'
+  },
+  {
+    from: '/integrations/concur',
+    to: '/sso/current/integrations/concur'
+  },
+  {
+    from: '/integrations/disqus',
+    to: '/sso/current/integrations/disqus'
   }
 ];

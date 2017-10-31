@@ -1,6 +1,5 @@
 ---
-title: Slack SSO Integration
-description: How to setup a Slack SSO Integration with Auth0.
+description: How to set up a Single Sign On (SSO) integration with Slack and Auth0.
 toc: true
 public: true
 ---
@@ -25,7 +24,7 @@ Click **Save**.
 
 ## Configure Your Slack Account
 
-When you configure your Slack Account, please refer to the **Slack Configuration Instructions** page in your Auth0 Management Dashboard for the required parameters.
+When you configure your Slack Account, please refer to the **Slack Configuration Instructions** page on [Dashboard > SSO Integrations > Slack](${manage_url}/#/externalapps/) for the required parameters.
 
 ![](/media/articles/sso/integrations/slack/instructions.png)
 

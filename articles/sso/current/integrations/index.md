@@ -14,6 +14,7 @@ Auth0 provides SSO Integrations for the following services:
 - [Box](/sso/current/integrations/box)
 - [CloudBees](/sso/current/integrations/cloudbees)
 - [Concur](/sso/current/integrations/concur)
+- [Disqus](/sso/current/integrations/disqus)
 - [Dropbox](/sso/current/integrations/dropbox)
 - [Microsoft Dynamics CRM](/sso/current/integrations/dynamics-crm)
 - [Adobe Echosign](/sso/current/integrations/echosign)
@@ -35,12 +36,10 @@ To create a new SSO Integration, navigate to [Dashboard > SSO Integrations](http
 
 Next, select a provider.
 
-![](/media/articles/sso/integrations/select.png)
+![](/media/articles/sso/integrations/options.png)
 
-Then give a name for the new SSO Integration (or use the default).
+Set the name for your SSO Integration. Click **Create**.
 
-You'll be brought to the tutorial for that SSO Integration provider.
+![](/media/articles/sso/integrations/name.png)
 
-<!-- TODO -->
-
-
+You will be brought to the **Configuration Instructions** page for the provider, follow the instructions to complete the SSO Integration.
