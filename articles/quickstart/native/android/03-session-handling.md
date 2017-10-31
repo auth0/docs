@@ -199,7 +199,7 @@ private void logout() {
 Depending on the way you store users' credentials, you delete them differently. 
 :::
 
-### Optional: Encapsulate Session Handling
+## Optional: Encapsulate Session Handling
 
 Handling users' sessions is not a straightforward process. You can simplify it by storing token-related information and processes in a class. The class separates the logic for handling users' sessions from the activity. 
 
