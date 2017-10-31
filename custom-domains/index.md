@@ -6,9 +6,19 @@ description: How to map custom domains
 
 Auth0 allows you to map your the domain for your tenant to a custom domain of your choosing. This allows you maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is `northwind.auth0.com`, you can have your users to see, use, and remain on `login.northwind.com`.
 
+To use a custom domain with your Auth0 tenant, you'll need to use a reverse proxy that you configure using AWS CloudFront or Microsoft Azure.
+
 ## Prerequisites
 
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
+
+## Features Supporting Use of Custom Domains
+
+Currently, the following Auth0 features and flows support use of custom domains:
+
+* OAuth 2.0/OIDC-Compliant Flows (all of which make calls to the [`/authorize` endpoint](/api/authentication#authorize-client))
+* Guardian
+* Emails -- the links included in the emails will use your custom domain
 
 ## How to Configure Custom Domains
 
@@ -35,7 +45,7 @@ If you are unable to complete the verification process within three days, you'll
 
 ### Step 2: Configure the Reverse Proxy
 
-You'll need to set up your reverse proxy. Currently, you can use [AWS CloudFront](#) or [Azure CDN](#)
+You'll need to set up your reverse proxy. Currently, you can use [AWS CloudFront](/custom-domains/set-up-cloudfront) or [Azure CDN](/custom-domains/set-up-azure-cdn)
 
 ### Step 3: Configure the Hosted Login Page
 
