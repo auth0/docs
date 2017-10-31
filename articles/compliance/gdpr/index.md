@@ -22,21 +22,21 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/definitions">Definitions</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/definitions">Definitions</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr-summary">GDPR Summary</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/gdpr-summary">GDPR Summary</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/roles-responsibilities">Roles and Responsibilities under GDPR</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/roles-responsibilities">Roles and Responsibilities under GDPR</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/data-processing">Auth0 Data Processing</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/data-processing">Auth0 Data Processing</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/features-aiding-compliance">Auth0 Features Aiding Customer Compliance</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/features-aiding-compliance">Auth0 Features Aiding Customer Compliance</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/security-advice-for-customers">Security Advice for Customers</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/security-advice-for-customers">Security Advice for Customers</a>
   </li>
 </ul>

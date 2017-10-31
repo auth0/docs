@@ -20,5 +20,5 @@ Make sure that you monitor any Auth0 [extensions](/extensions#export-auth0-logs-
 :::
 
 <%= include('./_stepnav', {
- prev: ["Go back", "/compliance"]
+ prev: ["Go back", "/compliance/gdpr"]
 }) %>

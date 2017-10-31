@@ -64,5 +64,5 @@ Auth0, as the data processor, must:
 * Organizations controlling data must appoint a Data Protection Officer, while organizations processing data should have a Data Privacy Office
 
 <%= include('./_stepnav', {
- prev: ["Go back", "/compliance"]
+ prev: ["Go back", "/compliance/gdpr"]
 }) %>
