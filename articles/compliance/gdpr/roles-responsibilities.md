@@ -53,5 +53,5 @@ Auth0 is responsible for:
 * Providing a mechanism for customers to display consent terms and a consent agreement checkbox on the Lock widget. Customers can also design custom signup and login forms if more elaborate consent schemes are needed
 
 <%= include('./_stepnav', {
- prev: ["Go back", "/compliance"]
+ prev: ["Go back", "/compliance/gdpr"]
 }) %>
