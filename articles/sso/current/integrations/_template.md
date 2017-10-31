@@ -11,7 +11,7 @@ Navigate to [Dashboard > SSO Integrations](${manage_url}/#/externalapps) and cli
 
 Select the **${service}** box.
 
-![](/media/articles/sso/integrations/select.png)
+![](/media/articles/sso/integrations/options.png)
 
 Set the name for your SSO Integration. Click **Create**.
 

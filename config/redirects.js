@@ -1556,5 +1556,13 @@ module.exports = [
   {
     from: '/sso/current/single-page-apps-sso',
     to: '/sso/current/single-page-apps'
+  },
+  {
+    from: '/integrations/slack',
+    to: '/sso/current/integrations/slack'
+  },
+  {
+    from: '/integrations/integrating-with-slack',
+    to: '/sso/current/integrations/slack'
   }
 ];

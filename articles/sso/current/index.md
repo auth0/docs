@@ -13,7 +13,7 @@ The [Hosted Login Page](/hosted-pages/login) is the easiest and most secure way 
 
 ## In This Section
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('./_in-this-section', { links: [
   'sso/current/introduction',
   'sso/current/setup',
   'sso/current/single-page-apps',
