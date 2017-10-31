@@ -27,7 +27,7 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 Your users may want to link their other accounts to the account they are logged in to. 
 
-To achieve this, present an additional login dialog where your users can enter the credentials for any additional account. You can present this dialog in the way described in the [Login](/quickstart/native/ios-objc/00-login#implement-the-login) tutorial.
+To achieve this, present an additional login dialog where your users can enter the credentials for any additional account. You can present this dialog as described in the [Login](/quickstart/native/ios-objc/00-login#implement-the-login) tutorial.
 
 After the user authenticates, save the `idToken` value for the secondary account.
 
@@ -55,7 +55,7 @@ NSString *otherUserToken = ... // the idToken from the account you want to link 
 
 ## Retrieve the Linked Accounts
 
-You can retrieve the linked accounts (user identities). To achieve this, fetch the user's profile as shown in the [User Sessions]((/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken) tutorial:
+You can retrieve the linked accounts (user identities). To achieve this, fetch the user's profile as shown in the [User Sessions](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken) tutorial:
 
 ```objc
 // HomeViewController.m

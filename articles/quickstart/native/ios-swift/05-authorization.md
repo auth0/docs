@@ -15,7 +15,7 @@ budicon: 500
   ]
 }) %>
 
-Many identity providers supply access claims with the user, for example, roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
+Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
 
 If an identity provider does not supply this information, you can create a rule for assigning roles to users. 
 

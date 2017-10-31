@@ -51,7 +51,7 @@ Then, run `pod install`.
 For more information on how to use Cocoapods, read the [Cocoapods documentation](http://guides.cocoapods.org/using/getting-started.html).
 :::
 
-## Save the User's Credentials When They Log in
+## Save User Credentials When They Log in
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
@@ -103,7 +103,7 @@ if (accessToken) {
 
 ## Validate the Access Token
 
-Check if the user's access token still valid. Use `Auth0` to fetch the user's profile:
+Check if the user's access token is still valid. Use `Auth0` to fetch the user's profile:
 
 ```objc
 // HomeViewController.m
@@ -132,7 +132,7 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain clearAll];
 ```
 
-This tutorial shows you how to use a refresh token to obtain a new access token. 
+The rest of this tutorial shows you how to use a refresh token to obtain a new access token. 
 
 The refresh token is a token string stored in the `Credentials` object after a successful login. The refresh token doesn't expire. 
 
@@ -211,13 +211,13 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 
 ## Optional: Encapsulate Session Handling
 
-Handling users' sessions is not a straightforward process. You can simplify it by storing token-related information and processes in a class. The class separates the logic for handling users' sessions from the View Controller layer. 
+Handling user sessions is not a straightforward task. You can simplify it by storing token-related information and processes in a class. The class separates the logic for handling user sessions from the View Controller layer. 
 
-We recommend that you download the sample project from this tutorial and take a look at its implementation. Focus on the `SessionManager` class, which manages the session handling processes.
+We recommend that you download the sample project from this tutorial and look at its implementation. Focus on the `SessionManager` class, which manages the session handling processes.
 
 ## Get the User Profile
 
-To get the user's profile, you need a valid access token. 
+To get the user profile, you need a valid access token. 
 
 From the `Auth0` module, call a method that allows you to get the user profile:
 

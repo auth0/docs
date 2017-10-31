@@ -14,7 +14,7 @@ To make the most of all the features in the [Auth0.swift](https://github.com/aut
 
 Each tutorial in this guide includes a link to a sample project showing the features described in the article. You can find all the samples in the [iOS Objective-C samples folder](https://github.com/auth0-samples/auth0-ios-objc-sample). 
 
-All sample project use a hybrid project, combining Objective-C and Swift. For more information, read the [Mix and Match](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) guide from Apple. 
+All sample projects use a hybrid project, combining Objective-C and Swift. For more information, read the [Mix and Match](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) guide from Apple. 
 
 ## Dependencies
 
