@@ -1,3 +1,11 @@
+---
+toc: true
+name: Configure Azure CDN Profiles for Use as Reverse Proxy
+description: How to set up Azure CDN Profiles for use as the custom domain proxy for Auth0
+---
+# Configure Azure CDN Profiles for Use as Reverse Proxy
+
+In this article, we will show you how to configure Azure CDN Profiles for use as the reverse proxy with custom domain names for your Auth0 tenant.
 
 ## Configure Azure
 
