@@ -1620,5 +1620,9 @@ module.exports = [
   {
     from: '/integrations/zoom',
     to: '/sso/current/integrations/zoom'
+  },
+  {
+    from: '/clients/how-to-update-client-secret',
+    to: '/clients/how-to-rotate-client-secret'
   }
 ];

@@ -23,7 +23,7 @@ You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Cl
 ```har
 {
 	"method": "GET",
-	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
+	"url": "https://${account.namespace}/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"

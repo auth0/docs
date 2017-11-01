@@ -3,6 +3,6 @@
 
 "require": {
     ...
-    "hwi/oauth-bundle": "^0.5.3",
+    "hwi/oauth-bundle": ">=0.6",
 },
 ```

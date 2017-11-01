@@ -4,7 +4,7 @@
 
 ```http
 POST https://${account.namespace}/dbconnections/change_password
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "email": "EMAIL",

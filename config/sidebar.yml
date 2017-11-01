@@ -591,6 +591,13 @@ libraries:
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-android"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-android/save-and-refresh-tokens"
 
 appliance:
 

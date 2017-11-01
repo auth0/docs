@@ -80,7 +80,7 @@ router.get('/suggested-users',ensureLoggedIn, (req,res) => {
 });
 ```
 
-To get a list of all of the user records with the same email address, your app calls the Management API's [List or Search for Users endpoint](/api/v2#!/Users/get_users):
+To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Token](/api/management/v2/tokens) with the `read:users` scope:
 
 ```js
 const request = require('request');
@@ -92,13 +92,12 @@ class Auth0Client {
         reject('User email is not verified');
       }
       const reqOpts = {
-        url: 'https://${account.namespace}/api/v2/users',
+        url: 'https://${account.namespace}/api/v2/users-by-email',
         headers: {
           'Authorization': 'Bearer ' + process.env.AUTH0_APIV2_TOKEN
         },
         qs: {
-          search_engine: 'v2',
-          q: 'email:"' + user.email +'" AND email_verified:true -user_id:"' + user.user_id +'"'
+          email: user.email
         }
       };
       request(reqOpts, (error, response, body) => {
