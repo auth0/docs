@@ -40,7 +40,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', options)
 ```
 
 ::: note
-Lock 10 does _allow_ some configuration methods to be added to the show() method in order to override the defaults for special use cases. See more [in the Lock api doc](/libraries/lock/v10/api/show-).
+Lock 10 does _allow_ some configuration methods to be added to the show() method in order to override the defaults for special use cases. See more [in the Lock api doc](/libraries/lock/v10/api#show-).
 :::
 
 ### Events Changed
