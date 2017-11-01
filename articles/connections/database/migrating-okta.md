@@ -5,7 +5,7 @@ crews: crew-2
 toc: true
 ---
 
-# Migrate Users to Auth0
+# Migrate Users from Okta to Auth0
 
 Auth0 supports automatic migration of users from a [custom database connection](/connections/database/custom-db) to Auth0. This feature allows you to configure a custom database connection which will migrate users from an external application, such as Okta, to Auth0. It allows for a smooth migration of users over time, without requiring users to reset their password as a result of the migration.
 
