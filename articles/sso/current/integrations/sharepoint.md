@@ -1,14 +1,11 @@
 ---
-title: SharePoint SSO Integration
-description: How to setup a SharePoint SSO Integration with Auth0.
+title: SharePoint Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with SharePoint and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# SharePoint SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "SharePoint",
+  img: "sharepoint"
+}) %>

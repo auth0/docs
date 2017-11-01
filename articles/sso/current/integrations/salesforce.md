@@ -1,14 +1,11 @@
 ---
-title: Salesforce SSO Integration
-description: How to setup a Salesforce SSO Integration with Auth0.
+title: Salesforce Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with Salesforce and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# Salesforce SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "Salesforce",
+  img: "salesforce"
+}) %>

@@ -1,14 +1,11 @@
 ---
-title: Office 365 SSO Integration
-description: How to setup an Office 365 SSO Integration with Auth0.
+title: Office 365 Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with Office 365 and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# Office 365 SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "Office 365",
+  img: "office-365"
+}) %>

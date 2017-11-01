@@ -1,14 +1,11 @@
 ---
-title: Adobe Echosign SSO Integration
-description: How to setup an Adobe Echosign SSO Integration with Auth0.
+title: EchoSign Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with Adobe EchoSign and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# Adobe Echosign SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "EchoSign",
+  img: "echosign"
+}) %>

@@ -1,14 +1,11 @@
 ---
-title: New Relic SSO Integration
-description: How to setup a New Relic SSO Integration with Auth0.
+title: New Relic Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with New Relic and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# New Relic SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "New Relic",
+  img: "new-relic"
+}) %>

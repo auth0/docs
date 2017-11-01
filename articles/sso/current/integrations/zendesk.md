@@ -1,14 +1,11 @@
 ---
-title: Zendesk SSO Integration
-description: How to setup a Zendesk SSO Integration with Auth0.
+title: Zendesk Single Sign On Integration
+description: How to set up a Single Sign On (SSO) integration with Zendesk and Auth0.
 toc: true
-public: false
+public: true
 ---
 
-# Zendesk SSO Integration
-
-<!---
-1. Create a New Integration
-2. Configure Integration Settings
-3. Configure Service/Provider
---->
+<%= include('./_template', {
+  service: "Zendesk",
+  img: "zendesk"
+}) %>

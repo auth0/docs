@@ -1584,5 +1584,41 @@ module.exports = [
   {
     from: '/integrations/disqus',
     to: '/sso/current/integrations/disqus'
+  },
+  {
+    from: '/integrations/dropbox',
+    to: '/sso/current/integrations/dropbox'
+  },
+  {
+    from: '/integrations/dynamic-crm',
+    to: '/sso/current/integrations/dynamics-crm'
+  },
+  {
+    from: '/integrations/echosign',
+    to: '/sso/current/integrations/echosign'
+  },
+  {
+    from: '/integrations/egnyte',
+    to: '/sso/current/integrations/egnyte'
+  },
+  {
+    from: '/integrations/new-relic',
+    to: '/sso/current/integrations/new-relic'
+  },
+  {
+    from: '/integrations/salesforce',
+    to: '/sso/current/integrations/salesforce'
+  },
+  {
+    from: '/integrations/springcm',
+    to: '/sso/current/integrations/springcm'
+  },
+  {
+    from: '/integrations/zendesk',
+    to: '/sso/current/integrations/zendesk'
+  },
+  {
+    from: '/integrations/zoom',
+    to: '/sso/current/integrations/zoom'
   }
 ];
