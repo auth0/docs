@@ -58,7 +58,7 @@ auth0_logout:
 
 ## Create an Auth0 Resource Owner
 
-We need to create an Auth0 resource owner to enable HWIOAuthBundle to connect to Auth0.
+You need to create an Auth0 resource owner to enable HWIOAuthBundle to connect to Auth0.
 
 Add this to your `src/AppBundle/Auth0ResourceOwner.php`
 
@@ -73,7 +73,6 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\GenericOAuth2ResourceOwner;
-
 
 class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
 {
