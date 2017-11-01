@@ -26,9 +26,9 @@ Click **Save** and wait for the updates to the configuration to complete.
 
 When you've enabled rate limiting, the HTTP response includes the following headers:
 
-* X-RateLimit-Limit
-* X-RateLimit-Remaining
-* X-RateLimit-Reset
+* X-RateLimit-Limit: Request limit
+* X-RateLimit-Remaining: Requests available for the current time frame
+* X-RateLimit-Reset: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
 To verify that rate limiting is working, you can send a call to the [`/oauth/ro` endpoint](/api/authentication#resource-owner):
 
