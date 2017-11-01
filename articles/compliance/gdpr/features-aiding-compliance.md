@@ -100,5 +100,5 @@ You can [send your logs from Auth0 to external log services](/extensions#export-
 * Perform detailed analytics on the data
 
 <%= include('./_stepnav', {
- prev: ["Go back", "/compliance"]
+ prev: ["Go back", "/compliance/gdpr"]
 }) %>
