@@ -24,7 +24,7 @@ First, you need to generate and store a `code_verifier`.
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#verifier-javascript" data-toggle="tab">Node.js</a></li>
+      <li class="active"><a href="#verifier-javascript" data-toggle="tab">JavaScript</a></li>
       <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
       <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
@@ -78,7 +78,7 @@ Using the `code_verifier`, generate a `code_challenge` that will be sent in the 
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#challenge-javascript" data-toggle="tab">Node.js</a></li>
+      <li class="active"><a href="#challenge-javascript" data-toggle="tab">JavaScript</a></li>
       <li><a href="#challenge-java" data-toggle="tab">Java</a></li>
       <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
