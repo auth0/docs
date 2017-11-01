@@ -5,7 +5,7 @@ description: Cisco WebEx SAML Configuration
 
 ${include('./\_header')}
 
-```
+```json
 {
    "mappings": {
      "email": ["email", "uid", "Name_ID"]

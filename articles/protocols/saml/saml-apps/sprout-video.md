@@ -5,7 +5,7 @@ description: Sprout Video SAML Configuration
 
 ${include('./\_header')}
 
-```
+```json
 {
  "audience":  "https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io",
  "mappings": {  
