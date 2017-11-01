@@ -239,7 +239,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 ## Logout
 
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
 
 Create a file called `logout.go` in the folder `/routes/logout/logout.go`, and add the function `LogoutHandler` to redirect the user to Auth0's logout endpoint.
 
