@@ -1,6 +1,7 @@
 ## Configure the OpenID Connect Middleware
 
-To enable authentication, in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware. Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method. 
+To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
+Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method. 
 
 Next, configure the OIDC authentication handler. Add a call to `AddOpenIdConnect`. To configure the authentication scheme, pass "Auth0" as the `authenticationScheme` parameter. You will use this value later to test the OIDC middleware.
 
