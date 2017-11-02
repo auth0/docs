@@ -158,7 +158,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - A refresh token will be returned only if the `offline_access` scope was granted.
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a>.
+For more information, refer to [Resource Owner Password Credentials exchange](/api-auth/tutorials/adoption/password).
 :::
 
 ### Delegation
@@ -171,6 +171,10 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 Given that [ID tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [refresh tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
 
 At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens. In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens. This will be deprecated in future releases.
+
+::: note
+For details on how to migrate your delegation implementation to the new flow, refer to the [Using Delegation for Token Exchange Migration Guide](/legacy/migration-guides/delegation-for-token-exchange).
+:::
 
 ### Passwordless
 

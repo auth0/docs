@@ -51,6 +51,10 @@ Content-Type: application/json
 
 Please note that refresh tokens must be kept confidential in transit and storage, and they should be shared only among the authorization server and the client to whom the refresh tokens were issued.
 
+::: note
+For details on how to migrate your delegation implementation to the new flow, refer to the [Using Delegation for Token Exchange Migration Guide](/legacy/migration-guides/delegation-for-token-exchange).
+:::
+
 ## Further reading
 
 <%= include('./_index.md') %>

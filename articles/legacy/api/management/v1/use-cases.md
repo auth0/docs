@@ -1,9 +1,11 @@
 ---
 description: This page lists the API features that are only available in Management API v1.
-section: apis
 ---
+# Management API v1 Use Cases (deprecated)
 
-# Management API v1 Use Cases
+::: warning
+This version of the Management API has been deprecated. Please use the [new version](/api/v2) instead. For details on how to migrate refer to the [Management API v1 Migration Guide Migration Guide](/legacy/migration-guides/management-api-v1).
+:::
 
 Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1.
 

@@ -1,18 +1,15 @@
 ---
 description: Management API V1 reference page.
-section: apis
 toc: true
 ---
+# Management API v1 Reference (deprecated)
 
-# Auth0 Management API Reference
+::: warning
+This version of the Management API has been deprecated. Please use the [new version](/api/v2) instead. For details on how to migrate refer to the [Management API v1 Migration Guide Migration Guide](/legacy/migration-guides/management-api-v1).
+:::
 
-### API endpoint
+The API endpoint is `https://${account.namespace}/api`.
 
-```text
-https://${account.namespace}/api
-```
-
-### Authentication
 Each API request must include an access token, either inside the query string:
 
 ```text
@@ -49,7 +46,6 @@ Here is a simple example using cURL:
 curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
 ```
 
-### Headers
 The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
 
 ```text

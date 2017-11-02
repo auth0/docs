@@ -92,44 +92,44 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### 2. Get an Authorization Code
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. 
+
+You can generate it with the [Authentication API /oauth/token endpoint](/api/authentication#get-token) with your **Global Client ID** and **Global Client Secret**.
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
-You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an `Authorization` header with `Bearer <TOKEN_FROM_MANAGEMENT_API_V1>`.
+Sample HTTP request:
 
-The data part of the request should include the following:
-
-- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
-
-- `impersonator_id`: the `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`.
-
-- `client_id`: the `client_id` of the app that is generating the impersonation link, in this example `app1`.
-
-- `additionalParameters`: this is a JSON object. For a regular web app, you should set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT. For example:
-  ```json
-  {
-    "response_type": "code",
-    "state": "",
-    "callback_url" : "http://localhost:3001/register",
-    "scope" : "openid email name user_metadata"
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"GLOBAL_CLIENT_ID\",\"client_secret\": \"GLOBAL_CLIENT_SECRET\"}"
   }
-  ```
+}
+```
 
-The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
+Where:
 
-The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+* `grant_type`: Set this to `client_credentials` to get a valid token for Impersonation.
+* `client_id`: Your Global Client ID. You can find this value at the dashboard, under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+* `client_secret`: Your Global Client Secret. You can find this value at the dashboard, under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
-There are various possible values for `scope`:
+The response contains the `access_token` and `token_type` values, for example:
 
-- `scope: 'openid'`: _(default)_ It will return, not only an opaque Access Token, but also an [ID Token](/tokens/id-token) which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
-- `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
+```js
+{
+  "access_token": "eyak4laUWw",
+  "token_type": "Bearer"
+}
+```
 
-You can get more information about this in the [Scopes documentation](/scopes).
-
-::: note
-Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
-:::
+Once you extract the token, you can use it to send a request to the [impersonation endpoint](/api/authentication/reference#impersonation). To do so, send an `Authorization` header with `Bearer <TOKEN_FROM_MANAGEMENT_API_V1>`.
 
 Your request should look like the following:
 
@@ -148,18 +148,43 @@ Your request should look like the following:
 }
 ```
 
-Replace the required values as follows:
+Where:
 
-- `YOUR_USER_ID`: the `user_id` you retrieved at the second step (the user to impersonate)
-- `YOUR_ACCESS_TOKEN`: the token already retrieved at the first step
-- `PROTOCOL_TO_USE`: the protocol to use against the identity provider, for example `oauth2`
-- `IMPERSONATOR_ID`: the `user_id` of the impersonator
+- `YOUR_ACCESS_TOKEN`: the token retrieved from the previous step
+- `USER_ID`: the `user_id` you retrieved at the second step (the user to impersonate)
+- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos)
+- `impersonator_id`: the `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`
+- `client_id`: the `client_id` of the app that is generating the impersonation link, in this example `app1`
+- `additionalParameters`: this is a JSON object. For a regular web app, you should set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT. For example:
+  ```json
+  {
+    "response_type": "code",
+    "state": "",
+    "callback_url" : "http://localhost:3001/register",
+    "scope" : "openid email name user_metadata"
+  }
+  ```
+
+The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
+
+The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+There are various possible values for `scope`:
+
+- `scope: 'openid'`: _(default)_ It will return, not only an opaque Access Token, but also an [ID Token](/tokens/id-token) which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+- `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`). You can get more information about this in the [Scopes documentation](/scopes).
+
+::: note
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
+:::
 
 Upon successful authentication, a URL will be returned as response that will look like the following:
 
 ```text
 ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 ```
+
+Where:
 
 - `${account.callback}` is the URL you specified as `callback_url` (and configured in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings))
 - `state` should match the `state` value you sent with your request

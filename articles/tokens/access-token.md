@@ -23,7 +23,7 @@ When a custom API audience is specified along with an `openid` scope, an access 
 
 Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
 
-The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the client's settings -> Advanced Settings -> Oauth. 
+The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the **client's settings > Advanced Settings > OAuth**. 
 
 ![Token Signing Algorithm - Client](/media/articles/tokens/tokens-algorithm-client.png)
 
