@@ -102,7 +102,7 @@ When you create your job, you'll need to provide:
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"connection_id\": \"con_0000000000000001\", \"format\": \"csv\", \"limit\": 5, \"fields\": [[{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]]}" 
+		"text": "" 
     },
 	"headersSize": -1,
 	"bodySize": -1,
