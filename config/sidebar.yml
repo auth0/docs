@@ -266,9 +266,6 @@ articles:
 
           - title: "Picture"
             url: "/user-profile/user-picture"
-      - title: "User Search"
-        url: "/users/search"
-
       - title: "User Metadata"
         url: "/metadata"
 
