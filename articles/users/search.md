@@ -38,7 +38,7 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 ```har
 {
 	"method": "GET",
-	"url": "https://YOUR_AUTH0_DOMAIN/api/v2/users",
+	"url": "https://${account.namespace}/api/v2/users",
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
@@ -60,7 +60,7 @@ The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/
 ```har
 {
 	"method": "GET",
-	"url": "https://YOUR_AUTH0_DOMAIN/api/v2/users-by-email?email=USER_EMAIL_ADDRESS",
+	"url": "https://${account.namespace}/api/v2/users-by-email?email=USER_EMAIL_ADDRESS",
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
@@ -92,7 +92,7 @@ When you create your job, you'll need to provide:
 ```har
 {
 	"method": "POST",
-	"url": "https://YOUR_AUTH0_DOMAIN/api/v2/jobs/users-exports",
+	"url": "https://${account.namespace}/api/v2/jobs/users-exports",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
