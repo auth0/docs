@@ -15,32 +15,33 @@ budicon: 448
   ]
 }) %>
 
-## 1. Install Auth0-ASPNET NuGet Package
+## Install the Auth0-ASPNET NuGet Package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
+Install the Auth0-ASPNET package. In the NuGet Package Manager, click **Tools** > **Library package manager** > **Package Manager Console**. In the console, run the command: 
 
 ${snippet(meta.snippets.dependencies)}
 
 ::: note
-This package will add a `LoginCallback.ashx` to your project, which will process the login.
+This package adds the `LoginCallback.ashx` file to your project to process the login. 
 :::
 
-## 2. Configure Callback URLs
+## Configure Callback URLs
 
-After authenticating the user on Auth0, we will do a POST to the `/LoginCallback.ashx` URL on your website, e.g. `http://localhost:PORT/LoginCallback.ashx`. For security purposes, you have to register this URL in the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section on Auth0 Admin app.
+After authenticating the user on Auth0, send a POST request to the `/LoginCallback.ashx` URL on your website, for example `http://localhost:PORT/LoginCallback.ashx`. 
+
+For security, register this URL in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 
-## 3. Fill Web.Config with your Auth0 Settings
+## Fill Web.Config With Your Auth0 Settings
 
-The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
+The NuGet package creates three settings on `<appSettings>`. Replace them with the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-## 4. Authenticating the user
+## Authenticate the User
 
-To authenticate the user, we will redirect to Auth0's `/authorize` endpoint:
-
+To authenticate the user, redirect them to Auth0's `/authorize` endpoint:
 
 ```c#
 // Controllers/AccountController.cs
@@ -72,10 +73,9 @@ public ActionResult Login(string returnUrl)
 }
 ```
 
+## Access User Information
 
-## 5. Access User Information
-
-Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
+When the user logs in to the application, a `ClaimsPrincipal` class is generated. You can access it through the `Current` property:
 
 ```cs
 // Controllers/HomeController.cs
@@ -85,17 +85,28 @@ public ActionResult Index()
 }
 ```
 
-The user profile is normalized regardless of where the user came from. We will always include these: `name`, `nickname`, `picture` and `updated_at`. For more information about the user profile [read this](/user-profile).
+The user profile you receive is always a normalized user profile. The profile includes the following attributes:
+* `name`
+* `nickname`
+* `picture`
+* `updated_at`
 
-## 6. Further Reading
+For more information about the user profile, read the [user profile documentation](/user-profile).
 
-### Authorization
+## Further Reading
 
-You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
+### Handle authorization
+
+On each request, the `LoginCallback.ashx` handler and the `Http` module generate an `IPrincipal`. Because of that, you can use the following authorization methods: 
+* The declarative `[Authorization]` protection
+* The `<location path='..'>` protection
+* Code-based checks, for example, `User.Identity.IsAuthenticated`
 
 ### Automatically redirect to the login page
 
-An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
+If the request is not authenticated, the `[Authorize]` attribute generates a 401 (Unauthorized) error. If you want to automatically redirect users to the login page, you can use the Forms Authentication module. 
+
+In `web.config`, configure the following:
 
 ```xml
 <!--Web.config-->
@@ -108,11 +119,13 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 
 In the above example, we are redirecting to the `Login` action in an `Account` controller, which in turn redirects to Auth0's `/authorize` endpoint for authentication, as described in [#4](#4-authenticating-the-user).
 
-### Logout
+In the example above, you are redirecting the user to a `Login` action in an `Account` controller. The action redirects them to the `/authorize` endpoint for authentication, as described in the [Authenticate the User](#authenticate-the-user) step.
+
+### Set up logout
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
-A typical logout action on ASP.Net MVC would look like this:
+The example below shows a typical logout action on ASP.Net MVC:
 
 ```cs
 // Controllers/AccountController.cs
@@ -131,22 +144,26 @@ public RedirectResult Logout()
 }
 ```
 
-Note that the final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
+The destination URL is stored in the `returnTo` value. 
 
-### Link Accounts
+::: note 
+The destination URL must be on the`Allowed Logout URLs` list. Read more about redirecting users after they log out in the [Logout](/logout#redirecting-users-after-logout) article.
+:::
 
-To allow users to link accounts from different providers, read [Link Accounts](/link-accounts).
+### Link accounts
 
-You will need the `access_token` of the logged in user. You can get it from:
+To allow users to link accounts from different providers, read the [Linking User Accounts](/link-accounts) article.
+
+To link accounts, you need the logged-in user's access token. You can get it from:
 
 ```
 ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 ```
 
-### Flow the Identity to a WCF Service
+### Flow the user's identity to a WCF service
 
-If you want to flow the identity of the user logged in a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that parameter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
+If you want to flow the logged-in user's identity to a WCF service or an API, use the `responseType: 'token'` parameter on the login widget constructor. When the parameter is sent, Auth0 generates an ID token. You can send the ID token to your service or use it to generate an `ActAs` token. The ID token is a [JSON Web Token](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06).
 
-### Manage Environments: Dev, Test, Production
+### Manage the dev, test and production environments
 
-We recommend creating one application per environment in Auth0 and have different client ids and secret per environment. [Read more about this](/azure-tutorial).
+We recommend that you create one application per environment. For each environment, use a different client ID and secret. To learn more, read about [using Auth0 with Microsoft Azure](/azure-tutorial).
