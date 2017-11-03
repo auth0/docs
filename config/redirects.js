@@ -1623,6 +1623,10 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/clients/how-to-rotate-client-secret'
+    to: '/clients/how-to-rotate-client-secret',
+  },
+  {
+    from: '/i18n/i18n-custom-login-page',
+    to: '/i18n'
   }
 ];

@@ -56,7 +56,3 @@ Production upgrades should **always** be performed in conjunction with an Auth0 
 During an upgrade, we expect there to be 3-5 minute window of downtime. This occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
 
 If you require your Production update during non-business hours, we ask that you confirm the day prior during normal business hours.
-
-## Automatic Updates
-
-Auth0 is currently to provide an automatic update option for PSaaS Appliance customers where you can select the frequence and time window during which an update occurs.

@@ -58,6 +58,15 @@ if(decodedString == auth0-authorize) {
 	// Request Denied
 }
 ```
+
+### Getting the `state` value in a rule
+
+If you need to access the `state` value within a rule you must take in consideration that, depending on the type of connection used, it might come either in the body of the request or in the query string. Keeping that in mind, it can be accessed using the following:
+
+```js
+var state = context.request.query.state || context.request.body.state;
+```
+
 ## Keep reading
 
 ::: next-steps
