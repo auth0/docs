@@ -35,7 +35,7 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 * Select the fields to be returned
 * Sort the returned results
 
-*Required Scopes*: `read:users`, `read:user_idp_tokens`
+*Required Scopes*: `read:users`
 
 ```har
 {
@@ -276,6 +276,10 @@ Once you've created your job to export your users, you can check on its status u
 ```
 
 You can access your export using the URL provided as the value for the `location` parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
+
+::: note
+The download link is valid for 60 seconds. If this time period has expired, you'll need to initiate a new job.
+:::
 
 ![](/media/articles/users/data.png)
 
