@@ -229,17 +229,55 @@ When you create your job, you'll need to provide:
 }
 ```
 
-Once you've created your job to export your users, you can check on its status in the [Dashboard](${manage_url}/#/logs). The **Event** type will be **API Operation** and the **Description** will say **Create job to export users**.
+Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). You'll need to provide the ID of the job (which you received in the response when creating the job) -- if you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
 
-![](/media/articles/users/logs.png)
+*Require Scopes*: `create:users`, `read:users`, `create:passwords_checking_job`
 
-Click on your job, and click over to the **Response** tab.
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/jobs/YOUR_JOB_ID",
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  }]
+}
+```
 
-![](/media/articles/users/job.png)
+**Sample Response**
 
-While the job is running, you'll see a **Status** of **Pending**.
+```json
+{
+  "type": "users_export",
+  "status": "completed",
+  "connection_id": "con_lCvO...a",
+  "format": "csv",
+  "limit": 5,
+  "fields": [
+    {
+      "name": "user_id"
+    },
+    {
+      "name": "name"
+    },
+    {
+      "name": "email"
+    },
+    {
+      "name": "identities[0].connection",
+      "export_as": "provider"
+    }
+  ],
+  "location": "https://user-exports.auth0.com/job_coRQCC3MHztpuTlo/auth0docs2.csv.gz?Expires=1509725589&Key-Pair-Id=APKAJPL62IJALBDMSSCA&Signature=l2JaFXP~BATnfagb64PK-qbX9QaZREDYNW0q5QeHuV-MaDpZjpABDXfHHLh2SsCMQz~UO-QsCSfI81l0lvCKzZPZL6cZHK7f~ixlZOK~MHKJuvMqsUZMbNluNAwhFmgb2fZ86yrB1c-l2--H3lMELAk7hKUwwSrNBlsfbMgQ-i41nMNnsYdy3AVlNVQkwZyx~w-IEHfJDHsqyjia-jfDbIOLQvr8~D9PwZ-xOzROxDwgxrt3undtz80bkgP5hRKOAbHC7Y-iKWa2bzNZYHqzowTrlh7Ta60cblJR46NfF9cNqn9jqRGVv-lsvUD9FxnImCCk~DL6npJnzNLjHvn4-CaWq6KdQnwWgCnZ3LZkxXDVWLLIQQaoc6i~xbuGnnbtKRePFSnpqbt2mAUYasdxTOWuUVK8wHhtfZmRYtCpwZcElXFO9Qs~PTroYZEiS~UHH5byMLt2x4ChkHnTG7pIhLAHN~bCOLk8BN2lOkDBUASEVtuJ-1i6cKCDqI2Ro9YaKZcCYzeQvKwziX6cgnMchmaZW77~RMOGloi2EffYE31OJHKiSVRK7RGTykaYN5S2Sg7W0ZOlLPKBtCGRvGb8rJ6n3oPUiOC3lSp7v0~dkx1rm-jO8mKWZwVtC0~4DVaXsn8KXNbj0LB4mjKaDHwXs16uH1-aCfFnMK7sZC2VyCU_",
+  "connection": "Username-Password-Authentication",
+  "created_at": "2017-11-02T23:34:03.803Z",
+  "id": "job_coRQCC3MHztpuTlo"
+}
+```
 
-![](/media/articles/users/status.png)
+You can access your export using the URL provided as the value for the `location` parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
+
+![](/media/articles/users/data.png)
 
 ## Summary
 
