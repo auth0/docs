@@ -233,9 +233,13 @@ Once you've created your job to export your users, you can check on its status i
 
 ![](/media/articles/users/logs.png)
 
-Click on your job, and click over to the **Response** tab. While the job is running, you'll see a **Status** of **Pending**.
+Click on your job, and click over to the **Response** tab.
 
 ![](/media/articles/users/job.png)
+
+While the job is running, you'll see a **Status** of **Pending**.
+
+![](/media/articles/users/status.png)
 
 ## Summary
 
