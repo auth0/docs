@@ -1,39 +1,38 @@
 ---
-description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 Management API to customize the process and the email flow.
+description: How to customize the signup process for an invite-only application with Auth0
 toc: true
 crews: crew-2
 ---
+# Invite-Only Applications
 
-# Invite-only Applications
+Self-service provisioning is the practice of allowing users to register and pay for themselves and begin using the app right away, and this is a common concept for SaaS applications.
 
-Self-service provisioning is a common concept for SaaS applications. Users can register and pay and then begin using the application.
+However, other types of apps, such as Google Apps or Office 365, do not allow individual users to register. Instead, customers (which tend to be some type of company or organization) pay upfront for a set number of users -- only users with the appropriate credentials may register for and access these applications. To handle this type of signup, you'd typically use an invite-only workflow.
 
-Other types of applications (such as Google Apps and Office 365) may not allow single users to register for an application. Instead, customers may be organizations that pay upfront for a number of users and only want to allow those users access to your application. In these cases, an invite-only workflow can be used.
+## Sample Scenario: Analystick
 
-## Analystick scenario
+Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Their customers, upon enrolling and paying for their contract, send them a list of users (which includes the users' first and last names and email address) that can access the application.
 
-Analystick is a multi-tenant SaaS solution offering analytics in the cloud. Their customers send them a list of users (with their given name, family name, and email address) that can access the application.
-
-This functionality can be achieved using an Enterprise Connection where you federate with your customer using ADFS/SAML-P/…. This will allow your customer to authenticate users with their own Active Directory which specifies who is to be given access to the application.
+In Auth0, you can implement the required signup functionality for such an app using an enterprise connection where you federate with your customers using ADFS, SAML-P, and so on. This allows your customers to authenticate users with their own Activate Directory (or other directory management tool) that specifies who gets app access.
 
 The invite-only flow will be setup as follows:
 
-1. The tenant administrator will create new users in their subscription from within the application. 
-2. The application will call the Auth0 Management API to create these new users in a database connection. 
-3. The application will send out activation emails to these users. 
-4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 
-5. After validation, Auth0 will redirect users to the application where they will be presented with a password reset form. 
-6. The application will update each user's password in Auth0, after which they will be able to authenticate.
+1. The administrator creates new users in Analystick.
+2. Analystick calls the Auth0 Management API to create these new users, which Auth0 stores in a database connection.
+3. Analystick sends out activation emails to these newly-created users.
+4. When users click the activation link included in the emails, they'll be redirected to Auth0 (which flags their user profiles as ones where the emails have been verified).
+5. Auth0 then redirects users to Analystick, where they'll see a password reset form.
+6. Analystick updates the users' passwords in Auth0, and the users will be able to authenticate with their newly-chosen passwords.
 
 ![](/media/articles/invite-only/invite-only-overview.png)
 
 ### Setup
 
-Users can be stored in a single database because Analystick will be signing up users from Contoso, Fabrikam and other companies with their corporate email addresses, making users unique for each customer.
+Because Analystick users all have (and will sign up with) corporate email addresses, you can use emails as an unique identifier. This also means that you can store all uses in a single Auth0 connection (in this case, a database connection) without worrying about non-unique entities.
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
-To prevent users from signing up, select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
+To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
 
 The Analystick application is an ASP.NET MVC web application hosted on `http://localhost:45000/`. You will need to create an application in the dashboard with the correct parameters:
 
