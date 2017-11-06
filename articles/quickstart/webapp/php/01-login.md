@@ -16,6 +16,8 @@ budicon: 448
   ]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
+
 ## Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
@@ -75,14 +77,6 @@ if (!$userInfo) {
 ```
 
 The user's information is stored in the session. Each time you call `getUser()`, it retrieves the information from the session.
-
-${include('../_callbackRegularWebApp')}
-
-In this case, `redirectUrl` should look like this:
-
-```text
-http://yourUrl/
-```
 
 ## Trigger Login with the Auth0 PHP SDK
 
