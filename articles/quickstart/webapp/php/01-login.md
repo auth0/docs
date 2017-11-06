@@ -46,16 +46,6 @@ $auth0 = new Auth0([
 ]);
 ```
 
-### Optional: Configure session data
-
-By default, the SDK stores user information in the PHP session and discards the access and ID tokens. 
-
-To keep the tokens, to the SDK configuration, pass the following:
-* `'persist_access_token' => true`
-* `'persist_id_token' => true`
-
-To disable the session, pass `'store' => false` to the SDK configuration.
-
 ## Add the Auth0 Callback Handler
 
 Call `$auth0->getUser()` to retrieve user information. If you call it from the page that handles the callback, it will use the code provided by Auth0 to get the information after the successful login.
@@ -122,7 +112,15 @@ To learn about all the available properties from the user's profile, read the [u
 Some of the user profile properties depend on the social provider you use.
 :::
 
-## Optional 
+### Optional: Configure session data
+
+By default, the SDK stores user information in the PHP session and discards the access and ID tokens. 
+
+To keep the tokens, to the SDK configuration, pass the following:
+* `'persist_access_token' => true`
+* `'persist_id_token' => true`
+
+To disable the session, pass `'store' => false` to the SDK configuration.
 
 Instead of using the PHP session to store information, you can use Laravel, Zend, Symfony or similar techniques. To do that, create a class that implements the get, set and delete methods and pass it to the SDK.
 
