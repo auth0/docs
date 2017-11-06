@@ -27,6 +27,7 @@ description: Learn about working with users in Auth0
   '/extensions/delegated-admin',
   '/extensions/authorization-extension/v2',
   '/user-profile/progressive-profiling',
-  '/user-profile/user-data-storage'
+  '/user-profile/user-data-storage',
+  '/connections/database/migrating-okta'
 ] }) %>
 
