@@ -5,24 +5,23 @@ crews: crew-2
 ---
 # Invite-Only Applications
 
-Self-service provisioning is the practice of allowing users to register and pay for themselves and begin using the app right away, and this is a common concept for SaaS applications.
+Many SaaS apps allow self-service provisioning, where users can register themselves and begin using the app. Other types of apps, however, do not allow such signups. Instead, the customer (typically an organization of some type) pay upfront for a number of users, and only the end user with the appropriate credentials may sign up and access the app. In such cases, you can use an invite-only workflow for authorization purposes.
 
-However, other types of apps, such as Google Apps or Office 365, do not allow individual users to register. Instead, customers (which tend to be some type of company or organization) pay upfront for a set number of users -- only users with the appropriate credentials may register for and access these applications. To handle this type of signup, you'd typically use an invite-only workflow.
+## Example Scenario: Analystick
 
-## Sample Scenario: Analystick
+In this tutorial, we will work through a sample setup for the fictional company, Analystick. Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send Analystick lists of users whom they want to access the application.
 
-Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Their customers, upon enrolling and paying for their contract, send them a list of users (which includes the users' first and last names and email address) that can access the application.
+You can handle this requirement in Auth0 using an Enterprise Connection (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
-In Auth0, you can implement the required signup functionality for such an app using an enterprise connection where you federate with your customers using ADFS, SAML-P, and so on. This allows your customers to authenticate users with their own Activate Directory (or other directory management tool) that specifies who gets app access.
+The invite-only authorization flow includes the following steps:
 
-The invite-only flow will be setup as follows:
-
-1. The administrator creates new users in Analystick.
-2. Analystick calls the Auth0 Management API to create these new users, which Auth0 stores in a database connection.
-3. Analystick sends out activation emails to these newly-created users.
-4. When users click the activation link included in the emails, they'll be redirected to Auth0 (which flags their user profiles as ones where the emails have been verified).
-5. Auth0 then redirects users to Analystick, where they'll see a password reset form.
-6. Analystick updates the users' passwords in Auth0, and the users will be able to authenticate with their newly-chosen passwords.
+1. The admin for the customer creates new end users for the Analystick app.
+1. Analystick calls the Management API to create those new end users in a database connection.
+1. Analystick sends out activation emails to all new end users.
+1. When end users click on the activation links contained in their emails, they're redirected to Auth0 (which then flags the users' profiles as having activated their email addresses)
+1. Auth0 redirects users to the app, where the end users can reset their passwords
+1. Analystick updates each user's password in Auth0.
+1. The end users are now ready to authenticate themselves and use Analystick.
 
 ![](/media/articles/invite-only/invite-only-overview.png)
 
@@ -34,28 +33,28 @@ Because Analystick users all have (and will sign up with) corporate email addres
 
 To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
 
-The Analystick application is an ASP.NET MVC web application hosted on `http://localhost:45000/`. You will need to create an application in the dashboard with the correct parameters:
+The Analystick app is an ASP.NET MVC web app hosted on `http://localhost:45000/`. You will need to create a [client](/clients) in the [Dashboard](${manage_url}/#/clients) with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
- - **Application Type**: this will be a regular web application.
- - **Allowed Callback URLs**: this should be the url of your application followed with `/signin-auth0` (a requirement of the Auth0.Owin NuGet package for .NET)
+ - **Client Type**: this will be a regular web application.
+ - **Allowed Callback URLs**: this should be the URL of your app, followed by `/signin-auth0` (a requirement of the Auth0.Owin NuGet package for .NET)
 
 ![](/media/articles/invite-only/invite-only-app.png)
 
-Since this client application will access the [Auth0 Management API v2](/api/v2), you will need to authorize it:
+Since this client needs to access the [Management API](/api/v2), you'll need to authorize it and set its scopes as follows:
 
-* Go to the [API section](${manage_url}/#/apis) on the dashboard.
-* Select _Auth0 Management API_.
-* Click on the *Non-interactive Clients* tab.
-* Look for the Client you created before and move the toggle to `Authorized`.
-* In the *Scopes* list select `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
-* Click **Update** to save the changes.
+* Go to the [APIs section](${manage_url}/#/apis) of the Dashboard.
+* Select **Auth0 Management API**.
+* Click over to the **Non-interactive Clients** tab.
+* Find the client you just created, and set its toggle to **Authorized**.
+* Use the **down arrow** to open up the scopes selection area. Select the following scopes: `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
+* Click **Update**.
 
 ![Authorize Client](/media/articles/invite-only/invite-only-authorize-client.png)
 
 ### GitHub repository
 
-A full working sample of the application can be found at [this GitHub repository](https://github.com/auth0-samples/auth0-invite-only-sample).
+A full working sample of the application can be found in [this GitHub repo](https://github.com/auth0-samples/auth0-invite-only-sample).
 
 ### User Management
 
