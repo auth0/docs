@@ -16,7 +16,7 @@ Click the checkbox next to **Enable** to enable rate limiting.
 
 ![](/media/articles/appliance/admin/rate-limiting-2.png)
 
-By default, **Configuration of buckets** is empty, which means that limitd's default configuration will be used. You can, however, [customize your buckets](https://github.com/auth0/limitd#buckets).
+By default, **Configuration of buckets** is empty, which means that limitd's default configuration will be used. Your Customer Success Engineer may advise you to adjust this value if appropriate.
 
 Click **Save** and wait for the updates to the configuration to complete.
 
