@@ -27,7 +27,7 @@ The invite-only authorization flow includes the following steps:
 
 ### Setup
 
-Because Analystick users all have (and will sign up with) corporate email addresses, you can use emails as an unique identifier. This also means that you can store all uses in a single Auth0 connection (in this case, a database connection) without worrying about non-unique entities.
+You can store all Analystick end users in a single database, since everyone will provide their unique corporate email addresses.
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
