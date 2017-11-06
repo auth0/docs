@@ -250,7 +250,7 @@ articles:
         url: "/connections/database/password-strength"
 
   - title: "User Management"
-    url: "/user-profile"
+    url: "/users"
     children:
       - title: "User Profile"
         url: "/user-profile"
