@@ -1558,6 +1558,10 @@ module.exports = [
     to: '/sso/current/single-page-apps'
   },
   {
+    from: '/sso/legacy/single-page-apps-sso',
+    to: '/sso/legacy/single-page-apps'
+  },
+  {
     from: '/integrations/slack',
     to: '/sso/current/integrations/slack'
   },
