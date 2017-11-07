@@ -3,80 +3,41 @@ description: Describes using acr_values and acr claims to perform step-up authen
 ---
 # Step-up Authentication
 
-With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
+With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
-For example, Fabrikam's Intranet can require users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) can trigger a stronger authentication mechanism like multifactor authentication.
+For example, Fabrikam's Intranet requires users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) triggers a stronger authentication mechanism like multifactor authentication.
 
-You can add step-up authentication to your app with Auth0's extensible multifactor authentication support. Your app can verify that the user has logged in using multifactor authentication and, if not, require the user to step-up to access certain resources.
+You can add step-up authentication to your app with Auth0's extensible multifactor authentication support. Your app can verify that the user has logged in using multifactor authentication (MFA) and, if not, require the user to step-up to access certain resources.
 
 ![Step-up flow](/media/articles/mfa/step-up-flow.png)
 
 ## Step-up Authentication with Auth0
 
-There are three core concepts used when addressing authentication level at Auth0.
+The recommended way to implement step-up authentication with Auth0 is using [scopes](/scopes), [access tokens](/tokens/access-token) and [rules](/rules).
 
-* `acr` is used to specify the 'class' of authentication that was performed on the current session. Look to [Authentication Context Class Reference](http://openid.net/specs/openid-connect-core-1_0.html) page for more detail and specific policies. Currently, Auth0 utilizes the 'Multi-Factor Authentication' policy, `http://schemas.openid.net/pape/policies/2007/06/multi-factor`.
+::: note
+An access token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes (included in your access token). The rules are JavaScript functions you can use to run custom logic when a user authenticates.
+:::
 
-* `amr` is the list of methods that were used to authenticate the current session. See the [Authentication Methods References](http://openid.net/specs/openid-connect-core-1_0.html) page for more details.
+You can use a rule to trigger the step-up authentication mechanism (for example, prompt MFA) whenever the user requests scopes that map to sensitive resources.
 
-* `acr_values` can be used to request the class of `acr` above when authentication is to be performed. See [here](http://openid.net/specs/openid-connect-core-1_0.html) for more details.
+This is best explained with an example.
 
-`acr` and `amr` are both available on the [ID token](/tokens/id-token) of the current session, when appropriate. The `acr_values` field is added to the request for authentication.
+A user signs into Fabrikam's web app. The standard login gives to this user the ability to interact with their API and fetch the users account list. This means that the access token that the client receives after the user authentication contains a scope like `read:accounts`.
 
-## Example
+Now the user wishes to transfer funds from one account to another, which is deemed a high-value transaction. In order to perform this action, the API requires the scope `transfer:funds`.
 
-Let's use an example where you have enabled MFA and have allowed the users the option to be [remembered and skip MFA](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) by setting the `allowRememberBrowser` option in your Rule to `true`. This means that the user will not be prompted for MFA authentication everytime the log in using Auth0.
+The access token that the user currently has does not include this scope and the client knows it since it knows the set of scopes it requested in the initial authentication call.
 
-Now, when a user attempts to access a resource which requires stronger authenticaiton you want them to authenticate with MFA regardless of whether they have elected to be remembered for MFA.
+The solution is that the client performs another authentication call, but this time it requests the required scope. The browser redirects to Auth0 and a rule is used to challenge the user to authenticate with MFA since a high-value scope was requested.
 
-To request that Auth0 require a multifactor authentication, add the field `acr_values` to the authentication along with the `acr` level desired. For example, with [Auth0.js](/libraries/auth0js) it would work like the following code snippet.
-
-```js
-// Use acr_values to indicate this user needs a step-up with MFA
-auth0.signin({
-  connection: 'google-oauth2',
-  acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
-});
-```
-
-With [Lock](/libraries/lock), the following would indicate the need for MFA.
-
-```js
-// Use acr_values to indicate this user needs a step-up with MFA
-var options = {
-  ...
-  auth: {
-    acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
-  }
-};
-
-lock = new Auth0Lock('clientID', 'account.auth0.com', options);
-```
-
-To confirm that a session has had multifactor authentication, the [ID token](/tokens/id-token) can be checked for its `acr` and `amr` claims.
-
-```js
-var decoded = jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] });
-
-// Confirm that the acr has the expected value
-if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
-  throw new Error('Step-up authentication failed');
-}
-
-// We also expect to have the amr claim
-if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
-  throw new Error('Step-up authentication failed');
-}
-```
-
-More example code with the step-up functionality can be found [here](https://github.com/auth0/guardian-example).
+The result is a new access token which includes the high-value scope. The client will discard the token (i.e. not store it in local storage like the original token) thereby treating it like a single-use token.
 
 ## Keep reading
 
 ::: next-steps
-* [acr and acr_values](http://openid.net/specs/openid-connect-core-1_0.html)
-* [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
-* [Configuring Custom MFA](/multifactor-authentication/custom)
-* [JSON Web Token Example](https://github.com/auth0/node-jsonwebtoken)
+* [Configure Custom MFA](/multifactor-authentication/custom)
+* [An implementation of JSON Web Tokens with Node.js](https://github.com/auth0/node-jsonwebtoken)
 * [Guardian example (with step-up functionality)](https://github.com/auth0/guardian-example)
+* [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
 :::
