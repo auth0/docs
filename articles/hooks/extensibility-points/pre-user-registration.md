@@ -9,7 +9,7 @@ beta: true
 
 For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
 
-This allows you to implement scenarios such as setting conditional `app_metadata` or `user_metadata` on users that do not yet.
+This allows you to implement scenarios such as setting conditional [metadata](/metadata) on users that do not exist yet.
 
 ## How to Implement This
 
