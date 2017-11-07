@@ -99,6 +99,8 @@ You can [send your logs from Auth0 to external log services](/extensions#export-
 * Store them for a longer period of time than that offered by your Auth0 service level 
 * Perform detailed analytics on the data
 
+You can also use the Management API to [retrieve log data](/api/management/v2#!/Logs/get_logs) for maximum control over the data retrieval process. You can control the fields returned using the `fields` and `include_fields` parameters.
+
 <%= include('./_stepnav', {
  prev: ["Go back", "/compliance/gdpr"]
 }) %>
