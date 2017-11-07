@@ -30,11 +30,13 @@ The extension will use Webtask Storage by default, and you are limited to 500 KB
 
 ### Amazon S3
 
+Alternatively, you can use Amazon S3 as a storage provider.
+
 ::: warning
 This extension has limitations in terms of performance and is not meant to be used with large data sets. Before you choose Amazon S3 for data storage, we recommend that you test and see how it performs for your case. Performance degradation is also a possibility as more data is added to S3.
 :::
 
-Alternatively, you can use Amazon S3 as a storage provider. To do so, you will need to:
+ To use Amazon S3 you need to:
 
  1. Create an S3 bucket
  2. Create an IAM user and get the Key ID and Key for that user
