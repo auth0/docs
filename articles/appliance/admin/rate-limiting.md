@@ -42,6 +42,7 @@ To verify that rate limiting is working, you can send a call to any [rate-limite
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
 	}]
+}
 ```
 
 Your expected response looks something like this:
