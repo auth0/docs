@@ -3,7 +3,6 @@ title: Installing the Authorization Extension
 description: How to install the Authorization Extension
 toc: true
 ---
-
 # Authorization Extension: Installation
 
 This doc walks you through the process of installing the Authorization Extension.
@@ -18,20 +17,24 @@ Clients without an assigned type or Non Interactive Clients cannot be used with 
 
 ## Install the Extension
 
-To install the Authorization Extension, click on the "Auth0 Authorization" box located on the [Extensions](${manage_url}/#/extensions) page of the Management Dashboard. 
+To install the Authorization Extension, click on the **Auth0 Authorization** box located on the [Extensions](${manage_url}/#/extensions) page of the dashboard. 
 
-You'll be prompted to install the extension and to choose where you'd like your data stored. You can choose between Webtask Storage and an Amazon S3 bucket.
+You will be prompted to install the extension and to choose where you would like to store your data. You can choose between Webtask Storage and an Amazon S3 bucket.
 
 ### Webtask Storage
 
-The extension will use Webtask Storage by default, and you're limited to 500 KB of data. This is equivalent to:
+The extension will use Webtask Storage by default, and you are limited to 500 KB of data. This is equivalent to:
 
  - 1000 groups and 3000 users, where each user is member of 3 groups
  - 20 groups and 7000 users, where each user is member of 3 groups
 
 ### Amazon S3
 
-Alternatively, you can use Amazon S3 as a storage provider. To do so, you'll need to:
+::: warning
+This extension has limitations in terms of performance and is not meant to be used with large data sets. Before you choose Amazon S3 for data storage, we recommend that you test and see how it performs for your case. Performance degradation is also a possibility as more data is added to S3.
+:::
+
+Alternatively, you can use Amazon S3 as a storage provider. To do so, you will need to:
 
  1. Create an S3 bucket
  2. Create an IAM user and get the Key ID and Key for that user
@@ -73,7 +76,7 @@ Amazon S3 is a file-based storage platform, which means it writes in parallel. T
 
 ![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
-Once the extension is installed, you'll see it listed under **Installed Extensions**.
+Once the extension is installed, you will see it listed under **Installed Extensions**.
 
 ![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
 
@@ -81,7 +84,7 @@ Once the extension is installed, you'll see it listed under **Installed Extensio
 Installing this extension creates an `auth0-authz` client for your account. **Do not delete this client!** If you uninstall the extension at a later date, this client will be deleted automatically.
 :::
 
-When you click the link to open the extension for the first time, you'll be asked to provide permission for the extension to access your Auth0 account. If you do, you'll be redirected to the Authorization Dashboard.
+When you click the link to open the extension for the first time, you will be asked to provide permission for the extension to access your Auth0 account. If you do, you will be redirected to the Authorization Dashboard.
 
 ![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
 
