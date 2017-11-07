@@ -82,13 +82,13 @@ description: Learn about working with users in Auth0
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/get-user-information-with-unbounce-landing-pages">Get User Information on Unbounce Landing Pages</a>
     <p>
-        How to get user information with one-click social authentication on Unbounce landing pages
+        How to get user information with one-click social authentication on Unbounce landing pages.
     </p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/search">User Search</a>
     <p>
-        Best practices when retrieving users with API endpoints
+        Learn the best practices to use when retrieving users with API endpoints.
     </p>
   </li>
 </ul>
