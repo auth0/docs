@@ -1,7 +1,8 @@
 ---
-description: Tutorial for creating an Auth0 app that uses SAML SSO with SSOCircle
+title: SAML SSO with SSOCircle as an Identity Provider
+description: How to configure an application to use Auth0 for SAML Single Sign On (SSO), authenticating users against SSOCircle
+toc: true
 ---
-
 # SAML SSO with SSOCircle as an Identity Provider
 
 This tutorial will create a sample application that uses Auth0 for SAML Single Sign On (SSO), authenticating users against identity provider **SSOCircle**.
@@ -169,8 +170,6 @@ Create an HTML file with the following HTML and JavaScript:
           }
         });
       }
-    });
-    }
     </script>
     <button onclick="signin()">Login</button>
   </BODY>
