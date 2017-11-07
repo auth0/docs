@@ -16,7 +16,7 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 The recommended way to implement step-up authentication with Auth0 is using [scopes](/scopes), [access tokens](/tokens/access-token) and [rules](/rules).
 
 ::: note
-An access token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes (included in your access token). The rules are JavaScript functions you can use to run custom logic when a user authenticates.
+An access token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes your access token includes. The rules are JavaScript functions you can use to run custom logic when a user authenticates.
 :::
 
 You can use a rule to trigger the step-up authentication mechanism (for example, prompt MFA) whenever the user requests scopes that map to sensitive resources.
