@@ -16,7 +16,7 @@ description: Learn about working with users in Auth0
   <li>
     <i class="icon icon-budicon-715"></i><a href="/user-profile">User Profile</a>
     <p>
-        A high-level overview of the Auth0 user profile
+        Learn about and get a high-level overview of the Auth0 user profile.
     </p>
     <ul>
       <li>
@@ -45,13 +45,13 @@ description: Learn about working with users in Auth0
   <li>
     <i class="icon icon-budicon-715"></i><a href="/metadata">User Metadata</a>
     <p>
-      Learn about the metadata fields available in the user profile, as well as when to use which
+      Learn about the metadata fields available in the user profile, as well as when to use which.
     </p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/bulk-importing-users-into-auth0">Importing and Exporting Users</a>
     <p>
-      How to import users into Auth0
+      Learn how to import users into Auth0.
     </p>
     <ul>
       <li>
@@ -62,7 +62,7 @@ description: Learn about working with users in Auth0
   <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/delegated-admin">Extensions for Managing Admin Users</a>
     <p>
-      Learn about the [extensions](/extensions) available for managing admin users
+      Learn about the <a href="/extensions">extensions</a> available for managing admin users.
     </p>
     <ul>
       <li>
@@ -72,17 +72,6 @@ description: Learn about working with users in Auth0
         <i class="icon icon-budicon-695"></i><a href="/extensions/authorization-extension/v2">Authorization Extension</a>
       </li>
     </ul>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/onboarding/appliance-sprint">PSaaS Appliance Sprint (Customer Onboarding)</a>
-    <p>
-      PSaaS Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 PSaaS Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription. The 6 steps in the onboarding program set both you and Auth0 up for success.
-    </p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/"></a>
-    <p>
-    </p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/redirecting-users">Redirect Users</a>
