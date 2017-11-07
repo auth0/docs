@@ -169,8 +169,6 @@ Create an HTML file with the following HTML and JavaScript:
           }
         });
       }
-    });
-    }
     </script>
     <button onclick="signin()">Login</button>
   </BODY>
