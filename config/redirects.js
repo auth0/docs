@@ -1632,5 +1632,9 @@ module.exports = [
   {
     from: '/i18n/i18n-custom-login-page',
     to: '/i18n'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-with-acr',
+    to: '/multifactor-authentication/developer/step-up-authentication'
   }
 ];
