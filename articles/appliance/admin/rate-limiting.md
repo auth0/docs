@@ -1,14 +1,14 @@
 ---
-name: Rate Limiting in the Appliance
+title: Rate Limiting in the PSaaS Appliance
 description: How to enable, configure, and test for rate limiting in the Appliance
 ---
-# Appliance: Rate Limiting
+# PSaaS Appliance: Rate Limiting
 
-Beginning with Appliance build `6576`, rate limits for API endpoints can be enabled and configured in the Dashboard. Rate limiting in the Appliance is done using [limitd](https://github.com/limitd/limitd#buckets).
+Beginning with PSaaS Appliance build `6576`, rate limits for API endpoints can be enabled and configured in the Dashboard. Rate limiting in the PSaaS Appliance is done using [limitd](https://github.com/limitd/limitd#buckets).
 
 ## Enable and Configure Rate Limiting
 
-In the Appliance Dashboard, go to **Rate Limiting**.
+In the PSaaS Appliance Dashboard, go to **Rate Limiting**.
 
 ![](/media/articles/appliance/admin/rate-limiting-1.png)
 
@@ -30,19 +30,18 @@ When you've enabled rate limiting, the HTTP response includes the following head
 * X-RateLimit-Remaining: Requests available for the current time frame
 * X-RateLimit-Reset: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
-To verify that rate limiting is working, you can send a call to the [`/oauth/ro` endpoint](/api/authentication#resource-owner):
+To verify that rate limiting is working, you can send a call to any [rate-limited API endpoint](/policies/rate-limits#endpoints-with-rate-limits), such as the [Get All Connections endpoint](/api/management/v2#!/Connections/get_connections):
 
-```text
-POST /oauth/ro HTTP 1.1
-Content-Type: application/json
+```har
 {
-  "grant_type": "password",
-  "client_id": "123",
-  "username": "alice",
-  "password": "A3ddj3w",
-  "connection": "my-database-connection",
-  "scope": "openid email favorite_color offline_access",
-  "device": "my-device-name"
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}]
 ```
 
 Your expected response looks something like this:
