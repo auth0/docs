@@ -14,7 +14,7 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/monitoring/how-to-monitor-auth0">Create Users in the Management Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/monitoring/how-to-monitor-auth0">Create Users in the Dashboard</a>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/monitoring/tracking-new-leads-in-salesforce-and-raplead">Track New Leads in Salesforce with RapLeaf Information</a>
