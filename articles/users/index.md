@@ -8,7 +8,7 @@ description: Learn about working with users in Auth0
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Users</h1>
   <p>
-    Learn about working with users in Auth0.
+    Learn about working with users, user profiles, and the endpoints used to retrieve users in Auth0.
   </p>
 </div>
 
