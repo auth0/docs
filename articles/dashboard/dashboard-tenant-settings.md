@@ -1,6 +1,5 @@
 ---
 description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
-url: /dashboard-tenant-settings
 toc: true
 ---
 # Tenant Settings in the Auth0 Management Dashboard
