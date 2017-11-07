@@ -1554,11 +1554,83 @@ module.exports = [
     to: '/',
   },
   {
+    from: '/sso/current/single-page-apps-sso',
+    to: '/sso/current/single-page-apps'
+  },
+  {
+    from: '/sso/legacy/single-page-apps-sso',
+    to: '/sso/legacy/single-page-apps'
+  },
+  {
+    from: '/integrations/slack',
+    to: '/sso/current/integrations/slack'
+  },
+  {
+    from: '/integrations/integrating-with-slack',
+    to: '/sso/current/integrations/slack'
+  },
+  {
+    from: '/integrations/ad-rms',
+    to: '/sso/current/integrations/ad-rms'
+  },
+  {
+    from: '/integrations/box',
+    to: '/sso/current/integrations/box'
+  },
+  {
+    from: '/integrations/cloudbees',
+    to: '/sso/current/integrations/cloudbees'
+  },
+  {
+    from: '/integrations/concur',
+    to: '/sso/current/integrations/concur'
+  },
+  {
+    from: '/integrations/disqus',
+    to: '/sso/current/integrations/disqus'
+  },
+  {
+    from: '/integrations/dropbox',
+    to: '/sso/current/integrations/dropbox'
+  },
+  {
+    from: '/integrations/dynamic-crm',
+    to: '/sso/current/integrations/dynamics-crm'
+  },
+  {
+    from: '/integrations/echosign',
+    to: '/sso/current/integrations/echosign'
+  },
+  {
+    from: '/integrations/egnyte',
+    to: '/sso/current/integrations/egnyte'
+  },
+  {
+    from: '/integrations/new-relic',
+    to: '/sso/current/integrations/new-relic'
+  },
+  {
+    from: '/integrations/salesforce',
+    to: '/sso/current/integrations/salesforce'
+  },
+  {
+    from: '/integrations/springcm',
+    to: '/sso/current/integrations/springcm'
+  },
+  {
+    from: '/integrations/zendesk',
+    to: '/sso/current/integrations/zendesk'
+  },
+  {
+    from: '/integrations/zoom',
+    to: '/sso/current/integrations/zoom'
+  },
+  {
     from: '/clients/how-to-update-client-secret',
     to: '/clients/how-to-rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
-    to: '/i18n',
+    to: '/i18n'
   }
 ];
