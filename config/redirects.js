@@ -850,10 +850,6 @@ module.exports = [
     to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
-    from: '/monitoring',
-    to: '/tutorials/how-to-monitor-auth0'
-  },
-  {
     from: ['/har', '/tutorials/troubleshootings-with-har-files'],
     to: '/tutorials/troubleshooting-with-har-files'
   },
