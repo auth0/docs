@@ -52,17 +52,17 @@ Since this client needs to access the [Management API](/api/v2), you'll need to 
 
 ![Authorize Client](/media/articles/invite-only/invite-only-authorize-client.png)
 
-### GitHub repository
+### Sample Application
 
-A full working sample of the application can be found in [this GitHub repo](https://github.com/auth0-samples/auth0-invite-only-sample).
+You can find a working sample of the application in its [GitHub repository](https://github.com/auth0-samples/auth0-invite-only-sample).
 
 ### User Management
 
-Analystick has built a simple user interface in their admin backend to allow the import of up to 5 users.
+Analystick comes with an admin area that allows you to import up to five users at a time.
 
 ![](/media/articles/invite-only/invite-only-new.png)
 
-This admin interface uses the [Auth0.ManagementAPI SDK](https://www.nuget.org/packages/Auth0.ManagementApi/) to communicate with the Auth0 Management API v2:
+The admin interface uses the [Auth0 Management API SDK](https://www.nuget.org/packages/Auth0.ManagementApi/) to communicate with the Auth0 Management API v2:
 
 ```cs
 public class UsersController : Controller
@@ -166,13 +166,13 @@ public class UsersController : Controller
 }
 ```
 
-The `Users.CreateAsync` method is called to create the user in the database connection. This method is called with 5 parameters:
+To create a user in your database connection, your app calls the `Users.CreateAsync` method. The method takes five parameters:
 
  1. The user’s email address
- 2. The user’s password (a new Guid is assigned as a random password to the user)
- 3. The name of the connection in which to create the user
- 4. The email verified parameter (set to false prior to the user clicking the activation link).
- 5. A metadata object containing the given name and family name of the user, and an activation pending setting (used later to validate the user).
+ 2. The user’s password (a new GUID is assigned as a random password to the user)
+ 3. The name of the (database) connection in which to create the user
+ 4. The email verified parameter (set to `false` prior to the user clicking the activation link)
+ 5. A metadata object containing the given name and family name of the user and an activation pending setting (used later to validate the user).
 
 ### Emails
 
