@@ -176,19 +176,23 @@ To create a user in your database connection, your app calls the `Users.CreateAs
 
 ### Emails
 
-Once the user is created, you will need to send the verification email. The email will contain a link to the account activation URL of the application (/activate/account) that contains the password reset form. To securely identify the user, a JWT token is appended to the URL.
+You will need to send verification emails to all newly-created users. The email will contain a link to the account activation URL of the application (such as `/activate/account`) that leads to the password reset form. The user is identified by the unique JWT appended to the return URL
 
-To generate the `verificationUrl`, call the `Tickets.CreateEmailVerificationTicketAsync` method on the SDK, set the return URL to that of the password reset form, and append the token.
+To generate the `verificationUrl`:
+
+1. Call the `Tickets.CreateEmailVerificationTicketAsync` method on the SDK
+2. Set the return URL to that of the password reset form
+3. Append the JWT token to the return URL
 
 ::: note
-Since you do not want the default emails to be sent, you must disable the **Verification Email** and **Welcome Email** in the Auth0 dashboard.
+Be sure to disable the default **Verification Email** and **Welcome Email** using the Dashboard to prevent these from being sent.
 :::
 
 ![](/media/articles/invite-only/invite-only-disable-email.png)
 
-The backend will be sending out the email, so you will need to access an SMTP server. This example uses Mailtrap, but any SMTP server will do.
+You'll need access to an SMTP server to send out your emails. This tutorial uses Mailtrap, but you're free to use whatever you'd like.
 
-After signing up with an email server, add these SMTP settings to the `web.config`:
+Add the following settings to the `web.config` file of your SMTP server:
 
 ```xml
   <system.net>
@@ -200,9 +204,7 @@ After signing up with an email server, add these SMTP settings to the `web.confi
   </system.net>
 ```
 
-That is all that is required for user provisioning.
-
-Now go back to the user overview to start importing users.
+This is all that needs to be done for user provisioning. At this point, you can return to the user overview to start importing users.
 
 ![](/media/articles/invite-only/invite-only-users.png)
 
@@ -212,13 +214,15 @@ Each user will receive a welcome email containing a link to activate their accou
 
 ### User Activation
 
-The link in the email template redirects to Auth0 for email verification.
-
-After successful verification, Auth0 will redirect the user to the password reset form of the application with the user token included in the URL.
+The link in the email template redirects the user to Auth0 for email verification. If the user successfully authenticates, Auth0 redirects the user to the password reset form of the application with the user token included in the URL.
 
 ![](/media/articles/invite-only/invite-only-activation.png)
 
-Once the user has entered their password, you should verify that the account has not been updated yet, update the user's password, and mark the user as active (`activation_pending = false`).
+Once the user enters their password, you should:
+
+1. Verify that the account has not been updated yet
+2. Update the user's password
+3. Mark the user as active (`activation_pending = false`)
 
 ```cs
 /// <summary>
@@ -282,12 +286,12 @@ public async Task<ActionResult> Activate(UserActivationModel model)
 ```
 
 ::: note
-Always validate the token first to be sure you are updating the correct user.
+Always validate the token first to ensure that you are updating the correct user.
 :::
 
 Next, display a confirmation page where the user can click a link to sign in.
 
-You can customize the rendering of Lock. Since you don’t want users to sign up, hide the Sign Up button which is visible by default:
+You can customize the rendering of Lock. Since you don’t want users to sign up, hide the Sign Up button that is visible by default:
 
 ```javascript
 var lock = new Auth0Lock(
@@ -308,7 +312,7 @@ function showLock() {
 
 As a final step, you can enforce user activation by configuring Auth0 at application startup to intercept every login. This allows you to modify a user’s identity before handing it over to the OWIN pipeline.
 
-This example checks if a user is active, and if so, adds the **Member** role to the user:
+The following example checks if a user is active, and if they are, adds the **Member** role to the user:
 
 ```cs
 public partial class Startup
@@ -347,7 +351,7 @@ public partial class Startup
 }
 ```
 
-Now you can ensure that these pages will only be accessible to users by enforcing the presence of a **Member** claim:
+Now, make sure that these pages are only be accessible to users by enforcing the presence of a **Member** claim:
 
 ```cs
 [Authorize(Roles = "Member")]
@@ -360,12 +364,71 @@ public class ProfileController : Controller
 }
 ```
 
-Once users have completed the entire flow, they will be able to access the member-only pages.
+Once users have completed the entire authentication and authorization flow, they will be able to access the member-only pages.
 
 ![](/media/articles/invite-only/invite-only-profile.png)
 
-### Summary
+## Alternate Password Reset Configuration
 
-This scenario has demonstrated an invite-only sign-up implementation using the Auth0 Management API to customize the sign-up process and the email flow.
+As an alternative to the configuration shown above, you're welcome to craft your own new user password reset flow using the [Create an Email Verification Ticket](/api/management/v2#!/Tickets/post_email_verification) and [Create a Password Change Ticket](/api/management/v2#!/Tickets/post_password_change) endpoints.
 
-For more information about the Management API, see the [Management API Explorer](/api/v2) to try the various endpoints.
+### Step 1: Verify the User's Email Address
+
+Once you've created the user in Auth0, you'll send the appropriate `POST` call to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+
+Be sure to update the following placeholder values:
+
+* `MGMT_API_ACCESS_TOKEN`: replace with your [API access token](/api/management/v2/tokens)
+* `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/tickets/email-verification",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"\", \"ttl_sec\": 0 }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+### Step 2: Change the User's Password
+
+Once you've verified the user's password, you'll need to initiate the [password change process](/connections/database/password-change).
+
+Be sure to replace the placeholder values for your [API access token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/tickets/password-change",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"USER_ID\", \"new_password\": \"secret\", \"connection_id\": \"con_0000000000000001\", \"email\": \"EMAIL\", \"ttl_sec\": 0 }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+## Summary
+
+This tutorial has walked you through one way of implementing an invite-only sign-up flow using the [Management API](/api/v2) to customize the sign-up process and the email handling.
