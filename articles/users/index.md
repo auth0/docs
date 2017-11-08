@@ -60,9 +60,9 @@ description: Learn about working with users in Auth0
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/extensions/delegated-admin">Extensions for Managing Admin Users</a>
+    <i class="icon icon-budicon-715"></i><a href="/extensions/delegated-admin">Extensions for Managing Users</a>
     <p>
-      Learn about the <a href="/extensions">extensions</a> available for managing admin users.
+      Learn about the <a href="/extensions">extensions</a> available for providing Auth0 admin access to users and implement user authorization policies.
     </p>
     <ul>
       <li>
