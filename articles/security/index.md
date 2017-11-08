@@ -23,6 +23,11 @@ description: Learn about various topics regarding how to handle sensitive data w
 ## Preventing Security Attacks
 
 <%= include('../_includes/_topic-links', { links: [
-  'security/common-threats',
+  'security/common-threats'
+] }) %>
+
+## Data Privacy
+
+<%= include('../_includes/_topic-links', { links: [
   'security/blacklisting-attributes'
 ] }) %>
