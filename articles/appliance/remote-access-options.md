@@ -18,6 +18,8 @@ A Jumphost is a security-hardened virtual machine with the ability to act as a s
 
 In this configuration, an external Auth0-managed Jumphost is permitted sole SSH management access to the PSaaS Appliance.
 
+![](/media/articles/appliance/remote-access/jumpshot-fw.png)
+
 *Pros*: 
 
 * Jumphost provides a single point of access and auditing
@@ -27,6 +29,8 @@ In this configuration, an external Auth0-managed Jumphost is permitted sole SSH 
 ### Option 2: Two Jumphosts
 
 Similar to option 1, this configuration permits an external Auth0 Jumphost to connect via firewall whitelist to an internal, customer-managed Jumphost. This second Jumphost then provides actual access to the PSaaS Appliance nodes.
+
+![](/media/articles/appliance/remote-access/jumpshot-fw-csjs.png)
 
 *Pros*: 
 
@@ -42,6 +46,8 @@ Similar to option 1, this configuration permits an external Auth0 Jumphost to co
 ### Option 3: VPN
 
 This configuration provides VPN access to the customer’s network either to Auth0 engineers individually or a dedicated, Jumphost-like Auth0 server.
+
+![](/media/articles/appliance/remote-access/vpn.png)
 
 *Pros*:
 
