@@ -4,7 +4,7 @@ title: Passwordless authentication (OIDC-conformant)
 
 # OIDC Conformant Passwordless Authentication
 
-<%= include('./tutorials/adoption/_about.md') %>__
+<%= include('./tutorials/adoption/_about.md') %>
 
 ## About Passwordless Authentication
 
@@ -18,4 +18,4 @@ Without passwords, your application will not need to implement a password-reset 
 
 Auth0 currently supports [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication using centralized login (with the Auth0 [hosted login page](/hosted-pages/login)).
 
-Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}) under Hosted Pages -> Default Templates, or customize it to fit specific requirements.
+Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}) under **Hosted Pages > Default Templates**, or customize it to fit specific requirements.
