@@ -59,7 +59,6 @@ Be sure to update the following placeholder values:
 * `MGMT_API_ACCESS_TOKEN`: replace with your [API access token](/api/management/v2/tokens)
 * `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
 * `USER_ID`: replace with the Auth0 user ID for the end user
-
 ```har
 {
 	"method": "POST",
