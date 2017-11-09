@@ -9,6 +9,10 @@ mobileimg: media/articles/libraries/lock-ios.png
 
 This reference guide will show you how to implement the Lock user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh access tokens, get user profile info, and more, check out the [Auth0.Swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift QuickStart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
 
+::: note
+Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
+:::
+
 ## Requirements
 
 - iOS 9 or later
@@ -194,64 +198,6 @@ You will need to add the following to your app's `info.plist`:
 <array>
     <string>org-appextension-feature-password-management</string>
 </array>
-```
-
-## Lock Passwordless
-
-::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
-:::
-
-Lock Passwordless handles passwordless authentication using email and sms connections.
-
-To show Lock, add the following snippet in your `UIViewController`.
-
-```swift
-Lock
-    .passwordless()
-    // withConnections, withOptions, withStyle, etc
-    .onAuth { credentials in
-      // Save the Credentials object
-    }
-    .present(from: self)
-```
-
-**Notes:**
-
-- Passwordless can only be used with a single connection and will prioritize the use of email connections over SMS.
-- The `audience` option is not available in Passwordless.
-
-### Passwordless Method
-
-When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/clients/enable-universal-links) you can add the following:
-
-```swift
-.withOptions {
-    $0.passwordlessMethod = .magicLink
-}
-```
-
-### Activity callback
-
-If you are using Lock Passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
-
-```swift
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-    return Lock.continueAuth(using: userActivity)
-}
-```
-
-## Logging
-
-Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings. The example below displays logging turned on, but take a look at the [Behavior Configuration Options](/lock-ios/v2/configuration) page for more information about logs in Lock for iOS v2.
-
-```swift
-Lock
-    .classic()
-    .withOptions {
-        $0.logLevel = .all
-        $0.logHttpRequest = true
-    }
 ```
 
 <%= include('../_includes/_roadmap') %>

@@ -7,7 +7,7 @@ budicon: 500
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
-  branch: 'v2',
+  branch: 'master',
   repo: 'auth0-aspnetcore-webapi-samples',
   path: 'Quickstart/01-Authorization',
   requirements: [
@@ -20,17 +20,17 @@ budicon: 500
 
 <%= include('../../../../_includes/_api_auth_intro') %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET Core Web API.
+This tutorial shows you how to use access tokens from Auth0 to secure your ASP.NET Core Web API.
 
-## Seed and Samples
+## Before You Start
 
-If you would like to follow along with this Quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v2/Quickstart/00-Starter-Seed). The seed project is just a basic ASP.NET Web API with a simple controller and some of the NuGet packages which will be needed included. It also contains an `appSettings.json` file where you can configure the various Auth0-related settings for your application.
+If you want to follow along with this tutorial, you can download the [seed project](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart/00-Starter-Seed). The seed project is a basic ASP.NET Web API with a simple controller and some NuGet packages. It also contains an `appSettings.json` file where you can configure the Auth0-related settings for your application.
 
-The final project after each of the steps is also available in the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v2/Quickstart). You can find the final result for each step in the relevant folder inside the repository.
+To see what the project looks like after each of the steps, check the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart).
 
 <%= include('../../_includes/_api_create_new') %>
 
-Also, update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
+Update the `appsettings.json` file in your project with the correct domain and API identifier for your API. See the example below:
 
 ```json
 {
@@ -43,27 +43,30 @@ Also, update the `appsettings.json` file in your project with the correct **Doma
 
 <%= include('../../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET Core JWT middleware.
+This example demonstrates:
+* How to check for a JSON Web Token (JWT) in the `Authorization` header of an incoming HTTP request
+* How to check if the token is valid with the standard ASP.NET Core JWT middleware
 
 ## Install Dependencies
 
-The seed project already references the new ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0.
+The seed project references the new ASP.NET Core metapackage (`Microsoft.AspNetCore.All`), which includes all the NuGet packages that are a part of the ASP.NET Core 2.0 framework.
 
-If you are not referencing this new metapackage, then please ensure that your add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
+If you are not using the `Microsoft.AspNetCore.All` metapackage, add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
 ```text
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-## Configuration
+## Configure the Middleware
 
-<%= include('../../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v2/Samples/hs256' }) %>
+<%= include('../../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
-The ASP.NET Core JWT Bearer authentication handler will take care of downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `access_token` signature.
+The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the access token's signature.
 
-In your application you will need to register the Authentication services by making a call to `AddAuthentication`, and also configure JWT Bearer tokens as the default authentication scheme and defaut challenge scheme.
+In your application, register the authentication services:
 
-Next you will need to register the JWT Bearer authentication scheme by making a call to `AddJwtBearerAuthentication`. Configure your Auth0 Domain as the `Authority`, and your Auth0 API Identifier as the `Audience`:
+1. Make a call to the `AddAuthentication` method. Configure the JWT Bearer tokens as the default authentication and challenge schemes.  
+2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience.
 
 ```csharp
 // Startup.cs
@@ -86,7 +89,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Also ensure that you add the authentication middleware to the middleware pipeline by adding a call to `UseAuthentication`:
+To add the authentication middleware to the middleware pipeline, add a call to the `UseAuthentication` method:
 
 ```csharp
 // Startup.cs
@@ -106,7 +109,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
+The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
+
+To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
 
 ```csharp
 // Controllers/PingController.cs
@@ -124,21 +129,19 @@ public class PingController : Controller
 }
 ```
 
-## Configuring Scopes
+## Configure the Scopes
 
-The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The JWT middleware shown above verifies if the user's access token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `create` access to that resource if they are an **administrator**.
-
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and select the **Scopes** tab. In this area you can define any scopes you wish. For this sample you can define ones called `read:messages` and `create:messages`.
-
-To ensure that an `access_token` contains the correct `scope` you can make use of the Policy-Based Authorization in ASP.NET Core.
+<%= include('../../_includes/_api_scopes_access_resources') %>
 
 ::: note
-For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
+This example uses the `read:messages` and `create:messages` scopes.
 :::
 
-Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
+To make sure that an access token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
+
+Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.
 
 ```csharp
 // HasScopeRequirement.cs
@@ -172,7 +175,7 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
 }
 ```
 
-Next, you will need to add a call to `AddAuthorization` in your `ConfigureServices` method, and add policies for the scopes by calling `AddPolicy` for each of the scopes:
+In your `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope:
 
 ```csharp
 // Startup.cs
@@ -202,7 +205,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Finally, to ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `Authorize` attribute, and pass the name of the Policy for that `scope` in the `policy` parameter:
+To make a call to an API endpoint, make sure that a scope is present. To do that, add the `Authorize` attribute to an action. Then, in the `policy` parameter, add the policy name for the scope. 
 
 ```csharp
 // Controllers/MessagesController.cs
@@ -225,9 +228,3 @@ public class MessagesController : Controller
     }
 }
 ```
-
-## Further Reading
-
-* To learn how you can call your API from clients, please refer to the [Using your API section](/quickstart/backend/aspnet-core-webapi/02-using).
-
-* If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/aspnet-core-webapi/03-troubleshooting).

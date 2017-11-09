@@ -9,7 +9,7 @@ budicon: 715
 This tutorial and seed project have been tested with the following:
 
 * Microsoft Visual Studio 2017
-* Auth0-ASPNET-Owin NuGet Package v2.0.0
+* Auth0-ASPNET-Owin NuGet Package v2.3.0
 :::
 
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.

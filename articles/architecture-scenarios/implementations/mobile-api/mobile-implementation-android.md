@@ -12,7 +12,7 @@ This document is part of the [Mobile + API Architecture Scenario](/architecture-
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-pnp-abc-timesheets',
+  repo: 'auth0-pnp-exampleco-timesheets',
   path: 'timesheets-mobile/android',
   requirements: [
     'Android Studio 2.3',
@@ -67,7 +67,7 @@ Set your Auth0 Client ID, Auth0 Domain, and API’s url in the `strings.xml` res
 
 ```xml
 <resources>
-    <string name="app_name">ABC Timesheets</string>
+    <string name="app_name">ExampleCo Timesheets</string>
     <string name="login">Log in</string>
     <string name="auth0_client_id">...</string>
     <string name="auth0_domain">...</string>
@@ -150,7 +150,7 @@ Next create `login_activity.xml`, the layout for the `LoginActivity`:
 The `LoginActivity` will handle user authorization and be the initial screen users see. We'll create a `login()` method to initialize a `WebAuthProvider` and start authentication. Ensure you provide the correct scheme, audience, and scope to the `WebAuthProvider`. For this implementation we will use:
 
 - __scheme__: `demo`
-- __audience__: `https://api.abcinc.com/timesheets` (the Node.JS API)
+- __audience__: `https://api.exampleco.com/timesheets` (the Node.JS API)
 - __response_type__: `code`
 - __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a refresh token.
 
@@ -161,7 +161,7 @@ private void login() {
 
         WebAuthProvider.init(auth0)
                 .withScheme("demo")
-                .withAudience("https://api.abcinc.com/timesheets")
+                .withAudience("https://api.exampleco.com/timesheets")
                 .withResponseType(ResponseType.CODE)
                 .withScope("create:timesheets read:timesheets openid profile email offline_access")
                 .start(
@@ -226,7 +226,7 @@ public class LoginActivity extends Activity {
 
         WebAuthProvider.init(auth0)
                 .withScheme("demo")
-                .withAudience("https://api.abcinc.com/timesheets")
+                .withAudience("https://api.exampleco.com/timesheets")
                 .withResponseType(ResponseType.CODE)
                 .withScope("create:timesheets read:timesheets openid profile email")
                 .start(LoginActivity.this, new AuthCallback() {
@@ -318,10 +318,10 @@ public class User {
     private String name;
     private String pictureURL;
 
-    public User(String gEmail, String gName, String gPictureURL) {
-        this.email = gEmail;
-        this.name = gName;
-        this.pictureURL = gPictureURL;
+    public User(String email, String name, String pictureURL) {
+        this.email = email;
+        this.name = name;
+        this.pictureURL = pictureURL;
     }
 
     public String getEmail() {
@@ -336,11 +336,12 @@ public class User {
         return pictureURL;
     }
 }
+
 ```
 
 ### Store the User Profile
 
-To handle storing user profile information we'll create a manager class; `UserProfileManager`. The `UserProfileManager` will use [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) to store data.
+To handle storing user profile information we'll create a manager class `UserProfileManager`. The `UserProfileManager` will use [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) to store data.
 
 ```java
 package com.auth0.samples.utils;
@@ -407,30 +408,162 @@ public void onSuccess(@NonNull final Credentials credentials) {
     });
 
     credentialsManager.saveCredentials(credentials);
-    credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
-        @Override
-        public void onSuccess(Credentials payload) {
-            JWT jwt = new JWT(payload.getIdToken());
-            User user = new User(
-                    jwt.getClaim("email").asString(),
-                    jwt.getClaim("name").asString(),
-                    jwt.getClaim("picture").asString()
-            );
-            UserProfileManager.saveUserInfo(LoginActivity.this, user);
-        }
-
-        @Override
-        public void onFailure(CredentialsManagerException error) {
-            Toast.makeText(LoginActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    });
+    JWT jwt = new JWT(credentials.getIdToken());
+    User user = new User(
+            jwt.getClaim("email").asString(),
+            jwt.getClaim("name").asString(),
+            jwt.getClaim("picture").asString()
+    );
+    UserProfileManager.saveUserInfo(LoginActivity.this, user);
 
     startActivity(new Intent(LoginActivity.this, TimeSheetActivity.class));
 }
 // ...
 ```
 
-## 4. Call the API
+## 4. Display UI Elements Conditionally Based on Scope
+
+To determine whether a user has permissions to perform certain actions, we can look at the `scope` that was granted to the user during the authentication process. The `scope` will contain a string with all the scopes granted to a user, so to determine whether a particular scope was granted, we simply need to look whether the string of scopes contain the substring for that particular scope.
+
+### Store the Scope
+
+First, we can update the `User` class to store the granted scopes, and then provide a helper method, `hasScope()` which can be used to determine whether the granted scopes contain a particular scope:
+
+```java
+public class User {
+    private String email;
+    private String name;
+    private String pictureURL;
+    private String grantedScope;
+
+    public User(String email, String name, String pictureURL, String grantedScope) {
+        this.email = email;
+        this.name = name;
+        this.pictureURL = pictureURL;
+        this.grantedScope = grantedScope;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGrantedScope() { 
+        return grantedScope; 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public Boolean hasScope(String scope) {
+        return grantedScope.contains(scope);
+    }
+}
+```
+
+Also remember to update the `UserProfileManager` to store the extra field:
+
+```java
+public class UserProfileManager {
+
+    private static final String PREFERENCES_NAME = "auth0_user_profile";
+    private static final String EMAIL = "email";
+    private static final String NAME = "name";
+    private static final String PICTURE_URL = "picture_url";
+    private static final String SCOPE = "scope";
+
+    public static void saveUserInfo(Context context, User userInfo) {
+        SharedPreferences sp = context.getSharedPreferences(
+                PREFERENCES_NAME, Context.MODE_PRIVATE);
+
+        sp.edit()
+                .putString(EMAIL, userInfo.getEmail())
+                .putString(NAME, userInfo.getName())
+                .putString(PICTURE_URL, userInfo.getPictureURL())
+                .putString(SCOPE, userInfo.getGrantedScope())
+                .apply();
+    }
+
+    public static User getUserInfo(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(
+                PREFERENCES_NAME, Context.MODE_PRIVATE);
+
+        return new User(
+                sp.getString(EMAIL, null),
+                sp.getString(NAME, null),
+                sp.getString(PICTURE_URL, null),
+                sp.getString(SCOPE, null)
+        );
+    }
+
+    public static void deleteUserInfo(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(
+                PREFERENCES_NAME, Context.MODE_PRIVATE);
+
+        sp.edit()
+                .putString(EMAIL, null)
+                .putString(NAME, null)
+                .putString(PICTURE_URL, null)
+                .putString(SCOPE, null)
+                .apply();
+    }
+}
+```
+
+Next, update the `LoginActivity` to pass along the `scope` so it can be stored in the `User` object:
+
+```java
+// ...
+@Override
+public void onSuccess(@NonNull final Credentials credentials) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(LoginActivity.this, "Log In - Success", Toast.LENGTH_SHORT).show();
+        }
+    });
+
+    credentialsManager.saveCredentials(credentials);
+    JWT jwt = new JWT(credentials.getIdToken());
+    String scopes = credentials.getScope();
+    User user = new User(
+            jwt.getClaim("email").asString(),
+            jwt.getClaim("name").asString(),
+            jwt.getClaim("picture").asString(),
+            credentials.getScope()
+    );
+    UserProfileManager.saveUserInfo(LoginActivity.this, user);
+
+    startActivity(new Intent(LoginActivity.this, TimeSheetActivity.class));
+}
+// ...
+```
+
+### Display Approval Menu Based on Scope
+
+Now, we can display certain UI elements based on whether the user was granted a particular scope. As an example, we have an approval menu item which should only be visible to users who have been granted the `approve:timesheets` scope. 
+
+Below you can see the code from the `BaseActivity` class which checks whether a user has the `approve:timesheets` scope, and based on that will set the visibility of the menu item which displays the approval activity:
+
+```java
+// ...
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    Boolean canApprove = UserProfileManager.getUserInfo(this).hasScope("approve:timesheets");
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.actions, menu);
+    MenuItem item = menu.findItem(R.id.action_approve);
+    item.setVisible(canApprove);
+    return super.onCreateOptionsMenu(menu);
+}
+// ...
+```
+
+## 5. Call the API
 
 ### Update the Manifest
 
@@ -787,7 +920,7 @@ public class TimeSheetActivity extends AppCompatActivity {
 }
 ```
 
-## 5. View the User Profile
+## 6. View the User Profile
 
 To display the logged in user’s profile we’ll create the `UserActivity`, a corresponding `user_activity.xml` layout, and the `user_action_menu.xml` for the Toolbar navigation. The view will display the user’s name, email, and profile picture.
 
@@ -976,7 +1109,7 @@ public class UserActivity extends AppCompatActivity {
 }
 ```
 
-## 6. Form for New Timesheets
+## 7. Form for New Timesheets
 
 Next create the `FormActivity` and layout to handle creating new timesheet entries.
 

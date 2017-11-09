@@ -1,5 +1,6 @@
 ---
-toc_title: Delegation API
+toc: true
+title: Lock for Android v1 Delegation
 description: Integrate with third-party apps with the delegation API.
 ---
 # Lock Android: Delegation API

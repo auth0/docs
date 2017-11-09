@@ -15,7 +15,7 @@ Note that the only OAuth 2.0 flows that can retrieve a refresh token are:
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
@@ -118,7 +118,7 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
@@ -211,7 +211,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   audience: "API_IDENTIFIER",
   grant_type: "client_credentials",
@@ -302,7 +302,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -364,7 +364,7 @@ Content-Type: application/json
   "link": "#resource-owner-password"
 }) %>
 
-This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is later on sent to the client and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
+This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the client is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
 
 
 ### Request Parameters
@@ -422,7 +422,7 @@ Next, you have to verify the MFA, using the `/oauth/token` endpoint and the chal
 
 ```http
 POST https://${account.namespace}/mfa/challenge
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
@@ -525,7 +525,7 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
@@ -600,7 +600,7 @@ To verify MFA using an OTP code your app must prompt the user to get the OTP cod
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
@@ -705,7 +705,7 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
@@ -782,7 +782,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "grant_type": "refresh_token",
   "client_id": "${account.clientId}",
@@ -865,4 +865,4 @@ Use this endpoint to refresh an access token, using the refresh token you got du
 
 ### More Information
 
-- [Refresh Token](/tokens/preview/refresh-token)
+- [Refresh Token](/tokens/refresh-token)

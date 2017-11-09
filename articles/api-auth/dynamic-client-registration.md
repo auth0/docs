@@ -20,6 +20,8 @@ Third party clients have the following characteristics:
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
+  - [PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options).
+
 - They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relies on the final user to provide consent.
 
 - They cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.

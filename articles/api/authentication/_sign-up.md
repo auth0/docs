@@ -4,13 +4,13 @@
 
 ```http
 POST https://${account.namespace}/dbconnections/signup
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "email": "EMAIL",
   "password": "PASSWORD",
   "connection": "CONNECTION",
-  "user_metadata": "{ plan: 'silver', team_id: 111 }"
+  "user_metadata": { plan: 'silver', team_id: 'a111' }
 }
 ```
 
@@ -18,7 +18,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 111 }"}'
+  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 'a111' }"}'
 ```
 
 ```javascript
@@ -35,7 +35,7 @@ curl --request POST \
     connection: 'CONNECTION', 
     email: 'EMAIL', 
     password: 'PASSWORD',
-    user_metadata: '{ plan: 'silver', team_id: 111 }'
+    user_metadata: { plan: 'silver', team_id: 'a111' }
   }, function (err) { 
     if (err) return alert('Something went wrong: ' + err.message); 
       return alert('success signup without login!') 
@@ -73,8 +73,7 @@ This endpoint only works for database connections.
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
-| `user_metadata`        | The [user metadata](/metadata) to be associated with the user. Optional field, when set is must be a string containing no more than 10 fields and less than 500 characters. |
-
+| `user_metadata` | The [user metadata](/metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
 
 ### Test with Postman
 

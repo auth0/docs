@@ -16,6 +16,8 @@ Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Applia
 
 ::: note
 To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
+
+See [Enable Webtasks, Web Extensions, and User Search](/appliance/infrastructure/extensions) for additional information.
 :::
 
 In order for you to configure Extensions, you will need to add this URL to the **Allowed Origins (CORS)** section under the [Auth0 Dashboard's Client Settings page](${manage_url}/#/clients).
@@ -27,3 +29,7 @@ At this point, you can enable any of the available Extensions [in the dashboard]
 ## Delegated Administration Extension
 
 The [Delegated Administration](/extensions/delegated-admin) extension is available beginning with version 10755 when User search is enabled.
+
+## Dedicated Domains
+
+Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a [dedicated domain](/appliance/webtask/dedicated-domains). This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).

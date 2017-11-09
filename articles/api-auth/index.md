@@ -124,7 +124,7 @@ Using Auth0, you can easily support different flows in your own APIs without wor
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/password">Calling APIs from Highly Trusted Clients</a>
     <p>
-      If the application is highly trusted and no other grant can be used, read these docs. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
+      If the application is highly trusted and no other grant can be used, read these docs. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is sent to the backend and from there to Auth0.  It is therefore imperative that the client is absolutely trusted with this information.
     </p>
     <ul>
       <li>

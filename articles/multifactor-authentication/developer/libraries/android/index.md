@@ -1,5 +1,5 @@
 ---
-toc_title: Getting Started with Guardian for Android
+title: Getting Started with Guardian for Android
 url: /multifactor-authentication/developer/libraries/android
 description: Installation, usage, and configuration options guide for Guardian for Android
 ---

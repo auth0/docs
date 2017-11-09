@@ -9,12 +9,7 @@ beta: true
 
 For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
 
-This allows you to implement scenarios including (but not limited to):
-
-* Enforcing a custom password policy;
-* Preventing signups for those who meet certain requirements;
-* Setting conditional `app_metadata` or `user_metadata` on users that do not yet exist;
-* Preventing (blacklisting) the use of personal email domains.
+This allows you to implement scenarios such as setting conditional [metadata](/metadata) on users that do not exist yet.
 
 ## How to Implement This
 
@@ -148,37 +143,6 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 }
 ```
 
-## Allow Signups for Users with Whitelisted Email Domains
-
-```js
-module.exports = function (user, context, cb) {
-  
-  // Whitelisted domains
-  const whitelist = [
-    'example1.com', 
-    'example2.com'
-  ]; 
-
-  const userHasAccess = whitelist.some(domain => {
-    const emailSplit = user.email.split('@');
-    return emailSplit[emailSplit.length - 1].toLowerCase() === domain;
-  });
-
-  if (!userHasAccess) {  
-    return cb('You may not sign up with an email address using your current domain.');
-  }
-
-  const response = { user };
-  return cb(null, response);
-};
-```
-
-Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
-
-```json
-{
-  "message": "Email domain not allowed.",
-  "statusCode": 500,
-  "stack": "Error: Email domain not allowed.\n    at respondWithError (/data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:11:17)\n    at buildResponse (/data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:96:24)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:31:20\n    at module.exports.cb (/data/io/3713487827af469cb0b4d89ea2aed8aa/webtask.js:32:12)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:30:16\n    at Object.is_authorized (/data/sandbox/node_modules/auth0-ext-compilers/lib/authorization.js:13:81)\n    at userRegistrationHandler (/data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:9:18)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:90:20\n    at finish (/data/sandbox/node_modules/auth0-ext-compilers/node_modules/wreck/lib/index.js:369:16)\n    at wrapped (/data/sandbox/node_modules/auth0-ext-compilers/node_modules/wreck/node_modules/hoek/lib/index.js:871:20)"
-}
-```
+::: note
+The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
+:::

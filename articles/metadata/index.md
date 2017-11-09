@@ -1,6 +1,7 @@
 ---
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata.
+description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
 crews: crew-2
+toc: true
 ---
 # Metadata
 
@@ -49,7 +50,9 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
-### Naming Metadata Fields
+### Rules on Naming Metadata Fields
+
+#### Don't Use Dots
 
 Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
@@ -77,6 +80,36 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
 {
     "preference": "light.blue"
 }
+```
+
+#### Don't Use Dynamic Field Names
+
+Do not use dynamic field names. For example, instead of using the following structure:
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+Use this:
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
 ```
 
 ## Searching Metadata

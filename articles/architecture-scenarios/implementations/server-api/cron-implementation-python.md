@@ -10,7 +10,7 @@ url: /architecture-scenarios/application/server-api/cron-implementation-python
 This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the server process in Python. Please refer to the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) document for information on the implemented solution.
 :::
 
-Full source code for the Python implementation of the server process can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-cron/python).
+Full source code for the Python implementation of the server process can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-cron/python).
 
 ## Get an Access Token
 

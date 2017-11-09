@@ -66,14 +66,6 @@ The values for each scope are not transformed in any way. They must match exactl
 
 ### state {string}
 
-The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
+The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
-
-#### Getting the `state` value in a rule
-
-If you need to access the `state` parameter within a rule you must take in consideration that, depending on the type of connection used, it might come either in the body of the request or in the query string, so you should do:
-
-```js
-var state = context.request.query.state || context.request.body.state;.
-```

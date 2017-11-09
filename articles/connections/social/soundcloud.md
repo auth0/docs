@@ -14,8 +14,8 @@ To configure an OAuth 2.0 connection with SoundCloud, you will need to register 
 
 ## 1. Register Your App and Obtain API Credentials with SoundCloud
 
-::: panel-warning SoundCloud Registration Process
-As noted below, SoundCloud does **not** have an automated process to register your app. Auth0 does not have any control over this process, you must apply to SoundCloud and work with them to get your application configuration. Only after SoundCloud approves your application can you use SoundCloud with Auth0.
+::: panel-warning SoundCloud App Registration
+SoundCloud's manual application registration process is currently closed, so **new applications cannot be registered**. Furthermore, as noted below, SoundCloud does **not** have an automated process to register your app. Auth0 does not have any control over this process, you must apply to SoundCloud and work with them to get your application configured. Only after SoundCloud approves your application can you use SoundCloud with Auth0.
 :::
 
 Navigate to the [SoundCloud Developer Portal](http://developers.soundcloud.com/). Using the navigation menu on the right side, click on **Register a new app**:

@@ -1,8 +1,10 @@
 ```json
 // composer.json
 
+"minimum-stability": "dev",
+"prefer-stable": true,
 "require": {
     ...
-    "hwi/oauth-bundle": "^0.5.3",
+    "hwi/oauth-bundle": ">=0.6",
 },
 ```
