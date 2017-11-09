@@ -13,7 +13,7 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="#">Privacy Shield</a>
+    <i class="icon icon-budicon-715"></i><p>Privacy Shield</p>
     <p>Auth0 is certified under the Privacy Shield Program, specifically the <b>EU-US Privacy Shield Framework</b> and the <b>Swiss-US Privacy Shield Framework</b>. You can find further details on our <a href="https://auth0.com/privacy">Privacy</a> page.</p>
     <ul>
       <li>
@@ -28,7 +28,7 @@ classes: topic-page
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">SOC 2</a>
-    <p>Auth0 undergoes an SOC 2 Type II audit by an independent auditor annually. This audit covers our product, infrastructure, and policies. The SOC 2 Type II Audit Report is available to enterprise level customers upon request with an non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company.</p>
+    <p>Auth0 undergoes a SOC 2 Type II audit by an independent auditor annually. This audit covers our product, infrastructure, and policies. The SOC 2 Type II Audit Report is available to enterprise level customers upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr">GDPR</a>
