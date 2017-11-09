@@ -47,5 +47,5 @@ classes: topic-page
   'compliance/gdpr/roles-responsibilities',
   'compliance/gdpr/data-processing',
   'compliance/gdpr/features-aiding-compliance',
-  'compliance/gdpr/security-advice-for-customers',
+  'compliance/gdpr/security-advice-for-customers'
 ] }) %>
