@@ -99,7 +99,6 @@ Below are some example queries to illustrate the kinds of queries that are possi
 
 Use Case | Query
 ---------|----------
-Search across all fields for "john" | `john`
 Search for all users whose name _contains_ "john" | `name:"john"`
 Search all users whose name _is_ exactly "john" | `name.raw:"john"`
 Search for all user names starting with "john" | `name:john*`
