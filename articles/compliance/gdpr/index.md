@@ -40,3 +40,12 @@ classes: topic-page
     <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/security-advice-for-customers">Security Advice for Customers</a>
   </li>
 </ul>
+
+<%= include('../_includes/_topic-links', { links: [
+  'compliance/gdpr/definitions',
+  'compliance/gdpr/gdpr-summary',
+  'compliance/gdpr/roles-responsibilities',
+  'compliance/gdpr/data-processing',
+  'compliance/gdpr/features-aiding-compliance',
+  'compliance/gdpr/security-advice-for-customers',
+] }) %>
