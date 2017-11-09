@@ -13,7 +13,7 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715">Privacy Shield</i>
+    <i class="icon icon-budicon-715"></i><a href="">Privacy Shield</a>
     <p>Auth0 is certified under the Privacy Shield Program, specifically the <b>EU-US Privacy Shield Framework</b> and the <b>Swiss-US Privacy Shield Framework</b>. You can find further details on our <a href="https://auth0.com/privacy">Privacy</a> page.</p>
     <ul>
       <li>
