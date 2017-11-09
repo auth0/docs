@@ -24,7 +24,7 @@ classes: topic-page
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">HIPAA</a>
     <p>Auth0 is considered a Business Associate as defined by the US <a href="https://www.hhs.gov/hipaa/index.html">HIPAA</a> and <a href="https://www.hhs.gov/hipaa/for-professionals/special-topics/HITECH-act-enforcement-interim-final-rule/index.html">HITECH</a> legislation.</p>
-    <p>For Auth0 customers who qualify as a <b>Covered Entity</b> under US HIPAA legislation and related legislation and regulations, and who provide ePHI (electronic Protected Health Information) to Auth0 as part of the Auth0 user profile, Auth0 may qualify as a <b>business associate</b>. Auth0 can provide its form Business Associate Agreement to such customers upon request.</p>
+    <p>For Auth0 customers who qualify as a <b>Covered Entity</b> under US HIPAA legislation and related legislation and regulations and who provide ePHI (electronic Protected Health Information) to Auth0 as part of the Auth0 user profile, Auth0 may qualify as a <b>business associate</b>. Auth0 can provide its Business Associate Agreement to such customers upon request.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">SOC 2</a>
@@ -38,7 +38,7 @@ classes: topic-page
 
 <h2>Future</h2>
 
-<p>Auth0 will document additional compliance frameworks/certifications on this page when available.</p>
+<p>Auth0 will document additional compliance frameworks and certifications on this page when available.</p>
 
 <h2>Specifications</h2>
 
