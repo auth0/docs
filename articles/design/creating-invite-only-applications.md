@@ -9,9 +9,11 @@ Many SaaS apps allow self-service provisioning, where users can register themsel
 
 ## Example Scenario: Analystick
 
-In this tutorial, we will work through a sample setup for the fictional company, Analystick. Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send Analystick lists of users whom they want to access the application.
+In this tutorial, we will work through a sample setup for the fictional company, Analystick. 
 
-You can handle this requirement in Auth0 using an Enterprise Connection (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
+Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send Analystick lists of users whom they want to access the application.
+
+You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
 The invite-only authorization flow includes the following steps:
 
@@ -19,7 +21,7 @@ The invite-only authorization flow includes the following steps:
 1. Triggering the email verification process via Auth0
 1. Triggering the password reset process via Auth0
 
-### Setup
+### Setup your Client
 
 You can store all Analystick end users in a single database, since everyone will provide their unique corporate email addresses.
 
@@ -46,11 +48,11 @@ Since this client needs to access the [Management API](/api/v2), you'll need to 
 
 ![Authorize Client](/media/articles/invite-only/invite-only-authorize-client.png)
 
-### User Management
+### Import Users
 
 Every user that exists in Analystick should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
 
-### Emails
+### Email Verification
 
 Once you've created the user in Auth0, you'll send the appropriate `POST` call to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
 
@@ -82,7 +84,7 @@ Be sure to update the following placeholder values:
 
 ### Password Reset
 
-Once you've verified the user's password, you'll need to initiate the [password change process](/connections/database/password-change).
+Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app shoule make a `POST` request to Auth0's Management API.
 
 Be sure to replace the placeholder values for your [API access token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
 
@@ -109,4 +111,4 @@ Be sure to replace the placeholder values for your [API access token](/api/manag
 
 ## Summary
 
-This tutorial has walked you through one way of implementing an invite-only sign-up flow using the [Management API](/api/v2) to customize the sign-up process and the email handling.
+This tutorial walked you through implementing an invite-only sign-up flow using the [Management API](/api/v2) to customize the sign-up process and the email handling.
