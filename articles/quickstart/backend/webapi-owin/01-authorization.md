@@ -139,20 +139,22 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
     {
         base.OnAuthorization(actionContext);
 
+        // Get the Auth0 domain, in order to validate the issuer
+        var domain = $"https://{ConfigurationManager.AppSettings["Auth0Domain"]}/";
+
+        // Get the claim principal
         ClaimsPrincipal principal = actionContext.ControllerContext.RequestContext.Principal as ClaimsPrincipal;
-        if (principal != null)
+            
+        // Get the scope clain. Ensure that the issuer is for the correcr Auth0 domain
+        var scopeClaim = principal?.Claims.FirstOrDefault(c => c.Type == "scope" && c.Issuer == domain);
+        if (scopeClaim != null)
         {
-            // If user does not have the scope claim, get out of here
-            if (principal.HasClaim(c => c.Type == "scope"))
-            {
+            // Split scopes
+            var scopes = scopeClaim.Value.Split(' ');
 
-                // Split the scopes string into an array
-                var scopes = principal.Claims.FirstOrDefault(c => c.Type == "scope").Value.Split(' ');
-
-                // Succeed if the scope array contains the required scope
-                if (scopes.Any(s => s == scope))
-                    return;
-            }
+            // Succeed if the scope array contains the required scope
+            if (scopes.Any(s => s == scope))
+                return;
         }
 
         HandleUnauthorizedRequest(actionContext);
