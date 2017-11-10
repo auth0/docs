@@ -6,19 +6,25 @@ toc: true
 ---
 # Migration Guide: Auth0.js v8 to v9
 
-This document lists all the changes between versions 8 and 9 of Auth0.js. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
+This document lists all the changes that you should be aware of when migrating between versions 8 and 9 of Auth0.js. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
 
-If you are using Auth0.js with your custom login in embedded mode, you are encouraged to use the latest, and more secure, version of the library, but before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
+If you are using Auth0.js with your custom login in embedded mode, you are encouraged to use the latest and more secure version of the library, but before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
 
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 
-## Why Migrate?
+## Cross Origin Authentication
 
-Auth0.js 9 uses by default Auth0's current authentication pipeline and does not utilize any of the legacy pipeline's endpoints. Going forward, any new Auth0 features, examples and documentation will target only this pipeline. All Auth0 SDK versions that depend on the legacy pipeline are deprecated and will not receive updates for new features or non-critical security issues, and will eventually be discontinued.
+If your implementation uses the `loginWithCredentials` method, then in order to use v9, you need to have Cross Origin Authentication (COA) enabled. COA has some limitations which you should be aware of, and can be read about in the [Cross Origin Authentication](/cross-origin-authentication) documentation.
 
-For more information on the current authentication pipeline and the changes it brings, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+You can enable COA using the Dashboard, for details refer to [Configure Your Client for Cross-Origin Authentication](/cross-origin-authentication#configure-your-client-for-cross-origin-authentication).
 
-## What Changes?
+![Cross-Origin Authentication Setting](/media/articles/cross-origin-authentication/cross-origin-settings.png)
+
+## Allowed Web Origins
+
+In order to use `login`, `loginWithCredentials`, `loginWithCredentials`, `passwordlessLogin`, `getSSOData` or `checkSession` you need to whitelist the websites where you will embed the login dialog in the  ‘Allowed Web Origins’ field, and in the Allowed Origins (CORS) fields:
+
+![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
 ### Hosted Login Pages
 
@@ -26,26 +32,30 @@ Auth0.js 9 is a new version, designed for embedded login scenarios (i.e. impleme
 
 If you are using a [Hosted Login Page](/hosted-pages/login), keep using Auth0.js v8. If you have a login widget embedded in your application consider upgrading to the latest Auth0.js version. 
 
-### Cross Origin Authentication
+## Browsers with Third Party Cookies Disabled
 
-If your implementation uses the `loginWithCredentials` method, then in order to use v9, you need to have [Cross Origin Authentication](/cross-origin-authentication) (COA) enabled. 
+The `login`, `loginWithCredentials`, `passwordlessLogin` methods will not work with [some browser versions](/cross-origin-authentication#browser-testing-matrix) when they have third-party cookies disabled.
 
-You can enable COA using the Dashboard, for details refer to [Configure Your Client for Cross-Origin Authentication](/cross-origin-authentication#configure-your-client-for-cross-origin-authentication).
+## Default Values
 
-::: note
-Cross Origin Authentication has some limitations, before you enable it for your app make sure that you are aware of them. For details refer to [Cross Origin Authentication](/cross-origin-authentication).
-:::
+Auth0.js 9 will default the value of the `scope` parameter to `openid profile email`.
 
-### Deprecated Methods
+## Differences in getSSOData Return Values
 
-#### getSSOData
-The `getSSOData` function is being replaced by the `checkSession` function.
+| Property | Old Value | New Value |
+| --- | --- | --- |
+| sso | `true` if user has an existing session, `false` if not | The same |
+| sessionClients | List of clients ids the user has active sessions with | An array with a single element with the client id configured in auth0.js |
+| lastUsedClientId | The client id for the last active connection | The last client the user used when calling `/authorize` |
+| lastUsedUsername | User’s email or name | The same (requires `scope=’openid profile email’)` |
+| lastUsedClientId | Client Id of the active session  | The client id configured in auth0.js |
+| lastUsedConnection | Last used connection and strategy. | Last connection that the user called `/authorize` or `/co/authenticate` with. It will be `null` if the user authenticated with the HLP. It will not return `strategy`, only `name` |
 
-If you are using `getSSOData` you need to update your implementation to use `checkSession` instead. For information on this new method, keep reading.
+## Calling getProfile
 
-### New Methods
+In earlier versions of Auth0.js the `getProfile()` function received a string parameter with an ID Token. In Auth.js v9 it needs to receive an Access Token. You’ll need to update your code to change the parameter sent.
 
-#### checkSession
+## The checkSession Method
 
 The `checkSession` method attempts to get a new token from Auth0 by using [silent authentication](/api-auth/tutorials/silent-authentication) or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
@@ -93,4 +103,6 @@ If the user was not logged in via SSO or their SSO session had expired, Auth0 wi
 
 In this case you will want to display a Login button in the page so the user can authenticate. 
 
+::: note
 For more information on Silent Authentication and how to implement it, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
+:::
