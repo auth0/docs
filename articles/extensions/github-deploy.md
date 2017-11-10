@@ -18,7 +18,10 @@ Set the following configuration variables:
 - **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
 - **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
 - **GITHUB_TOKEN**: Your GitHub personal access token. Follow the instructions at [Creating an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
+- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ host name, no value is required when using github.com (optional).
+- **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used in order to receive Slack notifications for successful and failed deployments (optional).
+
 
 Once you have provided this information, click **Install**.
 
