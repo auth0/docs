@@ -6,6 +6,10 @@ You will need to add this URL to the list of Allowed URLs for your application. 
 
 If you deploy your application to a different URL you will also need to ensure to add that URL to the **Allowed Callback URLs**. For ASP.NET Core this URL will take the format `http://YOUR_APPLICATION_URL/signin-auth0`  
 
+## Configure Allowed Logout URLs
+
+To return back to your application after logging out, add the url to the list of Allowed Logout URLs in format `http://YOUR_APPLICATION_URL/optional_path`. This URL gets used in the `returnTo` parameter in the Logout URL.
+
 ## Configure JSON Web Token Signature Algorithm
 
 The ASP.NET Core OpenID Connect (OIDC) middleware which will be used to authenticate the user, requires that the JSON Web Token (JWT) be signed with an asymmetric key. To configure this go to the settings for your application in the Auth0 Dashboard, scroll down and click on **Show Advanced Settings**. Go to the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to **RS256**.
