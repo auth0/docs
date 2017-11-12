@@ -10,9 +10,10 @@ To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API
 This example would create a custom Twitter connection:
 
 ```bash
-curl -H "Content-Type: application/json"
+curl -X POST
+     -H "Content-Type: application/json"
      -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN'
-     -d @twitter.json https://${account.namespace}/api/connections
+     -d @twitter.json https://${account.namespace}/api/v2/connections
 ```
 
 ```json
@@ -22,9 +23,9 @@ curl -H "Content-Type: application/json"
   "options": {
     "client_id": "YOUR_TWITTER_CLIENT_ID",
     "client_secret": "YOUR_TWITTER_CLIENT_SECRET",
-    "requestTokenURL": 'https://api.twitter.com/oauth/request_token',
-    "accessTokenURL": 'https://api.twitter.com/oauth/access_token',
-    "userAuthorizationURL": 'https://api.twitter.com/oauth/authenticate',
+    "requestTokenURL": "https://api.twitter.com/oauth/request_token",
+    "accessTokenURL": "https://api.twitter.com/oauth/access_token",
+    "userAuthorizationURL": "https://api.twitter.com/oauth/authenticate",
     "scripts": {
       "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.twitter.com/1.1/users/show.json?user_id=' + ctx.user_id,token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));cb(null, JSON.parse(b));});}"
     }
