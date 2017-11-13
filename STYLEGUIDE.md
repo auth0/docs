@@ -1,134 +1,194 @@
 # Auth0 Style Guide
 
-This style guide will cover the terminology and content specific to Auth0, along with some comments on common writing issues.
+This style guide covers the terminology and content specific to Auth0, along with some comments on common writing issues.
 
 For general software-industry styles and terminology, see the [Microsoft Manual of Style](https://eucalyptus.atlassian.net/wiki/download/attachments/76611622/microsoft_manual_of_style_fourth_edition.pdf?version=2&modificationDate=1424379604164&api=v2).
 
 ## Voice
 
-Speak to the reader directly so that your document reads as if you were engaged in conversation. Address the reader as "you." Do not use indirect language such as "one" or other passive references. Avoid "we".
+* Address the reader directly: "you". Use "we" only for Auth0's recommendations. 
+* Use active voice. 
+* For instructions, use imperative mood. 
 
-The active voice is most clear. The use of passive tense can confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, state exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| User authentication data should be saved.| Save user authentication data. |
+| Saving user authentication data is recommended. | We recommend that you save user authentication data. | 
 
-### Imperative mood
+* Use gender-neutral pronouns: "they", "their". 
 
-When directing the reader to perform a task, you can often omit the subject of the sentence: "Click **Save**."
+| **Incorrect** | **Correct** |
+| --- | --- |
+| The user enters his password. | The user enters their password. |
 
-### Gerunds
-Gerunds make statements more passive. To discuss actions the reader must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up your SSH keys" rather than "Setting up your SSH keys."
+* Avoid gerunds in headings and main body. 
 
-### Should, must, can, may
-
-The use of "should" and other ambivalent statements should be avoided. If something is required, tell the user it "must" be performed.
-
-Use "can" for most descriptions of available actions. Use "may" rarely and only for cases when the action is optional. Avoid "might".
-
-### Gender-neutral pronouns
-
-When a sentence cannot be constructed without a pronoun, the best solution for avoiding gender-specific pronouns or repetition of the subject is to use [singular they](https://en.wikipedia.org/wiki/Singular_they): "The user enters their password."
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Saving User Authentication Data | Save User Authentication Data |
+| Setting up the authorization process requires an ID token and a valid access token. | To set up the authorization process, you need an ID token and a valid access token. | 
 
 ## Body text
 
-### Paragraphs
+* Keep paragraphs short for internet reading. 
+* Provide only the information necessary to understand and perform the steps.
 
-Keep paragraphs short for internet reading.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the `access_token`, `id_token`, and a time that the `access_token` expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
 
-### Subheads
+* When mentioning several elements, use bulleted lists. 
+* Subheads are not independent statements. Repeat the information from the subhead in the paragraph. 
+* Avoid abbreviations.
 
-Subheads are not intended to make independent statements. Therefore, reiterate in the paragraph text anything stated in the subhead. Do not use a subhead to introduce a separate idea and do not force the user to read the subhead to understand the text that follows.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Don't hardcode paths in your application, e.g., the callback URL. | Don't hardcode paths in your application, for example, the callback URL. |
+| Save all the important credentials: the access token, the refresh token, etc. in a safe location. | Save all the important credentials, such as the access and refresh token, in a safe location. |
 
-## Abbreviations
+* Avoid contractions. Use complete words to be more authoritative. 
 
-Abbreviations should be avoided, including the use of e.g. Instead, use "for example." You want the content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Can't | Cannot |
 
-### Adjectives
+* Don't overuse adjectives. Never use more than two in a sentence.
+* Don't overuse adverbs. 
 
-Don’t use more than two adjectives in one sentence (e.g. powerful, robust, easy-to-use, and secure).
-
-### Contractions
-
-Avoid contractions in most cases; they sound too casual. Complete words are more authoritative.
-
-### Compound words
-
-Compound words may be used in three forms: one word, two words, or hyphenated. 
-
-For example, when referring to something that happens at "run time", the proper format is two words. When referring to the "runtime engine", the proper format is a single word. And when using it as an adjective, such as "run-time execution", the proper format is the hyphenated form.
-
-Other commonly encountered compound words include "server side" and "client side". The same rules apply. When you write code for the "client side", you use two words. When you write "client-side code", the adjective form uses a hyphen. "Client side" and "server side" are never single words (clientside).
+| **Incorrect** | **Correct** |
+| --- | --- |
+| The easiest way to enable authentication with Auth0 in your application is to use the OpenID Connect middleware. | To enable authentication in your application, use the OpenID Connect (OIDC) middleware. |
+| Once a user has signed in, you can simply go to `/Account/Claims` to see these claims. | Once a user has logged in, you can go to `/Account/Claims` to see these claims. |
 
 ## Punctuation
 
-### Colons
-Colons are useful when you are directly referring to an example, such as "Here is the relevant code:"
+* Use colons to introduce code or examples: "Install the dependencies using yarn: `code_snippet`"
+* Use hyphens between adjectives and the verbs they modify. Don't use a hyphen if the adjective ends with "ly". 
 
-### Adjectives
+| **Incorrect** | **Correct** |
+| --- | --- |
+| "an easy to remember rule" | "an easy-to-remember rule" |
+| "commonly-used adjectives" | "commonly used adjectives" |
 
-Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
-
-### Punctuation and quotes
-
-In American English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as shown here, with the comma inside the quotation marks.
-
-The exception is when quoting code. If the code does not include the punctuation mark, do not place the punctuation mark inside the quotes.
+* When you are quoting something in a sentence, keep the punctuation inside the quotation marks. 
+* When you are quoting code, do not add any punctuation inside the quotation marks. 
 
 ## Formatting
 
-### Titles and subheads
+* Use title case for first-level headings: "Log In with a Social Identity"
+* Use sentence case for subheads: "About the login process"
+* Use **Bold** for UI elements, such as menu items and field names. 
 
-Only the first level title should be in "Title Case". All subheads should be in sentence case.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Click "Save". | Click **Save**. |
+| You **must** save these values securely. | You must save these values securely. |
 
-### Menu items
+* Use `code_formatting` to refer to parameters and values. Avoid code formatting when mentioning types of objects.
 
-Use **Bold** when referring to menu items or fields in a webpage or UI.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Save the "idToken" value in your client properties. | Save the `idToken` value in your client properties. |
+| An `idToken` helps you identify the user. | An ID token helps you identify the user. |
 
-### Numbers
+* The text of a link must include the title of the linked page. This helps the reader decide if they want to click on the link. 
 
-Follow general [AP Style](https://www.apstylebook.com/) guidelines:
-- Spell out whole numbers up to and including nine, 10 and above should be written numerically (two, five, nine, 11, 16, 123, etc.)
-- Any number that starts a sentence should be spelled out, as in the Tom example above. 
+| **Incorrect** | **Correct** |
+| --- | --- |
+| You can read more about this feature [here](/rules). | Read more about this feature in the [Rules documentation](/rules). |
 
-### Dates
+* Use blockquotes only for quotes. Don't use them for component styles.
+* When you are referring to specific dates, abbreviate the following months: January (Jan.), February (Feb.), August (Aug.), September (Sept.), October (Oct.), November (Nov.), December (Dec.). 
+* When you are referring to a month alone or a month and a year, don't abbreviate the month. 
 
-The following months are abbreviated when referencing a specific date: January (Jan.), February (Feb.), August (Aug.), September (Sept.), October (Oct.), November (Nov.) and December (Dec.). Months are not abbreviated when they stand alone or are paired with a year.
-- Dec. 21
-- Dec. 21, 2018
-- December 2018
+| **Incorrect** | **Correct** |
+| --- | --- |
+| December 21 | Dec. 21|
+| 21. December 2018 | Dec. 21, 2048 |
+| Dec. 2048 | December 2048 |
+| Mar. 15 | March 15 |
+| 15 March 2048 | March 15, 2048 |
 
-### Parameters
+* Spell out whole numbers from zero to nine. 
+* Write numerically numbers from 10 up and fractions. 
+* Spell out any number that starts a sentence. 
+* If one number follows another immediately, spell out the first number. 
 
-Use `code_formatting` to refer to parameters and values.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Save 3 items. | Save three items. |
+| The password must contain at least twelve characters. | The password must contain at least 12 characters. |
+| 14 plugins are available. | Fourteen plugins are available. |
+| Configure 12 50GB drives | Configure twelve 50GB drives. |
 
-### Links
+* For additional information that is up to four lines long, use [notes](/blob/master/CONTRIBUTING.md#note).
+* For additional information that is longer than four lines, use [panels](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panels).
+* For critical security information up to four lines long, use [warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#warning).
+* For critical security information longer than four lines, use [panel warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panel-warning).
 
-The text of a link to additional information should be the title of the destination page, so the reader has some idea of the content being linked to.
+## Vocabulary
 
-### Notes and panels
+* If an action is required, use "must". 
+* If an action is available, use "can". 
+* If an action is optional, use "may". 
 
-Check the [UI Components](https://github.com/auth0/docs/blob/replace-deprecated-ui-comps/CONTRIBUTING.md#ui-components) section on the contributing guide for a quick guide on how and when to use these elements.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| To limit access to your resources, you should use scopes. | To limit access to your resources, you must use scopes. |
+| You might want to use scopes to limit access to your resources. | To limit access to your resources, use scopes. |
+| Creating more access roles is possible. | You may want to create more access roles. |
 
-### Blockquotes
+* Use "log in" and "log out" as verbs. Do not use "log into". 
+* Use "login" and "logout" as nouns. Do not use "login to". 
 
-Only use blockquotes for actual quotes, don't use them for the component styles.
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Log into the application. | Log in to the application. |
+| Click the **Logout** button to activate the log-out action. | Click the **Log out** button to activate the logout action. |
 
-## Words to use
+* Use "set up" as a verb or "setup" as a noun.
+* Use "roll out" as a verb or "rollout" as a noun. Do not use "roll-out".
 
-### Access
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Setup the login screen. | Set up the login screen. |
+| Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. |
 
-Depending on the situation, the reader can "gain access", "grant access", or "allow access".
+* Use "multifactor authentication" instead of "multi-factor authentication".
+* Use "email address" instead of "e-mail address". 
+* Use "website" instead of "web site".
+* Use "click on" when referring to text links in a webpage or UI. Use "click" when referring to a button.
 
-### The user
+| **Incorrect** | **Correct** |
+| --- | --- |
+| Select **Save**.| Click **Save**. |
+| Click  **Go to Settings** at the bottom of the page to access the settings section. | Click on **Go to Settings** at the bottom of the page to access the settings section. |
 
-Refer to the developer's customer as the "user". Be sure to keep the idea of the user separate from the "you" of the developer being addressed.
+* Depending on the situation, the reader can "gain access", "grant access", or "allow access".
+* Refer to the developer's customer as the "user". 
+* If you need to use the name of a fictional company, use "ExampleCo".
+* When you use a group of nouns as an adjective, use a hyphen.
+
+| **Incorrect** | **Correct** |
+| --- | --- |
+| The method is executed at runtime. | The method is executed at run time. |
+| The run-time engine must be running to execute the application.  | The runtime engine must be running to execute the application. |
+| Write code for the client-side. | Write code for the client side. |
+| Write the client side code. | Write the client-side code. |
+| Save the logged in user's access token. | Save the logged-in user's access token. |
 
 ### The dashboard
 
-The [Auth0 management console](${manage_url}) is referred to as the "dashboard".
+* Dashboard: the [Auth0 management console](${manage_url})
+* The dashboard elements are called "section", "tab", "field". 
+* Dashboard-related terminology: 
+![](/media/readme/structure.png)
 
-### Proper Entities
+### The application
 
-If you need to use the name of a fictitious company, please use ExampleCo.
-
-### More
-
-For more information refer to [WORDS](WORDS.md).
+* Account: a user, their credentials, a profile and other attributes
+* Tenant: a logical isolation unit of the products we offer. Examples of Auth0 tenants: `foo.auth0.com`, `bar.auth0.com`
+* Auth0 tenants: regular cloud tenants
+* Subscription: a contract or service plan. Examples of subscriptions: trial, free, developer or developer-pro
+* Private instances: appliance instances
