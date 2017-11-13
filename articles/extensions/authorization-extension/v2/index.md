@@ -57,6 +57,10 @@ Once your extension is up and running, you can add additional functionality to i
     <p>Learn how you can automate provisioning and query the authorization context of your users in real-time, using the extension's API.</p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/api/authorization-extension">Authorization Extension API Explorer</a>
+    <p>Learn about the Authorization Extension's API endpoints and how you can use them.</p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/rules">Use the Authorization Extension's Data in Rules</a>
     <p>Learn how you can use rules to configure extra logic to your logins.</p>
   </li>
