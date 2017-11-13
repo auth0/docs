@@ -1,8 +1,9 @@
 ---
 description: Roadmap of what you need to do to add authentication to your app and secure your APIs with Auth0
 toc: true
+public: false
 ---
-# The Implementation Process
+# The Implementation Process - UNDER CONSTRUCTION
 
 ## Integrate Auth0 with your Application
 

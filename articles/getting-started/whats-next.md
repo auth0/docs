@@ -1,8 +1,9 @@
 ---
 description: Learn about Auth0 advanced features
 toc: true
+public: false
 ---
-# What's Next?
+# What's Next? - UNDER CONSTRUCTION
 
 ## An Extensible Platform
 
