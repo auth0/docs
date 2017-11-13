@@ -21,9 +21,15 @@ There are two ways by which you can manage your user metadata:
 1. [Rules](/rules/metadata-in-rules)
 2. [Auth0 APIs](/metadata/apis)
 
+### Rules
+
 [Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). You can therefore read, create, or update user metadata and have such changes affect the results of the authorization process.
 
-When using the [Authentication API](/api/authentication), you can set the `user_metadata` field of a newly-created user for a Database Connection with the [Signup](/api/authentication?shell#signup) endpoint. The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
+### Auth0 APIs
+
+When using the [Authentication API](/api/authentication), you can set the `user_metadata` field of a newly-created user for a Database Connection with the [Signup](/api/authentication?shell#signup) endpoint. 
+
+The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
 
 ## Metadata Usage
 
