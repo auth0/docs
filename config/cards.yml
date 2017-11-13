@@ -12,14 +12,14 @@
   url: "/getting-started"
   articles:
 
-    - title: "Overview"
-      url: "/overview"
+    - title: "Auth0 Overview"
+      url: "/getting-started/overview"
+
+    - title: "The Basics"
+      url: "/getting-started/the-basics"
 
     - title: Developer Videos
       url: /videos
-    
-    - title: Clients
-      url: /clients
 
 - id: "ui-components"
   title: "UI Components"
