@@ -1,7 +1,7 @@
 ---
 title: Getting Started with Auth0
 articles:
-  - overview
+  - getting-started
   - videos
 ---
 
