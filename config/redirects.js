@@ -1644,5 +1644,9 @@ module.exports = [
   {
     from: '/connections/database/migrating-okta',
     to: '/users/migrations/okta'
+  },
+  {
+    from: `/metadata/management-api`,
+    to: `/metadata/apis`
   }
 ];
