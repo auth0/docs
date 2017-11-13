@@ -37,7 +37,7 @@ https://${account.namespace}/
 and the callback address for your app should be:
 
 ```text
-https://${account.namespace}/callback
+https://${account.namespace}/login/callback
 ```
 
 ### 4. Copy your *Client Id* and *Client Secret*

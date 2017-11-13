@@ -15,7 +15,7 @@ You'll be asked to provide values for the following fields:
 | Field | Description |
 | - | - |
 | Name | A friendly name for your API. This is the name you'll see in your list of Auth0 APIs |
-| Identifier | A logical identifier for your API (we recommend formatting this identifier like a URL `https://your-api-gateway`). This will be used as your APIs audience parameter in authorization calls |
+| Identifier | A logical identifier for your API (we recommend formatting this identifier like a URL `https://your-api-gateway`) |
 | Signing Algorithm | The algorithm you want Auth0 to use to sign the issued access tokens |
 
 Click **Create** to proceed.
@@ -26,7 +26,7 @@ You can refer to the **Settings** page for the details of your newly-created API
 
 ![](/media/articles/integrations/aws-api-gateway-2/api-3.png)
 
-More specifically, you'll need to refer to your API's **Identifier** (or `audience` parameter) when you [configure your API Gateway custom authorizer in step 3](/integrations/aws-api-gateway/custom-authorizers/part-3#prepare-the-custom-authorizer) of this tutorial.
+Creating an API also creates a Non Interactive Client for use with the API. You can see this client listed as **Authorized** under the **Non Interactive Clients** tab. Additionally, you might want to make note of the Client ID, since you will need it in [Part 3](/integrations/aws-api-gateway/custom-authorizers/part-3) of this tutorial.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/integrations/aws-api-gateway/custom-authorizers"],

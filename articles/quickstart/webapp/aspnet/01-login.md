@@ -11,7 +11,7 @@ budicon: 448
   path: 'Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample/',
   requirements: [
     'Microsoft Visual Studio 2017',
-    'Auth0-ASPNET v2.0.0'
+    'Auth0-ASPNET v2.1.0'
   ]
 }) %>
 
@@ -37,21 +37,39 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ${snippet(meta.snippets.setup)}
 
-## 4. Integrating Auth0.js
+## 4. Authenticating the user
 
-```html
-<script src="${auth0js_urlv8}"></script>
-<script type="text/javascript">
-var webAuth = new auth0.WebAuth({
-  domain: '${account.namespace}',
-  clientID: '${account.clientId}',
-  redirectUri: 'http://localhost:4987/LoginCallback.ashx',
-  audience: 'https://${account.namespace}/userinfo',
-  responseType: 'code',
-  scope: 'openid profile'
-});
-</script>
-<button onclick="webAuth.authorize();">Log In</button>
+To authenticate the user, we will redirect to Auth0's `/authorize` endpoint:
+
+
+```c#
+// Controllers/AccountController.cs
+public ActionResult Login(string returnUrl)
+{
+    var client = new AuthenticationApiClient(
+        new Uri(string.Format("https://{0}", ConfigurationManager.AppSettings["auth0:Domain"])));
+
+
+    var request = this.Request;
+    var redirectUri = new UriBuilder(request.Url.Scheme, request.Url.Host, this.Request.Url.IsDefaultPort ? -1 : request.Url.Port, "LoginCallback.ashx");
+
+    var authorizeUrlBuilder = client.BuildAuthorizationUrl()
+        .WithClient(ConfigurationManager.AppSettings["auth0:ClientId"])
+        .WithRedirectUrl(redirectUri.ToString())
+        .WithResponseType(AuthorizationResponseType.Code)
+        .WithScope("openid profile")
+        // adding this audience will cause Auth0 to use the OIDC-Conformant pipeline
+        // you don't need it if your client is flagged as OIDC-Conformant (Advance Settings | OAuth)
+        .WithAudience("https://" + @ConfigurationManager.AppSettings["auth0:Domain"] + "/userinfo");
+
+    if (!string.IsNullOrEmpty(returnUrl))
+    {
+        var state = "ru=" + HttpUtility.UrlEncode(returnUrl);
+        authorizeUrlBuilder.WithState(state);
+    }
+
+    return new RedirectResult(authorizeUrlBuilder.Build().ToString());
+}
 ```
 
 
@@ -75,7 +93,7 @@ The user profile is normalized regardless of where the user came from. We will a
 
 You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
 
-### Redirect to a Login Page
+### Automatically redirect to the login page
 
 An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
 
@@ -88,24 +106,7 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 </system.web>
 ```
 
-In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-trigger-login-manually-or-integrating-lock).
-
-```cs
-// Controllers/HomeController.cs
-public ActionResult Login(string returnUrl)
-{
-  if (string.IsNullOrEmpty(returnUrl) || !this.Url.IsLocalUrl(returnUrl))
-  {
-    returnUrl = "/";
-  }
-
-  // you can use this for the 'authParams.state' parameter
-  // in Lock, to provide a return URL after the authentication flow.
-  ViewBag.State = "ru="+ HttpUtility.UrlEncode(returnUrl);
-
-  return this.View();
-}
-```
+In the above example, we are redirecting to the `Login` action in an `Account` controller, which in turn redirects to Auth0's `/authorize` endpoint for authentication, as described in [#4](#4-authenticating-the-user).
 
 ### Logout
 
@@ -114,7 +115,7 @@ To clear the cookie generated on login, use the `FederatedAuthentication.Session
 A typical logout action on ASP.Net MVC would look like this:
 
 ```cs
-// Controllers/HomeController.cs
+// Controllers/AccountController.cs
 public RedirectResult Logout()
 {
   // Clear the session cookie

@@ -230,7 +230,7 @@ For web apps that execute on the browser, the way to refresh a token is using [S
 
 - The `authorize` method, redirects the user to the `/authorize` endpoint, in order to login and provide consent.
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
-- The `renewAuth` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using renewAuth to Acquire New Tokens](/libraries/auth0js#using-renewauth-to-acquire-new-tokens).
+- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens).
 
 More information on the library:
 - [Auth0.js v8 Reference](/libraries/auth0js)

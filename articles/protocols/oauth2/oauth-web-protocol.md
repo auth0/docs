@@ -25,7 +25,7 @@ GET ${account.callback}?
 ```
 
 ::: note
-It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks.
+It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against CSRF attacks.
 :::
 
 4. Your app will have to send the `code` to the Auth0 server through a `POST`.

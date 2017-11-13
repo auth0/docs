@@ -8,7 +8,7 @@
 
 ```http
 POST https://${account.namespace}/oauth/access_token
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "access_token": "ACCESS_TOKEN",
@@ -107,7 +107,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ```http
 POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "username": "USERNAME",

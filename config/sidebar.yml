@@ -271,7 +271,7 @@ articles:
         url: "/connections/database/password-strength"
 
   - title: "User Management"
-    url: "/user-profile"
+    url: "/users"
     children:
       - title: "User Profile"
         url: "/user-profile"
@@ -287,6 +287,10 @@ articles:
 
           - title: "Picture"
             url: "/user-profile/user-picture"
+
+      - title: "User Search"
+        url: "/users/search"
+
       - title: "User Metadata"
         url: "/metadata"
 
@@ -304,6 +308,27 @@ articles:
 
       - title: "Data Storage"
         url: "/user-profile/user-data-storage"
+
+      - title: "User Migration"
+        url: "/users/migrations"
+        children:
+          - title: "Automatic Migration"
+            url: "/users/migrations/automatic"
+
+          - title: "Bulk Migration"
+            url: "/users/migrations/bulk-import"
+
+          - title: "User Import/Export Extension"
+            url: "/extensions/user-import-export"
+
+          - title: "Gigya"
+            url: "/users/migrations/gigya"
+
+          - title: "Okta"
+            url: "/users/migrations/okta"
+
+          - title: "Stormpath"
+            url: "/users/migrations/stormpath"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -612,6 +637,13 @@ libraries:
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-android"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-android/save-and-refresh-tokens"
 
 appliance:
 
@@ -694,8 +726,20 @@ appliance:
 
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
+        children:
+          - title: Troubleshoot
+            url: /appliance/dashboard/troubleshoot
+        
       - title: Monitoring Tools
         url: /appliance/monitoring
+        children:
+          - title: Instrumentation
+            url: /appliance/instrumentation
+          - title: Testall endpoint
+            url: /appliance/monitoring/testall
+          - title: Authenticated testing endpoints
+            url: /appliance/monitoring/authenticated-endpoints
+        
       - title: Command-Line Interface Tools
         url: /appliance/cli
       - title: Automatic Tenant Creation

@@ -10,7 +10,11 @@ img: media/articles/libraries/lock-web.png
 Lock is an embeddable login form, [configurable to your needs][lock-configuration] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: note
-Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method by which to authenticate users for your applications.
+Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
+:::
+
+::: note
+Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method to authenticate users for your applications.
 :::
 
 ## Lock 10 Installation
@@ -114,6 +118,16 @@ document.getElementById('btn-login').addEventListener('click', function() {
   lock.show();
 });
 ```
+
+## Cross-Origin Authentication
+
+Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you must do the following:
+
+* Set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to true
+* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
+* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
+
+    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
 ## Browser Compatibility
 

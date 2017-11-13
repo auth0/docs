@@ -25,3 +25,9 @@ description: Learn about various topics regarding how to handle sensitive data w
 <%= include('../_includes/_topic-links', { links: [
   'security/common-threats'
 ] }) %>
+
+## Data Privacy
+
+<%= include('../_includes/_topic-links', { links: [
+  'security/blacklisting-attributes'
+] }) %>

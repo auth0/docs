@@ -6,7 +6,7 @@ Callback URLs are the URLs that Auth0 invokes after the authentication process. 
 
 Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that **Allowed Callback URLs** contains the following for each platform you are supporting.
 
-#### iOS
+#### iOS Callback
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
@@ -22,8 +22,7 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 <string>auth0.samples.Auth0Sample</string>
 ```
 
-
-#### Android
+#### Android Callback
 
 ```text
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback

@@ -37,7 +37,7 @@ The Authentication API exposes Auth0 identity functionality, as well as those of
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><a href="https://app.getpostman.com/run-collection/608670c820cda215594c"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+            <p><a href="https://app.getpostman.com/run-collection/2a9bc47495ab00cda178"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>
@@ -67,7 +67,7 @@ The Management API allows you to manage every aspect of your Auth0 account. For 
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Management API in Postman.</p>
-            <p><a href="https://app.getpostman.com/run-collection/d640b278f4d6332b063d"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+            <p><a href="https://app.getpostman.com/run-collection/cc9e83969d9e70160054"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>

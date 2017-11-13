@@ -6,7 +6,7 @@
 
 ```http
 POST https://${account.namespace}/delegation
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",

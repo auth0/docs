@@ -188,13 +188,13 @@ Remember that if the token is being validated anywhere else, changes might be ne
 
 ### Manually Parsing Hashes
 
-If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [this example](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js#L97) or [this one](https://github.com/auth0/auth0.js/blob/master/src/helper/qs.js#L10) to help you get started.
+If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [what parseHash is doing](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js) to help you get started replicating that.
 
 ## Refreshing Tokens
 
 When a token is nearing expiration, or is expired, you may wish to simply renew the token rather than requiring a new transaction.
 
-In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can be used to acquire a new token for that user.
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and `refreshToken()` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-checksession-to-acquire-new-tokens), refreshing tokens is done via the `checkSession()` method. If a user is already authenticated, `checkSession()` can be used to acquire a new token for that user.
 
 ## Delegation
 

@@ -58,7 +58,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ```http
 POST https://${account.namespace}/login/unlink
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
   "user_id": "LINKED_USER_ID" // (provider|id)

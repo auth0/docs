@@ -20,21 +20,27 @@ description: This tutorial demonstrates how to add authentication and authorizat
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in an Express middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+This guide shows you how to validate the token using the jwt-express middleware and how to check for appropriate scopes with the express-jwt-authz middleware. If the token is not valid or does not have the required scopes, the user gets a 401 Authorization error when they try to access the endpoints.
 
 ## Install the Dependencies
 
-The **express-jwt** package can be used to verify incoming JWTs. The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. The **express-jwt-authz** library can be used to add an authorization middleware to your endpoints. Install these libraries with npm.
+To verify incoming JWTs, you can use the [express-jwt](https://github.com/auth0/express-jwt) package.
+
+To get your Auth0 public key and complete the verification process, you can use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) library with the package. 
+
+To add the authorization middleware to your endpoints, you can use the [express-jwt-authz](https://github.com/auth0/express-jwt-authz) library.
+
+Install these libraries with npm.
 
 ```bash
 npm install --save express-jwt jwks-rsa express-jwt-authz
 ```
 
-## Configuration
+## Configure the Middleware
 
 <%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-express-api-samples/tree/master/02-Authorization-HS256' }) %>
 
-Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 account.
+Configure the express-jwt middleware so it uses the remote JWKS for your Auth0 account.
 
 ```js
 // server.js
@@ -50,7 +56,7 @@ const jwksRsa = require('jwks-rsa');
 const checkJwt = jwt({
   // Dynamically provide a signing key
   // based on the kid in the header and 
-  // the singing keys provided by the JWKS endpoint.
+  // the signing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -65,19 +71,21 @@ const checkJwt = jwt({
 });
 ```
 
-## Configuring Scopes
+## Configure the Scopes
 
-The `checkJwt` middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `checkJwt` middleware shown above checks if the user's access token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
+<%= include('../_includes/_api_scopes_access_resources') %>
 
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
+::: note
+This example uses the `read:messages` scope.
+:::
 
 ## Protect Individual Endpoints
 
-Individual routes can be configured to look for a particular `scope` by setting up another middleware with the **express-jwt-authz** package. To do so, provide an array of required scopes and apply the middleware to any routes you wish to add authorization to.
+You can configure individual routes to look for a particular scope. To achieve that, set up another middleware with the express-jwt-authz package. Provide an array of the required scopes and apply the middleware to any routes you want to add authorization to.
 
-Pass the `checkJwt` and `checkScopes` middlewares to the route you wish to protect.
+Pass the `checkJwt` and `checkScopes` middlewares to the route you want to protect.
 
 ```js
 // server.js
@@ -91,6 +99,6 @@ app.get('/api/private', checkJwt, checkScopes, function(req, res) {
 });
 ```
 
-With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+In this configuration, only the access tokens with the `read:messages` scope can access the endpoint.
 
 <%= include('../_includes/_call_api') %>

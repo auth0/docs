@@ -1,5 +1,5 @@
 ---
-  description: Signing and encrypting SAML requests
+description: Signing and encrypting SAML requests
 ---
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests
@@ -23,7 +23,7 @@ To turn off deflate encoding, you can make a [PATCH call to the Management API's
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${account.namespace}.auth0.com/api/v2/connections/YOUR_CONNECTION_ID",
+	"url": "https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -69,7 +69,7 @@ If Auth0 is the SAML **service provider**, all SAML responses from your identity
 You will then need to configure Auth0 to validate the responses' signatures by:
 
 * Obtaining a signing certificate from the IdP
-* Loading the certificate from the IdP into your Auth0 Connection (in the Management Dashboard, go to the **Upload Certificate** section for your Connection by navigating to **Connections** -> **Enterprise** -> **SAMLP Identity Providers** -> **Settings**)
+* Loading the certificate from the IdP into your Auth0 Connection (in the Management Dashboard, go to the **Upload Certificate** section for your Connection by navigating to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** -> **Settings**)
 
 Auth0 can accept a signed response for the assertion, the response, or both.
 
@@ -96,6 +96,6 @@ function (user, context, callback) {
 
 If Auth0 is the SAML **service provider**, it may need to receive encrypted assertions from an identity provider. To do this, you must provide Auth0's public key and certificate to the IdP. The IdP encrypts the SAML assertion using the public key and sends it to Auth0, which decrypts it using the private key.
 
-To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}), go to **Connections** -> **Enterprise** -> **SAMLP Identity Providers** -> **Settings**.
+To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}), go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click on the **Setup Instructions** button next to the connection.
 
-Navigate to the section that begins `Optional: Assertions can be encrypted...`, and download the certificate in the format requested by the IdP.
+Navigate to the section titled **Encrypted Assertions** and download the certificate in the format requested by the IdP.

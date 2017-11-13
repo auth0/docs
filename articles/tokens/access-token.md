@@ -6,15 +6,33 @@ toc: true
 
 ## Overview
 
-The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. Auth0 uses access tokens to protect access to the Auth0 Management API.
+The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` can be any type of token (such as an opaque string, or a JWT) and is meant for the API. The purpose of the `access_token` is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. 
 
-Auth0 generates access tokens in [JSON Web Token (JWT)](/jwt) format, an industry standard. JWTs contain three parts: a header, a set of claims, and a signature:
-- The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
-- The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
-- The signature is used to validate that the token is trustworthy and has not been tampered with.
+## Access Tokens at Auth0
+
+Auth0 currently generates access tokens in two formats:
+
+* As opaque strings, when `${account.namespace}/userinfo` is the audience.
+* As a [JSON Web Token (JWT)](/jwt) when a custom API is specified as the audience.
 
 ::: note
-The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token.
+The audience is a parameter which is set during [authorization](/api/authentication#authorize-client). It contains the unique identifier of the target API.
+:::
+
+When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
+
+Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
+
+The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the client's settings -> Advanced Settings -> Oauth. 
+
+![Token Signing Algorithm - Client](/media/articles/tokens/tokens-algorithm-client.png)
+
+When setting up an API in the [Dashboard](${manage_url}/#/apis), the signing algorithm can also be specified.
+
+![Token Signing Algorithm - API](/media/articles/tokens/tokens-algorithm-api.png)
+
+::: warning
+The important thing to remember is that the client should not be depending on the access token to be any specific format, but instead should treat the access token as opaque.
 :::
 
 ## How to get an access token
@@ -29,11 +47,8 @@ Access tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/auth
   * **Client-side app**, please see the docs for the [Implicit Grant](/api-auth/grant/implicit)
   * **Command line interface**, please see the docs for the [Client Credentials Grant](/api-auth/grant/client-credentials)
   * **Trusted client**, please see the docs for the [Resource Owner Password Grant](/api-auth/grant/password)
-
 * For a list of widgets and SDKs that can help you implement Auth0, see our [Libraries](/libraries).
-
 * Calls to the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
-
 * If you need only a client-side library for authorization and authentication, use [auth0.js](/libraries/auth0js).
 
 ## How to use an access token
@@ -107,7 +122,45 @@ For more information on the namespaced format of custom claims, refer to [User p
 
 For an example of how to add a custom claim, refer to [Add Custom Claims](/scopes/current#example-add-custom-claims).
 
-## Authorize Access Tokens
+## Lifetime
+
+The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
+
+To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [Dashboard](${manage_url}/#/apis) APIs section. The default value is `24` hours (`86400` seconds).
+
+![Token Expiration - API](/media/articles/tokens/tokens-expiration-api.png)
+
+Once expired, an access token can no longer be used to access an API. In order to obtain access again, a new access token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial access token.
+
+In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [refresh token](/tokens/refresh-token).
+
+A refresh token is issued from the OAuth 2.0 endpoints along with the access token. When the access token expires, the refresh token can be used to obtain a fresh access token with the same permissions, without further involvement from a user. 
+
+Note that offline access is enabled as a policy of the API the access token grants access to. This is a setting that can be altered in the [Dashboard](${manage_url}/#/apis) under the APIs section.
+
+![Offline Access - API](/media/articles/tokens/tokens-offlineaccess-api.png)
+
+If the API does not permit offline access, a refresh token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new access token.
+
+::: note
+For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
+:::
+
+## Revoke access token
+
+Revoking access tokens is not supported at the moment. The best way to control this is to set the validity period of the token, according to the security requirements of the API. For example, an access token that accesses a banking API should probably expire much faster than one that accesses a ToDo API.
+
+## Using Access Tokens with Custom APIs
+
+### JSON Web Tokens
+
+Auth0 creates access tokens in JWT format for custom APIs. JWTs contain three parts: a header, a set of claims, and a signature:
+
+* The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
+* The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
+* The signature is used to validate that the token is trustworthy and has not been tampered with.
+
+### Authorize Access Tokens
 
 Once a client has obtained an access token, it will include that token as a credential when making API requests.
 
@@ -144,33 +197,15 @@ Before permitting access to the API using this token, the API must verify the to
 1. Check the Client permissions (scopes)
 
 ::: note
-For a more detailed discussion on verifying access tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For a more detailed description of the process of verifying access tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 :::
 
 If any of these checks fail, the token is invalid and the request should be rejected.
 
 Once these checks have been performed successfully, the API can be assured that:
 
-- The token was issued by Auth0.
-- The token was issued to an application being operated by the user with an identifier of `usr_123`.
-- The user granted the application access to read and write his or her calendar.
+* The token was issued by Auth0.
+* The token was issued to an application being operated by the user with an identifier of `usr_123`.
+* The user granted the application access to read and write his or her calendar.
 
 The API can now process the request, allowing the application to read and write to user `usr_123`'s calendar.
-
-## Lifetime
-
-The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
-
-To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [APIs dashboard](${manage_url}/#/apis). The default value is `24` hours (`86400` seconds).
-
-Once expired, an access token can no longer be used to access an API. In order to obtain access again, a new access token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial access token.
-
-In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline access`, and is possible with the use of a [refresh token](/tokens/refresh-token).
-
-A refresh token is issued from the OAuth 2.0 endpoints along with the access token. When the access token expires, the refresh token can be used to obtain a fresh access token with the same permissions, without further involvement from a user. Note that offline access is enabled as a policy of the API the access token grants access to. If the API does not permit offline access, a refresh token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new access token.
-
-For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
-
-## Revoke access token
-
-Revoking access tokens is not supported at the moment. The best way to control this is to set the validity period of the token, according to the security requirements of the API. For example, an access token that accesses a banking API should probably expire much faster than one that accesses a ToDo API.

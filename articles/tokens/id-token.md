@@ -136,10 +136,10 @@ When performing the initial authorization flow, you can ask for a `refresh_token
 
 This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
-If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `renewAuth()` method.
+If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
 
 ```js
-auth0.renewAuth({
+auth0.checkSession({
   audience: 'https://mystore.com/api/v2',
   scope: 'read:order write:order',
   redirectUri: 'https://example.com/auth/silent-callback',
@@ -159,11 +159,9 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 
 ## Keep Reading
 
+::: next-steps
 * [Overview of JSON Web Tokens](/jwt)
-* [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
 * [Debugger for viewing JSON Web Tokens](http://jwt.io/)
-* [Vulnerabilities in use of JWT’s by libraries](https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/)
-* [Cookies vs Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
-* [Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 * [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)
+:::

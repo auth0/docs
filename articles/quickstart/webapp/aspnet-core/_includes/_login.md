@@ -1,3 +1,11 @@
+## Add Authentication with Auth0
+
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
+
+::: note
+You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
+:::
+
 ## Configure OpenID Connect Middleware
 
 The easiest way to enable authentication with Auth0 in your ASP.NET Core application is to use the OpenID Connect middleware. First, go to the `ConfigureServices` method of your `Startup` class and add the authentication services and enable cookie autentication by calling the `AddAuthentication` and `AddCookie` methods respectively. 
@@ -287,6 +295,4 @@ Now, when you run the application you can select the Login link to log into the 
 
 ## Next Steps
 
-If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-core/v2/02-login-custom). 
-
-Alternatively, you can simply carry on to the [Storing Tokens step](/quickstart/webapp/aspnet-core/v2/03-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
+Continue to the [Storing Tokens step](/quickstart/webapp/aspnet-core/v2/02-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
