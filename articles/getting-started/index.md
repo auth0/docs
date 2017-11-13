@@ -16,11 +16,11 @@ Welcome!
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/getting-started/overview"></a>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/overview">Auth0 Overview</a>
     <p>Learn what Auth0 is and how you can use it</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/the-basics">Learn the Basics</a>
-    <p>Learn the basics of Auth0 and familiarize yourself with the terminology</p>
+    <p>Learn the basics and familiarize yourself with the identity terminology</p>
   </li>
 </ul>
