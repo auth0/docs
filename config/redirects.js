@@ -1632,5 +1632,17 @@ module.exports = [
   {
     from: '/multifactor-authentication/developer/step-up-with-acr',
     to: '/multifactor-authentication/developer/step-up-authentication'
+  },
+  {
+    from: '/users/bulk-importing-users-into-auth0',
+    to: '/users/migrations/bulk-import'
+  },
+  {
+    from: '/connections/database/migrating',
+    to: '/users/migrations/automatic'
+  },
+  {
+    from: '/connections/database/migrating-okta',
+    to: '/users/migrations/okta'
   }
 ];

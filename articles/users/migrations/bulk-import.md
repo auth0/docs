@@ -1,9 +1,11 @@
 ---
-description: How to bulk import users using the Management API endpoint.
+title: Bulk User Imports with the Management API
+description: How to perform bulk user imports with the Management API.
 crews: crew-2
 toc: true
 ---
-# Bulk Import Users to Auth0
+
+# Bulk User Imports with the Management API
 
 If you already have a user base, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
 

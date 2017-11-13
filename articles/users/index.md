@@ -49,13 +49,28 @@ description: Learn about working with users in Auth0
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/users/bulk-importing-users-into-auth0">Importing and Exporting Users</a>
+    <i class="icon icon-budicon-715"></i><a href="/users/migrations">User Migration</a>
     <p>
       Learn how to import users into Auth0.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/connections/database/migrating-okta">Migrate Users from Okta to Auth0</a>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/custom-db">Automatic User Migration with Custom Database Connections</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/bulk-import">Bulk User Migration with the Management API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/extensions/user-import-export">User Import / Export Extension</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/gigya">Migrate Users from Gigya to Auth0</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/okta">Migrate Users from Okta to Auth0</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/stormpath">Migrate Users from Stormpath to Auth0</a>
       </li>
     </ul>
   </li>

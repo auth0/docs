@@ -7,11 +7,11 @@ toc: true
 
 # Migrate Users from Okta to Auth0
 
-Auth0 supports automatic migration of users from a [custom database connection](/connections/database/custom-db) to Auth0. This feature allows you to configure a custom database connection which will migrate users from an external application, such as Okta, to Auth0. It allows for a smooth migration of users over time, without requiring users to reset their password as a result of the migration.
+Auth0 supports [automatic migration](/users/migrations/automatic) of users from a [custom database connection](/connections/database/custom-db) to Auth0. This feature allows you to configure a custom database connection which will migrate users from an external application, such as Okta, to Auth0. It allows for a smooth migration of users over time, without requiring users to reset their password as a result of the migration.
 
 For a more detailed overview, also refer to [The Migration Process](/connections/database/migrating#the-migration-process).
 
-The rest of this document will walk you through to process of configuring a custom database connection which imports users from Okta. It assumes that you have an Okta account.
+The rest of this document will walk you through the process of configuring a custom database connection which imports users from Okta. It assumes that you have an Okta account.
 
 ## Configuring the Custom Database Connection
 
@@ -129,7 +129,7 @@ You can click the **Try** button above the script to test and see whether the sc
 
 ## Testing the Custom Database Connection
 
-At this point you can test the custom database connection to ensure that it works. 
+At this point you can test the custom database connection to ensure that it works.
 
 Click on **Try connection**:
 
