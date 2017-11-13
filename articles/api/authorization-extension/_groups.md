@@ -711,7 +711,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 PATCH https://{extension_url}/groups/{group_id}/nested
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
-[ "google-oauth2|113108011846505476166" ]
+[ "{group_id_to_add}" ]
 ```
 
 ```shell
@@ -719,7 +719,7 @@ curl --request PATCH \
   --url 'https://{extension_url}/groups/{group_id}/nested' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
-  --data '[ "{member_id}" ]'
+  --data '[ "{group_id_to_add}" ]'
 ```
 
 > RESPONSE SAMPLE:
@@ -752,7 +752,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
-| `{member_id}` | List of members to add in a group |
+| `{group_id_to_add}` | List of group IDs that you want to add in the group |
 
 ## Delete Nested Groups
 
@@ -801,7 +801,8 @@ The [access token](#get-an-access-token) should have the following scopes:
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
-| `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
+| `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove other group members |
+| `{NESTED_GROUP_ID}` <br/><span class="label label-danger">Required</span> | The id of the group to remove |
 
 ## Get Group Roles
 
