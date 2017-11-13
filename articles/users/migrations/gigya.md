@@ -42,7 +42,7 @@ Go to the [Extensions](${manage_url}/#/extensions) section of the Dashboard. Sel
 Drag your exported Gigya users JSON file into the designated upload area and select the database you created earlier. Click the **Start Importing Users** button to begin your import.
 
 ::: note
-For more information on the User Import / Export Extension, check out the [User Import/Export Extension](https://auth0.com/docs/extensions/user-import-export) page.
+For more information on the User Import / Export Extension, check out the [User Import/Export Extension](/extensions/user-import-export) page.
 :::
 
 ### Import Users with the Management API
