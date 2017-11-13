@@ -31,9 +31,10 @@ See [signUpTerms](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for 
 
 You can:
 
-* [Delete the end user from Auth0 using the Management API](/api/management/v2#!/Users/delete_users_by_id).
+* [Delete the end user from Auth0 using the Management API](/api/management/v2#!/Users/delete_users_by_id). To confirm that the user was successfully deleted, you can attempt to [retrieve the user using its ID](/api/management/v2#!/Users/get_users_by_id). If the endpoint returns an error, then your call to delete the user was successful
 * Use [rules](/rules) to add the date of user consent withdrawal to the user's metadata during the authorization process
 
+Alternatively, instead of completing deleting the user, you may choose to flag their profile (using the `app_metadata` field) as `deleted`. Then, add a [rule](/rules) that results in authentication failing for any user with this flag. This allows you to keep a record of deleted users, in the event that you need to refer to such information in the future.
 
 ## Right to Access Data
 
