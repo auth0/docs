@@ -53,4 +53,4 @@ See the custom database connection tutorial at [Authenticate Users using a Custo
 
 ### Migrating to Auth0 from a custom user store
 
-In this scenario, you have a legacy user store and wish to switch to the Auth0 store. Auth0 provides an automatic migration feature that adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time. For a detailed guide to this feature see [Importing users to Auth0](/connections/database/migrating).
+In this scenario, you have a legacy user store and wish to switch to the Auth0 store. Auth0 provides an automatic migration feature that adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time. For a detailed guide to this feature see [Automatic User Migration](/users/migrations/automatic).

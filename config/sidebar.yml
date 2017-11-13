@@ -266,6 +266,7 @@ articles:
 
           - title: "Picture"
             url: "/user-profile/user-picture"
+
       - title: "User Search"
         url: "/users/search"
 
@@ -286,6 +287,27 @@ articles:
 
       - title: "Data Storage"
         url: "/user-profile/user-data-storage"
+
+      - title: "User Migration"
+        url: "/users/migrations"
+        children:
+          - title: "Automatic Migration"
+            url: "/users/migrations/automatic"
+
+          - title: "Bulk Migration"
+            url: "/users/migrations/bulk-import"
+
+          - title: "User Import/Export Extension"
+            url: "/extensions/user-import-export"
+
+          - title: "Gigya"
+            url: "/users/migrations/gigya"
+
+          - title: "Okta"
+            url: "/users/migrations/okta"
+
+          - title: "Stormpath"
+            url: "/users/migrations/stormpath"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
