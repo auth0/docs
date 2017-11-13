@@ -23,4 +23,8 @@ Welcome!
     <i class="icon icon-budicon-715"></i><a href="/getting-started/the-basics">Learn the Basics</a>
     <p>Learn the basics and familiarize yourself with the identity terminology</p>
   </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/deployment-models">Deployment Models</a>
+    <p>Read about the four different deployment models that Auth0 offers</p>
+  </li>
 </ul>
