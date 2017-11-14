@@ -8,7 +8,7 @@ description: This tutorial demonstrates how to add authentication and authorizat
   repo: 'auth0-express-api-samples',
   path: '01-Authorization-RS256',
   requirements: [
-    'express.js 14.4.0',
+    'express.js 4.4.0',
     'express-jwt 5.1.0',
     'express-jwt-authz 1.0.0'
   ]
