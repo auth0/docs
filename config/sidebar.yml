@@ -7,12 +7,36 @@
 articles:
 
   - title: Getting Started
-    url: "/overview"
+    url: "/getting-started"
     children:
-      - title: Overview
-        url: /overview
+      - title: Auth0 Overview
+        url: /getting-started/overview
+      
+      - title: The Basics
+        url: /getting-started/the-basics
 
-      - title: Developer Videos
+      - title: Deployment Models
+        url: /getting-started/deployment-models
+      
+      # - title: The Dashboard
+      #   url: /getting-started/the-dashboard
+      
+      # - title: The Implementation Process
+      #   url: /getting-started/the-implementation-process
+      
+      # - title: Hello World
+      #   url: /getting-started/hello-world
+
+      # - title: The Authentication Flow
+      #   url: /getting-started/the-authentication-flow
+        
+      # - title: FAQ
+      #   url: /getting-started/faq
+      
+      # - title: What's Next?
+      #   url: /getting-started/whats-next
+
+      - title: Videos
         url: /videos
         children:
 

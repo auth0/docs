@@ -886,6 +886,19 @@ module.exports = [
     to: '/overview/deployment-models'
   },
   {
+    from: '/overview',
+    to: '/getting-started/overview'
+  },
+  {
+    from: '/overview/apis',
+    to: '/api-auth/apis'
+  },
+
+  {
+    from: '/overview/deployment-models',
+    to: '/getting-started/deployment-models'
+  },
+  {
     from: '/java-overview',
     to: '/dev-centers/java'
   },

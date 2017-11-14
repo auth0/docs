@@ -1,10 +1,8 @@
 ---
-description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+title: Auth0 Deployment Models
+description: This page explains the four different deployment models that Auth0 offers
 toc: true
 ---
-
-<!-- markdownlint-disable MD033 -->
-
 # Auth0 Deployment Models
 
 Auth0 is offered in 4 deployment models:
@@ -212,3 +210,8 @@ The following table describes operational and feature differences between each o
 * Lock (requires access to the CDN hosting Lock);
 * Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers);
 * Quickstarts (requires access to GitHub).
+
+<%= include('./_stepnav', {
+ next: ["Developer Videos", "/videos"],
+ prev: ["Getting Started", "/getting-started"]
+}) %>

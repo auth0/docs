@@ -9,17 +9,17 @@
   icon: "icon-budicon-499"
   color: "orange"
   description: "Learn the basics of using Auth0."
-  url: "/topics/getting-started"
+  url: "/getting-started"
   articles:
 
-    - title: "Overview"
-      url: "/overview"
+    - title: "Auth0 Overview"
+      url: "/getting-started/overview"
+
+    - title: "The Basics"
+      url: "/getting-started/the-basics"
 
     - title: Developer Videos
       url: /videos
-    
-    - title: Clients
-      url: /clients
 
 - id: "ui-components"
   title: "UI Components"
