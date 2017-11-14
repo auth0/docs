@@ -282,6 +282,10 @@ To ensure an Open ID Connect compliant response you must either request an `audi
 
 ### Login with database connection
 
+::: panel-warning Database authentication on Native Platforms
+Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use the [Hosted Login Page](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
+:::
+
 Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
 
 ```java

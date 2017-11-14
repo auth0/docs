@@ -7,6 +7,10 @@ mobileimg: media/articles/libraries/lock-android.png
 ---
 # Lock Android: Getting Started
 
+::: warning
+Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use the [Hosted Login Page](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
+:::
+
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
 Get started using Lock for Android below, or if you're looking for a specific document beyond basic setup of Lock, try the listing of [next steps](#next-steps) for working with Lock for Android.

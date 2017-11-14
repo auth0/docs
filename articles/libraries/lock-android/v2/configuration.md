@@ -60,3 +60,4 @@ Configurations options are added to the Lock Builder using the following format:
 
 - **useCode()**: Send a code instead of a link via email/SMS for Passwordless authentication.
 - **useLink()**: Send a link instead of a code via email/SMS for Passwordless authentication.
+- **rememberLastLogin(boolean)**: Whether the email or phone used in the last successful authentication will be saved to auto-login the next time a Passwordless authentication is requested.
