@@ -13,19 +13,26 @@ This article uses an example to introduce three core concepts of Auth0: **domain
 
 We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to login with username/password, Google or GitHub.
 
-## Pick your domain
+## Account and Tenants
 
-When you create a new account with Auth0, you are asked to pick a **Tenant Domain**. This is the base URL you will be using when you want to access our API (in order, for example, to authenticate a user).
+If you haven't already signed up for an Auth0 account, do so (it's free). You can either use username/password credentials or log in with a social provider (GitHub, Google, or Microsoft).
 
-The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
+Once you create your account you will be asked to create a **Tenant**. This is a logical isolation unit. 
 
-In our example, `Example-Co` could pick the name `example-co`, hence their domain would be `example-co.auth0.com`.
+The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even thougn the software might be running on the same machine (hence the logical isolation).
 
 Some characteristics:
-- It has to be unique
+
+- It has to be unique (we will see in the next paragraph that it is used to create you own personal domain)
 - It cannot be changed afterwards
 - You can create more than one tenants (you are actually encouraged to do so for each separate environment you have: Development/Staging/Production)
-- If you chose to host your data in Europe or Australia, then your tenant will have a suffix, for example `example-co-eu.auth0.com` or `example-co-au.auth0.com`
+- If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data are stored, the tenant name could eventually be `example-co-eu` or `example-co-au`.
+
+## Domain
+
+As discussed in the previous paragraph, When you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with the `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API (in order, for example, to authenticate a user). The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
+
+In our example, `Example-Co` could pick the name `example-co`, hence their domain would be `example-co.auth0.com`.
 
 ::: panel Custom Domains
 You can use a custom domain, such as `example-co.com`. This comes with an additional cost and requires a **single-tenant** implementation of Auth0, which can be deployed in one of three locations:
@@ -34,7 +41,7 @@ You can use a custom domain, such as `example-co.com`. This comes with an additi
 - An [on-premise installation](/appliance)
 :::
 
-## Register your app
+## Client
 
 Now that you have an account, we need to know your app(s) that will be using our services.
 
@@ -54,7 +61,7 @@ Let's go back to our example. `ExampleCo` has two apps: a web app (running on a 
 We won't get into details on how to create a client, since this article is only supposed to provide a high level overview. However, if you want to know more about clients and how to create one refer to [Clients](/clients).
 :::
 
-## Pick your connections
+## Connection
 
 Now that you have registered your app(s), you are ready to configure how your users will login. 
 
