@@ -163,5 +163,4 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 * [Overview of JSON Web Tokens](/jwt)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
 * [Debugger for viewing JSON Web Tokens](http://jwt.io/)
-* [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)
 :::
