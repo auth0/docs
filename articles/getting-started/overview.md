@@ -1,4 +1,5 @@
 ---
+title: Auth0 Overview
 description: Learn what Auth0 is and how you can use it
 toc: true
 ---
@@ -44,13 +45,13 @@ Let's see some of the use cases for which you can use Auth0.
 
 - You want to use analytics to track users on your site or application. You plan on using this data to create funnels, measure user retention, and improve your sign up flow.
 
-- The list goes on and on...
+- The list goes on...
 
-## What Industry Standards does Auth0 use?
+## Which industry standards does Auth0 use?
 
 Once upon a time, when computers were standalone systems, all the authentication and user data lived in a single machine. The times have changed, and now you can use the same login information across multiple apps and sites. This was achieved due to the identity industry standards that were widely adopted across the web.
 
-These are a set of open specifications and protocols that tell you how to design an authentication and authorization system. They tell us how we should manage identity, move personal data securely, and decide who can access applications and data.
+These are a set of open specifications and protocols that tell you how to design an authentication and authorization system. They tell you how you should manage identity, move personal data securely, and decide who can access applications and data.
 
 The identity industry standards that we use here in Auth0 are:
 
@@ -65,3 +66,10 @@ The identity industry standards that we use here in Auth0 are:
 - **Security Assertion Markup Language (SAML)**: an open-standard, XML-based data format that allows businesses to communicate user authentication and authorization information to partner companies and enterprise applications their employees may use.
 
 - **WS-Federation**: a standard developed by Microsoft, and used extensively in their applications. It defines the way security tokens can be transported between different entities to exchange identity and authorization information.
+
+## Keep reading
+
+::: next-steps
+- [Learn the basics and familiarize yourself with the identity terminology](/getting-started/the-basics)
+- [Read about the four different deployment models that Auth0 offers](/getting-started/deployment-models)
+:::
