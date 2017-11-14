@@ -102,3 +102,8 @@ For now we won't get into details about the next steps, but in case you want to 
 - [Learn about our libraries](/libraries)
 - [Learn about working with users and user profiles in Auth0](/users)
 :::
+
+<%= include('./_stepnav', {
+ next: ["Deployment Models", "/getting-started/deployment-models"],
+ prev: ["Getting Started", "/getting-started"]
+}) %>

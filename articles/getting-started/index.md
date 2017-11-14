@@ -12,13 +12,12 @@ toc: true
   </p>
 </div>
 
-Welcome!
-
-If you are new to Auth0 then you are at the right place.
+Welcome! If you are new to Auth0 then you are at the right place.
 
 This is an introduction to Auth0: what is it we do, how we can help you, what's the basic terminology we use, what's the implementation process and our ecosystem, and many more.
 
-Let's get started! 
+Let's get started!
+
 
 <ul class="topic-links">
   <li>

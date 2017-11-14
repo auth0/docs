@@ -210,3 +210,8 @@ The following table describes operational and feature differences between each o
 * Lock (requires access to the CDN hosting Lock);
 * Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers);
 * Quickstarts (requires access to GitHub).
+
+<%= include('./_stepnav', {
+ next: ["Developer Videos", "/videos"],
+ prev: ["Getting Started", "/getting-started"]
+}) %>
