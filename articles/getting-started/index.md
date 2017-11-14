@@ -32,4 +32,8 @@ Let's get started!
     <i class="icon icon-budicon-715"></i><a href="/getting-started/deployment-models">Deployment Models</a>
     <p>Read about the four different deployment models that Auth0 offers</p>
   </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/videos">Developer Videos</a>
+    <p>A selection of videos showing developers how to perform common tasks with Auth0.</p>
+  </li>
 </ul>
