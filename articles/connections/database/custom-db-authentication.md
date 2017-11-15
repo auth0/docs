@@ -121,15 +121,15 @@ openssl x509 -req -in clientcertificate.crs -CA myCompanyRootCA.pem -CAkey myCom
 
 Log in to the [Dashboard](${manage_url}), and go to **Connections** > **Database**. Click **Create DB Connection**.
 
-![](/db-connection.png)
+![](/media/articles/connections/database/custom-db-certs/db-connection.png)
 
 Provide a name for your connection, and click **Create** to proceed.
 
-![](/create-db-connection.png)
+![](/media/articles/connections/database/custom-db-certs/create-db-connection.png)
 
 Once Auth0 has created your new connection, switch over to the **Custom Database** tab. Enable the **Use my own database** setting by clicking on the toggle so that it turns green.
 
-![](/custom-db.png)
+![](/media/articles/connections/database/custom-db-certs/custom-db.png)
 
 By default, you'll be on the tab where you can edit the **Login** Database Action Script. Copy the following into the script's body:
 
