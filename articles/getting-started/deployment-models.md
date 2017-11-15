@@ -1,30 +1,34 @@
 ---
 title: Auth0 Deployment Models
-description: This page explains the four different deployment models that Auth0 offers
+description: Read about the four different deployment models that Auth0 offers and the differences between them
 toc: true
 ---
 # Auth0 Deployment Models
 
-Auth0 is offered in 4 deployment models:
+Auth0 is offered in four deployment models:
 
-1. As a __multi-tenant cloud service__ running on Auth0's cloud.
-2. As a __dedicated cloud service__ running on Auth0's cloud.
-3. As a __dedicated cloud service__ running on Customer's cloud infrastructure.
-4. As an __on-premises virtual PSaaS Appliance__ running on Customer's data centers.
+- As a __multi-tenant cloud service__ running on Auth0's cloud
+- As a __dedicated cloud service__ running on Auth0's cloud
+- As a __dedicated cloud service__ running on Customer's cloud infrastructure
+- As an __on-premises virtual Private SaaS (PSaaS) Appliance__ running on Customer's data centers
 
-The following table describes operational and feature differences between each of these models.
+::: note
+To learn more about PSaaS Appliance refer to [Private SaaS (PSaaS) Appliance](/appliance).
+:::
+
+The following tables describe operational and feature differences between these models.
 
 ## Operational Differences
 
 <table class="table">
     <thead>
         <tr>
-            <th class="info">Where It Runs</th>
-            <th class="info" colspan="2">Auth0's Infrastructure</th>
-            <th class="info" colspan="2">Customer's Infrastructure</th>
+            <th class="info"><strong>Where It Runs</strong></th>
+            <th class="info" colspan="2"><strong>Auth0's Infrastructure</strong></th>
+            <th class="info" colspan="2"><strong>Customer's Infrastructure</strong></th>
         </tr>
         <tr>
-            <th>How It Runs</th>
+            <th class="info"><strong>How It Runs</strong></th>
             <th>Multi-Tenant</th>
             <th>Dedicated</th>
             <th>Cloud</th>
@@ -33,42 +37,42 @@ The following table describes operational and feature differences between each o
     </thead>
     <tbody>
         <tr>
-            <th>Public Facing</th>
+            <th class="info"><strong>Public Facing</strong></th>
             <td>Yes</td>
             <td>Yes</td>
             <td>Configurable</td>
             <td>Configurable</td>
         </tr>
         <tr>
-            <th>Updates</th>
+            <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
         </tr>
         <tr>
-            <th>Deployment Configurations</th>
+            <th class="info"><strong>Deployment Configurations</strong></th>
             <td>N/A</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
         </tr>
         <tr>
-            <th>Service & Uptime Reporting</th>
-            <td>http://status.auth0.com<br />http://uptime.auth0.com</td>
+            <th class="info"><strong>Service & Uptime Reporting</strong></th>
+            <td><a href="http://status.auth0.com">http://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
             <td>Monitored by Auth0</td>
             <td>Monitored by Auth0 and Customer's tools</td>
             <td>Monitored by Auth0 and Customer's tools</td>
         </tr>
         <tr>
-            <th>Uptime SLA Provided</th>
+            <th class="info"><strong>Uptime SLA Provided</strong></th>
             <td>Yes</td>
             <td>Yes</td>
             <td>No</td>
             <td>No</td>
         </tr>
         <tr>
-            <th>Support Channels & Levels</th>
+            <th class="info"><strong>Support Channels & Levels</strong></th>
             <td colspan="4">Same across all models</td>
         </tr>
     </tbody>
@@ -79,12 +83,12 @@ The following table describes operational and feature differences between each o
 <table class="table">
     <thead>
         <tr>
-            <th class="info">Where It Runs</th>
-            <th class="info" colspan="2">Auth0's Infrastructure</th>
-            <th class="info" colspan="2">Customer's Infrastructure</th>
+            <th class="info"><strong>Where It Runs</strong></th>
+            <th class="info" colspan="2"><strong>Auth0's Infrastructure</strong></th>
+            <th class="info" colspan="2"><strong>Customer's Infrastructure</strong></th>
         </tr>
         <tr>
-            <th>How It Runs</th>
+            <th class="info"><strong>How It Runs</strong></th>
             <th>Multi-Tenant</th>
             <th>Dedicated</th>
             <th>Cloud</th>
@@ -93,105 +97,105 @@ The following table describes operational and feature differences between each o
     </thead>
     <tbody>
         <tr>
-            <th>SSO Lifetime</th>
+            <th class="info"><strong>SSO Lifetime</strong></th>
             <td>Default Settings</td>
             <td>Configurable</td>
             <td>Configurable</td>
             <td>Configurable</td>
         </tr>
         <tr>
-            <th>User Search</th>
+            <th class="info"><strong>User Search</strong></th>
             <td>Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
         </tr>
         <tr>
-            <th>Tenant Log Search</th>
+            <th class="info"><strong>Tenant Log Search</strong></th>
             <td>Lucene queries</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
         </tr>
         <tr>
-            <th>Log Retention</th>
+            <th class="info"><strong>Log Retention</strong></th>
             <td>Up to 30 days (depends on subscription plan)</td>
             <td>Limited to 30 days</td>
             <td>Limited to 30 days</td>
             <td>Limited to 30 days</td>
         </tr>
         <tr>
-            <th>Code Sandbox</th>
+            <th class="info"><strong>Code Sandbox</strong></th>
             <td>Webtask (Javascript and C#)</td>
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
         </tr>
         <tr>
-            <th>Webtask</th>
+            <th class="info"><strong>Webtask</strong></th>
             <td>Multi-Tenant</td>
             <td>Dedicated (Fixed NPM modules)</td>
             <td>Dedicated (Fixed NPM modules)</td>
             <td>On-Premises (Fixed NPM modules)</td>
         </tr>
         <tr>
-            <th>Anomaly Detection</th>
+            <th class="info"><strong>Anomaly Detection</strong></th>
             <td>Brute Force and Breached Passwords</td>
             <td>Brute Force</td>
             <td>Brute Force</td>
             <td>Brute Force</td>
         </tr>
         <tr>
-            <th>Extensions</th>
+            <th class="info"><strong>Extensions</strong></th>
             <td>Yes</td>
             <td>Yes <sup>*</sup></td>
             <td>Yes <sup>*</sup></td>
             <td>Yes <sup>*</sup></td>
         </tr>
         <tr>
-            <th>Geolocation</th>
+            <th class="info"><strong>Geolocation</strong></th>
             <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <th>Connecting IP Address Filtering Restrictions</th>
+            <th class="info"><strong>Connecting IP Address Filtering Restrictions</strong></th>
             <td>No</td>
             <td>No</td>
             <td>Yes</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <th>Custom Domains</th>
+            <th class="info"><strong>Custom Domains</strong></th>
             <td>No</td>
             <td>Yes <sup>**</sup></td>
             <td>Yes <sup>**</sup></td>
             <td>Yes <sup>**</sup></td>
         </tr>
         <tr>
-            <th>Shared Resources Among Multiple Customers</th>
+            <th class="info"><strong>Shared Resources Among Multiple Customers</strong></th>
             <td>Yes</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
         </tr>
         <tr>
-          <th>MFA</th>
+          <th class="info"><strong>MFA</strong></th>
           <td>Yes</td>
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
         </tr>
         <tr>
-          <th>Lock</th>
+          <th class="info"><strong>Lock</strong></th>
           <td>Yes</td>
           <td>Yes</td>
           <td>Yes</td>
           <td>Yes <sup>***</sup></td>
         </tr>
         <tr>
-          <th>Internet Restricted</th>
+          <th class="info"><strong>Internet Restricted</strong></th>
           <td>No</td>
           <td>No</td>
           <td>No</td>
@@ -204,12 +208,7 @@ The following table describes operational and feature differences between each o
 
 <sup>**</sup>See [PSaaS Appliance Custom Domains](/appliance/custom-domains) for details. If your PSaaS Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
-<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
-
-* Extensions;
-* Lock (requires access to the CDN hosting Lock);
-* Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers);
-* Quickstarts (requires access to GitHub).
+<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment. If you do so, you will *not* have access to extensions, Lock (requires access to the CDN hosting Lock), Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers), or Quickstarts (requires access to GitHub).
 
 <%= include('./_stepnav', {
  next: ["Developer Videos", "/videos"],
