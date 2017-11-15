@@ -146,28 +146,35 @@ Create a new authorization requirement called `HasScopeRequirement`. This requir
 ```csharp
 // HasScopeRequirement.cs
 
-public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IAuthorizationRequirement
+public class HasScopeRequirement : IAuthorizationRequirement
 {
-    private readonly string issuer;
-    private readonly string scope;
+    public string Issuer { get; }
+    public string Scope { get; }
 
     public HasScopeRequirement(string scope, string issuer)
     {
-        this.scope = scope;
-        this.issuer = issuer;
+        Scope = scope ?? throw new ArgumentNullException(nameof(scope));
+        Issuer = issuer ?? throw new ArgumentNullException(nameof(issuer));
     }
+}
+```
 
+```csharp
+// HasScopeHandler
+
+public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
+{
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, HasScopeRequirement requirement)
     {
         // If user does not have the scope claim, get out of here
-        if (!context.User.HasClaim(c => c.Type == "scope" && c.Issuer == issuer))
+        if (!context.User.HasClaim(c => c.Type == "scope" && c.Issuer == requirement.Issuer))
             return Task.CompletedTask;
 
         // Split the scopes string into an array
-        var scopes = context.User.FindFirst(c => c.Type == "scope" && c.Issuer == issuer).Value.Split(' ');
+        var scopes = context.User.FindFirst(c => c.Type == "scope" && c.Issuer == requirement.Issuer).Value.Split(' ');
 
         // Succeed if the scope array contains the required scope
-        if (scopes.Any(s => s == scope))
+        if (scopes.Any(s => s == requirement.Scope))
             context.Succeed(requirement);
 
         return Task.CompletedTask;
@@ -175,7 +182,7 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
 }
 ```
 
-In your `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope:
+In your `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
 
 ```csharp
 // Startup.cs
@@ -202,6 +209,9 @@ public void ConfigureServices(IServiceCollection services)
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
         options.AddPolicy("create:messages", policy => policy.Requirements.Add(new HasScopeRequirement("create:messages", domain)));
     });
+
+    // register the scope authorization handler
+    services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 }
 ```
 
