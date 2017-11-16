@@ -33,16 +33,19 @@ In this document, we use the terms **eventually consistent** and **immediately c
 When running user searches:
 
 * Use an immediately consistent endpoint during authentication pipeline
-* Try to use exact match searches (with the `raw` subfield) whenever possible
-* Avoid existence queries (for example, "give me all users with a property regardless of its value")
-* Avoid full text search or partial searches
-* Avoid polling the search APIs
-* Avoid using large metadata field (try to keep metadata fields to 2 KB or less)
+* Use exact match searches (with the `raw` subfield) whenever possible
 * Use a well-known schema for metadata:
   * Use consistent data types for properties
   * Avoid dynamic property names
   * Avoid large schema sizes and deep structures
   * Avoid storing data you do not need for authentication and authorization purposes
+  
+Avoid:
+
+* Existence queries (for example, "give me all users with a property regardless of its value")
+* Full text search or partial searches
+* Polling the search APIs
+* Using large metadata field (try to keep metadata fields to 2 KB or less)
 
 ## Users
 
