@@ -195,7 +195,7 @@ public class AccountController : Controller
 }
 ```
 
-ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You need to provide the OIDC middleware with the URL for logging the user out of Auth0. To get the URL, handle the `OnRedirectToIdentityProviderForSignOut` event when you register the OIDC authentication handler.
+ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You need to provide the OIDC middleware with the URL for logging the user out of Auth0. To set the URL, handle the `OnRedirectToIdentityProviderForSignOut` event when you register the OIDC authentication handler.
 
 When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API. The user is logged out of Auth0.
 
