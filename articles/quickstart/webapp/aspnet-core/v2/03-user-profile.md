@@ -18,7 +18,7 @@ budicon: 292
 
 ## Get the Profile
 
-The OIDC middleware extracts the user's information from the ID token and adds it as a claim to the `ClaimsIdentity`.
+The OIDC middleware extracts the user's information from the ID token and adds it as claims to the `ClaimsIdentity`.
 
 The seed project contains a controller action and view which display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
