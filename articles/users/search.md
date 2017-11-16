@@ -39,8 +39,8 @@ When running user searches:
   * Avoid dynamic property names
   * Avoid large schema sizes and deep structures
   * Avoid storing data you do not need for authentication and authorization purposes
-  
-Avoid:
+
+Please **avoid**:
 
 * Existence queries (for example, "give me all users with a property regardless of its value")
 * Full text search or partial searches
