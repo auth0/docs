@@ -161,7 +161,7 @@ Add the `Login` and `Logout` actions to `AccountController`.
 
 To add the `Login` action, call `ChallengeAsync` and pass "Auth0" as the authentication scheme. This will invoke the OIDC authentication handler you registered in the `ConfigureServices` method.
 
-After the OIDC middleware signs the user in, the user is also automatically signed in to the cookie middleware. This allows the user to be authenticated later. 
+After the OIDC middleware signs the user in, the user is also automatically signed in to the cookie middleware. This allows the user to be authenticated on subsequent requests. 
 
 For the `Logout` action, you need to sign the user out of both middlewares.
 
