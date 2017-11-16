@@ -107,7 +107,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Because you have integrated your application with the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism, you can check which role to assign to a user. Add the `[Authorize(Roles = ?)]` attribute to your controller action.
+You can use the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism to make sure that only the users with specific roles can access certain actions. Add the `[Authorize(Roles = ?)]` attribute to your controller action.
 
 The sample code below restricts the action only to users who have the `admin` role:
 
