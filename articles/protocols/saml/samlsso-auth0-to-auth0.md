@@ -145,7 +145,7 @@ Copy and save this URL. This is the URL on tenant 1 that will receive the SAML a
 
 In this section you will go back and add some information about the Service Provider (tenant 1) to the Identity Provider (tenant 2) so the Identity Provider Auth0 tenant knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 tenant.
 
-Switch back to **Tenant 2**.
+* Switch back to **Tenant 2**.
 
 **In the Auth0 dashboard:** for Tenant 2
 
