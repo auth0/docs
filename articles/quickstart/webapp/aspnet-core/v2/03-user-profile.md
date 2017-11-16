@@ -56,7 +56,7 @@ public IActionResult Profile()
 }
 ```
 
-The `User.Identity.Name` property looks for a claim of a type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID token. The user's name is not matched to this claim type, which means that `User.Identity.Name` will return null.
+The `User.Identity.Name` property looks for a claim of a type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID token, but this does not get automatically matched to the  `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` type. This means that `User.Identity.Name` will return null.
 
 You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID token when you access the name of the user with the `User.Identity.Name` property.
 
