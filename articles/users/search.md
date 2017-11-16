@@ -12,6 +12,7 @@ Auth0 provides multiple endpoints you can use to retrieve users. Each one offers
 Currently, Auth0 offers three different ways by which you can search for users:
 
 * [Users](#users)
+* [Users by ID](#users-by-id)
 * [Users by Email](#users-by-email)
 * [User Export](#user-export)
 
@@ -47,7 +48,6 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 	}]
 }
 ```
-
 
 **Sample Response**
 
@@ -94,10 +94,73 @@ This endpoint is **eventually consistent**, and as such, we recommend that you u
 
 We do **not** recommend that you use this endpoint for:
 
-* Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) for such actions
+* Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * User exports - please use the [User Export endpoint](#user-export) for such actions
-* Operations that require user search as part of the Authentication Pipeline - please use the [Users by Email endpoint](#users-by-email) for such actions
-* Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) for such actions
+* Operations that require user search as part of the Authentication Pipeline - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
+* Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
+
+## Users by ID
+
+The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
+
+*Required Scopes*: `read:users`
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/users/USER_ID",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+	}]
+}
+```
+
+**Sample Response**
+
+Successful calls to the endpoint returns a JSON object similar to the following:
+
+```json
+{
+  "email": "john.doe@gmail.com",
+  "email_verified": false,
+  "username": "johndoe",
+  "phone_number": "+199999999999999",
+  "phone_verified": false,
+  "user_id": "usr_5457edea1b8f33391a000004",
+  "created_at": "",
+  "updated_at": "",
+  "identities": [
+    {
+      "connection": "Initial-Connection",
+      "user_id": "5457edea1b8f22891a000004",
+      "provider": "auth0",
+      "isSocial": false
+    }
+  ],
+  "app_metadata": {},
+  "user_metadata": {},
+  "picture": "",
+  "name": "",
+  "nickname": "",
+  "multifactor": [
+    ""
+  ],
+  "last_ip": "",
+  "last_login": "",
+  "logins_count": 0,
+  "blocked": false,
+  "given_name": "",
+  "family_name": ""
+}
+```
+
+This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
+
+* User searches run during the authentication/authorization process 
+* User searches run as part of the account linking process.
+
+We do **not** recommend using the Users by ID endpoint for searches returning multiple users.
 
 ## Users by Email
 
@@ -160,10 +223,7 @@ The Users by Email endpoint is immediately consistent, and as such, we recommend
 * User searches run during the authentication/authorization process 
 * User searches run as part of the account linking process.
 
-We do **not** recommend using the Users by Email endpoint for:
-
-* Searches involving user attributes
-* Searches returning multiple users
+We do **not** recommend using the Users by Email endpoint for searches returning multiple users.
 
 ## User Export
 
@@ -292,7 +352,7 @@ When retrieving users in Auth0, there are three different API endpoints you can 
 | Back of the office processes, such as changing a user's display name | [Users](#users) |
 | Searches involving user attributes | [Users](#users) |
 | Searches returning multiple users | [Users](#users) |
-| Operations requiring immediate consistency | [Users by Email](#users-by-email) |
-| Actions requiring user search as part of the Authentication Pipeline | [Users by Email](#users-by-email) |
+| Operations requiring immediate consistency | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
+| Actions requiring user search as part of the Authentication Pipeline | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
 | Searching for users for account linking by email | [Users by Email](#users-by-email) |
 | User exports | [User Export](#user-export) |
