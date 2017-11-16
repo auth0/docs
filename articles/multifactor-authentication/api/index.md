@@ -5,19 +5,19 @@ toc: true
 ---
 # Enroll a New Authenticator for Use with Multifactor Authentication
 
-Introduction...
+In this tutorial, you'll learn how to enroll a new authenticator for use in multifactor authentication. Configuring Auth0 for such process requires the following steps:
 
-Doing this requires multiple steps:
-
-1. Obtain an access token
-2. Request authenticator enrollment
-3. Use the authenticator to confirm enrollment
+1. Obtaining an access token
+2. Requesting authenticator enrollment
+3. Using the authenticator to confirm enrollment
 
 ## Prerequisites
 
+Before you begin the process of enrolling authenticators, you'll need to have the following pieces of Auth0 configured:
+
 1. Configure Your Tenant
-1. Create and Configure Your API and Client
-1. Create Your Connection
+1. Register Your [API](https://auth0.com/docs/apis#how-to-configure-an-api-in-auth0)
+1. Create Your [Connection](/connections/database)
 
 ::: note
 For this article, we will be using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
@@ -73,9 +73,69 @@ Currently, you can use enroll two types of authenticators:
 
 ### Authenticators Utilizing One-Time Passwords
 
+To enroll an authenticator where the challenge type is a one-time password, make the following `POST` call to the `/mfa/associate` endpoint.
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/mfa/associate",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+	}],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"authenticator_types\": [\"otp\"] }"
+	}
+}
+```
+
+If successful, you'll receive a response similar to the following:
+
+```json
+{
+  "authenticator_type": "otp",
+  "secret": "EN...S",
+  "barcode_uri": "otpauth...period=30",
+  "recovery_codes": [ "N3B...XC"]
+}
+```
+
 ### Authenticators Utilizing SMS Messages
 
+To enroll an authenticator where the challenge type is an SMS message containing a code that the user is then required to provide, make the following `POST` call to the `/mfa/associate` endpoint.
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/mfa/associate",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+	}],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"sms\"], \"phone_number\": \"+11...9\" }"
+	}
+}
+```
+
+If successful, you'll receive a response similar to the following:
+
+```json
+{
+  "authenticator_type": "oob",
+  "oob_channel": "sms",
+  "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ],
+  "oob_code": "ata6daXAiOi..."
+}
+```
+
 ## Step 3: Use the Authenticator to Confirm Its Enrollment
+
+Once you've enrolled an authenticator, **you must use it at least once to confirm the enrollment.** 
+
+
 
 ## Manage the Authenticators
 
