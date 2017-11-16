@@ -28,7 +28,7 @@ Create a rule that assigns the following access roles to your user:
 * An admin role
 * A regular user role
 
-To aasign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule. 
+To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule. 
 
 Use the following code for your rule:
 
