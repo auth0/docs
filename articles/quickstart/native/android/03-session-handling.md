@@ -50,13 +50,38 @@ WebAuthProvider.init(auth0)
                 .start(LoginActivity.this, callback);
 ```
 
+## Check for Tokens when the Application Starts
+
+::: panel Learn about refresh tokens
+Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
+It is important that you remember the following:
+* Refresh tokens must be securely saved.
+* Even though refresh tokens cannot expire, they can be revoked.
+* New tokens will never have a different scope than the scope you requested during the first login.
+:::
+
+You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens.md) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
+
+
+Create a new instance of the Credentials Manager. The instance can be shared across activities or a new one can be created anytime needed as long as the Storage strategy persists the data in the same location. When you run the application you'd first check if there are any previous saved credentials, in order to skip the login screen:
+
+```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+  Auth0 auth0 = new Auth0(this);
+  auth0.setOIDCConformant(true);
+  SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
+
+  if (credentialsManager.hasValidCredentials()) {
+    // Try to make an automatic login
+  } else {
+    // Prompt Login screen.
+  }
+```
+
+
 ## Save the User's Credentials
 
-Save the user's credentials obtained in the login success response.
-
-::: warning
-Make sure you use a secure method.
-:::
+After a successful login response save the user's credentials on the Credentials Manager. Use the `saveCredentials` method.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -74,122 +99,48 @@ private final AuthCallback callback = new AuthCallback() {
 
     @Override
     public void onSuccess(@NonNull Credentials credentials) {
-        saveCredentials(credentials);
+        credentialsManager.saveCredentials(credentials);
         //...
     }
 };
 ```
 
 ::: note
-User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file. You can achieve this with the `CredentialsManager` class. For details, check the implementation in the project code. There are better and more secure ways to store tokens, but we will not cover them in this tutorial.
+The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). Change this behavior by implementing a custom Storage. 
 :::
 
-## Check for Tokens when the Application Starts
+## Recover the User's Credentials
 
-To save your users the effort of logging in every time they open your app, use their Access Tokens. You can check for the Access Token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
-
-
-```java
-// app/src/main/java/com/auth0/samples/LoginActivity.java
-
-String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
-if (accessToken == null) {
-  // Prompt Login screen.
-} else {
-  // Try to make an automatic login
-}
-```
-
-## Validate the Existing Token
-
-If the Access Token exists, the next step is to check if it is valid. 
-You can choose between two options: 
-* Save the time when the user receives a new pair of credentials. When you need to use the Access Token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
-* Call the Auth0 Authentication API and check the response.
-
-::: note 
-This tutorial shows you how to call the Auth0 Authentication API with the `/userinfo` endpoint.
-:::
-
-
-```java
-// app/src/main/java/com/auth0/samples/LoginActivity.java
-
-AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
-aClient.userInfo(accessToken)
-        .start(new BaseCallback<UserProfile, AuthenticationException>() {
-            @Override
-            public void onSuccess(final UserProfile payload) {
-                //Navigate to the next activity
-            }
-
-            @Override
-            public void onFailure(AuthenticationException error) {
-                //Delete current credentials and try again
-            }
-        });
-```
-
-You need to decide how to deal with an invalid token. Typically, you can choose between two options: 
-* Ask the user to re-enter their credentials.
-* Use a Refresh Token to get a new valid Access Token.
-
-::: note
-This tutorial shows how to use a Refresh Token. If you want users to re-enter their credentials, clear the stored data and prompt the login screen.
-:::
-
-## Refresh the User's Session
-
-::: panel Learn about Refresh Tokens
-Before you go further with this tutorial, read the [Refresh Token documentation](/refresh-token).
-It is important that you remember the following:
-* Refresh Tokens must be securely saved.
-* Even though Refresh Tokens cannot expire, they can be revoked. 
-* New tokens will never have a different scope than the scope you requested during the first login.
-:::
-
-Create an `AuthenticationAPIClient` instance:
+Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will raise if the credentials have expired and no valid Refresh Token was found.
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
-AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
+credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
+    @Override
+    public void onSuccess(Credentials credentials) {
+        // use credentials
+    }
+
+    @Override
+    public void onFailure(CredentialsManagerException error) {
+        // Credentials could not be refreshed. Log in again
+    }
+});
 ```
 
-Use the Refresh Token to get new credentials:
-
-```java
-// app/src/main/java/com/auth0/samples/MainActivity.java
-
-String refreshToken = CredentialsManager.getCredentials(this).getRefreshToken();
-aClient.renewAuth(refreshToken)
-      .start(new BaseCallback<Credentials, AuthenticationException>() {
-
-          @Override
-          public void onSuccess(Credentials payload) {
-            String accessToken = payload.getAccessToken(); // New Access Token
-            String idToken = payload.getIdToken(); // New ID Token
-            //Save the new values
-          }
-
-          @Override
-          public void onFailure(AuthenticationException error) {
-            //show error
-          }
-      });
-```
 
 ## Log the User Out
 
-To log the user out, you must remove their credentials and navigate them to the login screen.
+To log the user out, you remove their credentials and navigate them to the login screen. 
 
-For example, you can do the following:
+When using a Credentials Manager, you do that calling `clearCredentials`.
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
 private void logout() {
-  CredentialsManager.deleteCredentials(this);
+  credentialsManager.clearCredentials();
   startActivity(new Intent(this, LoginActivity.class));
   finish();
 }
@@ -198,9 +149,3 @@ private void logout() {
 ::: note
 Depending on the way you store users' credentials, you delete them differently. 
 :::
-
-## Optional: Encapsulate Session Handling
-
-You can simplify the way you handle user sessions by storing token-related information and processes in a class. The class separates the logic for handling user sessions from the activity. 
-
-We recommend that you download the sample project from this tutorial and look at its implementation. Focus on the `CredentialsManager` class, which manages session handling, obtains user credentials from the `SharedPreferences` file and saves them.
