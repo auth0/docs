@@ -199,7 +199,7 @@ ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You nee
 
 When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API. The user is logged out of Auth0.
 
-If you specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), it is passed to the `returnTo` parameter. 
+If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 In the `Startup.cs` file, update the call to `AddOpenIdConnect` with the following code:
 
