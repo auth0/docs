@@ -120,7 +120,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Obtain an Access Token for Calling an API
 
-If you want to call an API from your MVC application, you need to obtain an access token issued for the API you want to call. To obtain the token, to the Auth0 authorization endpoint, pass an additional `audience` parameter containing the API identifier.
+If you want to call an API from your MVC application, you need to obtain an access token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
 
 In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedirectToIdentityProvider` event and add the `audience` parameter to `ProtocolMessage`.
 
