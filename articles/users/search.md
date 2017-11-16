@@ -28,6 +28,22 @@ In this document, we use the terms **eventually consistent** and **immediately c
 
 * **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
 
+## General Principles
+
+When running user searches:
+
+* Use an immediately consistent endpoint during authentication pipeline
+* Try to use exact match searches (with the `raw` subfield) whenever possible
+* Avoid existence queries (for example, "give me all users with a property regardless of its value")
+* Avoid full text search or partial searches
+* Avoid polling the search APIs
+* Avoid using large metadata field (try to keep metadata fields to 2 KB or less)
+* Use a well-known schema for metadata:
+  * Use consistent data types for properties
+  * Avoid dynamic property names
+  * Avoid large schema sizes and deep structures
+  * Avoid storing data you do not need for authentication and authorization purposes
+
 ## Users
 
 The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows you to retrieve a list of users. Using this endpoint, you can:
