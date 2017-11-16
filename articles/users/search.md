@@ -97,7 +97,7 @@ We do **not** recommend that you use this endpoint for:
 * Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * User exports - please use the [User Export endpoint](#user-export) for such actions
 * Operations that require user search as part of the Authentication Pipeline - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
-* Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
+* Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) for such actions
 
 ## Users by ID
 
