@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * .NET Core 2.0
 * ASP.NET Core 2.0
 
-To complete this tutorial, you can use command line tools and any code editor. Alternatively, you can use Microsoft Visual Studio 2017 Update 3. For more details on how to use .NET Core on your platform, read the [.NET Core](https://www.microsoft.com/net/core) Microsoft documentation.
+To complete this tutorial, you can use command line tools and any code editor. Alternatively, you can use Microsoft Visual Studio 2017 Update 3. For more details on how to use .NET Core on your platform, read the [.NET Core](https://www.microsoft.com/net/core) documentation.
 :::
 
 This quickstart guide walks you through integrating Auth0 into your ASP.NET Core MVC application.
