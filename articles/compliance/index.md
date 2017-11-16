@@ -42,4 +42,4 @@ classes: topic-page
 
 <h2>Specifications</h2>
 
-<p>For information on compliance with technical specifications for authentication, please ses <a href="https://auth0.com/docs/protocols">Protocols</a>.</p>
+<p>For information on compliance with technical specifications for authentication, please see <a href="https://auth0.com/docs/protocols">Protocols</a>.</p>
