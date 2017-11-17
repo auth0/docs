@@ -86,7 +86,7 @@ For example:
 ```HTML
 {% if user.user_metadata.lang == 'en' %}
   [email body in English]
-{% elseif user.user_metadata.lang == 'de' %}
+{% elsif user.user_metadata.lang == 'de' %}
   [email body in German]
 {% endif %}
 ```
