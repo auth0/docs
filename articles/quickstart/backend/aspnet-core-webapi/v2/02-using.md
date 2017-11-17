@@ -20,14 +20,14 @@ The example below shows how to use a RAW request.
 
 ```text
 GET /api/ping/secure HTTP/1.1
-Host: localhost:5000
+Host: localhost:3010
 Authorization: Bearer <your access_token>
 ```
 
 The example below shows how to use RestSharp.
 
 ```csharp
-var client = new RestClient("http://localhost:5000/api/ping/secure");
+var client = new RestClient("http://localhost:3010/api/ping/secure");
 var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
