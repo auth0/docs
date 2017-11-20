@@ -25,8 +25,6 @@ You need an access token for your API to check if the request is authenticated.
 
 You can retrieve the token from an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. Read the [Login](/quickstart/native/ios-swift/00-login) article for instructions on how to get credentials.
 
-Depending on what you need, you can use any of the token strings inside the `Credentials` instance to make authenticated requests.
-
 ## Attach the Token
 
 This example shows how to use the `accessToken` value. 
