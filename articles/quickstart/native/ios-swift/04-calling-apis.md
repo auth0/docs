@@ -72,7 +72,7 @@ var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
 ```
 
-After you send a request and receive a response from your API, you can check the request status code in an alert view. 
+After you send a request and receive a response from your API, the request status code will be displayed in an alert view. 
 
 ::: note
 Read more about authentication API on the server-side in [the API documentation](/api/authentication).
