@@ -40,9 +40,6 @@ articles:
         url: /videos
         children:
 
-        - title: Developer Overview
-          url: /videos/developer-overview
-
         - title: Rules
           url: /videos/rules
 
