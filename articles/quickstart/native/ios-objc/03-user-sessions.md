@@ -143,7 +143,7 @@ Even though the refresh token cannot expire, it can be revoked. For more informa
 ### Store the refresh token
 
 ::: note 
-If you do not send `offline_access` as a scope during authentication, the refresh token can be `nil`.
+If you do not send `offline_access` as a scope during authentication, the refresh token will be `nil`.
 :::
 
 To get a new access token, you need to first save the refresh token after the user logs in. Go to the section where you're saving the access token and update it as follows: 
