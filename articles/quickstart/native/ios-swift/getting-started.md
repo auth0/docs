@@ -12,7 +12,7 @@ Each tutorial in this guide includes a link to a sample project showing the feat
 
 ## Dependencies
 
-Each tutorial uses the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit. It is a toolkit that lets you communicate with many of the basic [Auth0 API](/api/info) functions in a neat way.
+Each tutorial uses the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit. It is a toolkit that lets you efficiently communicate with many of the basic [Auth0 API](/api/info) functions.
 
 <%= include'../_includes/_create_client') %>
 
