@@ -17,7 +17,7 @@ budicon: 546
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-This tutorial shows you how to get a token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
+This tutorial shows you how to get an access token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
 
 ## Get the User's Credentials
 
