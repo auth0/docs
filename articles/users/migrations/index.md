@@ -45,7 +45,7 @@ description: Overview of importing users from external applications into Auth0.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/users/migrations/stormpatch">Migrate Users from Stormpath to Auth0</a>
+    <i class="icon icon-budicon-715"></i><a href="/users/migrations/stormpath">Migrate Users from Stormpath to Auth0</a>
     <p>
         Learn how to import users from Stormpath to Auth0.
     </p>
