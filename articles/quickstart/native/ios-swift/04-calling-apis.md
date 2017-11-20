@@ -21,7 +21,7 @@ This tutorial shows you how to get an access token, attach it to a request with 
 
 ## Get the User's Credentials
 
-You need a token for your API to check if the request is authenticated. 
+You need an access token for your API to check if the request is authenticated. 
 
 You can retrieve the token from an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. Read the [Login](/quickstart/native/ios-swift/00-login) article for instructions on how to get credentials.
 
