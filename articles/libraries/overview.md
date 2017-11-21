@@ -36,7 +36,13 @@ The Lock widget is a simple way to integrate Auth0 into existing projects and pr
 
 ## Auth0 SDKs
 
-These SDKs for Auth0 allow you to trigger the authentication process, parse JWTs, and authenticate requests to your APIs. There is no UI or login widget provided alongside the SDKs; they are for implementation alongside a custom UI. For a complete listing of supported SDKs, along with links to their GitHub repositories, take a look at the Auth0 [Support Matrix](/support/matrix#sdks). For more detailed documentation on our most popular SDKs, take a look below:
+These SDKs for Auth0 allow you to trigger the authentication process, parse JWTs, and authenticate requests to your APIs. There is no UI or login widget provided alongside the SDKs; they are for implementation alongside a custom UI. 
+
+::: note
+For a complete listing of supported SDKs, along with links to their GitHub repositories, take a look at the Auth0 [Support Matrix](/support/matrix#sdks).
+:::
+
+For more detailed documentation on our most popular SDKs, take a look below.
 
 <%= include('../_includes/_topic-links', { links: [
   'libraries/auth0js/v8',
