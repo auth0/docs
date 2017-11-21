@@ -111,6 +111,6 @@ For now we won't get into details about the next steps, but in case you want to 
 :::
 
 <%= include('./_stepnav', {
- next: ["Deployment Models", "/getting-started/deployment-models"],
+ next: ["Dashboard Overview", "/getting-started/dashboard-overview"],
  prev: ["Getting Started", "/getting-started"]
 }) %>
