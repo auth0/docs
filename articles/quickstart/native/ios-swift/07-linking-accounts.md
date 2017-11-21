@@ -55,23 +55,6 @@ Auth0
 
 ## Retrieve the Linked Accounts
 
-You can retrieve the linked accounts (user identities). To achieve this, fetch the user's profile as shown in the [User Sessions](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken) tutorial:
-
-```swift
-// SessionManager.swift
-
-Auth0
-    .authentication()
-    .userInfo(withAccessToken: accessToken)
-    .start { result in
-        switch(result) {
-        case .success(let profile):
-            // Store profile
-        case .failure(let error):
-            // Handle error
-        }
-```
-
 Once you have the `sub` value from the profile, you can retrieve user identities. Call the management API:
 
 ```swift
