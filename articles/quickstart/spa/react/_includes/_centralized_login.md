@@ -1,4 +1,4 @@
-<%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: '(https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
 ## Create an Authentication Service
 
