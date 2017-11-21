@@ -16,11 +16,13 @@ budicon: 448
   ]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
+
 ## Add your Auth0 Configuration Keys
 
 ${snippet(meta.snippets.dependencies)}
 
-## Add Your Auth0 Callback Handler
+## Add the Auth0 Callback Handler
 
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
@@ -110,15 +112,7 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
 }
 ```
 
-${include('../_callbackRegularWebApp')}
-
-Your callback URL should look something like:
-
-```text
-https://yourapp.com/callback
-```
-
-## Trigger login
+## Trigger Authentication
 
 In the `Application` controller add `login` action to log the user in.
 
