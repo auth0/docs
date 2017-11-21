@@ -29,10 +29,10 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
-            <th>Multi-Tenant</th>
-            <th>Dedicated</th>
-            <th>Cloud</th>
-            <th>On-Premises</th>
+            <th class="info">Multi-Tenant</th>
+            <th class="info">Dedicated</th>
+            <th class="info">Cloud</th>
+            <th class="info">On-Premises</th>
         </tr>
     </thead>
     <tbody>
@@ -89,10 +89,10 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
-            <th>Multi-Tenant</th>
-            <th>Dedicated</th>
-            <th>Cloud</th>
-            <th>On-Premises</th>
+            <th class="info">Multi-Tenant</th>
+            <th class="info">Dedicated</th>
+            <th class="info">Cloud</th>
+            <th class="info">On-Premises</th>
         </tr>
     </thead>
     <tbody>
