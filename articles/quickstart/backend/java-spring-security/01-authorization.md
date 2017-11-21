@@ -9,7 +9,7 @@ budicon: 500
   repo: 'auth0-spring-security-api-sample',
   path: '01-Authorization',
   requirements: [
-    'Java 7 or above',
+    'Java 8 or above',
     'Maven 3.0.x or above'
   ]
 }) %>
@@ -198,19 +198,19 @@ public class PhotosController {
 
 To build and run the seed project, use the command: `mvn spring-boot:run`.
 
-To test a non-secure endpoint, send a `GET` request to `http://localhost:3001/login`.
+To test a non-secure endpoint, send a `GET` request to `http://localhost:3010/login`.
 
 ```bash
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "http://localhost:3001/login"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "http://localhost:3010/login"
 ```
 
 You should get the message:
 `All good. You DO NOT need to be authenticated to call /login`.
 
-To test secure endpoints, send a `GET` request to `http://localhost:3001/photos`. In this case, you must add a valid access token as an `Authorization` header to your request.
+To test secure endpoints, send a `GET` request to `http://localhost:3010/photos`. In this case, you must add a valid access token as an `Authorization` header to your request.
 
 ```bash
-curl -X GET -H "Authorization: Bearer {YOUR_ACCESS_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3001/photos"
+curl -X GET -H "Authorization: Bearer {YOUR_ACCESS_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3010/photos"
 ```
 
 You should get the message: `All good. You can see this because you are Authenticated with a Token granted the 'read:photos' scope`.
