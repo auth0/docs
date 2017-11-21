@@ -9,9 +9,11 @@ The [dashboard](${manage_url}) is where you manage all aspects of your Auth0 acc
 
 ![Auth0 Dashboard Homepage](/media/articles/getting-started/auth0-dashboard.png)
 
-It consists of several sections which you can navigate using the sidebar menu on your left. 
+It consists of several sections which you can navigate using the sidebar menu on your left.
 
-The matrix that follows offers a brief overview of the different sections and what you can do on each.
+## Configure your implementation
+
+The matrix that follows offers a brief overview of the different dashboard screens and what you can do on each.
 
 <table class="table">
     <thead>
@@ -83,6 +85,24 @@ The matrix that follows offers a brief overview of the different sections and wh
         </tr>
     </tbody>
 </table>
+
+## Manage your account
+
+On the top right you can see your tenant's name and icon, and a little arrow. This arrow displays a drop-down menu that you can use to configure different aspects of your account:
+
+- **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous paragraph is per tenant (if I create a client for `tenant-A` I will not see it listed for `tenant-B`), so if you have more than one tenants you will find this option handy. 
+
+- **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/dashboard-tenant-settings).
+
+- **Invite Users to this tenant**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
+
+- **Create tenant**: Use this to [create a new tenant](/getting-started/the-basics#account-and-tenants).
+
+- **View profile**: Use this to view information about your [account profile](${manage_url}/#/profile).
+
+- **Subscription overview**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
+
+- **Logout**: Logout from your account.
 
 <%= include('./_stepnav', {
  next: ["Deployment Models", "/getting-started/deployment-models"],
