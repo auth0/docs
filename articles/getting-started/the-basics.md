@@ -99,7 +99,7 @@ For now we won't get into details about the next steps, but in case you want to 
 
 - **Hook it up to your app**: Assuming that your app has a login and a logout button, you have to add some code in order to invoke Auth0 APIs each time one of these buttons is clicked. For details you can refer to one of our [quickstarts](/quickstarts). Alternatively, you can call directly our API to [login](/api/authentication#login) or [logout](/api/authentication#logout) a user.
 
-- **Migrate your users to Auth0**: Assuming that you already have a user store, you have to migrate these users to Auth0 before your go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to a custom database](/database/custom-db) and access it via Auth0.
+- **Migrate your users to Auth0**: Assuming that you already have a user store, you have to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to a custom database](/database/custom-db) and access it via Auth0.
 
 ## Keep reading
 
