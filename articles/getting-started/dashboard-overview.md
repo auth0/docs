@@ -77,3 +77,8 @@ The [dashboard](${manage_url}) is where you manage all aspects of your Auth0 acc
         </tr>
     </tbody>
 </table>
+
+<%= include('./_stepnav', {
+ next: ["Deployment Models", "/getting-started/deployment-models"],
+ prev: ["Getting Started", "/getting-started"]
+}) %>
