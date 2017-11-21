@@ -16,15 +16,21 @@ budicon: 546
   ]
 }) %>
 
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's `id_token` by adding role information and then use that information inside your application to limit a user's access.
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
 
 ::: note
-This tutorial assumes that you are familiar with [Rules](/rules/current).
+To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
 :::
 
-### Create a Rule to assign roles
+## Create a Rule to Assign Roles
 
-First, we will create a rule that assigns our users either an `admin` role, or a `user` role based on the email domain. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then use the following code for your rule:
+Create a rule that assigns the following access roles to your user:
+* An admin role
+* A regular user role
+
+To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule. 
+
+Use the following code for your rule:
 
 ```js
 function (user, context, callback) {
@@ -47,17 +53,21 @@ function (user, context, callback) {
 }
 ```
 
-Update the code to check for your own email domain, or match the condition according to your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
-
-This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g `https://schemas.YOUR_TENANT_NAME.com`.
+Update the code to check for your own email domain, or match your custom condition.
 
 ::: note
-For more information on custom claims please see [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+You can define more roles other than `admin` and `user`, or customize the whole rule, depending on your product requirements.
 :::
 
-## Restrict an Action Based on a User's Roles
+This quickstart guide uses `https://schemas.quickstarts.com` for the claim namespace. We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
 
-Next you will need to configure the OIDC authentication handler registration inside your ASP.NET application to inform it which claim in the `id_token` contains the role information. Alter your OIDC authentication handler registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
+::: note
+For more information on custom claims, read [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+:::
+
+## Restrict Access Based on User Roles
+
+Configure the OIDC authentication handler registration inside your ASP.NET application to inform it which claim in the ID token contains the role information. Specify the `RoleClaimType` inside `TokenValidationParameters`. The value you specify must match the namespace you used in your rule.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -97,9 +107,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-At this point the you have integrated with the the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism of ASP.NET Core, which means that your can ensure that a user belongs to a particular role by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
+You can use the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism to make sure that only the users with specific roles can access certain actions. Add the `[Authorize(Roles = ?)]` attribute to your controller action.
 
-The sample code below will restrict the particular action only to users who have the "admin" role:
+The sample code below restricts the action only to users who have the `admin` role:
 
 ```csharp
 // Controllers/HomeController.cs
