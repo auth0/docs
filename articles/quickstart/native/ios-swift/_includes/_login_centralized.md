@@ -11,7 +11,7 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
 :::
 
-<%= include('../_ios_dependency_centralized') %>
+<%= include('../../_includes/_ios_dependency_centralized') %>
 
 ## Add the Callback
 
