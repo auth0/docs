@@ -1,9 +1,9 @@
 ---
-title: The Dashboard
+title: Dashboard Overview
 description: Learn the basics of the Auth0 Dashboard
 toc: true
 ---
-# The Dashboard
+# Dashboard Overview
 
 The [dashboard](${manage_url}) is where you manage all aspects of your Auth0 account and configuration. 
 
