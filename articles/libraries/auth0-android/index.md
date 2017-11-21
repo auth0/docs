@@ -7,7 +7,7 @@ url: /libraries/auth0-android
 
 # Auth0.Android
 
-Auth0.Android is a client-side library for [Auth0](http://auth0.com). Using it with your Android native app development should simplify your interactions with Auth0.
+Auth0.Android is a client-side library you can use with your Android app to authenticate users and access [Auth0 APIs](/api/info).
 
 ::: note
 Check out the [Auth0.Android repository](https://github.com/auth0/Auth0.Android) on GitHub.
@@ -41,7 +41,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## Initializing Auth0
+## Initialize Auth0
 
 You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
 
@@ -73,7 +73,7 @@ Auth0 account = new Auth0(context);
 
 ## OIDC Conformant Mode
 
-It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+It is strongly encouraged that this SDK be used in [OIDC Conformant mode](/api-auth/intro). When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
