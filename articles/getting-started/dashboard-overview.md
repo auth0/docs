@@ -5,7 +5,13 @@ toc: true
 ---
 # Dashboard Overview
 
-The [dashboard](${manage_url}) is where you manage all aspects of your Auth0 account and configuration. 
+The [dashboard](${manage_url}) is where you manage all aspects of your Auth0 account and configuration.
+
+![Auth0 Dashboard Homepage](/media/articles/getting-started/auth0-dashboard.png)
+
+It consists of several sections which you can navigate using the sidebar menu on your left. 
+
+The matrix that follows offers a brief overview of the different sections and what you can do on each.
 
 <table class="table">
     <thead>
