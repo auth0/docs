@@ -16,13 +16,15 @@ url: /libraries
 
 ## How Should You Implement Auth0?
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The Hosted Login Page uses the Lock Widget to allow your users to authenticate, by default, but also has templates for Lock Passwordless and for a custom UI built with the Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your auth needs. 
+When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The Hosted Login Page uses by default the Lock Widget to authenticate users, but you can also find templates for Lock Passwordless and for a custom UI built with the Auth0.js SDK. 
+
+You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your auth needs. 
 
 * [Lock](#lock-login-signup-widgets) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
 * [Auth0 SDKs](#auth0-sdks) are client-side libraries that *do not* come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
 * The [Authentication API](/api-auth) provides integration with Auth0 without requiring the use of Auth0 libraries.
 
-The best option to choose will depend on the needs of your app. If you require embedded authentication in your app, these same libraries are available to be embedded rather than used in the Hosted Login Page, as well. Check out the [When to Use Lock](/libraries/when-to-use-lock) page for more information to help you decide between using Lock or an SDK.
+The best option to choose will depend on the needs of your app. If you require embedded authentication in your app, these same libraries are available to be embedded rather than used in the Hosted Login Page, as well. Check out [When to Use Lock](/libraries/when-to-use-lock) for more information to help you decide between using Lock or an SDK.
 
 ## Lock - Login/Signup Widgets
 
