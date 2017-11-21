@@ -16,13 +16,13 @@ url: /libraries
 
 ## How Should You Implement Auth0?
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and prevents the dangers of cross-origin authentication. The Hosted Login Page uses the Lock Widget to allow your users to authenticate, by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your auth needs. 
+When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The Hosted Login Page uses the Lock Widget to allow your users to authenticate, by default, but also has templates for Lock Passwordless and for a custom UI built with the Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your auth needs. 
 
-- [Lock](#lock-login-signup-widgets) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. 
-- [Auth0 SDKs](#auth0-sdks) are client-side libraries that *do not* come with a user interface - you use your own. These allow for expanded customization of the behavior and appearance of the login process. 
-- The [Authentication API](/api-auth) provides integration without requiring the use of Auth0 libraries. 
+* [Lock](#lock-login-signup-widgets) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
+* [Auth0 SDKs](#auth0-sdks) are client-side libraries that *do not* come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
+* The [Authentication API](/api-auth) provides integration with Auth0 without requiring the use of Auth0 libraries.
 
-The best option to choose will depend on the needs of your app. Check out the [When to Use Lock](/libraries/when-to-use-lock) page for more information to help you decide.
+The best option to choose will depend on the needs of your app. If you require embedded authentication in your app, these same libraries are available to be embedded rather than used in the Hosted Login Page, as well. Check out the [When to Use Lock](/libraries/when-to-use-lock) page for more information to help you decide between using Lock or an SDK.
 
 ## Lock - Login/Signup Widgets
 
@@ -36,13 +36,9 @@ The Lock widget is a simple way to integrate Auth0 into existing projects and pr
 
 ## Auth0 SDKs
 
-These SDKs for Auth0 allow you to trigger the authentication process, parse JWTs, and authenticate requests to your APIs. There is no UI or login widget provided alongside the SDKs; they are for implementation alongside a custom UI. 
+Auth0 SDKs include no UI. Instead, you will use one of these SDKs alongside your custom UI.
 
-::: note
-For a complete listing of supported SDKs, along with links to their GitHub repositories, take a look at the Auth0 [Support Matrix](/support/matrix#sdks).
-:::
-
-For more detailed documentation on our most popular SDKs, take a look below.
+Our most popular SDKs are listed below. For a complete list (including GitHub repo links) see [Auth0 Product Support Matrix > SDKs](/support/matrix#sdks).
 
 <%= include('../_includes/_topic-links', { links: [
   'libraries/auth0js/v8',
