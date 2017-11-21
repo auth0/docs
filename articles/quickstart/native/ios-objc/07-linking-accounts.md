@@ -55,22 +55,6 @@ NSString *otherUserToken = ... // the idToken from the account you want to link 
 
 ## Retrieve the Linked Accounts
 
-You can retrieve the linked accounts (user identities). To achieve this, fetch the user's profile as shown in the [User Sessions](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken) tutorial:
-
-```objc
-// HomeViewController.m
-
-// Retrieve profile
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
-    if (error) {
-        // accessToken has expired or no longer valid
-    } else {
-        // The accessToken is still valid and you have the user's profile
-        // This would be a good time to store the profile
-    }
-}];
-```
-
 Once you have the `id` value from the `profile.sub`, you can retrieve user identities. Call the management API:
 
 ```objc
