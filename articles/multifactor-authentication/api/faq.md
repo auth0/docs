@@ -31,5 +31,3 @@ The following is a list of frequently-asked questions about multifactor authenti
 
 
 ## If I'm using Guardian, what happens if I delete one of the authenticators?
-
-
