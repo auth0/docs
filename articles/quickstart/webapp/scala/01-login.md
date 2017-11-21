@@ -18,10 +18,6 @@ budicon: 448
 
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
-## Add your Auth0 Configuration Keys
-
-${snippet(meta.snippets.dependencies)}
-
 ## Add the Auth0 Callback Handler
 
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
