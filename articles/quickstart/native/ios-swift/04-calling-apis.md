@@ -19,6 +19,10 @@ Auth0 provides a set of tools for protecting your resources with end-to-end auth
 
 This tutorial shows you how to get an access token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
 
+::: note
+Read more about authentication API on the server-side in [the API documentation](/api/authentication).
+:::
+
 ## Get the User's Credentials
 
 You need an access token for your API to check if the request is authenticated. 
@@ -71,7 +75,3 @@ var request = URLRequest(url: url)
 ```
 
 After you send a request and receive a response from your API, the request status code will be displayed in an alert view. 
-
-::: note
-Read more about authentication API on the server-side in [the API documentation](/api/authentication).
-:::
