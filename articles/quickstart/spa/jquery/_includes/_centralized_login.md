@@ -29,7 +29,7 @@ $('document').ready(function() {
 ```
 
 ::: note
-**Checkpoint:** Add a button with the `btn-login` class to your app. This will call the `authorize` method from auth0.js, so you can see the login page.
+**Checkpoint:** Add a button with the `btn-login` ID to your app. This will call the `authorize` method from auth0.js, so you can see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
