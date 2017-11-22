@@ -52,7 +52,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 ### Expose the Users dashboard to a group of users without allowing them access to the dashboard
 - [Delegated Administration](/extensions/delegated-admin)
 
-### Deploy rules and database connections scripts from external repositories
+### Deploy hosted pages, rules, and database connections scripts from external repositories
 - [GitHub Deployments Extension](/extensions/github-deploy)
 - [Bitbucket Deployments Extension](/extensions/bitbucket-deploy)
 - [GitLab Deployments Extension](/extensions/gitlab-deploy)

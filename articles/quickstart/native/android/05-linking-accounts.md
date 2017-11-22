@@ -5,7 +5,7 @@ seo_alias: android
 budicon: 345
 ---
 
-This tutorial will show you how to link two different accounts for the same user using Auth0.
+This tutorial shows you how to link two different accounts for the same user using Auth0.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -18,22 +18,20 @@ This tutorial will show you how to link two different accounts for the same user
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
-You should be familiar with previous tutorials. This tutorial assumes that:
+Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
+* You have integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project. 
+* You are familiar with the `WebAuthProvider` class. To learn more, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorials.
+* You are familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and the [User Profile](/quickstart/native/android/04-user-profile) tutorial.
 
-* You've integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project and you're familiar with the `WebAuthProvider` class. For further information, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial first.
-* You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and [User Profile](/quickstart/native/android/04-user-profile) tutorials.
-
-::: note
-It is highly recommended that you take a look at the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
-:::
+We recommend that you read the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
 
 ## Enter Account Credentials
 
-Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
+Your users may want to link their other accounts to the account they are logged in to. 
 
-To do this, we will use the Auth0 library as we did in the [Login](/quickstart/native/android/00-login) tutorial. In this case, we will send as an extra a boolean value to indicate that this is a secondary login, along with the `userId` obtained from the first login.
+To achieve this, you need to store the user id for the logged user in the Intent so they can be accessed in other activities.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -43,7 +41,7 @@ intent.putExtra(Constants.PRIMARY_USER_ID, profile.getId());
 startActivity(intent);
 ```
 
-In the `LoginActivity` we obtain those values:
+Obtain the stored values in `LoginActivity`:
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -52,7 +50,7 @@ boolean linkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNT
 String userId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
 ```
 
-Then, in the login response we decide if we advance to the `MainActivity` as usual or return to the already instantiated one:
+In the login response, based on the boolean flag set in the first step, decide if you need to show the `MainActivity` screen, or continue to link the accounts. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -69,9 +67,11 @@ public void onAuthentication(Credentials credentials) {
 }
 ```
 
-## Link an Account
+## Link the Accounts
 
-Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token` for the two accounts: the one we had previously saved and the one that we just received in the login response.
+Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID tokens for the two accounts: 
+* The saved account the user initially logged in to
+* The second account received in the last login response
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -93,9 +93,9 @@ private void performLink(String secondaryIdToken) {
           });
 ```
 
-## Retrieve Linked Accounts
+## Retrieve the Linked Accounts
 
-The `AuthenticationAPIClient#userInfo` response doesn't include the identities array, but still you need to use it to obtain the user `id`. Then, by calling the `UsersAPIClient#getProfile` method you can obtain a user's full profile, which includes the linked accounts as an array of `UserIdentities`.
+To obtain the user's full profile, use the user's ID to call the `getProfile` method in the `UsersAPIClient` class. The profile includes the linked accounts as the `UserIdentities` array. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -115,12 +115,17 @@ usersClient.getProfile(userInfo.getId())
 ```
 
 ::: note
-For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
+For more information, check the [UserIdentity.java class documentation](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java).
 :::
 
-### Unlink An Account
+### Unlink the Accounts
 
-The unlink process is similar to the linking one, the only difference being that you need to specify both the two `user id``s and the `provider name` to unlink the connections. Additionally, the token used to instantiate the `UsersAPIClient` must be the `id_token` of the main identity.
+To unlink the accounts, you need to specify the following: 
+* user ID for the main account
+* user ID for the linked acocunt
+* the provider name
+
+To instantiate the `UsersAPIClient` client, use the ID token for the main account.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

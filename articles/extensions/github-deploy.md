@@ -18,7 +18,10 @@ Set the following configuration variables:
 - **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
 - **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
 - **GITHUB_TOKEN**: Your GitHub personal access token. Follow the instructions at [Creating an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
+- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ host name, no value is required when using github.com (optional).
+- **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used in order to receive Slack notifications for successful and failed deployments (optional).
+
 
 Once you have provided this information, click **Install**.
 
@@ -106,7 +109,7 @@ For example, if you create the file `rules/set-country.js`, then the extension w
 If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
 :::
 
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the GitHub Integration page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule, navigate to the **Rules Configuration** tab of the GitHub Integration page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 
 ![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 

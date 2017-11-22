@@ -43,7 +43,7 @@ export class AuthService {
 ```
 
 ::: note
- **Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+ **Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page. For example, you can trigger the method from a button click or a lifecycle event.
  :::
  
  ![hosted login](/media/articles/web/hosted-login.png)
@@ -168,7 +168,7 @@ This example assumes you are using the default Angular path-based routing. If yo
 Create a component named `CallbackComponent` and add a loading indicator.
 
 ::: note
-To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
+To display a loading indicator, you need a loading spinner or another indicator in the `assets` directory. See the downloadable sample for demonstration. 
 :::
 
 ```html

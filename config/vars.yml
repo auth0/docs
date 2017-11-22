@@ -1,5 +1,5 @@
-lock_url: 'https://cdn.auth0.com/js/lock/10.19/lock.min.js'
+lock_url: 'https://cdn.auth0.com/js/lock/10.20/lock.min.js'
 lock_passwordless_url: 'https://cdn.auth0.com/js/lock-passwordless-2.2.min.js'
 auth0js_url: 'https://cdn.auth0.com/w2/auth0-7.6.1.min.js'
-auth0js_urlv8: 'https://cdn.auth0.com/js/auth0/8.8/auth0.min.js'
+auth0js_urlv8: 'https://cdn.auth0.com/js/auth0/8.10.1/auth0.min.js'
 auth0_community: 'https://community.auth0.com/'

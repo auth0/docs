@@ -184,7 +184,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `app.js` file processes the hash. 
 
-Call the `handleAuthentication` method in the `app.js` file. The method processess the authentication hash while your app loads. 
+Call the `handleAuthentication` method in the `app.js` file. The method processes the authentication hash while your app loads. 
 
 ```js
 // app.js

@@ -5,7 +5,7 @@ description: Datadog SAML Configuration
 
 ${include('./\_header')}
 
-```
+```json
 {
   "audience": "https://app.datadoghq.com/account/saml/metadata.xml",
    "mappings": {

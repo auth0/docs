@@ -10,8 +10,24 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 The example above uses a simple naming convention to distinguish each environment, you can name your multiple environments anyway you prefer. No need to use this naming convention, though it is the one recommended.
 
 ::: note
-You can request a [child account](/dev-lifecycle/child-tenants) for use in a development/staging/testing environment. Note that free accounts do not include a child account.
+You can request a [child account](/dev-lifecycle/child-tenants) that is identical to your Production account for use in a development/staging/testing environment. This includes paid/upgraded features, as well as individual configuration options, such as Rules. Note that free accounts do not include a child account.
 :::
+
+## Set the Environment
+
+For each new tenant created, you should specify its environment. You can assign environment tags to your tenants to differentiate between development, staging, and production environments.
+
+To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant and click the gear icon to bring up the **Settings** section.
+
+![Support Center Tenants](/media/articles/clients/support-tenants.png)
+
+Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either `Development`, `Staging`, or `Production`.
+
+If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to `Production`.
+
+After selecting the environment, click on **Save Changes**.
+
+![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
 
 ## Migration
 

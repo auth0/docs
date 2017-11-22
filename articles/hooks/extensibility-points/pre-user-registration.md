@@ -1,22 +1,25 @@
 ---
+title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
+toc: true
 beta: true
 ---
 
 # Extensibility Point: Pre-User Registration
 
-For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to:
+For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
 
-* Add custom `app_metadata` or `user_metadata` to a newly-created user.
+This allows you to implement scenarios such as setting conditional [metadata](/metadata) on users that do not exist yet.
 
-This allows you to implement scenarios including (but not limited to):
+## How to Implement This
 
-* Enforcing a custom password policy;
-* Preventing signups for those who meet certain requirements;
-* Setting conditional `app_metadata` or `user_metadata` on users that do not yet exist;
-* Preventing (blacklisting) the use of personal email domains.
+You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
 
 ## Starter Code and Parameters
+
+After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
 
 ```js
 /**
@@ -52,6 +55,10 @@ module.exports = function (user, context, cb) {
 };
 ```
 
+The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
+
+#### Response
+
 The default response object every time the Hook runs is as follows:
 
 ```json
@@ -65,12 +72,47 @@ The default response object every time the Hook runs is as follows:
 
 If you specify `app_metadata` and `user_metadata` in the response object, Auth0 adds this information to the new user.
 
-Metadata property names must not:
+::: note
+Metadata property names must not start with the `$` character or contain the `.` character.
+:::
 
-* Start with the `$` character;
-* Contain the `.` character.
+### Testing Your Hook
 
-### Example: Add Metadata to New Users
+::: note
+Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+:::
+
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+
+```json
+{
+  "user": {
+    "tenant": "my-tenant",
+    "username": "user1",
+    "password": "xxxxxxx",
+    "email": "user1@foo.com",
+    "emailVerified": false,
+    "phoneNumber": "1-000-000-0000",
+    "phoneNumberVerified": false,
+    "user_metadata": {
+      "hobby": "surfing"
+    },
+    "app_metadata": {
+      "plan": "full"
+    }
+  },
+  "context": {
+    "requestLanguage": "en-us",
+    "connection": {
+      "id": "con_xxxxxxxxxxxxxxxx",
+      "name": "Username-Password-Authentication",
+      "tenant": "my-tenant"
+    }
+  }
+}
+```
+
+## Example: Add Metadata to New Users
 
 ```js
 module.exports = function (user, context, cb) {
@@ -101,37 +143,6 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 }
 ```
 
-### Allow Signups for Users with Whitelisted Email Domains
-
-```js
-module.exports = function (user, context, cb) {
-  
-  // Whitelisted domains
-  const whitelist = [
-    'example1.com', 
-    'example2.com'
-  ]; 
-
-  const userHasAccess = whitelist.some(domain => {
-    const emailSplit = user.email.split('@');
-    return emailSplit[emailSplit.length - 1].toLowerCase() === domain;
-  });
-
-  if (!userHasAccess) {  
-    return cb('You may not sign up with an email address using your current domain.');
-  }
-
-  const response = { user };
-  return cb(null, response);
-};
-```
-
-Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
-
-```json
-{
-  "message": "Email domain not allowed.",
-  "statusCode": 500,
-  "stack": "Error: Email domain not allowed.\n    at respondWithError (/data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:11:17)\n    at buildResponse (/data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:96:24)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:31:20\n    at module.exports.cb (/data/io/3713487827af469cb0b4d89ea2aed8aa/webtask.js:32:12)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:30:16\n    at Object.is_authorized (/data/sandbox/node_modules/auth0-ext-compilers/lib/authorization.js:13:81)\n    at userRegistrationHandler (/data/sandbox/node_modules/auth0-ext-compilers/lib/compilers/user-registration.js:9:18)\n    at /data/sandbox/node_modules/auth0-ext-compilers/lib/adapter.js:90:20\n    at finish (/data/sandbox/node_modules/auth0-ext-compilers/node_modules/wreck/lib/index.js:369:16)\n    at wrapped (/data/sandbox/node_modules/auth0-ext-compilers/node_modules/wreck/node_modules/hoek/lib/index.js:871:20)"
-}
-```
+::: note
+The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
+:::

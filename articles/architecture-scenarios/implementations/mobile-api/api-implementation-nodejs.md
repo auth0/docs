@@ -9,7 +9,7 @@ toc: true
 This document is part of the [Mobile + API Architecture Scenario](/architecture-scenarios/application/mobile-api) and it explains how to implement the API in Node.js. Please refer to the scenario for information on the implemented solution.
 
 ::: note
-The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
+The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node).
 :::
 
 ## 1. Define the API endpoints
@@ -139,7 +139,7 @@ app.use(jwt({
   }),
 
   // Validate the audience and the issuer
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '{YOUR_API_IDENTIFIER}', //replace with your API's audience, available at Dashboard > APIs
   issuer: 'https://${account.namespace}/',
   algorithms: [ 'RS256' ]
 }));
@@ -213,7 +213,7 @@ You can give the rule a descriptive name, for example `Add email to access token
 
 ```js
 function (user, context, callback) {
-  const namespace = 'https://api.abcinc.com/';
+  const namespace = 'https://api.exampleco.com/';
   context.accessToken[namespace + 'email'] = user.email;
   callback(null, user, context);
 }
@@ -232,7 +232,7 @@ app.get('/timesheets', checkJwt, jwtAuthz(['read:timesheets']), function(req, re
   var timesheet = req.body;
 
   // Associate the timesheet entry with the current user
-  var userId = req.user['https://api.abcinc.com/email'];
+  var userId = req.user['https://api.exampleco.com/email'];
   timesheet.user_id = userId;
 
   // Save the timesheet to the database...

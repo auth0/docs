@@ -1,0 +1,9 @@
+added:
+  -
+    title: "User Search"
+    tags:
+      - users
+      - search
+      - user-export
+    description: |
+      A new document on [User Search]](https://auth0.com/docs/users/search) was added covering best practices for using the Users, Users by Email, and User Export API endpoints.

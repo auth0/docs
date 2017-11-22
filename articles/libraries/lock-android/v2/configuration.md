@@ -1,10 +1,9 @@
 ---
 section: libraries
-toc_title: Lock for Android Configuration Options
+title: Lock for Android v2 Configuration
 description: Altering the appearance and behavior of Lock for Android
 ---
-
-# Lock Configuration Options
+# Lock Android: Configuration
 
 These are options that can be used to configure Lock for Android to your project's needs. **Note that if you are a user of Lock v1 who is now migrating to Lock v2**, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.
 
@@ -51,7 +50,7 @@ Configurations options are added to the Lock Builder using the following format:
 
 ## OAuth options
 
-- **withAuthStyle(String, int)**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections) for more information.
+- **withAuthStyle(String, int)**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/v2/custom-theming#custom-oauth-connection-buttons) for more information.
 - **withAuthHandlers(AuthHandler...)**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers) for more information.
 - **withAuthButtonSize(int)**: Allows to customize the Style of the Auth buttons. Possible values are `SMALL` and `BIG`. If this is not specified, it will default to `SMALL` when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use `BIG`.
 - **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the [Auth0 Dashboard](${manage_url}). The scopes are not validated in any way and need to be recognized by the given authentication provider. For a list, check in the [Auth0 Dashboard](${manage_url}) under the settings for the connection in question.
@@ -61,3 +60,4 @@ Configurations options are added to the Lock Builder using the following format:
 
 - **useCode()**: Send a code instead of a link via email/SMS for Passwordless authentication.
 - **useLink()**: Send a link instead of a code via email/SMS for Passwordless authentication.
+- **rememberLastLogin(boolean)**: Whether the email or phone used in the last successful authentication will be saved to auto-login the next time a Passwordless authentication is requested.

@@ -13,9 +13,6 @@ The following properties are available for the `context` object:
 * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
 * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
 * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
-* `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
-  - `lifetimeInSeconds`: expiration of the token.
-  - `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
 * `protocol`: the authentication protocol. Possible values:
   - `oidc-basic-profile`: most used, web based login
   - `oidc-implicit-profile`: used on mobile devices and single page apps
@@ -62,7 +59,6 @@ The following properties are available for the `context` object:
   connection: 'Username-Password-Authentication',
   connectionStrategy: 'auth0',
   samlConfiguration: {},
-  jwtConfiguration: {},
   protocol: 'oidc-basic-profile',
   stats: { loginsCount: 111 },
   sso: { with_auth0: false, with_dbconn: false, current_clients: [] },

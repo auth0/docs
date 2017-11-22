@@ -24,7 +24,7 @@ The full contents of the authentication hash retrieved by the Auth0 strategy are
 
 ## Retrieve the Auth Hash
 
-In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for Auth0.js to start the **OmniAuth** strategy and for **OmniAuth** to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
+In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for **OmniAuth** to start the **OmniAuth-Auth0** strategy and for **OmniAuth** to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
 
 ```ruby
 get "/auth/oauth2/callback" => "auth0#callback"
@@ -33,9 +33,13 @@ get "/auth/oauth2/callback" => "auth0#callback"
 The `callback` action in the `auth0` controller retrieves the auth hash and stores it in the application's session hash. It then redirects to the dashboard controller `show` action, which renders the dashboard view.
 
 ```ruby
-session[:userinfo] = request.env['omniauth.auth']
+# app/controllers/auth0_controller
 
-redirect_to '/dashboard'
+def callback
+  session[:userinfo] = request.env['omniauth.auth']
+
+  redirect_to '/dashboard'
+end
 ```
 
 ## Display the User Profile Data
@@ -46,7 +50,8 @@ The auth hash also contains the full user profile under the `raw` key. The diffe
 
 Add a template which displays the user's profile data.
 
-```ruby
+```html
+<!-- app/views/dashboard/show.html.erb -->
 <section class="jumbotron  text-center">
   <h2><img class="jumbo-thumbnail img-circle" src="${ '<%= @user[:info][:image] %>' }"/></h2>
   <h1>Welcome, ${ '<%= @user[:info][:name] %>' }</h1>
@@ -70,6 +75,8 @@ Add a template which displays the user's profile data.
 Additionally, declare and assign the contents to the `user` variable in the dashboard controller:
 
 ```ruby
+# app/controller/dashboard_controller
+
 class DashboardController < ApplicationController
   include Secured
   def show

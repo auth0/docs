@@ -4,7 +4,7 @@
 
 ```http
 POST https://${account.namespace}/users/{user_id}/impersonate
-Content-Type:   'application/json'
+Content-Type:   application/json
 Authorization:  'Bearer {ACCESS_TOKEN}'
 {
   protocol: "PROTOCOL",

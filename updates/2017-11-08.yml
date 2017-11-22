@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Rate Limiting in the PSaaS Appliance"
+    tags:
+      - rate-limits
+      - psaas-appliance
+    description: |
+      A new document on how to [work with rate limits in the PSaaS Appliance](https://auth0.com/docs/appliance/admin/rate-limiting) was added.

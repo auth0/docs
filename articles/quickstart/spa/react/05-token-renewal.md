@@ -52,7 +52,7 @@ Define a timing mechanism for renewing the token.
 You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call.
 :::
 
-In the `Auth` service, add a property called `tokenRenewalTimeout` which refer to the `setTimeout` call. 
+In the `Auth` service, add a property called `tokenRenewalTimeout` which refers to the `setTimeout` call. 
 
 Add a method called `scheduleRenewal` to set up the time when the authentication is silently renewed. The method subtracts the current time from the access token's expiry time and calculates delay. The `setTimeout` call uses the calculated delay and makes a call to `renewToken`.
 

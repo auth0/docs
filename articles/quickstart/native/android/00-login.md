@@ -5,7 +5,7 @@ seo_alias: android
 budicon: 448
 ---
 
-This tutorial will show you how to integrate the Auth0 Login in your Android project in order to present the login box.
+This tutorial shows you how to integrate Auth0 in your Android project and present the login box.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -21,7 +21,3 @@ This tutorial will show you how to integrate the Auth0 Login in your Android pro
 <%= include('_includes/_auth0') %>
 
 <%= include('_includes/_login') %>
-
-::: note
-Please see [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) for information on choosing between the two types of login flows.
-:::

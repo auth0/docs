@@ -70,11 +70,11 @@ Don't forget to include [falcor.browser](https://github.com/Netflix/falcor#retri
 
 ### Configuring CORS
 
-If you want to configure CORS, add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3000`):
+If you want to configure CORS, add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3010`):
 
 ```js
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3010");
   res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", "true");
   next();

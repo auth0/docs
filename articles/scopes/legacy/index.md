@@ -56,7 +56,7 @@ The attributes included in the issued token can be controlled with the `scope` p
 
 * `scope=openid`: will only return `iss`, `sub`, `aud`, `exp` and `iat` claims.
 * `scope=openid email nickname favorite_food`: will return claims for `openid` in addition to the `email`, `nickname` and `favorite_food` fields if they are available.
-* `scope=openid profile`: will return all the user attributes in the token.
+* `scope=openid profile`: will return all the user attributes in the token. Beware when you use this option because if you have too many user attributes the `id_token` will increase in size and might break the URL limits for some browsers.
 
 ::: note
 The `scope` parameter can be used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).

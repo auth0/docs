@@ -4,7 +4,7 @@
 
 ```http
 POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "connection": "CONNECTION",

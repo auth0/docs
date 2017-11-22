@@ -1,13 +1,13 @@
 ---
 title: The State Parameter
-description: Explains how to use the state parameter in authentication requests to help prevent XSRF attacks.
+description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks.
 ---
 
 # The State Parameter
 
-The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters), used to help mitigate [XSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters), used to help mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-A XSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
+A CSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
 
 For the most basic cases the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
 
@@ -58,6 +58,15 @@ if(decodedString == auth0-authorize) {
 	// Request Denied
 }
 ```
+
+### Getting the `state` value in a rule
+
+If you need to access the `state` value within a rule you must take in consideration that, depending on the type of connection used, it might come either in the body of the request or in the query string. Keeping that in mind, it can be accessed using the following:
+
+```js
+var state = context.request.query.state || context.request.body.state;
+```
+
 ## Keep reading
 
 ::: next-steps

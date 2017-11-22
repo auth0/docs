@@ -1,6 +1,7 @@
 ---
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata.
+description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
 crews: crew-2
+toc: true
 ---
 # Metadata
 
@@ -13,13 +14,22 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 :::
 
-## How to Read, Create or Edit Metadata
+## How to Read, Create, or Edit Metadata
 
-You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
+There are two ways by which you can manage your user metadata:
 
-::: warning
-Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
-:::
+1. [Rules](/rules/metadata-in-rules)
+2. [Auth0 APIs](/metadata/apis)
+
+### Rules
+
+[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). You can therefore read, create, or update user metadata and have such changes affect the results of the authorization process.
+
+### Auth0 APIs
+
+When using the [Authentication API](/api/authentication), you can set the `user_metadata` field of a newly-created user for a Database Connection with the [Signup](/api/authentication?shell#signup) endpoint. 
+
+The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
 
 ## Metadata Usage
 
@@ -53,7 +63,11 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
-### Naming Metadata Fields
+### Rules on Naming Metadata Fields
+
+The following sections cover best practices when setting the names of your metadata fields.
+
+#### Avoid Periods and Ellipses
 
 Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
@@ -83,7 +97,47 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
 }
 ```
 
+#### Avoid Dynamic Field Names
+
+Do not use dynamic field names. For example, instead of using the following structure:
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+Use this:
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
+```
+
+## Searching Metadata
+
+Beginning 1 September 2017, new tenants cannot search any of the  `app_metadata` fields. Tenants associated with paid subscriptions that were created on/before 31 August 2017 can search the `app_metadata` fields.
+
+When searching `user_metadata`, you can only search for profile-related information, such as `name`, `nickname`, `given_name`, or `family_name`.
+
 ## Metadata Restrictions
+
+There are some restrictions when using metadata of which you should be aware:
+
+### Field Restrictions
 
 The following fields may not be stored in the `app_metadata` field:
 
@@ -103,16 +157,16 @@ The following fields may not be stored in the `app_metadata` field:
 
 ### Metadata Size Limits
 
-Currently, Auth0 limits the total size of your user metadata to 16 MB. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
+Currently, Auth0 limits the total size of your user metadata to **16 MB**. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
-When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
+When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup), your metadata is limited to a maximum of 10 fields and 500 characters.
 
 ## Using Lock to Manage Metadata
 
-Users of the [Lock](/libraries/lock) widget are able to add new items to `user_metadata` as well as read `user_metadata` after authentication occurs.
+Users of the [Lock](/libraries/lock) widget are able to add new items to `user_metadata`, as well as read `user_metadata` after authentication.
 
-* For information on adding `user_metadata` on signup, see the section in the Lock documentation on [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
-* When using Lock, you can read the user's `user_metadata` properties the same way you would for any other user profile property. This example retrieves the value associated with `user_metadata.hobby` and assigns it to an element on the page:
+* For information on adding `user_metadata` on signup, please see [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
+* When using Lock, you can read the user's `user_metadata` properties the same way you would for any other user profile property. For example, the following code snippet retrieves the value associated with `user_metadata.hobby` and assigns it to an element on the page:
 
 ```js
 // Use the accessToken acquired upon authentication to call getUserInfo

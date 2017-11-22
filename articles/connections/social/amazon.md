@@ -8,13 +8,12 @@ alias:
 seo_alias: amazon
 index: 9
 description: How to obtain a Client Id and Client Secret for Amazon.
+toc: true
 ---
 
 # Connect your app to Amazon
 
 To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ### 1. Add a new Application
 Log into [Login with Amazon](http://login.amazon.com) and select **App Console**.
@@ -38,7 +37,7 @@ https://${account.namespace}/
 and the callback address for your app should be:
 
 ```text
-https://${account.namespace}/callback
+https://${account.namespace}/login/callback
 ```
 
 ### 4. Copy your *Client Id* and *Client Secret*

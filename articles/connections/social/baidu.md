@@ -4,13 +4,12 @@ connection: Baidu
 image: /media/connections/baidu.png
 seo_alias: baidu
 description: How to obtain an API Key and Secret Key for Baidu.
+toc: true
 ---
 
 # Connect your app to Baidu
 
 To configure a Baidu OAuth2 connection, you will need to register your Auth0 tenant on their [integration portal](https://developer.baidu.com/dev).
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Log into the integration portal and register a new App:
 

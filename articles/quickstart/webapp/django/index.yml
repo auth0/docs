@@ -1,0 +1,12 @@
+title: Django
+image: /media/platforms/python.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/django/dependencies
+  setup: server-platforms/django/setup
+  use: server-platforms/django/use
+seo_alias: django
+default_article: 01-login
+articles:
+  - 01-login

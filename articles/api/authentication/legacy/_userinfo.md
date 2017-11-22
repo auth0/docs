@@ -6,7 +6,7 @@
 
 ```http
 POST https://${account.namespace}/tokeninfo
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "id_token": "ID_TOKEN"
 }

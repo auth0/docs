@@ -5,7 +5,10 @@ seo_alias: android
 budicon: 546
 ---
 
-This tutorial demonstrates how to use a previously saved token to authenticate your API calls.
+You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
+
+This tutorial shows you how to access protected resources in your API.
+
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -18,26 +21,71 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
-You should already know how to handle the `Credentials` object, as explained in the [Session Management](/quickstart/native/android/03-session-handling) tutorial.
+Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
+* You have completed the [Session Handling](/quickstart/native/android/03-session-handling) tutorial and you know how to handle the `Credentials` object.
+* You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/quickstart/backend).
 
-This sample assumes that you have already setup a backend application as API. If you haven't done so, you can follow any backend quickstart defined [here](https://auth0.com/docs/quickstart/backend). Then obtain the endpoint in which you're expecting the user to be first authenticated and declare it as a constant in the current class.
+
+<%= include('../_includes/_calling_api_create_api') %>
+
+<%= include('../_includes/_calling_api_create_scope') %>__
+
+
+## Get the User's Access Token
+
+To retrieve an access token that is authorized to access your API, you need to specify the API Identifier you created in the Auth0 dashboard before. At the top of the class add the constants for accessing the API: API_URL and API_IDENTIFIER
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
-
 private static final String API_URL = "localhost:8080/secure";
+private static final String API_IDENTIFIER = "https://api.mysite.com";
+
+private void login() {
+    Auth0 auth0 = new Auth0(this);
+    auth0.setOIDCConformant(true);
+    WebAuthProvider.init(auth0)
+                  .withScheme("demo")
+                  .withAudience(API_IDENTIFIER)
+                  .start(LoginActivity.this, new AuthCallback() {
+                      @Override
+                      public void onFailure(@NonNull Dialog dialog) {
+                        // Show error Dialog to user
+                      }
+
+                      @Override
+                      public void onFailure(AuthenticationException exception) {
+                        // Show error to user
+                      }
+
+                      @Override
+                      public void onSuccess(@NonNull Credentials credentials) {
+                          // Store credentials
+                          // Navigate to your main activity
+                      }
+                });
+}
 ```
 
-## Get a Token
-
-Your first step is to get an `access_token`. Use the basic [Login](/quickstart/native/android/00-login) tutorial if you need some guidance.
-
+::: note
+For instructions on how to authenticate a user, see the [Login](/quickstart/native/android/00-login) tutorial.
+:::
 
 ## Attach the Token
 
-To prepare the request in this example we use the [OkHttp](https://github.com/square/okhttp) library. Create the `OkHttpClient` instance and a new `Request`. We use the provided builder to customize the request Http method, URL and headers. Here we set the **Authorization Header** with the token type and the `access_token` that identifies the logged-in user.
+To give the authenticated user access to secured resources in your API, include the user's access token in the requests you send to the API.
+
+::: note
+In this example, we use the [OkHttp](https://github.com/square/okhttp) library.
+:::
+
+Create an instance of the `OkHttpClient` client and a new `Request`. Use the provided builder to customize the Http method, the URL and the headers in the request. Set the **Authorization** header with the token type and the user's access token.
+
+::: note
+Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
+:::
+
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -50,13 +98,9 @@ Request request = new Request.Builder()
     .build();
 ```
 
-::: note
-Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
-:::
-
 ## Send the Request
 
-Finally we tell the client to create a new `Call` with the given request, and then invoke `enqueue` to execute the request asynchronously.
+Tell the client to create a new `Call` with the request you created. Call the `enqueue` function to execute the request asynchronously.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -78,4 +122,4 @@ client.newCall(request).enqueue(new Callback() {
 });
 ```
 
-From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application. As in this example we're using the Auth0's issued `access_token`, you can use this same token to call Auth0 API's.
+You need to configure your backend application to protect your API endpoints with the key for your Auth0 client, API identifier and API scopes. In this example, you can use the user's access token issued by Auth0 to call your own APIs.

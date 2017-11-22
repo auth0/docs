@@ -8,6 +8,10 @@ toc: true
 
 The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
+::: warning
+Υou __must__ [verify the ID token's signature](#verify-the-signature) before storing and using it.
+:::
+
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
 
 The `id_token` is consumed by the client and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
@@ -38,15 +42,16 @@ Most JWT libraries will take care of the token validation for you automatically,
 
 ### Verify the signature
 
-Verifying the signature of an `id_token` depends on the hash algorithm used by your Client:
+The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 
-- If you used `HS256` then the token is signed with the **Client Secret**, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page.
+Remember that the `id_token` is always a JWT, and the signature is created using its header and payload, a secret and the hashing algorithm being used (as specified in the header: `HMAC`, `SHA256` or `RSA`). The way to verify it, depends on the hashing algorithm:
 
-- If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates page.
-
-To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
+- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
+- For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 The most secure practice, and our recommendation, is to use `RS256`.
+
+To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
 
 ### Validate the Claims
 
@@ -131,10 +136,10 @@ When performing the initial authorization flow, you can ask for a `refresh_token
 
 This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
-If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `renewAuth()` method.
+If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
 
 ```js
-auth0.renewAuth({
+auth0.checkSession({
   audience: 'https://mystore.com/api/v2',
   scope: 'read:order write:order',
   redirectUri: 'https://example.com/auth/silent-callback',
@@ -154,11 +159,8 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 
 ## Keep Reading
 
+::: next-steps
 * [Overview of JSON Web Tokens](/jwt)
-* [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
 * [Debugger for viewing JSON Web Tokens](http://jwt.io/)
-* [Vulnerabilities in use of JWT’s by libraries](https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/)
-* [Cookies vs Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
-* [Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
-* [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)
+:::

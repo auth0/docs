@@ -1,1 +1,2 @@
-At some point, your APIs may need to allow limited access to users, servers, or servers on behalf of users. This tutorial demonstrates how to use the OAuth 2.0 authorization features of Auth0 to give your applications (or third-party applications) limited access to your APIs on behalf of users. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
+This tutorial shows you how to use the authorization features in the OAuth 2.0 framework to limit access to your or third-party applications. 
+For more information, read the [API authorization](/api-auth) documentation.

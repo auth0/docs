@@ -9,17 +9,17 @@
   icon: "icon-budicon-499"
   color: "orange"
   description: "Learn the basics of using Auth0."
-  url: "/topics/getting-started"
+  url: "/getting-started"
   articles:
 
-    - title: "Overview"
-      url: "/overview"
+    - title: Auth0 Overview
+      url: /getting-started/overview
 
-    - title: Developer Videos
-      url: /videos
+    - title: The Basics
+      url: /getting-started/the-basics
 
-    - title: Architecture Scenarios
-      url: /architecture-scenarios
+    - title: Dashboard Overview
+      url: /getting-started/dashboard-overview
 
 - id: "ui-components"
   title: "UI Components"
@@ -64,14 +64,15 @@
   url: "/topics/guides"
   articles:
 
+    - title: "Architecture Scenarios"
+      url: /architecture-scenarios
+      
     - title: "Tokens"
       url: "/tokens"
 
     - title: "JWT"
       url: "/jwt"
 
-    - title: "Import and Migrate"
-      url: "/connections/database/migrating"
 
 - id: "apis"
   title: "APIs"

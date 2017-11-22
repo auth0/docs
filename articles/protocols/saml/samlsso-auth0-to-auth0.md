@@ -83,7 +83,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 
 In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for single sign on via the SAML protocol.
 
-Log out of **Tenant 2** and log into **Tenant 1**.
+Switch to **Tenant 1**. You can do this using the **Switch tenant** option in the upper-right menu.
 
 **In the Auth0 dashboard:**
 
@@ -137,7 +137,7 @@ Once you go to that metadata URL, it will display the metadata for the Auth0 ten
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.namespace}.auth0.com/login/callback?connection=YOUR_CONNECTION_NAME__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
 Copy and save this URL. This is the URL on tenant 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
@@ -145,7 +145,7 @@ Copy and save this URL. This is the URL on tenant 1 that will receive the SAML a
 
 In this section you will go back and add some information about the Service Provider (tenant 1) to the Identity Provider (tenant 2) so the Identity Provider Auth0 tenant knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 tenant.
 
-* Log out of **Tenant 1** and log back into **Tenant 2**.
+* Switch back to **Tenant 2**.
 
 **In the Auth0 dashboard:** for Tenant 2
 
@@ -212,7 +212,7 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * In the **"Allowed Callback URLs"** field, enter **[http://jwt.io](http://jwt.io)**.
 
-* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JASON Web Token returned at the end of the authentication sequence.
+* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JSON Web Token returned at the end of the authentication sequence.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
@@ -285,7 +285,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 Make sure you replace `YOUR-APP-CLIENT-ID` with the actual value of the app you registered in step 7 above.  
 
-The client ID for your client can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Clients"link and clicking on the "Settings" (gear) icon to the right of your client's name.
+The client ID for your client can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Clients" link and clicking on the "Settings" (gear) icon to the right of your client's name.
 
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.

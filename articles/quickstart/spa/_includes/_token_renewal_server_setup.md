@@ -8,7 +8,7 @@ The example below uses Node.js and Express.
 
 Create a simple server with Express and add a file called `silent.html`.
 
-The `silent.html` file receives and parses the result of a token renewal. An instance of the `WebAuth` object from auth0.js is created. The `parseHash` method returns an object from the hash with the authentication result. The object is then posted back to the parent window and the client-side session sets again. 
+The `silent.html` file receives and parses the result of a token renewal. An instance of the `WebAuth` object from auth0.js is created. The `parseHash` method returns an object from the hash with the authentication result. The object is then posted back to the parent window and the client-side session starts again. 
 
 ```js
 // server.js

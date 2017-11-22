@@ -7,7 +7,11 @@ url: /libraries/auth0-android
 
 # Auth0.Android
 
-Auth0.Android is a client-side library for [Auth0](http://auth0.com). Using it with your Android native app development should simplify your interactions with Auth0.
+Auth0.Android is a client-side library you can use with your Android app to authenticate users and access [Auth0 APIs](/api/info).
+
+::: note
+Check out the [Auth0.Android repository](https://github.com/auth0/Auth0.Android) on GitHub.
+:::
 
 ## Requirements
 
@@ -37,7 +41,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## Initializing Auth0
+## Initialize Auth0
 
 You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
 
@@ -69,7 +73,7 @@ Auth0 account = new Auth0(context);
 
 ## OIDC Conformant Mode
 
-It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+It is strongly encouraged that this SDK be used in [OIDC Conformant mode](/api-auth/intro). When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
@@ -277,6 +281,10 @@ AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 To ensure an Open ID Connect compliant response you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 ### Login with database connection
+
+::: panel-warning Database authentication on Native Platforms
+Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use the [Hosted Login Page](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
+:::
 
 Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
 

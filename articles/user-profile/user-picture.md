@@ -10,9 +10,46 @@ Auth0 [normalizes](/user-profile/normalized) common profile properties in the Us
 
 ## Change a User's Picture
 
-At this stage this attribute is not directly editable, however you can use the `user_metadata` picture attribute in your front-end as desired. To persist a different picture in the user's profile, you can set the URL to a new photo in the user object as `user.user_metadata.picture`. This will override the default picture and will be available in your app as `user.picture`. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
+The `user.picture` attribute is not directly editable. As an alternative, you can use the [User Metadata](/metadata) to store a picture attribute which you can then use in your application as desired. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
 
-For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`.
+For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`:
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/users/USER_ID",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"user_metadata\": {\"picture\": \"https://example.com/some-image.png\"}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+If you want to ensure that the picture from the `user_metadata` is returned in the `id_token`, you will need to create a [Rule](/rules) which will check whether the `user.user_metadata.picture` attribute is present, and if so replace the `user.picture` attribute with that value. This will ensure that the picture from the `user_metadata` is returned in the `picture` claim of the `id_token`.
+
+Here is an example of the code you can use in your Rule:
+
+```js
+function (user, context, callback) {
+  if (user.user_metadata.picture)
+    user.picture = user.user_metadata.picture;
+  
+  callback(null, user, context);
+}
+```
 
 ## Change the default picture for all users
 

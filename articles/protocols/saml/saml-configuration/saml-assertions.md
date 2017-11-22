@@ -97,4 +97,4 @@ The following is a list of customization options for your SAML assertions.
 
 * **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
 
-* **includeAttributeNameFormat**: Default is true. When set to try, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to false, the attribute NameFormat is not set in the assertion
+* **includeAttributeNameFormat**: Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion

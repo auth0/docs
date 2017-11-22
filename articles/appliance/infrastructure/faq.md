@@ -15,7 +15,7 @@ While proxies are currently unsupported, please speak to your Auth0 Customer Suc
 No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals.
 
 ### Can I install a monitoring agent in the PSaaS Appliance?
-No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals. The PSaaS Appliance [exposes monitoring information](/appliance/monitoring) in the Dashboard for common metrics (CPU/memory/etc) or through the API, which can be used by your operations team and monitoring tools to determine how the PSaaS Appliance is performing. The PSaaS Appliance also includes a New Relic agent for monitoring purposes.
+No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals. The PSaaS Appliance [exposes monitoring information](/appliance/monitoring) in the Dashboard for common metrics (CPU/memory/etc) or through the API, which can be used by your operations team and monitoring tools to determine how the PSaaS Appliance is performing.
 
 [Testall](/appliance/monitoring/testall) is an unauthenticated endpoint that can be used by load balancers. There are also additional authenticated endpoints that provide detailed information.
 

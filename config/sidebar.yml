@@ -7,17 +7,38 @@
 articles:
 
   - title: Getting Started
-    url: "/overview"
+    url: "/getting-started"
     children:
-      - title: Overview
-        url: /overview
+      - title: Auth0 Overview
+        url: /getting-started/overview
+      
+      - title: The Basics
+        url: /getting-started/the-basics
+      
+      - title: Dashboard Overview
+        url: /getting-started/dashboard-overview
 
-      - title: Developer Videos
+      - title: Deployment Models
+        url: /getting-started/deployment-models
+      
+      # - title: The Implementation Process
+      #   url: /getting-started/the-implementation-process
+      
+      # - title: Hello World
+      #   url: /getting-started/hello-world
+
+      # - title: The Authentication Flow
+      #   url: /getting-started/the-authentication-flow
+        
+      # - title: FAQ
+      #   url: /getting-started/faq
+      
+      # - title: What's Next?
+      #   url: /getting-started/whats-next
+
+      - title: Videos
         url: /videos
         children:
-
-        - title: Developer Overview
-          url: /videos/developer-overview
 
         - title: Rules
           url: /videos/rules
@@ -25,36 +46,36 @@ articles:
         - title: Session & Cookies
           url: /videos/session-and-cookies
 
-      - title: Architecture Scenarios
-        url: /architecture-scenarios
+  - title: Architecture Scenarios
+    url: /architecture-scenarios
 
-        children:
-          - title: SSO for Regular Web Apps
-            url: /architecture-scenarios/application/web-app-sso
-          
-          - title: Server Client + API
-            url: /architecture-scenarios/application/server-api
+    children:
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/application/web-app-sso
 
-          - title: SPA + API
-            url: /architecture-scenarios/application/spa-api
+      - title: Server Client + API
+        url: /architecture-scenarios/application/server-api
 
-          - title: Mobile + API
-            url: /architecture-scenarios/application/mobile-api
+      - title: SPA + API
+        url: /architecture-scenarios/application/spa-api
 
-          # - title: SAML for Regular Web Apps
-          #   url: /architecture-scenarios/application/web-saml
+      - title: Mobile + API
+        url: /architecture-scenarios/application/mobile-api
 
-          # - title: B2B + B2E
-          #   url: /architecture-scenarios/business/b2b-b2e
+      # - title: SAML for Regular Web Apps
+      #   url: /architecture-scenarios/application/web-saml
 
-          # - title: B2B
-          #   url: /architecture-scenarios/business/b2b
+      # - title: B2B + B2E
+      #   url: /architecture-scenarios/business/b2b-b2e
 
-          # - title: B2C
-          #   url: /architecture-scenarios/business/b2c
-          
-          # - title: B2E
-          #   url: /architecture-scenarios/business/b2e 
+      # - title: B2B
+      #   url: /architecture-scenarios/business/b2b
+
+      # - title: B2C
+      #   url: /architecture-scenarios/business/b2c
+
+      # - title: B2E
+      #   url: /architecture-scenarios/business/b2e 
 
   - title: "Clients"
     url: "/clients"
@@ -250,7 +271,7 @@ articles:
         url: "/connections/database/password-strength"
 
   - title: "User Management"
-    url: "/user-profile"
+    url: "/users"
     children:
       - title: "User Profile"
         url: "/user-profile"
@@ -262,10 +283,14 @@ articles:
             url: "/user-profile/user-profile-details"
 
           - title: "Normalized User Profile"
-            url: "/user-profile/normalized"
+            url: "/user-profile/normalized/auth0"
 
           - title: "Picture"
             url: "/user-profile/user-picture"
+
+      - title: "User Search"
+        url: "/users/search"
+
       - title: "User Metadata"
         url: "/metadata"
 
@@ -283,6 +308,27 @@ articles:
 
       - title: "Data Storage"
         url: "/user-profile/user-data-storage"
+
+      - title: "User Migration"
+        url: "/users/migrations"
+        children:
+          - title: "Automatic Migration"
+            url: "/users/migrations/automatic"
+
+          - title: "Bulk Migration"
+            url: "/users/migrations/bulk-import"
+
+          - title: "User Import/Export Extension"
+            url: "/extensions/user-import-export"
+
+          - title: "Gigya"
+            url: "/users/migrations/gigya"
+
+          - title: "Okta"
+            url: "/users/migrations/okta"
+
+          - title: "Stormpath"
+            url: "/users/migrations/stormpath"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -401,9 +447,6 @@ articles:
       - title: "Performance and Scalability"
         url: "/services/performance-scalability"
 
-      - title: "Geo High Availability"
-        url: "/services/geo-ha"
-
       - title: "Scenario guidance"
         url: "/services/scenario-guidance"
 
@@ -421,9 +464,6 @@ articles:
 
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
-
-      - title: "Private SaaS Introduction"
-        url: "/services/private-saas-introduction"
 
       - title: "Private SaaS Management Workshop"
         url: "/services/private-saas-management"
@@ -487,7 +527,7 @@ libraries:
         url: "/libraries/lock/v10"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/customization"
+        url: "/libraries/lock/v10/configuration"
 
       - title: "API Reference"
         url: "/libraries/lock/v10/api"
@@ -495,7 +535,7 @@ libraries:
       - title: "UI Customization"
         url: "/libraries/lock/v10/ui-customization"
 
-      - title: "v10 Migration Guide"
+      - title: "Migration Guide"
         url: "/libraries/lock/v10/migration-guide"
 
       - title: "Internationalization"
@@ -507,8 +547,8 @@ libraries:
       - title: "Lock with auth0.js"
         url: "/libraries/lock/v10/auth0js"
 
-      - title: "Popup Mode"
-        url: "/libraries/lock/v10/popup-mode"
+      - title: "Authentication Modes"
+        url: "/libraries/lock/v10/authentication-modes"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios/v2"
@@ -529,11 +569,11 @@ libraries:
       - title: "Internationalization"
         url: "/libraries/lock-ios/v2/internationalization"
 
-      - title: "Version 2 Migration Guide"
-        url: "/libraries/lock-ios/v2/migration"
+      - title: "Passwordless"
+        url: "/libraries/lock-ios/v2/passwordless"
 
-      - title: "Version 1 Documentation"
-        url: "/libraries/lock-ios/v1"
+      - title: "Migration Guide"
+        url: "/libraries/lock-ios/v2/migration"
 
   - title: "Lock for Android"
     url: "/libraries/lock-android/v2"
@@ -584,9 +624,26 @@ libraries:
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-swift"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
+
+      - title: "TouchID"
+        url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-android"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-android/save-and-refresh-tokens"
 
 appliance:
 
@@ -669,8 +726,20 @@ appliance:
 
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
+        children:
+          - title: Troubleshoot
+            url: /appliance/dashboard/troubleshoot
+        
       - title: Monitoring Tools
         url: /appliance/monitoring
+        children:
+          - title: Instrumentation
+            url: /appliance/instrumentation
+          - title: Testall endpoint
+            url: /appliance/monitoring/testall
+          - title: Authenticated testing endpoints
+            url: /appliance/monitoring/authenticated-endpoints
+        
       - title: Command-Line Interface Tools
         url: /appliance/cli
       - title: Automatic Tenant Creation
