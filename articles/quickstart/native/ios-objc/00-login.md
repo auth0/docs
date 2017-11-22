@@ -15,4 +15,4 @@ budicon: 448
   ]
 }) %>
 
-<%= include('_includes/_login_centralized') %>
+<%= include('../_includes/_login_centralized') %>
