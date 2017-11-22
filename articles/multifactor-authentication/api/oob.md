@@ -4,48 +4,11 @@ description: How to associate an OOB authenticator
 ---
 # Associate an OOB Authenticator
 
-Introduction
+In this tutorial, we will show you how you can configure your Auth0 tenant to allow the self-association of out-of-band (OOB) authenticators.
 
-## Step 1. Obtain an Access Token to Associate the New Authenticator
+## Step 1. Trigger the MFA Error and Use the MFA Token to Associate the New Authenticator
 
-To obtain an [access token](/tokens/access-token) to associate your new authenticator, you'll need to make the appropriate `POST` call to the [`/oauth/token` endpoint](/api/authentication#resource-owner-password). 
-
-More specifically, you'll need to provide values for the following parameters:
-
-| Parameter | Value |
-| - | - |
-| Client ID | The ID of your Auth0 [client](/clients) |
-| Realm | [Realms](/api-auth/grant/password#realm-support) allow you to specify a specific user director to use with the token endpoint. Specify the realms you'd like to use (in Auth0, these are typically [connections](/identityproviders)) |
-| Grant Type | The authorization flow you're using |
-| Audience | The unique identifier of the target API you want to access. For MFA, use `https://${account.namespace}/mfa` |
-| Scope | The scopes you're requesting. Include `enroll`, `read:authenticators`, and `remove:authenticators` |
-| Username | The resource owner's identifier |
-| Password | The resource owner's password |
-
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/oauth/token",
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"J0...pl\", \"realm\": \"Username-Password-Authentication\", \"grant_type\": \"http://auth0.com/oauth/grant-type/password-realm\", \"audience\": \"https://${account.namespace}/mfa/\", \"scope\": \"enroll read:authenticators remove:authenticators\", \"username\": \"a...@auth0.com\", \"password\": \"YOUR_PASSWORD\" }"
-	}
-}
-```
-
-If you haven't already [enabled MFA using the Dashboard](${manage_url}/#/guardian), your response, which includes your standard access token, will look like this:
-
-```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "access_token":"ey...Ww",
-  "token_type":"Bearer",
-  "expires_in":86400
-}
-```
-
-However, if you've enabled MFA and are therefore attempting to request an access token where MFA is required, you'll receive the following response from the `/oauth/token` endpoint:
+Whenever a user begins the authorization process and they do not have an active authenticator associated with their account, they will trigger the following MFA response when calling the `/oauth/token` endpoint:
 
 ```json
 {
@@ -55,13 +18,13 @@ However, if you've enabled MFA and are therefore attempting to request an access
 }
 ```
 
-You can use the MFA token instead of the standard access token to request association of a new authenticator.
+You will use the MFA token instead of the standard access token to request association of a new authenticator.
 
-## Step 2: Use the Access Token to Request Association of the Authenticator
+## Step 2: Use the MFA Token to Request Association of the Authenticator
 
-Now that you have the appropriate access token, you can send the appropriate `POST` request to the `/mfa/associate` endpoint to request Association of your authenticator.
+Now that you have the appropriate MFA token, you can send the appropriate `POST` request to the `/mfa/associate` endpoint to request Association of your authenticator.
 
-To associate an authenticator where the challenge type is an SMS message containing a code that the user is then required to provide, make the following `POST` call to the `/mfa/associate` endpoint.
+To associate an authenticator where the challenge type is an SMS message containing a code that the user is then required to provide, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
@@ -97,7 +60,7 @@ If this is the first time you're associating an authenticator, you'll notice tha
 
 Once you've associated an authenticator, **you must use it at least once to confirm the association**. You can check to see if an authenticator has been confirmed by calling the [`mfa/authenticators` endpoint](/multifactor-authentication/api/manage#list-authenticators). If confirmed, the value of `active` is `true`.
 
-To confirm the association of an authenticator using SMS messages for the MFA challenge, you'll make a `POST` call to the `oauth/token` endpoint.
+To confirm the association of an authenticator using SMS messages for the MFA challenge, you'll make a `POST` call to the `oauth/token` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
@@ -121,4 +84,4 @@ If your call was successful, you'll receive a response similar to the following:
 }
 ```
 
-At this point, your authenticator is ready to be used.
+At this point, your authenticator is fully associated and ready to be used.
