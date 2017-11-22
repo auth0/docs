@@ -10,7 +10,7 @@ budicon: 292
   path: '02-User-Profile',
   requirements: [
     'NodeJS 4.3 or higher',
-    'Express 4.11'
+    'Express 4.16'
   ]
 }) %>
 
