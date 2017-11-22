@@ -114,3 +114,7 @@ module.exports = function (user, context, cb) {
   cb();
 };
 ```
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/extensibility-points"]
+}) %>

@@ -44,6 +44,6 @@ Auth0 automatically enables the first Hook you create for an extensibility point
 
 ![Delete Hook Confirmation](/media/articles/hooks/delete-hook.png)
 
-<%= include('../_stepnav', {
- prev: ["Go back", "/hooks/dashboard/create-delete"]
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/dashboard"]
 }) %>

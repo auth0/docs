@@ -17,3 +17,7 @@ You can use the Auth0 CLI to gather information about your Hooks:
   `auth0 ls -p auth0-default`
 * To access logs containing real-time data on your Hooks:
   `auth0 logs -p auth0-default`
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/cli"]
+}) %>
