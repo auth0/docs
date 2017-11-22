@@ -19,7 +19,7 @@ You may want to restrict access to your API resources, so that only authenticate
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-This tutorial shows you how to get an Access Token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
+In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with. 
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have completed the [Session Handling](/quickstart/native/ios-swift/03-user-sessions) tutorial and you know how to handle the `Credentials` object.
