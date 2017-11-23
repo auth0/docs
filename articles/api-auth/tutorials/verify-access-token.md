@@ -83,7 +83,7 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 ::: panel Where can I find my public key?
 Go to [Dashboard > Clients](${manage_url}/#/clients). Open the **Settings** of your client, scroll down and open **Advanced Settings**. Open the **Certificates** tab and you will find the Public Key in the **Signing Certificate** field.
 
-Your application can retrieve the Public Key from your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+If you want to verify the signature of a token from one of your applications, we recommend getting it by parsing your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
 If the verification fails you will get a `invalid signature` error.
