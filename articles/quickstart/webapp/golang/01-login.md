@@ -244,6 +244,8 @@ To log the user out, you have to clear the data from the session, and redirect t
 Create a file called `logout.go` in the folder `/routes/logout/logout.go`, and add the function `LogoutHandler` to redirect the user to Auth0's logout endpoint.
 
 ```go
+
+// /routes/logout/logout.go
 package logout
 
 import (
