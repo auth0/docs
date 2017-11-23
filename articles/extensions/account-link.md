@@ -56,7 +56,7 @@ This feature is available in version 2.0 and up.
 
 You can customize your account linking hosted page and widget using the extension administration panel. 
 
-Go to ** Dashboard > Extensions > Installed Extensions > Auth0 Account Link**.
+Go to **Dashboard > Extensions > Installed Extensions > Auth0 Account Link**.
 
 ![Dashboard > Extensions > Installed Extensions](/media/articles/extensions/account-link/installed-extensions.png)
 
