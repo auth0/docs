@@ -50,20 +50,24 @@ At installation, or any time after by clicking the **Settings** icon for the Acc
 
 ## Administration Panel
 
-:::note
+::: warning
 This feature is available in version 2.0 and up.
 :::
 
-Want even more customization? You can customize your account linking hosted page and widget using the extension administration panel. Go to your management dashboard and then go to `Extensions > Installed Extensions > Auth0 Account Link`.
+You can customize your account linking hosted page and widget using the extension administration panel. 
+
+Go to ** Dashboard > Extensions > Installed Extensions > Auth0 Account Link**.
 
 ![Dashboard > Extensions > Installed Extensions](/media/articles/extensions/account-link/installed-extensions.png)
 
-You will be redirected to the admin site. Where you can edit the HTML code of your hosted page and change some settings of the account linking widget such as title, logo, color and language.
+You will be redirected to the admin site. 
+
+There you can edit the HTML code of your hosted page and change some settings of the account linking widget such as title, logo, color and language.
 
 ![HTML Editor](/media/articles/extensions/account-link/html-editor.png)
 
-::: panel-warning Be careful with the tags
-Please, do not remove `{{ ExtensionCSS }}`, `{{ CustomCSS }}`, `{{ Auth0Widget }}` or `{{ ExtensionScripts }}` from the HTML code of the site. This will cause the extension to not display the account linking widget.
+::: warning
+Do not remove `{{ ExtensionCSS }}`, `{{ CustomCSS }}`, `{{ Auth0Widget }}`, or `{{ ExtensionScripts }}` from the HTML code of the site. This will cause the extension to not display the account linking widget.
 :::
 
 ![Widget Settings](/media/articles/extensions/account-link/widget-settings.png)
