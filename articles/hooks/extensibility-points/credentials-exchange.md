@@ -160,3 +160,7 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
   "https://example.com/foo": "bar"
 }
 ```
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/extensibility-points"]
+}) %>
