@@ -219,7 +219,7 @@ We recommend that you download the sample project from this tutorial and look at
 
 To get the user profile, you need a valid access token. 
 
-From the `Auth0` module, call a method that allows you to get the user profile:
+From the `Auth0` module, call the `userInfo` method that allows you to get the user profile:
 
 ```objc
 // HomeViewController.m
