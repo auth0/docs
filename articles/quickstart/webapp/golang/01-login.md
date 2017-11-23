@@ -22,7 +22,7 @@ Install the following dependencies using `go get`
 ${snippet(meta.snippets.dependencies)}
 
 ::: note
-This example uses `mux` for routing but you can use whichever router you want.
+This example uses `mux` for routing but you can use whichever router you want. 
 :::
 
 ## Add the Auth0 Callback Handler
