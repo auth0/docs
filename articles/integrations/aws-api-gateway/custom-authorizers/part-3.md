@@ -110,7 +110,7 @@ The IAM role has the required permissions to call Lambda functions; before we ca
 
     ```json
     {
-    "Version": "2017-08-07",
+    "Version": "2012-10-17",
     "Statement": [
         {
         "Effect": "Allow",
