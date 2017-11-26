@@ -13,10 +13,6 @@ To import your Auth0 users into MailChimp:
 - Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
 - Import the file into MailChimp on the [MailChimp Dashboard](https://login.mailchimp.com/).
 
-::: note
-[MailChimp Knowledge Base: Import Subscribers to a List](https://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list)
-:::
-
 ### Create a User Data File
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.

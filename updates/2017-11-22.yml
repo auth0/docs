@@ -1,5 +1,12 @@
 added:
   -
+    title: "Auth0 Integrations"
+    tags:
+      - integration
+    description: |
+      A new landing page for [Auth0 Integrations](https://auth0.com/docs/integrations) was added.
+
+  -
     title: "Adobe Campaign Integration"
     tags:
       - integration
