@@ -160,7 +160,7 @@ public class HasScopeRequirement : IAuthorizationRequirement
 ```
 
 ```csharp
-// HasScopeHandler
+// HasScopeHandler.cs
 
 public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
 {

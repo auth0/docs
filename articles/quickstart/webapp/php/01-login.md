@@ -16,17 +16,19 @@ budicon: 448
   ]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
+
 ## Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
 ::: note
-This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs. Then, it installs them in your project.
 :::
 
 ## Configure Auth0 PHP SDK
 
-Configure the Auth0 PHP SDK in each page that will use it.
+Configure the Auth0 PHP SDK for each page that will use it.
 
 ```php
 use Auth0\SDK\Auth0;
@@ -44,9 +46,9 @@ $auth0 = new Auth0([
 ]);
 ```
 
-## Add Auth0 Callback Handler
+## Add the Auth0 Callback Handler
 
-Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
+Call `$auth0->getUser()` to retrieve user information. If you call it from the page that handles the callback, it will use the code provided by Auth0 to get the information after the successful login.
 
 ```php
 // index.php
@@ -64,17 +66,9 @@ if (!$userInfo) {
 }
 ```
 
-Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
+The user's information is stored in the session. Each time you call `getUser()`, it retrieves the information from the session.
 
-${include('../_callbackRegularWebApp')}
-
-In this case, the redirectUrl should look something like:
-
-```text
-http://yourUrl/
-```
-
-## Trigger Login With Auth0 PHP SDK
+## Trigger Login with the Auth0 PHP SDK
 
 ```html
 <!-- index.php -->
@@ -91,12 +85,12 @@ http://yourUrl/
 ```
 
 ::: note
-The `redirect_uri` specified in the `Auth0` constructor **must match** the one specified in the previous step
+The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [ Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
 :::
 
-## Accessing User Information
+## Access User Information
 
-You can access the user information via the `getUser` method from Auth0.
+You can access user information with the `getUser` method from Auth0.
 
 ```php
 <?php
@@ -112,15 +106,23 @@ $userInfo = $auth0->getUser();
 </html>
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of these depend on the social provider being used.
+To learn about all the available properties from the user's profile, read the [user profile](/user-profile) documentation. 
 
-### Optional steps
+::: note
+Some of the user profile properties depend on the social provider you use.
+:::
 
-#### Configure session data
+### Optional: Configure session data
 
-By default, the SDK will store the user information in the PHP Session and it will discard the access token and the id token. If you like to persist them as well, you can pass `'persist_access_token' => true` and `'persist_id_token' => true` to the SDK configuration in step 2. You can also disable session altogether by passing `'store' => false`.
+By default, the SDK stores user information in the PHP session and discards the access and ID tokens. 
 
-If you want to change PHP Session and use Laravel, Zend, Symfony or other abstraction to the session, you can create a class that implements get, set, delete and pass it to the SDK as following.
+To keep the tokens, to the SDK configuration, pass the following:
+* `'persist_access_token' => true`
+* `'persist_id_token' => true`
+
+To disable the session, pass `'store' => false` to the SDK configuration.
+
+Instead of using the PHP session to store information, you can use Laravel, Zend, Symfony or similar techniques. To do that, create a class that implements the get, set and delete methods and pass it to the SDK.
 
 ```php
 $laravelStore = new MyLaravelStore();

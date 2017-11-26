@@ -24,7 +24,7 @@ Once you have provided this information, click **Install**.
 
 ### Configure a GitLab Token
 
-Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.auth0.com/profile/personal_access_tokens).
+Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.com/profile/personal_access_tokens).
 
 Create a new access token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
 

@@ -14,12 +14,12 @@ articles:
       
       - title: The Basics
         url: /getting-started/the-basics
+      
+      - title: Dashboard Overview
+        url: /getting-started/dashboard-overview
 
       - title: Deployment Models
         url: /getting-started/deployment-models
-      
-      # - title: The Dashboard
-      #   url: /getting-started/the-dashboard
       
       # - title: The Implementation Process
       #   url: /getting-started/the-implementation-process
@@ -39,9 +39,6 @@ articles:
       - title: Videos
         url: /videos
         children:
-
-        - title: Developer Overview
-          url: /videos/developer-overview
 
         - title: Rules
           url: /videos/rules

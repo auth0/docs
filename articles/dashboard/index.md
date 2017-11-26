@@ -14,15 +14,19 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/dashboard/creating-users-in-the-management-portal">Create Users in the Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/creating-users-in-the-management-portal">Create Users using the Dashboard</a>
+    <p>How to create end users using the Dashboard</p>
   </li>
-  <p>How to create end users using the Dashboard</p>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/dashboard/dashboard-tenant-settings">Manage Dashboard Administrators</a>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/manage-dashboard-admins">Manage Dashboard Administrators</a>
+    <p>How to add and manage user accounts with admin privileges to the Dashboard</p>
   </li>
-  <p>How to add and manage user accounts with admin privileges to the Dashboard</p>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/dashboard/manage-dashboard-admins">Configure Your Dashboard Tenant Settings</a>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/dashboard-tenant-settings">Configure your Dashboard Tenant Settings</a>
+    <p>How to change the settings for a given tenant using the Dashboard</p>
   </li>
-  <p>How to change the settings for a given tenant using the Dashboard</p>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/logs">Logs</a>
+    <p>How to view log data and understand log event types</p>
+  </li>
 </ul>

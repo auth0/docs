@@ -138,7 +138,7 @@ Next send a request to your protected endpoint which includes an `access_token`.
 
 ```bash
 curl --request GET \
-  --url http://localhost:8000/api/private \
+  --url http://localhost:3010/api/private \
   --header 'authorization: Bearer <ACCESS TOKEN>'
 ```
 

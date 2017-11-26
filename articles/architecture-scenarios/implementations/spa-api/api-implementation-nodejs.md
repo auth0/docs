@@ -138,7 +138,7 @@ app.use(jwt({
   }),
 
   // Validate the audience and the issuer
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '{YOUR_API_IDENTIFIER}', //replace with your API's audience, available at Dashboard > APIs
   issuer: 'https://${account.namespace}/',
   algorithms: [ 'RS256' ]
 }));

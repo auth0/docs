@@ -1,5 +1,6 @@
 ---
 description: Error messages for the self change password API.
+public: false
 ---
 # Self Change Password Errors
 

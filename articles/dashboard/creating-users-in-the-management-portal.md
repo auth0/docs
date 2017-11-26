@@ -1,9 +1,9 @@
 ---
-description: How to create users in the Auth0 Management Dashboard.
+description: How to create users in the Auth0 Dashboard.
 crews: crew-2
 ---
 
-# Creating Users via the Management Dashboard
+# Create Users using the Dashboard
 
 You can manually create users via the [Dashboard](${manage_url}).
 

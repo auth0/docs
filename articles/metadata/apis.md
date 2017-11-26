@@ -1,24 +1,27 @@
 ---
-description: How to retrieve and update metadata through the Auth0 APIs.
+title: How to Work With User Metadata Using the Auth0 APIs
+description: How to create and update metadata using the Auth0 APIs.
 crews: crew-2
 toc: true
 ---
-# Metadata with Auth0 APIs
+# How to Create and Update User Metadata With the Auth0 APIs
+
+In this article, we will cover how you can create and update metadata using the [Authentication](/api/authentication) and [Management](/api/management/v2) APIs.
 
 ## Authentication API
 
-Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field. 
+When you use the Authentication API's [Signup endpoint](/api/authentication?shell#signup), you can create a new Database Connection user and set the `user_metadata` field.
 
 ::: note
-When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
+When setting the `user_metadata` field using the Authentication API's [Signup endpoint](/api/authentication?javascript#signup), you are limited a maximum of 10 fields and 500 characters.
 :::
 
 ## Management API
 
-Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
+Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata` fields. You can also update these two fields.
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [how to get a Management APIv2 Token](/tokens/access-token#how-to-get-an-access-token).
 :::
 
 ### Set Metadata Fields on Creation

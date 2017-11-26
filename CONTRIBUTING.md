@@ -239,7 +239,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```
  1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
- 1. Resize image to a maximum 900px width.
+ 1. Resize image to a maximum 1500px width.
 
  Example:
 
