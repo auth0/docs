@@ -52,7 +52,7 @@ oauth = OAuth(app)
 auth0 = oauth.remote_app(
     'auth0',
     consumer_key='${account.clientId}',
-    consumer_secret='${account.clientSecret}',
+    consumer_secret='YOUR_CLIENT_SECRET',
     request_token_params={
         'scope': 'openid profile',
         'audience': 'https://' + '${account.namespace}' + '/userinfo'
