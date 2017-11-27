@@ -12,11 +12,12 @@ You can get started by either downloading the complete project or if you would l
   repo: 'auth0-django-web-app',
   path: '01-Login',
   requirements: [
-    'Python 2.7, 3.0 and up',
-    'Django 1.11 and up',
+    'python 2.7, 3.0 and up',
+    'django 1.11 and up',
     'social-auth-app-django 1.2.0 and up',
     'python-jose 1.3.2 and up',
-    'Six 1.10.0 and up'
+    'six 1.10.0 and up'
+    'python-dotenv 0.6.5 and up'
   ]
 }) %>
 
@@ -33,6 +34,7 @@ django
 social-auth-app-django
 python-jose
 six
+python-dotenv
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
