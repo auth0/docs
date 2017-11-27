@@ -52,7 +52,7 @@ oauth = OAuth(app)
 auth0 = oauth.remote_app(
     'auth0',
     consumer_key='${account.clientId}',
-    consumer_secret='${account.clientSecret}',
+    consumer_secret='YOUR_CLIENT_SECRET',
     request_token_params={
         'scope': 'openid profile',
         'audience': 'https://' + '${account.namespace}' + '/userinfo'
@@ -85,10 +85,10 @@ def callback_handling():
     
     # Obtain JWT and the keys to validate the signature
     id_token = resp['id_token']
-    jwks = urlopen("https://"+${account.namespace}+"/.well-known/jwks.json")
+    jwks = urlopen("https://"+"${account.namespace}"+"/.well-known/jwks.json")
     
-    payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=${account.clientId},
-                        issuer="https://"+${account.namespace}+"/")
+    payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience='${account.clientId}',
+                        issuer="https://"+"${account.namespace}"+"/")
     
     # Store the tue user information obtained in the id_token in flask session.
     session[constants.JWT_PAYLOAD] = payload
@@ -133,7 +133,7 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('home', _external=True), 'client_id': ${account.clientId}}
+    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
     return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
 ```
 

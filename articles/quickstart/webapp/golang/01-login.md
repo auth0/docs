@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app
+description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
 budicon: 448
 ---
 
@@ -17,12 +17,12 @@ budicon: 448
 
 ## Add Dependencies
 
-Install the following dependencies using `go get`
+Install the following dependencies using `go get`.
 
 ${snippet(meta.snippets.dependencies)}
 
 ::: note
-This example uses `mux` for routing but you can use whichever router you want. 
+This example uses `mux` for routing but you can use whichever router you want.
 :::
 
 ## Add the Auth0 Callback Handler
@@ -147,7 +147,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	conf := &oauth2.Config{
 		ClientID:     os.Getenv("${account.clientId}"),
-		ClientSecret: os.Getenv("${account.clientSecret}"),
+		ClientSecret: os.Getenv("YOUR_CLIENT_SECRET"),
 		RedirectURL:  os.Getenv("http://localhost:3000/callback"),
 		Scopes:       []string{"openid", "profile"},
 		Endpoint: oauth2.Endpoint{
