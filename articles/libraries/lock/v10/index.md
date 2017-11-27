@@ -75,7 +75,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
 Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
 
