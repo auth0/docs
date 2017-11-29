@@ -46,6 +46,8 @@ router.get(
 Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
 
 ```pug
+// views/user.pug
+
 extends layout
 
 block content
