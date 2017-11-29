@@ -32,9 +32,8 @@ Add the following dependencies to your `requirements.txt`:
 ```text
 django
 social-auth-app-django
-python-jose
-six
 python-dotenv
+requests
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
@@ -110,8 +109,7 @@ Create a file to implement the custom `Auth0` authentication backend.
 ```python
 # auth0login/auth0backend.py
 
-from six.moves.urllib import request
-from jose import jwt
+import requests
 from social_core.backends.oauth import BaseOAuth2
 
 
@@ -137,19 +135,15 @@ class Auth0(BaseOAuth2):
         return details['user_id']
     
     def get_user_details(self, response):
-        # Obtain JWT and the JWKS keys to validate the signature
-        idToken = response.get('id_token')
-        jwks = request.urlopen("https://" + self.setting('DOMAIN') + "/.well-known/jwks.json")
-        issuer = "https://" + self.setting('DOMAIN') + "/"
-        audience = self.setting('KEY') #CLIENT_ID
+        url = 'https://' + self.setting('DOMAIN') + '/userinfo'
+        headers = {'authorization': 'Bearer ' + response['access_token']}
+        resp = requests.get(url, headers=headers)
+        userinfo = resp.json()
 
-        # Decode the jwt to get the user information
-        payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
-        
-        return {'username': payload['nickname'],
-                'first_name': payload['name'],
-                'picture': payload['picture'],
-                'user_id': payload['sub']}
+        return {'username': userinfo['nickname'],
+                'first_name': userinfo['name'],
+                'picture': userinfo['picture'],
+                'user_id': userinfo['sub']}
 ```
 
 ::: note
