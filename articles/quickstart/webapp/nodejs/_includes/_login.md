@@ -61,9 +61,9 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 :::
 
 Add a route called `/login`. Use the `env` object to set the following properties for your client: 
-* Client ID
-* Domain
-* Callback URL
+* Client ID.
+* Domain.
+* Callback URL.
 
 The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the Auth0 hosted login page.
 
