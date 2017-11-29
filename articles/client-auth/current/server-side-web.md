@@ -68,7 +68,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
-| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read the [scopes documentation](/scopes) for more information. |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `${account.callback}`|
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 
