@@ -3,26 +3,26 @@ title: Changing a User's Password
 description: This document explains the ways you can reset the passwords for users of your Auth0 clients.
 crews: crew-2
 ---
-
 # Changing a User's Password
 
 :::panel-warning Notice
-This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock v. 8, check the notice panels (like this one) for information on differences between the two flows.
+This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock 8, check the notice panels like this one for information on differences between the two flows.
 
-To determine the flow version you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
+To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable **Change Password flow v2** and upgrade to Lock version 9 and above. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
+We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
 :::
 
 
-You can change your users' passwords using one of the following methods:
+You can change your users' passwords using one of the following methods.
+
 + [**Authentication API**](#using-the-authentication-api): Send a `POST` call to the Authentication API to send a password reset email to the user.
 + [**Management API**](#using-the-management-api): Send a `PATCH` call to the Management API to update the user's password manually.
 + [**Lock**](#using-lock): Use the Lock login screen to trigger a password reset email to the user.
 + [**Dashboard**](#manually-setting-a-user-s-password): Use the [Users](${manage_url}/#/users) section of the Dashboard to manually change the user's password.
 
 ::: note
-  You can only change passwords for users signing in using Database connections. Users signing in using Social or Enterprise connections need to reset their passwords with the appropriate system.
+You can only change passwords for users signing in using Database connections. Users signing in using Social or Enterprise connections need to reset their passwords with the appropriate system.
 :::
 
 ## Using the Authentication API
