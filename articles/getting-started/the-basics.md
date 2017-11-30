@@ -23,7 +23,7 @@ The term is borrowed from "software multitenancy". This refers to an architectur
 
 Some characteristics:
 
-- It has to be unique (we will see in the next paragraph that it is used to create you own personal domain)
+- It has to be unique (we will see in the next paragraph that it is used to create your own personal domain)
 - It cannot be changed afterwards
 - You can create more than one tenants (you are actually encouraged to do so for each separate environment you have: Development/Staging/Production)
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data are stored, the tenant name could eventually be `example-co-eu` or `example-co-au`.
