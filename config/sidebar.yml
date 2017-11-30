@@ -149,7 +149,7 @@ articles:
             url: "/extensions/custom-social-extensions"
 
       - title: "Custom Database"
-        url: "/connections/database/mysql"
+        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
