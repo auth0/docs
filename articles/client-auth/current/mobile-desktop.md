@@ -3,13 +3,12 @@ title: Authentication for Mobile & Desktop Apps
 description: Explains how to authenticate users in a mobile or desktop application.
 toc: true
 ---
-
 # Authentication for Mobile & Desktop Apps
 
 You can authenticate users of your mobile/desktop applications by:
 
 * Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
-* Using one of the [Auth0 SDKs](/libraries/auth0js), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
+* Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
 This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
@@ -149,9 +148,9 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
-## The `id_token`
+## The ID Token
 
-Once you've decoded the Id Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
+Once you've decoded the ID Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
 
 ```json
 {
