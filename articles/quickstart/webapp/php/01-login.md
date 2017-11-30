@@ -31,12 +31,14 @@ This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for
 Configure the Auth0 PHP SDK for each page that will use it.
 
 ```php
+// index.php
+
 use Auth0\SDK\Auth0;
 
 $auth0 = new Auth0([
   'domain' => '${account.namespace}',
   'client_id' => '${account.clientId}',
-  'client_secret' => '${account.clientSecret}',
+  'client_secret' => 'YOUR_CLIENT_SECRET',
   'redirect_uri' => '${account.callback}',
   'audience' => 'https://${account.namespace}/userinfo',
   'scope' => 'openid profile',
@@ -125,6 +127,8 @@ To disable the session, pass `'store' => false` to the SDK configuration.
 Instead of using the PHP session to store information, you can use Laravel, Zend, Symfony or similar techniques. To do that, create a class that implements the get, set and delete methods and pass it to the SDK.
 
 ```php
+// index.php
+
 $laravelStore = new MyLaravelStore();
 $auth0 = new Auth0(array(
     // ...
