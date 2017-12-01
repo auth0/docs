@@ -117,7 +117,7 @@ The Support Program applies to **production instances** of the Auth0 Platform on
 
 Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
 
-| Support Feature | Standard | Enterprise |
+| Support Feature | Standard | Enterprise / Preferred |
 | - | - | - |
 | Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations | Yes | Yes |
 | Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality | Yes | Yes |
@@ -145,12 +145,12 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Solution Definition (one or more of the following) |
+| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Target Response Time (Preferred) | Solution Definition (one or more of the following) |
 | - | - | - | - |
-| 1 (Urgent) | 1 business hours | 30 minutes | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
-| 2 (High) | 4 business hours | 2 hours | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
-| 3 (Normal) | 1 business day | 12 hours | Issue is resolved. Workaround is provided. Fix incorporated into future release. Answer to question is provided. |
-| 4 (Low) | 2 business days | 24 hours | Answer to question is provided. Enhancement request logged. |
+| 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
+| 2 (High) | 4 business hours | 2 hours | 1 hour | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
+| 3 (Normal) | 1 business day | 12 hours | 8 hours | Issue is resolved. Workaround is provided. Fix incorporated into future release. Answer to question is provided. |
+| 4 (Low) | 2 business days | 24 hours | 12 hours | Answer to question is provided. Enhancement request logged. |
 
 ## Program Hours
 
@@ -158,7 +158,7 @@ Auth0 will provide support for Severity Level 1 Defects on a 24x7x365 basis.
 
 For all other defects, Auth0 will provide support during the hours specified below:
 
-| Standard | Enterprise |
+| Standard | Enterprise / Preferred |
 | - | - |
 | 6AM to 6PM (your local time) Monday to Friday | 24 hours a day, Monday to Friday (your local time) |
 
