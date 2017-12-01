@@ -53,7 +53,20 @@ For most platforms, you will need to run the required commands with root privile
 
 5. Run `node server.js` once more to start the Connector. Note that the `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
 
-6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)).
+6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)). For example, for using systemd with Ubuntu Xenial, the file `/lib/systemd/system/auth0-adldap.service` could contain the following:
+  
+	```text
+    [Unit]
+    Description=Auth0 AD LDAP Agent
+    After=network.target
+    
+    [Service]
+    Type=simple
+    Restart=always
+    User=ubuntu
+    WorkingDirectory=/opt/auth0-adldap
+    ExecStart=/usr/bin/node server.js
+    ```
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
