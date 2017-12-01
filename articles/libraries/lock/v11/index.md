@@ -10,7 +10,7 @@ img: media/articles/libraries/lock-web.png
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: panel Hosted Login Page
-Lock 11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), Lock 11 is not necessary and does not work inside the Hosted Login Page. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock 11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
+Lock 11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), do not upgrade to Lock 11. Instead, keep using the latest version of Lock 10. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock 11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
 :::
 
 ## Lock Installation
@@ -59,9 +59,7 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you ensure that the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, ensure that the **OIDC Conformant** and **Cross Origin Authentication** settings are turned on.
-
-![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
+Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication), which is only enabled for [first-party clients](/clients/client-types#first-party-client). Cross-origin authentication has [limitations](/cross-origin-authentication#limitations-of-cross-origin-authentication), which should be understood before implementing embedded Lock.
 
 ## Usage
 

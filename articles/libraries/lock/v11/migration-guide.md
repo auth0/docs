@@ -63,7 +63,7 @@ Both Lock 11 and Auth0.js 9 will default the `scope` parameter to `'openid profi
 
 ### getProfile
 
-In Lock 10 this function received a string parameter with an ID Token. If you choose to use it in Lock 11, it needs to receive an Access Token. You’ll need to update your code to change the parameter sent.
+In Lock 10 this function received a string parameter with an ID Token. If you choose to use it in Lock 11, it needs to receive an Access Token. You’ll need to update your code to change the parameter sent. The method now mirrors the functionality of the `getUserInfo` method.
 
 ### oidcConformant
 
