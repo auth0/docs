@@ -26,7 +26,7 @@ If Auth0 acts as the identity provider, you'll need to specify a logout URL for 
 
 5. Click **Save**.
 
-For SAML-compliant endpoints, Auth0 uses this URL to send logout requests or logout responses (the exact choice dependson whether the service provider initiated the session or not). If you don't want to notify the service provider about a session termination, you can set the `slo_enabled` key inside logout to `false`:
+For SAML-compliant endpoints, Auth0 uses this URL to send logout requests or logout responses (the exact choice depends on whether the service provider initiated the session or not). If you don't want to notify the service provider about a session termination, you can set the `slo_enabled` key inside logout to `false`:
 
 ```json
 "logout": {
