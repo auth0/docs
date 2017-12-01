@@ -148,9 +148,9 @@ The priority of a Defect will dictate the timing and nature of the response as s
 | Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Target Response Time (Preferred) | Solution Definition (one or more of the following) |
 | - | - | - | - | - |
 | 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| 2 (High) | 4 business hours | 2 hours | 1 hour | Issue is resolved. Workaround is provided. Fix is provided. Fix incorporated into future release. |
-| 3 (Normal) | 1 business day | 12 hours | 8 hours | Issue is resolved. Workaround is provided. Fix incorporated into future release. Answer to question is provided. |
-| 4 (Low) | 2 business days | 24 hours | 12 hours | Answer to question is provided. Enhancement request logged. |
+| 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
+| 4 (Low) | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
