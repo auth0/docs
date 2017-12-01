@@ -7,8 +7,6 @@ toc: true
 
 Auth0 allows you to map your the domain for your tenant to a custom domain of your choosing. This allows you maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is `northwind.auth0.com`, you can have your users to see, use, and remain on `login.northwind.com`.
 
-![](/media/articles/custom-domains/custom-domain.png)
-
 ## Prerequisites
 
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
@@ -30,7 +28,7 @@ If you opt to manage your own certificates, you'll need to use a reverse proxy t
 ### Auth0-Managed Certificates
 
 ::: warning
-This is a beta feature
+Auth0-Managed Certificates is a beta feature.
 :::
 
 Auth0 will manage the creation and renewal of the certificates for your custom domain. This is the simplest custom domains deployment option.
@@ -50,13 +48,16 @@ Setting up your custom domain requires you to do the following steps:
 
 ### Step 1: Configure Auth0
 
-Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant).
+Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). Click over to the **Custom Domains** tab.
+
+![](/media/articles/custom-domains/custom-domains.png)
 
 Enter your custom domain in the provided box. Indicate whether you're using **Self-managed certificates** or **Auth0-managed certificates**. Click **Add Domain**.
 
+Before you can use this domain, you'll need to verify that you own your domain by adding the CNAME verification record listed in the Dashboard to your domain's DNS record.
+
 ![](/media/articles/custom-domains/add-domain.png)
 
-Before you can use this domain, you'll need to verify that you own your domain by adding the CNAME verification record listed in the Dashboard to your domain's DNS record.
 
 When you've done so, click **Verify** to proceed.
 
