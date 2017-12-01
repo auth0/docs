@@ -230,13 +230,11 @@ __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, but you can achieve a similar effect by deleting the client grant. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
-
-__I need to invalidate all my tokens. How can I do that?__</br>
-All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
+You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period. 
+Note that deleting the client grant will prevent *new tokens* from being issued to the client. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
 
 __My Client Secret was compromised! What should I do?__</br>
-You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Since your tenant's Management APIv2 tokens are signed using the Client Secret, all your tokens will be invalidated and you will have to issue new ones.
+You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Note that previously issued tokens will continue to be valid until their expiration time.
 
 __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.

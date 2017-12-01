@@ -21,7 +21,7 @@ budicon: 546
 
 ## Set the Audience and Scope
 
-In the 'angularAuth0Provider.init' call, enter your API identifier as the value for 'audience'. Set the scopes in the 'scope' parameter.
+In the `angularAuth0Provider.init` call, enter your API identifier as the value for `audience`. Set the scopes in the `scope` parameter.
 
 ```js
 // app/app.js

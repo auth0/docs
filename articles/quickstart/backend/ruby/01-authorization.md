@@ -113,7 +113,7 @@ To look for a particular `scope` in an `access_token`, provide an array of requi
 In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the `scopes` contained in the payload of the `access_token` to determine if it contains one or more items from the array.
 
 ```rb
-# lib/jwt/json_web_token.rb
+# lib/server_rs256.rb
 
 SCOPES = {
   '/restricted_resource' => ['read:messages'],

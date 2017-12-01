@@ -31,7 +31,8 @@ public renewToken() {
   this.auth0.renewAuth({
     audience: '${apiIdentifier}',
     redirectUri: 'http://localhost:3001/silent',
-    usePostMessage: true
+    usePostMessage: true,
+    postMessageOrigin: 'http://localhost:3001'
   }, (err, result) => {
     if (err) {
       console.log(err);

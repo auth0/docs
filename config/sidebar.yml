@@ -149,7 +149,7 @@ articles:
             url: "/extensions/custom-social-extensions"
 
       - title: "Custom Database"
-        url: "/connections/database/mysql"
+        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
@@ -634,14 +634,11 @@ libraries:
     url: "/libraries/auth0js"
     children:
 
-      - title: "Auth0.js v8"
+      - title: "Auth0.js"
         url: "/libraries/auth0js/v8"
 
-      - title: "Migration Guide v8"
+      - title: "Migration Guide"
         url: "/libraries/auth0js/v8/migration-guide"
-
-      - title: "Auth0.js v7"
-        url: "/libraries/auth0js/v7"
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"

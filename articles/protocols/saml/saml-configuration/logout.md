@@ -1,7 +1,6 @@
 ---
-  description: How to log out of SAML providers
+description: How to log out of SAML providers
 ---
-
 # Logout
 
 When integrating with a SAML provider, there are many ways to implement logout or user session termination.
