@@ -42,7 +42,7 @@ You are responsible for managing your SSL/TLS certificates and configuring a rev
 Setting up your custom domain requires you to do the following steps:
 
 1. Provide your domain name to Auth0 and verify ownership
-1. Configure the reverse proxy
+1. Configure the reverse proxy (if using self-managed certificates)
 1. Configure the hosted login page
 1. *Optional*: Enable custom domains in Auth0 emails
 
@@ -54,10 +54,15 @@ Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). Cli
 
 Enter your custom domain in the provided box. Indicate whether you're using **Self-managed certificates** or **Auth0-managed certificates**. Click **Add Domain**.
 
-Before you can use this domain, you'll need to verify that you own your domain by adding the CNAME verification record listed in the Dashboard to your domain's DNS record.
+Before you can use this domain, you'll need to verify that you own your domain:
 
-![](/media/articles/custom-domains/add-domain.png)
+* **Auth0-Managed Certificates**: Add the CNAME verification record listed in the Dashboard to your domain's DNS record
 
+	![](/media/articles/custom-domains/auth0-managed.png)
+
+* **Self-Managed Certificates**:: Add the TXT verification record listed in the Dashboard to your domain's DNS record.
+
+	![](/media/articles/custom-domains/self-managed.png)
 
 When you've done so, click **Verify** to proceed.
 
