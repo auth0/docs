@@ -5,7 +5,7 @@ description: Explains how to use the state parameter in authentication requests 
 
 # The State Parameter
 
-The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters), used to help mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+The `state` parameter is an authentication parameter used to help mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 A CSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
 
