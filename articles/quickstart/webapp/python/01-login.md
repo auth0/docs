@@ -17,7 +17,7 @@ You can get started by either downloading the complete sample or following the t
     'Python-dotenv 0.6.5 and up'
     'Requests 2.3.0 and up',
     'Flask-oauthlib 0.9.4 and up'
-    'Python-jose 1.3.2 and up'
+    'Six 1.10.0 and up'
   ]
 }) %>
 
@@ -36,7 +36,7 @@ flask
 python-dotenv
 requests
 flask-oauthlib
-python-jose
+six
 ```
 
 ## Initialize Flask-OAuthlib
@@ -91,20 +91,18 @@ def callback_handling():
             request.args['error_description']
         ))
     
-    # Obtain JWT and the keys to validate the signature
-    id_token = resp['id_token']
-    jwks = urlopen("https://"+"${account.namespace}"+"/.well-known/jwks.json")
+    url = 'https://' + AUTH0_DOMAIN + '/userinfo'
+    headers = {'authorization': 'Bearer ' + resp['access_token']}
+    resp = requests.get(url, headers=headers)
+    userinfo = resp.json()
     
-    payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience='${account.clientId}',
-                        issuer="https://"+"${account.namespace}"+"/")
-    
-    # Store the tue user information obtained in the id_token in flask session.
-    session[constants.JWT_PAYLOAD] = payload
+    # Store the tue user information in flask session.
+    session[constants.JWT_PAYLOAD] = userinfo
     
     session[constants.PROFILE_KEY] = {
-        'user_id': payload['sub'],
-        'name': payload['name'],
-        'picture': payload['picture']
+        'user_id': userinfo['sub'],
+        'name': userinfo['name'],
+        'picture': userinfo['picture']
     }
     
     return redirect('/dashboard')
