@@ -74,7 +74,9 @@ If you are unable to complete the verification process within three days, you'll
 
 ### Step 2: Configure the Reverse Proxy
 
-You'll need to set up your reverse proxy. Currently, you can use [AWS CloudFront](/custom-domains/set-up-cloudfront) or [Azure CDN](/custom-domains/set-up-azure-cdn)
+If you are using a self-managed certificate for your custom domains, you'll need to set up your reverse proxy (this step is not necessary for those using Auth0-managed certificates).
+
+Currently, you can use [AWS CloudFront](/custom-domains/set-up-cloudfront) or [Azure CDN](/custom-domains/set-up-azure-cdn)
 
 ### Step 3: Configure the Hosted Login Page
 
