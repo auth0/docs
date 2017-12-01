@@ -7,7 +7,7 @@ toc: true
 
 Auth0 allows you to map your the domain for your tenant to a custom domain of your choosing. This allows you maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is `northwind.auth0.com`, you can have your users to see, use, and remain on `login.northwind.com`.
 
-To use a custom domain with your Auth0 tenant, you'll need to use a reverse proxy that you configure using AWS CloudFront or Microsoft Azure.
+![](/media/articles/custom-domains/custom-domain.png)
 
 ## Prerequisites
 
@@ -20,6 +20,24 @@ Currently, the following Auth0 features and flows support use of custom domains:
 * OAuth 2.0/OIDC-Compliant Flows (all of which make calls to the [`/authorize` endpoint](/api/authentication#authorize-client))
 * Guardian (Version 1.3.3 or later)
 * Emails -- the links included in the emails will use your custom domain
+
+## Certificates
+
+You can manage the certificates for your custom domains, or you can have Auth0 manage them on your behalf.
+
+If you opt to manage your own certificates, you'll need to use a reverse proxy that you configure using AWS CloudFront or Microsoft Azure.
+
+### Auth0-Managed Certificates
+
+::: warning
+This is a beta feature
+:::
+
+Auth0 will manage the creation and renewal of the certificates for your custom domain. This is the simplest custom domains deployment option.
+
+### Self-Managed Certificates
+
+You are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and the forwarding of requests to Auth0. Choose this option if you wish to have more control of your certificates (such as choosing your own CA or certificate expiration), or if you want to have more monitoring over your API calls to Auth0.
 
 ## How to Configure Custom Domains
 
@@ -34,9 +52,13 @@ Setting up your custom domain requires you to do the following steps:
 
 Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant).
 
-Enter your custom domain in the provided box and click **Add Domain**.
+Enter your custom domain in the provided box. Indicate whether you're using **Self-managed certificates** or **Auth0-managed certificates**. Click **Add Domain**.
 
-Before you can use this domain, you'll need to verify that you own your domain by adding the TXT verification record listed to your domain name's DNS record. When done, click **Verify**.
+![](/media/articles/custom-domains/add-domain.png)
+
+Before you can use this domain, you'll need to verify that you own your domain by adding the CNAME verification record listed in the Dashboard to your domain's DNS record.
+
+When you've done so, click **Verify** to proceed.
 
 If Auth0 was able to verify your domain name, you'll see the following pop-up window. Be sure to save the information provided, especially the `cname-api-key` value, since this is the **only** time you'll see this value.
 

@@ -98,7 +98,7 @@ Select your endpoint.
 
 Click **+ Custom Domain** located in the tool bar near the top.
 
-![](/media/articles/custom-domains/azure/cdn-otpions.png)
+![](/media/articles/custom-domains/azure/cdn-options.png)
 
 In the **Custom hostname** dialog box, provide your custom domain, including the subdomain (for example `login.mydomain.com`).
 
