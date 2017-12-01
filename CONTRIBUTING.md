@@ -303,7 +303,7 @@ If you are using VS Code as your code editor, it's highly recommended to install
 ## Sidebar
 
 When you are adding a new article you should always add a link to it in the `config/sidebar.yml` file.
-It's really important to represent all our articles in the sidebar because this will help the user identify where he is inside the documentation.
+It's really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
 
 You can add titles to the sidebar using the attribute `category`:
 
