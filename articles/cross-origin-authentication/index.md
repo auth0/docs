@@ -19,51 +19,51 @@ Cross-origin authentication is only necessary when authenticating against a dire
 
 ## Limitations of Cross-Origin Authentication
 
-Because cross-origin authentication is achieved using third-party cookies, the user must have a browser that supports third-party cookies. Additionally, in some browsers, disabling third-party cookies will make cross-origin authentication fail (see the [browser testing matrix](#browser-testing-matrix) below). 
+Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail.
 
-If you wish to use cross-origin authentication, in order to avoid situations in which your users would be unable to authenticate, you may wish to ask your users to leave third party cookies enabled or to switch browsers. You could also simply inform users of the non-support of those browsers when third party cookies are disabled. 
+You can provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work even with third-party cookies disabled, but it will still fail for some browsers (see the [browser testing matrix](#browser-testing-matrix) below). 
 
-This limitation is another reason why the more practical solution, where possible, is to use the [Hosted Login Page](/hosted-pages/login) and circumvent this issue entirely.
+If you want to make sure your users can always authenticate, you need to set up [Custom Domain Names](/articles/custom-domains). This will make the cookies set by the cross-origin authentication flow to not to be third-party, as they will be in the same domain as the Auth0 authentication endpoints.
+
+These issues are another reason why the more practical solution, where possible, is to use the [Hosted Login Page](/hosted-pages/login).
 
 ## Configure Your Client for Cross-Origin Authentication
 
 Configuring your client for cross-origin authentication is a process that requires a few steps:
 
-1. Εnsure that the **OIDC Conformant** switch is toggled on in the [Dashboard](${manage_url}) in the Client Settings -> Advanced -> OAuth.
-1. Ensure that the **Allowed Origins (CORS)** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
-1. Ensure that your application is using [Lock](/libraries/lock) version 10.22 or higher, or [Auth0.js](/libraries/auth0js) version 8.7 or higher.
-1. If you are using Lock 10, make sure that you are using the [oidcconformant](/libraries/lock/v10/customization#oidcconformant-boolean-) option.
-1. Third-party cookies do not work in some browsers. To handle these cases, you will need to author a page which uses **auth0.js** to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
+1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
+1. If you are not using [Custom Domain Names](/articles/custom-domains), you will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
 ## Create a Cross-Origin Fallback Page
 
 There are some cases when third party cookies will not be available. Certain browser versions do not support third party cookies and, if they do, there will be times that they will be disabled in a user's settings. You can use **auth0.js** in your application on a dedicated page to properly handle cases when third-party cookies are disabled. **This page must be served over SSL.**
 
 ::: note
-Note that using `crossOriginAuthenticationCallback` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome** and **Opera** (Desktop & Android versions of both), when third party cookies are disabled, cross-origin authentication will not work at all.
+Note that using `crossOriginVerification` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome** and **Opera** (Desktop & Android versions of both), when third party cookies are disabled, cross-origin authentication will not work at all.
 :::
 
-Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginAuthenticationCallback` immediately. The name of the page is at your discretion.
+Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
 
 ```html
 <!-- callback-cross-auth.html -->
 
 <head>
-  <script src="${auth0js_urlv8}"></script>
+  <script src="${auth0js_urlv9}"></script>
   <script type="text/javascript">
     var auth0 = new auth0.WebAuth({
       clientID: '${account.clientId}',
       domain: '${account.namespace}',
       redirectUri: '${account.callback}'
     });
-    auth0.crossOriginAuthenticationCallback();
+    auth0.crossOriginVerification();
   </script>
 </head>
 ```
 
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
-Please add the URL of this callback page to your [Dashboard](${manage_url}) in the **Cross Origin Verification Iframe** setting field.
+Please add the URL of this callback page to your [Dashboard](${manage_url}) in the **Cross-Origin Verification Fallback** setting field.
 
 ::: note
 Please see the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
