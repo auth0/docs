@@ -59,7 +59,7 @@ At the moment, the request will return the following response from Lock 11:
 
 ## Default Values
 
-Both Lock 11 and Auth0.js 9 will default the `scope` parameter to `'oidc profile email'`. This is to make `getSSOData` and the "Last Logged in With" window work correctly.
+Both Lock 11 and Auth0.js 9 will default the `scope` parameter to `'openid profile email'`. This is to make `getSSOData` and the "Last Logged in With" window work correctly.
 
 ### getProfile
 
