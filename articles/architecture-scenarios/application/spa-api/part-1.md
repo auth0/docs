@@ -5,13 +5,13 @@ toc: true
 
 # SPA + API: Solution Overview
 
-In order to ensure that only authorized users and applications are allowed access to the Timesheets API, ExampleCo has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
+In order to ensure that only authorized users and applications are allowed access to the Timesheets API, ExampleCo has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of applications which need to communicate with the Timesheets API.
 
 ## API Authentication and Authorization
 
 An API is a way to expose functionality of your application to other applications. An application can make a request by sending a message to an endpoint on an API and receive information as a response.
 
-An API endpoint can be secured or not. In our case, since the timesheets are sensitive information that affect reviews and payments, it is important to ensure that only authorized users and applications can call the endpoints on our API. When a client application wants to access protected endpoints on an API it needs to present an access token as proof that it has the required permissions for making the call to the endpoint.
+An API endpoint can be secured or not. In our case, since the timesheets are sensitive information that affect reviews and payments, it is important to ensure that only authorized users and applications can call the endpoints on our API. When a client application wants to access protected endpoints on an API, it needs to present an access token as proof that it has the required permissions for making the call to the endpoint.
 
 An access token is obtained by authenticating the user with an Authorization Server and the user can then, in turn, authorize the application to access the API on their behalf.
 
