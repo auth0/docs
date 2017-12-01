@@ -60,7 +60,7 @@ Before you can use this domain, you'll need to verify that you own your domain:
 
 	![](/media/articles/custom-domains/auth0-managed.png)
 
-* **Self-Managed Certificates**:: Add the TXT verification record listed in the Dashboard to your domain's DNS record.
+* **Self-Managed Certificates**: Add the TXT verification record listed in the Dashboard to your domain's DNS record.
 
 	![](/media/articles/custom-domains/self-managed.png)
 
