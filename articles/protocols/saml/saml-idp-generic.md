@@ -1,5 +1,7 @@
 ---
+title: Auth0 as Identity Provider
 description: How to configure Auth0 to serve as an Identity Provider in a SAML federation.
+toc: true
 ---
 # Auth0 as Identity Provider
 
