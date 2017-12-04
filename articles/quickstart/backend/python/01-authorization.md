@@ -8,8 +8,9 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   repo: 'auth0-python-api-samples',
   path: '00-Starter-Seed',
   requirements: [
+    'python 2.7, 3.3 and up'
     'flask 0.11.1',
-    'python-jose 1.3.2',
+    'python-jose-cryptodome 1.3.2',
     'flask-cors 3.0.2',
     'six 1.10.0'
   ]
@@ -27,7 +28,7 @@ This quickstart demonstrates how to add authorization to your Python API using [
 
 ```python
 flask
-python-jose
+python-jose-cryptodome
 flask-cors
 six
 ```
@@ -168,10 +169,11 @@ def requires_scope(required_scope):
     """
     token = get_token_auth_header()
     unverified_claims = jwt.get_unverified_claims(token)
-    token_scopes = unverified_claims["scope"].split()
-    for token_scope in token_scopes:
-        if token_scope == required_scope:
-            return True
+    if unverified_claims.get("scope"):
+            token_scopes = unverified_claims["scope"].split()
+            for token_scope in token_scopes:
+                if token_scope == required_scope:
+                    return True
     return False
 ```
 
