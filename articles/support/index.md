@@ -101,7 +101,7 @@ The Support Program applies to **production instances** of the Auth0 Platform on
 
 Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
 
-| Support Feature | Standard | Enterprise / Preferred |
+| Support Feature | Standard | Enterprise/Preferred |
 | - | - | - |
 | Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations | Yes | Yes |
 | Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality | Yes | Yes |
