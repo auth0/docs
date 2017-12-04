@@ -105,12 +105,12 @@ Your Sales Order will indicate whether you are subscribed to the **Standard** Su
 | - | - | - |
 | Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations | Yes | Yes |
 | Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality | Yes | Yes |
-| Isolate, document, and find alternative solutions for reported Defects. | Yes | Yes |
-| Work with Auth0 Operations, Product, Software Development, and QA staff to submit Change Requests, Enhancement Requests, and provide Fixes for the Auth0 Platform as necessary. | Yes | Yes |
-| Address your concerns with online or printed documentation, providing additional examples or explanation for concepts requiring clarification. | Yes | Yes |
-| Access to online release notes for Updates. | Yes | Yes |
+| Isolate, document, and find alternative solutions for reported Defects | Yes | Yes |
+| Work with Auth0 Operations, Product, Software Development, and QA staff to submit Change Requests, Enhancement Requests, and provide Fixes for the Auth0 Platform as necessary | Yes | Yes |
+| Address your concerns with online or printed documentation, providing additional examples or explanation for concepts requiring clarification | Yes | Yes |
+| Access to online release notes for Updates | Yes | Yes |
 | Access to Auth0’s online library of Support webinars and knowledgebase | Yes | Yes |
-| Access to Auth0’s Customer Community forums to collaborate with fellow Auth0 customers. | Yes | Yes |
+| Access to Auth0’s Customer Community forums to collaborate with fellow Auth0 customers | Yes | Yes |
 | Enhanced Response Times | No | Yes |
 | Enhanced Hours of Support | No | Yes |
 
@@ -134,7 +134,7 @@ The priority of a Defect will dictate the timing and nature of the response as s
 | 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| 4 (Low) | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+| 4 (Low) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
@@ -156,7 +156,7 @@ During the Subscription Term, Auth0 will provide or install Updates if and when 
 
 ## Demand Services
 
-You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutual agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
+You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutually agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
 
 ## Pricing
 
