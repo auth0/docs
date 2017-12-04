@@ -31,6 +31,7 @@ Configuring your client for cross-origin authentication is a process that requir
 
 1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 1. Ensure that your application is using [Lock](/libraries/lock) 10 or higher, or [Auth0.js](/libraries/auth0js) version 8 or higher.
+1. If you are using Lock 10, make sure that you are using the [oidcconformant](/libraries/lock/v10/customization#oidcconformant-boolean-) option.
 1. You will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
 ## Create a Cross-Origin Fallback Page
