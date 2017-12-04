@@ -134,7 +134,7 @@ The priority of a Defect will dictate the timing and nature of the response as s
 | 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| 4 (Low) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+| 4 (Low) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
