@@ -131,7 +131,7 @@ The priority of a Defect will dictate the timing and nature of the response as s
 
 <table class="table">
   <tr>
-    <th width="90">Defect Severity Level</th>
+    <th class="col-md-2">Defect Severity Level</th>
     <th>Target Response Time (Standard)</th>
     <th>Target Response Time (Enterprise)</th>
     <th>Target Response Time (Preferred)</th>
