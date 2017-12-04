@@ -66,11 +66,30 @@ Before you can use this domain, you'll need to verify that you own your domain:
 
 When you've done so, click **Verify** to proceed.
 
+::: panel TL;DR
+Here's how to add the TXT verification record to your domain's DNS record. The steps specified may vary by domain host provider, but generally speaking, you will need to:
+
+1. Log in to your domain management service (such as GoDaddy or Google Domains)
+
+1. Create a new record and add the verification:
+
+	* For the record type, indicate **TXT**
+	* For the **Name** field, enter your custom domain name (such as login.acme.com**)
+	* Leave the **Time to Live (TTL)** field set to the default value
+	* In the **Value** field, paste in the verification value provided by the Auth0 Dashboard
+
+When done, save your record.
+:::
+
 If Auth0 was able to verify your domain name, you'll see the following pop-up window. Be sure to save the information provided, especially the `cname-api-key` value, since this is the **only** time you'll see this value.
+
+![](/media/articles/custom-domains/api-key.png)
 
 ::: note
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
+
+
 
 ### Step 2: Configure the Reverse Proxy
 

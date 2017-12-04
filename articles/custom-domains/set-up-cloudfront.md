@@ -63,4 +63,6 @@ You'll see your newly-created distribution in your CloudFront home page.
 
 ![](/media/articles/custom-domains/aws/distributions.png)
 
+Finally, add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution (for example, `e2zwy42nt1feu7.cloudfront.net`).
+
 Your CloudFront setup is now ready for use!
