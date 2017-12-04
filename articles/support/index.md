@@ -120,8 +120,8 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 <table class="table">
   <tr>
-    <th>Severity Level</th>
-    <th>Description</th>
+    <th class="col-md-2">Severity Level</th>
+    <th class="col-md-4">Description</th>
   </tr>
   <tr>
     <td>1 (Urgent)</td>
