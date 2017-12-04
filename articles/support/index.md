@@ -95,22 +95,6 @@ Using this page, you can:
 * See the account details for users;
 * Revoke privileges.
 
-## Definitions
-
-For the purposes of this Support Program description, the following capitalized words and phrases are ascribed the following meanings:
-
-**“Defect”** means a failure of the Auth0 Platform, in the form provided or modified by Auth0, to conform to its applicable specifications set forth in the Documentation. A Defect includes a failure of one or more components of the environment or infrastructure provided by Auth0 or AWS to perform in accordance with their applicable documentation or specifications.
-
-**“Demand Services”** has the meaning ascribed to it in Section 7 below.
-
-**“Fix”** means a modification or an addition to the Auth0 Platform that overcomes a Defect when made or added to the Auth0 Platform. Auth0 may provide a Workaround in lieu of a Fix in Auth0’s sole discretion, but will provide a Fix to you as specified in Section 3.2 below.
-
-**“Response Time”** means, for purposes of this Support Program description, the time between Auth0’s receipt of a Defect notification from you, and Auth0’s confirmation via one of its personnel that Auth0 is working on resolution of the Defect. (While your submission of a trouble ticket may trigger an automated response from Auth0, automated responses are disregarded for purposes of determining Response Times.)
-
-**“Update”** means a patch, correction, or other modification or addition to the Auth0 Platform that Auth0 makes generally available to you for maintenance fixes, Defect corrections, and minor improvements to the Auth0 Platform, including fixes, patches, updates and releases to address any security vulnerabilities. “Update” also includes significant enhancements, or new features or functionalities that Auth0 makes generally available to you.  
-
-**“Workaround”** means a set of procedures that you may follow to circumvent or mitigate the impact of a Defect, notwithstanding that the Defect still exists.
-
 ## Program Features
 
 The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
@@ -186,3 +170,5 @@ Please check the [status page](https://status.auth0.com) before filing a ticket.
 ## Whitehat Support Tickets
 
 All customers, even those with free subscription plans, may report security concerns via [Auth0 Whitehat](https://auth0.com/whitehat).
+
+[Additional Details](https://auth0.com/legal)
