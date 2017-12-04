@@ -118,54 +118,39 @@ Your Sales Order will indicate whether you are subscribed to the **Standard** Su
 
 Auth0 will assign all Defects one of four response priorities, dependent upon the problems caused by the Defect. Auth0 may re-assign prioritization levels assigned by you in Auth0’s trouble ticketing system, to reflect the problem descriptions below. Auth0’s assignment will be consistent with the problem descriptions described below. Priority categories are as follows:
 
-| Severity Level | Description |
-| - | - |
-| 1 (Urgent) | **Emergency Issue**. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users. |
-| 2 (High) | **Significant Business Impact**. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality. |
-| 3 (Normal) | **Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions |
-| 4 (Low) | **Minor Problem / Enhancement Request**. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request. |
+<table class="table">
+  <tr>
+    <th>Severity Level</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>1 (Urgent)</td>
+    <td>**Emergency Issue**. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
+  </tr>
+  <tr>
+    <td>2 (High)</td>
+    <td>**Significant Business Impact**. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
+  </tr>
+  <tr>
+    <td>3 (Normal)</td>
+    <td>**Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions</td>
+  </tr>
+  <tr>
+    <td>4 (Low)</td>
+    <td> **Minor Problem / Enhancement Request**. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
+  </tr>
+</table>
 
 ### Defect Responses
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-<table class="table">
-  <tr>
-    <th class="col-md-2">Defect Severity Level</th>
-    <th>Target Response Time (Standard)</th>
-    <th>Target Response Time (Enterprise)</th>
-    <th>Target Response Time (Preferred)</th>
-    <th>Solution Definition (one or more of the following)</th>
-  </tr>
-  <tr>
-    <td>1 (Urgent)</td>
-    <td>1 business hours</td>
-    <td>30 minutes</td>
-    <td>30 minutes</td>
-    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul></td>
-  </tr>
-  <tr>
-    <td>2 (High)</td>
-    <td>4 business hours</td>
-    <td>2 hours</td>
-    <td>1 hour</td>
-    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul></td>
-  </tr>
-  <tr>
-    <td>3 (Normal)</td>
-    <td>1 business day</td>
-    <td>12 hours</td>
-    <td>8 hours</td>
-    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul></td>
-  </tr>
-  <tr>
-    <td>4 (Low)</td>
-    <td>2 business days</td>
-    <td>24 hours</td>
-    <td>12 hours</td>
-    <td><ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul></td>
-  </tr>
-</table>
+| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Target Response Time (Preferred) | Solution Definition (one or more of the following) |
+| - | - | - | - | - |
+| 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
+| 4 (Low) | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
