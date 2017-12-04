@@ -129,12 +129,43 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Target Response Time (Preferred) | Solution Definition (one or more of the following) |
-| - | - | - | - | - |
-| 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| 4 (Low) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+<table class="table">
+  <tr>
+    <th>Defect Severity Level</th>
+    <th>Target Response Time (Standard)</th>
+    <th>Target Response Time (Enterprise)</th>
+    <th>Target Response Time (Preferred)</th>
+    <th>Solution Definition (one or more of the following)</th>
+  </tr>
+  <tr>
+    <td>1 (Urgent)</td>
+    <td>1 business hours</td>
+    <td>30 minutes</td>
+    <td>30 minutes</td>
+    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul></td>
+  </tr>
+  <tr>
+    <td>2 (High)</td>
+    <td>4 business hours</td>
+    <td>2 hours</td>
+    <td>1 hour</td>
+    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul></td>
+  </tr>
+  <tr>
+    <td>3 (Normal)</td>
+    <td>1 business day</td>
+    <td>12 hours</td>
+    <td>8 hours</td>
+    <td><ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul></td>
+  </tr>
+  <tr>
+    <td>4 (Low)</td>
+    <td>2 business days</td>
+    <td>24 hours</td>
+    <td>12 hours</td>
+    <td><ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul></td>
+  </tr>
+</table>
 
 ## Program Hours
 
