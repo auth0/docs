@@ -125,19 +125,19 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
   </tr>
   <tr>
     <td>1 (Urgent)</td>
-    <td>**Emergency Issue**. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
+    <td><b>Emergency Issue</b>. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
   </tr>
   <tr>
     <td>2 (High)</td>
-    <td>**Significant Business Impact**. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
+    <td><b>Significant Business Impact</b>. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
   </tr>
   <tr>
     <td>3 (Normal)</td>
-    <td>**Minor Feature / Function Issue / General Question**. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions</td>
+    <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions</td>
   </tr>
   <tr>
     <td>4 (Low)</td>
-    <td> **Minor Problem / Enhancement Request**. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
+    <td><b>Minor Problem / Enhancement Request</b>. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
   </tr>
 </table>
 
