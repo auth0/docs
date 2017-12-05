@@ -4,6 +4,7 @@ classes: topic-page
 title: Auth0 Libraries
 description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
 url: /libraries
+toc:true
 ---
 <!-- markdownlint-disable MD041 MD002 MD026 -->
 <div class="topic-page-header">
