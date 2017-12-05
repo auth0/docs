@@ -133,7 +133,7 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
   </tr>
   <tr>
     <td>3 (Normal)</td>
-    <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented **or** an inquiry by your representatives regarding general technical issues/questions</td>
+    <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented <b>or</b> an inquiry by your representatives regarding general technical issues/questions</td>
   </tr>
   <tr>
     <td>4 (Low)</td>
