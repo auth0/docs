@@ -14,7 +14,7 @@ Auth0 provides support in alignment with the [Terms of Service](https://auth0.co
 
 ## Auth0 Support Coverage
 
-Official support provided by Auth0 is limited to the languages, platforms, versions, and technologies specifically listed as such on this page. Anything that is *not* listed, or listed as **community-supported**, is ineligible for Auth0 support.
+Official support provided by Auth0 is limited to the languages, platforms, versions, and technologies specifically listed as such on this page. Anything that is **not** listed, or is listed as **community-supported**, is ineligible for Auth0 support.
 
 In the event that you have questions involving unsupported items, you may post your question on the [Auth0 public forum](https://community.auth0.com/).
 
@@ -146,7 +146,7 @@ At this time, Auth0 only supports use of the Dashboard with desktop browsers.
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Google Chrome for Android KitKit (4.4) or later</td>
+        <td>Google Chrome for Android KitKat (4.4) or later</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
     </tbody>
@@ -200,7 +200,7 @@ At this time, Auth0 only supports use of the Dashboard with desktop browsers.
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Google Chrome for Android KitKit (4.4) or later</td>
+        <td>Google Chrome for Android KitKat (4.4) or later</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
     </tbody>
