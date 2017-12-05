@@ -19,7 +19,45 @@ For more information on obtaining an access token in your application, please re
 
 ## Test Your API with cURL
 
-During development you can test your API using [cUrl](https://curl.haxx.se/). You can easily obtain an access token for testing using either the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
+During development you can test your API using [cUrl](https://curl.haxx.se/), but you will first need to obtain an access token.
+
+### Getting an access token
+
+You can obtain an access token for testing using either the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
+
+Alternatively you can request an access token using either the [Client Credentials](/api/authentication#client-credentials) or [Resource Owner Password](api/authentication#resource-owner-password) flows.
+
+**1. Using Client Credentials**
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "content-type", "value": "application/json" }
+  ],
+  "postData" : {
+    "text" : "{ \"client_id\":\"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"YOUR_API_AUDIENCE\", \"grant_type\": \"client_credentials\" }"
+  }
+}
+```
+
+**2. Using Resource Owner Password**
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "content-type", "value": "application/json" }
+  ],
+  "postData" : {
+    "text" : "{ \"client_id\":\"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"YOUR_API_AUDIENCE\", \"grant_type\": \"password\", \"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"scope\": \"SCOPE\" }"
+  }
+}
+```
+
+### Testing from the command line
 
 You can make a request to the `/api/secure` endpoint without passing any access token:
 
