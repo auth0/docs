@@ -2,11 +2,10 @@
 section: libraries
 classes: topic-page
 title: Auth0 Libraries
-description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
 url: /libraries
-toc:true
+description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
 ---
-<!-- markdownlint-disable MD041 MD002 MD026 -->
+
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Auth0 Libraries</h1>
@@ -37,17 +36,17 @@ The Lock widget for each platform has detailed reference documentation.
 
 ### Lock Reference Documentation
 
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock">Lock for Web</a>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock-ios">Lock for iOS</a>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock-android">Lock for Android</a>
-  </li>
-</ul>
+  <ul class="topic-links">
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock"> Lock for Web</a>
+    </li>
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock-ios"> Lock for iOS</a>
+    </li>
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/lock-android"> Lock for Android</a>
+    </li>
+  </ul>
 
 ### Lock Support Table
 
@@ -103,20 +102,20 @@ Auth0 SDKs include no UI. Instead, you would use one of these SDKs alongside you
 
 The most commonly used SDKs have reference documentation.
 
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0js">Auth0.js</a>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-swift">Auth0.Swift</a>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-android">Auth0.Android</a>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.github.io/node-auth0/">Node-Auth0</a>
-  </li>
-</ul>
+  <ul class="topic-links">
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0js"> Auth0.js</a>
+    </li>
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-swift"> Auth0.Swift</a>
+    </li>
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-android"> Auth0.Android</a>
+    </li>
+    <li>
+      <i class="icon icon-budicon-715"></i><a href="https://auth0.github.io/node-auth0/"> Node-Auth0</a>
+    </li>
+  </ul>
 
 ### SDK Support Table
 
