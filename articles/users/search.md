@@ -40,7 +40,7 @@ When running user searches:
   * Avoid large schema sizes and deep structures
   * Avoid storing data you do not need for authentication and authorization purposes
 
-To optimize the performance of your user searches, we do not recommend:
+To optimize the performance of your user searches, we don't recommend:
 
 * Existence queries (for example, "give me all users with a property regardless of its value")
 * Full text search or partial searches
