@@ -23,8 +23,6 @@ Because cross-origin authentication is achieved using third-party cookies, disab
 
 You can provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work even with third-party cookies disabled, but it will still fail for some browsers (see the [browser testing matrix](#browser-testing-matrix) below).
 
-If you want to make sure your users can always authenticate, you need to set up [Custom Domain Names](/custom-domains). This will make the cookies set by the cross-origin authentication flow to not to be third-party, as they will be in the same domain as the Auth0 authentication endpoints.
-
 These issues are another reason why the more practical solution is to use the [Hosted Login Page](/hosted-pages/login).
 
 ## Configure Your Client for Cross-Origin Authentication
@@ -45,10 +43,6 @@ Note that using `crossOriginVerification` as a fallback will only work if the br
 
 Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
 
-![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-settings.png)
-
-This URL should be added to the [Dashboard](${manage_url}) client settings (Advanced -> OAuth) in the **Cross Origin Authentication Location** field.
-
 ```html
 <!-- callback-cross-auth.html -->
 
@@ -66,10 +60,10 @@ This URL should be added to the [Dashboard](${manage_url}) client settings (Adva
 
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
-Please add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Client's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
+Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Client's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
 
 ::: note
-Please see the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
+See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
 :::
 
 ## Browser Testing Matrix
