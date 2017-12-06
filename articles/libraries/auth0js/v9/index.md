@@ -464,15 +464,6 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 
 The user will then receive an email which will contain a link that they can follow to reset their password.
 
-## Cross-Origin Authentication
-
-Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication, you should do the following:
-
-* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
-
-    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
-
 ## User management
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.

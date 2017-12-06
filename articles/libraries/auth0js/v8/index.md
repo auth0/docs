@@ -197,7 +197,6 @@ webAuth.login({
 
 The `crossOriginAuthenticationCallback()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
 
->>>>>>> Adding some missing documentation for login method, crossoriginauth
 ### buildAuthorizeUrl(options)
 
 The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
@@ -470,15 +469,6 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 ```
 
 The user will then receive an email which will contain a link that they can follow to reset their password.
-
-## Cross-Origin Authentication
-
-Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication, you must do the following:
-
-* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
-
-    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
 ## User management
 
