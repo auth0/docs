@@ -138,10 +138,6 @@ The JWT middleware shown above verifies if the user's access token included in t
 
 <%= include('../../_includes/_api_scopes_access_resources') %>
 
-::: note
-This example uses the `read:messages` scope.
-:::
-
 To make sure that an access token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
 Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.

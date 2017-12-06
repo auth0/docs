@@ -3,3 +3,7 @@ Scopes let you define which resources can be accessed by the user with a given a
 To configure scopes, in your Auth0 dashboard, in the [APIs](${manage_url}/#/apis) section, click the **Scopes** tab. Configure the scopes you need.
 
 ![Configure Scopes](/media/articles/server-apis/configure-scopes.png)
+
+::: note
+This example uses the `read:messages` scope.
+:::
