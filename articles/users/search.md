@@ -40,7 +40,7 @@ When running user searches:
   * Avoid large schema sizes and deep structures
   * Avoid storing data you do not need for authentication and authorization purposes
 
-Please **avoid**:
+To optimize the performance of your user searches, we do not recommend:
 
 * Existence queries (for example, "give me all users with a property regardless of its value")
 * Full text search or partial searches
@@ -179,8 +179,6 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
 * User searches run during the authentication/authorization process 
 * User searches run as part of the account linking process.
 
-We do **not** recommend using the Users by ID endpoint for searches returning multiple users.
-
 ## Users by Email
 
 The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address.
@@ -241,8 +239,6 @@ The Users by Email endpoint is immediately consistent, and as such, we recommend
 
 * User searches run during the authentication/authorization process 
 * User searches run as part of the account linking process.
-
-We do **not** recommend using the Users by Email endpoint for searches returning multiple users.
 
 ## User Export
 
