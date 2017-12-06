@@ -6,7 +6,11 @@ toc: true
 
 ## Overview
 
-The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` can be any type of token (such as an opaque string, or a JWT) and is meant for the API. The purpose of the `access_token` is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. 
+The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. 
+
+It can be any type of token (such as an opaque string, or a JWT) and is meant for an API. It's purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). 
+
+The `access_token` should be used as a **Bearer** credential and transmitted in an HTTP **Authorization** header to the API. 
 
 ## Access Tokens at Auth0
 
@@ -27,7 +31,7 @@ If you specify more than one audience, then your custom API must use **RS256**. 
 
 Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
 
-The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the client's settings -> Advanced Settings -> Oauth. 
+The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the **client's settings > Advanced Settings > Oauth**. 
 
 ![Token Signing Algorithm - Client](/media/articles/tokens/tokens-algorithm-client.png)
 
