@@ -12,14 +12,18 @@ The Access Token, commonly referred to as `access_token` in code samples, is a c
 
 Auth0 currently generates access tokens in two formats:
 
-* As opaque strings, when `${account.namespace}/userinfo` is the audience.
-* As a [JSON Web Token (JWT)](/jwt) when a custom API is specified as the audience.
+* As opaque strings, when `${account.namespace}/userinfo` is the **audience** in the [authorization request](/api/authentication#authorize-client).
+* As a [JSON Web Token (JWT)](/jwt), when a custom API is specified as the **audience** in the [authorization request](/api/authentication#authorize-client).
 
 ::: note
-The audience is a parameter which is set during [authorization](/api/authentication#authorize-client). It contains the unique identifier of the target API.
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an access token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque access token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
-When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
+When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API.
+
+:::panel Use RS256 for multiple audiences
+If you specify more than one audience, then your custom API must use **RS256**. Tokens signed with HS256 can hold only one audience for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
+:::
 
 Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
 
