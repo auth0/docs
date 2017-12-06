@@ -26,21 +26,11 @@ The **audience** is a parameter set during [authorization](/api/authentication#a
 When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API.
 
 :::panel Use RS256 for multiple audiences
-If you specify more than one audience, then your custom API must use **RS256**. Tokens signed with HS256 can hold only one audience for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
+If you specify more than one audience, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). Tokens signed with HS256 can hold only one audience for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
 :::
 
-Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
-
-The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the **client's settings > Advanced Settings > Oauth**. 
-
-![Token Signing Algorithm - Client](/media/articles/tokens/tokens-algorithm-client.png)
-
-When setting up an API in the [Dashboard](${manage_url}/#/apis), the signing algorithm can also be specified.
-
-![Token Signing Algorithm - API](/media/articles/tokens/tokens-algorithm-api.png)
-
 ::: warning
-The important thing to remember is that the client should not be depending on the access token to be any specific format, but instead should treat the access token as opaque.
+Remember always that the client should not depend on the access token to be any specific format, but instead treat the access token as opaque. It is meant **only** for the API.
 :::
 
 ## How to get an access token
