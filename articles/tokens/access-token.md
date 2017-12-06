@@ -19,7 +19,7 @@ Auth0 currently generates access tokens in two formats:
 * As opaque strings, when `${account.namespace}/userinfo` is the **audience** in the [authorization request](/api/authentication#authorize-client).
 * As a [JSON Web Token (JWT)](/jwt), when a custom API is specified as the **audience** in the [authorization request](/api/authentication#authorize-client).
 
-::: note
+::: panel What is audience?
 The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an access token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque access token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
