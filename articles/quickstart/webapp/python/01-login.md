@@ -15,7 +15,8 @@ You can get started by either downloading the complete sample or following the t
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
     'Requests 2.3.0 and up',
-    'Flask-oauthlib 0.9.4 and up'
+    'Flask-oauthlib 0.9.4 and up',
+    'python-jose 1.3.2 and up'
   ]
 }) %>
 
@@ -31,6 +32,7 @@ Add the following dependencies to your `requirements.txt` and run `pip install -
 flask
 requests
 flask-oauthlib
+python-jose
 ```
 
 ## Initialize Flask-OAuthlib
@@ -40,13 +42,23 @@ Create a file named `server.py`, and instantiate a client with your client keys,
 
 ```python
 # server.py
-    
+
+import json
+
 from flask import Flask
+from flask import redirect
 from flask import render_template
 from flask import request
+from flask import session
 from flask_oauthlib.client import OAuth
-    
+from jose import jwt
+
+
 app = Flask(__name__)
+app.secret_key = 'YOUR_SECRET_KEY_FOR_COOKIE'
+
+COOKIE_PROFILE_KEY = 'profile'
+COOKIE_JWT_PAYLOAD = 'jwt_payload'
 
 oauth = OAuth(app)
 auth0 = oauth.remote_app(
@@ -91,9 +103,9 @@ def callback_handling():
                         issuer="https://"+"${account.namespace}"+"/")
     
     # Store the tue user information obtained in the id_token in flask session.
-    session[constants.JWT_PAYLOAD] = payload
+    session[COOKIE_JWT_PAYLOAD] = payload
     
-    session[constants.PROFILE_KEY] = {
+    session[COOKIE_PROFILE_KEY] = {
         'user_id': payload['sub'],
         'name': payload['name'],
         'picture': payload['picture']
@@ -153,7 +165,7 @@ You should import `wraps` first, adding the following line to your `server.py` f
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
-    if 'profile' not in session:
+    if COOKIE_PROFILE_KEY not in session:
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)
@@ -172,8 +184,8 @@ Decorate it with `@requires_auth`. It will only be accessible if the user has be
 @requires_auth
 def dashboard():
     return render_template('dashboard.html',
-                           userinfo=session[constants.PROFILE_KEY],
-                           userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
+                           userinfo=session[COOKIE_PROFILE_KEY],
+                           userinfo_pretty=json.dumps(session[COOKIE_JWT_PAYLOAD], indent=4))
 ```
 
 Add a `dashboard.html` file in a `/template` folder to display the user information. 
