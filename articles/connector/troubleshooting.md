@@ -137,3 +137,9 @@ Groups are cached, because by default, the Connector retrieves all group members
 These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often.
 
 In some AD/LDAP installations, user attributes synchronization takes few minutes too.
+
+### Connector restarts after "auth0: Connection closed." message in the log
+
+To avoid the requirement of an open inbound port in your servers, the Connector creates a websocket connection to an available node in Auth0's server cluster and keeps it open to listen to incoming messages from Auth0. 
+
+Approximately once a day (though this frequency might vary under certain circumstances) each server node will terminate the connection to allow internal deployment processes to occurr. The Connector will detect the closed connection and terminate the process, allowing the service stack to restart the process, create a new connection and resume operations. To avoid any downtime, make sure you enable [the cache for the connection](/connector/overview#cache).
