@@ -1,8 +1,9 @@
 ---
-description: This page has help and troubleshooting with using the connector.
+title: Troubleshooting the Active Directory/LDAP Connector
+description: Common issues and troubleshooting information for the Active Directory/LDAP Connector.
+toc: true
 ---
-
-# Troubleshooting
+# Troubleshooting the Active Directory/LDAP Connector
 
 We do our best to support many scenarios and different configurations.
 
