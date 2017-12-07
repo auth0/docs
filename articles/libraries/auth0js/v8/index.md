@@ -410,8 +410,7 @@ The `checkSession` method allows you to acquire a new token from Auth0 for a use
 ```js
 webAuth.checkSession({
   audience: 'https://example.com/api/v2',
-  scope: 'read:something write:otherthing',
-  redirectUri: 'https://example.com/auth/silent-callback'
+  scope: 'read:something write:otherthing'
 }, function (err, authResult) {
   // err if automatic parseHash fails
   ...
