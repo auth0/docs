@@ -32,7 +32,7 @@ In this document, we use the terms **eventually consistent** and **immediately c
 
 When running user searches:
 
-* Use an immediately consistent endpoint during authentication pipeline
+* Use an immediately consistent endpoint during authentication processes
 * Use exact match searches (with the `raw` subfield) whenever possible
 * Use a well-known schema for metadata:
   * Use consistent data types for properties
@@ -115,7 +115,7 @@ We do **not** recommend that you use this endpoint for:
 
 * Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * User exports - please use the [User Export endpoint](#user-export) for such actions
-* Operations that require user search as part of the Authentication Pipeline - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
+* Operations that require user search as part of authentication processes - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) for such actions
 
 ## Users by ID
@@ -136,8 +136,6 @@ The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_
 ```
 
 **Sample Response**
-
-Successful calls to the endpoint returns a JSON object similar to the following:
 
 ```json
 {
@@ -176,7 +174,7 @@ Successful calls to the endpoint returns a JSON object similar to the following:
 
 This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication/authorization process 
+* User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
 ## Users by Email
@@ -368,6 +366,6 @@ When retrieving users in Auth0, there are three different API endpoints you can 
 | Searches involving user attributes | [Users](#users) |
 | Searches returning multiple users | [Users](#users) |
 | Operations requiring immediate consistency | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
-| Actions requiring user search as part of the Authentication Pipeline | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
+| Actions requiring user search as part of authentication processes | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
 | Searching for users for account linking by email | [Users by Email](#users-by-email) |
 | User exports | [User Export](#user-export) |
