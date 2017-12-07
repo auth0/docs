@@ -38,14 +38,16 @@ Auth0.js 9 will default the value of the `scope` parameter to `openid profile em
 
 ## Differences in getSSOData Return Values
 
+Auth0.js 9 reimplements the `getSSOData` function, in a way that is not completely compatible with the previous behavior. In order for the function to work properly, you need to ask for `scope='openid profile email'` when initializing auth0.js.
+
 | Property | Old Value | New Value |
 | --- | --- | --- |
 | sso | `true` if user has an existing session, `false` if not | The same |
 | sessionClients | List of clients ids the user has active sessions with | An array with a single element with the client id configured in auth0.js |
-| lastUsedClientId | The client id for the last active connection | The last client the user used when calling `/authorize` |
+| lastUsedClientId | The client id for the last active connection | The last connection from the current browser |
 | lastUsedUsername | User’s email or name | The same (requires `scope=’openid profile email’)` |
-| lastUsedClientId | Client Id of the active session  | The client id configured in auth0.js |
 | lastUsedConnection | Last used connection and strategy. | Last connection that the user called `/authorize` or `/co/authenticate` with. It will be `null` if the user authenticated with the HLP. It will not return `strategy`, only `name` |
+| lastUsedUserId | Id for the user logged in the active session | The same |
 
 ## Calling getProfile
 
