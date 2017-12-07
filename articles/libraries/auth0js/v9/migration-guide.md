@@ -14,23 +14,19 @@ If you have any questions or concerns, you can submit them using the [Support Ce
 
 ## Cross Origin Authentication
 
-If your implementation uses the `loginWithCredentials` method, then in order to use v9, you need to have Cross Origin Authentication (COA) enabled. COA has some limitations which you should be aware of, and can be read about in the [Cross Origin Authentication](/cross-origin-authentication) documentation.
-
-You can enable COA using the Dashboard, for details refer to [Configure Your Client for Cross-Origin Authentication](/cross-origin-authentication#configure-your-client-for-cross-origin-authentication).
-
-![Cross-Origin Authentication Setting](/media/articles/cross-origin-authentication/cross-origin-settings.png)
+The `loginWithCredentials` method and `login` methods employ cross-origin authentication. You can read about the uses and limits of cross-origin authentication in [the documentation](/cross-origin-authentication).
 
 ## Allowed Web Origins
 
-In order to use `login`, `loginWithCredentials`, `loginWithCredentials`, `passwordlessLogin`, `getSSOData` or `checkSession` you need to whitelist the websites where you will embed the login dialog in the  ‘Allowed Web Origins’ field, and in the Allowed Origins (CORS) fields:
+In order to use `login`, `loginWithCredentials`, `loginWithCredentials`, `passwordlessLogin`, `getSSOData` or `checkSession` you need to whitelist the websites where you will embed the login dialog in the **Allowed Web Origins** field, and in the **Allowed Origins (CORS)** field, in the [Dashboard](${manage_url}) in your Client's settings under **Advanced > OAuth**.
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
 ### Hosted Login Pages
 
-Auth0.js 9 is a new version, designed for embedded login scenarios (i.e. implementations where the login widget is embedded in your application), and is not supported in centralized login scenarios (i.e. Hosted Login Pages).
+Auth0.js 9 is a new version that is designed for embedded login scenarios (i.e. implementations where the login widget is embedded in your application) and is not supported in centralized login scenarios (i.e. Hosted Login Pages).
 
-If you are using a [Hosted Login Page](/hosted-pages/login), keep using Auth0.js v8. If you have a login widget embedded in your application consider upgrading to the latest Auth0.js version. 
+If you are using a [Hosted Login Page](/hosted-pages/login), keep using Auth0.js v8. If you have a login widget embedded in your application consider upgrading to the latest Auth0.js version.
 
 ## Browsers with Third Party Cookies Disabled
 
