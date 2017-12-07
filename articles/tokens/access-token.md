@@ -26,10 +26,10 @@ The **audience** is a parameter set during [authorization](/api/authentication#a
 * If the **audience** is set to `${account.namespace}/userinfo`, then the access token will be an opaque string.
 * If the **audience** is set to the unique identifier of a custom API, then the access token will be a [JSON Web Token (JWT)](/jwt).
 
-When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the genarated access token will be valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API.
+When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated access token will have both audiences and will be valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API.
 
 :::panel Use RS256 for multiple audiences
-If you specify more than one audience, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). Tokens signed with HS256 can hold only one audience, for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
+If you set a custom API audience and also use `scope=openid` in your request, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). Tokens signed with HS256 can hold only one audience, for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
 :::
 
 ::: warning
