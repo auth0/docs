@@ -20,13 +20,13 @@ Auth0 currently generates access tokens in two formats: as opaque strings, or as
 This depends on the value that the **audience** parameter has in in the [authorization request](/api/authentication#authorize-client).
 
 ::: panel What is the audience?
-The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an access token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque access token to [retrieve the user's profile](/api/authentication#get-user-info).
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an access token, which is the intended *audience* of this token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque access token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
 * If the **audience** is set to `${account.namespace}/userinfo`, then the access token will be an opaque string.
 * If the **audience** is set to the unique identifier of a custom API, then the access token will be a [JSON Web Token (JWT)](/jwt).
 
-When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated access token will have both audiences and will be valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API.
+When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated access token will be a JWT valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API. The **audience** parameter of this JWT will include two values: `${account.namespace}/userinfo` and your custom API's unique identifier.
 
 :::panel Use RS256 for multiple audiences
 If you set a custom API audience and also use `scope=openid` in your request, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). Tokens signed with HS256 can hold only one audience, for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
