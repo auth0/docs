@@ -61,7 +61,7 @@ Once again, make the same request but this time pass along the access token as a
 
 ```text
 curl -i http://localhost:3010/api/private \
--H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
 
 This time the API will return a successful response:
@@ -74,7 +74,7 @@ To test the endpoint that require a scope, pass the access token containing the 
 
 ```text
 curl -i http://localhost:3010/api/private-scoped \
--H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
 
 If the required scope is present, the API call is successful:
