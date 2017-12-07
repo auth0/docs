@@ -47,7 +47,7 @@ You can test your API using [cURL](https://curl.haxx.se/) using an access token 
 
 **1. Calling the secure endpoint**
 
-You can make a request to the `/api/secure` endpoint without passing any access token:
+You can make a request to the `/api/private` endpoint without passing any access token:
 
 ```text
 curl -i http://localhost:3010/api/private
