@@ -54,7 +54,7 @@ Every user that exists in Analystick should be created in your Auth0 database co
 
 ### Email Verification
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call in your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+Once you've created the user in Auth0, you'll send the appropriate `POST` call from your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
 
 Be sure to update the following placeholder values:
 
