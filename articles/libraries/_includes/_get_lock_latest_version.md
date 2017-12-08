@@ -16,7 +16,7 @@ Once updated, you can add it to your build system or bring it in to your project
 <script type="text/javascript" src="node_modules/auth0-lock/build/lock.js"></script>
 ```
 
-If you do not want to use a package manager, you can retrieve auth0.js from Auth0's CDN.
+If you do not want to use a package manager, you can retrieve Lock.js from Auth0's CDN.
 
 ```html
 <script src="${lock_url}"></script>

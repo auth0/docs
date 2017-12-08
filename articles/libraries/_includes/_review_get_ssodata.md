@@ -13,4 +13,4 @@ If you are going to keep using `getSSOData()` take into account the changes int 
 | lastUsedClientId | Client Id of the active session  | The client id used the last time the user authenticated from the current browser |
 | lastUsedConnection | Last used connection and strategy. | Last connection that the user authenticated with from the current browser. It will be `null` if the user authenticated with the Hosted Login Page. It will not return `strategy`, only `name` |
 
-In order for the function to work properly, you need to ask for scope='openid profile email' when initializing auth0.js. 
+In order for the function to work properly, you need to ask for scope='openid profile email' when initializing Auth0.js. 
