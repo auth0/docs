@@ -1,8 +1,8 @@
 ### Review Calls to .getSSOData()
 
-The deprecated getSSOData() function was reimplemented in Auth0.js v9 to simplify migration from older versions, but the behavior is not exactly the same. We recommend that you don’t use getSSOData() for new code and use checkSession() instead.
+The deprecated `getSSOData()` function was reimplemented in auth0.js v9 to simplify migration from older versions, but the behavior is not exactly the same. We recommend that you don’t use `getSSOData()` for new code and use [checkSession()(/libraries/auth0js#using-checksession-to-acquire-new-tokens) instead.
 
-If you are going to keep using getSession() take into account the changes int the return values described in the table below. In most use cases the only value that was used was the ‘sso’ property, which still has the same semantics. 
+If you are going to keep using `getSSOData()` take into account the changes int the return values described in the table below. In most use cases the only value that was used was the ‘sso’ property, which still has the same semantics. 
 
 | Property | Old Value | New Value |
 | --- | --- | --- |
