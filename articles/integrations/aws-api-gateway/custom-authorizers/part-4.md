@@ -48,10 +48,6 @@ You can test your deployment by making a `GET` call to the **Invoke URL** you co
 {
     "method": "GET",
     "url": "https://YOUR_INVOKE_URL/pets",
-    "headers": [{
-        "name": "Authorization",
-        "value": "Bearer TOKEN"
-    }]
 }
 ```
 
