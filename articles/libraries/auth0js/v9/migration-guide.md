@@ -10,9 +10,9 @@ Auth0.js v9 has been improved to work better in embedded login scenarios. It ope
 
 Auth0.js can be used to implement authentication in different ways:
 
-- Centralized Login, using the .authorize() method, where the user is redirected from your website to an Auth0's Hosted Login Page.
+- Centralized Login, using the `.authorize()` method, where the user is redirected from your website to an Auth0's Hosted Login Page.
 
-- Embedded Login, using the .login(), popup.loginWithCredentials(), client.loginWithCredentials() methods, where the login dialog is displayed in the application's website.
+- Embedded Login, using the `.login()`, `popup.loginWithCredentials()`, `client.loginWithCredentials()` methods, where the login dialog is displayed in the application's website.
 
 - In the Hosted Login Page, where you can use the same methods as in Embedded Login but from inside a customized Auth0's Hosted Login page. Most customers don't customize Auth0 hosted pages with auth0.js, so your probably don't need to worry about this.
 
@@ -28,9 +28,9 @@ If you are using Centralized Login, you don't need to make any changes in your c
 
 If you are not using Centralized login, we recommend you to use it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
-If you decide to keep using Embedded Login, you will need to migrate to v9. Before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
-
 # Detailed Migration Instructions
+
+If you decide to keep using Embedded Login, you will need to migrate to v9. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
 
 [Migrating from Auth0.js v6]()
 
