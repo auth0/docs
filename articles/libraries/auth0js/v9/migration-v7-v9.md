@@ -9,7 +9,7 @@ toc: true
 
 ## Migration Steps
 
-<%= include('../../_includes/_get_latest_version') %>
+<%= include('../../_includes/_get_auth0_js_latest_version') %>
 
 ### Follow the Auth0.js v7 to v8 Migration Guide
 
