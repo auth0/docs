@@ -38,10 +38,10 @@ If you decide to keep using Embedded Login, you will need to migrate to v9. Befo
 
 [Migrating from Auth0.js v8](migration-v8-v9.md)
 
-[Migrating to Auth0.js in Angular.js Applications]()
+[Migrating to Auth0.js v9 in Angular.js Applications]()
 
-[Migrating to Auth0.js in Angular Applications]()
+[Migrating to Auth0.js v9 in Angular Applications]()
 
-
+::: note
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
-
+:::
