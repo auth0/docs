@@ -25,7 +25,7 @@ Some examples of query string syntax are:
 
 * Where the `user_name` field contains the exact phrase `"john smith"`: `user_name: "john smith"`
 
-* Where the field `nickname` has no value or is missing: `_missing_: nickname`
+* Where the field `nickname` has no value or is missing: `NOT _exists_: nickname`
 
 * Where the field `nickname` has any non-null value: `_exists_: nickname`
 
