@@ -22,7 +22,7 @@ In order to send the user credentials to Auth0 server, Lock needs to make reques
 
 If you enable [Custom Domain Names](/custom-domains) and the domain for your website is the same as the custom domain for the Auth0 tenant, Lock will work without any further configuration.
 
-If you don’t enable Custom Domain Names, given that the requests from your application to Auth0 Server will be cross-domain, you will need to configure your Auth0 client to use Cross Origin Authentication (/cross-origin-authentication). 
+If you don’t enable Custom Domain Names, given that the requests from your application to Auth0 Server will be cross-domain, you will need to configure your Auth0 client to use [Cross Origin Authentication](/cross-origin-authentication). 
 
 ### 2. Change Calls to .getProfile()
 
