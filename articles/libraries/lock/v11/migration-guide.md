@@ -10,37 +10,39 @@ Lock 11 is designed for embedded login scenarios. It operates with enhanced secu
 
 This document lists all the changes that you should be aware of between versions 10 and 11 of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
 
+If you are using older versions of Lock, you will also need to migrate to avoid using deprecated endpoints. You can read about it in our [previous Migration Guides](/libraries/lock/v10/migration-guide)
+
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 
-## Cross-Origin Authentication
+## Migration Steps
 
-To use Lock 11 with any connection that requires a username and password, the connection must have [Cross Origin Authentication](/cross-origin-authentication) enabled in the [Dashboard](${manage_url}) under Client Settings -> Advanced -> OAuth.
+### 1. Configure Auth0 for Embedded Login
 
-![Cross-Origin Authentication Setting](/media/articles/cross-origin-authentication/cross-origin-settings.png)
+In order to send the user credentials to Auth0 server, Lock needs to make requests from your website user's browser to the Auth0-server. 
 
-## Allowed Web Origins
+If you enable [Custom Domain Names](/custom-domains) and the domain for your website is the same as the custom domain for the Auth0 tenant, Lock will work without any further configuration.
 
-In order to use Embedded Login you need to whitelist the website(s) where you will embed the login dialog in the  **Allowed Web Origins** and the **Allowed Origins (CORS)** fields:
+If you don’t enable Custom Domain Names, given that the requests from your application to Auth0 Server will be cross-domain, you will need to configure your Auth0 client to use Cross Origin Authentication (/cross-origin-authentication). 
 
-![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
+### 2. Change Calls to .getProfile()
 
-## Browsers with Third-Party Cookies Disabled
+Lock v10 included a deprecated function called `getProfile()` that received an `id_token` as a parameter and returned the user profile. If you are still using it, you need to change the invocation to use an `access_token` instead.
 
-Embedded login will not work with [some browser versions](/cross-origin-authentication#browser-testing-matrix) when they have third-party cookies disabled. To remediate this issue, follow these instructions on [Embedded Login and Third-Party Cookies](/cross-origin-authentication#create-a-cross-origin-fallback-page).
+### 3. [Optional] Remove the oidcConformant parameter
 
-If third-party cookies are disabled and embedded login does not function, you will get an error that can be handled clientside, such as:
+The oidcConformant flag was used in Lock 10 to force Lock not to call legacy endpoints. Lock 11 never uses these legacy endpoints, so the flag is unnecessary. If specified, it will simply be ignored.
 
-```js
-lock.on('authorization_error', function(error) {
-  // Do something
-});
-```
+## Behavior Changes in Lock v11
 
-## Usage in Hosted Login Pages
+### Usage in Popup Mode
+
+When using [Popup Mode](libraries/lock/v11/authentication-modes#popup-mode) in previous versions of Lock, a new browser window was opened and immediately closed in order to complete the authentication transaction. In Lock 11 that windows is open on a hidden iframe, so it's not shown, providing a better user experience. 
+
+### Usage in Hosted Login Pages
 
 Lock 11 is designed for embedded login scenarios and is not supported in centralized login scenarios (i.e. Hosted Login Pages). If you wish to use Lock in your Auth0 Hosted Login Page, you will need to continue using Lock 10.
 
-## Single Sign On Using IP Ranges
+### Single Sign On Using IP Ranges
 
 In Lock 10, you could configure an IP range in an Active Directory/LDAP connection. You could then use that range to allow integrated Windows Authentication if the user's IP was within the range. When this was true, Lock would display a button enabling SSO for that user as shown below.
 
@@ -48,23 +50,6 @@ In Lock 10, you could configure an IP range in an Active Directory/LDAP connecti
 
 This functionality has been removed from Lock 11. There is no IP detection and the user will get redirected to the Active Directory login page where they will have to type in their credentials.
 
-At the moment, the request will return the following response from Lock 11:
-
-```js
-{
-  "error":"invalid_request",
-  "error_description":"Connection strategy not supported."
-}
-```
-
-## Default Values
+### Default Values
 
 Both Lock 11 and Auth0.js 9 will default the `scope` parameter to `'openid profile email'`. This is to make `getSSOData` and the "Last Logged in With" window work correctly.
-
-### getProfile
-
-In Lock 10 this function received a string parameter with an ID Token. If you choose to use it in Lock 11, it needs to receive an Access Token. You’ll need to update your code to change the parameter sent. The method now mirrors the functionality of the `getUserInfo` method.
-
-### oidcConformant
-
-The `oidcConformant` flag was used in Lock 10 to force Lock not to call legacy endpoints. Lock 11 never uses these legacy endpoints, so the flag is unnecessary. If specified, it will simply be ignored.
