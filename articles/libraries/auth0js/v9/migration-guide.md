@@ -14,7 +14,7 @@ Auth0.js can be used to implement authentication in different ways:
 
 - Embedded Login, using the .login(), popup.loginWithCredentials(), client.loginWithCredentials() methods, where the login dialog is displayed in the application's website.
 
-- In the Hosted Login Page, where you can use the same methods as in Embedded Login but from inside a customized Auth0's Hosted Login page.
+- In the Hosted Login Page, where you can use the same methods as in Embedded Login but from inside a customized Auth0's Hosted Login page. Most customers don't customize Auth0 hosted pages with auth0.js, so your probably don't need to worry about this.
 
 Depending on how you are using auth0.js, you have different options:
 
