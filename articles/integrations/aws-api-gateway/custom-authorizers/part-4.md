@@ -47,7 +47,7 @@ You can test your deployment by making a `GET` call to the **Invoke URL** you co
 ```har
 {
     "method": "GET",
-    "url": "https://YOUR_INVOKE_URL/pets",
+    "url": "https://YOUR_INVOKE_URL/pets"
 }
 ```
 
