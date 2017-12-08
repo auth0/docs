@@ -1,8 +1,6 @@
 ### Update Lock.js
 
-You update the Lock.js library to integrate Auth0 into your application.
-
-Install Lock.js using npm or yarn.
+Update the Lock.js library using npm or yarn.
 
 ```bash
 # installation with npm
@@ -12,7 +10,7 @@ npm install --save auth0-lock
 yarn add auth0-lock
 ```
 
-Once you install Lock.js, add it to your build system or bring it in to your project with a script tag.
+Once updated, you can add it to your build system or bring it in to your project with a script tag.
 
 ```html
 <script type="text/javascript" src="node_modules/auth0-lock/build/lock.js"></script>

@@ -1,8 +1,6 @@
 ### Update auth0.js
 
-You update the auth0.js library to integrate Auth0 into your application.
-
-Install auth0.js using npm or yarn.
+Update the auth0.js library using npm or yarn.
 
 ```bash
 # installation with npm
@@ -12,7 +10,7 @@ npm install --save auth0-js
 yarn add auth0-js
 ```
 
-Once you install auth0.js, add it to your build system or bring it in to your project with a script tag.
+Once updated, you can add it to your build system or bring it in to your project with a script tag.
 
 ```html
 <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
