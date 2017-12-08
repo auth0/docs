@@ -54,7 +54,7 @@ Every user that exists in Analystick should be created in your Auth0 database co
 
 ### Email Verification
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+Once you've created the user in Auth0, you'll send the appropriate `POST` call in your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
 
 Be sure to update the following placeholder values:
 
@@ -84,7 +84,7 @@ Be sure to update the following placeholder values:
 
 ### Password Reset
 
-Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app shoule make a `POST` request to Auth0's Management API.
+Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
 
 Be sure to replace the placeholder values for your [API access token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
 
