@@ -14,7 +14,7 @@ Auth0.js can be used to implement authentication in different ways:
 
 - Embedded Login, using the `.login()`, `popup.loginWithCredentials()`, `client.loginWithCredentials()` methods, where the login dialog is displayed in the application's website.
 
-- In the Hosted Login Page, where you can use the same methods as in Embedded Login but from inside a customized Auth0's Hosted Login page. Most customers don't customize Auth0 hosted pages with Auth0.js, so your probably don't need to worry about this.
+- In the [Hosted Login Page](/hosted-pages/login), where you can use the same methods as in Embedded Login but from inside a customized Auth0's Hosted Login Page. Most customers don't customize Auth0 Hosted Login Page with Auth0.js, so your probably don't need to worry about this scenario.
 
 Depending on how you are using Auth0.js, you have different options:
 
@@ -26,11 +26,13 @@ Depending on how you are using Auth0.js, you have different options:
 
 If you are using Centralized Login, you don't need to make any changes in your code to use auth0.js v9, you can just update it to the latest version.
 
-If you are not using Centralized login, we recommend you to use it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
+If you are not using Centralized Login in your applications, we recommend you to use it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
 # Migration Instructions
 
-If you decide to keep using Embedded Login, you will need to migrate to v9. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
+If you decide to keep using Embedded Login, you will need to migrate to v9. 
+
+This document links to all the changes that you should be aware of between different versions of Auth0.js. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation. Make sure you go through them before upgrading.
 
 [Migrating from Auth0.js v6](/articles/libraries/auth0js/v9/migration-v6-v9)
 
