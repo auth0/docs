@@ -20,7 +20,7 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',

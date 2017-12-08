@@ -18,7 +18,7 @@ description: How to get user information with one-click social authentication on
 * Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
 ```html
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 <script type="application/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',

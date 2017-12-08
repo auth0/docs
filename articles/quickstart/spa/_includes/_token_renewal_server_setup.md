@@ -32,7 +32,7 @@ console.log('Listening on http://localhost:${serverPort}');
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="${auth0js_urlv8}"></script>
+  <script src="${auth0js_url}"></script>
   <script>
     var webAuth = new auth0.WebAuth({
       domain: '${account.namespace}',
