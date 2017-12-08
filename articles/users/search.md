@@ -70,7 +70,7 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 
 **Sample Response**
 
-Successful calls to the endpoint returns a JSON object similar to the following:
+Successful calls to the endpoint return a JSON object similar to the following:
 
 ```json
 [
