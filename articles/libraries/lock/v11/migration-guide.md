@@ -10,17 +10,17 @@ Lock 11 is designed for embedded login scenarios. It operates with enhanced secu
 
 We recommend that instead of using Lock embedded in your application, you use **Centralized Login**, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
 
-If you decide to keep using Lock, this document lists all the changes that you should be aware of between versions 10 and 11 of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
-
 # Migration Instructions
 
-If you decide to keep using Embedded Login, you will need to migrate to v11. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
+If you decide to keep using Lock you will need to migrate to Lock 11.
 
-[Migrating from Lock.js v8]((/articles/libraries/lock/11/migration-v8-v11)
+This document links to all the changes that you should be aware of between different versions of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation. Make sure you go through them before upgrading.
 
-[Migrating from Lock.js v9]((/articles/libraries/lock/11/migration-v9-v11)
+[Migrating from Lock.js v8](/articles/libraries/lock/11/migration-v8-v11)
 
-[Migrating from Lock.js v10]((/articles/libraries/lock/11/migration-v10-v11)
+[Migrating from Lock.js v9](/articles/libraries/lock/11/migration-v9-v11)
+
+[Migrating from Lock.js v10](/articles/libraries/lock/11/migration-v10-v11)
 
 [Migrating to Lock.js v11 in Angular.js Applications](/articles/libraries/lock/11/migration-angularjs)
 
