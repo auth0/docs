@@ -32,15 +32,15 @@ If you are not using Centralized login, we recommend you to use it as [most secu
 
 If you decide to keep using Embedded Login, you will need to migrate to v9. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
 
-[Migrating from Auth0.js v6](migration-v6-v9.md)
+[Migrating from Auth0.js v6](/articles/libraries/auth0js/v9/migration-v6-v9)
 
-[Migrating from Auth0.js v7](migration-v7-v9.md)
+[Migrating from Auth0.js v7](/articles/libraries/auth0js/v9/migration-v7-v9)
 
-[Migrating from Auth0.js v8](migration-v8-v9.md)
+[Migrating from Auth0.js v8](/articles/libraries/auth0js/v9/migration-v8-v9)
 
-[Migrating to Auth0.js v9 in Angular.js Applications]()
+[Migrating to Auth0.js v9 in Angular.js Applications](/articles/libraries/auth0js/v9/migration-angularjs)
 
-[Migrating to Auth0.js v9 in Angular Applications]()
+[Migrating to Auth0.js v9 in Angular Applications](/articles/libraries/auth0js/v9/migration-angular)
 
 ::: note
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 

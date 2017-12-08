@@ -16,15 +16,15 @@ If you decide to keep using Lock, this document lists all the changes that you s
 
 If you decide to keep using Embedded Login, you will need to migrate to v11. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
 
-[Migrating from Lock.js v8](migration-v8-v11.md)
+[Migrating from Lock.js v8]((/articles/libraries/lock/11/migration-v8-v11)
 
-[Migrating from Lock.js v9](migration-v9-v11.md)
+[Migrating from Lock.js v9]((/articles/libraries/lock/11/migration-v9-v11)
 
-[Migrating from Lock.js v10](migration-v10-v11.md)
+[Migrating from Lock.js v10]((/articles/libraries/lock/11/migration-v10-v11)
 
-[Migrating to Lock.js v11 in Angular.js Applications]()
+[Migrating to Lock.js v11 in Angular.js Applications](/articles/libraries/lock/11/migration-angularjs)
 
-[Migrating to Lock.js v11 in Angular Applications]()
+[Migrating to Lock.js v11 in Angular Applications](/articles/libraries/lock/11/migration-angular)
 
 :::note
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
