@@ -235,7 +235,7 @@ The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/
 
 The Users by Email endpoint is immediately consistent, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication/authorization process 
+* User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
 ## User Export
