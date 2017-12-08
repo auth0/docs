@@ -6,11 +6,13 @@ toc: true
 ---
 # Migration Guide: Auth0.js v8 to v9
 
+Auth0.js v9 has been improved to work in embedded login scenarios. It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier versions of Auth0.js. 
+
 This document lists all the changes that you should be aware of when migrating between versions 8 and 9 of Auth0.js. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation.
 
 We recommend that instead of using Auth0.js for custom login in embedded in your application, you use **Centralized Login**, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
-If you decide to keep using Auth0.js for that goal, you will need to use the latest and more secure version of the library, but before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
+If you decide to keep using Auth0.js for that goal, you will need to migrate to v9. Before you update your code, make sure that you have reviewed this document and made any necessary changes in your implementation. 
 
 If you are still using Auth0.js v6 or v7 you can refer to our [previous Migration Guides](/libraries/auth0js/v8/migration-guide).
 
