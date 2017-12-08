@@ -28,7 +28,7 @@ If you are using Centralized Login, you don't need to make any changes in your c
 
 If you are not using Centralized login, we recommend you to use it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
-# Detailed Migration Instructions
+# Migration Instructions
 
 If you decide to keep using Embedded Login, you will need to migrate to v9. Before you update your code, make sure that you have reviewed these documents and made any necessary changes in your implementation. 
 
