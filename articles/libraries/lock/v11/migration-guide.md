@@ -1,10 +1,10 @@
 ---
 section: libraries
-title: Lock v10 to v11 Migration Guide
-description: How to migrate from Lock v10 to Lock v11
+title: Migrating to Lock v11
+description: How to migrate to Lock v11
 toc: true
 ---
-# Migration Guide: Lock v10 to v11
+# Migrating to Lock v11
 
 Lock 11 is designed for embedded login scenarios. It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
 
