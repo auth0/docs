@@ -34,15 +34,22 @@ If you decide to keep using Embedded Login, you will need to migrate to v9.
 
 This document links to all the changes that you should be aware of between different versions of Auth0.js. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation. Make sure you go through them before upgrading.
 
-[Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
+[Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
 
 [Migrating from Auth0.js v7](/libraries/auth0js/v9/migration-v7-v9)
 
-[Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
+[Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
 
-[Migrating to Auth0.js v9 in Angular.js Applications](/libraries/auth0js/v9/migration-angularjs)
+[Migrating from Auth0.js v6 in Angular.js Applications](/libraries/auth0js/v9/migration-angularjs-v7)
+
+[Migrating from Auth0.js v7 in Angular.js Applications](/libraries/auth0js/v9/migration-angularjs-v7)
+
+[Migrating from Auth0.js v8 in Angular.js Applications](/libraries/auth0js/v9/migration-angularjs-v8)
 
 [Migrating to Auth0.js v9 in Angular Applications](/libraries/auth0js/v9/migration-angular)
+
+[Migrating to Auth0.js v9 in React.js Applications](/libraries/auth0js/v9/migration-react)
+
 
 ::: note
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
