@@ -4,8 +4,10 @@ Lock 11 will default the `scope` parameter to `'openid profile email'`. This is 
 
 If you don't specify that scope when initializing Lock, and you are running your website from http://localhost or http://127.0.0.1, you will get the following error in the browser console:
 
+```text
 Consent required. When using `getSSOData`, the user has to be authenticated with the following scope: `openid profile email`
+```
 
-That will not happen when you run your application in production, or if you specify the required scope.
+That will not happen when you run your application in production or if you specify the required scope.
 
 

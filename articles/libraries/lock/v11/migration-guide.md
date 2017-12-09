@@ -14,7 +14,7 @@ We recommend that instead of using Lock embedded in your application, you use **
 
 If you decide to keep using Lock you will need to migrate to Lock 11.
 
-This document links to all the changes that you should be aware of between different versions of Lock. It includes information on what is changing and why, details on new or deprecated features, and instructions on how you can migrate your implementation. Make sure you go through them before upgrading.
+The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
 
 [Migrating from Lock.js v10](/libraries/lock/v11/migration-v10-v11)
 
