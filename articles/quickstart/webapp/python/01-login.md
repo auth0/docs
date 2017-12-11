@@ -10,7 +10,15 @@ You can get started by either downloading the complete sample or following the t
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-python-web-app',
-  path: '01-Login'
+  path: '01-Login',
+   requirements: [
+    'Python 2.7, 3.0 and up',
+    'Flask 0.10.1 and up',
+    'Python-dotenv 0.6.5 and up'
+    'Requests 2.3.0 and up',
+    'Flask-oauthlib 0.9.4 and up',
+    'Six 1.10.0 and up'
+  ]
 }) %>
 
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
