@@ -39,15 +39,14 @@ Underneath the parameters mentioned above, you'll see an option to **create a ne
 | - | - |
 | CDN endpoint name | A descriptive name for the endpoint. We suggest using something similar to your custom domain (if not the domain itself) |
 | Origin type | Select **Custom origin** |
-| Origin hostname | Provide the fully-qualified URL using the following format: `www.tenant.custom_domain_id.edge.tenants.auth0.com`. Be sure to replace the `tenant` (this is the name of your Auth0 account and is reflected in your domain name as `tenant.auth0.com`) and `custom_domain_id` placeholder values. 
+| Origin hostname | Provide the fully-qualified URL using the following format: `custom_domain_id.edge.tenants.auth0.com`. Be sure to use the `Origin Domain Name` value obtained from the Auth0 Dashboard during the Custom Domains setup process. |
 
 ::: warning
 If your Auth0 tenants are **not** in a US region, you'll need to use the following as your **Origin hostname**:
 
-* EU: tenant.custom_domain_id.edge.tenants.eu.auth0.com
-* AU: tenant.custom_domain_id.edge.tenants.au.auth0.com
+* EU: custom_domain_id.edge.tenants.eu.auth0.com
+* AU: custom_domain_id.edge.tenants.au.auth0.com
 
-Be sure to replace the `tenant` placeholder value with the name of your tenant.
 :::
 
 ![](/media/articles/custom-domains/azure/cdn-profile-2.png)

@@ -22,17 +22,18 @@ Under **Origin Settings**, here are the values you'll need to change:
 
 | Parameter | Value |
 | - | - |
-| Origin Domain Name | Provide the fully-qualified URL using the following format: `www.tenant.custom_domain_id.edge.tenants.auth0.com`. Be sure to replace the `tenant` (this is the name of your Auth0 account and is reflected in your domain name as `tenant.auth0.com`) and `custom_domain_id` placeholder values. |
+| Origin Domain Name | Provide the fully-qualified URL using the following format: `custom_domain_id.edge.tenants.auth0.com`. Be sure to use the `Origin Domain Name` value obtained from the Auth0 Dashboard during the Custom Domains setup process. |
 | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
 | Origin Protocol Policy | Set to **HTTPS Only** |
+| Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
 
 ::: warning
 If your Auth0 tenants are **not** in a US region, you'll need to use the following as your **Origin Domain Name**:
 
-* EU: tenant.custom_domain_id.edge.tenants.eu.auth0.com
-* AU: tenant.custom_domain_id.edge.tenants.au.auth0.com
+* EU: custom_domain_id.edge.tenants.eu.auth0.com
+* AU: custom_domain_id.edge.tenants.au.auth0.com
 
-Be sure to replace the `tenant` placeholder value with the name of your tenant.
+Be sure to use the `Origin Domain Name` value obtained from the Auth0 Dashboard during the Custom Domains setup process.
 :::
 
 ![](/media/articles/custom-domains/aws/create-distribution.png)
@@ -59,10 +60,10 @@ Next, you'll configure the **Default Cache Behavior Settings**. Here are the val
 
 Scroll to the bottom of the page and click **Create Distribution**.
 
-You'll see your newly-created distribution in your CloudFront home page.
+You'll see your newly-created distribution in your CloudFront Distributions list. Note that the Status will reflect `In progress` until the distribution is Deployed.
 
 ![](/media/articles/custom-domains/aws/distributions.png)
 
-Finally, add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution (for example, `e2zwy42nt1feu7.cloudfront.net`).
+Finally, add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution. This can be found by clicking on your Distribution ID, under the General tab, Domain Name (for example, `e2zwy42nt1feu7.cloudfront.net`).
 
 Your CloudFront setup is now ready for use!
