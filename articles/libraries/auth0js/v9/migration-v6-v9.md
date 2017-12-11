@@ -13,11 +13,11 @@ toc: true
 
 ### Follow the Auth0.js v6 to v7 Migration Guide
 
-Read about the [Auth0.js v7 API](/libraries/auth0js/v7)
+Read about the [Auth0.js v7 API](/libraries/auth0js/v7).
 
 ### Follow the Auth0.js v7 to v8 Migration Guide
 
-Follow the [instructions to migrate from Auth0.js v7 to v8](/libraries/auth0js/v8/migration-guide)
+Follow the [instructions to migrate from Auth0.js v7 to v8](/libraries/auth0js/v8/migration-guide).
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
