@@ -58,7 +58,7 @@ $ python manage.py startapp auth0login
 
 The `settings.py` file contains the configuration of your Django project. 
 
-Add one entry for `social_django` and for your application into the `INSTALLED_APPS` entry.
+Add entries for `social_django` and for your application into the `INSTALLED_APPS` section.
 
 ```python
 # webappexample\settings.py
