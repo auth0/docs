@@ -5,7 +5,7 @@ description: How to migrate AngularJS Applications from Lock v9 to v11
 toc: true
 ---
 
-# Migrating AngularJS applications from Lock.js v9 to v11
+# Migrating AngularJS applications from Lock v9 to v11
 
 TODO.
 
