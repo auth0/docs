@@ -14,8 +14,10 @@ You can get started by either downloading the complete sample or following the t
   requirements: [
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
+    'Python-dotenv 0.6.5 and up'
     'Requests 2.3.0 and up',
     'Flask-oauthlib 0.9.4 and up'
+    'Six 1.10.0 and up'
   ]
 }) %>
 
@@ -28,9 +30,13 @@ This example uses [Flask](http://flask.pocoo.org) and the [Flask OAuthlib](https
 Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
 ```js
+// /requirements.txt
+
 flask
+python-dotenv
 requests
 flask-oauthlib
+six
 ```
 
 ## Initialize Flask-OAuthlib
@@ -39,7 +45,7 @@ With `OAuth` you call the authorize endpoint of the Authentication API and redir
 Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
 
 ```python
-# server.py
+# /server.py
     
 from flask import Flask
 from flask import render_template
@@ -72,6 +78,8 @@ and an `id_token`.
 The `id_token` is a [JWT](/jwt) that contains the user profile information for the requested [OIDC Conformant claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
 
 ```python
+# /server.py
+
 # Here we're using the /callback route.
 @app.route('/callback')
 def callback_handling():
@@ -83,20 +91,18 @@ def callback_handling():
             request.args['error_description']
         ))
     
-    # Obtain JWT and the keys to validate the signature
-    id_token = resp['id_token']
-    jwks = urlopen("https://"+"${account.namespace}"+"/.well-known/jwks.json")
+    url = 'https://' + AUTH0_DOMAIN + '/userinfo'
+    headers = {'authorization': 'Bearer ' + resp['access_token']}
+    resp = requests.get(url, headers=headers)
+    userinfo = resp.json()
     
-    payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience='${account.clientId}',
-                        issuer="https://"+"${account.namespace}"+"/")
-    
-    # Store the tue user information obtained in the id_token in flask session.
-    session[constants.JWT_PAYLOAD] = payload
+    # Store the tue user information in flask session.
+    session[constants.JWT_PAYLOAD] = userinfo
     
     session[constants.PROFILE_KEY] = {
-        'user_id': payload['sub'],
-        'name': payload['name'],
-        'picture': payload['picture']
+        'user_id': userinfo['sub'],
+        'name': userinfo['name'],
+        'picture': userinfo['picture']
     }
     
     return redirect('/dashboard')
@@ -107,6 +113,8 @@ def callback_handling():
 Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to Auth0's [hosted login page](/hosted-pages/login).
 
 ```python
+# /server.py
+
 @app.route('/login')
 def login():
     return auth0.authorize(callback='${account.callback}')
@@ -128,6 +136,8 @@ Create a `home.html` file in a `/template` folder. Add a link to the `/login` ro
 To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
 
 ```python
+# /server.py
+
 @app.route('/logout')
 def logout():
     # Clear session stored data
@@ -150,6 +160,8 @@ You should import `wraps` first, adding the following line to your `server.py` f
 :::
 
 ```python
+# /server.py
+
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
@@ -168,6 +180,8 @@ Add a `/dashboard` route to `server.py` that will render the user information st
 Decorate it with `@requires_auth`. It will only be accessible if the user has been authenticated.
 
 ```python
+# /server.py
+
 @app.route('/dashboard')
 @requires_auth
 def dashboard():
