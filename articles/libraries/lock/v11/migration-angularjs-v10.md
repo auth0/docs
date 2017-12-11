@@ -5,7 +5,7 @@ description: How to migrate AngularJS Applications from Lock v10 to v11
 toc: true
 ---
 
-# Migrating AngularJS applications from Lock.js v10 to v11
+# Migrating AngularJS applications from Lock v10 to v11
 
 ## Migration Steps
 
@@ -36,12 +36,10 @@ The script files need to be added to your build system, or added to the project 
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_oidc_conformant') %>
 
-## Behavioral Changes in Lock.js v11
+## Behavioral Changes in Lock v11
 
 <%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>
-
 <%= include('../../_includes/_last_logged_in_window') %>
 <%= include('../../_includes/_ip_ranges') %>
 <%= include('../../_includes/_default_values_lock') %>
-
