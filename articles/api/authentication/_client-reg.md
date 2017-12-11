@@ -14,16 +14,14 @@ Content-Type: application/json
 
 ```shell
 curl --request POST \
-  --url https://${account.namespace}/dbconnections/change_password \
+  --url https://${account.namespace}/oidc/register \
   --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}","email": "EMAIL", "password": "", "connection": "CONNECTION"}'
+  --data '{"client_name": "YOUR-NEW-CLIENT-NAME","redirect_uris": [], "token_endpoint_auth_method": "client_secret_post"}'
 ```
 
 > RESPONSE SAMPLE:
 
 ```json
-HTTP/1.1 201 Created
-Content-Type: application/json
 {
   "client_name": "My Dynamic Client",
   "client_id": "8SXWY6j3afl2CP5ntwEOpMdPxxy49Gt2",
@@ -35,6 +33,13 @@ Content-Type: application/json
   "client_secret_expires_at": 0
 }
 ```
+
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "POST",
+  "path": "/oidc/register",
+  "link": "#dynamic-client-registration"
+}) %>
 
 With a name and the necessary callback URLs, you can dynamically register a client with Auth0.
 
