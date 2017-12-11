@@ -7,6 +7,8 @@ toc: true
 
 # Migrating from Lock.js v10 to v11
 
+This guide includes all the information you need to update your Lock 10 installation to Lock 11.
+
 ## Migration Steps
 
 <%= include('../../_includes/_get_lock_latest_version') %>
@@ -22,4 +24,3 @@ toc: true
 <%= include('../../_includes/_last_logged_in_window') %>
 <%= include('../../_includes/_ip_ranges') %>
 <%= include('../../_includes/_default_values_lock') %>
-
