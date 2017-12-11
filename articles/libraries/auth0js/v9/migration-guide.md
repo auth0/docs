@@ -18,7 +18,7 @@ Auth0.js can be used to implement authentication in different ways:
 
 Depending on how you are using Auth0.js, you have different options:
 
-| Scenario | Migration to v9 | 
+| **Scenario** | **Migration to v9** | 
 | --- | --- | 
 | Centralized Login | Recommended |
 | Embedded Login | Required |
@@ -28,7 +28,7 @@ If your application is configured to use Centralized Login, and your web applica
 
 If you are not using Centralized Login in your applications, we recommend you to start using it, it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
-# Migration Instructions
+## Migration Instructions
 
 If you decide to keep using Embedded Login, you will need to migrate to Auth0.js v9. 
 
