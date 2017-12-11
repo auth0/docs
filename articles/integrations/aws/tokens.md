@@ -173,7 +173,7 @@ Additionally, AWS requires two additional parameters: **role** and **principal**
 Here is an example of client-side code used to obtain the token:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv7}"></script>
 <script type="text/javascript">
 
   var auth0 = new Auth0({

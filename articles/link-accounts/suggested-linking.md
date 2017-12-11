@@ -24,7 +24,7 @@ You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App
 
 To authenticate the user, you can use one of the following:
 
-* [Lock](/libraries/lock/v10);
+* [Lock](/libraries/lock);
 * [Auth0 SDK for Web](/libraries/auth0js) with your custom UI.
 
 ![](/media/articles/link-accounts/regular-web-app-initial-login.png)
