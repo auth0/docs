@@ -40,7 +40,7 @@ Content-Type: application/json
   "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/oidc/register",
-  "link": "#client-reg"
+  "link": "#dynamic-client-registration"
 }) %>
 
 With a name and the necessary callback URLs, you can dynamically register a client with Auth0.
