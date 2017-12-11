@@ -14,7 +14,7 @@ This guide includes all the information you need to update your Lock 9 installat
 
 ### Follow the Lock v9 to v10 Migration Guide
 
-Follow the [instructions to migrate from Lock v9 to v10](/libraries/lock/v10/migration-guide)
+Follow the [instructions to migrate from Lock v9 to v10](/libraries/lock/v10/migration-guide).
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
