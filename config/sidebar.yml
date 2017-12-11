@@ -512,6 +512,7 @@ apis:
 
   - title: Authentication API
     url: "/api/authentication"
+    forceFullReload: true
     external: true
 
   - title: Management API
@@ -536,6 +537,7 @@ apis:
 
       - title: API Explorer
         url: "/api/management/v2/"
+        forceFullReload: true
         external: true
 
 libraries:
