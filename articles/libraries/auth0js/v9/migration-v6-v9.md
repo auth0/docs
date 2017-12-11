@@ -4,8 +4,9 @@ title: Migrating from Auth0.js v6 to v9
 description: How to migrate from Auth0.js v7 to v9
 toc: true
 ---
-
 # Migrating from Auth0.js v6 to v9
+
+This guide includes all the information you need to update Auth0.js from v6 to v9.
 
 ## Migration Steps
 
