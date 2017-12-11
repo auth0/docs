@@ -45,10 +45,10 @@ class JsonWebToken
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
-               iss: 'https://${account.namespace}/'
+               iss: 'https://${account.namespace}/',
                verify_iss: true,
                # auth0_api_audience is the identifier for the API set up in the Auth0 dashboard
-               aud: auth0_api_audience
+               aud: auth0_api_audience,
                verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
