@@ -16,7 +16,7 @@ You can get started by either downloading the complete project or if you would l
     'django 1.11 and up',
     'social-auth-app-django 1.2.0 and up',
     'python-jose 1.3.2 and up',
-    'six 1.10.0 and up'
+    'six 1.10.0 and up',
     'python-dotenv 0.6.5 and up'
   ]
 }) %>
