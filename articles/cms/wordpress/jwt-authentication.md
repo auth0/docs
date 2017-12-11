@@ -4,6 +4,10 @@ description: Explains how to install the WordPress JWT Authentication and integr
 
 # WordPress JWT Authentication
 
+::: version-warning
+The WordPress JWT Authentication is deprecated and will no longer be updated by Auth0.
+:::
+
 Auth0 provides a plugin to enable [JWT](/jwt) authentication for your APIs. It is compatible with any API that uses the `determine_current_user` function to retrieve the logged in user (such as [WP REST API](https://wordpress.org/plugins/json-rest-api/)).
 
 ## Installation
@@ -29,10 +33,6 @@ After you've activated your plugin, provide the following values for your Auth0 
 If you've also installed and enabled the latest version of the [Auth0 WordPress Plugin](/cms/wordpress/how-does-it-work), you can opt to configure the Auth0 WordPress plugin automatically, which sets your *client id*, *client secret* and the *Auth0 User Repository*.
 
 ## Authenticating requests
-
-::: note
-See [access tokens](/tokens/access-token) (both JWTs and opaque strings) for additional information.
-:::
 
 To authenticate a request using JWT, add an `Authorization` header to the request:
 
