@@ -26,7 +26,7 @@ If you would like to follow along with this Quickstart you can download the [see
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples). You can find the final result for each step in the relevant folder inside the repository.
 
-<%= include('../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new_2') %>
 
 Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
 
@@ -93,21 +93,20 @@ Please ensure that the URL specified for `ValidIssuer` contains a trailing backs
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
 ```csharp
-// Controllers/PingController.cs
+// Controllers/ApiController.cs
 
 [RoutePrefix("api")]
-public class PingController : ApiController
+public class ApiController : ApiController
 {
-    [Authorize]
     [HttpGet]
-    [Route("ping/secure")]
-    public IHttpActionResult PingSecured()
+    [Route("private")]
+    [Authorize]
+    public IHttpActionResult Private()
     {
-        return Ok(new
+        return Json(new
         {
-            Message = "All good. You only get this message if you are authenticated."
-        }
-        );
+            Message = "Hello from a private endpoint! You need to be authenticated to see this."
+        });
     }
 }
 ```
@@ -116,11 +115,7 @@ public class PingController : ApiController
 
 The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `create` access to that resource if they are an **administrator**.
-
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and select the **Scopes** tab. In this area you can define any scopes you wish. For this sample you can define ones called `read:messages` and `create:messages`.
-
-To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can create a custom Authorization Attribute.
+<%= include('../_includes/_api_scopes_access_resources') %>
 
 Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
@@ -135,6 +130,7 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
     {
         this.scope = scope;
     }
+    
     public override void OnAuthorization(HttpActionContext actionContext)
     {
         base.OnAuthorization(actionContext);
@@ -165,25 +161,20 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
 To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute, and pass the name of the required `scope` in the `scope` parameter:
 
 ```csharp
-// Controllers/TimesheetsController.cs
+// Controllers/ApiController.cs
 
-[RoutePrefix("api/messages")]
-public class MessagesController : ApiController
+[RoutePrefix("api")]
+public class ApiController : ApiController
 {
-    [ScopeAuthorize("read:messages")]
-    [Route("")]
     [HttpGet]
-    public IHttpActionResult GetAll()
+    [Route("private-scoped")]
+    [ScopeAuthorize("read:messages")]
+    public IHttpActionResult Scoped()
     {
-        // Return the list of messages
-    }
-
-    [ScopeAuthorize("create:messages")]
-    [Route("")]
-    [HttpPost]
-    public IHttpActionResult Create(Message message)
-    {
-        // Create a new message
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
+        });
     }
 }
 ```
