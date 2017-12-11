@@ -7,4 +7,4 @@ description: How to migrate Angular applications to Lock 11
 
 Angular applications can use Lock directly without any kind of wrapper library.
 
-All Angular applications will be using Lock 10, so you can follow the [Migrating from Lock.js v10](/libraries/lock/v11/migration-v10-v11) guide.
+All Angular applications will be using Lock 10, so you can follow the [Migrating from Lock v10](/libraries/lock/v11/migration-v10-v11) guide.
