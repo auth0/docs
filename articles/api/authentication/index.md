@@ -48,7 +48,7 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_client_reg') %>
+  <%= include('./_client-reg') %>
 </div>
 
 <span data-section-label="api-authz">API Authorization</span>
