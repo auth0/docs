@@ -12,12 +12,11 @@ You can get started by either downloading the complete project or if you would l
   repo: 'auth0-django-web-app',
   path: '01-Login',
   requirements: [
-    'python 2.7, 3.0 and up',
-    'django 1.11 and up',
+    'Python 2.7, 3.0 and up',
+    'Django 1.11 and up',
     'social-auth-app-django 1.2.0 and up',
     'python-jose 1.3.2 and up',
-    'six 1.10.0 and up'
-    'python-dotenv 0.6.5 and up'
+    'Six 1.10.0 and up'
   ]
 }) %>
 
@@ -32,8 +31,8 @@ Add the following dependencies to your `requirements.txt`:
 ```text
 django
 social-auth-app-django
-python-dotenv
-requests
+python-jose
+six
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
@@ -109,7 +108,8 @@ Create a file to implement the custom `Auth0` authentication backend.
 ```python
 # auth0login/auth0backend.py
 
-import requests
+from six.moves.urllib import request
+from jose import jwt
 from social_core.backends.oauth import BaseOAuth2
 
 
@@ -135,15 +135,19 @@ class Auth0(BaseOAuth2):
         return details['user_id']
     
     def get_user_details(self, response):
-        url = 'https://' + self.setting('DOMAIN') + '/userinfo'
-        headers = {'authorization': 'Bearer ' + response['access_token']}
-        resp = requests.get(url, headers=headers)
-        userinfo = resp.json()
+        # Obtain JWT and the JWKS keys to validate the signature
+        idToken = response.get('id_token')
+        jwks = request.urlopen("https://" + self.setting('DOMAIN') + "/.well-known/jwks.json")
+        issuer = "https://" + self.setting('DOMAIN') + "/"
+        audience = self.setting('KEY') #CLIENT_ID
 
-        return {'username': userinfo['nickname'],
-                'first_name': userinfo['name'],
-                'picture': userinfo['picture'],
-                'user_id': userinfo['sub']}
+        # Decode the jwt to get the user information
+        payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
+        
+        return {'username': payload['nickname'],
+                'first_name': payload['name'],
+                'picture': payload['picture'],
+                'user_id': payload['sub']}
 ```
 
 ::: note
