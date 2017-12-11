@@ -7,6 +7,12 @@ budicon: 448
 
 You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
 
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-python-web-app',
+  path: '01-Login'
+}) %>
+
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
 ## Add the Dependencies
