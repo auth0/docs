@@ -30,6 +30,10 @@ If you've also installed and enabled the latest version of the [Auth0 WordPress 
 
 ## Authenticating requests
 
+::: note
+See [access tokens](/tokens/access-token) (both JWTs and opaque strings) for additional information.
+:::
+
 To authenticate a request using JWT, add an `Authorization` header to the request:
 
 ```txt
