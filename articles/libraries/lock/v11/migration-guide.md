@@ -10,7 +10,7 @@ Lock 11 is designed for embedded login scenarios. It operates with enhanced secu
 
 We recommend that instead of using Lock embedded in your application, you use **Centralized Login**, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
 
-# Migration Instructions
+## Migration Instructions
 
 If you decide to keep using Lock you will need to migrate to Lock 11.
 
