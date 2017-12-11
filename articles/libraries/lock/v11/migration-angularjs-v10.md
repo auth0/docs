@@ -30,7 +30,6 @@ The script files need to be added to your build system, or added to the project 
 ```html
 <script src="node_modules/angular-lock/dist/angular-lock.js"></script>
 ```
-## Migration Steps
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
