@@ -1,7 +1,3 @@
----
-description: How to use customize the Hosted Login Page with Lock
----
-
 ## Customizing the Centralized Login Page
 
 In the [Dashboard](${manage_url}), you can enable a custom Hosted Login Page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
