@@ -25,9 +25,9 @@ The documents below describe all the changes that you should be aware of when mi
 
 [Migrating from Lock.js v9 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v9)
 
-[Migrating from Lock.js v10v in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
+[Migrating from Lock.js v10 in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
 
-[Migrating from Lock.js v00 in React Applications](/libraries/lock/v11/migration-react)
+[Migrating from Lock.js v10 in React Applications](/libraries/lock/v11/migration-react)
 
 :::note
 If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
