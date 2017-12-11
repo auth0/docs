@@ -102,5 +102,5 @@ You can find complete examples of implementing Centralized login in Single Page 
 
 ## Customize the Hosted Login Page
 
-<%= include('_include/_customizing-login-page) %>
+<%= include('_includes/_customizing-login-page') %>
 
