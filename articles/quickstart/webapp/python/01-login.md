@@ -12,6 +12,8 @@ You can get started by either downloading the complete sample or following the t
   repo: 'auth0-python-web-app',
   path: '01-Login',
    requirements: [
+   'Requests 2.3.0 and up',
+    'Flask-oauthlib 0.9.4 and up',
     'Six 1.10.0 and up'
   ]
 }) %>
