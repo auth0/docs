@@ -8,7 +8,7 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   repo: 'auth0-python-api-samples',
   path: '00-Starter-Seed',
   requirements: [
-    'python 2.7, 3.3 and up'
+    'python 2.7, 3.3 and up',
     'flask 0.11.1',
     'python-jose-cryptodome 1.3.2',
     'flask-cors 3.0.2',
