@@ -4,8 +4,9 @@ title: Migrating from Lock.js v9 to v11
 description: How to migrate from Lock.js v9 to v11
 toc: true
 ---
-
 # Migrating from Lock.js v9 to v11
+
+This guide includes all the information you need to update your Lock 9 installation to Lock 11.
 
 ## Migration Steps
 
