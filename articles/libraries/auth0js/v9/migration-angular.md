@@ -3,8 +3,8 @@ section: libraries
 title: Migrating Angular applications to Auth0.js 9
 description: How to migrate Angular applications to Auth0.js 9
 ---
-# Migrating Angular Applications to Auth0.js v9
+# Migrating Angular 2+ Applications to Auth0.js v9
 
-Angular applications can use Lock directly without any kind of wrapper library.
+Angular 2+ applications can use auth0.js directly without any kind of wrapper library.
 
-All Angular applications will be using Auth0.js v8, so you can follow the [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9) guide.
+All Angular 2+ applications will be using auth0.js v8, so you can follow the [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9) guide.

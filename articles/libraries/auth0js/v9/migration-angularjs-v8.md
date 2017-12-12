@@ -6,7 +6,7 @@ toc: true
 ---
 # Migrating AngularJS applications from Auth0.js v8 to v9
 
-This guide includes all the information you need to update Auth0.js from v8 to v9. Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
+This guide includes all the information you need to update auth0.js from v8 to v9. Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
 
 ## Migration Steps
 
@@ -14,7 +14,7 @@ This guide includes all the information you need to update Auth0.js from v8 to v
 
 ### Update angular-auth0
 
-AngularJS (a.k.a. Angular 1.x) applications usually use the [angular-auth0 package](https://www.npmjs.com/package/angular-auth0). To use Auth0.js v9 you need to update to the latest version (3.x).
+AngularJS (a.k.a. Angular 1.x) applications usually use the [angular-auth0 package](https://www.npmjs.com/package/angular-auth0). To use auth0.js v9 you need to update to the latest version (3.x).
 
 You can update the angular-auth0 library using npm or yarn.
 

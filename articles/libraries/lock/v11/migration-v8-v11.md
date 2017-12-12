@@ -6,7 +6,7 @@ toc: true
 ---
 # Migrating from Lock v8 to v11
 
-This guide includes all the information you need to update your Lock 8 installation to Lock 11.
+This guide includes all the information you need to update your Lock 8 installation to [Lock 11](/libraries/lock).
 
 ## Migration Steps
 

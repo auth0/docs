@@ -5,7 +5,7 @@ description: How to migrate to Lock v11
 ---
 # Migrating to Lock v11
 
-Lock 11 is designed for **embedded login** scenarios. It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
+[Lock 11](/libraries/lock) is designed for [embedded login** scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
 
 ## Should I migrate to v11?
 
@@ -22,11 +22,13 @@ Depending on how you are using Lock, you have different options:
 | In your application, to implement embedded login | Required |
 | In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
 
-If you are using using centralized login in your applications, we recommend you to start using it, it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
+::: warning
+If you are not using centralized login in your applications, we recommend you to start using it, it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
+:::
 
 ## Migration Instructions
 
-If you decide to keep using Lock you will need to migrate to Lock 11.
+If you decide to keep using Lock you will need to migrate to [Lock 11](/libraries/lock).
 
 The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
 
@@ -45,5 +47,5 @@ The documents below describe all the changes that you should be aware of when mi
 [Migrating from Lock v10 in React Applications](/libraries/lock/v11/migration-react)
 
 :::note
-If you have any questions or concerns, you can submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
+If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 :::
