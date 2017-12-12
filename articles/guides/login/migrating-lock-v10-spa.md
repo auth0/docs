@@ -15,13 +15,15 @@ When you use Lock, your code does basically four things:
 1. Initialize Lock:
 
 ```js
-var lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     auth: {
-      redirectUrl: ${account.callback},
+      redirectUrl: '${account.callback}',
       responseType: 'token id_token',
+      audience: 'https://' + '${account.namespace}' + '/userinfo',
       params: {
         scope: 'openid'
       }
+    }
 });
 ```
 
@@ -61,12 +63,12 @@ To use centralized login, you need to use Auth0.js to perform the same tasks:
 
 ```js
 var webAuth = new auth0.WebAuth({
-  domain: ${account.namespace},
-  clientID: ${account.clientId},
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
   responseType: 'token id_token',
   audience: 'https://' + ${account.namespace} + '/userinfo',
   scope: 'openid',
-  redirectUri: ${account.callback}
+  redirectUri: '${account.callback}'
 });
 ```
 
