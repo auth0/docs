@@ -10,7 +10,7 @@ This document explains how to migrate Single Page Applications using Lock to cen
 
 For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
 
-When you use Lock, your code does basically four things:
+When you use Lock, your code does basically this:
 
 1. Initialize Lock:
 
