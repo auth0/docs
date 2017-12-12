@@ -4,7 +4,7 @@ description: Explains how to install the WordPress JWT Authentication and integr
 
 # WordPress JWT Authentication
 
-::: version-warning
+::: warning
 The WordPress JWT Authentication plugin is deprecated and will no longer be updated by Auth0.
 :::
 
