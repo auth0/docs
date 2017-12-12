@@ -6,16 +6,18 @@ toc: true
 
 # Migrate SPAs using Lock 10+ to Centralized Login
 
-This document explains how to migrate Single Page Applications using Lock to centralized ;login. For other migration scenarios click [here](/articles/guides/login/migration-embedded-centralized).
+This document explains how to migrate Single Page Applications using Lock to centralized login. 
 
-When using Lock your code does basically four things:
+For other migration scenarios see [Migrating from Embedded to Centralized Login](/articles/guides/login/migration-embedded-centralized).
 
-- Initialize Lock:
+When you use Lock, your code does basically four things:
+
+1. Initialize Lock:
 
 ```js
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+var lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
     auth: {
-      redirectUrl: AUTH0_CALLBACK_URL,
+      redirectUrl: ${account.callback},
       responseType: 'token id_token',
       params: {
         scope: 'openid'
@@ -23,7 +25,7 @@ var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 });
 ```
 
-- Set the session and update the UI in the ‘authenticated’ event:
+2. Set the session and update the UI in the `authenticated` event:
  
 ```js
 lock.on('authenticated', function (authResult) {
@@ -34,7 +36,7 @@ lock.on('authenticated', function (authResult) {
 });
 ```
 
-- Handle errors in the ‘authorization_error’ event:
+3. Handle errors in the `authorization_error` event:
 
 ```js
 // Handle authorization errors
@@ -45,7 +47,7 @@ lock.on('authorization_error', function (err) {
 });
 ```
 
-- Show lock when the login button is clicked:
+4. Show lock when the login button is clicked:
 
 ```js
 function login() {
@@ -55,20 +57,20 @@ function login() {
 
 To use centralized login, you need to use Auth0.js to perform the same tasks:
 
-- Initialize Auth0.js, using the same parameters as when initializing Lock:
+1. Initialize Auth0.js, using the same parameters as when initializing Lock:
 
 ```js
 var webAuth = new auth0.WebAuth({
-  domain: AUTH0_DOMAIN,
-  clientID: AUTH0_CLIENT_ID,
+  domain: ${account.namespace},
+  clientID: ${account.clientId},
   responseType: 'token id_token',
-  audience: 'https://' + AUTH0_DOMAIN + '/userinfo',
+  audience: 'https://' + ${account.namespace} + '/userinfo',
   scope: 'openid',
-  redirectUri: AUTH0_CALLBACK_URL
+  redirectUri: ${account.callback}
 });
 ```
 
-- Create a `handleAuthentication` function that processes successful and failed authentication attempts calling `parseHash`:
+2. Create a `handleAuthentication` function that processes successful and failed authentication attempts calling `parseHash`:
 
 ```js
 function handleAuthentication() {
@@ -86,9 +88,9 @@ function handleAuthentication() {
 }
 ```
 
-- Invoke the `handleAuthentication()` function on page load so it tries to parse the hash if it's present.
+3. Invoke the `handleAuthentication()` function on page load so it tries to parse the hash if it's present.
 
-- Redirect to the centralized login page when the login button is clicked:
+4. Redirect to the centralized login page when the login button is clicked:
 
 ```js
 function login() {
@@ -99,4 +101,3 @@ function login() {
 You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
 <%= include('_includes/_customizing-login-page') %>
-
