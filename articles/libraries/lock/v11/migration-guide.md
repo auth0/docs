@@ -11,7 +11,7 @@ Lock 11 is designed for **embedded login** scenarios. It operates with enhanced 
 
 Lock can be used to implement authentication in different ways:
 
-- In your application, to implement embedded login
+- In your application, to implement embedded login.
 
 - In the [Hosted Login Page](/hosted-pages/login), where you can use the configure Lock to behave in the way you need. 
 
