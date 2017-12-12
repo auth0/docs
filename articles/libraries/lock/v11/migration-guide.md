@@ -7,7 +7,22 @@ description: How to migrate to Lock v11
 
 Lock 11 is designed for **embedded login** scenarios. It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
 
-We recommend that instead of using Lock embedded in your application, you use **Centralized Login**, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
+## Should I migrate to v11?
+
+Lock can be used to implement authentication in different ways:
+
+- In your application, to implement embedded login
+
+- In the [Hosted Login Page](/hosted-pages/login), where you can use the configure Lock to behave in the way you need. Most customers don't customize Auth0 Hosted Login Page with Auth0.js, so your probably don't need to worry about this scenario.
+
+Depending on how you are using Lock, you have different options:
+
+| **Scenario** | **Migration to v9** | 
+| --- | --- | 
+| In your app, to implement Embedded Login | Required |
+| In a customized Hosted Login Page | Not Supported, keep using Auth0.js v8 and/or Lock v10 |
+
+If you are not using centralized login in your applications, we recommend you to start using it, it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
 
 ## Migration Instructions
 
