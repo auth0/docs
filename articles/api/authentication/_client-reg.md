@@ -1,4 +1,4 @@
-# Dynamic Client Registratioin
+# Dynamic Client Registration
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -41,7 +41,7 @@ curl --request POST \
   "link": "#dynamic-client-registration"
 }) %>
 
-With a name and the necessary callback URLs, you can dynamically register a client with Auth0.
+With a name and the necessary callback URLs, you can dynamically register a client with Auth0. No token is needed for this request.
 
 ### Request Parameters
 
