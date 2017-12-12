@@ -47,6 +47,10 @@ If you opt to manage your own certificates, you'll need to use a reverse proxy t
 Self-Managed Certificates is only available for enterprise customers.
 :::
 
+::: note
+The only vendor we officially support is AWS CloudFront. In the future, support for other vendors may be added.
+:::
+
 ## How to Configure Custom Domains
 
 Setting up your custom domain requires you to do the following steps:
