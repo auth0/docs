@@ -19,6 +19,6 @@ You can also find how to implement centralized login in multiple technology stac
 ## Migration guides per application type
 
 :::next-steps
-- [Migrating SPA Applications using Lock 10 or 11 to Centralized Login](/guides/login/migrating-lock-v10-spa)
-- [Migrating Web Applications using Lock 10 or 11 to Centralized Login](/guides/login/migrating-lock-v10-webapp)
+- [Migrating SPA Applications using Lock 10+ to Centralized Login](/guides/login/migrating-lock-v10-spa)
+- [Migrating Web Applications using Lock 10+ to Centralized Login](/guides/login/migrating-lock-v10-webapp)
 :::

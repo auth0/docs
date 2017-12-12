@@ -55,7 +55,7 @@ Embedded logins in web apps with Auth0 use [Cross-Origin Authentication](/cross-
 Cross-origin authentication is only necessary when authenticating against a directory using a username and password. Social identity providers and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML.
 :::
 
-In addition, the end user must have a browser that supports third-party cookies, otherwise, in some browsers, cross-origin authentication will fail. For more information refer to [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
+In addition, if you have not enabled [Custom Domain Names](/custom-domains) the end user must have a browser that supports third-party cookies, otherwise, in some browsers, cross-origin authentication will fail. For more information refer to [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
 
 ### Security risks
 
