@@ -22,8 +22,8 @@ Depending on how you are using Auth0.js, you have different options:
 
 | **Scenario** | **Migration to v9** | 
 | --- | --- | 
-| In your app, to trigger centralized login | Recommended |
-| In your app, to implement embedded login | Required |
+| In your application, to trigger centralized login | Recommended |
+| In your application, to implement embedded login | Required |
 | In a customized hosted page | Not Supported |
 
 If your application is configured to use centralized login, and your web application uses `.authorize()`, you can update Auth0.js to v9 in your web application, without requiring any code changes.
