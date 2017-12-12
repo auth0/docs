@@ -1,30 +1,29 @@
 ---
-title: Connect Swedish BankID with Auth0 through Grean easyID
+title: Connect Swedish BankID with Auth0 through Criipto Verify
 connection: Swedish BankID
 image: /media/articles/connections/grean/bankid-se.png
 seo_alias: bankid
-description: Connecting Swedish BankID with Auth0 through Grean's easyID service
+description: Connecting Swedish BankID with Auth0 through the Criipto Verify service
 crews: crew-2
 ---
 
 # Log in with Swedish BankID through Auth0
 
 When you need to know the legal identity of your Swedish users, your choice is BankID jointly offered by the Swedish banks.
-The BankID technology by itself is proprietary and takes a bit of work to understand and integrate, but through [Grean's easyID service](https://grean.com/easyid)
+The BankID technology by itself is proprietary and takes a bit of work to understand and integrate, but through the [Criipto Verify service](https://criipto.com/products/criipto-verify)
 you may avoid the integration trouble.
 
 Below is an outline of the steps to get ready to accept Swedish BankID logins, but you may also view
-[a short screen cast](https://grean.com/easyid/auth0/2016/12/07/easyid-and-auth0.html) at Grean's website.
+[a short screen cast](https://criipto.com/easyid/auth0/2016/12/07/easyid-and-auth0/)) at Criipto's website.
 
 ::: panel Process to use Swedish BankID in Production
-While the technical integration complexity is simple, to use Swedish BankID in production you will have to go through a formal process to
-register and obtain the necessary certificate to identify yourself to your users.
-More on this process can be found once you sign into the easyID service, and with the help of Grean.
+While the technical integration complexity is simple, to use Swedish BankID in production you will have to go through a formal process to register and obtain the necessary certificate to identify yourself to your users.
+More on this process can be found once you sign into the Criipto Verify service, and with the help of Criipto.
 :::
 
-## 1. Create an account with Grean easyID
+## 1. Create an account with Criipto Verify
 
-Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button.
+Go to [criipto.com/verify](https://criipto.com/products/criipto-verify) and click the sign-up button.
 
 Once registered you will be asked to create your tenant.
 
@@ -32,7 +31,7 @@ Once registered you will be asked to create your tenant.
 
 ## 2. Create an Application to point to Auth0
 
-In easyID go to the **APPLICATIONS** tab and create a new application, a client, by clikcing the **with Auth0** button.
+In Criipto Verify go to the **APPLICATIONS** tab and create a new application, a client, by clikcing the **with Auth0** button.
 Give it a meaningful name, select the domain and remember to select the **SE BankID**.
 
 ![Create application with Auth0](/media/articles/connections/grean/auth0-app-se.png)
@@ -53,7 +52,7 @@ Click **Proceed**.
 
 If you are not already logged in to Auth0 in this session, you will be prompted to do so in the popup window.
 
-Once logged in you must grant Grean easyID consent to create connections and read the clients.
+Once logged in you must grant Criipto Verify consent to create connections and read the clients.
 
 ::: note
 If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
@@ -61,7 +60,7 @@ If you have more than one Auth0 tenant, remember to select the right one. in the
 
 ![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
 
-Click the check mark in the green area at the bottom to allow Grean easyID to set up the connections.
+Click the check mark in the green area at the bottom to allow Criipto Verify to set up the connections.
 
 ## 5. Verify the connections
 
@@ -75,8 +74,8 @@ Native BankID application or mobile app. Both applications must be installed pri
 
 ![ADFS connections created](/media/articles/connections/grean/adfs-connections-se.png)
 
-Remember to enable at least one client before clicking the **Try** button! For more on test users see documentation
-on easyID.
+Remember to enable at least one client before clicking the **Try** button! For more on test users see the documentation
+on Criipto Verify.
 
 ## 6. Create your test users
 
@@ -85,9 +84,9 @@ With the above setup you will be ready to start testing. But first you must crea
 ## 7. Enable production use
 
 To start accepting real BankID logins from real legal persons, you must first enter into a formal agreement with a Swedish Bank,
-possibly through Grean, or directly with you bank.
+possibly through Criipto, or directly with your bank.
 
-Once this agreement is in place you will receive a certificate to upload to Grean easyID.
+Once this agreement is in place you will receive a certificate to upload to Criipto Verify.
 
 Go to the **IDENTITY SERVICES** tab
 and open the **SE BankID** section.
