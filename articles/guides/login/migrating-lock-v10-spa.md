@@ -49,8 +49,7 @@ lock.on('authorization_error', function (err) {
 });
 ```
 
-4. Show lock when the login button is clicked:
-
+4. Show lock when a login is required:
 ```js
 function login() {
     lock.show();
@@ -92,7 +91,7 @@ function handleAuthentication() {
 
 3. Invoke the `handleAuthentication()` function on page load so it tries to parse the hash if it's present.
 
-4. Redirect to the centralized login page when the login button is clicked:
+4. Redirect to the `/authorize` endpoint when you need to log the user in your app.
 
 ```js
 function login() {

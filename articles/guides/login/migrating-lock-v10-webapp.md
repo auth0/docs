@@ -24,7 +24,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     }
 }); 
 ```
-2. Show lock when the login button is clicked:
+2. Show lock when a login is required:
 
 ```js
 function login() {
