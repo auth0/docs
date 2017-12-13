@@ -34,4 +34,4 @@ After authentication is done, it will redirect to the `/callback` url as in the 
 
 You can find complete examples of implementing centralized login in web applications for different technologies in our [Quickstarts](/quickstart/webapps).
 
-<%= include('_includes/_customizing-login-page') %>
+<%= include('_customizing-login-page') %>
