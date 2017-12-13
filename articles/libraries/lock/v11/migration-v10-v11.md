@@ -4,7 +4,6 @@ title: Migrating from Lock v10 to v11
 description: How to migrate from Lock v10 to v11
 toc: true
 ---
-
 # Migrating from Lock v10 to v11
 
 This guide includes all the information you need to update your Lock 10 installation to [Lock 11](/libraries/lock).

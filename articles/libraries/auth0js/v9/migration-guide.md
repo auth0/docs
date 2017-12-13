@@ -8,7 +8,6 @@ toc: true
 
 [Auth0.js v9](/libraries/auth0js) has been improved to work better in [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier versions of auth0.js. 
 
-
 ## Should I migrate to v9?
 
 Auth0.js can be used to implement authentication in different ways:

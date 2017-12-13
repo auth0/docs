@@ -1,4 +1,3 @@
-
 ### Hosted Login Pages
 
 Auth0.js 9 and Lock v11 are designed for embedded login scenarios and cannot be used when customizing the [Hosted Login Page](/hosted-pages/login).
