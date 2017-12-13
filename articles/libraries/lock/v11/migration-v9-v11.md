@@ -6,7 +6,7 @@ toc: true
 ---
 # Migrating from Lock v9 to v11
 
-This guide includes all the information you need to update your Lock 9 installation to [Lock 11](/libraries/lock).
+This guide includes all the information you need to update your Lock 9 application to [Lock 11](/libraries/lock).
 
 ## Migration Steps
 
