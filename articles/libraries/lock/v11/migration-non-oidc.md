@@ -7,7 +7,7 @@ description: How to to OIDC-conformant Authentication Flows
 
 Lock versions below 11 and Auth0.js version below 9 could use non-OIDC conformant flows that are deprecated. This document describes how to migrate code from older versions of Auth0.js and Lock to the new OIDC-conformant APIs.
 
-## Handling Refresh Tokens
+## Handling Renewing Tokens
 
 Legacy applications used [Refresh Tokens](tokens/refresh-token) and the `refreshToken()` function as a way to get new tokens upon expiration. The code would be like:
 
