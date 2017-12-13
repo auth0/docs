@@ -1661,5 +1661,17 @@ module.exports = [
   {
     from: `/metadata/management-api`,
     to: `/metadata/apis`
+  },
+  {
+    from: `/connections/grean/bankid-no`,
+    to: `/connections/criipto/bankid-no`
+  },
+  {
+    from: `/connections/grean/bankid-se`,
+    to: `/connections/criipto/bankid-se`
+  },
+  {
+    from: `/connections/grean/nemid`,
+    to: `/connections/criipto/nemid`
   }
 ];
