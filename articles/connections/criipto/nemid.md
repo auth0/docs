@@ -1,7 +1,7 @@
 ---
 title: Connect Danish NemID with Auth0 through Criipto Verify
 connection: Danish NemID
-image: /media/articles/connections/grean/nemid_black.png
+image: /media/articles/connections/criipto/nemid_black.png
 seo_alias: nemid
 description: Connecting Danish NemID with Auth0 through the Criipto Verify service
 crews: crew-2
@@ -29,14 +29,14 @@ Go to [criipto.com/verify](https://criipto.com/products/criipto-verify) and clic
 
 Once registered you will be asked to create your tenant.
 
-![Create new tenant](/media/articles/connections/grean/easyid-signup.png)
+![Create new tenant](/media/articles/connections/criipto/easyid-signup.png)
 
 ## 2. Create an Application to point to Auth0
 
 In Criipto Verify go to the **APPLICATIONS** tab and create a new application, a client, by clikcing the **with Auth0** button.
 Give it a meaningful name, select the domain and remember to select the **DK NemID**.
 
-![Create application with Auth0](/media/articles/connections/grean/auth0-app-dk.png)
+![Create application with Auth0](/media/articles/connections/criipto/auth0-app-dk.png)
 
 Click **Save** to open the next dialog
 
@@ -46,7 +46,7 @@ If you do not run off the public Auth0 service, enter the  DNS name of the login
 
 Secondly enter a name to be used as the prefix for the connections created in Auth0.
 
-![Auth0 connections details](/media/articles/connections/grean/auth0-details.png)
+![Auth0 connections details](/media/articles/connections/criipto/auth0-details.png)
 
 Click **Proceed**.
 
@@ -60,7 +60,7 @@ Once logged in you must grant Criipto Verify consent to create connections and r
 If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
 :::
 
-![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
+![Auth0 connections details](/media/articles/connections/criipto/auth0-consent.png)
 
 Click the check mark in the green area at the bottom to allow Criipto Verify to set up the connections.
 
@@ -74,7 +74,7 @@ One connection has been created for each kind of authentication supported by Nem
 Personal NemID (POCES), Employee NemID (MOCES), and Employee NemID with a code file.
 :::
 
-![ADFS connections created](/media/articles/connections/grean/adfs-connections-dk.png)
+![ADFS connections created](/media/articles/connections/criipto/adfs-connections-dk.png)
 
 Remember to enable at least one client before clicking the **Try** button! For more on test users see the documentation
 on Criipto Verify.
@@ -94,4 +94,4 @@ Once this agreement is in place you will receive a certificate to upload to Crii
 and open the **DK NemID** section. This is where you will upload your organization's BankID certificate and provide the rest of the
 needed information.
 
-![Identity Service production](/media/articles/connections/grean/dk-nemid-prod.png)
+![Identity Service production](/media/articles/connections/criipto/dk-nemid-prod.png)

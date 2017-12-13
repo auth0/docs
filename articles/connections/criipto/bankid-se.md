@@ -1,7 +1,7 @@
 ---
 title: Connect Swedish BankID with Auth0 through Criipto Verify
 connection: Swedish BankID
-image: /media/articles/connections/grean/bankid-se.png
+image: /media/articles/connections/criipto/bankid-se.png
 seo_alias: bankid
 description: Connecting Swedish BankID with Auth0 through the Criipto Verify service
 crews: crew-2
@@ -27,14 +27,14 @@ Go to [criipto.com/verify](https://criipto.com/products/criipto-verify) and clic
 
 Once registered you will be asked to create your tenant.
 
-![Create new tenant](/media/articles/connections/grean/easyid-signup.png)
+![Create new tenant](/media/articles/connections/criipto/easyid-signup.png)
 
 ## 2. Create an Application to point to Auth0
 
 In Criipto Verify go to the **APPLICATIONS** tab and create a new application, a client, by clikcing the **with Auth0** button.
 Give it a meaningful name, select the domain and remember to select the **SE BankID**.
 
-![Create application with Auth0](/media/articles/connections/grean/auth0-app-se.png)
+![Create application with Auth0](/media/articles/connections/criipto/auth0-app-se.png)
 
 Click **Save** to open the next dialog
 
@@ -44,7 +44,7 @@ If you do not run off the public Auth0 service, enter the  DNS name of the login
 
 Secondly enter a name to be used as the prefix for the connections created in Auth0.
 
-![Auth0 connections details](/media/articles/connections/grean/auth0-details.png)
+![Auth0 connections details](/media/articles/connections/criipto/auth0-details.png)
 
 Click **Proceed**.
 
@@ -58,7 +58,7 @@ Once logged in you must grant Criipto Verify consent to create connections and r
 If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
 :::
 
-![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
+![Auth0 connections details](/media/articles/connections/criipto/auth0-consent.png)
 
 Click the check mark in the green area at the bottom to allow Criipto Verify to set up the connections.
 
@@ -72,7 +72,7 @@ One connection has been created for each kind of authentication supported by Swe
 Native BankID application or mobile app. Both applications must be installed prior to BankID authentication.
 :::
 
-![ADFS connections created](/media/articles/connections/grean/adfs-connections-se.png)
+![ADFS connections created](/media/articles/connections/criipto/adfs-connections-se.png)
 
 Remember to enable at least one client before clicking the **Try** button! For more on test users see the documentation
 on Criipto Verify.
@@ -93,4 +93,4 @@ and open the **SE BankID** section.
 
 This is where you will upload your organization's BankID certificate.
 
-![Identity Service production](/media/articles/connections/grean/se-bankid-prod.png)
+![Identity Service production](/media/articles/connections/criipto/se-bankid-prod.png)
