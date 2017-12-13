@@ -4,6 +4,7 @@ connection: Norwegian BankID
 image: /media/articles/connections/criipto/bankid-no.png
 seo_alias: bankid
 description: Connecting Norwegian BankID with Auth0 through the Criipto Verify service
+toc: true
 crews: crew-2
 ---
 
