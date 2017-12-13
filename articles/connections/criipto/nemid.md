@@ -4,6 +4,7 @@ connection: Danish NemID
 image: /media/articles/connections/criipto/nemid_black.png
 seo_alias: nemid
 description: Connecting Danish NemID with Auth0 through the Criipto Verify service
+toc: true
 crews: crew-2
 ---
 
