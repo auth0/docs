@@ -78,8 +78,8 @@ Auth0 supports the following social providers out of the box. You can also use a
 ## Legal identities
 
 Through our partner Criipto we offer a growing range of government and bank identities tied to legal persons. 
-<% var greanConnections = cache.find('articles/connections/grean', {sort: 'index'}); %>
-<%= include('./_connections', { connections: greanConnections }) %>
+<% var criiptoConnections = cache.find('articles/connections/criipto', {sort: 'index'}); %>
+<%= include('./_connections', { connections: criiptoConnections }) %>
 
 If the one you need isn't found here we suggest getting in touch with [Criipto](https://criipto.com).
 
