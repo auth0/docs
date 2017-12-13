@@ -4,7 +4,7 @@ If your webhook isn't working, it can be difficult to troubleshoot and determine
 
 However, there are certainly alternatives to the inefficient process we detailed above. While full details of how to troubleshoot a particular webhook is outside the scope of this article, here are some steps you can take to debug:
 
-1. Check the [Logs](${manage_url}/#/logs) section of the Dashboard for helpful messages.
+1. Check the [Logs](/logs) section of the [Dashboard](${manage_url}/#/logs) for helpful messages.
 
 1. Analyze the requests your webhook is making using a tool like [Hookbin](https://hookbin.com/) or [Mockbin](http://mockbin.org/).
 
