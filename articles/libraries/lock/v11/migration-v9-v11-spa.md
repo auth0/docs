@@ -50,7 +50,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
             popup: true,
             auth: {
                 responseType: 'token id_token',
-                audience: 'https://aaguiar.auth0.com/userinfo',
+                audience: 'https://' + '${account.namespace}' + '/userinfo',
                 params: {
                     scope: 'openid email profile'
                 }
@@ -137,55 +137,11 @@ function login() {
 
 Note that the parameters that were passed to 'show()' are used to initialize Lock, and that instead of calling parseHash(), you need to write an 'authenticated' event handler.
 
-### Handling Refresh Tokens
+### Migrating from Non-OIDC conformant APIs
 
-Lock 9 applications used [Refresh Tokens](tokens/refresh-token) and the `refreshToken()` function as a way to get new tokens upon expiration. The code would be like:
+The OIDC-conformant flows disallow certain practices that were common when developing SPA applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [Id Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
 
-```js
-function renewToken() {
-    // Assumes the refresh_token is stored in localStorage
-    refresh_token = localStorage.getItem('refresh_token');   
-    lock.getClient().refreshToken(refresh_token, function (err, delegationResult) {
-        if (!err)
-        {
-            var expires_at = JSON.stringify(
-                    delegationResult.expires_in* 1000 + new Date().getTime())
-                ;
-             // Assumes you want to keep the time the token will expire and the id_token in localStorage
-            localStorage.setItem('expires_at', expires_at); 
-            localStorage.setItem('id_token', delegationResult.id_token);
-        }
-    );
-}
-```
-
-In Lock 11 you need to use [Silent Authentication](/api-auth/tutorials/silent-authentication) and `checkSession()`. The code would be like:
-
-```js
-function renewToken() {
-    lock.checkSession({}, function(err, result) {
-        if (!err) {
-            var expiresAt = JSON.stringify(
-                authResult.expiresIn * 1000 + new Date().getTime()
-            );
-            // Assumes you want to store access token, id token and expiration time in local Storage
-            localStorage.setItem('access_token', authResult.accessToken);
-            localStorage.setItem('id_token', authResult.idToken);
-            localStorage.setItem('expires_at', expiresAt);
-        }
-    });
-}
-```
-
-Check the  [Silent Authentication documentation](/api-auth/tutorials/silent-authentication) for more information on how to fully implement it in different SPA frameworks.
-
-### Calling APIs
-
-Most Lock 9 applications use an [id-token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
-
-You can look at 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs.
-
-You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
+Follow the steps in the [Migration to OIDC-Conformant Authentication Flows](/libraries/lock/migration-non-oidc) to learn what changes do you need to make in your application.
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
