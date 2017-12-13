@@ -4,6 +4,7 @@ connection: Swedish BankID
 image: /media/articles/connections/criipto/bankid-se.png
 seo_alias: bankid
 description: Connecting Swedish BankID with Auth0 through the Criipto Verify service
+toc: true
 crews: crew-2
 ---
 
