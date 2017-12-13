@@ -3,7 +3,7 @@ title: Moving Web Applications using Lock to Centralized Login
 description: Learn how to migrate from Web Applications using Lock to Centralized Login
 toc: true
 ---
-# Migrate Web Applications using Lock 10+ to Centralized Login
+# Migrate Web Applications using Lock 9 to Centralized Login
 
 This document explains how to migrate Web Applications using Lock to centralized login. 
 
