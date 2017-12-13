@@ -604,24 +604,24 @@ module.exports = [
     to: '/api/authentication'
   },
   {
-    from: '/api/v1',
-    to: '/api/management/v1'
+    from: ['/api/v1', '/api/management/v1'],
+    to: '/legacy/api/management/v1'
   },
   {
-    from: ['/api-reference', '/api/v1/reference'],
-    to: '/api/management/v1/reference'
+    from: ['/api-reference', '/api/v1/reference', '/api/management/v1/reference'],
+    to: '/legacy/api/management/v1/reference'
   },
   {
-    from: '/api/v1/use-cases',
-    to: '/api/management/v1/use-cases'
+    from: ['/api/v1/use-cases', '/api/management/v1/use-cases'],
+    to: '/legacy/api/management/v1/use-cases'
   },
   {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
   },
   {
-    from: ['/apiv2Changes', '/api/v2/changes'],
-    to: '/api/management/v2/changes'
+    from: ['/apiv2Changes', '/api/v2/changes', '/api/management/v2/changes'],
+    to: '/legacy/migration-guides/management-api-v1'
   },
   {
     from: ['/tokens/apiv2', '/api/v2/tokens'],

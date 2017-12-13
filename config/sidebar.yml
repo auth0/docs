@@ -536,10 +536,6 @@ apis:
         url: "/api/management/v2/user-search"
         forceFullReload: true
 
-      - title: Changes in v2
-        url: "/api/management/v2/changes"
-        forceFullReload: true
-
       - title: API Explorer
         url: "/api/management/v2/"
         forceFullReload: true
