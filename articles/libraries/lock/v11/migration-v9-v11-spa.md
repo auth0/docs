@@ -141,7 +141,7 @@ Note that the parameters that were passed to 'show()' are used to initialize Loc
 
 The OIDC-conformant flows disallow certain practices that were common when developing SPA applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [Id Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
 
-Follow the steps in the [Migration to OIDC-Conformant Authentication Flows](/libraries/lock/v11/migration-non-oidc) to learn what changes do you need to make in your application.
+Follow the steps in the [Migration from Legacy Authentication Flows](/libraries/lock/v11/migration-legacy-flows) to learn what changes do you need to make in your application.
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>

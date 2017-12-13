@@ -1,11 +1,11 @@
 ---
 section: libraries
-title: Migration to OIDC Authentication Flows
-description: How to to OIDC-conformant Authentication Flows
+title: Migrating from Legacy Authentication Flows
+description: How to migrate from Legacy Authentication Flows
 ---
-# Migration to OIDC-Conformant Authentication Flows
+# Migrating from Legacy Authentication Flows
 
-Lock versions below 11 and Auth0.js version below 9 could use non-OIDC conformant flows that are deprecated. This document describes how to migrate code from older versions of Auth0.js and Lock to the new OIDC-conformant APIs.
+Lock versions below 11 and Auth0.js version below 9 could use legacy authentication flows that are deprecated. This document describes how to migrate code from older versions of Auth0.js and Lock to the new OIDC-conformant APIs.
 
 ## Handling Renewing Tokens
 
@@ -71,7 +71,7 @@ You can check the 'Calling an API' section of our [SPA Quickstarts](/quickstart/
 
 ## Using OIDC-Conformant User Profiles
 
-When using the non-OIDC conformant flows, the entire user profile is returned in `id_tokens` and from `/userinfo`. For example:
+When using the legacy authentication flows, the entire user profile is returned in `id_tokens` and from `/userinfo`. For example:
 
 ```json
 {
