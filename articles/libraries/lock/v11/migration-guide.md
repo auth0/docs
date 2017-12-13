@@ -37,11 +37,9 @@ The documents below describe all the changes that you should be aware of when mi
 - [Migrating from Lock v10 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v10)
 - [Migrating from Lock v10 in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
 - [Migrating from Lock v10 in React Applications](/libraries/lock/v11/migration-react)
-
 - [Migrating from Lock v9 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v9)
 - [Migrating from Lock v9](/libraries/lock/v11/migration-v9-v11)
-- [Migrating from Lock v9 in SPA applications](/libraries/lock/v11/migration-v9-v11)
-
+- [Migrating from Lock v9 in SPA applications](/libraries/lock/v11/migration-v9-v11-spa)
 - [Migrating from Lock v8](/libraries/lock/v11/migration-v8-v11)
 :::
 

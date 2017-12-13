@@ -97,8 +97,7 @@ if (hash) {
     } 
 }
 
-function login()
-{
+function login() {
     lock.show({
         callbackURL: '${account.callback}',
         responseType : "token",
@@ -131,8 +130,7 @@ lock.on('authenticated', function(authResult) {
     }
 });
 
-function login()
-{
+function login() {
     lock.show()
 }
 ```
@@ -145,11 +143,14 @@ Lock 9 applications used [Refresh Tokens](tokens/refresh-token) and the `refresh
 
 ```js
 function renewToken() {
-    refresh_token = localStorage.getItem('refresh_token');   // Assumes the refresh_token is stored in localStorage
+    // Assumes the refresh_token is stored in localStorage
+    refresh_token = localStorage.getItem('refresh_token');   
     lock.getClient().refreshToken(refresh_token, function (err, delegationResult) {
         if (!err)
         {
-            var expires_at = JSON.stringify(delegationResult.expires_in* 1000 + new Date().getTime());
+            var expires_at = JSON.stringify(
+                    delegationResult.expires_in* 1000 + new Date().getTime())
+                ;
              // Assumes you want to keep the time the token will expire and the id_token in localStorage
             localStorage.setItem('expires_at', expires_at); 
             localStorage.setItem('id_token', delegationResult.id_token);
@@ -158,13 +159,15 @@ function renewToken() {
 }
 ```
 
-In Lock 11 you need to use [Silent Authentication](/api-auth/tutorials/silent-authentication) and `checkSession()`. The code would be like  'https://' + '${account.namespace}' + '/userinfo',
+In Lock 11 you need to use [Silent Authentication](/api-auth/tutorials/silent-authentication) and `checkSession()`. The code would be like:
 
 ```js
 function renewToken() {
     lock.checkSession({}, function(err, result) {
         if (!err) {
-            var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+            var expiresAt = JSON.stringify(
+                authResult.expiresIn * 1000 + new Date().getTime()
+            );
             // Assumes you want to store access token, id token and expiration time in local Storage
             localStorage.setItem('access_token', authResult.accessToken);
             localStorage.setItem('id_token', authResult.idToken);
@@ -174,19 +177,18 @@ function renewToken() {
 }
 ```
 
-Check the  [Silent Authentication docs](/api-auth/tutorials/silent-authentication) for more information on how to fully implement it in different SPA frameworks.
+Check the  [Silent Authentication documentation](/api-auth/tutorials/silent-authentication) for more information on how to fully implement it in different SPA frameworks.
 
 ### Calling APIs
 
-Most Lock 9 applications an [id-token](/tokens/id-token) to invoke APIs. You can keep doing that in Lock 11 applications, but [it is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Most Lock 9 applications use an [id-token](/tokens/id-token) to invoke APIs. You can keep doing that in Lock 11 applications, but [it is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
 
-You can look at 'Calling an API' section of our [SPA Quickstarts]((/quickstarts/backend) for more information on how to call APIs from SPAs.
+You can look at 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs.
 
-You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstarts/backend) for instructions on how to do it.
+You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
-<%= include('../../_includes/_oidc_conformant') %>
 
 ## Behavioral Changes in Lock v11
 
