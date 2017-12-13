@@ -181,7 +181,7 @@ Check the  [Silent Authentication documentation](/api-auth/tutorials/silent-auth
 
 ### Calling APIs
 
-Most Lock 9 applications use an [id-token](/tokens/id-token) to invoke APIs. You can keep doing that in Lock 11 applications, but [it is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Most Lock 9 applications use an [id-token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
 
 You can look at 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs.
 
