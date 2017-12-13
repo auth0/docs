@@ -137,7 +137,7 @@ function login() {
 
 Note that the parameters that were passed to 'show()' are used to initialize Lock, and that instead of calling parseHash(), you need to write an 'authenticated' event handler.
 
-### Migrating from Non-OIDC conformant APIs
+### Migrating from Legacy Authentication Flows
 
 The OIDC-conformant flows disallow certain practices that were common when developing SPA applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [Id Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
 
