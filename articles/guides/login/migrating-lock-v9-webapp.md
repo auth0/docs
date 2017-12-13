@@ -5,18 +5,16 @@ toc: true
 ---
 # Migrate Web Applications using Lock 9 to Centralized Login
 
-This document explains how to migrate Web Applications using Lock to centralized login. 
+This document explains how to migrate Web Applications using Lock to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
 
-For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
-
-When you use Lock in a Web Application, your code does basically this:
+When you use Lock v9 in a Web Application, your code does basically this:
 
 1. Initialize Lock:
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
-2. Show lock specifying `responseType: code` when the login button is clicked:
+2. Show lock specifying `responseType: code` when login is required:
 
 ```js
 function login() {

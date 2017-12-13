@@ -7,16 +7,17 @@ router.get('/callback',
     res.redirect(req.session.returnTo || '/user');
   });
 ```
+## Convert your Code to use Centralized Login
 
-To use centralized login, you don't need to use any client-side library. Your application should perform these steps:
+In web applications, you don't need any client-side code to integrate centralized login. Your application should perform these steps:
 
-1. When the user clicks the `login` link, navigate to a `/login` route in your website. If you were using plain HTML to code the web views, it would be:
+1. When the application needs to authenticate, navigate to a `/login` route in your website. If you were using plain HTML to code the web views, it would be:
 
 ```html
 <a href="/login">Log In</a>
 ```
 
-2. Create a server-side route to handle `/login` that redirects to Auth0's hosted login page. You can usually do that with a platform-specific OAuth library. The example below is for Node.js and Passport. 
+2. Create a server-side route to handle `/login` that redirects to Auth0's `/authorize` endpoint. You can usually do that with a platform-specific OAuth library. The example below is for Node.js and Passport. 
 
 ```js
 router.get('/login', passport.authenticate('auth0', {
