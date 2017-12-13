@@ -14,7 +14,7 @@ When you use Lock v9 in a Web Application, your code does basically this:
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
-2. Show lock specifying `responseType: code` when login is required:
+2. Show Lock specifying `responseType: code` when a login is required:
 
 ```js
 function login() {

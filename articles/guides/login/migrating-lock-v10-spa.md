@@ -54,9 +54,7 @@ function login() {
 }
 ```
 
-## Convert your Code to use Centralized Login
-
-To use centralized login, you need to use auth0.js to perform the same tasks:
+To use **centralized login**, you need to use auth0.js to perform the same tasks:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock:
 
@@ -98,6 +96,8 @@ function login() {
     webAuth.authorize();
 }
 ```
+
+5. Review if you are using any [legacy authentication flow in your application]((libraries/lock/v11/migration-legacy-flows)), and adjust your code accordingly.
 
 You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 

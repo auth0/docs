@@ -33,6 +33,8 @@ router.get('/login', passport.authenticate('auth0', {
 
 After authentication is done, it will redirect to the `/callback` url as in the Lock-based implementation.
 
+3. Review if you are using any [legacy authentication flow in your application]((libraries/lock/v11/migration-legacy-flows)), and adjust your code accordingly.
+
 You can find complete examples of implementing centralized login in web applications for different technologies in our [Quickstarts](/quickstart/webapps).
 
 <%= include('_customizing-login-page') %>
