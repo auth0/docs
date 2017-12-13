@@ -11,24 +11,24 @@ For other migration scenarios see [Migrating from Embedded to Centralized Login]
 
 When you use Lock in a Web Application, your code does basically this:
 
-1. Initialize Lock using `responseType = 'code'`:
+1. Initialize Lock:
 
 ```js
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```
+2. Show lock specifying `responseType: code` when the login button is clicked:
+
+```js
+function login() {
+    lock.show({
      auth: {
       redirectUrl: '${account.callback}',
       responseType: 'code',
       params: {
-        scope: 'openid profile email'
+        scope: 'openid profile email' 
       }
     }
-}); 
-```
-2. Show lock when the login button is clicked:
-
-```js
-function login() {
-    lock.show();
+  });
 }
 ```
 
