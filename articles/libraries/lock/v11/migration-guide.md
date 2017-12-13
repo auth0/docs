@@ -23,7 +23,7 @@ Depending on how you are using Lock, you have different options:
 | In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
 
 ::: warning
-If you are not using centralized login in your applications, we recommend you to start using it, it as [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). 
+If you are using Lock to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded))
 :::
 
 ## Migration Instructions
