@@ -69,7 +69,7 @@ If you specify an audience, then the OIDC flow will be triggered and the user pr
 
 You can check the 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
 
-## Using OIDC-conformant User Profiles
+## Using OIDC-Conformant User Profiles
 
 When using the non-OIDC conformant flows, the entire user profile is returned in `id_tokens` and from `/userinfo`. For example:
 
@@ -103,7 +103,7 @@ When using the non-OIDC conformant flows, the entire user profile is returned in
 }
 ```
 
-The new user profile conforms to the OIDC specification, which allows for certain [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) to be be available in the response:
+The new user profile conforms to the OIDC specification, which allows for certain [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) to be available in the response:
 
 ```json
 {
