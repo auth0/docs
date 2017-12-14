@@ -23,7 +23,7 @@ Migration to v11 will depend on how you are using Lock:
 | In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
 
 ::: warning
-If you are using Lock to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded))
+If you are using Lock to implement login embedded in your applications, we recommend [moving to a centralized login approach](/guides/login/migration-embedded-centralized), as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded)).
 :::
 
 ## Migration Instructions
@@ -38,11 +38,9 @@ The documents below describe all the changes that you should be aware of when mi
 - [Migrating from Lock v10 in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
 - [Migrating from Lock v10 in React Applications](/libraries/lock/v11/migration-react)
 - [Migrating from Lock v9](/libraries/lock/v11/migration-v9-v11)
-- [Migrating from Lock v9 in SPA applications](/libraries/lock/v11/migration-v9-v11-spa)
 - [Migrating from Lock v9 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v9)
 - [Migrating from Lock v8](/libraries/lock/v11/migration-v8-v11)
 :::
-
 
 :::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 

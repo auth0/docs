@@ -8,25 +8,10 @@ toc: true
 
 This guide includes all the information you need to update your Lock 8 application to [Lock 11](/libraries/lock).
 
-## Migration Steps
-
-<%= include('../../_includes/_get_lock_latest_version') %>
-
 ### Follow the Lock v8 to v9 Migration Guide
 
 Follow the [instructions to migrate from Lock v8 to v9](/libraries/lock/v9/migration-guide).
 
-### Follow the Lock v9 to v10 Migration Guide
+### Follow the Lock v9 to v11 Migration Guide
 
-Follow the [instructions to migrate from Lock v9 to v10](/libraries/lock/v10/migration-guide).
-
-<%= include('../../_includes/_configure_embedded_login') %>
-<%= include('../../_includes/_change_get_profile') %>
-<%= include('../../_includes/_oidc_conformant') %>
-
-## Behavioral Changes in Lock v11
-
-<%= include('../../_includes/_hosted_pages') %>
-<%= include('../../_includes/_popup_mode') %>
-<%= include('../../_includes/_default_values_lock') %>
-<%= include('../../_includes/_ip_ranges') %>
+Follow the [instructions to migrate from Lock v9 to v11](/libraries/lock/v11/migration-v9-v11).

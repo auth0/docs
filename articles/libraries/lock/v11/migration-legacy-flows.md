@@ -65,11 +65,11 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     );
 ```
 
-If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in `id_tokens` or from `/userinfo` will be OIDC-compliant. If your application is using any non-standard claim from the user profile, it will break. Read [below](#using-oidc-conformant-user-profiles) for more information on how to deal with this issue.
+If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in `id_tokens` or from `/userinfo` will be OIDC-conformant. If your application is using any non-standard claim from the user profile, it will break. Read [below](#using-oidc-conformant-user-profiles) for more information on how to deal with this issue.
 
 You can check the 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
 
-## Using OIDC-Conformant User Profiles
+## User Profiles
 
 When using the legacy authentication flows, the entire user profile is returned in `id_tokens` and from `/userinfo`. For example:
 
