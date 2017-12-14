@@ -7,7 +7,7 @@ description: How to install, initialize and use auth0.js v9
 
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps. 
 
-The full API documentation for library is [here](https://auth0.github.io/auth0.js/index.html)
+The full API documentation for library is [here](https://auth0.github.io/auth0.js/index.html).
 
 ## Ready-to-go example
 
