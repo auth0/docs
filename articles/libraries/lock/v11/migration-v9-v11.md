@@ -77,7 +77,7 @@ function login()
 }
 ```
 
-Note that the parameters that were passed to 'show()' are used to initialize Lock, and that the callback specified in 'show()' is replaced by an 'authenticated' event handler. 
+Note that the parameters that were passed to `show()` are used to initialize Lock, and that the callback specified in `show()` is replaced by an `authenticated` event handler. 
 
 ### Using Lock in SPAs with Redirect Mode
 
@@ -137,7 +137,7 @@ function login() {
 }
 ```
 
-Note that the parameters that were passed to 'show()' are used to initialize Lock, and that instead of calling parseHash(), you need to write an 'authenticated' event handler.
+Note that the parameters that were passed to `show()` are used to initialize Lock, and that instead of calling parseHash(), you need to write an `authenticated` event handler.
 
 ### Using Lock in Web Applications
 
@@ -178,13 +178,13 @@ function login() {
 }
 ```
 
-Note that the parameters that were passed to 'show()' are used to initialize Lock.
+Note that the parameters that were passed to `show()` are used to initialize Lock.
 
 <%= include('../../_includes/_configure_embedded_login') %>
 
 ### Migrating from Legacy Authentication Flows
 
-The OIDC-conformant flows disallow certain practices that were common when developing applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [Id Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
+The OIDC-conformant flows disallow certain practices that were common when developing applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [ID Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
 
 Follow the steps in the [Migration from Legacy Authentication Flows](/libraries/lock/v11/migration-legacy-flows) to learn what changes do you need to make in your application.
 
