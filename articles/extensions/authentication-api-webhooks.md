@@ -1,5 +1,5 @@
 ---
-description: This page explains how to configure and install Auth0's  Authentication API Webhooks extension.
+description: This page explains how to configure and install Auth0's Authentication API Webhooks extension.
 ---
 
 # Auth0 Authentication API Webhooks
@@ -32,34 +32,36 @@ Here is an example of the payload that will be sent:
 
 ```json
 {
-  date: '2016-02-25T13:42:08.791Z',
-  type: 'f',
-  description: 'Wrong email or password.',
-  connection: 'My-Users',
-  client_id: 'lIkP1Wn4qQPj56k9bE7fyMrbsaaHXd6c',
-  client_name: 'Default App',
-  ip: '11.22.33.44',
-  user_agent: 'Chrome 48.0.2564 / Mac OS X 10.11.3',
-  details:
-   { error:
-      { message: 'Wrong email or password.',
-        oauthError: 'Wrong email or password.',
-        type: 'invalid_user_password' },
-     body:
-      { client_id: 'lIkP1Wn4qQPj56k9bE7fyMrbsaaHXd6c',
-        username: 'john@example.com',
-        password: '*****',
-        connection: 'My-Users'',
-        grant_type: 'password',
-        scope: 'openid',
-        device: '' },
-     qs: {},
-     connection: 'My-Users' },
-  user_id: '',
-  user_name: 'Default App',
-  strategy: 'auth0',
-  strategy_type: 'database',
-  _id: '49556539073893675610923042044589174982043486779166687234',
-  isMobile: false
+  "date": "2016-02-25T13:42:08.791Z",
+  "type": "f",
+  "description": "Wrong email or password.",
+  "connection": "My-Users",
+  "client_id": "lIkP1Wn4qQPj56k9bE7fyMrbsaaHXd6c",
+  "client_name": "Default App",
+  "ip": "11.22.33.44",
+  "user_agent": "Chrome 48.0.2564 / Mac OS X 10.11.3",
+  "details":
+   { "error":
+      { "message": "Wrong email or password.",
+        "oauthError": "Wrong email or password.",
+        "type": "invalid_user_password" },
+     "body":
+      { "client_id": "lIkP1Wn4qQPj56k9bE7fyMrbsaaHXd6c",
+        "username": "john@example.com",
+        "password": "*****",
+        "connection": "My-Users",
+        "grant_type": "password",
+        "scope": "openid",
+        "device": "" },
+     "qs": {},
+     "connection": "My-Users" },
+  "user_id": "",
+  "user_name": "Default App",
+  "strategy": "auth0",
+  "strategy_type": "database",
+  "_id": "49556539073893675610923042044589174982043486779166687234",
+  "isMobile": false
 }
 ```
+
+<%= include('./_troubleshoot-webhooks') %>
