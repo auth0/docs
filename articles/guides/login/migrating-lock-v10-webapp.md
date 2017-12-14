@@ -5,7 +5,7 @@ toc: true
 ---
 # Migrate Web Applications using Lock 10+ to Centralized Login
 
-This document explains how to migrate Web Applications using Lock 10+ to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Web Applications using [Lock 10+](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
 
 When you use Lock in a Web Application, your code does basically this:
 
