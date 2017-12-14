@@ -28,13 +28,13 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration. See [Client Settings](/clients/client-settings) for information on finding your Client ID |
+| **`AUDIENCE`** | The audience value is the same thing as your API Identifier for the specific API in your APIs section. |
 
 As an example, the text of your .env file should look something like this when complete:
 
 ```text
 JWKS_URI=https://${account.namespace}/.well-known/jwks.json
-AUDIENCE=hVG7...3QA1q
+AUDIENCE=http://myApiIdentifier
 TOKEN_ISSUER=https://${account.namespace}/
 ```
 
