@@ -47,7 +47,7 @@ function login() {
   }
 ```
 
-To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to perform the same tasks:
+To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to manage the authentication flow:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock and also including the ones you use when you call lock.show():
 
@@ -73,7 +73,7 @@ webAuth.parseHash(function(err, authResult) {
 }
 ```
 
-4. Redirect to the `/authorize` endpoint when you need to log the user in your application.
+3. Redirect to the `/authorize` endpoint when you need to log the user in your application.
 
 ```js
 function login() {
@@ -81,7 +81,7 @@ function login() {
 }
 ```
 
-5. Review if you are using any [legacy authentication flow in your application]((libraries/lock/v11/migration-legacy-flows)), and adjust your code accordingly.
+4. Review if you are using any [legacy authentication flow in your application]((libraries/lock/v11/migration-legacy-flows)), and adjust your code accordingly.
 
 You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 

@@ -16,11 +16,12 @@ We put together a set of articles to help you migrate to centralized login in di
 
 You can also find how to implement centralized login in multiple technology stacks using [our Quickstarts](/quickstart).
 
-## Migration guides per application type
+## Migration Guides per Application Type
 
 :::next-steps
-- [Migrating SPA Applications using Lock 10+ to Centralized Login](/guides/login/migrating-lock-v10-spa)
-- [Migrating Web Applications using Lock 10+ to Centralized Login](/guides/login/migrating-lock-v10-webapp)
-- [Migrating Web Applications using Lock 9 to Centralized Login](/guides/login/migrating-lock-v9-webapp)
-- [Migrating SPA Applications using Lock 9 to Centralized Login](/guides/login/migrating-lock-v9-spa)
+- [Migrating SPA Applications using Lock 10+](/guides/login/migrating-lock-v10-spa)
+- [Migrating Web Applications using Lock 10+](/guides/login/migrating-lock-v10-webapp)
+- [Migrating Web Applications using Lock 9](/guides/login/migrating-lock-v9-webapp)
+- [Migrating SPA using Lock 9 Redirect Mode](/guides/login/migrating-lock-v9-spa)
+- [Migrating SPA using Lock 9 Popup Mode](/guides/login/migrating-lock-v9-spa-popup)
 :::
