@@ -6,7 +6,7 @@ toc: true
 
 # Migrate SPAs using Lock 10+ to Centralized Login
 
-This document explains how to migrate Single Page Applications using Lock to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Single Page Applications using [Lock](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
 
 When you use Lock, your code does basically this:
 
@@ -54,7 +54,7 @@ function login() {
 }
 ```
 
-To use **centralized login**, you need to use auth0.js to perform the same tasks:
+To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to perform the same tasks:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock:
 
