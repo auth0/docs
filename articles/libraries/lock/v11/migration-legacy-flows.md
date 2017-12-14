@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating from Legacy Authentication Flows
 description: How to migrate from Legacy Authentication Flows
+toc: true
 ---
 # Migrating from Legacy Authentication Flows
 
@@ -51,7 +52,7 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [id-token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Legacy applications used an [ID token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 
@@ -65,13 +66,13 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     );
 ```
 
-If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in `id_tokens` or from `/userinfo` will be OIDC-conformant. If your application is using any non-standard claim from the user profile, it will break. Read [below](#using-oidc-conformant-user-profiles) for more information on how to deal with this issue.
+If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in ID Tokens or from `/userinfo` will be OIDC-conformant. If your application is using any non-standard claim from the user profile, it will break. For more information on how to deal with this issue, refer to [User Profiles](#user-profiles).
 
-You can check the 'Calling an API' section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use access_tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
+You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use access tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do it.
 
 ## User Profiles
 
-When using the legacy authentication flows, the entire user profile is returned in `id_tokens` and from `/userinfo`. For example:
+When using the legacy authentication flows, the entire user profile is returned in ID tokens and from `/userinfo`. For example:
 
 ```json
 {
