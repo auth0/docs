@@ -5,7 +5,7 @@ toc: true
 ---
 # Migrate Single Page Applications using Lock 9 to Centralized Login
 
-This document explains how to migrate Web Applications using Lock to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Web Applications using [Lock](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
 
 When you use Lock v9 in a Web Application, your code does basically this:
 
@@ -47,7 +47,7 @@ function login() {
   }
 ```
 
-To use **centralized login**, you need to use auth0.js to perform the same tasks:
+To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to perform the same tasks:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock and also including the ones you use when you call lock.show():
 
