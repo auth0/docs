@@ -46,7 +46,7 @@ Go to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social**,
 
 ![](/media/articles/connections/social/github/github-add-app-4.png)
 
-## 5. Access GitHub's API
+## 5. Access GitHub API
 
 Once you successfully authenticate a user, GitHub includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
 
