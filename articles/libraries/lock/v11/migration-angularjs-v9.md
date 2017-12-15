@@ -181,7 +181,9 @@ If you are using an authentication service, you will need to make a few minor ch
 })();
 ```
 
-**Note:** If you are not using a service, you can implement the `handleAuthentication()` method's functionality in your app's `run()` method, and implement the `login()`, `logout()`, and `_setSession()` functionality in the controller where your login is located.
+::: note
+If you are not using a service, you can implement the `handleAuthentication()` method's functionality in your app's `run()` method, and implement the `login()`, `logout()`, and `_setSession()` functionality in the controller where your login is located.
+:::
 
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
