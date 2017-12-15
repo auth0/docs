@@ -24,4 +24,5 @@ You can also find how to implement centralized login in multiple technology stac
 - [Migrating Web Applications using Lock 9](/guides/login/migrating-lock-v9-webapp)
 - [Migrating SPA using Lock 9 Redirect Mode](/guides/login/migrating-lock-v9-spa)
 - [Migrating SPA using Lock 9 Popup Mode](/guides/login/migrating-lock-v9-spa-popup)
+- [Migrating from Lock v8](/guides/login/migrating-lock-v8)
 :::
