@@ -118,13 +118,13 @@ The new user profile conforms to the OIDC specification, which allows for certai
 
 The contents will vary depending on which [scopes](/scopes) are requested. You will need to adjust the scopes you request when configuring Auth0.js or Lock so all the claims you need are available in your application. Note that you can add custom claims to return whatever data you want (e.g. user metadata), as described in [this example](/scopes/current#example-add-custom-claims).
 
-Another approach to get the full user profile is to use the [Management API](https://auth0.com/docs/api/management/v2) instead of getting through the authentication flow, as described in the next section.
+Another approach to get the full user profile is to use the [Management API](/api/management/v2) instead of getting it through the authentication flow, as described in the next section.
 
 ## User Profile with Management API
 
-In the legacy flows, the [Management API](https://auth0.com/docs/api/management/v2) supported authentication with an `id_token`. This approach has been deprecated, and now you need to call it with an `access_token`. 
+In the legacy flows, the [Management API](/api/management/v2) supported authentication with an `id_token`. This approach has been deprecated, and now you need to call it with an `access_token`. 
 
-To get an get an `access_token`, you need to ask Auth0 for one using the `https://'${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating. You will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
+To get an get an `access_token`, you need to ask Auth0 for one using the `https://'${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
 
 ```js
 function getUserUsingManagementApi() {
@@ -166,6 +166,6 @@ You can can ask for the following scopes:
 * `create:current_user_device_credentials`
 * `delete:current_user_device_credentials`
 
-You could get a `consent_required` error when calling `checksession()`. If you do, make sure you have "Allow Skipping User Consent" enabled for the Management API and that you are not running from localhost. Check the [consent documentation](/api-auth/user-consent) for more information.
+You could get a `consent_required` error when calling `checkSession()`. If you do, make sure you have "Allow Skipping User Consent" enabled for the Management API and that you are not running from localhost. Check the [consent documentation](/api-auth/user-consent) for more information.
 
    
