@@ -512,33 +512,28 @@ apis:
 
   - title: Authentication API
     url: "/api/authentication"
-    external: true
     forceFullReload: true
+    external: true
 
   - title: Management API
     url: "/api/management/v2/tokens"
-    forceFullReload: true
     expanded: 1
     children:
 
       - title: API Tokens
         url: "/api/management/v2/tokens"
-        forceFullReload: true
         children:
         - title: Changes
           url: "/api/management/v2/tokens-flows"
 
-      - title: Query String Syntax
-        url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
-
       - title: User Search
         url: "/api/management/v2/user-search"
-        forceFullReload: true
+        
+      - title: Query String Syntax
+        url: "/api/management/v2/query-string-syntax"
 
       - title: Changes in v2
         url: "/api/management/v2/changes"
-        forceFullReload: true
 
       - title: API Explorer
         url: "/api/management/v2/"
