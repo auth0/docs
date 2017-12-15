@@ -1,16 +1,14 @@
 ---
 section: libraries
-title: Migrating AngularJS Applications from Auth0.js v8 to v9
-description: How to migrate AngularJS Applications from Auth0.js v8 to v9
+title: Migrating Angular 1.x Applications From auth0.js v8 to v9
+description: How to migrate Angular 1.x Applications From auth0.js v8 to v9
 toc: true
 ---
-# Migrating AngularJS applications from Auth0.js v8 to v9
+# Migrating Angular 1.x applications from Auth0.js v8 to v9
 
 This guide includes all the information you need to update auth0.js from v8 to v9. Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
 
 ## Migration Steps
-
-<%= include('../../_includes/_get_auth0_js_latest_version') %>
 
 ### Update angular-auth0
 
@@ -32,6 +30,7 @@ The script files need to be added to your build system, or added to the project 
 <script src="node_modules/angular-auth0/dist/angular-auth0.js"></script>
 ```
 
+<%= include('../../_includes/_get_auth0_js_latest_version') %>
 <%= include('../../_includes/_configure_embedded_login') %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>

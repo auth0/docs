@@ -1,9 +1,11 @@
 ---
 section: libraries
-title: Migrating AngularJS Applications to Auth0.js v9
-description: How to migrate AngularJS Applications to Auth0.js v9
+title: Migrating Angular 1.x Applications From auth0.js v6 to v9
+description: How to migrate Angular 1.x Applications From auth0.js v6 to v9
 toc: true
 ---
-# Migrating AngularJS applications from Auth0.js v6 to v9
+# Migrating Angular 1.x applications from Auth0.js v6 to v9
 
-TODO.
+The [auth0.js](/libraries/auth0js) v6 API is the same as the v7 one. 
+
+You can use the [Migrating Angular 1.x Applications from Auth0.js v7 to v9](/libraries/auth0js/v9/migration-angular-v7) to understand how your application code needs to be adjusted.
