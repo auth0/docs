@@ -526,12 +526,12 @@ apis:
         - title: Changes
           url: "/api/management/v2/tokens-flows"
 
+      - title: User Search
+        url: "/api/management/v2/user-search"
+        
       - title: Query String Syntax
         url: "/api/management/v2/query-string-syntax"
         forceFullReload: true
-
-      - title: User Search
-        url: "/api/management/v2/user-search"
 
       - title: Changes in v2
         url: "/api/management/v2/changes"
