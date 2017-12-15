@@ -44,7 +44,7 @@ The documents below describe all the changes that you should be aware of when mi
 
 [Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
 
-[Migrating from Auth0.js v6 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v7)
+[Migrating from Auth0.js v6 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v6)
 
 [Migrating from Auth0.js v7 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v7)
 

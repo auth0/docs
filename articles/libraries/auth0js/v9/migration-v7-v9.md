@@ -72,8 +72,8 @@ webAuth.login({
 
 ```js
 var auth0 = new Auth0({
-  domain: ''${account.namespace}'',
-  clientID: ''${account.clientId}'',
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
   responseType: 'token'
 });
 
