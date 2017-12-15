@@ -1,10 +1,10 @@
 ---
 section: libraries
-title: Migrating AngularJS Applications to from Lock v9 to Lock v11
-description: How to migrate AngularJS Applications from Lock v9 to v11
+title: Migrating Angular 1.x Applications to from Lock v9 to Lock v11
+description: How to migrate Angular 1.x Applications from Lock v9 to v11
 toc: true
 ---
-# Migrating AngularJS Applications from Lock v9 to v11
+# Migrating Angular 1.x Applications from Lock v9 to v11
 
 This guide will help you migrating your Angular 1.x application from Lock 9 to Lock 11. 
 

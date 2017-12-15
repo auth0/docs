@@ -40,6 +40,7 @@ The documents below describe all the changes that you should be aware of when mi
 - [Migrating from Lock v9](/libraries/lock/v11/migration-v9-v11)
 - [Migrating from Lock v9 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v9)
 - [Migrating from Lock v8](/libraries/lock/v11/migration-v8-v11)
+- [Migrating from Lock v8 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v8)
 :::
 
 :::note
