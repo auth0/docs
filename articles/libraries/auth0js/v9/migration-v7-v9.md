@@ -31,8 +31,8 @@ Follow the [instructions to migrate from Auth0.js v7 to v8](/libraries/auth0js/v
 
 ```js
 var auth0 = new Auth0({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
@@ -56,8 +56,8 @@ auth0.login({
 
 ```js
 var webAuth = new auth0.WebAuth({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
@@ -84,8 +84,8 @@ webAuth.login({
 
 ```js
 var auth0 = new Auth0({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
@@ -113,8 +113,8 @@ auth0.login({
 
 ```js
 var webAuth = new auth0.WebAuth({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
@@ -141,8 +141,8 @@ webAuth.popup.loginWithCredentials({
 
 ```js
 var auth0 = new Auth0({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
@@ -193,8 +193,8 @@ auth0.verifySMSCode(
 
 ```js
 var webAuth = new auth0.WebAuth({
-  domain: "your-domain.auth0.com",
-  clientID: "the-client-id",
+  domain: "${account.namespace}",
+  clientID: "${account.clientId}",
   responseType: "token"
 });
 
