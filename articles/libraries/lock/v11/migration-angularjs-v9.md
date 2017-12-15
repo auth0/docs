@@ -107,7 +107,7 @@ In your `app.js` file:
 
 ## 4. Updating Authentication Service
 
-If you are using an authentication service, you will need to make a few minor changes there as well. Lock 11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock 11 documentation](sdk).
+If you are using an authentication service, you will need to make a few minor changes there as well. Lock 11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock 11 documentation](/libraries/lock/v11).
 
 ```js
 // auth.service.js
