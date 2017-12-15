@@ -531,7 +531,6 @@ apis:
         
       - title: Query String Syntax
         url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
 
       - title: Changes in v2
         url: "/api/management/v2/changes"
