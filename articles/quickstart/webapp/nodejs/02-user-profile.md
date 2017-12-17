@@ -51,7 +51,7 @@ Modify the `/user` endpoint to display the user object. Update the `views/user.p
 extends layout
 
 block content
-  img(src="#{user.picture}")
+  img(src=user.picture)
   h2 Welcome #{user.nickname}!
   br
   h2 User Profile
