@@ -45,10 +45,10 @@ class JsonWebToken
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
-               iss: 'https://${account.namespace}/'
+               iss: 'https://${account.namespace}/',
                verify_iss: true,
                # auth0_api_audience is the identifier for the API set up in the Auth0 dashboard
-               aud: auth0_api_audience
+               aud: auth0_api_audience,
                verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
@@ -113,7 +113,7 @@ To look for a particular `scope` in an `access_token`, provide an array of requi
 In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the `scopes` contained in the payload of the `access_token` to determine if it contains one or more items from the array.
 
 ```rb
-# lib/jwt/json_web_token.rb
+# lib/server_rs256.rb
 
 SCOPES = {
   '/restricted_resource' => ['read:messages'],

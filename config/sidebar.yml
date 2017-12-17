@@ -149,7 +149,7 @@ articles:
             url: "/extensions/custom-social-extensions"
 
       - title: "Custom Database"
-        url: "/connections/database/mysql"
+        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
@@ -378,6 +378,16 @@ articles:
       - title: "Yubikey NEO Example"
         url: "/multifactor-authentication/yubikey"
 
+  - title: "Security"
+    url: "/security"
+    children:
+
+      - title: "Bulletins"
+        url: "/security/bulletins"
+        childern:
+          - title: "CVE 2017-17068"
+            url: "/security/bulletins/cve-2017-17068"
+
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
     children:
@@ -397,6 +407,27 @@ articles:
 
       - title: "Google Analytics"
         url: "/analytics/integrations/google-analytics"
+
+  - title: "Integrations"
+    url: "/integrations"
+    children:
+
+      - title: "Marketing"
+        url: "/integrations/marketing"
+        children:
+
+          - title: "Adobe Campaign"
+            url: "/integrations/marketing/adobe-campaign"
+
+          - title: "MailChimp"
+            url: "/integrations/marketing/mailchimp"
+
+          - title: "Marketo"
+            url: "/integrations/marketing/marketo"
+
+      - title: "Single Sign On"
+        url: "/sso/current/integrations"
+
 
   - title: "Addons/Third-Party Apps"
     url: "/addons"
@@ -613,14 +644,11 @@ libraries:
     url: "/libraries/auth0js"
     children:
 
-      - title: "Auth0.js v8"
+      - title: "Auth0.js"
         url: "/libraries/auth0js/v8"
 
-      - title: "Migration Guide v8"
+      - title: "Migration Guide"
         url: "/libraries/auth0js/v8/migration-guide"
-
-      - title: "Auth0.js v7"
-        url: "/libraries/auth0js/v7"
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"

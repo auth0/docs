@@ -1,0 +1,34 @@
+added:
+  -
+    title: "Auth0 Integrations"
+    tags:
+      - integration
+    description: |
+      A new landing page for [Auth0 Integrations](https://auth0.com/docs/integrations) was added.
+
+  -
+    title: "Adobe Campaign Integration"
+    tags:
+      - integration
+      - marketing
+      - adobe
+    description: |
+      A new document on [Adobe Campaign Integration](https://auth0.com/docs/integrations/marketing/adobe-campaign) was added.
+
+  -
+    title: "MailChimp Integration"
+    tags:
+      - integration
+      - marketing
+      - mailchimp
+    description: |
+      A new document on [MailChimp Integration](https://auth0.com/docs/integrations/marketing/mailchimp) was added.
+
+  -
+    title: "Marketo Integration"
+    tags:
+      - integration
+      - marketing
+      - marketo
+    description: |
+      A new document on [Marketo Integration](https://auth0.com/docs/integrations/marketing/marketo) was added.

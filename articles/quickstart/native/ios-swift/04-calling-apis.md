@@ -15,46 +15,29 @@ budicon: 546
   ]
 }) %>
 
-The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
+Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
+This tutorial shows you how to get an access token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
 
-## Get the user's credentials
+::: note
+Read more about authentication API on the server-side in [the API documentation](/api/authentication).
+:::
 
-In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
+## Get the User's Credentials
 
-You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
+You need an access token for your API to check if the request is authenticated. 
 
-First, import the `Auth0` module in the file where you want to present the hosted login page.
-
-${snippet(meta.snippets.setup)}
-
-Then present the hosted login screen, like this:
-
-```swift
-// HomeViewController.swift
-
-Auth0
-    .webAuth()
-    .audience("https://${account.namespace}/userinfo")
-    .scope("openid profile")
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Good time to store the tokens
-        }
-}
-```
-
-In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained. Which one depends on the application usage.
+You can retrieve the token from an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. Read the [Login](/quickstart/native/ios-swift/00-login) article for instructions on how to get credentials.
 
 ## Attach the Token
 
-Supposing you need to use the `accessToken` value, here is what you would do:
+This example shows how to use the `accessToken` value. 
+
+::: note
+Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
+:::
+
+To attach an access token to a request: 
 
 ```swift
 // ProfileViewController.swift
@@ -69,11 +52,9 @@ let task = URLSession.shared.dataTask(with: request) { data, response, error in
 }
 ```
 
-Notice that how you configure your authorization header should match the standards that you're using in your API. This is just an example of what it could look like.
-
 ## Send the Request
 
-Don't forget to actually send the request you just created, by executing:
+Send the request you created:
 
 ```swift
 // ProfileViewController.swift
@@ -81,9 +62,9 @@ Don't forget to actually send the request you just created, by executing:
 task.resume()
 ```
 
-### Sample Project Configuration
+### Sample project configuration
 
-When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
+When you are testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
 
 ```swift
 // ProfileViewController.swift
@@ -93,8 +74,4 @@ var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
 ```
 
-Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
-
-::: note
-For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
-:::
+After you send a request and receive a response from your API, the request status code will be displayed in an alert view. 

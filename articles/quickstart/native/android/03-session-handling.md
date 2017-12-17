@@ -199,8 +199,8 @@ private void logout() {
 Depending on the way you store users' credentials, you delete them differently. 
 :::
 
-### Optional: Encapsulate Session Handling
+## Optional: Encapsulate Session Handling
 
-Handling users' sessions is not a straightforward process. You can simplify it by storing token-related information and processes in a class. The class separates the logic for handling users' sessions from the activity. 
+You can simplify the way you handle user sessions by storing token-related information and processes in a class. The class separates the logic for handling user sessions from the activity. 
 
-We recommend that you download the sample project from this tutorial and take a look at its implementation. Focus on the `CredentialsManager` class, which manages session handling, obtains user credentials from the `SharedPreferences` file and saves them.
+We recommend that you download the sample project from this tutorial and look at its implementation. Focus on the `CredentialsManager` class, which manages session handling, obtains user credentials from the `SharedPreferences` file and saves them.

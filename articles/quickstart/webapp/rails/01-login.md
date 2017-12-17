@@ -36,6 +36,10 @@ https://example.com/auth/oauth2/callback
 
 To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
 
+::: note
+If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
+:::
+
 ${snippet(meta.snippets.dependencies)}
 
 ## Initialize Omniauth Auth0

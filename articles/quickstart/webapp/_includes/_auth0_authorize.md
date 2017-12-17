@@ -1,7 +1,7 @@
 ## Integrate auth0.js
 
 ```html
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 <script>
   var webAuth = new auth0.WebAuth({
     domain: '${account.namespace}',

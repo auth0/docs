@@ -50,7 +50,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="https://cdn.auth0.com/w2/auth0-7.6.1.min.js"></script>
+<script src="${auth0js_urlv7}"></script>
 ```
 
 If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
@@ -64,7 +64,7 @@ The following examples use jQuery, but auth0.js is not tied to jQuery and any li
 Construct a new instance of the Auth0 client as follows:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv7}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
     domain:       '${account.namespace}',

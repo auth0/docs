@@ -8,7 +8,7 @@ description: How to install, initialize and use auth0.js v8
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 ::: note
-Check out the [Auth0.js repository](https://github.com/auth0/auth0.js) on GitHub.
+Check out the [Auth0.js repository](https://github.com/auth0/auth0.js/tree/v8) on GitHub.
 :::
 
 ## Ready-to-go example
@@ -155,7 +155,7 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
 However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
@@ -174,27 +174,22 @@ webAuth.popup.loginWithCredentials({
 });
 ```
 
-### webAuth.client.login()
+### webAuth.login()
 
-The `client.login` method allows for non-redirect auth using database connections, using `/oauth/token`.
+The `login` method allows for [cross-origin auth](/cross-origin-authentication) using database connections, using `/co/authenticate`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `username` | required | (String) The username to present for authentication |
-| `password` | required | (String) The password to present for authentication |
+| `username` | optional | (String) The username to present for authentication. **Either** `username` or `email` must be present. |
+| `email` | optional | (String) The email to present for authentication. **Either** `username` or `email` must be present.|
+| `password` | required | (String) The password to present for authentication. |
 | `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `audience` | optional | (String)  The default audience to be used for requesting API access. |
 
 ```js
-webAuth.client.login({
+webAuth.login({
   realm: 'tests',
   username: 'testuser',
   password: 'testpass',
-  scope: 'openid profile',
-  audience: 'urn:test'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
 });
 ```
 
@@ -429,13 +424,12 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who has a current session in Auth0 server for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
 
 ```js
 webAuth.checkSession({
   audience: 'https://example.com/api/v2',
-  scope: 'read:something write:otherthing',
-  redirectUri: 'https://example.com/auth/silent-callback'
+  scope: 'read:something write:otherthing'
 }, function (err, authResult) {
   // err if automatic parseHash fails
   ...

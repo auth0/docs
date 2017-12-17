@@ -1,32 +1,38 @@
 ---
 url: /security
 classes: topic-page
-title: Auth0 Security Fundamentals
-description: Learn about various topics regarding how to handle sensitive data when using Auth0 services.
+title: Auth0 Security
+description: Read about various security-related topics and keep up-to-date with released Auth0 security bulletins
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Auth0 Security Fundamentals</h1>
+  <h1>Auth0 Security</h1>
   <p>
-    Learn about various topics regarding how to handle sensitive data when using Auth0 services.
+    Read about various security-related topics and keep up-to-date with released Auth0 security bulletins
   </p>
 </div>
 
-## Handling Tokens
+## Security bulletins
+
+<%= include('../_includes/_topic-links', { links: [
+  'security/bulletins'
+] }) %>
+
+## Handling tokens
 
 <%= include('../_includes/_topic-links', { links: [
   'security/store-tokens',
   'tokens'
 ] }) %>
 
-## Preventing Security Attacks
+## Preventing security attacks
 
 <%= include('../_includes/_topic-links', { links: [
   'security/common-threats'
 ] }) %>
 
-## Data Privacy
+## Data privacy
 
 <%= include('../_includes/_topic-links', { links: [
   'security/blacklisting-attributes'

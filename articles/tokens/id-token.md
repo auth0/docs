@@ -141,13 +141,7 @@ If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a 
 ```js
 auth0.checkSession({
   audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order',
-  redirectUri: 'https://example.com/auth/silent-callback',
-
-  // this will use postMessage to comunicate between the silent callback
-  // and the SPA. When false the SDK will attempt to parse the url hash
-  // should ignore the url hash and no extra behaviour is needed.
-  usePostMessage: true
+  scope: 'read:order write:order'
   }, function (err, authResult) {
     // Renewed tokens or error
 });

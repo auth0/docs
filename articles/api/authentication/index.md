@@ -47,6 +47,10 @@ fullWidth: true
   <%= include('./_impersonation') %>
 </div>
 
+<div class="api-section" data-section="none">
+  <%= include('./_client-reg') %>
+</div>
+
 <span data-section-label="api-authz">API Authorization</span>
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_authz-client') %>

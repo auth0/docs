@@ -4,9 +4,9 @@ connection: Github
 image: /media/connections/github.png
 seo_alias: github
 index: 7
-description: How to obtain a Client Id and Client Secret for GitHub.
+description: How to add GitHub login to your app and access their API
+toc: true
 ---
-
 # Connect your app to GitHub
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
@@ -40,11 +40,29 @@ Once the application is registered, your app's `Client ID` and `Client Secret` w
 
 ![](/media/articles/connections/social/github/github-add-app-3.png)
 
-### 4. Copy your GitHub app's Client ID and Client Secret
+## 4. Copy your GitHub app's Client ID and Client Secret
 
 Go to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social**, then choose **Github**. Copy the `Client ID` and `Client Secret` from the **Developer Applications** of your app on Github into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/github/github-add-app-4.png)
+
+## 5. Access GitHub API
+
+Once you successfully authenticate a user, GitHub includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
+
+You can then use this token to call their API.
+
+In order to get a GitHub access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
+
+Once you have the token you can call the API, following GitHub's documentation.
+
+::: note
+For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
+:::
+
+## Troubleshooting
+
+If you are receiving `Access Denied` when calling the GitHub API, you probably have not requested the correct permissions for the user during login. For information on how to fix that, refer to [Add scopes/permissions to call Identity Provider's APIs](/connections/adding-scopes-for-an-external-idp).
 
 <%= include('../_quickstart-links.md') %>
 
