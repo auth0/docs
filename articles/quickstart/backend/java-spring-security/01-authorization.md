@@ -235,7 +235,7 @@ To obtain an access token, call the `/oauth/token` endpoint of the Auth0 [Authen
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"${apiIdentifier}", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"${apiIdentifier}", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": 'YOUR_CLIENT_SECRET'
  }'
 ```
 
