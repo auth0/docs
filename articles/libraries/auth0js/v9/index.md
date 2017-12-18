@@ -5,7 +5,9 @@ description: How to install, initialize and use auth0.js v9
 ---
 # Auth0.js v9 Reference
 
-Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
+Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps. 
+
+The full API documentation for library is [here](https://auth0.github.io/auth0.js/index.html).
 
 ## Ready-to-go example
 
@@ -23,31 +25,19 @@ Now, let's get started integrating auth0.js into your project. We'll cover [meth
 
 You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
 
-Install via [npm](https://npmjs.org):
+Install via [npm](https://npmjs.org) or [yarn](https://yarnpkg.com):
 
 ```sh
 npm install auth0-js
-```
 
-Install via [bower](http://bower.io):
-
-```sh
-bower install auth0.js
-```
-
-```html
-<script src="bower_components/auth0.js/build/auth0.min.js"></script>
+yarn add auth0-js
 ```
 
 Include via our CDN:
 
 ```html
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 ```
-
-::: note
-For production use, the latest patch release (for example, 9.x.y) is recommended, rather than the latest minor release indicated above.
-:::
 
 If you are using a bundler, you will want to install with `npm i auth0-js --production --save`.
 
@@ -189,9 +179,9 @@ webAuth.login({
 });
 ```
 
-### webAuth.crossOriginAuthenticationCallback()
+### webAuth.crossOriginVerification()
 
-The `crossOriginAuthenticationCallback()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
+The `crossOriginVerification()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
 
 ### buildAuthorizeUrl(options)
 
@@ -211,7 +201,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+If you don't specify a `state` parameter, auth0.js will automatically add one. This parameter helps prevent CSRF attacks.
 :::
 
 ## Passwordless Login
@@ -289,7 +279,7 @@ The `parseHash` method takes an `options` object that contains the following par
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `state` | optional | (String) An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` | optional | (String) An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value is used by auth0.js to prevent CSRF attacks. |
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
@@ -354,11 +344,7 @@ If you're calling `webAuth.checkSession` instead of `webAuth.authorize`, then yo
 
 ```js
 webAuth.checkSession({
-  audience: 'https://example.com/api/v2',
-  scope: 'openid read:something write:otherthing',
-  responseType: 'token id_token',
   nonce: '1234',
-  usePostMessage: true
 }, function (err, authResult) {
     ...
 });
@@ -421,15 +407,10 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0.
 
 ```js
-webAuth.checkSession({
-  audience: 'https://example.com/api/v2',
-  scope: 'read:something write:otherthing',
-  redirectUri: 'https://example.com/auth/silent-callback',
-  usePostMessage: true
-}, function (err, authResult) {
+webAuth.checkSession({}, function (err, authResult) {
   // err if automatic parseHash fails
   ...
 });
