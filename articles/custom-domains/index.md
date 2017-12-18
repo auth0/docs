@@ -142,7 +142,7 @@ If you're using a Custom [Hosted Login Page](/hosted-pages/login), you'll need t
 ```js
     var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
 		...
-	      configurationBaseUrl: config.configurationBaseUrl
+	      configurationBaseUrl: config.clientConfigurationBaseUrl
 		...
     });
 ```
