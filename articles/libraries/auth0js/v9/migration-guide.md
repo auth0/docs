@@ -29,7 +29,7 @@ Migration to v9 will depend on how you are using auth0.js:
 If your application is configured to use centralized login, and your web application uses `.authorize()`, you can update auth0.js to v9 in your web application, without requiring any code changes.
 
 ::: warning
-If you are using auth0.js to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded))
+If you are using auth0.js to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
 :::
 
 ## Migration Instructions
@@ -44,15 +44,17 @@ The documents below describe all the changes that you should be aware of when mi
 
 [Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
 
-[Migrating from Auth0.js v6 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v6)
+[Migrating from Auth0.js v8 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v8)
 
 [Migrating from Auth0.js v7 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v7)
 
-[Migrating from Auth0.js v8 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v8)
+[Migrating from Auth0.js v6 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v6)
 
 [Migrating from Auth0.js v8 in Angular 2.x Applications](/libraries/auth0js/v9/migration-angular)
 
 [Migrating from Auth0.js v8 in React.js Applications](/libraries/auth0js/v9/migration-react)
+
+
 
 :::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
