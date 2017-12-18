@@ -54,6 +54,10 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
 ![](/media/articles/support/update-ticket.png)
 
+::: warning
+If you do not set your ticket status to **Urgent**, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if you realize at a later point that you need to adjust the status, you will have to create a new ticket with the correct severity level set.
+:::
+
 ### Closed Tickets
 
 If your ticket has been closed, but you'd like to continue working with Auth0 on the issue, please create a new [Support Center ticket](${env.DOMAIN_URL_SUPPORT}). Be sure to include the reference number for the original ticket(s).
