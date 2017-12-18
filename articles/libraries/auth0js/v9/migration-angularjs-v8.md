@@ -31,7 +31,7 @@ The script files need to be added to your build system, or added to the project 
 ```
 
 <%= include('../../_includes/_get_auth0_js_latest_version') %>
-<%= include('../../_includes/_configure_embedded_login') %>
+<%= include('../../_includes/_configure_embedded_login', { library : 'auth0js'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>
 

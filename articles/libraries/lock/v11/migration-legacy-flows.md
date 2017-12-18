@@ -116,7 +116,7 @@ The new user profile conforms to the OIDC specification, which allows for certai
 }
 ```
 
-The contents will vary depending on which [scopes](/scopes) are requested. You will need to adjust the scopes you request when configuring Auth0.js or Lock so all the claims you need are available in your application. Note that you can add custom claims to return whatever data you want (e.g. user metadata), as described in [this example](/scopes/current#example-add-custom-claims).
+The contents will vary depending on which [scopes](/scopes) are requested. You will need to adjust the scopes you request when configuring Auth0.js or Lock so all the claims you need are available in your application. Note that you can add custom claims to return whatever data you want (for example, user metadata), as described in [this example](/scopes/current#example-add-custom-claims).
 
 Another approach to get the full user profile is to use the [Management API](/api/management/v2) instead of getting it through the authentication flow, as described in the next section.
 

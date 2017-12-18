@@ -180,7 +180,7 @@ function login() {
 
 Note that the parameters that were passed to `show()` are used to initialize Lock.
 
-<%= include('../../_includes/_configure_embedded_login') %>
+<%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
 
 ### Migrating from Legacy Authentication Flows
 

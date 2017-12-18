@@ -1,10 +1,15 @@
 ### Configure Auth0 for Embedded Login
 
-Lock v11 and Auth0.js v9 use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
+<% if (library  == 'lock') { %>
+Lock v11 use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
+<% } else { %>
+If you implement a custom login dialog with Auth0.js v9, it will use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
+<% } %>
+
+ { library: 'jQuery', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/embedded-login/01-Embedded-Login'})
+
 
 Add the domain to the **Allowed Web Origins** field. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). 
-
-You should only specify the domain and, if needed, the port. For example, if you host your application in `https://example.com/portal`, you should specify `https://example.com`. If the application is in `https://example.com:3000/portal`, you need to specify `https://example.com:5503`. Note that you shouldn't add a trailing '/'.
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
