@@ -8,6 +8,10 @@ description: This video will help you better understand how Auth0 works with ses
 ---
 # Understanding Sessions &amp; Cookies
 
+::: version-warning
+Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
+:::
+
 <%= include('./_video', { id: meta.id }) %>
 
 This video will show you how to handle session data when building a web app. It will help you understand how your application uses cookies and sessions to manage the state of an authenticated user. This video example uses Node.js with Passport, but the techniques apply to any traditional server-based web application.
