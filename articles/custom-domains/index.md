@@ -10,7 +10,7 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 Using custom domains with centralized login is the most seamless and secure experience for developers and end users. For more information about centralized login and customizing the hosted login pages, refer to [our documentation](https://auth0.com/docs/hosted-pages/login).
 
 ::: warning
-Custom Domains is a beta feature.
+Custom Domains is a beta feature. It is only available for tenants tagged as `Development`. For more information on environment tagging, please refer to [our documentation](https://auth0.com/docs/dev-lifecycle/setting-up-env).
 :::
 
 ## Prerequisites
@@ -58,8 +58,7 @@ Setting up your custom domain requires you to do the following steps:
 1. Provide your domain name to Auth0
 1. Verify ownership
 1. Configure the reverse proxy (if using self-managed certificates)
-1. *Optional*: Configure the hosted login page
-1. *Optional*: Enable custom domains in Auth0 emails
+1. Feature-specific setup
 
 ### Step 1: Configure Auth0
 
@@ -126,41 +125,84 @@ This step is not necessary for those using Auth0-managed certificates.
 
 Currently, you can use [AWS CloudFront](/custom-domains/set-up-cloudfront).
 
-### Step 4: Configure the Hosted Login Page
+## Feature-Specific Setup
 
-This is an **optional** step.
+There are additional steps depending on which features you are using with Auth0.
+
+:::warning
+If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at tenant.auth0.com will no longer be valid once you start using your custom domain, so users will have to login again.
+:::
+
+### Configure the Hosted Login Page
 
 If you're using the Default Hosted Login Page, without customization, you will not need to make any changes - your custom domain will work right out of the box.
 
 If you're using a Custom [Hosted Login Page](/hosted-pages/login), you'll need to update it to use your custom domain. The changes that you'll need to make are regarding the initializing of Lock. The following code sample shows the lines reflected the necessary changes.
 
-::: note
-These same changes also apply to Embedded Lock.
-:::
-
 ```js
-    var lock = new Auth0Lock(config.clientID, config.customDomain, {
+    var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
 		...
 	      configurationBaseUrl: config.configurationBaseUrl
-	      overrides: {
-	        __tenant: config.auth0tenant,
-	        __token_issuer: config.tokenIssuer
-	      },
 		...
     });
 ```
 
-### Step 5: Enable Custom Domains in Auth0 Emails
+### Embedded Lock
 
-This is an **optional** step.
+If you are using Embedded Lock (Lock 11), you need to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN url.
+
+```js
+    var lock = new Auth0Lock('your-client-id', 'login.acme.com', {
+		...
+	      configurationBaseUrl: 'https://cdn.auth0.com'
+		...
+    });
+```
+
+:::note
+The CDN url varies by region. For regions outside of the US, use https://cdn.{region}.auth0.com.
+:::
+
+### SDKs
+
+If you are using [Auth0.js](https://github.com/auth0/auth0.js) or other SDKs, you will have to initialize the SDK using your custom domain. For example, if using auth0.js:
+
+```
+webAuth = new auth0.WebAuth({
+  domain:       'login.acme.com',
+  clientID:     'your-client-id'
+});
+```
+
+### Enable Custom Domains in Auth0 Emails
 
 If you would like your custom domain used with your Auth0 emails, you'll need to enable this feature in the [Dashboard](${manage_url}/#/tenant). You can do this by clicking the toggle associated with the **Use Custom Domain in Emails**. When the toggle is green, this feature is enabled.
+
+![](/media/articles/custom-domains/cd_email_toggle.png)
+
+### Social and Enterprise Identity Provider Configuration
+
+If you want to use social identity providers with your custom domain, you must update the allowed callback urls to include your custom domain, e.g. `https://login.acme.com/login/callback`.
+
+### APIs
+
+If you are using Auth0 with a custom domain to issue access tokens for your APIs, then you must be sure to validate the JWTs issuer against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
+
+```js
+app.use(jwt({ 
+	issuer: 'https://login.foo.com', 
+	... additional params ...
+}));
+```
 
 ## FAQ
 
 1. **If I use a custom domain, will I still be able to use my `tenant.auth0.com` domain to access Auth0?**
+  
+  Once you enable your custom domain in Auth0, you should be able to use either the default `tenant.auth0.com` or your custom domain. There are a few exceptions:
 
-	You can use `tenant.auth0.com` for centralized login as long as you have *not* customized your hosted login page to support the custom domain. If you are using the default hosted login page, it will support both domains. For other flows, you can use both domains.
+  - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the tenant.auth0.com domain, so you have to use one or the other.
+  - If you start a session in tenant.auth0.com, and go to custom domain.com, the user will have to login again.
 
 1. **What about support for SAML or WS-Fed clients?**
   
