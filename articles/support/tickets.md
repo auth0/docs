@@ -37,6 +37,13 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
     * Has this worked before, or are you trying a new configuration?
     * Does the problem occur for all users or just a few?
     * What troubleshooting steps have you tried?
+
+    *For PSaaS Appliance Customers*:
+
+    * PSaaS Appliance version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
+    * Status of nodes (https://yourmanage.yourdomain.com/configuration#/nodes)
+    * Status of health check (https://yourmanage.yourdomain.com/configuration#/troubleshoot)
+    
 1. When you have completed all the fields, click on the **SUBMIT** button.
 
 ## Updating an Existing Ticket

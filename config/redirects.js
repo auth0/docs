@@ -1673,5 +1673,13 @@ module.exports = [
   {
     from: `/connections/grean/nemid`,
     to: `/connections/criipto/nemid`
+  },
+  {
+    from: `/onboarding/enterprise-support`,
+    to: `/support`
+  },
+  {
+    from: `/appliance/critical-issue`,
+    to: `/support`
   }
 ];

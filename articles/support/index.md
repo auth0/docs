@@ -53,6 +53,8 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
 
+Additionally, your Auth0 Customer Success Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
+
 Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
 
 ## Support Channels
