@@ -73,6 +73,10 @@ In addition to the Auth0 Community, paid subscribers can create a private ticket
 
 Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
 
+::: note
+As a secondary point of escalation, PSaaS Appliance customers can also send an email to **productionoutage@auth0.com** to log a critical support issue. Note that this should only be a secondary escalation point, as a ticket created in Support Center provides a more reliable way to identify the customer having the problem and interact with the user.
+:::
+
 #### Add Support-Only Users
 
 You can add support-only users to your Auth0 tenant. This will allow them to open, view, and comment on [Support Center](${env.DOMAIN_URL_SUPPORT}) tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the [Auth0 Dashboard](${manage_url}).
