@@ -8,7 +8,7 @@ toc: true
 
 This guide includes all the information you need to update [Auth0.js](/libraries/auth0js) from v7 to v9. Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
 
-The [Auth0.js v7 to v8 Migration Guide](/libraries/auth0js/v8/migration-guide) has detailed information on how to migrate from v7 to v8, and that information is still valid, v7 is very similar to v8. This document will go over some common usage patterns, and focus on things that changed after that guide was created.
+The [Auth0.js v7 to v8 Migration Guide](/libraries/auth0js/v8/migration-guide) has detailed information on how to migrate from v7 to v8, and that information is still valid, v7 is very similar to v9. This document will go over some common usage patterns, and focus on things that changed after that guide was created.
 
 ## Migration Steps
 
@@ -20,7 +20,7 @@ The [Auth0.js v7 to v8 Migration Guide](/libraries/auth0js/v8/migration-guide) h
 
 ```js
 var auth0 = new Auth0({
-  domain:'${account.namespace}'),,
+  domain:'${account.namespace}',
   clientID: '${account.clientId}',
   responseType: 'token'
 });

@@ -8,4 +8,4 @@ If you don't specify that scope when initializing Lock, and you are running your
 Consent required. When using `getSSOData`, the user has to be authenticated with the following scope: `openid profile email`
 ```
 
-That will not happen when you run your application in production or if you specify the required [scope](/scopes). You can read more about this scenario [here](/api-auth/user-consent#skipping-consent-for-first-party-clients).
+That will not happen when you run your application in production or if you specify the required [scope](/scopes). You can read more about this in the [User consent and third-party clients document](/api-auth/user-consent#skipping-consent-for-first-party-clients).

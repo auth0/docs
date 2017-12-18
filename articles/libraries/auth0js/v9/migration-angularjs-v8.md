@@ -12,7 +12,7 @@ This guide includes all the information you need to update auth0.js from v8 to v
 
 ### Update angular-auth0
 
-AngularJS (a.k.a. Angular 1.x) applications usually use the [angular-auth0 package](https://www.npmjs.com/package/angular-auth0). To use auth0.js v9 you need to update to the latest version (3.x).
+Angular 1.x applications usually use the [angular-auth0 package](https://www.npmjs.com/package/angular-auth0)when authenticating with Auth0. To use auth0.js v9 you need to update to the latest version (3.x).
 
 You can update the angular-auth0 library using npm or yarn.
 
