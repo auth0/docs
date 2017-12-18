@@ -7,9 +7,9 @@ crews: crew-2
 
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns. You can then use this token to call the IdP's API.
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns to Auth0. 
 
-For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+You can retrieve and use this token to call the IdP's API.
 
 ::: note
 This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to [Identity Providers Supported by Auth0](/identityproviders), where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
@@ -17,13 +17,11 @@ This doc assumes that you have already configured the connection with the IdP of
 
 ## Required Steps
 
-To get access to the user's IdP access token, you will need to:
+The IdP's access token is not returned as part of the authentication process. In order to get it you will have to use the Auth0 Management API. The steps to follow are:
 
-1. Obtain an access token that allows you to call the [Auth0 Management API](/api/management/v2).
-2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint using the access token obtained in step one (the token must have the `read:user_idp_tokens` scope). This returns the user's profile, which contains the IdP access token.
-3. Extract the IdP access token.
-
-Once you've extracted the IdP's access token, you can use it to to call the IdP's API. Please refer to your IdP's documentation for specifics on how to do so.
+1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
+2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
+3. Extract the IdP access token from the response and use it to call the IdP's API.
 
 ### 1. Get a Token
 
@@ -68,7 +66,7 @@ The token you received has, by default, an expiration time of 24 hours (86400 se
 These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each client). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
 :::
 
-### 2. Get the User Profile
+### 2. Get the full User Profile
 
 Using the access token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
 
@@ -137,6 +135,12 @@ In this sample response we can see that our user had only one identity: `google-
 }
 ```
 
+You are now ready to call the IdP's API. Please refer to the IdP's documentation for specifics on how to do so.
+
 ::: warning
 Make sure that you don't expose the IdP tokens to your client-side application!
+:::
+
+::: note
+For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
 :::
