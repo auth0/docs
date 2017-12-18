@@ -2,6 +2,7 @@
 section: appliance
 title: Configure Webtask with Dedicated Domains
 description: How to use dedicated domains with your PSaaS Appliance Webtask
+toc: true
 ---
 # PSaaS Appliance: Webtask with Dedicated Domains
 
@@ -38,17 +39,17 @@ To clarify the requirements, let's look at a sample setup.
 
 The following are applicable to your environment as it current exists:
 
-* Your Production environment is accessible via **example.com**
-* Your primary Auth0 tenant is **identity.example.com**
-* Your current certificate is **identity.example.com** (or similar)
+* Your Production environment is accessible via `example.com`
+* Your primary Auth0 tenant is `identity.example.com`
+* Your current certificate is `identity.example.com` (or similar)
 
 You plan to implement the following change:
 
-* You want a Webtask dedicated domain configured to be **wt.example.com**
+* You want a Webtask dedicated domain configured to be `wt.example.com`
 
 To implement your change, you'll need:
 
-* A DNS zone for **wt.example.com*
+* A DNS zone for `wt.example.com`
 * A certificate with the names of all your tenants *or* a wildcard certificate for `*.wt.example.com`
 
 Once complete, you'll be able to use the following for all containers under your primary tenant:
@@ -67,7 +68,7 @@ This will give to each container a URL of the form:
 tenant-name.webtask-dedicated-domain/container-name
 ```
 
-For example, let's say that your tenant name is **acme** and your Webtask dedicated domain is **wt.example.com**. If you create a container named **hello**, your Webtask URL will be **acme.wt.example.com/hello**.
+For example, let's say that your tenant name is `acme` and your Webtask dedicated domain is `wt.example.com`. If you create a container named `hello`, your Webtask URL will be `acme.wt.example.com/hello`.
 
 Note that you can still use the original Webtask URL (for example, `webtask.example.com/api/run/acme/hello`). The primary difference is that, during runtime, the Webtask will remove any headers bearing cookies from the request.
 
