@@ -18,6 +18,10 @@ Let's use the example we mentioned earlier, signing into Auth0 using your Google
 1. Once you authenticate and authorize the sign in, Google sends an Access Token, and (if requested) an ID Token, back to Auth0.
 1. Auth0 can retrieve user information from the ID Token or use the Access Token to invoke a Google API.
 
+## Access Tokens
+
+[Access tokens](/tokens/access-token) are credentials that can be used by a client to access an API. Access tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scopes that have been granted).
+
 ## ID Tokens
 
 The [ID token](/tokens/id_token) is a [JSON Web Token (JWT)](/jwt) that contains identity data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. ID Tokens conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contain three parts: a header, a body and a signature.
@@ -28,6 +32,3 @@ JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or
 
 The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [self-defined custom claims](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims).
 
-## Access Tokens
-
-[Access tokens](/tokens/access-token) are credentials that can be used by a client to access an API. Access tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scopes that have been granted).
