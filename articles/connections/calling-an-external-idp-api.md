@@ -12,12 +12,12 @@ Once you successfully authenticate a user with an external Identity Provider (Id
 You can retrieve and use this token to call the IdP's API.
 
 ::: note
-This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to [Identity Providers Supported by Auth0](/identityproviders), where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
+This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to [Identity Providers Supported by Auth0](/identityproviders), where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the connection.
 :::
 
 ## Required Steps
 
-The IdP's access token is not returned as part of the authentication process. In order to get it you will have to use the Auth0 Management API. The steps to follow are:
+The IdP's access token is not returned to your app as part of the authentication process. In order to get it you will have to use the Auth0 Management API to retrieve the full user's profile. The steps to follow are:
 
 1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
@@ -34,7 +34,7 @@ To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manag
 This will create a new client and grant **all scopes of the Management API**. This means that the tokens generated for this client will be able to access **all Management API endpoints**.
 
 ::: panel Can't see the button?
-If you don't see this button, it means that you have at least one authorized client already. In this case you can either update the scopes of an existing client and use that or create a new one, following these steps:
+If you don't see this button, it means that you have at least one authorized client already. In this case you can either update the scopes of an existing client and use that, or create a new one following these steps:
 1. Go to [Dashboard > Clients](${manage_url}/#/clients)
 2. Click **+ Create Client**, select **Non Interactive Clients** and click **Create**
 3. At the **Select an API** dropdown select `Auth0 Management API`
@@ -44,7 +44,9 @@ If you don't see this button, it means that you have at least one authorized cli
 
 It is recommended, for security reasons, that you only assign the required scopes to the client you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from a client, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Clients tab](${manage_url}/#/apis/management/authorized-clients). 
+You can grant or remove scopes from a client, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Clients tab](${manage_url}/#/apis/management/authorized-clients).
+
+![Edit the scopes granted to the Client](/media/articles/connections/edit-granted-scopes.png)
 
 You are now done with the configuration part, and you are ready to get your Management API token.
 
