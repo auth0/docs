@@ -177,6 +177,10 @@ Then, you can call your proxy API from your public client using the respective f
 - [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
 - [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
 
+:::panel Show me how to do it
+If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
+:::
+
 ### Option 2: Use webtasks
 
 If you don't already have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
