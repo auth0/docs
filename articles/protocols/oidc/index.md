@@ -1,5 +1,6 @@
 ---
-description: What is the OpenID Connect protocol and how it works.
+title: OpenID Connect
+description: What is the OpenID Connect protocol and how it works
 ---
 # OpenID Connect
 
@@ -30,5 +31,5 @@ The [ID token](/tokens/id_token) is a [JSON Web Token (JWT)](/jwt) that contains
 
 JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
 
-The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [self-defined custom claims](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims).
+The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [custom claims and add them to your tokens](/tokens/id-token#add-custom-claims).
 
