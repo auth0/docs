@@ -1136,7 +1136,7 @@ module.exports = [
   },
   {
     from: '/libraries/auth0js',
-    to: '/libraries/auth0js/v8'
+    to: '/libraries/auth0js/v9'
   },
   {
     from: '/libraries/lock',
