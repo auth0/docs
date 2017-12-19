@@ -12,10 +12,16 @@ Once you successfully authenticate a user with an external Identity Provider (Id
 You can retrieve and use this token to call the IdP's API.
 
 ::: note
-This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to [Identity Providers Supported by Auth0](/identityproviders), where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the connection.
+This article assumes that you have already configured the connection with the IdP of your choice. If not, go to [Identity Providers Supported by Auth0](/identityproviders), select the IdP you want, and follow the configuration steps.
 :::
 
-## Required Steps
+The process you will follow differs, depending on whether your code runs in the backend or the frontend:
+
+- If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [From the backend](#from-the-backend) section of this article.
+
+- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate implementation. To see your options proceed to the [From the frontend](#from-the-frontend) section of this article.
+
+## From the backend
 
 The IdP's access token is not returned to your app as part of the authentication process. In order to get it you will have to use the Auth0 Management API to retrieve the full user's profile. The steps to follow are:
 
@@ -146,3 +152,5 @@ Make sure that you don't expose the IdP tokens to your client-side application!
 ::: note
 For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
 :::
+
+## From the frontend
