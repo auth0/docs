@@ -29,7 +29,7 @@ The IdP's access token is not returned to your app as part of the authentication
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
 3. Extract the IdP access token from the response and use it to call the IdP's API.
 
-### 1. Get a Token
+### Step 1: Get a Token
 
 You will need an access token to call the [Management API](/api/management/v2).
 
@@ -74,7 +74,7 @@ The token you received has, by default, an expiration time of 24 hours (86400 se
 These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each client). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
 :::
 
-### 2. Get the full User Profile
+### Step 2: Get the full User Profile
 
 Using the access token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
 
@@ -101,7 +101,7 @@ Replace these values:
 :::
 
 
-### 3. Extract the IdP Access Token
+### Step 3: Extract the IdP Access Token
 
 Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
