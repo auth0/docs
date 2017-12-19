@@ -4,7 +4,6 @@ description: How to call an Identity Provider API
 toc: true
 crews: crew-2
 ---
-
 # Call an Identity Provider API
 
 Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns to Auth0. 
@@ -12,18 +11,28 @@ Once you successfully authenticate a user with an external Identity Provider (Id
 You can retrieve and use this token to call the IdP's API.
 
 ::: note
-This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to [Identity Providers Supported by Auth0](/identityproviders), where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the connection.
+This article assumes that you have already configured the connection with the IdP of your choice. If not, go to [Identity Providers Supported by Auth0](/identityproviders), select the IdP you want, and follow the configuration steps.
 :::
 
-## Required Steps
+The process you will follow differs, depending on whether your code runs in the backend or the frontend:
 
-The IdP's access token is not returned to your app as part of the authentication process. In order to get it you will have to use the Auth0 Management API to retrieve the full user's profile. The steps to follow are:
+- If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [backend section](#from-the-backend) of this article.
+
+- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate approach. To see your options proceed to the [frontend section](#from-the-frontend) of this article.
+
+## From the backend
+
+Once you authenticate a user, the IdP often includes an access token in the user profile it returns to Auth0. 
+
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+
+The steps to follow are:
 
 1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
 3. Extract the IdP access token from the response and use it to call the IdP's API.
 
-### 1. Get a Token
+### Step 1: Get a Token
 
 You will need an access token to call the [Management API](/api/management/v2).
 
@@ -68,7 +77,7 @@ The token you received has, by default, an expiration time of 24 hours (86400 se
 These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each client). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
 :::
 
-### 2. Get the full User Profile
+### Step 2: Get the full User Profile
 
 Using the access token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
 
@@ -95,7 +104,7 @@ Replace these values:
 :::
 
 
-### 3. Extract the IdP Access Token
+### Step 3: Extract the IdP Access Token
 
 Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
@@ -140,9 +149,57 @@ In this sample response we can see that our user had only one identity: `google-
 You are now ready to call the IdP's API. Please refer to the IdP's documentation for specifics on how to do so.
 
 ::: warning
-Make sure that you don't expose the IdP tokens to your client-side application!
+Make sure that you don't expose the IdP tokens to your client-side application! If your client is public refer to the [frontend section](#from-the-frontend) of this article.
 :::
 
 ::: note
 For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+:::
+
+## From the frontend
+
+If you are working with a public client (SPA, native desktop, or mobile app) then this is the place to be.
+
+As you might have read earlier in this article, the process for calling IdP APIs from a **backend process** includes the following steps:
+
+1. Get an access token in order to access the Auth0 Management API
+2. Use said token to retrieve the user's full profile from the Auth0 Management API
+3. Extract the IdP's access token from the user's full profile, and use it to call the IdP's API
+
+You cannot follow the same process from a frontend app because it's a public client that **cannot hold credentials securely**. The credential we are referring to, is the non interactive client's secret which you use to make the call to `/oauth/token`, at the first step of the process.
+
+SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
+
+There are a couple of alternatives you can use.
+
+### Option 1: Build a proxy
+
+You can build a process in your backend and expose it to your client as an API.
+
+The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the access token is never exposed to your public client.
+
+Then, you will call your proxy API from your public client using the respective flow for your case:
+- [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
+- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
+
+:::panel Show me how to do it
+If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
+:::
+
+### Option 2: Use webtasks
+
+If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
+
+Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
+
+:::note
+This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
+:::
+
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the access token is never exposed to your public client.
+
+Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
+
+:::note
+You can find a sample [in this GitHub repository](https://github.com/vikasjayaram/ext-idp-api-webtask/tree/master/RS256). Review carefully before you use it since this is not officially maintained by Auth0 and could be outdated.
 :::
