@@ -20,13 +20,13 @@ If you have a large number of users, managing the access rights and permissions 
     * Client-Facing Applications
   * Support
 
-![](/media/articles/extensions/authorization/corporation.png)
+![Diagram of sample corporation used in the example](/media/articles/extensions/authorization/corporation.png)
 
 You can add users to your groups manually or dynamically based on the Connection(s) they're using to access your app. For example, if someone logs in using the Active Directory Connection and their AD profile indicates that they're in the Marketing group, the Authorization Extension can also add them to the Marketing group you're managing with the extension.
 
 Finally, we have permissions and roles, which are groups of permissions. The purpose of the latter is to make it easier to assign several permissions simultaneously to either a user or a group.
 
-![](/media/articles/extensions/authorization/roles-permissions.png)
+![Diagram showing permissions added to a user](/media/articles/extensions/authorization/roles-permissions.png)
 
 For example, let's say that you want to grant permissions to:
 
@@ -35,7 +35,7 @@ For example, let's say that you want to grant permissions to:
 
 Rather than assigning both permissions to groups/users, you can roll the two (along with many others) into a role called **Travel Administrator**. You can then assign Travel Administrator to individual users or to one or more groups.
 
-![](/media/articles/extensions/authorization/groups-roles-permissions.png)
+![Diagram showing permissions added to a user or group](/media/articles/extensions/authorization/groups-roles-permissions.png)
 
 ## Users
 
