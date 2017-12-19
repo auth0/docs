@@ -4,7 +4,6 @@ toc: true
 description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
 ---
-
 # Auth0.Android
 
 Auth0.Android is a client-side library you can use with your Android app to authenticate users and access [Auth0 APIs](/api/info).
@@ -73,7 +72,7 @@ Auth0 account = new Auth0(context);
 
 ## OIDC Conformant Mode
 
-It is strongly encouraged that this SDK be used in [OIDC Conformant mode](/api-auth/intro). When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+It is strongly encouraged that this SDK be used in [OIDC Conformant mode](/api-auth/intro). When this mode is enabled, it will force the SDK to use Auth0's current authentication methods and will prevent it from reaching legacy endpoints. By default is `false`.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
@@ -86,7 +85,7 @@ Passwordless authentication *cannot be used* with this flag set to `true`. For m
 
 ## Authentication with Auth0 Hosted Login Page
 
-First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
+First go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
 ```
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -171,116 +170,10 @@ The authentication result will be delivered to the callback.
 
 ## Using the Authentication API
 
-The Authentication Client provides methods to authenticate the user against Auth0 server. Create a new instance by passing in the Auth0 object created in the previous step.
+The Authentication Client provides methods to accomplish authentication and related tasks. Create a new instance by passing in the Auth0 object created in the previous step.
 
 ```java
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
-```
-
-To ensure an Open ID Connect compliant response you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
-
-### Login with database connection
-
-::: panel-warning Database authentication on Native Platforms
-Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use the [Hosted Login Page](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
-:::
-
-Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
-
-```java
-authentication
-    .login("info@auth0.com", "a secret password", "my-database-connection")
-    .setAudience("https://${account.namespace}/userinfo")
-    .start(new BaseCallback<Credentials, AuthenticationException>() {
-        @Override
-        public void onSuccess(Credentials payload) {
-            //Logged in!
-        }
-
-        @Override
-        public void onFailure(AuthenticationException error) {
-            //Error!
-        }
-    });
-```
-
-::: panel Scope
-Note that the default scope used is `openid`
-:::
-
-### Passwordless login
-
-::: panel-warning Passwordless on Native Platforms
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
-
-Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
-:::
-
-Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Note that Passwordless authentication *cannot be used* with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
-
-**Step 1:** Request the code
-
-In this example, requesting the code is done by calling `passwordlessWithEmail` with the user's email, `PasswordlessType.CODE`, and the name of the connection as parameters. On success, you'll probably display a notice to the user that their code is on the way, and perhaps route them to a view to input that code.
-
-```java
-authentication
-    .passwordlessWithEmail("info@auth0.com", PasswordlessType.CODE, "my-passwordless-connection")
-    .start(new BaseCallback<Void, AuthenticationException>() {
-        @Override
-        public void onSuccess(Void payload) {
-            //Code sent!
-        }
-
-        @Override
-        public void onFailure(AuthenticationException error) {
-            //Error!
-        }
-    });
-```
-
-**Step 2:** Input the code
-
-Once the user has a code, they can input it. Call the `loginWithEmail` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
-
-```java
-authentication
-    .loginWithEmail("info@auth0.com", "123456", "my-passwordless-connection")
-    .start(new BaseCallback<Credentials, AuthenticationException>() {
-        @Override
-        public void onSuccess(Credentials payload) {
-            //Logged in!
-        }
-
-        @Override
-        public void onFailure(AuthenticationException error) {
-            //Error!
-        }
-    });
-```
-
-::: note
-Note that the default scope used is `openid`.
-:::
-
-### Sign up with database connection
-
-Signing up with a database connection is similarly easy. Call the `signUp` method passing the user's given email, chosen password, and the connection name to initiate the signup process.
-
-```java
-authentication
-    .signUp("info@auth0.com", "a secret password", "my-database-connection")
-    .setAudience("https://${account.namespace}/userinfo")
-    .start(new BaseCallback<Credentials, AuthenticationException>() {
-        @Override
-        public void onSuccess(Credentials payload) {
-            //Signed Up & Logged in!
-        }
-
-        @Override
-        public void onFailure(AuthenticationException error) {
-            //Error!
-        }
-    });
 ```
 
 ### Get user information
@@ -327,84 +220,3 @@ authentication
 ::: note
 Password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
-
-## Using the Management API
-
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
-
-To get started, create a new `UsersAPIClient` instance by passing it the `account` and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
-
-```java
-Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-UsersAPIClient users = new UsersAPIClient(account, "token");
-```
-
-### Linking users
-
-Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
-
-The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe.
-
-```java
-users
-    .link("primary user id", "secondary user token")
-    .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-        @Override
-        public void onSuccess(List<UserIdentity> payload) {
-            //Got the updated identities! Accounts linked.
-        }
-
-        @Override
-        public void onFailure(ManagementException error) {
-            //Error!
-        }
-    });
-```
-
-### Unlinking users
-
-Unlinking users is a similar process to the linking of users. The `unlink` method takes three parameters, though: the primary user id, the secondary user id, and the secondary provider (of the secondary user).
-
-```java
-users
-    .unlink("primary user id", "secondary user id", "secondary provider")
-    .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-        @Override
-        public void onSuccess(List<UserIdentity> payload) {
-            //Got the updated identities! Accounts linked.
-        }
-
-        @Override
-        public void onFailure(ManagementException error) {
-            //Error!
-        }
-    });
-```
-
-::: note
-When accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
-:::
-
-### Updating user metadata
-
-When updating user metadata, you will create a `metadata` object, and then call the `updateMetadata` method, passing it the user id and the `metadata` object. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
-
-```java
-Map<String, Object> metadata = new HashMap<>();
-metadata.put("name", Arrays.asList("My", "Name", "Is"));
-metadata.put("phoneNumber", "1234567890");
-
-users
-    .updateMetadata("user id", metadata)
-    .start(new BaseCallback<UserProfile, ManagementException>() {
-        @Override
-        public void onSuccess(UserProfile payload) {
-            //Metadata updated
-        }
-
-        @Override
-        public void onFailure(ManagementException error) {
-            //Error!
-        }
-    });
-```

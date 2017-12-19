@@ -1,12 +1,11 @@
-```java
-WebAuthProvider.init(account)
-                .withAudience("https://${account.namespace}/userinfo")
-                .start(this, authCallback);
-```
+---
+section: libraries
+toc: true
+description: How to configure Auth0.Android to meet your application's needs
+---
+# Auth0.Android Configuration Options
 
-The authentication result will be delivered to the callback.
-
-### Authenticate with a specific Auth0 connection
+## withConnection
 
 The `withConnection` option allows you to specify a connection that you wish to authenticate with.
 
@@ -16,11 +15,11 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Authenticate using a code grant with PKCE
+## useCodeGrant
 
 Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms.
 
-Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`.
+Before you can use `Code Grant` in Android, make sure to go to your [Dashboard](${manage_url}/#/clients) and check in the client's settings that `Client Type` is `Native`.
 
 ```java
 WebAuthProvider.init(account)
@@ -28,7 +27,7 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Authenticate using a specific scope
+## withScope
 
 Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `withScope` will allow you to add more scopes. You should read our [documentation on scopes](/scopes) for further details about them.
 
@@ -42,9 +41,9 @@ WebAuthProvider.init(account)
 Note that the default scope used is `openid`
 :::
 
-### Authenticate using specific connection scopes
+## withConnectionScope
 
-There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/tutorials/adding-scopes-for-an-external-idp), but if you need specific access for a particular situation in your app, you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your dashboard, or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the Dashboard's Connection settings.
+There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/tutorials/adding-scopes-for-an-external-idp). However, if you need specific access for a particular situation in your app you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your [Dashboard](${manage_url}), or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the connection's settings in the Dashboard.
 
 ```java
 WebAuthProvider.init(account)
@@ -52,7 +51,7 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Authenticate using custom authentication parameters
+## withParameters
 
 To send additional parameters on the authentication, use `withParameters`:
 
@@ -64,9 +63,9 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Use a custom scheme for the Redirect URI
+## withScheme
 
-If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted Callback URL in the dashboard to match the chosen scheme:
+If you are not using Android "App Links" or you want to use a different scheme for the redirect URI, then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted **Allowed Callback URLs** on the [Dashboard](${manage_url}) in the Client's settings to match the chosen scheme.
 
 ```java
 WebAuthProvider.init(account)
@@ -74,9 +73,13 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-**Scheme must be lowercase**
+::: note
+Scheme must be lowercase!
+:::
 
-### Specify Audience
+## withAudience
+
+To provide an audience, use `withAudience`.
 
 ```java
 WebAuthProvider.init(account)
@@ -85,9 +88,9 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Specify state
+## withState
 
-By default a random state is always sent. If you need to use a custom one, use `withState`:
+By default a random [state](/protocols/oauth2/oauth-state) is always generated and sent. If you need to use a custom value instead, use `withState`:
 
 ```java
 WebAuthProvider.init(account)
@@ -95,9 +98,9 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-### Specify nonce
+## withNonce
 
-By default a random nonce is sent when the response type includes `id_token`. If you need to use a custom one, use `withNonce`:
+By default a random [nonce](/api-auth/tutorials/nonce) is generated and sent when the response type includes `id_token`. If you need to use a custom value instead, use `withNonce`:
 
 ```java
 WebAuthProvider.init(account)
