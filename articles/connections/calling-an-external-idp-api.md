@@ -16,9 +16,9 @@ This article assumes that you have already configured the connection with the Id
 
 The process you will follow differs, depending on whether your code runs in the backend or the frontend:
 
-- If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [From the backend](#from-the-backend) section of this article.
+- If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [backend section](#from-the-backend) of this article.
 
-- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate implementation. To see your options proceed to the [From the frontend](#from-the-frontend) section of this article.
+- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate approach. To see your options proceed to the [frontend section](#from-the-frontend) of this article.
 
 ## From the backend
 
