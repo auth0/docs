@@ -22,7 +22,13 @@ The process you will follow differs, depending on whether your code runs in the 
 
 ## From the backend
 
-The IdP's access token is not returned to your app as part of the authentication process. In order to get it you will have to use the Auth0 Management API to retrieve the full user's profile. The steps to follow are:
+Once you authenticate a user, the IdP often includes an access token in the user profile it returns to Auth0. 
+
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile.
+
+In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+
+The steps to follow are:
 
 1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
@@ -145,7 +151,7 @@ In this sample response we can see that our user had only one identity: `google-
 You are now ready to call the IdP's API. Please refer to the IdP's documentation for specifics on how to do so.
 
 ::: warning
-Make sure that you don't expose the IdP tokens to your client-side application!
+Make sure that you don't expose the IdP tokens to your client-side application! If your client is public refer to the [frontend section](#from-the-frontend) of this article.
 :::
 
 ::: note
@@ -173,7 +179,7 @@ You can build a process in your backend and expose it to your client as an API.
 
 The backend process will implement the steps of [the backend section](#from-the-backend). You can call the IdP's API from the same backend process so the access token is never exposed to your public client.
 
-Then, you can call your proxy API from your public client using the respective flow for your case:
+Then, you will call your proxy API from your public client using the respective flow for your case:
 - [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
 - [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
 
@@ -191,7 +197,7 @@ Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them
 This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
 :::
 
-In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask can call the IdP's API so the access token is never exposed to your public client.
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the access token is never exposed to your public client.
 
 Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
 
