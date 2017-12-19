@@ -154,3 +154,22 @@ For more information on how to request specific scopes for an Identity Provider 
 :::
 
 ## From the frontend
+
+If you are working with a public client (SPA, native desktop, or mobile app) then this is the place to be.
+
+To recap, the process for calling IdP APIs from a backend process includes the steps:
+1. Get an access token in order to access the Auth0 Management API
+2. Use said token to retrieve the user's full profile from the Auth0 Management API
+3. Extract the IdP's access token from the user's full profile, and use it to call the IdP's API
+
+You cannot follow the same process from a frontend app because it's a public client that **cannot hold credentials securely**. The credential we are referring to, is the non interactive client's secret which you use to make the call to `/oauth/token`, at the first step of the process.
+
+SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
+
+There are some alternatives you can use, all of which are listed in this section.
+
+### Option 1: use Auth0.js
+
+### Option 2: build a proxy
+
+### Option 3: use webtasks
