@@ -1,6 +1,6 @@
 ### Configure Auth0 for Embedded Login
 
-<% if (library == 'lock') { %>
+<% if (library === 'lock') { %>
 Lock v11 use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
 <% } else { %>
 If you implement a custom login dialog with Auth0.js v9, it will use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
