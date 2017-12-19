@@ -24,6 +24,7 @@ Currently, the following Auth0 features and flows support use of custom domains:
 * OAuth 2.0/OIDC-Compliant Flows (using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](https://auth0.com/docs/api/authentication#get-token) endpoints)
 * Guardian (Version 1.3.3 or later)
 * Emails (the links included in the emails will use your custom domain)
+* Database, Social, and Passwordless (OTP only) connections
 
 ::: note
 If you obtain an access token for APIv2 using an authorization flow with your custom domain, then you must call APIv2 using the custom domain. Otherwise, the token will not be considered valid.
@@ -204,7 +205,7 @@ app.use(jwt({
   - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the tenant.auth0.com domain, so you have to use one or the other.
   - If you start a session in tenant.auth0.com, and go to custom domain.com, the user will have to login again.
 
-1. **What about support for SAML or WS-Fed clients?**
+1. **What about support for other features?**
   
-  We are planning support for additional features, including SAML and WS-Fed clients, in the future.
+  We are planning support for additional features, including SAML and WS-Fed clients, and enterprise and passwordless connections, in the future.
 
