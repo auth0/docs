@@ -119,8 +119,6 @@ In `web.config`, configure the following:
 
 In the above example, we are redirecting to the `Login` action in an `Account` controller, which in turn redirects to Auth0's `/authorize` endpoint for authentication, as described in [#4](#4-authenticating-the-user).
 
-In the example above, you are redirecting the user to a `Login` action in an `Account` controller. The action redirects them to the `/authorize` endpoint for authentication, as described in the [Authenticate the User](#authenticate-the-user) step.
-
 ### Set up logout
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
