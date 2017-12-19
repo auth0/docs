@@ -24,9 +24,7 @@ The process you will follow differs, depending on whether your code runs in the 
 
 Once you authenticate a user, the IdP often includes an access token in the user profile it returns to Auth0. 
 
-Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile.
-
-In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
 
 The steps to follow are:
 
@@ -162,7 +160,8 @@ For more information on how to request specific scopes for an Identity Provider 
 
 If you are working with a public client (SPA, native desktop, or mobile app) then this is the place to be.
 
-To recap, the process for calling IdP APIs from a backend process includes the steps:
+As you might have read earlier in this article, the process for calling IdP APIs from a **backend process** includes the following steps:
+
 1. Get an access token in order to access the Auth0 Management API
 2. Use said token to retrieve the user's full profile from the Auth0 Management API
 3. Extract the IdP's access token from the user's full profile, and use it to call the IdP's API
@@ -177,7 +176,7 @@ There are a couple of alternatives you can use.
 
 You can build a process in your backend and expose it to your client as an API.
 
-The backend process will implement the steps of [the backend section](#from-the-backend). You can call the IdP's API from the same backend process so the access token is never exposed to your public client.
+The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the access token is never exposed to your public client.
 
 Then, you will call your proxy API from your public client using the respective flow for your case:
 - [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
@@ -189,7 +188,7 @@ If you haven't implemented this before, you might find our [SPA + API](/architec
 
 ### Option 2: Use webtasks
 
-If you don't already have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
+If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
 
 Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
 
