@@ -10,7 +10,7 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 Using custom domains with centralized login is the most seamless and secure experience for developers and end users. For more information about centralized login and customizing the hosted login pages, refer to [our documentation](https://auth0.com/docs/hosted-pages/login).
 
 ::: warning
-Custom Domains is a beta feature. It is only available for tenants tagged as `Development`. For more information on environment tagging, please refer to [our documentation](https://auth0.com/docs/dev-lifecycle/setting-up-env).
+Custom Domains is a beta feature. It is only available for public-cloud tenants tagged as `Development`. For more information on environment tagging, please refer to [our documentation](https://auth0.com/docs/dev-lifecycle/setting-up-env).
 :::
 
 ## Prerequisites
@@ -88,16 +88,16 @@ It may take a few minutes before Auth0 is able to verify your TXT or CNAME recor
 :::
 
 ::: panel TL;DR
-Here's how to add the TXT verification record to your domain's DNS record. The steps specified may vary by domain host provider, but generally speaking, you will need to:
+Here's how to add the TXT or CNAME verification record to your domain's DNS record. The steps specified may vary by domain host provider, but generally speaking, you will need to:
 
 1. Log in to your domain management service (such as GoDaddy or Google Domains)
 
 1. Create a new record and add the verification:
 
-	* For the record type, indicate **TXT**
-	* For the **Name** field, enter your custom domain name (such as login.acme.com**)
+	* For the record type, indicate **TXT** or **CNAME**
+	* For the **Name** field, enter your custom domain name (such as **login.northwind.com**)
 	* Leave the **Time to Live (TTL)** field set to the default value
-	* In the **Value** field, paste in the verification value provided by the Auth0 Dashboard
+	* In the **Value** field, paste in the verification value (either the TXT or CNAME value) provided by the Auth0 Dashboard
 
 When done, save your record.
 :::
@@ -141,11 +141,15 @@ If you're using the Default Hosted Login Page, without customization, you will n
 If you're using a Custom [Hosted Login Page](/hosted-pages/login), you'll need to update it to use your custom domain. The changes that you'll need to make are regarding the initializing of Lock. The following code sample shows the lines reflected the necessary changes.
 
 ```js
-    var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
-		...
-	      configurationBaseUrl: config.clientConfigurationBaseUrl
-		...
-    });
+var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+...
+	configurationBaseUrl: config.clientConfigurationBaseUrl,
+	overrides: {
+		__tenant: config.auth0Tenant,
+		__token_issuer: config.auth0Domain
+	},
+...
+});
 ```
 
 ### Embedded Lock
@@ -153,11 +157,11 @@ If you're using a Custom [Hosted Login Page](/hosted-pages/login), you'll need t
 If you are using Embedded Lock (Lock 11), you need to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN url.
 
 ```js
-    var lock = new Auth0Lock('your-client-id', 'login.acme.com', {
-		...
-	      configurationBaseUrl: 'https://cdn.auth0.com'
-		...
-    });
+var lock = new Auth0Lock('your-client-id', 'login.northwind.com', {
+...
+    configurationBaseUrl: 'https://cdn.auth0.com'
+...
+});
 ```
 
 :::note
@@ -168,9 +172,9 @@ The CDN url varies by region. For regions outside of the US, use https://cdn.{re
 
 If you are using [Auth0.js](https://github.com/auth0/auth0.js) or other SDKs, you will have to initialize the SDK using your custom domain. For example, if using auth0.js:
 
-```
+```js
 webAuth = new auth0.WebAuth({
-  domain:       'login.acme.com',
+  domain:       'login.northwind.com',
   clientID:     'your-client-id'
 });
 ```
@@ -181,9 +185,13 @@ If you would like your custom domain used with your Auth0 emails, you'll need to
 
 ![](/media/articles/custom-domains/cd_email_toggle.png)
 
-### Social and Enterprise Identity Provider Configuration
+### Social Identity Provider Configuration
 
-If you want to use social identity providers with your custom domain, you must update the allowed callback urls to include your custom domain, e.g. `https://login.acme.com/login/callback`.
+If you want to use social identity providers with your custom domain, you must update the allowed callback urls to include your custom domain, e.g. `https://login.northwind.com/login/callback`.
+
+:::warning
+You cannot use [Auth0 developer keys](https://auth0.com/docs/connections/social/devkeys) with custom domains.
+:::
 
 ### APIs
 
@@ -191,10 +199,14 @@ If you are using Auth0 with a custom domain to issue access tokens for your APIs
 
 ```js
 app.use(jwt({ 
-	issuer: 'https://login.foo.com', 
+	issuer: 'https://login.northwind.com', 
 	... additional params ...
 }));
 ```
+
+:::note
+If you are using built-in Auth0 APIs, such as userinfo or APIv2, note that the API identifier will continue to use your default tenant domain name: https://northwind.auth0.com/userinfo and https://northwind.auth0.com/api/v2/
+:::
 
 ## FAQ
 
@@ -205,7 +217,7 @@ app.use(jwt({
   - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the tenant.auth0.com domain, so you have to use one or the other.
   - If you start a session in tenant.auth0.com, and go to custom domain.com, the user will have to login again.
 
-1. **What about support for other features?**
+2. **What about support for other features?**
   
-  We are planning support for additional features, including SAML and WS-Fed clients, and enterprise and passwordless connections, in the future.
+  We are planning support for additional features, including SAML and WS-Fed clients, and enterprise and passwordless (magic link) connections, in the future.
 
