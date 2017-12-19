@@ -10,15 +10,15 @@ This guide includes all the information you need to update your Lock 9 applicati
 
 ## Migration Steps
 
-Given that Lock 10 is very similar to Lock 11 you can read the [Lock 9 to Lock 10 migration guide](/libraries/lock/v10/migration-guide).
+Given that Lock v10 is very similar to Lock v11 you can read the [Lock 9 to Lock 10 migration guide](/libraries/lock/v10/migration-guide).
 
-Building Single Page Applications with Lock 9 has some key differences with the way they should be built in Lock 11. Lock 11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock 9 need to be changed.
+Building Single Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 
 ### Using Lock in SPAs with Popup Mode
 
-In Lock 9 the code to use `popup mode` looked like:
+In Lock v9 the code to use `popup mode` looked similar to the below example.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
@@ -44,7 +44,7 @@ function login()
 }
 ```
 
-In Lock 11, the code should look like:
+In Lock v11, the code would instead use the following format.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -77,11 +77,11 @@ function login()
 }
 ```
 
-Note that the parameters that were passed to `show()` are used to initialize Lock, and that the callback specified in `show()` is replaced by an `authenticated` event handler. 
+Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that the callback specified in `show()` is replaced by an `authenticated` event handler. 
 
 ### Using Lock in SPAs with Redirect Mode
 
-In Lock 9 the code to use `redirect mode` looked like:
+In Lock v9 the code to use `redirect mode` looked similar to the below example.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
@@ -110,7 +110,7 @@ function login() {
 }
 ```
 
-In Lock 11, the code should look like:
+In Lock 11, the code should instead use the following format.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -137,11 +137,11 @@ function login() {
 }
 ```
 
-Note that the parameters that were passed to `show()` are used to initialize Lock, and that instead of calling parseHash(), you need to write an `authenticated` event handler.
+Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that instead of calling `parseHash()`, you need to write an `authenticated` event handler.
 
 ### Using Lock in Web Applications
 
-When using Lock 9 for Web Applications, the code would look like:
+When using Lock v9 for Web Applications, the code would be similar to the below example.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
@@ -158,7 +158,7 @@ function login() {
   }
 ```
 
-In Lock 9, the code should look like:
+In Lock v11, the code should instead use the following format.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -178,13 +178,13 @@ function login() {
 }
 ```
 
-Note that the parameters that were passed to `show()` are used to initialize Lock.
+Note that, once more, the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11.
 
 <%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
 
 ### Migrating from Legacy Authentication Flows
 
-The OIDC-conformant flows disallow certain practices that were common when developing applications with Lock 9, like using [Refresh Tokens](tokens/refresh-token), [ID Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
+The OIDC conformant flows disallow certain practices that were common when developing applications with Lock v9, like using [Refresh Tokens](tokens/refresh-token), using [ID Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
 
 Follow the steps in the [Migration from Legacy Authentication Flows](/libraries/lock/v11/migration-legacy-flows) to learn what changes do you need to make in your application.
 
