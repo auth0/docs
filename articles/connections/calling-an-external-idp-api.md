@@ -4,7 +4,6 @@ description: How to call an Identity Provider API
 toc: true
 crews: crew-2
 ---
-
 # Call an Identity Provider API
 
 Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns to Auth0. 
@@ -166,10 +165,28 @@ You cannot follow the same process from a frontend app because it's a public cli
 
 SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
 
-There are some alternatives you can use, all of which are listed in this section.
+There are a couple of alternatives you can use.
 
-### Option 1: use Auth0.js
+### Option 1: Build a proxy
 
-### Option 2: build a proxy
+You can build a process in your backend and expose it to your client as an API.
 
-### Option 3: use webtasks
+The backend process will implement the steps of [the backend section](#from-the-backend). You can call the IdP's API from the same backend process so the access token is never exposed to your public client.
+
+Then, you can call your proxy API from your public client using the respective flow for your case:
+- [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
+- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
+
+### Option 2: Use webtasks
+
+If you don't already have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
+
+Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
+
+:::note
+This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
+:::
+
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask can call the IdP's API so the access token is never exposed to your public client.
+
+Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
