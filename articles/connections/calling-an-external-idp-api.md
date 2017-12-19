@@ -190,3 +190,7 @@ This option comes with an additional cost, for details see [Auth0 Extend pricing
 In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask can call the IdP's API so the access token is never exposed to your public client.
 
 Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
+
+:::note
+You can find a sample [in this GitHub repository](https://github.com/vikasjayaram/ext-idp-api-webtask/tree/master/RS256). Review carefully before you use it since this is not officially maintained by Auth0 and could be outdated.
+:::
