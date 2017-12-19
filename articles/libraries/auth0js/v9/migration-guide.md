@@ -6,7 +6,11 @@ toc: true
 ---
 # Migrating to Auth0.js v9
 
-[Auth0.js v9](/libraries/auth0js) has been improved to work better in [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier versions of auth0.js. 
+[Auth0.js v9](/libraries/auth0js) has been improved to work better in embedded login scenarios. It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier versions of auth0.js. 
+
+::: warning
+If you are using auth0.js to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded). You can find examples on how to implement centralized login in our [Quickstarts](/quickstarts).
+:::
 
 ## Should I migrate to v9?
 
@@ -22,21 +26,15 @@ Migration to v9 will depend on how you are using auth0.js:
 
 | **Scenario** | **Migration to v9** | 
 | --- | --- | 
-| In your application, to trigger centralized login | Recommended |
+| In your application, to trigger centralized login | Required (*) | 
 | In your application, to implement embedded login | Required |
 | In a customized hosted page | Not Supported |
 
-If you are using centralized login in your application **you don't need to migrate**. However, it's advised that you update your code to use the latest version of auth0.js.
-
-::: warning
-If you are using auth0.js to implement login embedded in your applications, we recommend moving to a centralized login approach, as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
-:::
+(*) There a certain usage patterns with centralized login and auth0.js v8 that don't require migration. However, given that for those scenarios just updating the library version will work, we recommend that you always migrate to v9.
 
 ## Migration Instructions
 
-If you decide to keep using embedded login, you will need to migrate to [Auth0.js v9](/libraries/auth0js). 
-
-The documents below describe all the changes that you should be aware of when migrating from different versions of auth0.js. Make sure you go through them before upgrading.
+The documents below describe all the changes that you should be aware of when migrating from different versions of auth0.js to v9. Make sure you go through them before upgrading.
 
 [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
 

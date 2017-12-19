@@ -5,7 +5,11 @@ description: How to migrate to Lock v11
 ---
 # Migrating to Lock v11
 
-[Lock 11](/libraries/lock) is designed for [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
+[Lock v11](/libraries/lock) is designed for [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
+
+::: warning
+If you are using Lock to implement login embedded in your applications, we recommend [moving to a centralized login approach](/guides/login/migration-embedded-centralized), as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
+:::
 
 ## Should I migrate to v11?
 
@@ -22,13 +26,9 @@ Migration to v11 will depend on how you are using Lock:
 | In your application, to implement embedded login | Required |
 | In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
 
-::: warning
-If you are using Lock to implement login embedded in your applications, we recommend [moving to a centralized login approach](/guides/login/migration-embedded-centralized), as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded)).
-:::
-
 ## Migration Instructions
 
-If you decide to keep using Lock you will need to migrate to [Lock 11](/libraries/lock).
+If you decide to keep using Lock you will need to migrate to [Lock v11](/libraries/lock).
 
 The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
 
