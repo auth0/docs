@@ -118,10 +118,15 @@ Once you have the token you can call the API, following Google's documentation.
 For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
 :::
 
-You can also request a `refresh_token` from Google by passing along the `access_type=offline` parameter when calling the [Auth0 `/authorize` endpoint](/api/authentication#implicit-grant) (or passing it in `auth.params` when using [Lock](/libraries/lock/v10)).
+## Optional: Get a Refresh Token
 
-If you need a refresh token, only the following OAuth 2.0 flows can retrieve them:
+You can also get a [refresh token](/tokens/refresh-token) from Google in order to refresh your access token, once it expires.
 
+You can do this by setting the `access_type=offline` parameter when you call the [Auth0 `/authorize` endpoint](/api/authentication#social). 
+
+If you use [Lock](/libraries/lock) you can set this parameter in the [params object](/libraries/lock/configuration#params-object-).
+
+Note that you can only get a refresh token, if you are using one of the following OAuth 2.0 flows:
 * [Authorization Code](/api-auth/grant/authorization-code)
 * [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
 * [Resource Owner Password](/api-auth/grant/password)
