@@ -162,7 +162,7 @@ webAuth.popup.loginWithCredentials({
 
 ### webAuth.login()
 
-The `login` method allows for [cross-origin authhentication](/cross-origin-authentication) using database connections, using `/co/authenticate`.
+The `login` method allows for [cross-origin authentication](/cross-origin-authentication) using database connections, using `/co/authenticate`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
