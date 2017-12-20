@@ -1,58 +1,85 @@
 ---
 title: Call an Identity Provider API
-description: How to call an Identity Provider API.
+description: How to call an Identity Provider API
+toc: true
 crews: crew-2
 ---
-
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns. You can then use this token to call the IdP's API.
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns to Auth0. 
 
-For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+You can retrieve and use this token to call the IdP's API.
 
 ::: note
-  This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
+This article assumes that you have already configured the connection with the IdP of your choice. If not, go to [Identity Providers Supported by Auth0](/identityproviders), select the IdP you want, and follow the configuration steps.
 :::
 
-## Required Steps
+The process you will follow differs, depending on whether your code runs in the backend or the frontend:
 
-To get access to the user's IdP access token, you will need to:
+- If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [backend section](#from-the-backend) of this article.
 
-1. Obtain an access token that allows you to call the [Auth0 Management API](/api/management/v2).
-2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint using the access token obtained in step one (the token must have the `read:user_idp_tokens` scope). This returns the user's profile, which contains the IdP access token.
-3. Extract the IdP access token.
+- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate approach. To see your options proceed to the [frontend section](#from-the-frontend) of this article.
 
-Once you've extracted the IdP's access token, you can use it to to call the IdP's API. Please refer to your IdP's documentation for specifics on how to do so.
+## From the backend
 
-### 1. Get a Token
+Once you authenticate a user, the IdP often includes an access token in the user profile it returns to Auth0. 
+
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+
+The steps to follow are:
+
+1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
+2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
+3. Extract the IdP access token from the response and use it to call the IdP's API.
+
+### Step 1: Get a Token
 
 You will need an access token to call the [Management API](/api/management/v2).
 
-If this is the first time you are requesting a Management APIv2 Token, you'll need to create and configure a test Client that can be used to call the API.
+If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure a client that can be used to call the API.
 
-1. Go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer).
-2. Click __Create & Authorize a Test Client__.
-3. Go to the *Scopes* tab to set the ones that can be assigned by the API.
+To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer) and click **Create & Authorize a Test Client**.
 
-Once you've created the Client, you now have an access token that can be used to interact with the Management API. It can be found on the *API Explorer* page. Click __Copy Token__ so that you can use it at a later point.
+This will create a new client and grant **all scopes of the Management API**. This means that the tokens generated for this client will be able to access **all Management API endpoints**.
 
-#### Automate the Token Request
-
-You may want to automate the token request process instead of manually copying and pasting the token. If this is the case, click on the [Test tab](${manage_url}/#/apis/management/test) and use the provided snippet. It's a `POST` operation to the [https://${account.namespace}/oauth/token](/api/authentication#client-credentials) endpoint.
-
-The token you receive has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
-
-::: note
-  For details on the Management APIv2 token and the process to get one refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>.
+::: panel Can't see the button?
+If you don't see this button, it means that you have at least one authorized client already. In this case you can either update the scopes of an existing client and use that, or create a new one following these steps:
+1. Go to [Dashboard > Clients](${manage_url}/#/clients)
+2. Click **+ Create Client**, select **Non Interactive Clients** and click **Create**
+3. At the **Select an API** dropdown select `Auth0 Management API`
+4. Click **Navigate to the API and Authorize**
+5. Set the toggle to **Authorized** and enable the required scopes
 :::
+
+It is recommended, for security reasons, that you only assign the required scopes to the client you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
+
+You can grant or remove scopes from a client, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Clients tab](${manage_url}/#/apis/management/authorized-clients).
+
+![Edit the scopes granted to the Client](/media/articles/connections/edit-granted-scopes.png)
+
+You are now done with the configuration part, and you are ready to get your Management API token.
+
+To do so, go to the [Test tab](${manage_url}/#/apis/management/test). There you can find ready-to-use snippets that you can use to get a token.
+
+Pick your client using the dropdown at the top, and choose your language of preference for the snippet.
+
+Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
+
+::: panel More info on the snippets
+The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+:::
+
+#### Token expiration
+
+The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time.
 
 ::: panel-warning Security warning
-It should be noted that these tokens __cannot be revoked__. We recommend issuing short-lived tokens to minimize the risk. For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
+These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each client). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
 :::
 
-### 2. Get the User Profile
+### Step 2: Get the full User Profile
 
-Using the access token you obtained in step 1, call the [Get a User](/api/management/v2#!/Users/get_users_by_id) endpoint to get the user profile:
+Using the access token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
 
 ```har
 {
@@ -68,16 +95,21 @@ Using the access token you obtained in step 1, call the [Get a User](/api/manage
 ```
 
 Replace these values:
-- `USER_ID`: The ID of the user for whom you want to call the IdP's API. You can find this at the [User Details](${manage_url}/#/users/).
+- `USER_ID`: The ID of the user for whom you want to call the IdP's API.
 - `YOUR_ACCESS_TOKEN`: The token you got from the previous step.
 
+::: panel Where do I find the User ID?
+- For testing purposes, you can find a user ID at [Dashboard > Users](${manage_url}/#/users/). Select a user and copy the value of the **user_id** field.
+- For your implementation, you can either extract this information from the [ID Token](/tokens/id-token) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
+:::
 
-### 3. Extract the IdP Access Token
+
+### Step 3: Extract the IdP Access Token
 
 Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-The `access_token` is only returned from the following Identity Providers: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](https://auth0.com/docs/tokens/idp#renewing-the-token).
+For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
@@ -114,6 +146,95 @@ In this sample response we can see that our user had only one identity: `google-
 }
 ```
 
+You are now ready to call the IdP's API. Please refer to the IdP's documentation for specifics on how to do so.
+
 ::: warning
-  <strong>Security Warning!</strong> Make sure that you don't expose the IdP access token to your client-side application.
+Make sure that you don't expose the IdP tokens to your client-side application! If your client is public refer to the [frontend section](#from-the-frontend) of this article.
 :::
+
+::: note
+For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+:::
+
+## From the frontend
+
+If you are working with a public client (SPA, native desktop, or mobile app) then this is the place to be.
+
+As you might have read earlier in this article, the process for calling IdP APIs from a **backend process** includes the following steps:
+
+1. Get an access token in order to access the Auth0 Management API
+2. Use said token to retrieve the user's full profile from the Auth0 Management API
+3. Extract the IdP's access token from the user's full profile, and use it to call the IdP's API
+
+You cannot follow the same process from a frontend app because it's a public client that **cannot hold credentials securely**. The credential we are referring to, is the non interactive client's secret which you use to make the call to `/oauth/token`, at the first step of the process.
+
+SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
+
+There are some alternatives you can use.
+
+### Option 1: Build a proxy
+
+You can build a process in your backend and expose it to your client as an API.
+
+The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the access token is never exposed to your public client.
+
+Then, you will call your proxy API from your public client using the respective flow for your case:
+- [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
+- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
+
+:::panel Show me how to do it
+If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
+:::
+
+### Option 2: Use webtasks
+
+If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
+
+Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
+
+:::note
+This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
+:::
+
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the access token is never exposed to your public client.
+
+Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
+
+:::note
+You can find a sample [in this GitHub repository](https://github.com/vikasjayaram/ext-idp-api-webtask/tree/master/RS256). Review carefully before you use it since this is not officially maintained by Auth0 and could be outdated.
+:::
+
+### Option 3: Use Auth0.js
+
+[Auth0.js](/libraries/auth0js) is a client-side library for Auth0. It enables you to authenticate a user and access the [Auth0 APIs](/api/info).
+
+For this scenario, we will use this library in order to access the Auth0 Management API and retrieve the full user's profile.
+
+The first step is to install the library. Pick your preferable option at [Auth0.js > Installation options](/libraries/auth0js#installation-options).
+
+Then we will instantiate the Management API client:
+
+```javascript
+var auth0Manage = new auth0.Management({
+  domain: "${account.namespace}",
+  token: "{USER_ID_TOKEN}"
+});
+```
+
+Parameters:
+- **domain**: your Auth0 domain (you can find it at your [Dashboard > Client > Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- **token**: the [ID token](/tokens/id-token) you got from Auth0 when you authenticated your user
+
+Once the client is instantiated, you are ready to call the API and retrieve your user's profile:
+
+```javascript
+auth0Manage.getUser(userId, cb);
+```
+
+Parameters: 
+- **userId**: your user's ID (see the **Where do I find the User ID?** panel if you don't have it)
+- **cb**: callback parameter
+
+Extract the IdP's access token from the response. 
+
+You are now ready to call their API. Please refer to the IdP's documentation for specifics on how to do so.

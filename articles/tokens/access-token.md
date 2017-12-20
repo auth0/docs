@@ -1,38 +1,39 @@
 ---
-description: This page explains an overview about Auth0 access tokens.
+title: Access Token
+description: Learn what access tokens are and how you can use them with Auth0.
 toc: true
 ---
 # Access Token
 
 ## Overview
 
-The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` can be any type of token (such as an opaque string, or a JWT) and is meant for the API. The purpose of the `access_token` is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. 
+The access token is a credential that can be used by a client to access an API. 
 
-## Access Tokens at Auth0
+It can be any type of token (such as an opaque string, or a JWT) and is meant for an API. It's purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the **scope** that has been granted). 
 
-Auth0 currently generates access tokens in two formats:
+The access token should be used as a **Bearer** credential and transmitted in an HTTP **Authorization** header to the API. 
 
-* As opaque strings, when `${account.namespace}/userinfo` is the audience.
-* As a [JSON Web Token (JWT)](/jwt) when a custom API is specified as the audience.
+## Access token format
 
-::: note
-The audience is a parameter which is set during [authorization](/api/authentication#authorize-client). It contains the unique identifier of the target API.
+Auth0 currently generates access tokens in two formats: as opaque strings, or as [JSON Web Tokens (JWTs)](/jwt).
+
+This depends on the value that the **audience** parameter has in in the [authorization request](/api/authentication#authorize-client).
+
+::: panel What is the audience?
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an access token, which is the intended *audience* of this token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque access token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
-When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
+* If the **audience** is set to `${account.namespace}/userinfo`, then the access token will be an opaque string.
+* If the **audience** is set to the unique identifier of a custom API, then the access token will be a [JSON Web Token (JWT)](/jwt).
 
-Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
+When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated access token will be a JWT valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API. The **audience** parameter of this JWT will include two values: `${account.namespace}/userinfo` and your custom API's unique identifier.
 
-The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the client's settings -> Advanced Settings -> Oauth. 
-
-![Token Signing Algorithm - Client](/media/articles/tokens/tokens-algorithm-client.png)
-
-When setting up an API in the [Dashboard](${manage_url}/#/apis), the signing algorithm can also be specified.
-
-![Token Signing Algorithm - API](/media/articles/tokens/tokens-algorithm-api.png)
+:::panel Use RS256 for multiple audiences
+If you set a custom API audience and also use `scope=openid` in your request, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). Tokens signed with HS256 can hold only one audience, for security reasons. This applies also if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
+:::
 
 ::: warning
-The important thing to remember is that the client should not be depending on the access token to be any specific format, but instead should treat the access token as opaque.
+Remember always that the client should not depend on the access token to be any specific format, but instead treat the access token as opaque. It is meant **only** for the API.
 :::
 
 ## How to get an access token
@@ -41,14 +42,14 @@ Access tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/auth
 
 ### Using the Authentication API
 
-* To retrieve an `access_token` when using a:
+* To retrieve an access token when using a:
   * **Server-side web app**, please see the docs for the [Authorization Code Grant](/api-auth/grant/authorization-code)
   * **Mobile app**, please see the docs for the [Authorization Code using Proof Key for Code Exchange (PKCE) Grant](/api-auth/grant/authorization-code-pkce)
   * **Client-side app**, please see the docs for the [Implicit Grant](/api-auth/grant/implicit)
   * **Command line interface**, please see the docs for the [Client Credentials Grant](/api-auth/grant/client-credentials)
   * **Trusted client**, please see the docs for the [Resource Owner Password Grant](/api-auth/grant/password)
 * For a list of widgets and SDKs that can help you implement Auth0, see our [Libraries](/libraries).
-* Calls to the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
+* Calls to the Lock widget will return an access token as shown in the [Lock documentation](/libraries/lock).
 * If you need only a client-side library for authorization and authentication, use [auth0.js](/libraries/auth0js).
 
 ## How to use an access token

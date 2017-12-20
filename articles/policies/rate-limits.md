@@ -75,7 +75,7 @@ The following rate limits apply:
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
-Note, that the limit is set by tenant and not by endpoint, and that it does not apply to [Private Instance deployments](/appliance).
+Note, that the limit is set by tenant and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 

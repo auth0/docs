@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Authentication API: Dynamic Client Registration"
+    tags:
+      - authentication API
+      - dynamic client
+    description: |
+      A new endpoint was added at the Authentication API Explorer: [/oidc/register](https://auth0.com/docs/api/authentication#dynamic-client-registration). This endpoint can be used to dynamically register a client with Auth0.

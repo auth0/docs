@@ -15,18 +15,17 @@ budicon: 280
   ]
 }) %>
 
+## Before You Start
 
-## Before Starting
+Before you continue with this tutorial, make sure that you are using the Swift wrapper and the Auth0 library to handle login. For more information, read the [Login](/quickstart/native/ios-objc/00-login) guide.
 
-This tutorial assumes you're using the Swift wrapper and Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Guide](/quickstart/native/ios-objc/00-login).**
+## Add the SimpleKeychain Dependency
 
-### Add the SimpleKeychain Dependency
+Integrate the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) library for managing user credentials.
 
-We're going to use the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) library to help us manage user credentials. Make sure you integrate it before proceeding.
+### Carthage
 
-##### a. Carthage
-
-If you are using Carthage, add the following line to the `Cartfile`:
+If you are using Carthage, add the following to your `Cartfile`:
 
 ```ruby
 github "auth0/SimpleKeychain"
@@ -35,12 +34,12 @@ github "auth0/SimpleKeychain"
 Then, run `carthage bootstrap`.
 
 ::: note
-For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+For more information on how to use Carthage, read [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
 
-##### b. Cocoapods
+### Cocoapods
 
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
+If you are using [Cocoapods](https://cocoapods.org/), add the following to your `Podfile`:
 
 ```ruby
 pod 'SimpleKeychain', '~> 0.7'
@@ -49,16 +48,16 @@ pod 'SimpleKeychain', '~> 0.7'
 Then, run `pod install`.
 
 ::: note
-For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+For more information on how to use Cocoapods, read the [Cocoapods documentation](http://guides.cocoapods.org/using/getting-started.html).
 :::
 
-## On Login: Store the user's token
+## Save User Credentials When They Log in
 
-We will store the [accessToken](/tokens/access-token) **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched.
+When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
 ${snippet(meta.snippets.setup)}
 
-Then present the hosted login screen, like this:
+Then, present the hosted login screen:
 
 ```objc
 // HomeViewController.m
@@ -76,7 +75,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-You will want to store the `accessToken` value, which is inside the `Credentials` instance. To do so, you will use an `A0SimpleKeychain` instance:
+You need a valid access token. You can find the token in the `credentials` object. To save the access token, use an `A0SimpleKeychain` instance. `SimpleKeychain` can be a key-value storage.
 
 ```objc
 // HomeViewController.m
@@ -85,13 +84,11 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain setString:accessToken forKey:@"access_token"];
 ```
 
-As you can see, `SimpleKeychain` can be seen simply as a key-value storage.
+## Check for an Access Token When the User Opens Your Application
 
-## On Startup: Check accessToken existence
+When the user opens your application, check for an access token. If it exists, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
-The main purpose of storing this token is to save the user from having to re-enter login credentials upon relaunch of the app. So, **once the app has launched**, we need to check for the existence of an `accessToken` to see if we can automatically log the user in and redirect the user straight into the app's main flow, skipping any login screen.
-
-To do so, first, you retrieve its value from the `accessToken` key stored in the keychain:
+First, retrieve the access token value from the `accessToken` key in the keychain:
 
 ```objc
 // HomeViewController.m
@@ -104,9 +101,9 @@ if (accessToken) {
 }
 ```
 
-## Validate an accessToken
+## Validate the Access Token
 
-Then, if such a token exists, you need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, you will use `Auth0` to fetch the user's profile based on the `accessToken` we've got:
+Check if the user's access token is still valid. Use `Auth0` to fetch the user's profile:
 
 ```objc
 // HomeViewController.m
@@ -121,12 +118,13 @@ Then, if such a token exists, you need to check whether it's still valid, has ex
 }];
 ```
 
-## Dealing with a non-valid accessToken
+## Deal with a Non-Valid Access Token
 
-How to deal with a non-valid accessToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter their credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid accessToken again.
+Decide how to deal with a non-valid access token. You can choose between two options:
+* Ask users to re-enter their credentials.
+* Use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid access token.
 
-If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
+If you want to ask your users to re-enter their credentials, clear all the values stored in the keychain:
 
 ```objc
 // HomeViewController.m
@@ -134,21 +132,21 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain clearAll];
 ```
 
-However, in this tutorial you will focus on the latter scenario, where you want to log users in without asking for their credentials again.
+The rest of this tutorial shows you how to use a refresh token to obtain a new access token. 
 
-In this case, you're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `accessToken`.
-
-::: note
-It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. You should keep in mind, for example, that even though the refresh token cannot expire, it can be revoked.
-:::
-
-### Store the refreshToken
+The refresh token is a token string stored in the `Credentials` object after a successful login. The refresh token doesn't expire. 
 
 ::: note
-The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` parameter during authentication.
+Even though the refresh token cannot expire, it can be revoked. For more information, read the [refresh token documentation](/refresh-token) before you proceed with this tutorial.
 :::
 
-Besides storing the `accessToken`, you need to store the `refreshToken`. Let's make a couple of changes:
+### Store the refresh token
+
+::: note 
+If you do not send `offline_access` as a scope during authentication, the refresh token will be `nil`.
+:::
+
+To get a new access token, you need to first save the refresh token after the user logs in. Go to the section where you're saving the access token and update it as follows: 
 
 ```objc
 // HomeViewController.m
@@ -171,7 +169,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
    }];
 ```
 
-### Use the refreshToken to obtain a new accessToken
+### Use the refresh token to obtain a new access token
+
+Now, you can use the saved refresh token to obtain a new access token:
 
 ```objc
 // HomeViewController.m
@@ -198,11 +198,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
       }];
 ```
 
-That's it! You've already dealt with the basic concepts of session handling in your app.
+## Clear the Keychain When the User Logs Out
 
-## On Logout: Clear the Keychain
-
-Whenever you need to log the user out, you just have to clear the keychain:
+When you need to log the user out, remove their credentials from the keychain:
 
 ```objc
 // HomeViewController.m
@@ -211,15 +209,17 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain clearAll];
 ```
 
-### Optional: Encapsulate session handling
+## Optional: Encapsulate Session Handling
 
-As you have probably realized by now, session handling is not a straightforward process. All this token-related information and processes can be encapsulated into a class that separates its logic from the View Controller layer. We recommend that you download the sample project from this tutorial and take a look at its implementation, focusing on the `SessionManager` class, which is in charge of dealing with these processes.
+Handling user sessions is not a straightforward task. You can simplify it by storing token-related information and processes in a class. The class separates the logic for handling user sessions from the View Controller layer. 
 
-## Fetch the User Profile
+We recommend that you download the sample project from this tutorial and look at its implementation. Focus on the `SessionManager` class, which manages the session handling processes.
 
-The first step is to fetch the user profile. To do so, you need a valid `accessToken` first.
+## Get the User Profile
 
-You need to call a method from the `Auth0` module that allows you to fetch the user profile given an `accessToken`:
+To get the user profile, you need a valid access token. 
+
+From the `Auth0` module, call the `userInfo` method that allows you to get the user profile:
 
 ```objc
 // HomeViewController.m
@@ -234,11 +234,11 @@ You need to call a method from the `Auth0` module that allows you to fetch the u
 }];
 ```
 
-## Show User Profile's Data
+## Show the User Profile Information
 
-#### Default info
+### Default information
 
-Showing the information contained in the user profile is pretty simple. You only have to access its properties, for instance:
+To show the information contained in the user profile, access its properties, for example:
 
 ```objc
 // ProfileViewController.m
@@ -247,16 +247,16 @@ NSString *name = self.userProfile.name;
 ```
 
 ::: note
-Check out the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
+Read the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
 :::
 
-#### Additional info
+### Additional information
 
-Besides the defaults, you can request more information than returned in the basic profile. Before you do this let's add some `userMetadata` to the profile.
+You can request more information than returned in the basic profile. To do this, add `userMetadata` to the profile.
 
 ## Update the User Profile
 
-You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
+You store additional user information in the user metadata. Perform a `patch`:
 
 ```objc
 // ProfileViewController.m
@@ -272,9 +272,13 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-## Retrieving User Metadata
+## Retrieve User Metadata
 
-The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one you're going to work with in this tutorial.
+The `user_metadata` dictionary contains fields related to the user profile. These fields can be added from client-side (for example, when the user edits their profile). 
+
+You can specify the fields you want to retrieve, or use an empty array `[]` to pull back the complete user profile. 
+
+Retrieve the `user_metadata` dictionary:
 
 ```objc
 // HomeViewController.m
@@ -289,7 +293,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-You can then access its fields as follows:
+Access the user's metadata. You can choose the key names and types for the `user_metadata` dictionary.
 
 ```objc
 // ProfileViewController.m
@@ -297,7 +301,3 @@ NSString* firstName = [metaData objectForKey:@"first_name"];
 NSString* lastName = [metaData objectForKey:@"last_name"];
 NSString* country = [metaData objectForKey:@"country"];
 ```
-
-::: note
-The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
-:::

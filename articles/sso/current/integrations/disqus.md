@@ -36,8 +36,8 @@ Disqus allows you to embed a discussion section onto your site where your users 
 
 Once you have installed and configured your Disqus instance, you need to enable Single Sign On.
 
-:::panel Enable Disqus SSO
-Prior to configuring Single Sign On for your Disqus-Auth0 Integration, you must contact [Disqus Support](http://disqus.com/support/?article=contact_SSO) to request enabling of SSO (a free add-on) for your account. You must be logged in to your moderator account at the time you make this request.
+::: warning
+A Disqus Pro level subscription is required to use the [Disqus Single Sign-On (SSO) add-on](https://help.disqus.com/customer/portal/articles/236206-integrating-single-sign-on).
 :::
 
 1. Navigate to the [Applications section of the Disqus API](https://disqus.com/api/applications/) to register your application.

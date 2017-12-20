@@ -22,11 +22,11 @@ If you are using the Auth0 CDN, you can also include the auth0.js script in the 
 	<div class="tab-content">
 	  <div id="cdn-v8" class="tab-pane active">
 	  <pre class="hljs html"><code>&lt;script src="${auth0js_urlv8}"&gt;&lt;/script&gt;
-&lt;script src="${lock_url}"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="${lock_urlv10}"&gt;&lt;/script&gt;</code></pre>
 	  </div>
 	  <div id="cdn-v7" class="tab-pane">
-	  <pre class="hljs html"><code>&lt;script src="${auth0js_url}"&gt;&lt;/script&gt;
-&lt;script src="${lock_url}"&gt;&lt;/script&gt;</code></pre>
+	  <pre class="hljs html"><code>&lt;script src="${auth0js_urlv7}"&gt;&lt;/script&gt;
+&lt;script src="${lock_urlv10}"&gt;&lt;/script&gt;</code></pre>
 	  </div>
 	</div>
 </div>

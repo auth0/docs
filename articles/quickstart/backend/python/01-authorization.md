@@ -8,8 +8,9 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   repo: 'auth0-python-api-samples',
   path: '00-Starter-Seed',
   requirements: [
+    'python 2.7, 3.3 and up',
     'flask 0.11.1',
-    'python-jose 1.3.2',
+    'python-jose-cryptodome 1.3.2',
     'flask-cors 3.0.2',
     'six 1.10.0'
   ]
@@ -26,8 +27,11 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
 This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to your `requirements.txt`:
 
 ```python
+# /requirements.txt
+
 flask
-python-jose
+python-dotenv
+python-jose-cryptodome
 flask-cors
 six
 ```
@@ -37,6 +41,8 @@ six
 Create a `server.py` file and initializate the Flask App. Set the domain, audience and the error handling.
 
 ```python
+# /server.py
+
 import json
 from six.moves.urllib.request import urlopen
 from functools import wraps
@@ -71,8 +77,9 @@ def handle_auth_error(ex):
 Add a decorator which verifies the `access_token` against your JWKS.
 
 ```python
+# /server.py
+
 # Format error response and append status code
-    
 def get_token_auth_header():
     """Obtains the access token from the Authorization Header
     """
@@ -161,6 +168,8 @@ ${snippet(meta.snippets.use)}
 Individual routes can be configured to look for a particular `scope` in the `access_token` by using the following:
 
 ```python
+# /server.py
+
 def requires_scope(required_scope):
     """Determines if the required scope is present in the access token
     Args:
@@ -168,16 +177,19 @@ def requires_scope(required_scope):
     """
     token = get_token_auth_header()
     unverified_claims = jwt.get_unverified_claims(token)
-    token_scopes = unverified_claims["scope"].split()
-    for token_scope in token_scopes:
-        if token_scope == required_scope:
-            return True
+    if unverified_claims.get("scope"):
+            token_scopes = unverified_claims["scope"].split()
+            for token_scope in token_scopes:
+                if token_scope == required_scope:
+                    return True
     return False
 ```
 
 Then, establish what scopes are needed in order to access the route. In this case `example:scope` is used:
 
 ```python
+# /server.py
+
 @APP.route("/secured/private/ping")
 @cross_origin(headers=["Content-Type", "Authorization"])
 @cross_origin(headers=["Access-Control-Allow-Origin", "*"])

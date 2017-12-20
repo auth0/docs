@@ -117,7 +117,7 @@ The `Token Endpoint Authentication Method` defines how a client authenticates ag
 * `Post`, for a client using HTTP POST parameters
 * `Basic`, for a client using HTTP Basic parameters 
 
-You can find this field at the [Client Settings](/clients/client-settings#settings) of the [Auth0 Dashboard](${manage_url}).
+You can find this field at the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
 :::
 
 By default, Public Clients are created with the following `grant_types`:

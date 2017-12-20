@@ -35,14 +35,10 @@ Install via [bower](http://bower.io):
 bower install auth0-lock
 ```
 
-Include via our CDN (Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
+Include via our CDN (with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
 
 ```html
-<!-- Latest minor release -->
-<script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
-
-<!-- Latest patch release (recommended for production) -->
-<script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
+<script src="${lock_urlv10}"></script>
 ```
 
 ::: note

@@ -8,7 +8,7 @@ crews: crew-2
 If you wish to cancel your Auth0 subscription, you have two options:
 
 1. [Downgrade](#downgrade-a-paid-subscription-to-a-free-subscription) a paid subscription to a free subscription;
-2. [Delete](#close-your-auth0-account) your Auth0 tenant.
+2. [Delete](#delete-your-auth0-tenant) your Auth0 tenant.
 
 ## Downgrade a Paid Subscription to a Free Subscription
 

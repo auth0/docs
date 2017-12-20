@@ -4,13 +4,19 @@ connection: Facebook
 index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
-description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
+description: This article shows you how to connect your app to Facebook
 toc: true
 ---
-
 # Connect your app to Facebook
 
-To connect your Auth0 app to Facebook, you will need an **App ID** and **App Secret** from your Facebook app, then copy these keys into your Auth0 settings and enable the connection.
+This article describes how to add login with Facebook to your app. It also discusses how you can get an access token in order to access the Facebook API.
+
+First you need to connect your Auth0 client to Facebook. This is summarized in the following steps:
+
+- Setup a Facebook app
+- Get your Facebook **App ID** and **App Secret**
+- Copy these keys into your Auth0 settings
+- Enable the Facebook social connection in Auth0
 
 ## 1. Login to Facebook Developers
 
@@ -28,13 +34,13 @@ Next you will need to complete the **Security Check**.
 
 ## 3. Setup Facebook Login
 
-On the **Product Setup** page that follows, click **Get Started** next to **Facebook Login**:
+On the **Product Setup** page that follows, click **Set Up** under **Facebook Login**:
 
 ![Click Get Started](/media/articles/connections/social/facebook/facebook-3.png)
 
 Next choose the type of application, for this tutorial we have selected **Web**.
 
-The **Client OAuth Settings** page for **Facebook Login** will appear:
+The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Client OAuth Settings** page:
 
 ![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
@@ -56,7 +62,7 @@ Next, click on **App Review** on the left navigation bar. Near the top of the pa
 
 ![Make Public](/media/articles/connections/social/facebook/facebook-public.png)
 
-## 5. Get your **App ID** and **App Secret**
+## 5. Get your App ID and App Secret
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
@@ -102,7 +108,23 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ![](/media/articles/connections/social/facebook/facebook-8b.png)
 
+## 7. Access Facebook API
+
+Once you successfully authenticate a user, Facebook includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
+
+You can then use this token to call their API.
+
+In order to get a Facebook access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
+
+Once you have the token you can call the API, following Facebook's documentation.
+
+::: note
+For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
+:::
+
 ## Additional Info
+
+You can find additional information at Facebook docs: [Add Facebook Login to Your App or Website](https://developers.facebook.com/docs/facebook-login).
 
 ### Create a Test App
 
@@ -114,6 +136,8 @@ Another option is to create another Auth0 tenant used for testing purposes. A ne
 
 On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
 
-[Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
+### Facebook Re-Authentication
+
+To force Facebook to prompt the user to [re-authenticate](https://developers.facebook.com/docs/facebook-login/reauthentication), you can set the `prompt='login'` value in Lock's `auth.param` object.
 
 <%= include('../_quickstart-links.md') %>

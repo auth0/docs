@@ -52,8 +52,7 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
   <script type="text/javascript">
     var auth0 = new auth0.WebAuth({
       clientID: '${account.clientId}',
-      domain: '${account.namespace}',
-      redirectUri: '${account.callback}'
+      domain: '${account.namespace}'
     });
     auth0.crossOriginAuthenticationCallback();
   </script>

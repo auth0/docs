@@ -155,7 +155,7 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
 However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
@@ -171,6 +171,25 @@ webAuth.popup.loginWithCredentials({
   scope: 'openid'
 }, function(err, authResult) {
   // Auth tokens in the result or an error
+});
+```
+
+### webAuth.login()
+
+The `login` method allows for [cross-origin auth](/cross-origin-authentication) using database connections, using `/co/authenticate`.
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `username` | optional | (String) The username to present for authentication. **Either** `username` or `email` must be present. |
+| `email` | optional | (String) The email to present for authentication. **Either** `username` or `email` must be present.|
+| `password` | required | (String) The password to present for authentication. |
+| `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
+
+```js
+webAuth.login({
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
 });
 ```
 
@@ -405,7 +424,7 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who has a current session in Auth0 server for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
 
 ```js
 webAuth.checkSession({

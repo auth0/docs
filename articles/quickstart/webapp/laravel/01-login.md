@@ -110,7 +110,7 @@ This works fine for basic testing or if you don't really need to persist the use
 Configure the `driver` in `/config/auth.php` to use `auth0`.
 
 ```php
-// app/config/auth.php
+// config/auth.php
 
 // ...
 'providers' => [
