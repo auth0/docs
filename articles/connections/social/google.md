@@ -3,7 +3,7 @@ title: Connect your app to Google
 connection: Google
 index: 1
 image: /media/connections/google.png
-description: This page shows you how to connect your Auth0 client to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This article describes how to connect your app to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail
  - google-oauth
@@ -13,15 +13,17 @@ toc: true
 ---
 # Connect your App to Google
 
-To connect your Auth0 client to Google, you will need to:
+This article describes how to add login with Google functionality to your app. It also discusses how you can get an access token in order to access the Google API.
 
-1. Generate a *Client ID* and *Client Secret* in a Google project
-2. Enable the Google Admin SDK Service
-3. Copy your Google *Client ID* and *Client Secret* keys into your Auth0 settings
-4. Enable the Connection
+First you need to connect your Auth0 client to Google. This is summarized in the following steps:
+
+1. Generate a **Client ID** and **Client Secret** in a Google project
+2. Enable the **Google Admin SDK Service**
+3. Copy your Google **Client ID** and **Client Secret** keys into your Auth0 dashboard
+4. Enable the Google social connection in Auth0
 
 ::: warning
-Google OAuth clients requesting sensitive OAuth scopes may be [subject to review](https://developers.google.com/apps-script/guides/client-verification) by Google.
+If your client requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
 ## 1. Generate the Google Client ID and Client Secret
@@ -102,20 +104,35 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
    ![](/media/articles/connections/social/google/goog-api-works.png)
 
-## 5. Obtain the Access Token and Refresh Token
+## 5. Access Google API
 
-The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the [`/api/v2/user/{user-id}` endpoint](/api/management/v2#!/Users/get_users_by_id) containing an [Auth0 API access token](https://auth0.com/docs/api/management/v2/tokens#get-a-token-manually) generated with  `read:user_idp_tokens` scope.  The [`access_token` for the IdP](https://auth0.com/docs/tokens/idp) will be available in the `identities` array, under the element for the particular connection.
+Once you successfully authenticate a user, Google includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
+
+You can then use this token to call their API.
+
+In order to get a Google access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For implementation details refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
+
+Once you have the token you can call the API, following Google's documentation.
 
 ::: note
-Please see [Call an Identity Provider API](https://auth0.com/docs/tutorials/calling-an-external-idp-api) for additional details.
+For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
 :::
 
-You can also request a `refresh_token` from Google by passing along the `access_type=offline` parameter when calling the [Auth0 `/authorize` endpoint](https://auth0.com/docs/api/authentication#implicit-grant) (or passing it in `auth.params` when using [Lock](https://auth0.com/docs/libraries/lock/v10)).
+## Optional: Get a Refresh Token
 
-If you need a refresh token, only the following OAuth 2.0 flows can retrieve them:
+You can also get a [refresh token](/tokens/refresh-token) from Google in order to refresh your access token, once it expires.
 
-* [Authorization Code](https://auth0.com/docs/api-auth/grant/authorization-code)
-* [Authorization Code with PKCE](https://auth0.com/docs/api-auth/grant/authorization-code-pkce)
-* [Resource Owner Password](https://auth0.com/docs/api-auth/grant/password)
+You can do this by setting the `access_type=offline` parameter when you call the [Auth0 `/authorize` endpoint](/api/authentication#social). 
+
+If you use [Lock](/libraries/lock) you can set this parameter in the [params object](/libraries/lock/configuration#params-object-).
+
+Note that you can only get a refresh token, if you are using one of the following OAuth 2.0 flows:
+* [Authorization Code](/api-auth/grant/authorization-code)
+* [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
+* [Resource Owner Password](/api-auth/grant/password)
+
+:::note
+A Single Page Application (normally implementing the [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a refresh token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
+:::
 
 <%= include('../_quickstart-links.md') %>
