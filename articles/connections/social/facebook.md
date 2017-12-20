@@ -104,6 +104,8 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ## Additional Info
 
+You can find additional information at Facebook docs: [Add Facebook Login to Your App or Website](https://developers.facebook.com/docs/facebook-login).
+
 ### Create a Test App
 
 Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per tenant. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
@@ -114,10 +116,8 @@ Another option is to create another Auth0 tenant used for testing purposes. A ne
 
 On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
 
-[Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
-
-<%= include('../_quickstart-links.md') %>
-
 ### Facebook Re-Authentication
 
 To force Facebook to prompt the user to [re-authenticate](https://developers.facebook.com/docs/facebook-login/reauthentication), you can set the `prompt='login'` value in Lock's `auth.param` object.
+
+<%= include('../_quickstart-links.md') %>
