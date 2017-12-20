@@ -1,6 +1,6 @@
 ---
 title: Marketo Integration
-description: Learn how to integrate Auth0 with Marketo.
+description: Learn how to import your Auth0 user data into Marketo.
 toc: true
 ---
 

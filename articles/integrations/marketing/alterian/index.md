@@ -1,6 +1,6 @@
 ---
 title: Alterian Integration
-description: Learn how to integrate Auth0 with Alterian.
+description: Learn how to import your Auth0 user data into Alterian.
 toc: true
 ---
 
