@@ -28,13 +28,13 @@ Next you will need to complete the **Security Check**.
 
 ## 3. Setup Facebook Login
 
-On the **Product Setup** page that follows, click **Get Started** next to **Facebook Login**:
+On the **Product Setup** page that follows, click **Set Up** under **Facebook Login**:
 
 ![Click Get Started](/media/articles/connections/social/facebook/facebook-3.png)
 
 Next choose the type of application, for this tutorial we have selected **Web**.
 
-The **Client OAuth Settings** page for **Facebook Login** will appear:
+The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Client OAuth Settings** page:
 
 ![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
