@@ -131,4 +131,8 @@ Note that you can only get a refresh token, if you are using one of the followin
 * [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
 * [Resource Owner Password](/api-auth/grant/password)
 
+:::note
+A Single Page Application (normally implementing the [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a refresh token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
+:::
+
 <%= include('../_quickstart-links.md') %>
