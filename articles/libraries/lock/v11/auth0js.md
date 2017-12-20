@@ -13,8 +13,8 @@ For simple uses, Lock is all that is necessary. However, while using Lock, if mo
 If you are using the Auth0 CDN, you can also include the auth0.js script in the same manner:
 
 ```html
-<script src="${auth0js_urlv8}"></script>
-<script src="${lock_url}"></script>
+<script src="${auth0js_urlv9}"></script>
+<script src="${lock_urlv11}"></script>
 ```
 
 If you installed Lock from npm, you should include `auth0-js` in your project dependencies and import it to pin the particular `auth0-js` version you're using. Before instantiating the `Auth0` object, you will need to require `auth0-js`:
