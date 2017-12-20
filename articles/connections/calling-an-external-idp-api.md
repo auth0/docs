@@ -170,7 +170,7 @@ You cannot follow the same process from a frontend app because it's a public cli
 
 SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
 
-There are a couple of alternatives you can use.
+There are some alternatives you can use.
 
 ### Option 1: Build a proxy
 
@@ -203,3 +203,34 @@ Your client will invoke the webtask with a simple HTTP request and manipulate th
 :::note
 You can find a sample [in this GitHub repository](https://github.com/vikasjayaram/ext-idp-api-webtask/tree/master/RS256). Review carefully before you use it since this is not officially maintained by Auth0 and could be outdated.
 :::
+
+### Option 3: Use Auth0.js
+
+[Auth0.js](/libraries/auth0js) is a client-side library for Auth0. It enables you to authenticate a user and access the [Auth0 APIs](/api/info).
+
+For this scenario, we will use this library in order to access the Auth0 Management API and retrieve the full user's profile.
+
+The first step is to install the library. Pick your preferable option at [Auth0.js > Installation options](/libraries/auth0js#installation-options).
+
+Then we will instantiate the Management API client:
+
+```javascript
+var auth0Manage = new auth0.Management({
+  domain: "${account.namespace}",
+  token: "{USER_ID_TOKEN}"
+});
+```
+
+Set the **domain** parameter to your Auth0 domain (you can find it at your [Dashboard > Client > Settings](${manage_url}/#/clients/${account.clientId}/settings), and the **token** parameter to the [ID token](/tokens/id-token) you got from Auth0 when you authenticated your user.
+
+Once the client is instantiated, you are ready to call the API and retrieve your user's profile:
+
+```javascript
+auth0Manage.getUser({USER_ID}, cb);
+```
+
+Set the first parameter to your user's ID (see the **Where do I find the User ID?** panel in this article for details).
+
+Extract the IdP's access token from the response. 
+
+You are now ready to call their API. Please refer to the IdP's documentation for specifics on how to do so.
