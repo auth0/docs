@@ -36,7 +36,7 @@ After adding the user fields, click on the **Export Users** button to start the 
 
 ### Import a User Data File
 
-:::
+::: note
 [Oracle Eloqua Help Center: Uploading Contacts](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#Help/Contacts/Tasks/UploadingContacts.htm)
 :::
 

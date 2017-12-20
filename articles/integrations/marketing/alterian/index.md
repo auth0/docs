@@ -36,7 +36,7 @@ After adding the user fields, click on the **Export Users** button to start the 
 
 ### Import a User Data File
 
-:::
+::: note
 [Alterian Campaign Manager: Data Import](http://cm.help.alterian.com/CM404/Default.htm#Customer_Analytics/Import_Export/Data_Import.htm)
 :::
 

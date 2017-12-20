@@ -36,7 +36,7 @@ After adding the user fields, click on the **Export Users** button to start the 
 
 ### Import a User Data File
 
-:::
+::: note
 [Constant Contact Knowledge Base: Import or Upload a File of Contact Email Addresses](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/5296-import-or-upload-a-file-of-contact-email-addresses)
 :::
 
