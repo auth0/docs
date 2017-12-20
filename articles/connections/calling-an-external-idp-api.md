@@ -221,15 +221,19 @@ var auth0Manage = new auth0.Management({
 });
 ```
 
-Set the **domain** parameter to your Auth0 domain (you can find it at your [Dashboard > Client > Settings](${manage_url}/#/clients/${account.clientId}/settings), and the **token** parameter to the [ID token](/tokens/id-token) you got from Auth0 when you authenticated your user.
+Parameters:
+- **domain**: your Auth0 domain (you can find it at your [Dashboard > Client > Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- **token**: the [ID token](/tokens/id-token) you got from Auth0 when you authenticated your user
 
 Once the client is instantiated, you are ready to call the API and retrieve your user's profile:
 
 ```javascript
-auth0Manage.getUser({USER_ID}, cb);
+auth0Manage.getUser(userId, cb);
 ```
 
-Set the first parameter to your user's ID (see the **Where do I find the User ID?** panel in this article for details).
+Parameters: 
+- **userId**: your user's ID (see the **Where do I find the User ID?** panel if you don't have it)
+- **cb**: callback parameter
 
 Extract the IdP's access token from the response. 
 
