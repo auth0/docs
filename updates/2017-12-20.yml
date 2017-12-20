@@ -1,0 +1,28 @@
+added:
+  -
+    title: "Alterian Integration"
+    tags:
+      - integration
+      - marketing
+      - alterian
+    description: |
+      A new document, [Alterian Integration](https://auth0.com/docs/integrations/marketing/alterian), was added with instructions on importing Auth0 user data into Alterian.
+
+  -
+    title: "Constant Contact Integration"
+    tags:
+      - integration
+      - marketing
+      - constant contact
+    description: |
+      A new document, [Constant Contact Integration](https://auth0.com/docs/integrations/marketing/constant-contact), was added with instructions on importing Auth0 user data into Constant Contact.
+
+  -
+    title: "Oracle Eloqua Integration"
+    tags:
+      - integration
+      - marketing
+      - oracle eloqua
+      - eloqua
+    description: |
+      A new document, [Oracle Eloqua Integration](https://auth0.com/docs/integrations/marketing/eloqua), was added with instructions on importing Auth0 user data into Eloqua.

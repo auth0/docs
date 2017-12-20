@@ -419,6 +419,15 @@ articles:
           - title: "Adobe Campaign"
             url: "/integrations/marketing/adobe-campaign"
 
+          - title: "Alterian"
+            url: "/integrations/marketing/alterian"
+
+          - title: "Constant Contact"
+            url: "/integrations/marketing/constant-contact"
+
+          - title: "Oracle Eloqua"
+            url: "/integrations/marketing/eloqua"
+
           - title: "MailChimp"
             url: "/integrations/marketing/mailchimp"
 
