@@ -129,6 +129,7 @@ Sample script:
     },
     assetsUrl:  config.assetsUrl,
     allowedConnections: connection ? [connection] : null,
+    rememberLastLogin: !prompt,
     language: language,
     languageDictionary: languageDictionary,
     closable: false,
