@@ -66,4 +66,5 @@ You can configure your Auth0-Joomla Extension by adjusting the **Module** and **
 | - | - |
 | Translation | A valid JSON object representing the [Lock's `dict` parameter](/libraries/lock/customization#dict-string-object-). If set, this overrides the Title setting |
 | Username style | Toggles whether the username should be a value selected by the user or their email address |
+| Remember last login | Requests SS0 data and [enables SSO](/libraries/lock/customization#rememberlastlogin-boolean-) |
 | Widget URL | The URL of the [latest Lock version](https://github.com/auth0/lock#install) |
