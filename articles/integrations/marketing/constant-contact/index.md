@@ -42,16 +42,16 @@ After adding the user fields, click on the **Export Users** button to start the 
 
 To import your CSV file into Constant Contact, follow these steps:
 
-1\. [Log in to Constant Contact](https://login.constantcontact.com) and navigate to **Contacts**.
+1. [Log in to Constant Contact](https://login.constantcontact.com) and navigate to **Contacts**.
 
-2\. From the **Contacts** page, click **Add Contacts > Upload from file**.
+2. From the **Contacts** page, click **Add Contacts > Upload from file**.
 
-3\. Provide you CSV file on the **Upload from file** page then click **Continue**.
+3. Provide you CSV file on the **Upload from file** page then click **Continue**.
 
-3\. Review the columns and match them with your Constant Contact fields. Once you're finished click **Continue**.
+4. Review the columns and match them with your Constant Contact fields. Once you're finished click **Continue**.
 
-4\. On the **Select lists** page, choose the list or lists to add your contacts to.
+5. On the **Select lists** page, choose the list or lists to add your contacts to.
 
-5\. Click **Upload**.
+6. Click **Upload**.
 
 That's it! You successfully imported your Auth0 users into Constant Contact.
