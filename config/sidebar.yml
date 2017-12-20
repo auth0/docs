@@ -645,10 +645,10 @@ libraries:
     children:
 
       - title: "Auth0.js"
-        url: "/libraries/auth0js/v8"
+        url: "/libraries/auth0js/v9"
 
       - title: "Migration Guide"
-        url: "/libraries/auth0js/v8/migration-guide"
+        url: "/libraries/auth0js/v9/migration-guide"
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
