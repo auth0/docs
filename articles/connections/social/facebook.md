@@ -4,12 +4,19 @@ connection: Facebook
 index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
-description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
+description: This article shows you how to connect your app to Facebook
 toc: true
 ---
 # Connect your app to Facebook
 
-To connect your Auth0 app to Facebook, you will need an **App ID** and **App Secret** from your Facebook app, then copy these keys into your Auth0 settings and enable the connection.
+This article describes how to add login with Facebook to your app. It also discusses how you can get an access token in order to access the Facebook API.
+
+First you need to connect your Auth0 client to Facebook. This is summarized in the following steps:
+
+- Setup a Facebook app
+- Get your Facebook **App ID** and **App Secret**
+- Copy these keys into your Auth0 settings
+- Enable the Facebook social connection in Auth0
 
 ## 1. Login to Facebook Developers
 
@@ -55,7 +62,7 @@ Next, click on **App Review** on the left navigation bar. Near the top of the pa
 
 ![Make Public](/media/articles/connections/social/facebook/facebook-public.png)
 
-## 5. Get your **App ID** and **App Secret**
+## 5. Get your App ID and App Secret
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
@@ -109,7 +116,7 @@ You can then use this token to call their API.
 
 In order to get a Facebook access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
 
-Once you have the token you can call the API, following GitHub's documentation.
+Once you have the token you can call the API, following Facebook's documentation.
 
 ::: note
 For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
