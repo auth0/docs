@@ -117,3 +117,7 @@ On the **Facebook Login** Client OAuth Settings page, you can also set a Deautho
 [Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
 
 <%= include('../_quickstart-links.md') %>
+
+### Facebook Re-Authentication
+
+To force Facebook to prompt the user to [re-authenticate](https://developers.facebook.com/docs/facebook-login/reauthentication), you can set the `prompt='login'` value in Lock's `auth.param` object.
