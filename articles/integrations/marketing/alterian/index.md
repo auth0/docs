@@ -54,7 +54,7 @@ To import your CSV file into Alterian, follow these steps:
 
 6. Configure your import settings using the provided fields on the **New Imports data** window.
     
-    ![](/media/articles/integrations/marketing/alterian/new-imports-data.png)
+    ![Data Import: New Imports](/media/articles/integrations/marketing/alterian/new-imports-data.png)
 
 7. After you've reviewed your settings, click **Run Processess**.
 
