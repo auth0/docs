@@ -72,6 +72,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
 
     function linkPasswordAccount(connection){
       var opts = { 
+        rememberLastLogin: false,
         dict: {
           signin: {
             title: 'Link another account'
