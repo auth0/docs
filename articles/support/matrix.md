@@ -283,13 +283,8 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tbody>
       <tr>
         <td><a href="https://github.com/auth0/lock">Lock.js</a></td>
-        <td>v10</td>
+        <td>v11</td>
         <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v9</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
       <tr>
         <td><a href="https://github.com/auth0/Lock.Android">Lock.Android</a></td>
