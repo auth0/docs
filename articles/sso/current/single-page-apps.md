@@ -166,15 +166,13 @@ setInterval(function() {
   // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
 
-  auth0.getSSOData(function (err, data) {
-    // if there is still a session, do nothing
-    if (err || (data && data.sso)) return;
-
-    // if we get here, it means there is no session on Auth0,
-    // then remove the token and redirect to #login
-    localStorage.removeItem('userToken');
-    window.location.href = '#login'
-
+  auth0.checkSession(function (err, data) {
+    if (err) { 
+      // if we get here, it means there is no session on Auth0,
+      // then remove the token and redirect to #login
+      localStorage.removeItem('userToken');
+      window.location.href = '#login';
+    }
   });
 }, 5000)
 ```
