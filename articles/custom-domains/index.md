@@ -38,9 +38,9 @@ If you obtain an access token for the [Management API](/api/management/v2) using
 
 Auth0 offers two certificate management options.
 
-**Auth0-Managed Certificates** are those where Auth0 will manage the creation and renewal of the certificates for your custom domain. This is the simplest custom domains deployment option, and the scope of this document.
+* **Auth0-Managed Certificates**: Auth0-managed certificates are those where Auth0 will manage the creation and renewal of the certificates for your custom domain. This is the simplest custom domains deployment option, and the scope of this document
 
-The **Self-Managed Certificates** option is available for enterprise customers only. Choosing this option means that you are responsible for managing your SSL/TLS certificates and [configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0](/custom-domains/self-managed-certificates).
+* **Self-Managed Certificates**: [Self-managed certificates](/custom-domains/self-managed-certificates) are available for enterprise customers only. Choosing this option means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0.
 
 ## How to Configure Custom Domains
 
