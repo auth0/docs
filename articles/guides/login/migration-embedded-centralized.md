@@ -3,12 +3,12 @@ title: Migrating from Embedded to Centralized Login
 description: Learn how to migrate from Embedded Login using Lock to Centralized Login
 ---
 
-# Migrating from Embedded to Centralized Login
+# Migrating to Centralized Login
 
 When you integrate Auth0 in our applications, you have to decide whether you will use embedded or centralized login.
 
-- With embedded login the login dialog is hosted in your application. You can use Lock or create your own UI.
-- With centralized login, you redirect to Auth0-hosted pages where the authentication flow is performed.
+- With embedded login the login dialog is hosted in your application. You can use [Lock](/libraries/lock) or create your own UI and use [auth0.js](/libraries/auth0js).
+- With centralized login, you redirect to a [Hosted Login Page](/hosted-pages/login) where the authentication flow is performed.
 
 Centralized login has several advantages over embedded login. For a detailed analysis refer to [Centralized vs Embedded Login](/guides/login/centralized-vs-embedded).
 
