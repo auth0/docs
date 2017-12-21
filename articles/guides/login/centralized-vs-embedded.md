@@ -72,7 +72,9 @@ Furthermore, according to the [Internet Engineering Task Force (IETF)](https://w
 ## Keep reading
 
 :::next-steps
+- [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized)
 - [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile)
+- [Authentication Provider Best Practices: Centralized Login](https://auth0.com/blog/authentication-provider-best-practices-centralized-login/)
 - [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/)
 - [Cross-Origin Authentication](/cross-origin-authentication)
 - [Hosted Login Pages](/hosted-pages/login)
