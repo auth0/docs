@@ -54,4 +54,4 @@ To import your CSV file into Eloqua, follow these steps:
 
 6. Complete the final step of the wizard and click **Finish**.
 
-That's it! You successfully imported your Auth0 users to Eloqua.
+That's it! You successfully imported your Auth0 users into Eloqua.
