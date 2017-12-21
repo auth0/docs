@@ -19,7 +19,7 @@ If you haven't already signed up for an Auth0 account, do so (it's free). You ca
 
 Once you create your account you will be asked to create a **Tenant**. This is a logical isolation unit. 
 
-The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even thougn the software might be running on the same machine (hence the logical isolation).
+The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
 
 Some characteristics:
 
