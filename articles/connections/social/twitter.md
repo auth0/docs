@@ -79,22 +79,10 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
     ![Test results](/media/articles/connections/social/twitter/twitter-api-10.png)
 
-## Optional: Get an Access Token from Twitter
-
-Twitter allows application owners to generate OAuth access tokens that can be used to call the Twitter API on their own behalf.
-
-To generate an Access Token and Secret:  
-
-1. Go to the [Application Management](https://apps.twitter.com) page on Twitter and select your application.
-
-2. Click **Keys and Access Tokens**.
-
-3. Click **Create my access token** near the bottom of the page to generate an authorized Access Token and Secret. Do not share your Access Token Secret.
-
-    ![Twitter access token](/media/articles/connections/social/twitter/twitter-api-11.png)
-
-::: note
-You can also regenerate or revoke your Access Token and Secret in case they have been compromised.
-:::
+## 6. Access Twitter API
+  
+ +<%= include('../_call-api', {
+ +  "idp": "Twitter"
+ +}) %>
 
 <%= include('../_quickstart-links.md') %>
