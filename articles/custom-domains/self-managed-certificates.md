@@ -83,5 +83,5 @@ Next you will need  to [set up your reverse proxy using AWS CloudFront](/custom-
 
 ### Step 4: Complete Feature-Specific Setup
 
-There are additional steps you must complete depending on which Auth0 features you are using. Refer to our [custom domains documentation](/custom-domains/step-3-complete-feature-specific-setup) for more details.
+There are additional steps you must complete depending on which Auth0 features you are using. Refer to our [custom domains documentation](/custom-domains#step-3-complete-feature-specific-setup) for more details.
 

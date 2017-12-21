@@ -27,7 +27,10 @@ Currently, the following Auth0 features and flows support use of custom domains:
 * Emails (the links included in the emails will use your custom domain)
 * Database, Social, and Passwordless (One-Time Password variant only) connections
 
-::: note
+
+::: panel Token Issuance
+Auth0 will issue tokens with the `iss` claim of whichever domain you used with the request. For example if you used `https://northwind.auth0.com/authorize...` to obtain an access token, then the `iss` claim will be `https://northwind.auth0.com/`. If you used your custom domain, such as `https://login.northwind.com/authorize...`, then the `iss` will be `https://login.northwind.com/`.
+
 If you obtain an access token for the Management API using an authorization flow with your custom domain, you must call Management API using the custom domain (your token will be considered invalid otherwise).
 :::
 
