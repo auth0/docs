@@ -27,6 +27,15 @@ added:
     description: |
       A new document, [Oracle Eloqua Integration](https://auth0.com/docs/integrations/marketing/eloqua), was added with instructions on importing Auth0 user data into Eloqua.
 
+-
+    title: "Sailthru Integration"
+    tags:
+      - integration
+      - marketing
+      - sailthru
+    description: |
+      A new document, [Sailthru Integration](https://auth0.com/docs/integrations/marketing/sailthru), was added with instructions on importing Auth0 user data into Sailthru.
+
   -
     title: "Salesforce Integration"
     tags:
