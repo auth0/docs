@@ -8,7 +8,7 @@ description: This video will help you better understand how Auth0 works with ses
 ---
 # Understanding Sessions &amp; Cookies
 
-::: version-warning
+:::warning
 Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
 :::
 
