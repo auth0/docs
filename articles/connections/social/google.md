@@ -106,17 +106,9 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
 ## 5. Access Google API
 
-Once you successfully authenticate a user, Google includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
-
-You can then use this token to call their API.
-
-In order to get a Google access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For implementation details refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
-
-Once you have the token you can call the API, following Google's documentation.
-
-::: note
-For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
-:::
+<%= include('../_call-api', {
+  "idp": "Google"
+}) %>
 
 ## Optional: Get a Refresh Token
 
