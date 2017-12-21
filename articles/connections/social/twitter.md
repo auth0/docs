@@ -81,8 +81,8 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ## 6. Access Twitter API
   
- +<%= include('../_call-api', {
- +  "idp": "Twitter"
- +}) %>
+<%= include('../_call-api', {
+  "idp": "Twitter"
+}) %>
 
 <%= include('../_quickstart-links.md') %>
