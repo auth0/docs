@@ -21,7 +21,7 @@ Lock can be used to implement authentication in different ways:
 
 Migration to v11 will depend on how you are using Lock:
 
-| **Scenario** | **Migration to v9** | 
+| **Scenario** | **Migration to v11** | 
 | --- | --- | 
 | In your application, to implement embedded login | Required |
 | In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
