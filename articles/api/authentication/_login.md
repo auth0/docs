@@ -215,6 +215,10 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
+::: note
+Note that in order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. Check the  [Cross-Origin Authentication](/cross-origin-authentication) to understand the limitations of this approach.
+:::
+
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "GET",

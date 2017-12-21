@@ -287,9 +287,9 @@ To use the `audience` param instead, configure your app to send it when initiati
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>
-      <th><strong>/ssodata endpoint and <code>getSSOData()</code> method from Lock/auth0.js
+      <th><strong>/ssodata endpoint and <code>getSSOData()</code> method from auth0.js
 </strong</th>
-      <td>Supported</td>
+      <td>Supported (up to auth0.js v8)</td>
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>

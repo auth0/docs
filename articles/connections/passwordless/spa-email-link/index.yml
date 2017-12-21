@@ -1,9 +1,11 @@
 versioning:
   baseUrl: connections/passwordless/spa-email-link
-  current: v8
+  current: v9
   versions:
     - v7
     - v8
+    - v9
   defaultArticles:
     v7: index
     v8: index
+    v9: index

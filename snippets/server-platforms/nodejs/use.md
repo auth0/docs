@@ -3,7 +3,6 @@
 <script>
 const options = {
   auth: {
-    oidcConformant: true,
     redirectUrl: 'http://localhost:CHANGE-TO-YOUR-PORT/callback',
     params: {
       audience: 'https://${account.namespace}/userinfo',

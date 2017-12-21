@@ -69,9 +69,13 @@ In the [Dashboard](${manage_url}), you can enable a custom Hosted Login Page by 
 
 In order to get started using the Hosted Login Page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
-- [Lock](/hosted-pages/login/lock) - Lock is the simplest way to use the HLP. Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
+- [Lock](/hosted-pages/login/lock) - Lock 10 is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
 - [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same style of interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
-- [Auth0.js v8](/hosted-pages/login/auth0js/v8) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. Auth0.js v8 is the most up to date version of that SDK, and is fully capable of [OIDC compliant transactions](/api-auth/intro).
+- [Auth0.js v8](/hosted-pages/login/auth0js/v8) - Auth0.js v8 is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
+
+::: note
+Note that Lock 11 and Auth0.js v9 were specifically designed to work with embedded authentication in applications, not the Hosted Login Page. For Hosted Login Page use, Lock 10 or Auth0.js v8 should be implemented.
+:::
 
 ### 3. Customization
 
