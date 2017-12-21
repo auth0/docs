@@ -1,9 +1,9 @@
 ---
 section: libraries
 toc: true
-description: Details on the Lock V10 API.
+description: Details on the Lock v11 API.
 ---
-# Lock: API Reference
+# Lock API Reference
 
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
@@ -187,14 +187,12 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `unrecoverable_error`: emitted when there is an unrecoverable error, for instance when no connection is available. Has the error as the only argument.
 - `authenticated`: emitted after a successful authentication. Has the authentication result as the only argument. The authentication result contains the token which can be used to get the user's profile or stored to log them in on subsequent checks. 
 - `authorization_error`: emitted when authorization fails. Has error as the only argument.
-- `hash_parsed`: every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the url looking for the result of a login attempt. This is a low level event for advanced use cases and `authenticated` and `authorization_error` should be preferred when possible. After that this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v10/authentication-modes) because there is no need to parse the url's hash part.
+- `hash_parsed`: every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the url looking for the result of a login attempt. This is a low level event for advanced use cases and `authenticated` and `authorization_error` should be preferred when possible. After that this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v11/authentication-modes) because there is no need to parse the url's hash part.
 - `forgot_password ready`: emitted when the "Forgot password" screen is shown. (Only in Version >`10.18`)
 - `forgot_password submit`: emitted when the user clicks on the submit button of the "Forgot password" screen. (Only in Version >`10.14`)
 - `signin submit`: emitted when the user clicks on the submit button of the "Login" screen. (Only in Version >`10.18`)
 - `signup submit`: emitted when the user clicks on the submit button of the "Sign Up" screen. (Only in Version >`10.18`)
 - `federated login`: emitted when the user clicks on a social connection button. Has the connection name and the strategy as arguments. (Only in Version >`10.18`)
-
-### The authenticated event
 
 The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `accessToken`, `idToken`, `state`, `refreshToken` and `idTokenPayload`.
 
