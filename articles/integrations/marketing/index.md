@@ -19,4 +19,5 @@ description: Learn how to integrate Auth0 with marketing applications and servic
   'integrations/marketing/eloqua',
   'integrations/marketing/mailchimp',
   'integrations/marketing/marketo'
+  'integrations/marketing/salesforce'
 ] }) %>

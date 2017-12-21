@@ -434,6 +434,9 @@ articles:
           - title: "Marketo"
             url: "/integrations/marketing/marketo"
 
+          - title: "Salesforce"
+            url: "/integrations/marketing/salesforce"
+
       - title: "Single Sign On"
         url: "/sso/current/integrations"
 

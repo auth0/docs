@@ -26,3 +26,12 @@ added:
       - eloqua
     description: |
       A new document, [Oracle Eloqua Integration](https://auth0.com/docs/integrations/marketing/eloqua), was added with instructions on importing Auth0 user data into Eloqua.
+
+  -
+    title: "Salesforce Integration"
+    tags:
+      - integration
+      - marketing
+      - salesforce
+    description: |
+      A new document, [Salesforce Integration](https://auth0.com/docs/integrations/marketing/salesforce), was added with instructions on importing Auth0 user data into Salesforce.

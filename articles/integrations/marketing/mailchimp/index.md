@@ -62,4 +62,4 @@ Check that the column names and field types are correct, when you're ready to pr
 
 After reviewing your selections and setting the import category, click on the **Import** button to start the user import.
 
-That's it! You successfully imported your Auth0 users to MailChimp.
+That's it! You successfully imported your Auth0 users into MailChimp.

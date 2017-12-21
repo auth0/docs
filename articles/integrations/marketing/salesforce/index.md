@@ -17,11 +17,11 @@ To import your Auth0 users into Salesforce:
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
-Next, set the **Export Format** to the required file format. MailChimp accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
+Next, set the **Export Format** to the required file format. Salesforce accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
 
 ![User Import/Export Extension Format](/media/articles/integrations/marketing/import-export-set-format.png)
 
-At the top in the **Fields** section, provide a **User Field** and **Column Name** for each user attribute to include in the export. For MailChimp, an email field with the column name `Email Address` is required, so make sure to include it. For example:
+At the top in the **Fields** section, provide a **User Field** and **Column Name** for each user attribute to include in the export. For example:
 
 User Field | Column Name
 -----------|------------
