@@ -11,7 +11,7 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 Using custom domains with centralized login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [centralized login and customizing the hosted login pages](/hosted-pages/login).
 
 ::: warning
-Custom Domains is a beta feature available only for public-cloud tenants [with their environment tag set as **Development**](/dev-lifecycle/setting-up-env).
+Custom Domains is a beta feature available only for paying public-cloud tenants [with their environment tag set as **Development**](/dev-lifecycle/setting-up-env).
 :::
 
 ## Prerequisites
