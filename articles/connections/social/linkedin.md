@@ -86,6 +86,10 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-8b.png)
 
+## 9. Access LinkedIn API
+
+<%= include('../_call-api', {
+  "idp": "LinkedIn"
+}) %>
+
 <%= include('../_quickstart-links.md') %>
-
-

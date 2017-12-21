@@ -48,17 +48,9 @@ Go to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social**,
 
 ## 5. Access GitHub API
 
-Once you successfully authenticate a user, GitHub includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
-
-You can then use this token to call their API.
-
-In order to get a GitHub access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
-
-Once you have the token you can call the API, following GitHub's documentation.
-
-::: note
-For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
-:::
+<%= include('../_call-api', {
+  "idp": "GitHub"
+}) %>
 
 ## Troubleshooting
 
