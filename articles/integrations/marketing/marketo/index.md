@@ -1,6 +1,6 @@
 ---
 title: Marketo Integration
-description: Learn how to integrate Auth0 with Marketo.
+description: Learn how to import your Auth0 user data into Marketo.
 toc: true
 ---
 
@@ -17,7 +17,7 @@ To import your Auth0 users into Marketo:
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
-Next, set the **Export Format** to the required file format. Adobe Campaigns accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
+Next, set the **Export Format** to the required file format. Marketo accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
 
 ![User Import/Export Extension Format](/media/articles/integrations/marketing/import-export-set-format.png)
 
@@ -116,4 +116,4 @@ And the response:
 }
 ```
 
-That's it! You successfully imported your Auth0 users to Marketo.
+That's it! You successfully imported your Auth0 users into Marketo.

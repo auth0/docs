@@ -1,0 +1,66 @@
+added:
+  -
+    title: "Alterian Integration"
+    tags:
+      - integration
+      - marketing
+      - alterian
+    description: |
+      A new document, [Alterian Integration](https://auth0.com/docs/integrations/marketing/alterian), was added with instructions on importing Auth0 user data into Alterian.
+
+  -
+    title: "Constant Contact Integration"
+    tags:
+      - integration
+      - marketing
+      - constant contact
+    description: |
+      A new document, [Constant Contact Integration](https://auth0.com/docs/integrations/marketing/constant-contact), was added with instructions on importing Auth0 user data into Constant Contact.
+
+  -
+    title: "Oracle Eloqua Integration"
+    tags:
+      - integration
+      - marketing
+      - oracle eloqua
+      - eloqua
+    description: |
+      A new document, [Oracle Eloqua Integration](https://auth0.com/docs/integrations/marketing/eloqua), was added with instructions on importing Auth0 user data into Eloqua.
+
+  -
+    title: "Sailthru Integration"
+    tags:
+      - integration
+      - marketing
+      - sailthru
+    description: |
+      A new document, [Sailthru Integration](https://auth0.com/docs/integrations/marketing/sailthru), was added with instructions on importing Auth0 user data into Sailthru.
+
+  -
+    title: "Salesforce Integration"
+    tags:
+      - integration
+      - marketing
+      - salesforce
+    description: |
+      A new document, [Salesforce Integration](https://auth0.com/docs/integrations/marketing/salesforce), was added with instructions on importing Auth0 user data into Salesforce.
+
+  -
+    title: "Salesforce Marketing Cloud Integration"
+    tags:
+      - integration
+      - marketing
+      - salesforce marketing cloud
+    description: |
+      A new document, [Salesforce Marketing Cloud Integration](https://auth0.com/docs/integrations/marketing/salesforce-marketing-cloud), was added with instructions on importing Auth0 user data into Salesforce Marketing Cloud.
+
+  -
+    title: "Watson Campaign Automation Integration"
+    tags:
+      - integration
+      - marketing
+      - watson campaign automation
+      - ibm
+    description: |
+      A new document, [Watson Campaign Automation Integration](https://auth0.com/docs/integrations/marketing/watson-campaign-automation), was added with instructions on importing Auth0 user data into Watson Campaign Automation.
+

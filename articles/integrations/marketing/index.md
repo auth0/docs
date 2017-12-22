@@ -14,6 +14,13 @@ description: Learn how to integrate Auth0 with marketing applications and servic
 
 <%= include('../../_includes/_topic-links', { links: [
   'integrations/marketing/adobe-campaign',
+  'integrations/marketing/alterian',
+  'integrations/marketing/constant-contact',
+  'integrations/marketing/eloqua',
   'integrations/marketing/mailchimp',
-  'integrations/marketing/marketo'
+  'integrations/marketing/marketo',
+  'integrations/marketing/sailthru',
+  'integrations/marketing/salesforce',
+  'integrations/marketing/salesforce-marketing-cloud',
+  'integrations/marketing/watson-campaign-automation'
 ] }) %>

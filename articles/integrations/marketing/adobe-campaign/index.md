@@ -1,6 +1,6 @@
 ---
 title: Adobe Campaign Integration
-description: Learn how to integrate Auth0 with Adobe Campaign.
+description: Learn how to import your Auth0 user data into Adobe Campaign.
 toc: true
 ---
 
@@ -17,7 +17,7 @@ To import your Auth0 users into Adobe Campaign:
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
-Next, set the **Export Format** to the required file format. Adobe Campaigns accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
+Next, set the **Export Format** to the required file format. Adobe Campaign accepts file imports in CSV format so choose the `Tab Separated Value file (*.csv)` option.
 
 ![User Import/Export Extension Format](/media/articles/integrations/marketing/import-export-set-format.png)
 
@@ -68,4 +68,4 @@ Finally, begin the import by clicking the **Start** button on the **Data Import 
 
 ![Adobe Campaign Import Wizard Data Import Execution](/media/articles/integrations/marketing/adobe-campaign/import-execution.png)
 
-That's it! You successfully imported your Auth0 users to Adobe Campaign.
+That's it! You successfully imported your Auth0 users into Adobe Campaign.
