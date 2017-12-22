@@ -1,10 +1,10 @@
 ---
 section: appliance
-description: PSaaS Appliance infrastructure information about enabling Webtasks and Web Extensions
+description: PSaaS Appliance infrastructure information about enabling Webtasks and Extensions
 ---
-# Enable Webtasks, Web Extensions, and User Search
+# Enable Webtasks, Extensions, and User Search
 
-Beginning with version `8986`, the PSaaS Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
+Beginning with version `8986`, the PSaaS Appliance supports extensions. This is in addition to support for [Webtasks](appliance/webtasks).
 
 ::: note
 Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the PSaaS Appliance. As such, these do not appear as options in the PSaaS Appliance's Dashboard.
@@ -57,7 +57,7 @@ Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on
 
 ::: next-steps
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
-* [Web Extensions](/extensions)
+* [Extensions](/extensions)
 * [Delegated Admininstration extension](/extensions/delegated-admin)
 * [Webtasks](appliance/webtask)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
