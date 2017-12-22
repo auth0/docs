@@ -52,7 +52,16 @@ description: Learn how to integrate Auth0 with other applications and services.
         <i class="icon icon-budicon-715"></i><a href="/integrations/marketing/marketo">Marketo</a>
       </li>
       <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/marketing/sailtrhu">Sailthru</a>
+      </li>
+      <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/marketing/salesforce">Salesforce</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/marketing/salesforce-marketing-cloud">Salesforce Marketing Cloud</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/marketing/watson-campaign-automation">Watson Campaign Automation</a>
       </li>
     </ul>
   </li>

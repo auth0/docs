@@ -440,6 +440,12 @@ articles:
           - title: "Salesforce"
             url: "/integrations/marketing/salesforce"
 
+          - title: "Salesforce Marketing Cloud"
+            url: "/integrations/marketing/salesforce-marketing-cloud"
+
+          - title: "Watson Campaign Automation"
+            url: "/integrations/marketing/watson-campaign-automation"
+
       - title: "Single Sign On"
         url: "/sso/current/integrations"
 
