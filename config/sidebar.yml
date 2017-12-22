@@ -641,7 +641,7 @@ libraries:
     url: "/libraries/when-to-use-lock"
 
   - title: "Auth0 SDK for Web"
-    url: "/libraries/auth0js"
+    url: "/libraries/auth0js/v9"
     children:
 
       - title: "Auth0.js"
