@@ -130,7 +130,7 @@ To get an get an `access_token`, you need to ask Auth0 for one using the `https:
 function getUserUsingManagementApi() {
     webAuth.checkSession(
       {
-        audience: `https://${account.namespace}/api/v2/',
+        audience: `https://${account.namespace}/api/v2/˜`,
         scope: 'read:current_user'
       },
       function(err, result) {
