@@ -14,6 +14,7 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 <%= include('../../_includes/_configure_embedded_login', { library : 'auth0js'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>
+<%= include('../../_includes/_legacy_flows') %>
 
 ## Behavioral Changes
 

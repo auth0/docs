@@ -181,13 +181,7 @@ function login() {
 Note that, once more, the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11.
 
 <%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
-
-### Migrating from Legacy Authentication Flows
-
-The OIDC conformant flows disallow certain practices that were common when developing applications with Lock v9, like using [Refresh Tokens](tokens/refresh-token), using [ID Tokens](/tokens/id-token) to call APIs, and accessing non-standard claims in the user profile.
-
-Follow the steps in the [Migration from Legacy Authentication Flows](/libraries/lock/v11/migration-legacy-flows) to learn what changes do you need to make in your application.
-
+<%= include('../../_includes/_legacy_flows') %>
 <%= include('../../_includes/_change_get_profile') %>
 
 ## Behavioral Changes in Lock v11

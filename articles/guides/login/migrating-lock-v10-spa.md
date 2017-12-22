@@ -97,7 +97,7 @@ function login() {
 }
 ```
 
-5. Review if you are using any [legacy authentication flow in your application](libraries/lock/v11/migration-legacy-flows), and adjust your code accordingly.
+5. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
 You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
