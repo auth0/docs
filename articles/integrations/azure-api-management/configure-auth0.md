@@ -15,7 +15,7 @@ To use Auth0 as an [OAuth 2.0 authorization server](/protocols/oauth2#oauth-role
 
 An API is an entity that represents an external resource that's capable of accepting and responding to requests made by clients. You'll need to create an [Auth0 API](/apis) using the Management Dashboard to represent the API managed by Azure's API Management Service that you want secured by Auth0.
 
-You'll also need a [Non Interactive Client](/client), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated non interactive client by default.
+You'll also need a [Non Interactive Client](/clients#client-types), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated non interactive client by default.
 
 To begin, you'll need to log into the Auth0 Management Dashboard. Go the [APIs](${manage_url}/#/apis) and click **Create API**.
 
