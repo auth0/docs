@@ -46,3 +46,7 @@ The documents below describe all the changes that you should be aware of when mi
 :::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 :::
+
+## Troubleshooting
+
+If Lock takes a lot of time to display the login options, it's because the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property is not correctly set. Please set it and try again.
