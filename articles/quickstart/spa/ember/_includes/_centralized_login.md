@@ -23,7 +23,7 @@ export default Service.extend({
     return new auth0.WebAuth({
       domain: '${account.namespace}',
       clientID: '${account.clientId}',
-      redirectUri: 'http://localhost:4200',
+      redirectUri: 'http://localhost:3000',
       audience: 'https://${account.namespace}/userinfo',
       responseType: 'token id_token',
       scope: 'openid'
