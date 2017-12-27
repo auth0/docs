@@ -309,8 +309,28 @@ You can add titles to the sidebar using the attribute `category`:
 
 ```
 - title: "Title text"
-- category: true
+  category: true
 ```
+
+You can hide an article from the sidebar with the `hidden` key:
+
+```
+- title: "Title text"
+  hidden: true
+```
+
+You can nest articles with the `children` key:
+
+```
+  - title: Getting Started
+    url: "/getting-started"
+    children:
+      - title: Auth0 Overview
+        url: /getting-started/overview
+      - title: The Basics
+        url: /getting-started/the-basics
+```
+
 
 ## Beta Content
 
