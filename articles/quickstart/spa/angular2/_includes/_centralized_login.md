@@ -29,7 +29,7 @@ export class AuthService {
     domain: '${account.namespace}',
     responseType: 'token id_token',
     audience: 'https://${account.namespace}/userinfo',
-    redirectUri: 'http://localhost:4200/callback',      
+    redirectUri: 'http://localhost:3000/callback',
     scope: 'openid'
   });
 
@@ -53,10 +53,10 @@ export class AuthService {
 Add more methods to the `AuthService` service to handle authentication in the app.
 
 The example below shows the following methods:
-* `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js
-* `setSession`: stores the user's access token, ID token, and the access token's expiry time in browser storage
-* `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
+* `setSession`: stores the user's access token, ID token, and the access token's expiry time in browser storage.
+* `logout`: removes the user's tokens and expiry time from browser storage.
+* `isAuthenticated`: checks whether the expiry time for the user's access token has passed.
 
 ```ts
 // src/app/auth/auth.service.ts

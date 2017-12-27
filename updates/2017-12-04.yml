@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Security Bulletins"
+    tags:
+      - vulnerability
+      - bulletin
+    description: |
+      A new [Security Bulletins](https://auth0.com/docs/security/bulletins) section was created. Any security bulletins about Auth0 vulnerabilities will be published in this section. The first is [CVE 2017-17068 Security update for auth0.js popup callback vulnerability](https://auth0.com/docs/security/bulletins/cve-2017-17068).

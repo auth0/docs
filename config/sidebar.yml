@@ -149,7 +149,7 @@ articles:
             url: "/extensions/custom-social-extensions"
 
       - title: "Custom Database"
-        url: "/connections/database/mysql"
+        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
@@ -378,6 +378,16 @@ articles:
       - title: "Yubikey NEO Example"
         url: "/multifactor-authentication/yubikey"
 
+  - title: "Security"
+    url: "/security"
+    children:
+
+      - title: "Bulletins"
+        url: "/security/bulletins"
+        childern:
+          - title: "CVE 2017-17068"
+            url: "/security/bulletins/cve-2017-17068"
+
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
     children:
@@ -397,6 +407,48 @@ articles:
 
       - title: "Google Analytics"
         url: "/analytics/integrations/google-analytics"
+
+  - title: "Integrations"
+    url: "/integrations"
+    children:
+
+      - title: "Marketing"
+        url: "/integrations/marketing"
+        children:
+
+          - title: "Adobe Campaign"
+            url: "/integrations/marketing/adobe-campaign"
+
+          - title: "Alterian"
+            url: "/integrations/marketing/alterian"
+
+          - title: "Constant Contact"
+            url: "/integrations/marketing/constant-contact"
+
+          - title: "Oracle Eloqua"
+            url: "/integrations/marketing/eloqua"
+
+          - title: "MailChimp"
+            url: "/integrations/marketing/mailchimp"
+
+          - title: "Marketo"
+            url: "/integrations/marketing/marketo"
+
+          - title: "Sailthru"
+            url: "/integrations/marketing/marketo"
+
+          - title: "Salesforce"
+            url: "/integrations/marketing/salesforce"
+
+          - title: "Salesforce Marketing Cloud"
+            url: "/integrations/marketing/salesforce-marketing-cloud"
+
+          - title: "Watson Campaign Automation"
+            url: "/integrations/marketing/watson-campaign-automation"
+
+      - title: "Single Sign On"
+        url: "/sso/current/integrations"
+
 
   - title: "Addons/Third-Party Apps"
     url: "/addons"
@@ -520,35 +572,35 @@ libraries:
     url: "/libraries"
 
   - title: "Lock for Web"
-    url: "/libraries/lock/v10"
+    url: "/libraries/lock/v11"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock/v10"
+        url: "/libraries/lock/v11"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/configuration"
+        url: "/libraries/lock/v11/configuration"
 
       - title: "API Reference"
-        url: "/libraries/lock/v10/api"
+        url: "/libraries/lock/v11/api"
 
       - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"
+        url: "/libraries/lock/v11/ui-customization"
 
       - title: "Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"
+        url: "/libraries/lock/v11/migration-guide"
 
       - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"
+        url: "/libraries/lock/v11/i18n"
 
       - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"
+        url: "/libraries/lock/v11/customizing-error-messages"
 
       - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"
+        url: "/libraries/lock/v11/auth0js"
 
       - title: "Authentication Modes"
-        url: "/libraries/lock/v10/authentication-modes"
+        url: "/libraries/lock/v11/authentication-modes"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios/v2"
@@ -610,17 +662,14 @@ libraries:
     url: "/libraries/when-to-use-lock"
 
   - title: "Auth0 SDK for Web"
-    url: "/libraries/auth0js"
+    url: "/libraries/auth0js/v9"
     children:
 
-      - title: "Auth0.js v8"
-        url: "/libraries/auth0js/v8"
+      - title: "Auth0.js"
+        url: "/libraries/auth0js/v9"
 
-      - title: "Migration Guide v8"
-        url: "/libraries/auth0js/v8/migration-guide"
-
-      - title: "Auth0.js v7"
-        url: "/libraries/auth0js/v7"
+      - title: "Migration Guide"
+        url: "/libraries/auth0js/v9/migration-guide"
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"

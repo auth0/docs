@@ -1,18 +1,23 @@
 ---
+title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
 ---
 # Introducing OIDC Conformant Authentication
 
-As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document will present an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
+**Released Date**: May 10, 2017
+
+As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
 
 We will start by reviewing the [new features](#what-s-new), continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
+
+## What should I read?
 
 If you are new to Auth0, go through the [What’s New](#what-s-new) section of this doc. There you can find all the cool new features we introduced, like the ability to create APIs, call them from services, or enable external parties or partners to access protected resources at your API in a secure way. Then head off to the [How to use the new flows](#how-to-use-the-new-flows) section and make sure that your new implementation follows our latest, and more secure, authentication pipeline.
 
 If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
 
-Note, that if you are integrating Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (i.e. not through OIDC/OAuth), then you do not need to make any changes.
+If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (i.e. not using OIDC/OAuth), then you do not need to make any changes.
 
 ## What's New
 
@@ -282,9 +287,9 @@ To use the `audience` param instead, configure your app to send it when initiati
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>
-      <th><strong>/ssodata endpoint and <code>getSSOData()</code> method from Lock/auth0.js
+      <th><strong>/ssodata endpoint and <code>getSSOData()</code> method from auth0.js
 </strong</th>
-      <td>Supported</td>
+      <td>Supported (up to auth0.js v8)</td>
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>
@@ -309,7 +314,6 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 ## Keep Reading
 
 ::: next-steps
-* [OIDC Adoption Guide](/api-auth/tutorials/adoption)
 * [API Authorization Index](/api-auth)
 * [Why you should use access tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)

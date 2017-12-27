@@ -708,37 +708,37 @@ module.exports = [
   },
   {
     from: '/libraries/lock/i18n',
-    to: '/libraries/lock/v10/i18n',
+    to: '/libraries/lock/v11/i18n',
     status: 302
   },
   {
     from: '/libraries/lock/migration-guide',
-    to: '/libraries/lock/v10/migration-guide',
+    to: '/libraries/lock/v11/migration-guide',
     status: 302
   },
   {
     from: '/libraries/lock/sending-authentication-parameters',
-    to: '/libraries/lock/v10/sending-authentication-parameters',
+    to: '/libraries/lock/v11/sending-authentication-parameters',
     status: 302
   },
   {
     from: '/libraries/lock/v10/installation',
-    to: '/libraries/lock#lock-10-installation',
+    to: '/libraries/lock',
     status: 302
   },
   {
     from: '/libraries/lock/customization',
-    to: '/libraries/lock/v10/configuration',
+    to: '/libraries/lock/v11/configuration',
     status: 302
   },
   {
     from: '/libraries/lock/display-modes',
-    to: '/libraries/lock/v10/customization#container-string-',
+    to: '/libraries/lock/v11/customization#container-string-',
     status: 302
   },
   {
     from: '/libraries/lock/ui-customization',
-    to: '/libraries/lock/v10/ui-customization',
+    to: '/libraries/lock/v11/ui-customization',
     status: 302
   },
   {
@@ -810,7 +810,7 @@ module.exports = [
     to: '/tutorials/creating-users-in-the-management-portal'
   },
   {
-    from: ['/custom-signup', '/libraries/lock/v10/custom-signup'],
+    from: ['/custom-signup', '/libraries/lock/v10/custom-signup', '/libraries/lock/v11/custom-signup'],
     to: '/libraries/custom-signup'
   },
   {
@@ -855,7 +855,7 @@ module.exports = [
   },
   {
     from: '/hrd',
-    to: '/libraries/lock/v10/selecting-the-connection-for-multiple-logins'
+    to: '/libraries/lock/v11/selecting-the-connection-for-multiple-logins'
   },
   {
     from: '/blacklist-attributes',
@@ -1140,7 +1140,7 @@ module.exports = [
   },
   {
     from: '/libraries/lock',
-    to: '/libraries/lock/v10'
+    to: '/libraries/lock/v11'
   },
   {
     from: '/libraries/lock-ios',
@@ -1363,8 +1363,12 @@ module.exports = [
     to: '/metadata#using-lock-to-manage-metadata'
   },
   {
-    from: '/libraries/lock/v10/customization',
+    from: ['/libraries/lock/v10/customization'],
     to: '/libraries/lock/v10/configuration',
+  },
+  {
+    from: ['/libraries/lock/v11/customization'],
+    to: '/libraries/lock/v11/configuration',
   },
   {
     from: '/libraries/lock/v9/customization',
@@ -1373,6 +1377,10 @@ module.exports = [
   {
     from: '/libraries/lock/v10/popup-mode',
     to: '/libraries/lock/v10/authentication-modes',
+  },
+  {
+    from: '/libraries/lock/v11/popup-mode',
+    to: '/libraries/lock/v11/authentication-modes',
   },
   {
     from: '/libraries/lock/v9/display-modes',
@@ -1661,5 +1669,17 @@ module.exports = [
   {
     from: `/metadata/management-api`,
     to: `/metadata/apis`
+  },
+  {
+    from: `/connections/grean/bankid-no`,
+    to: `/connections/criipto/bankid-no`
+  },
+  {
+    from: `/connections/grean/bankid-se`,
+    to: `/connections/criipto/bankid-se`
+  },
+  {
+    from: `/connections/grean/nemid`,
+    to: `/connections/criipto/nemid`
   }
 ];

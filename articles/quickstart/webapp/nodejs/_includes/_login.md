@@ -13,7 +13,7 @@ yarn add passport passport-auth0 connect-ensure-login
 ## Configure the Middleware
 
 Create a new instance of the `Auth0Strategy` strategy. 
-Enter your Auth0 client details as configuration values. Tell `passport` to use the strategy. 
+Enter your Auth0 client details as configuration values. Tell `passport` to use this strategy. 
 
 ```js
 // app.js

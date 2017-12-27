@@ -47,7 +47,9 @@ function (user, context, callback) {
 }
 ```
 
-Rules run every time a user authenticates. If the user has a valid `email` and the email's domain is `admin.com`, the user will be granted the `user` and `admin` roles. On any other case, the user will be granted a simple `user` role. The user's role value is saved in the id token under the `https://access.control/roles` claim, which has to be checked on the app.
+The default rules for assigning access roles are:
+* If the user's email contains `@example.com`, the user gets the admin role.
+* If the email contains anything else, the user gets the regular user role.
 
 ::: note
 The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the id token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.

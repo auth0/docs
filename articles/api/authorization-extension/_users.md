@@ -395,7 +395,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 DELETE https://{extension_url}/users/{user_id}/roles
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
-[ "{user_id}" ]
+[ "{role_id}" ]
 ```
 
 ```shell

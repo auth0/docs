@@ -38,7 +38,7 @@ Alternatively, instead of completing deleting the user, you may choose to flag t
 
 ## Right to Access Data
 
-You can use either the [Management Dashboard](${manage_url}) (which is a manual process) or the [Management API](/api/management/v2#!/Users/delete_users_by_id) (which is a programmatic process) to retrieve information about a specific user, correct their profile, or delete their profile. The [Get a User endpoint](/api/management/v2#!/Users/delete_users_by_id) enable you to provide an end user with their information in a standardized format (JSON).
+You can use either the [Management Dashboard](${manage_url}) (which is a manual process) or the [Management API](/api/management/v2) (which is a programmatic process) to retrieve information about a specific user, correct their profile, or delete their profile. The [Get a User endpoint](/api/management/v2#!/Users/get_users_by_id) enables you to provide an end user their information in a standardized, machine readable (JSON) format.
 
 Auth0 will assist in pointing you toward the correct API endpoints to use, as well as how to obtain the data you need.
 

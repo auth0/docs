@@ -15,7 +15,7 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '4200' }) %>
+<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '3000' }) %>
 
 
 ## Add Token Renewal
@@ -31,7 +31,8 @@ public renewToken() {
   this.auth0.renewAuth({
     audience: '${apiIdentifier}',
     redirectUri: 'http://localhost:3001/silent',
-    usePostMessage: true
+    usePostMessage: true,
+    postMessageOrigin: 'http://localhost:3001'
   }, (err, result) => {
     if (err) {
       console.log(err);

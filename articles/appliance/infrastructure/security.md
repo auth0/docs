@@ -9,7 +9,7 @@ description: PSaaS Appliance infrastructure information about security
 
  ## SSL Certificates
 
- Each PSaaS Appliance (e.g. your production cluster PSaaS Appliance instance(s) and your development/test node PSaaS Appliance instance) requires a unique SSL certificate to be created and installed. If you'd like [additional DNS zones](/webtask/dedicated-domains), you'll need an additional certificate for *each* DNS zone you create.
+You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/webtask/dedicated-domains). 
 
  ::: note
    If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.

@@ -15,27 +15,34 @@ budicon: 500
   ]
 }) %>
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
+Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
+
+If an identity provider does not supply this information, you can create a rule for assigning roles to users. 
 
 ## Create a Rule to Assign Roles
 
-To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template.  These templates are written by Auth0 team to assist you complete common tasks.
+Create a rule that assigns the following access roles to your user: 
+* An admin role
+* A regular user role
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*.
+To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section, select the **Set roles to a user** template. 
 
-Then, replace this line from the default script:
+Edit the following line from the default script to match the conditions that fit your needs:
 
 ```
 if (user.email.indexOf('@example.com') > -1)
 ```
 
+The rule is checked every time a user attempts to authenticate. 
+
+* If the user has a valid email and the domain is `@example.com`, the user gets the admin role.
+* If the email contains anything else, the user gets the regular user role.
+ 
 ::: note
-You can set roles other than `admin` and `user` or customize the rule as needed.
+Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).
 :::
 
-By default, it says that if a user email contains `@example.com`, that user will be given an `admin` role, otherwise a regular `user` role.
-
-## Test the Rule
+## Test the Rule in Your Project
 
 ${snippet(meta.snippets.setup)}
 
@@ -60,6 +67,8 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-## Use the Rule
+## Restrict Content Based on Access Level
 
-At this point, you are able to distinguish the users' roles in your app to authorize or deny access to a certain feature.
+Now you can recognize the users with different roles in your app. You can use this information to give and restrict access to selected features in your app to users with different roles.
+
+In the sample project, the user with the admin role can access the admin panel.

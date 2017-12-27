@@ -19,11 +19,11 @@ If you haven't already signed up for an Auth0 account, do so (it's free). You ca
 
 Once you create your account you will be asked to create a **Tenant**. This is a logical isolation unit. 
 
-The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even thougn the software might be running on the same machine (hence the logical isolation).
+The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
 
 Some characteristics:
 
-- It has to be unique (we will see in the next paragraph that it is used to create you own personal domain)
+- It has to be unique (we will see in the next paragraph that it is used to create your own personal domain)
 - It cannot be changed afterwards
 - You can create more than one tenants (you are actually encouraged to do so for each separate environment you have: Development/Staging/Production)
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data are stored, the tenant name could eventually be `example-co-eu` or `example-co-au`.
@@ -99,7 +99,7 @@ For now we won't get into details about the next steps, but in case you want to 
 
 - **Hook it up to your app**: Assuming that your app has a login and a logout button, you have to add some code in order to invoke Auth0 APIs each time one of these buttons is clicked. For details you can refer to one of our [quickstarts](/quickstarts). Alternatively, you can call directly our API to [login](/api/authentication#login) or [logout](/api/authentication#logout) a user.
 
-- **Migrate your users to Auth0**: Assuming that you already have a user store, you have to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to a custom database](/database/custom-db) and access it via Auth0.
+- **Migrate your users to Auth0**: Assuming that you already have a user store, you have to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to a custom database](/connections/database/custom-db) and access it via Auth0.
 
 ## Keep reading
 

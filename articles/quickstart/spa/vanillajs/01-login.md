@@ -10,6 +10,6 @@ budicon: 448
   path: '01-Login'
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'JavaScript', callback: 'http://localhost:3000, http://localhost:5000' }) %>
+<%= include('../_includes/_getting_started', { library: 'JavaScript', callback: 'http://localhost:3000' }) %>
 
 <%= include('_includes/_centralized_login') %>

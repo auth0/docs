@@ -71,11 +71,11 @@ toc: true
     </thead>
     <tbody>
       <tr>
-        <td>Google Chrome</td>
+        <td>Google Chrome (Latest version)</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Apple Safari</td>
+        <td>Apple Safari (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
@@ -83,11 +83,11 @@ toc: true
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
-        <td>Microsoft Edge</td>
+        <td>Microsoft Edge (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
-        <td>Mozilla Firefox</td>
+        <td>Mozilla Firefox (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
     </tbody>
@@ -110,11 +110,11 @@ toc: true
     </thead>
     <tbody>
       <tr>
-        <td>Google Chrome</td>
+        <td>Google Chrome (Latest version)</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Apple Safari</td>
+        <td>Apple Safari (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
@@ -122,11 +122,11 @@ toc: true
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
-        <td>Microsoft Edge</td>
+        <td>Microsoft Edge (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
       <tr>
-        <td>Mozilla Firefox</td>
+        <td>Mozilla Firefox (Latest version)</td>
         <td><div class="label label-warning">Sustained</div></td>
       </tr>
     </tbody>
@@ -167,11 +167,11 @@ toc: true
     </thead>
     <tbody>
       <tr>
-        <td>Google Chrome</td>
+        <td>Google Chrome (Latest version)</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Apple Safari</td>
+        <td>Apple Safari (Latest version)</td>
         <td><div class="label label-warning">Supported</div></td>
       </tr>
       <tr>
@@ -179,11 +179,11 @@ toc: true
         <td><div class="label label-warning">Supported</div></td>
       </tr>
       <tr>
-        <td>Microsoft Edge</td>
+        <td>Microsoft Edge (Latest version)</td>
         <td><div class="label label-warning">Supported</div></td>
       </tr>
       <tr>
-        <td>Mozilla Firefox</td>
+        <td>Mozilla Firefox (Latest version)</td>
         <td><div class="label label-warning">Supported</div></td>
       </tr>
     </tbody>
@@ -283,13 +283,8 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tbody>
       <tr>
         <td><a href="https://github.com/auth0/lock">Lock.js</a></td>
-        <td>v10</td>
+        <td>v11</td>
         <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v9</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
       <tr>
         <td><a href="https://github.com/auth0/Lock.Android">Lock.Android</a></td>

@@ -4,10 +4,9 @@ section: apis
 crews: crew-2
 toc: true
 ---
-
 # Changes in Auth0 Management APIv2 Tokens
 
-Recently we changed the process to get a Management APIv2 Token. This article explains what changed, why this was done and how you can work around it (not recommended).
+Some time ago we changed the process to get a Management APIv2 Token. This article explains what changed, why this was done and how you can work around it (not recommended).
 
 ## What changed and why
 
@@ -22,7 +21,7 @@ The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client
 You can get a new token either [using the dashboard](/api/management/v2/tokens#get-a-token-manually) (if you use the API sporadically) or [by configuring a server process](/api/management/v2/tokens#automate-the-process) (if you need a token frequently) that will get a new token every 24 hours.
 
 ::: note
-For details on how to follow this new process refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>
+For details on how to follow this new process refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 :::
 
 #### Why this changed

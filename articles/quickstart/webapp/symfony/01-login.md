@@ -142,7 +142,7 @@ hwi_oauth:
             class:               'AppBundle\Auth0ResourceOwner'
             base_url:            https://${account.namespace}
             client_id:           ${account.clientId}
-            client_secret:       ${account.clientSecret}
+            client_secret:       YOUR_CLIENT_SECRET
             redirect_uri:        http://yourUrl/auth0/callback
             scope: "openid profile"
 ```
