@@ -9,7 +9,15 @@ To do this, go to the [Multifactor Auth](${manage_url}/#/guardian) section of th
 
 ![Push Notifications](/media/articles/mfa/push-notification-config.png)
 
-Enable the switch to use a custom app and substitute all the appropriate values for your particular configuration.
+Enable the switch to use a custom app and provide the following values for your configuration:
+
+Name | Description
+-----|------------
+AWS Access Key Id | Your AWS access key id.
+AWS Secret Access Key | Your AWS secret access key.
+AWS Region | Your AWS application's region.
+APNS ARN | The Amazon Resource Name for your [Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html).
+GCM ARN | The Amazon Resource Name for your [Google Cloud Messaging Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html).
 
 Then click **SAVE**.
 
