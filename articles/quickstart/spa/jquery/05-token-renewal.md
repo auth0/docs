@@ -15,7 +15,7 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '5000' }) %>
+<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '3000' }) %>
 
 ## Add Token Renewal
 

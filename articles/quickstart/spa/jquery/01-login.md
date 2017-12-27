@@ -13,6 +13,6 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'jQuery', callback: 'http://localhost:3000, http://localhost:5000' }) %>
+<%= include('../_includes/_getting_started', { library: 'jQuery', callback: 'http://localhost:3000 }) %>
 
 <%= include('_includes/_centralized_login') %>
