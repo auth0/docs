@@ -96,10 +96,11 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
     <div id="challenge-java" class="tab-pane">
       <pre>
 <code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
-MessageDigest md = MessageDigest.getInstance("SHA-256");
-md.update(bytes, 0, bytes.length);
-byte[] digest = md.digest();
-String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+  MessageDigest md = MessageDigest.getInstance("SHA-256");
+  md.update(bytes, 0, bytes.length);
+  byte[] digest = md.digest();
+  Base64.Encoder encoder = Base64.getUrlEncoder().withoutPadding();
+  String challenge = encoder.encodeToString(digest);</code></pre>
     </div>
     <div id="challenge-swift" class="tab-pane">
       <pre>
