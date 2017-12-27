@@ -6,13 +6,9 @@ toc: true
 ---
 # The Auth0 Management APIv2 Token
 
-::: note
-  We recently changed the way you get Management APIv2 tokens. To read what we changed, why we did that, and how you can work around these changes refer to <a href="/api/management/v2/tokens-flows">Changes in Auth0 Management APIv2 Tokens</a>.
-:::
-
 ## Overview
 
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as Auth0 Management APIv2 Token. This token is a [JWT](/jwt), contains specific granted permissions (known as __scopes__), and is signed with a client API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a client API key and secret for the entire tenant.
 
 There are two ways to get a Management APIv2 Token:
 - [get one manually using the Dashboard](#get-a-token-manually), or
@@ -23,7 +19,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 ::: warning
-  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either <a href="#2-get-the-token">change the validity period of the token</a>, or <a href="#automate-the-process">automate the process</a>.
+Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process).
 :::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
@@ -32,9 +28,9 @@ Let's see how you can get a token manually. Note, that the first step of the pro
 
 First, you need to create and authorize a Non Interactive Client. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
-  ::: panel What is a Non Interactive Client?
-  A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
-  :::
+::: panel What is a Non Interactive Client?
+A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+:::
 
 To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
@@ -242,9 +238,9 @@ Within the Users API some endpoints have scopes related to the current user (lik
 ## Keep reading
 
 ::: next-steps
+* [Changes in Auth0 Management APIv2 Tokens](/api/management/v2/tokens-flows)
 * [Calling APIs from a Service](/api-auth/grant/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 * [Information on the query string syntax](/api/management/v2/query-string-syntax)
 * [Search for Users](/api/management/v2/user-search)
-* [Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
 :::
