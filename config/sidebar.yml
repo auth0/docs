@@ -51,7 +51,28 @@ articles:
 
     children:
       - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/application/web-app-sso
+          url: /architecture-scenarios/application/web-app-sso
+          children:
+         
+           - title: Intro
+             url: /architecture-scenarios/application/web-app-sso
+             hidden: true
+           
+           - title: Solution Overview
+             url: /architecture-scenarios/application/web-app-sso/part-1
+             hidden: true
+           
+           - title: Configure Auth0
+             url: /architecture-scenarios/application/web-app-sso/part-2
+             hidden: true
+           
+           - title: Application Implementation
+             url: /architecture-scenarios/application/web-app-sso/part-3
+             hidden: true
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/web-app-sso/part-4
+             hidden: true
 
       - title: Server Client + API
         url: /architecture-scenarios/application/server-api
