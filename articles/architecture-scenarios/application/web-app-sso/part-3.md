@@ -9,7 +9,7 @@ Let's walk through the implementation of our regular web application. We used AS
 
 The sample contains an application which uses Active Directory integration to authenticate company employees and an Auth0 database connection for external contractors. Authorization is implemented using rules and claims as we will see in detail in this paragraph.
 
-### User Login
+## User Login
 
 Auth0 provides a Lock widget which serves as a login component for your application, meaning that you do not have to implement your own login screen. The Lock widget seamlessly integrates with all of the connections you configure inside your Auth0 dashboard, whether they be database, social or enterprise connections.
 
@@ -20,7 +20,7 @@ There are a number of different ways in which you can implement a Login screen u
 
 The recommended best practice is to use Hosted Lock because it is the most secure option and the easiest way to enable users to log in to your application.
 
-#### Automate Home Realm Discovery (HRD)
+### Automate Home Realm Discovery (HRD)
 
 By default, Lock will display all the connections available for login. Selecting the appropriate Identity Providers from multiple options is called _Home Realm Discovery (HRD)_. In our case the options are either authenticating with Active Directory (for company employees) or using email/password for our database connection (external contractors).
 
@@ -34,7 +34,7 @@ You may however want to avoid that first step, where the user needs to choose th
 
 For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
 
-### Session Management
+## Session Management
 
 When talking about managing sessions, there are typically three layers of sessions we need to consider:
 
@@ -70,7 +70,7 @@ If they do so, they are signed in without having to re-enter their credentials w
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#configure-the-cookie-and-oidc-middleware)**.
 
-### User Logout
+## User Logout
 
 When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before:
 - __Application Session__: You need to log out the user from your Web Application, by clearing their session.
@@ -91,7 +91,7 @@ The logout flow (not including federated logout) is as follows:
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-the-logout)**.
 
-### Access Control
+## Access Control
 
 Authorization refers to the process of determining what actions a user can perform inside your application.
 
@@ -120,7 +120,7 @@ When you install the Authorization Extension, it creates a rule in the backgroun
 1. Verify that the user has been granted access to the current application.
 
 
-#### Install the Authorization Extension
+### Install the Authorization Extension
 
 To install the Authorization extension navigate to the [Extensions](${manage_url}/#/extensions) view of your Auth0 Dashboard, and select and install the Auth0 Authorization extension.
 
@@ -146,7 +146,7 @@ With the mapping configured you only need to maintain membership to the `Timeshe
 
 For more information refer to the [Authorization Extension documentation](/extensions/authorization-extension).
 
-#### Enforce permissions in your application
+### Enforce permissions in your application
 
 When you installed the Authorization Extension, it also created an Auth0 rule which will add an `authorization` claim with all the authorization related settings for a particular user. The groups for a user will be added as a sub-claim of the `authorization` claim called `groups` and all the groups a user belongs to will be added as an array to this claim. This is an example of what JSON payload of a ID token may look like with the groups listed:
 
@@ -163,7 +163,7 @@ When you installed the Authorization Extension, it also created an Auth0 rule wh
 In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
 
 ::: note
-  See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions).
+See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions).
 :::
 
 <%= include('./_stepnav', {
