@@ -7,7 +7,7 @@ toc: true
 
 In this section we will review all the configurations we need to apply using the [Auth0 Dashboard](${manage_url}).
 
-### Client
+## Client
 
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
@@ -22,7 +22,7 @@ The main characteristics of a Client in Auth0 are:
 - __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `ExampleCo.auth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
 
-#### Create a Client
+### Create a Client
 
 ExampleCo's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
 
@@ -39,13 +39,13 @@ The other available views are:
 - [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are plugins associated with a client in Auth0. Usually, they are third party APIs used by the client that Auth0 generates access tokens for (for example Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so forth). We will not use any Addons in this scenario.
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. We will use this view shortly to enable specific connections for our client.
 
-#### Configure Callback URLs
+### Configure Callback URLs
 
 The __Allowed Callback URLs__ field contains the URL(s) where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect to complete the authentication process. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains, for example `*.google.com`. Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 
 The Callback URL for our sample project is `http://localhost:5000/signin-auth0`. Go ahead and set this value to the __Allowed Callback URLs__ field if you plan on using our sample, otherwise add the URL you chose to deploy your application to.
 
-### Connections
+## Connections
 
 The next step is to configure the identity providers that will be used for authentication at the web app. Each identity provides maps to a __connection__ in Auth0. Each client needs at least one connection, and each connection can be used for more than one client.
 
@@ -59,7 +59,7 @@ Auth0 supports a vast variety of protocols and identity providers:
 - Passwordless authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or e-mail.
 :::
 
-#### Create a database connection
+### Create a database connection
 
 To register a database connection, go to the [dashboard](${manage_url}) and in the side navigation select [Connections > Database](${manage_url}/#/connections/database).
 
@@ -73,7 +73,7 @@ When you click __Save__ you will be navigated to the _Settings_ page for the new
 
 For more information on database connections refer to [Database Identity Providers](/connections/database).
 
-#### Create an Active Directory / LDAP Connection
+### Create an Active Directory / LDAP Connection
 
 Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation select the [Connections > Enterprise](${manage_url}/#/connections/enterprise)).
 
