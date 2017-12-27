@@ -99,7 +99,9 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 md.update(bytes, 0, bytes.length);
 byte[] digest = md.digest();
-String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+//Use Apache "Commons Codec" dependency. Import the Base64 class
+//import org.apache.commons.codec.binary.Base64;
+String challenge = Base64.encodeBase64URLSafeString(digest);</code></pre>
     </div>
     <div id="challenge-swift" class="tab-pane">
       <pre>
