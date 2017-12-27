@@ -184,12 +184,14 @@ If not you should send a `POST` request to the [Token endpoint in Auth0](/api/au
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"callback_url\": \"${account.callback}\"}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
 
-Replace the `AUTHORIZATION_CODE` with the `code` you received previously. Also, replace `${account.callback}` with your application's callback URL.
+Replace the `AUTHORIZATION_CODE` with the `code` you received previously. 
+
+Also, replace `${account.callback}` with your application's callback URL.
 
 If the request is successful, you will get a JSON object with an Access Token. You can use this token to call the Auth0 APIs and get additional information such as the user profile.
 
