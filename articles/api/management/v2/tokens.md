@@ -1,12 +1,10 @@
 ---
-description: Details generating and using an Auth0 Management APIv2 token.
+description: Details on how to generate and use a token for the Auth0 Management APIv2
 section: apis
 crews: crew-2
 toc: true
 ---
 # The Auth0 Management APIv2 Token
-
-## Overview
 
 In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a client API key and secret for the entire tenant.
 
