@@ -1,4 +1,5 @@
 ---
+title: Adding a generic OAuth1 Authorization Server to Auth0
 description: How to add a generic Oauth1 Authorization Server to Auth0.
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
@@ -12,9 +13,13 @@ This example would create a custom Twitter connection:
 ```bash
 curl -X POST
      -H "Content-Type: application/json"
-     -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN'
+     -H 'Authorization: Bearer YOUR_MANAGEMENT_API_TOKEN'
      -d @twitter.json https://${account.namespace}/api/v2/connections
 ```
+
+:::note
+Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+:::
 
 ```json
 {
