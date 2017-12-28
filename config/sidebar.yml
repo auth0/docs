@@ -678,6 +678,15 @@ libraries:
       - title: "Overview"
         url: "/libraries/auth0-swift"
 
+      - title: "Database Authentication"
+        url: "/libraries/auth0-swift/database-authentication"
+
+      - title: "User Management"
+        url: "/libraries/auth0-swift/user-management"
+
+      - title: "Passwordless Authentication"
+        url: "/libraries/auth0-swift/passwordless"
+
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
