@@ -9,11 +9,7 @@ description: Describes how to call APIs from server processes using the Client C
 The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
 :::
 
-The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
-
-::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
-:::
+The [OAuth 2.0](/protocols/oauth2) grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
 ## Overview of the flow
 
