@@ -181,7 +181,7 @@ webAuth.login({
 
 ### webAuth.crossOriginVerification()
 
-The `crossOriginVerification()` method can be used to help provide cross origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
+The `crossOriginVerification()` method can be used to help provide cross-origin authentication to customers who have third-party cookies disabled in their browsers. Further details about its usage can be read in the [cross-origin authentication](/cross-origin-authentication#create-a-cross-origin-fallback-page) document.
 
 ### buildAuthorizeUrl(options)
 

@@ -471,12 +471,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## Cross-Origin Authentication
 
-Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication, you must do the following:
-
-* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
-
-    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
+Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication you must go to the client settings area of the [Dashboard]($manage_url}). Under the **Advanced Settings** menu and the **OAuth** tab, turn on the **OIDC Conformant** setting if it is not already.
 
 ## User management
 

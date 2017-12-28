@@ -854,7 +854,7 @@ var options = {
 }
 ```
 
-Using OIDC Conformant mode in Lock necessitates a cross-origin authentication flow which makes use of third party cookies to process the authentication transaction securely. Ensure that **Cross-Origin Authentication** is enabled by switching it on in the [settings](${manage_url}/#/applications/${account.clientId}/settings) for your client in the Auth0 dashboard.
+Using OIDC Conformant mode in Lock necessitates a cross-origin authentication flow which makes use of third party cookies to process the authentication transaction securely.
 
 For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption) and the [cross-origin authentication documentation](/cross-origin-authentication).
 
