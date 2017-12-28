@@ -38,9 +38,28 @@ Present the Hosted Login Page:
 ::: note
 Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
 :::
-let APIIdentifier = API_IDENTIFIER // Replace with the API Identifier value you created
+let APIIdentifier = "API_IDENTIFIER" // Replace with the API Identifier value you created
 
+```swift
+// HomeViewController.swift
+
+Auth0
+    .webAuth()
+    .scope("openid profile")
     .audience(APIIdentifier)
+    .start {
+        switch $0 {
+        case .failure(let error):
+            // Handle the error
+            print("Error: \(error)")
+        case .success(let credentials):
+            // Do something with credentials e.g.: save them.
+            // Auth0 will automatically dismiss the hosted login page
+            print("Credentials: \(credentials)")
+        }
+}
+```
+
 ## Attach the Access Token
 
 To give the authenticated user access to secured resources in your API, include the user's access token in the requests you send to the API.
