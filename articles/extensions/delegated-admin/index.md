@@ -1,7 +1,7 @@
 ---
 description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
 url: /extensions/delegated-admin
-toc: true
+toc: truex
 ---
 
 # Delegated Administration
@@ -142,7 +142,7 @@ Set the following configuration variables:
 
 - **TITLE** (optional): Set a title for your Client. It will be displayed at the header of the page.
 
-- **CUSTOM_CSS** (optional): Procide a CSS script to customize the look and feel of your Client.
+- **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Client.
 
 Once done, click **Install**. Your extension is now ready to use!
 
