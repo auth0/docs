@@ -35,7 +35,7 @@ As discussed in the previous paragraph, When you create a new account with Auth0
 In our example, `Example-Co` could pick the name `example-co`, hence their domain would be `example-co.auth0.com`.
 
 ::: panel Custom Domains
-You can use a custom domain, such as `example-co.com`. This comes with an additional cost and requires a **single-tenant** implementation of Auth0, which can be deployed in one of three locations:
+You can use a custom domain, such as `example-co.com`. This comes with an additional cost. This feature is in beta for **public-cloud tenants** (see [Custom Domains](/custom-domains) for details). If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
 - The Auth0-managed cloud
 - A customer-managed cloud
 - An [on-premise installation](/appliance)
