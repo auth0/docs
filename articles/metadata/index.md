@@ -31,6 +31,12 @@ When using the [Authentication API](/api/authentication), you can set the `user_
 
 The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
 
+#### Search Metadata
+
+Beginning 1 September 2017, new tenants cannot search any of the  `app_metadata` fields. Tenants associated with paid subscriptions that were created on/before 31 August 2017 can search the `app_metadata` fields.
+
+When searching `user_metadata`, you can only search for profile-related information, such as `name`, `nickname`, `given_name`, or `family_name`.
+
 ## Metadata Usage
 
 Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
@@ -126,12 +132,6 @@ Use this:
     }
 ]
 ```
-
-## Searching Metadata
-
-Beginning 1 September 2017, new tenants cannot search any of the  `app_metadata` fields. Tenants associated with paid subscriptions that were created on/before 31 August 2017 can search the `app_metadata` fields.
-
-When searching `user_metadata`, you can only search for profile-related information, such as `name`, `nickname`, `given_name`, or `family_name`.
 
 ## Metadata Restrictions
 
