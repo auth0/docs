@@ -1,4 +1,5 @@
 ---
+title: Adding a generic OAuth1 Authorization Server to Auth0
 description: How to add a generic Oauth1 Authorization Server to Auth0.
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
@@ -10,10 +11,15 @@ To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API
 This example would create a custom Twitter connection:
 
 ```bash
-curl -H "Content-Type: application/json"
-     -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN'
-     -d @twitter.json https://${account.namespace}/api/connections
+curl -X POST
+     -H "Content-Type: application/json"
+     -H 'Authorization: Bearer YOUR_MANAGEMENT_API_TOKEN'
+     -d @twitter.json https://${account.namespace}/api/v2/connections
 ```
+
+:::note
+Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+:::
 
 ```json
 {
@@ -22,9 +28,9 @@ curl -H "Content-Type: application/json"
   "options": {
     "client_id": "YOUR_TWITTER_CLIENT_ID",
     "client_secret": "YOUR_TWITTER_CLIENT_SECRET",
-    "requestTokenURL": 'https://api.twitter.com/oauth/request_token',
-    "accessTokenURL": 'https://api.twitter.com/oauth/access_token',
-    "userAuthorizationURL": 'https://api.twitter.com/oauth/authenticate',
+    "requestTokenURL": "https://api.twitter.com/oauth/request_token",
+    "accessTokenURL": "https://api.twitter.com/oauth/access_token",
+    "userAuthorizationURL": "https://api.twitter.com/oauth/authenticate",
     "scripts": {
       "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.twitter.com/1.1/users/show.json?user_id=' + ctx.user_id,token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));cb(null, JSON.parse(b));});}"
     }
