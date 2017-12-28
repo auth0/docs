@@ -42,19 +42,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 
 ## Initialize Auth0
 
-You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
-
-### 1) Client information in-line
-
-Method one is to simply create an instance of `Auth0` with your client information.
-
-```java
-Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-```
-
-### 2) Client information read from XML
-
-Method two is to save your client information in the `strings.xml` file using the following names:
+Save your client information in the `strings.xml` file using the following names:
 
 ```xml
 <resources>
@@ -85,7 +73,7 @@ Passwordless authentication *cannot be used* with this flag set to `true`. For m
 
 ## Authentication with Auth0 Hosted Login Page
 
-First go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+The recommended and default way to authenticate your users is via the [Hosted Login Page](/hosted-pages/login). To begin, go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
 ```
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -116,7 +104,9 @@ android {
 }
 ```
 
-It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+::: note
+It's a good practice to define reusable resources like `@string/com_auth0_domain` (as done in a previous step with `strings.xml`) rather than just hard-coding them.
+:::
 
 Alternatively, you can declare the `RedirectActivity` in the `AndroidManifest.xml` file with your own **intent-filter** so it overrides the library's default. If you do this then the Manifest Placeholders don't need to be set as long as the activity declaration contains the `tools:node="replace"` attribute:
 
