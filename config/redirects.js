@@ -707,21 +707,6 @@ module.exports = [
     to: '/sso'
   },
   {
-    from: '/libraries/lock/i18n',
-    to: '/libraries/lock/v11/i18n',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/migration-guide',
-    to: '/libraries/lock/v11/migration-guide',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/sending-authentication-parameters',
-    to: '/libraries/lock/v11/sending-authentication-parameters',
-    status: 302
-  },
-  {
     from: '/libraries/lock/v10/installation',
     to: '/libraries/lock',
     status: 302
@@ -734,11 +719,6 @@ module.exports = [
   {
     from: '/libraries/lock/display-modes',
     to: '/libraries/lock/v11/customization#container-string-',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/ui-customization',
-    to: '/libraries/lock/v11/ui-customization',
     status: 302
   },
   {
@@ -1133,18 +1113,6 @@ module.exports = [
   {
     from: '/api-auth/config/asking-for-access-tokens',
     to: '/api-auth/tutorials/client-credentials'
-  },
-  {
-    from: '/libraries/auth0js',
-    to: '/libraries/auth0js/v8'
-  },
-  {
-    from: '/libraries/lock',
-    to: '/libraries/lock/v11'
-  },
-  {
-    from: '/libraries/lock-ios',
-    to: '/libraries/lock-ios/v2'
   },
   {
     from: '/protocols/oauth2/oauth-implicit-protocol',
