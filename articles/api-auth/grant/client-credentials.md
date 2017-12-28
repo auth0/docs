@@ -5,6 +5,10 @@ description: Describes how to call APIs from server processes using the Client C
 
 <%= include('../../_includes/_pipeline2') %>
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
 ::: note
