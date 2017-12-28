@@ -21,15 +21,25 @@ There are two ways by which you can manage your user metadata:
 1. [Rules](/rules/metadata-in-rules)
 2. [Auth0 APIs](/metadata/apis)
 
-### Rules
+### Use Rules
 
-[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). You can therefore read, create, or update user metadata and have such changes affect the results of the authorization process.
+[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata and have such changes affect the results of the authorization process. For more information and examples refer to [User Metadata in Rules](/rules/current/metadata-in-rules).
 
 ### Auth0 APIs
 
-When using the [Authentication API](/api/authentication), you can set the `user_metadata` field of a newly-created user for a Database Connection with the [Signup](/api/authentication?shell#signup) endpoint. 
+When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint, in order to set the `user_metadata` for a user. Note though that this endpoint only works for database connections.
 
-The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
+For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
+
+You can also use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
+
+| **Endpoint** | **Description** |
+|--|--|
+| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/search#users-by-id). |
+| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/search#users-by-email).|
+| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
+| [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users).|
+| [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
 
 #### Search Metadata
 
