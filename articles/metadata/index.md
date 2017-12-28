@@ -16,20 +16,49 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 ## How to Read, Create, or Edit Metadata
 
-There are two ways by which you can manage your user metadata:
+There are two ways by which you can manage your user metadata: using Rules, or using the Auth0 APIs.
 
-1. [Rules](/rules/metadata-in-rules)
-2. [Auth0 APIs](/metadata/apis)
+### Use Rules
 
-### Rules
+[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata and have such changes affect the results of the authorization process. 
 
-[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). You can therefore read, create, or update user metadata and have such changes affect the results of the authorization process.
+For more information and examples refer to [User Metadata in Rules](/rules/current/metadata-in-rules).
 
-### Auth0 APIs
+### Use the Auth0 APIs
 
-When using the [Authentication API](/api/authentication), you can set the `user_metadata` field of a newly-created user for a Database Connection with the [Signup](/api/authentication?shell#signup) endpoint. 
+When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint, in order to set the `user_metadata` for a user. Note though that this endpoint only works for database connections.
 
-The [Management API](/api/management/v2), can be used to create and update both the `user_metadata` and `app_metadata` fields at any point during the authentication/authorization processes.
+For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
+
+:::note
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID token](/rules#copy-user-metadata-to-id-token).
+:::
+
+You can use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
+
+| **Endpoint** | **Description** |
+|--|--|
+| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/search#users-by-id). |
+| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/search#users-by-email).|
+| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
+| [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users).|
+| [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
+
+:::note
+For examples and more info you can also refer to [How to Create and Update User Metadata With the Auth0 APIs](/metadata/apis).
+:::
+
+#### Search Metadata
+
+Beginning **1 September 2017**, new tenants cannot search any of the  `app_metadata` fields. 
+
+Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+
+As for `user_metadata`, you can only search for profile-related information, such as
+- `name`
+- `nickname`
+- `given_name`
+- `family_name`
 
 ## Metadata Usage
 
@@ -126,12 +155,6 @@ Use this:
     }
 ]
 ```
-
-## Searching Metadata
-
-Beginning 1 September 2017, new tenants cannot search any of the  `app_metadata` fields. Tenants associated with paid subscriptions that were created on/before 31 August 2017 can search the `app_metadata` fields.
-
-When searching `user_metadata`, you can only search for profile-related information, such as `name`, `nickname`, `given_name`, or `family_name`.
 
 ## Metadata Restrictions
 
