@@ -73,7 +73,7 @@ Passwordless authentication *cannot be used* with this flag set to `true`. For m
 
 ## Authentication with Auth0 Hosted Login Page
 
-The recommended and default way to authenticate your users is via the [Hosted Login Page](/hosted-pages/login). To begin, go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+The recommended way to authenticate your users is via the [Hosted Login Page](/hosted-pages/login). To begin, go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
 ```
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback

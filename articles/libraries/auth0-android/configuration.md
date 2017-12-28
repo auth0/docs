@@ -5,6 +5,8 @@ description: How to configure Auth0.Android to meet your application's needs
 ---
 # Auth0.Android Configuration Options
 
+Auth0.Android can be configured with a variety of options, listed below.
+
 ## withConnection
 
 The `withConnection` option allows you to specify a connection that you wish to authenticate with.
