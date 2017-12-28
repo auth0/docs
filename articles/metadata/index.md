@@ -16,22 +16,25 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 ## How to Read, Create, or Edit Metadata
 
-There are two ways by which you can manage your user metadata:
-
-1. [Rules](/rules/metadata-in-rules)
-2. [Auth0 APIs](/metadata/apis)
+There are two ways by which you can manage your user metadata: using Rules, or using the Auth0 APIs.
 
 ### Use Rules
 
-[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata and have such changes affect the results of the authorization process. For more information and examples refer to [User Metadata in Rules](/rules/current/metadata-in-rules).
+[Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata and have such changes affect the results of the authorization process. 
 
-### Auth0 APIs
+For more information and examples refer to [User Metadata in Rules](/rules/current/metadata-in-rules).
+
+### Use the Auth0 APIs
 
 When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint, in order to set the `user_metadata` for a user. Note though that this endpoint only works for database connections.
 
 For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
-You can also use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
+:::note
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID token](/rules#copy-user-metadata-to-id-token).
+:::
+
+You can use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
 
 | **Endpoint** | **Description** |
 |--|--|
@@ -40,6 +43,10 @@ You can also use the [Management API](/api/management/v2) in order to retrieve, 
 | [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
 | [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users).|
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
+
+:::note
+For examples and more info you can also refer to [How to Create and Update User Metadata With the Auth0 APIs](/metadata/apis).
+:::
 
 #### Search Metadata
 
