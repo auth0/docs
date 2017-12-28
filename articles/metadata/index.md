@@ -33,9 +33,15 @@ The [Management API](/api/management/v2), can be used to create and update both 
 
 #### Search Metadata
 
-Beginning 1 September 2017, new tenants cannot search any of the  `app_metadata` fields. Tenants associated with paid subscriptions that were created on/before 31 August 2017 can search the `app_metadata` fields.
+Beginning **1 September 2017**, new tenants cannot search any of the  `app_metadata` fields. 
 
-When searching `user_metadata`, you can only search for profile-related information, such as `name`, `nickname`, `given_name`, or `family_name`.
+Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+
+As for `user_metadata`, you can only search for profile-related information, such as
+- `name`
+- `nickname`
+- `given_name`
+- `family_name`
 
 ## Metadata Usage
 
