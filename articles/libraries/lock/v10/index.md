@@ -117,10 +117,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you must do the following:
-
-* Set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to true
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** setting.
+Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 

@@ -471,7 +471,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## Cross-Origin Authentication
 
-Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication you must go to the client settings area of the [Dashboard]($manage_url}). Under the **Advanced Settings** menu and the **OAuth** tab, turn on the **OIDC Conformant** setting if it is not already.
+Using auth0.js within your application (rather than using the [Hosted Login Page](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your client to make it work.
 
 ## User management
 
