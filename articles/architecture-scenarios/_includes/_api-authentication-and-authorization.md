@@ -1,4 +1,4 @@
-### API Authentication and Authorization
+## API Authentication and Authorization
 
 An API is a way to expose functionality of your application to other applications. An application can make a request by sending a message to an endpoint on an API and receive information as a response.
 
