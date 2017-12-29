@@ -62,5 +62,5 @@ The solution should be available both to the employees with a physical presence 
 ![Diagram of the solution](/media/articles/architecture-scenarios/web-app-sso/solution-diagram.png)
 
 <%= include('./_stepnav', {
- next: ["1. Part 1", "/architecture-scenarios/application/web-app-sso/part-1"]
+ next: ["1. Solution Overview", "/architecture-scenarios/application/web-app-sso/part-1"]
 }) %>

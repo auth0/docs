@@ -2,8 +2,7 @@
 description: Regular web app scenario conclusion
 toc: true
 ---
-
-# Single Sign-On for Regular Web Apps: Conclusion
+# SSO for Regular Web Apps: Conclusion
 
 In this tutorial we covered a simple scenario: a regular web app, hosted in the cloud, using Auth0 for authentication, while utilizing the existing Active Directory user store. We learned what OpenID Connect offers and why it was preferable for this business case, how the Authentication Flow works, what an ID Token is and how to validate and manipulate it, how to configure clients and connections on Auth0 dashboard, how to implement user login and logout using Lock, and how session management and access control works.
 

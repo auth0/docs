@@ -20,21 +20,6 @@ articles:
 
       - title: Deployment Models
         url: /getting-started/deployment-models
-      
-      # - title: The Implementation Process
-      #   url: /getting-started/the-implementation-process
-      
-      # - title: Hello World
-      #   url: /getting-started/hello-world
-
-      # - title: The Authentication Flow
-      #   url: /getting-started/the-authentication-flow
-        
-      # - title: FAQ
-      #   url: /getting-started/faq
-      
-      # - title: What's Next?
-      #   url: /getting-started/whats-next
 
       - title: Videos
         url: /videos
@@ -52,15 +37,63 @@ articles:
     children:
       - title: SSO for Regular Web Apps
         url: /architecture-scenarios/application/web-app-sso
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/web-app-sso/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/web-app-sso/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/web-app-sso/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/web-app-sso/part-4
 
       - title: Server Client + API
         url: /architecture-scenarios/application/server-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/server-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/server-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/server-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/server-api/part-4
 
       - title: SPA + API
         url: /architecture-scenarios/application/spa-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/spa-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/spa-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/spa-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/spa-api/part-4
 
       - title: Mobile + API
         url: /architecture-scenarios/application/mobile-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/mobile-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/mobile-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/mobile-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/mobile-api/part-4
 
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/application/web-saml
