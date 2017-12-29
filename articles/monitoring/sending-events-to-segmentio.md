@@ -1,70 +1,71 @@
 ---
 description: How to send events to segment.io from Auth0.
 ---
-# Sending events to segment.io from Auth0
+# Send Auth0 Events to Segment
 
-[Segment.io](http://segment.io/features) provides access to large number of anayltics services with a single, simple to use API.
+[Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
-This example shows how you can very easily connect Auth0 to __segment.io__ and stream `signup` and `login` events.
+This example shows how you can connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
 
-Implementing this with Auth0 is very easy, only taking a few lines of code.
+![](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
-![](/media/articles/tutorials/segment-io-dataflow.png)
+## How to Find Your Segment Write Key
 
-### 1. Recording a __SignUp__ or __Login__ event in segment.io:
+To configure this integration, you'll need your Segment **write key**. You can find this under **Settings** > **API**.
 
-This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume this is a `login` event, otherwise we assume a new `signup`. 
+![](/media/articles/monitoring/segment/segment-3.png)
 
-The `sendEvent` function is a simple wrapper around the __segment.io REST API__ which is trivial to call using the provided `request` module. Notice we are also sending some additional contextual information: the __IP address__ and __User Agent__ of the user.
+## Record Sign Up and Login Events in Segment
+
+To record Auth0 signup and login events and send the information to Segment, you will create a [rule](/rules) implementing Segment's Node.js library.
+
+::: note
+Be sure to add your **Write Key** to the [Global Configuration Object](/rules/current#using-the-configuration-object) prior to running your rule.
+:::
 
 ```js
 function(user, context, callback) {
+  var Analytics = require('analytics-node');
+  var analytics = new Analytics(configuration.WRITE_KEY, { flushAt: 1 });
 
-  if(user.signedUp){
-    sendEvent('login');
-  } else {
-    sendEvent('signup');  
-  }
-  
-  function sendEvent(e)
-  {
-    var sioTrack =  
-    {
-      secret: "YOUR SEGMENTIO SECRET",
+  // Note: Set { flushAt: 1 } and use analytics.flush to ensure
+  // the data is sent to Segment before the rule/Webtask terminates
+
+  // Identify your user
+  analytics.identify({
       userId: user.user_id,
-      event: e,
-      properties: {
-        application: context.clientName,
-        ip: context.ip,
-        agent: context.userAgent
-      },
-      context: {
-        "providers" : { "all": false }
-      }
-    };
-
-    request({
-      method: 'POST',
-      url: '  https://api.segment.io/v1/track',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(sioTrack),
-    }, 
-    function (err, response, body) {
-      if(err) return callback(err, user, context);
-      if(e === 'signup'){ user.persistent.signedUp = true; }
-      callback(null, user, context);
-    });
-  }
+      traits: {
+      email: user.email,
+      signed_up: user.created_at,
+      login_count: user.logins_count,
+      last_login: user.last_login,
+    },
+    "context": {
+      "userAgent": context.request.UserAgent,
+      "ip": context.request.ip
+    }
+  });
+  analytics.track({
+    userId: user.user_id,
+    event: 'Logged In',
+    properties: {
+      clientName: context.clientName,
+      clientID: context.clientID,
+      connection: context.connection
+    },
+    "context": {
+      "userAgent": context.request.UserAgent,
+      "ip": context.request.ip
+    }
+  });
+  analytics.flush(function(err, batch){
+    callback(null, user, context);
+  });
 }
 ```
 
-::: note
-Notice that if all calls are successful, we signal the user as signed up. So next time we record `login`.
-:::
+## Check Your Integration
 
-Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
+To see if your integration works, you can check the Segment Debugger to see if your Auth0 events are appearing:
 
-* Rules for access control
-* Integration with other services: [Firebase](http://firebase.com), [Rapleaf](http://rapleaf.com), [Parse](http://parse.com)
+![](/media/articles/monitoring/segment/segment-14.png)
