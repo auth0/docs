@@ -2,9 +2,9 @@
 
 An API is a way to expose functionality of your application to other applications. An application can make a request by sending a message to an endpoint on an API and receive information as a response.
 
-An API endpoint can be secured or not. In our case, since the timesheets are sensitive information that affect reviews and payments, it is important to ensure that only authorized users and applications can call the endpoints on our API. When a client application wants to access protected endpoints on an API it needs to present an access token as proof that it has the required permissions for making the call to the endpoint.
+An API endpoint can be secured or not. In our case, since the timesheets are sensitive information that affect reviews and payments, it is important to ensure that only authorized users and applications can call the endpoints on our API. When a client application wants to access protected endpoints on an API, it needs to present an access token as proof that it has the required permissions for making the call to the endpoint.
 
-An access token is obtained by authenticating the user with an Authorization Server and the user can then in turn authorize the application to access the API on their behalf.
+An access token is obtained by authenticating the user with an Authorization Server and the user can then, in turn, authorize the application to access the API on their behalf.
 
 ::: panel What is an Access Token?
 An access token (also referred to as `access_token`) is an opaque string representing an authorization issued to the client. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (for example, the user's identity, permissions, and so forth) in a verifiable manner.
@@ -14,11 +14,11 @@ It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt
 For more information on Auth0 Access Tokens refer to [Access Token](/tokens/access-token).
 :::
 
-An API can enforce fine grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
+An API can enforce fine-grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
 
 When a user authorizes a client application, the application can also indicate which permissions it requires. The user is then allowed to review and grant these permissions. These permissions are then included in the access token as part of the `scope` claim.
 
-Subsequently when the client passes along the access token when making requests to the API, the API can inspect the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint.
+Subsequently, when the client passes along the access token when making requests to the API, the API can inspect the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint.
 
 ::: panel What are Scopes?
 Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
