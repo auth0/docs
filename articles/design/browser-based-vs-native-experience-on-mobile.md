@@ -75,7 +75,7 @@ For instructions on implementing a native experience for your users, please see 
 * [Implementing Browser-Based Flows for iOS (Objective-C)](/quickstart/native/ios-objc/00-login)
 :::
 
-:::panel Samples for native login
+:::note
 If you are implementing a native login flow, you can find samples in the following GitHub repos:
 - [iOS Swift](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login)
 - [Android](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login)
