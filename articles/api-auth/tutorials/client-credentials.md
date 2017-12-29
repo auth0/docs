@@ -5,14 +5,14 @@ description: How to request tokens for your applications.
 
 <%= include('../../_includes/_pipeline2') %>
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 Before beginning this tutorial, please:
 
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
 
 ## Ask for a Token
 
