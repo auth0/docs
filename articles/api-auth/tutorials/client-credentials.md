@@ -10,6 +10,10 @@ Before beginning this tutorial, please:
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 ## Ask for a Token
 
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:

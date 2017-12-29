@@ -7,6 +7,10 @@ crews: crew-2
 
 <%= include('../../_includes/_pipeline2') %>
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 1. Open the Auth0 Management Dashboard and browse to the [Clients section](${manage_url}/#/clients).
 
 2. Click on **Create Client** to begin creating a new client for your application (if you have multiple applications needing access to the API, you'll need to create a client for *each* application). You'll be asked what type of client you'd like to create, so select **Non Interactive Clients**. Click **Create** to proceed.

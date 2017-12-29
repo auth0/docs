@@ -35,6 +35,10 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 For detailed steps on implementing the grant, please refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 ### Starter Code and Parameters
 
 After you've created a new Hook that uses the Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 

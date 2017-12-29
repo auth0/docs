@@ -8,6 +8,10 @@ crews: crew-2
 
 <%= include('../../_includes/_pipeline2') %>
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 If you do not want to use the Auth0 Dashboard to create a Resource Server or you need to create one programmatically, you can use our Management API v2.
 
 You will need the following:

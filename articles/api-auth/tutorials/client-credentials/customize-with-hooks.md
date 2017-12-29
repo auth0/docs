@@ -18,6 +18,10 @@ They are actually [Webtasks](https://webtask.io/), associated with specific exte
 
 You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). In this article we will see how you can do either.
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 ## Before you start
 
 Please ensure that:
