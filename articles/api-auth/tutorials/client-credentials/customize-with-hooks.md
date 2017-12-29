@@ -8,6 +8,10 @@ toc: true
 
 <%= include('../../../_includes/_pipeline2') %>
 
+::: warning
+The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
+:::
+
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the scopes and add custom claims to the tokens issued by Auth0.
 
 ## Overview
@@ -17,10 +21,6 @@ Hooks allow you to customize the behavior of Auth0 using Node.js code.
 They are actually [Webtasks](https://webtask.io/), associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
 You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). In this article we will see how you can do either.
-
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
 
 ## Before you start
 
