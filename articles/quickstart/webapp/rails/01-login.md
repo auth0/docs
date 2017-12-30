@@ -130,7 +130,7 @@ Create a file called `show.html.erb` to add the template for `show` action. Add 
   <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
   <h1>RoR Auth0 Sample</h1>
   <p>Step 1 - Login.</p>
-  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+  <a class="btn btn-success btn-lg" href="/auth/oauth2/callback">Login</a>
 </section>
 ```
 
