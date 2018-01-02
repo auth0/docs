@@ -211,7 +211,6 @@ authentication
 Password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
 
-
 ## Next Steps
 
 Take a look at the following resources to see how the Auth0.Android SDK can be customized for your needs:
