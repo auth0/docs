@@ -13,7 +13,7 @@ Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hos
 
 Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Note that Passwordless authentication **cannot be used** with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
 
-## Step 1 - Request the code
+## 1. Request the code
 
 In this example, requesting the code is done by calling `passwordlessWithEmail` with the user's email, `PasswordlessType.CODE`, and the name of the connection as parameters. On success, you may wish to display a notice to the user that their code is on the way, and perhaps route them to the view where they will input that code.
 
@@ -33,7 +33,7 @@ authentication
     });
 ```
 
-## Step 2 - Input the code
+## 2. Input the code
 
 Once the user has a code, they can input it. Call the `loginWithEmail` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
 

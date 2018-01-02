@@ -210,3 +210,16 @@ authentication
 ::: note
 Password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
+
+
+## Next Steps
+
+Take a look at the following resources to see how the Auth0.Android SDK can be customized for your needs:
+
+::: next-steps
+* [Auth0.Android Configuration Options](/libraries/auth0-android/configuration)
+* [Auth0.Android Database Authentication](/libraries/auth0-android/database-authentication)
+* [Auth0.Android Passwordless Authentication](/libraries/auth0-android/passwordless)
+* [Auth0.Android Refresh Tokens](/libraries/auth0-android/save-and-refresh-tokens)
+* [Auth0.Android User Management](/libraries/auth0-android/user-management)
+:::
