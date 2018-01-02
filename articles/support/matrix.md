@@ -270,6 +270,18 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 See the [Libraries](/libraries) page for more information about supported versions of Auth0's SDKs and the Lock widget.
 :::
 
+### Auth0 Lock Widgets
+
+<%= include('../_includes/_libraries_support_lock') %>
+
+### Auth0 SDKs
+
+<%= include('../_includes/_libraries_support_sdks') %>
+
+### Framework and Platform Integration SDKs
+
+<%= include('../_includes/_libraries_support_frameworks') %>
+
 ### Auth0 Analytics SDK
 
   <table class="table">

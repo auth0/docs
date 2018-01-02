@@ -1,0 +1,71 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th width="25%">SDK</th>
+        <th width="55%">Version</th>
+        <th width="20%">Level of Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://github.com/auth0/angular-auth0">Angular Auth0</a></td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/angular-lock">Angular Lock</a></td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-servlet">Auth0 Servlet</a></td>
+        <td>v3</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-spring-mvc">Auth0 Spring MVC</a></td>
+        <td>v1</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-spring-security-mvc">Auth0 Spring Security MVC</a></td>
+        <td>v1</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-spring-security-api">Auth0 Spring Security API</a></td>
+        <td>v1</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-aspnet-owin">Auth0 ASP.NET 4.5 Owin</a></td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-aspnet">Auth0 ASP.NET</a></td>
+        <td>v1</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
+        <td>v1</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/jwt-auth-bundle">JWT Auth Bundle</a></td>
+        <td>v3</td>
+        <td><div class="label label-default">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
+        <td>v1</td>
+        <td><div class="label label-default">Community</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/Auth0.WinformsWPF">Auth0 auth client for Winforms and WPF</a></td>
+        <td>v0.9</td>
+        <td><div class="label label-default">Community</div></td>
+      </tr>
+    </tbody>
+  </table>
