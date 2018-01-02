@@ -1,8 +1,8 @@
-## Before you start
+System Requirements: Angular 2+
 
-This guide walks you through setting up authentication and authorization in your ${library} apps with Auth0. If you are new to Auth0, check our [Overview](/overview). For a complete picture of authentication and authorization for all Single Page Applications, check our [SPA + API documentation](/architecture-scenarios/application/spa-api).
-
-Auth0 uses OAuth. If you want to learn more about the OAuth flows used by Single Page Applications, read about [Authentication for Client-side Web Apps](/application-auth/current/client-side-web).
+::: note
+**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/application-auth/current/client-side-web) it uses.
+:::
 
 <%= include('../../../_includes/_new_app') %>
 
