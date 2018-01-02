@@ -25,7 +25,7 @@ Currently, the following Auth0 features and flows support use of custom domains:
 * OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](https://auth0.com/docs/api/authentication#get-token) endpoints)
 * Guardian (Version 1.3.3 or later)
 * Emails (the links included in the emails will use your custom domain)
-* Database, Social, and Passwordless (One-Time Password variant only) connections
+* Database and Social connections
 
 
 ::: panel Token Issuance
@@ -188,5 +188,5 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
 
 2. **What about support for other features?**
   
-  We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless (Magic Link variant) connections.
+  We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
 
