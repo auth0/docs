@@ -52,47 +52,8 @@ The Lock widget for each platform has detailed reference documentation.
 
 Below are the GitHub links and support status for the various Lock widgets.
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="25%">Library</th>
-        <th width="55%">Version</th>
-        <th width="20%">Level of Support</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://github.com/auth0/lock">Lock.js</a></td>
-        <td>v10</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v9</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Lock.Android">Lock.Android</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v1</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Lock.swift">Lock for iOS v2</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Lock.swift/tree/v1">Lock for iOS v1</a></td>
-        <td>v1</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
-      </tr>
-    </tbody>
-  </table>
+<%= include('../../../_includes/_libraries_support_lock') %>
+
 
 ## Auth0 SDKs
 
@@ -121,141 +82,13 @@ The most commonly used SDKs have reference documentation.
 
 Below are listed all of the SDKs that are available for Auth0, with GitHub links and their support status.
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="25%">SDK</th>
-        <th width="55%">Version</th>
-        <th width="20%">Level of Support</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0.js">Auth0.js</a></td>
-        <td>v8</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v7</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0.Swift">Auth0 Swift</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0.net">Auth0 .NET</a></td>
-        <td>v4</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr class="light-top-border">
-        <td></td>
-        <td>v3</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0-java">Auth0 Java</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/node-auth0">Auth0 Node</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-python">Auth0 Python</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-php">Auth0 PHP</a></td>
-        <td>v5</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-    </tbody>
-  </table>
+<%= include('../../../_includes/_libraries_support_sdks') %>
+
 
 ### Framework/Platform Integration SDK Support Table
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="25%">SDK</th>
-        <th width="55%">Version</th>
-        <th width="20%">Level of Support</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://github.com/auth0/angular-auth0">Angular Auth0</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/angular-lock">Angular Lock</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-servlet">Auth0 Servlet</a></td>
-        <td>v3</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-spring-mvc">Auth0 Spring MVC</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-spring-security-mvc">Auth0 Spring Security MVC</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-spring-security-api">Auth0 Spring Security API</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-aspnet-owin">Auth0 ASP.NET 4.5 Owin</a></td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-aspnet">Auth0 ASP.NET</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
-        <td>v1</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/jwt-auth-bundle">JWT Auth Bundle</a></td>
-        <td>v3</td>
-        <td><div class="label label-default">Supported</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
-        <td>v1</td>
-        <td><div class="label label-default">Community</div></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/auth0/Auth0.WinformsWPF">Auth0 auth client for Winforms and WPF</a></td>
-        <td>v0.9</td>
-        <td><div class="label label-default">Community</div></td>
-      </tr>
-    </tbody>
-  </table>
+<%= include('../../../_includes/_libraries_support_frameworks') %>
+
 
 ::: note
 Auth0 reserves the right to downgrade support for an SDK to Community-Supported at any time.
