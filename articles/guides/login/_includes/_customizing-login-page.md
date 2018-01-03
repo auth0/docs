@@ -1,6 +1,6 @@
-## Customizing the Centralized Login Page
+## Customizing the Universal Login Page
 
-When you integrate centralized login in your application, you redirect the user to the `/authorize` endpoint of your Auth0 tenant. If Auth0 needs to authenticate the user, it will show the default login page.
+When you integrate universal login in your application, you redirect the user to the `/authorize` endpoint of your Auth0 tenant. If Auth0 needs to authenticate the user, it will show the default login page.
 
 You can enable a custom Hosted Login Page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
 

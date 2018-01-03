@@ -8,7 +8,7 @@ toc: true
 
 Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-Using custom domains with centralized login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [centralized login and customizing the hosted login pages](/hosted-pages/login).
+Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login and customizing the hosted login pages](/hosted-pages/login).
 
 ::: warning
 Custom Domains is a beta feature available only for paying public-cloud tenants [with their environment tag set as **Development**](/dev-lifecycle/setting-up-env).
