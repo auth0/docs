@@ -17,7 +17,7 @@ budicon: 448
 
 ## Add Token Renewal
 
-To the `AuthService` service, Add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```typescript
 // src/app/auth/auth.service.ts
