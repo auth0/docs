@@ -11,7 +11,7 @@ Some extensions, such as the [Authorization Extension](/extensions/authorization
 Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a dedicated domain. This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).
 
 ::: note
-If you do not use Webtask or [Web Extensions](/appliance/extensions), you do not need to implement Webtask dedicated domains.
+If you do not use Webtask or [Extensions](/appliance/extensions), you do not need to implement Webtask dedicated domains.
 :::
 
 ## Background
