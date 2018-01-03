@@ -15,24 +15,15 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '3000' }) %>
-
 ## Add Token Renewal
 
-To the `app.js` file, add a function that calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
-
-The function loads your silent callback page in an invisible `iframe`. Then, the function makes a call to Auth0 and gives back the result.
+To the `app.js` file, add a function that calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
 // app.js
 
-function renewToken() {
-  webAuth.renewAuth(
-    {
-      audience: '{YOUR_API_IDENTIFIER}',
-      redirectUri: 'http://localhost:3001/silent',
-      usePostMessage: true
-    },
+function checkSession() {
+  webAuth.checkSession({},
     function(err, result) {
       if (err) {
         console.log(err);
