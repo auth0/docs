@@ -198,6 +198,7 @@ Take a look at the following resources to see how the Auth0.Swift SDK can be cus
 ::: next-steps
 * [Auth0.Swift Database Authentication](/libraries/auth0-swift/database-authentication)
 * [Auth0.Swift Passwordless Authentication](/libraries/auth0-swift/passwordless)
-* [Auth0.Swift Refresh Tokens](/libraries/auth0-swift/save-and-refresh-tokens)
+* [Auth0.Swift Refresh Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
 * [Auth0.Swift User Management](/libraries/auth0-swift/user-management)
+* [Auth0.Swift TouchID Authentication](/libraries/auth0-swift/touchid-authentication)
 :::
