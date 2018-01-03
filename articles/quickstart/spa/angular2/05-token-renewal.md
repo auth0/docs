@@ -15,25 +15,15 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '3000' }) %>
-
-
 ## Add Token Renewal
 
-To the `AuthService` service, Add a method which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
-
-The method loads your silent callback page in an invisible `iframe`. Then, the method makes a call to Auth0 and gives back the result. 
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```typescript
 // src/app/auth/auth.service.ts
 
 public renewToken() {
-  this.auth0.renewAuth({
-    audience: '${apiIdentifier}',
-    redirectUri: 'http://localhost:3001/silent',
-    usePostMessage: true,
-    postMessageOrigin: 'http://localhost:3001'
-  }, (err, result) => {
+  this.auth0.checkSession({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
