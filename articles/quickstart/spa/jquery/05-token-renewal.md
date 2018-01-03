@@ -22,7 +22,7 @@ To the `app.js` file, add a function that calls the `checkSession` method from a
 ```js
 // app.js
 
-function checkSession() {
+function renewToken() {
   webAuth.checkSession({},
     function(err, result) {
       if (err) {
