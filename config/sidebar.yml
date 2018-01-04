@@ -733,6 +733,18 @@ libraries:
       - title: "Overview"
         url: "/libraries/auth0-android"
 
+      - title: "Configuration"
+        url: "/libraries/auth0-android/configuration"
+
+      - title: "Database Authentication"
+        url: "/libraries/auth0-android/database-authentication"
+
+      - title: "User Management"
+        url: "/libraries/auth0-android/user-management"
+
+      - title: "Passwordless"
+        url: "/libraries/auth0-android/passwordless"
+
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"
 
