@@ -13,7 +13,7 @@ Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hos
 
 Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. 
 
-Note that Passwordless authentication **cannot be used** with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
+Note that Passwordless authentication **cannot be used** with the [OIDC Conformant Mode](/api-auth/intro) enabled.
 
 ## 1. Request the code
 
