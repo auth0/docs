@@ -37,13 +37,15 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 For most situations, we recommend using a a centralized login strategy, where Auth0 will show the [Hosted Login Page (HLP)](/hosted-pages/login) if an authentication is required. You can enable and customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
+You can use **Auth0's Custom Domains** in order to persist the same domain across the centralized login page and the app. This way the redirect to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
+
 Whenever your app triggers an authentication request, the user will be redirected to the HLP in order to authenticate. This will create a cookie so in future authentication requests, Auth0 will check for this cookie and if present the user will not be redirected to the HLP. They will see the page only when they need to actually log in. That's the easiest way to implement SSO.
 
 Note that if the incoming authentication request uses an external identity provider (for example, Facebook), the HLP will not be displayed. Instead, Auth0 will direct the user to the identity provider's login page.
 
+::: note
 You can deploy your custom login page from an external repository, like [GitHub](/extensions/github-deploy#deploy-hosted-pages), [Bitbucket](/extensions/bitbucket-deploy#deploy-hosted-pages), [GitLab](/extensions/gitlab-deploy#deploy-hosted-pages), or [Visual Studio Team Services](/extensions/visual-studio-team-services-deploy#deployment).
-
-In addition, with **Auth0's Custom Domains** you can persist the same domain across the centralized login page and the app. For more details refer to [Custom Domains Overview](/custom-domains).
+:::
 
 Our recommendation is to use centralized logins, and Hosted Login Pages in particular when you use Auth0. The first and foremost reason is security. Using Auth0 hosted pages instead of hosting them externally provides seamless CSRF protection. This helps prevent third-party impersonation or the hijacking of sessions.
 
@@ -76,6 +78,5 @@ Furthermore, according to the [Internet Engineering Task Force (IETF)](https://w
 - [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile)
 - [Authentication Provider Best Practices: Centralized Login](https://auth0.com/blog/authentication-provider-best-practices-centralized-login/)
 - [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/)
-- [Cross-Origin Authentication](/cross-origin-authentication)
-- [Hosted Login Pages](/hosted-pages/login)
+- [Modernizing OAuth interactions in Native Apps for Better Usability and Security](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)
 :::
