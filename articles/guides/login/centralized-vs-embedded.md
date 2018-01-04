@@ -37,7 +37,7 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 For most situations, we recommend using a a centralized login strategy, where Auth0 will show the [Hosted Login Page (HLP)](/hosted-pages/login) if an authentication is required. You can enable and customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
-You can use **Auth0's Custom Domains** in order to persist the same domain across the centralized login page and the app. This way the redirection to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
+You can use **Auth0's Custom Domains** in order to persist the same domain across the centralized login page and the app. This way the redirect to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
 
 Whenever your app triggers an authentication request, the user will be redirected to the HLP in order to authenticate. This will create a cookie so in future authentication requests, Auth0 will check for this cookie and if present the user will not be redirected to the HLP. They will see the page only when they need to actually log in. That's the easiest way to implement SSO.
 
