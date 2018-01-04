@@ -12,11 +12,17 @@ You can use a client on another Auth0 tenant (referred to below as the **OIDC Pr
 
 ## Configure the OIDC Provider Auth0 Tenant
 
-1. Create a Client or edit an existing one.
+1. Create a Client or edit an existing one. Set the client type to regular web app.
 2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the Relying Party tenant.
 3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
 ![](/media/articles/connections/social/auth0-oidc/child-app.png)
+
+4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the client's **Advance Settings** is turned **off**.
+
+::: note
+The requirement for the **OIDC-Conformant** toggle to be **off** is a temporary requirement that will be removed in the future.
+:::
 
 ## Configure the Relying Party Auth0 Tenant
 
