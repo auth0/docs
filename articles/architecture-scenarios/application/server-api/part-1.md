@@ -50,9 +50,7 @@ Using different grants types (or flows), these participants will interact to gra
 
 ## Client Credentials Grant
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../../_includes/_client-credentials-warning') %>
 
 OAuth 2 provides several *grant types* for different use cases. In this particular use case where a cron job will be uploading timesheets via an API, there is no interactive user (or resource owner) who grants permission to the cron job to access the API.
 
