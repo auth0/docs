@@ -5,9 +5,7 @@ description: How to request tokens for your applications.
 
 <%= include('../../_includes/_pipeline2') %>
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../_includes/_client-credentials-warning') %>
 
 Before beginning this tutorial, please:
 
