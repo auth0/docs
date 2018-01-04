@@ -8,9 +8,7 @@ toc: true
 
 <%= include('../../../_includes/_pipeline2') %>
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../../_includes/_client-credentials-warning') %>
 
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the scopes and add custom claims to the tokens issued by Auth0.
 
