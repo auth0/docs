@@ -100,7 +100,7 @@ Where:
 
 ### Update the login page
 
-If you use or would like to use an Auth0 [Hosted Login Page](/hosted-pages/login) with the Dynamic Client feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
+If you use or would like to use an Auth0's [universal login](/hosted-pages/login) with the Dynamic Client feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
 
 Sample script:
 

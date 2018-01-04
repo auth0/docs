@@ -3,11 +3,11 @@ description: How to Use the Auth0.js with the Hosted Login Page
 ---
 # Using Auth0.js in the Hosted Login Page
 
-Within the Hosted Login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
+Within the Hosted Login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js in addition to Lock, for authentication or user management tasks).
 
-## Auth0.js template for Hosted Login Page
+## Auth0.js Template for Hosted Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js in the Hosted Login Page. 
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in your universal login page. 
 
 In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
 
@@ -15,7 +15,7 @@ At the top of the code editor for the page contents, you'll see a dropdown, titl
 
 Choose `Custom UI` to get started.
 
-![Hosted Login Page](/media/articles/hosted-pages/hlp-customui.png)
+![Login Page](/media/articles/hosted-pages/hlp-customui.png)
 
 The template showcases using Auth0.js to allow users to sign up, log in with a database connection, or login with a social provider (Google, in this example).
 
@@ -25,7 +25,7 @@ Additionally, you can take a look at the following example scenario using Auth0.
 
 With [passwordless authentication](/connections/passwordless), the user is prompted to enter an email or an SMS number, at which they will receive a one-time code to enter, or a "magic link" to click, which will authenticate them. In this example, the user will enter an email, and receive a one-time code.
 
-For this example, replace the code in your Hosted Login Page editor with the following template:
+For this example, replace the code in the login page editor with the following template:
 
 ```html
 <!DOCTYPE html>
@@ -173,9 +173,9 @@ This should allow you to prompt your users to enter their email address, receive
 
 ## Next Steps
 
-Are you looking for more information about the SDK used here, or about Passwordless authentication? Or are you ready to get started with your own Hosted Login Page?
+Are you looking for more information about the SDK used here, or about Passwordless authentication? Or are you ready to get started implementing universal login?
 
 ::: next-steps
 * [Read more About the Auth0.js SDK](/libraries/auth0js)
-* [Get Started on Your Own Hosted Login Page](${manage_url}/#/login_page)
+* [Get Started with Universal Login](${manage_url}/#/login_page)
 :::

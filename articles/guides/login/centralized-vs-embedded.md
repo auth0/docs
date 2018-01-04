@@ -39,13 +39,13 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 ## Universal login with Auth0
 
-For most situations, we recommend using a a universal login strategy, where Auth0 will show the [Hosted Login Page (HLP)](/hosted-pages/login) if an authentication is required. You can enable and customize your login page using the [Dashboard](${manage_url}/#/login_page).
+For most situations, we recommend using a a universal login strategy, where Auth0 will show a [login page](/hosted-pages/login) if authentication is required. You can customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
-You can use **Auth0's Custom Domains** in order to persist the same domain across the centralized login page and the app. This way the redirect to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
+You can use **Auth0's Custom Domains** in order to persist the same domain across the universal login page and the app. This way the redirect to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
 
-Whenever your app triggers an authentication request, the user will be redirected to the HLP in order to authenticate. This will create a cookie so in future authentication requests, Auth0 will check for this cookie and if present the user will not be redirected to the HLP. They will see the page only when they need to actually log in. That's the easiest way to implement SSO.
+Whenever your app triggers an authentication request, the user will be redirected to the login page in order to authenticate. This will create a cookie. In future authentication requests, Auth0 will check for this cookie, and if it is present the user will not be redirected to the login page. They will see the page only when they need to actually log in. This is the easiest way to implement SSO.
 
-Note that if the incoming authentication request uses an external identity provider (for example, Facebook), the HLP will not be displayed. Instead, Auth0 will direct the user to the identity provider's login page.
+Note that if the incoming authentication request uses an external identity provider (for example, Facebook), the login page will not be displayed. Instead, Auth0 will direct the user to the identity provider's login page.
 
 ::: note
 You can deploy your custom login page from an external repository, like [GitHub](/extensions/github-deploy#deploy-hosted-pages), [Bitbucket](/extensions/bitbucket-deploy#deploy-hosted-pages), [GitLab](/extensions/gitlab-deploy#deploy-hosted-pages), or [Visual Studio Team Services](/extensions/visual-studio-team-services-deploy#deployment).

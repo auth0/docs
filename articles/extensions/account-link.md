@@ -18,15 +18,15 @@ The extension will create a new **Client** named `auth0-account-link` to use int
 
 ### Changing the Client Name
 
-We recommend changing the default client used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Hosted Login Page** when they authenticate their primary account.
+We recommend changing the name of the default client used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Login Page** when they authenticate their primary account.
 
-### Updating the Hosted Login Page
+### Updating the Login Page
 
-By default, Auth0's **Hosted Login Page** allows a user to sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option is confusing for users and could leave them in an unexpected state. 
+By default, Auth0's [universal login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
 
-To prevent this, we send over a query parameter to let the **Hosted Login Page** know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the **Hosted Login Page**.
+To prevent this, we send over a query parameter to let the **Hosted Login Page** know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the **Login Page**.
 
-First go to your dashboard and click on **Hosted Pages**. It should open to the **Login Page** by default. 
+First go to your [Dashboard](${manage_url}) and click on **Hosted Pages**. It should open to the **Login Page** by default. 
 
 If it is not already enabled, toggle the **Customize Login Page** to enable the custom editor below. In the editor we're going to add a new line to the Lock config.
 
@@ -36,7 +36,7 @@ Toward the bottom of the object configuring the Lock widget, add the following l
 allowSignUp: !config.extraParams.prevent_sign_up,
 ```
 
-![Updating the Hosted Page](/media/articles/extensions/account-link/hosted-page-code.png)
+![Updating the Login Page](/media/articles/extensions/account-link/hosted-page-code.png)
 
 Then save your changes and attempt to link an account. You'll notice that the **Sign Up** option is no longer present and your users are safe from an extra level of confusion.
 
@@ -54,7 +54,7 @@ At installation, or any time after by clicking the **Settings** icon for the Acc
 This feature is available in version 2.0 and up.
 :::
 
-You can customize your account linking hosted page and widget using the extension administration panel. 
+You can customize your account linking login page and widget using the extension administration panel. 
 
 Go to **Dashboard > Extensions > Installed Extensions > Auth0 Account Link**.
 

@@ -5,7 +5,7 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 ---
 # Cross-Origin Authentication
 
-For most situations, Auth0 recommends that authentication transactions be handled at the [Hosted Login Page](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
+For most situations, Auth0 recommends that authentication transactions be handled via [universal login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
 ## What is Cross-Origin Authentication? 
 
@@ -22,12 +22,11 @@ Cross-origin authentication is only necessary when authenticating against a dire
 Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail. 
 
 There are two approaches you can follow to remediate the issue:
+
 - Enable [Custom Domains](/custom-domains) and host your web application in a domain that has the same top level domain as the Auth0 custom domain. This way the cookies are no longer third-party and are not blocked by browsers.
 - Provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
 
-Additionally, cross-origin authentication is only enabled for [first-party clients](/clients/client-types#first-party-client).
-
-These issues are another reason why the more practical solution is to use the [Hosted Login Page](/hosted-pages/login).
+These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
 
 ## Configure Your Client for Cross-Origin Authentication
 

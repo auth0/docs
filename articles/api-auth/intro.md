@@ -82,7 +82,7 @@ To customize the tokens, use Hooks for Client Credentials, and Rules for the res
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, users must be redirected to an Auth0-hosted login page and redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to an Auth0-hosted login page and redirected to your application once authentication is complete.
 
 ::: note
   Support for SSO from client applications is planned for a future release.
