@@ -3,7 +3,6 @@ section: libraries
 classes: topic-page
 title: Auth0 Libraries
 description: Overview of the Auth0 Libraries and SDKs
-toc: true
 ---
 
 <div class="topic-page-header">
