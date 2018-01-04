@@ -50,7 +50,7 @@ Whenever you need to determine the user's SSO status, you'll need to check the f
 * The Auth0 `accessToken`, which is used to access the desired resource
 * The `expirationDate` on the `accessToken`, which is calculated using the `expires_in` response parameter after successful authentication on the part of the user
 
-If you don't have a valid `accessToken`, the user is **not** logged in. However, they may be logged in via SSO to another associated application. You can determine if this is the case or not by calling the `renewAuth` method of the auth0.js library, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
+If you don't have a valid `accessToken`, the user is **not** logged in. However, they may be logged in via SSO to another associated application. You can determine if this is the case or not by calling the `checkSession` method of the auth0.js SDK, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
 
 For more detailed information on how to implement this, please refer to [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso).
 
