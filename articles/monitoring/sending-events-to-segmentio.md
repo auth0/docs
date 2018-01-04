@@ -1,5 +1,5 @@
 ---
-description: How to send events to segment.io from Auth0.
+description: How to send events to segment.io from Auth0
 ---
 # Send Auth0 Events to Segment
 
@@ -7,20 +7,20 @@ description: How to send events to segment.io from Auth0.
 
 This example shows how you can connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
 
-![](/media/articles/monitoring/segment/segment-io-dataflow.png)
+![Segment Flow](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
-## How to Find Your Segment Write Key
+## Find your Segment Write Key
 
-To configure this integration, you'll need your Segment **write key**. You can find this under **Settings** > **API**.
+To configure this integration, you'll need your Segment **Write Key**. You can find this under **Settings** > **API**.
 
-![](/media/articles/monitoring/segment/segment-3.png)
+![Segment API Keys](/media/articles/monitoring/segment/segment-3.png)
 
-## Record Sign Up and Login Events in Segment
+## Record sign up and login events
 
 To record Auth0 signup and login events and send the information to Segment, you will create a [rule](/rules) implementing Segment's Node.js library.
 
 ::: note
-Be sure to add your **Write Key** to the [Global Configuration Object](/rules/current#using-the-configuration-object) prior to running your rule.
+Be sure to add your **Write Key** to the [Global Configuration Object](/rules#using-the-configuration-object) prior to running your rule.
 :::
 
 ```js
@@ -64,8 +64,8 @@ function(user, context, callback) {
 }
 ```
 
-## Check Your Integration
+## Check your integration
 
-To see if your integration works, you can check the Segment Debugger to see if your Auth0 events are appearing:
+To see if your integration works, you can check the Segment Debugger to see if your Auth0 events are appearing.
 
-![](/media/articles/monitoring/segment/segment-14.png)
+![Segment Debugger](/media/articles/monitoring/segment/segment-14.png)
