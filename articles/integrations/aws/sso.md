@@ -112,7 +112,7 @@ For more information on roles and policies, see [Creating IAM Roles](http://docs
 function (user, context, callback) {
 
   user.awsRole = 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::951887872838:saml-provider/MyAuth0';
-  user.awsRoleSession = 'eugeniop';
+  user.awsRoleSession = user.name;
 
   context.samlConfiguration.mappings = {
     'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
