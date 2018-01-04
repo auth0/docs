@@ -2,7 +2,8 @@
 section: libraries
 classes: topic-page
 title: Auth0 Libraries
-description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
+description: Overview of the Auth0 Libraries and SDKs
+toc: true
 ---
 
 <div class="topic-page-header">
@@ -21,9 +22,9 @@ You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_pa
 
 If the Hosted Login Page does not meet your requirements, however, Auth0 has a variety of options which can be embedded in your applications to assist with authentication.
 
-* [Lock](#lock-login-signup-widgets) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
-* [Auth0 SDKs](#auth0-sdks) are client-side libraries that *do not* come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
-* The [Authentication API](/api-auth) can be used to integrate applications with Auth0 without requiring the use of Auth0's libraries.
+* [Lock](#lock) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
+* [Auth0 SDKs](#auth0-sdks) are client-side libraries that do not come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
+* The [Authentication API](/api/authentication) can be used to integrate applications with Auth0 without using any of the Auth0's libraries.
 
 The best option to choose will depend on the needs of your app. Check out [When to Use Lock](/libraries/when-to-use-lock) for more information to help you decide between using Lock or an SDK.
 
