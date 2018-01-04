@@ -65,17 +65,14 @@ For an overview of RFC 8252, refer to [OAuth 2.0 Best Practices for Native Apps]
 
 There are upsides and downsides to using either a browser-based or native login flow on mobile devices, but regardless of which option you choose, Auth0 supports either.
 
-## Keep reading
+## Implementation examples
 
-For instructions on implementing a native experience for your users, please see the final sections of these three articles.
+You can find instructions on how to implement a browser-based login flow in our Quickstarts:
+- [iOS (Swift)](/quickstart/native/ios-swift/00-login)
+- [Android](/quickstart/native/android/00-login)
+- [iOS (Objective-C)](/quickstart/native/ios-objc/00-login)
 
-::: next-steps
-* [Implementing Browser-Based Flows for iOS (Swift)](/quickstart/native/ios-swift/00-login)
-* [Implementing Browser-Based Flows for Android](/quickstart/native/android/00-login)
-* [Implementing Browser-Based Flows for iOS (Objective-C)](/quickstart/native/ios-objc/00-login)
-:::
-
-<br/>
-::: note
-If you are implementing a native login flow, you can find samples in the following GitHub repos: [iOS Swift](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login), [Android](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login), or [iOS Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample).
-:::
+For native login flows, you can find samples in the following GitHub repos:
+- [iOS Swift](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login)
+- [Android](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login)
+- [iOS Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample)
