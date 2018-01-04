@@ -163,13 +163,15 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Id_token Validation
+## Id Token Validation
 
-When the `id_token` signature method is HS256, auth0.js will call the [/userinfo](/api/authentication#get-user-info) endpoint to retrieve user information and populate the idTokenPayload that is send to the 'parseHash' callback function.
+When the `id_token` signature method is HS256, auth0.js cannot validate the token, as it does not have the secret key. To populate the `idTokenPayload` property in the `parseHash` callback, it will call the [/userinfo](/api/authentication#get-user-info) endpoint to retrieve user information.
 
-If the `id_token` is signed with RS256, auth0.js will validate the token, decode it, and populate the idTokenPayload with the decoded data.
+If the `id_token` is signed with RS256, auth0.js will validate the token, decode it, and populate the `idTokenPayload` with the decoded data.
 
+:::note
 We recommend that you use RS256 for signing tokens in Single Page Applications.
+:::
 
 ### Switching from HS256 to RS256
 
