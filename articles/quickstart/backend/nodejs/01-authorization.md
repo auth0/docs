@@ -83,6 +83,18 @@ This example uses the `read:messages` scope.
 
 ## Protect Individual Endpoints
 
+To protect an individual route that requires a valid JWT, set up the express-jwt-authz middleware.
+
+```js
+// server.js
+
+app.get('/api/private', checkJwt, function(req, res) {
+  res.json({
+    message: 'Hello from a private endpoint! You need to be authenticated to see this.'
+  });
+});
+```
+
 You can configure individual routes to look for a particular scope. To achieve that, set up another middleware with the express-jwt-authz package. Provide an array of the required scopes and apply the middleware to any routes you want to add authorization to.
 
 Pass the `checkJwt` and `checkScopes` middlewares to the route you want to protect.
@@ -92,9 +104,9 @@ Pass the `checkJwt` and `checkScopes` middlewares to the route you want to prote
 
 const checkScopes = jwtAuthz([ 'read:messages' ]);
 
-app.get('/api/private', checkJwt, checkScopes, function(req, res) {
-  res.json({ 
-    message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this." 
+app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
+  res.json({
+    message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'
   });
 });
 ```
