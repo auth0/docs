@@ -83,20 +83,42 @@ const validateUser = (decoded, request, callback) => {
   // exists in the access token. Modify it to suit
   // the needs of your application
   if (decoded && decoded.sub) {
-    return callback(null, true, {
-      scope: decoded.scope.split(' ')
-    });
+    if (decoded.scope)
+      return callback(null, true, {
+        scope: decoded.scope.split(' ')
+      });
+
+    return callback(null, true);
   }
 
   return callback(null, false);
-}
+};
 ```
 
 When a valid JWT access token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
 
 ## Protect Individual Endpoints
 
-The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`.
+The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`. To protect a route requiring a valid JWT you can pass `auth: 'jwt'`.
+
+```js
+// server.js
+
+// ...
+
+server.route({
+    method: 'GET',
+    path: '/api/private',
+    config: {
+      auth: 'jwt',
+      handler: (req, res) => {
+        res({
+          message: 'Hello from a private endpoint! You need to be authenticated to see this.'
+        });
+      }
+    }
+  });
+```
 
 <%= include('../_includes/_api_scope_description') %>
 
@@ -109,13 +131,15 @@ Individual routes can be configured to look for a particular `scope` in the `acc
 
 server.route({
   method: 'GET',
-  path: '/api/private',
+  path: '/api/private-scoped',
   config: {
     auth: {
       scope: 'read:messages'
     },
     handler: (req, res) => {
-      res({ message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this." });
+      res({
+        message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'
+      });
     }
   }
 });
