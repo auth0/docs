@@ -7,9 +7,7 @@ crews: crew-2
 
 <%= include('../../_includes/_pipeline2') %>
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../_includes/_client-credentials-warning') %>
 
 1. Open the Auth0 Management Dashboard and browse to the [Clients section](${manage_url}/#/clients).
 
