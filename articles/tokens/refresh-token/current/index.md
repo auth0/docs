@@ -198,6 +198,10 @@ The possible responses are:
 | 400 | The required parameters were not sent in the request (`"error": "invalid_request"`). |
 | 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
+::: note
+For prudence, revoking a token with the API also invalidates the user's grant to the application. This will cause other refresh tokens issued for the same application and user to stop working as well.
+:::
+
 ### Use the Dashboard
 
 When you revoke a refresh token using the dashboard, you have to revoke the user's authorized access to the application that issued the token. This renders the refresh token useless.
