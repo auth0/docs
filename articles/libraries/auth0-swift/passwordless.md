@@ -3,7 +3,7 @@ section: libraries
 toc: true
 description: Using Auth0.Swift in Passwordless mode
 ---
-# Passwordless
+# Passwordless Authentication with Auth0.Swift
 
 ::: warning
 This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types).
@@ -13,14 +13,14 @@ Passwordless authentication allows users to login using only an email address or
 
 ## How Passwordless works
 
-Passwordless requires two steps.
+Passwordless requires two steps:
 
-1. Requesting the code
-2. Input the code. 
+1. Request the code
+2. Input the code
 
 When using links, the same thing happens, but in a slightly different way, because the user does not have to input a code themselves. The code is included in the URL.
 
-**Step 1:** Request the code
+### Step 1: Request the code
 
 In this example, requesting the code is done by calling `startPasswordless` with the user's email, and the type of connection. The `type` parameter will default to `Code`. On success, you'll probably display a notice to the user that their code is on the way, and perhaps route them to a view to input that code.
 
@@ -38,7 +38,7 @@ Auth0
    }
 ```
 
-**Step 2:** Input the code
+### Step 2: Input the code
 
 Once the user has a code, they can input it. Call the `login` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
 
