@@ -40,9 +40,9 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 4. Test the custom authorizer locally.
 
-a. First, obtain a valid JWT access token. There are [multiple methods by which you can obtain an access token](https://auth0.com/docs/api-auth/which-oauth-flow-to-use), and the method you choose depends on your client's type, trust level, or overall end-user experience.
+a. First, obtain a valid JWT access token. There are multiple methods by which you can get one, and the method you choose depends on your client's type, trust level, or overall end-user experience. For details refer to [How to get an access token](/tokens/access-token#how-to-get-an-access-token).
 
-b. Once you've obtained a token, create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
+b. Create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 
 To get the `methodArn`:
 
