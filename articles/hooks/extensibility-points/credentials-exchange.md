@@ -35,9 +35,7 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 For detailed steps on implementing the grant, please refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../_includes/_client-credentials-warning') %>
 
 ### Starter Code and Parameters
 
