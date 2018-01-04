@@ -6,9 +6,7 @@ title: Client Credentials exchange
 
 <%= include('./_about.md') %>
 
-::: warning
-The Client Credentials Grant is only available to subscribers with enterprise plans. Please [contact sales](https://auth0.com/?contact=true) for additional information.
-:::
+<%= include('../../../_includes/_client-credentials-warning') %>
 
 The [Client Credentials exchange](/api-auth/grant/client-credentials) allows clients to authenticate as themselves (i.e. not on behalf of any user) to programmatically and securely obtain access to an API.
 
