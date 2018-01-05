@@ -247,5 +247,3 @@ urlpatterns = [
     url(r'^', include('auth0authorization.urls'))
 ]
 ```
-
-<%= include('../_includes/_call_api') %>
