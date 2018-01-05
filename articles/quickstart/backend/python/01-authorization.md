@@ -205,5 +205,3 @@ def secured_private_ping():
         "desciption": "You don't have access to this resource"
     }, 403)
 ```
-
-<%= include('../_includes/_call_api') %>

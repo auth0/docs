@@ -13,3 +13,4 @@ snippets:
   use: server-apis/python/use
 articles:
   - 01-authorization
+  - 02-using
