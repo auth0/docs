@@ -49,6 +49,7 @@ const express = require('express');
 const app = express();
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
+const jwtAuthz = require('express-jwt-authz');
 
 // Authentication middleware. When used, the
 // access token must exist and be verified against
