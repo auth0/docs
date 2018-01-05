@@ -32,7 +32,7 @@ This document covers examples of OAuth 1.0/2.0 Connections that you can create b
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"name\": \"digitalocean\", \"strategy\": \"oauth2\", \"options\": { \"client_id\": \"YOUR-DIGITAL-OCEAN-CLIENT-ID\", \"client_secret\": \"YOUR-DIGITAL-OCEAN-CLIENT-SECRET\", \"authorizationURL\": \"https://cloud.digitalocean.com/v1/oauth/authorize\", \"tokenURL\": \"https://cloud.digitalocean.com/v1/oauth/token\", \"scope\": [\"read\"], \"scripts\": { \"fetchUserProfile\": \"function(accessToken, ctx, cb) { request.get('https://api.digitalocean.com/v2/account', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b).account; profile.user_id = profile.uuid; cb(null, profile); });}"
+		"text": "{ \"name\": \"digitalocean\", \"strategy\": \"oauth2\", \"options\": { \"client_id\": \"YOUR-DIGITAL-OCEAN-CLIENT-ID\", \"client_secret\": \"YOUR-DIGITAL-OCEAN-CLIENT-SECRET\", \"authorizationURL\": \"https://cloud.digitalocean.com/v1/oauth/authorize\", \"tokenURL\": \"https://cloud.digitalocean.com/v1/oauth/token\", \"scope\": [\"read\"], \"scripts\": { \"fetchUserProfile\": \"function(accessToken, ctx, cb) { request.get('https://api.digitalocean.com/v2/account', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b).account; profile.user_id = profile.uuid; cb(null, profile); });}}}}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
