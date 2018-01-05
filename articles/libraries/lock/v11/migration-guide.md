@@ -47,6 +47,12 @@ The documents below describe all the changes that you should be aware of when mi
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 :::
 
+## Disabling Legacy Lock API
+
+After you update to Lock 11 and Auth0.js v9, it is advised that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the API is no longer available, so you can make sure you completed the required changes successfully. You can find the setting in the [Advanced section](https://manage.auth0.com/#/tenant/advanced) of Tenant Settings.
+
+![Allowed Web Origins](/media/articles/libraries/lock/legacy-lock-api-off.png)
+
 ## Troubleshooting
 
 If Lock takes a lot of time to display the login options, it's because the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property is not correctly set. Please set it and try again.
