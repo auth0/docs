@@ -5,7 +5,6 @@ image: /media/connections/auth0.png
 description: You can use a Client on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
 toc: true
 ---
-
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
 You can use a client on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
@@ -13,10 +12,10 @@ You can use a client on another Auth0 tenant (referred to below as the **OIDC Pr
 ## Configure the OIDC Provider Auth0 Tenant
 
 1. Create a Client or edit an existing one. Set the client type to regular web app.
-2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the Relying Party tenant.
+2. Take note of its **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
 3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
-![](/media/articles/connections/social/auth0-oidc/child-app.png)
+![Provider tenant settings](/media/articles/connections/social/auth0-oidc/child-app.png)
 
 4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the client's **Advance Settings** is turned **off**.
 
@@ -69,13 +68,15 @@ You can use any of the standard Auth0 mechanisms (e.g. direct links, [Auth0 Lock
 
 A direct link would look like:
 
-`https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR-AUTH0-CONNECTION-NAME`
+```text
+https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR-AUTH0-CONNECTION-NAME
+```
 
 To add a custom connection in Lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
 The user will be redirected to the built-in login page of the OIDC Provider Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
 
-![](/media/articles/connections/social/auth0-oidc/login-page.png)
+![Login widget](/media/articles/connections/social/auth0-oidc/login-page.png)
 
 ## The resulting profile
 
