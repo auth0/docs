@@ -1,27 +1,39 @@
 ---
-description:  API authentication-related errors using Auth0 libraries
+description: Common errors that you might get when you authenticate users using Auth0 libraries
 ---
+# Common Authentication Errors
 
-# API Authentication-Related Errors Using Auth0 Libraries
+The actions or input data of your users, during the sign up or the log in processes, might trigger errors. 
 
-If you are using any of the Auth0-provided libraries, your users may trigger one or more of the following API authentication-related error messages when they either sign up or log in. While this is not an exhaustive list of all possible errors, these are the ones that may be easily handled by the end users themselves.
+This article lists the most common errors that you might get, if you use any of the Auth0 libraries for authentication.
 
-You may encounter one or more of the following messages when signing up:
+## Sign up
 
-* **user_exists**: the user you are attempting to sign up has already signed up.
-* **username_exists**: the username you are attempting to sign up with is already in use.
-* **unauthorized**: if you may not sign up for this application. May have to do with the violation of a specific rule.
-* **invalid_password**: if the password used doesn't comply with the password policy for the connection.
-* **password_leaked**: if the password has been leaked and a different one needs to be used.
+In the case of a failed signup, the most common errors are:
 
-In the case of a failed login, the errors can be one of the following:
+| **Error** | **Description** |
+|-|-|
+| **user_exists** | The user you are attempting to sign up has already signed up |
+| **username_exists** | The username you are attempting to sign up with is already in use |
+| **unauthorized** | If you cannot sign up for this application. May have to do with the violation of a specific rule |
+| **invalid_password** | If the password used doesn't comply with the password policy for the connection |
+| **password_leaked** | If the password has been leaked and a different one needs to be used |
+| **password_dictionary_error** | The chosen password is too common |
+| **password_no_user_info_error** | The chosen password is based on user information |
+| **password_strength_error** | The chosen [password is too weak](/connections/database/password-strength) |
 
-* **unauthorized**: the user you are attempting to sign in with is blocked.
-* **too_many_attempts**: too many attempts to sign in have been made and the account was blocked.
-* **mfa_required**: the user must provide the multifactor authentication (MFA) code to authenticate;
-* **mfa_registration_required**: the administrator has required multifactor authentication (MFA), but the user has not enrolled;
-* **mfa_invalid_code**: the multifactor authentication (MFA) code provided by the user is invalid/expired;
-* **PasswordStrengthError**: the password provided for sign up does not match the connection's strength requirements;
-* **PasswordHistoryError**: the password provided for sign up/update has already been used (reported when password history feature is enabled);
-* **invalid_user_password**: the username and/or password used for authentication are invalid;
-* **access_denied**: when using web-based authentication, the resource server denies access per OAuth2 specifications.
+## Log in
+
+In the case of a failed login, the most common errors are:
+
+| **Error** | **Description** |
+|-|-|
+| **unauthorized** | The user you are attempting to sign in with is blocked |
+| **too_many_attempts** | The account is blocked due to too many attempts to sign in |
+| **mfa_required** | The user must provide the [multifactor authentication](/multifactor-authentication) code to authenticate |
+| **mfa_registration_required** | The administrator has required [multifactor authentication](/multifactor-authentication), but the user has not enrolled |
+| **mfa_invalid_code** | The [multifactor authentication](/multifactor-authentication) code provided by the user is invalid/expired |
+| **PasswordStrengthError** | The password provided does not match the connection's [strength requirements](/connections/database/password-strength) |
+| **PasswordHistoryError** | The password provided for sign up/update has already been used (reported when [password history](/connections/database/password-options#password-history) feature is enabled) |
+| **invalid_user_password** | The username and/or password used for authentication are invalid |
+| **access_denied** | When using web-based authentication, the resource server denies access per OAuth2 specifications |
