@@ -2,23 +2,28 @@
 connection: Auth0 OpenIDConnect
 seo_alias: auth0-oidc
 image: /media/connections/auth0.png
-description: You can use a Client on another Auth0 tenant as an identity provider in your current Auth0 tenant.
+description: You can use a Client on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
 toc: true
 ---
-
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
-You can use a Client on another Auth0 tenant (referred to below as the **child tenant**) as an identity provider in your current Auth0 tenant (the **master tenant**).
+You can use a client on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
 
-## Configure the Child Auth0 Tenant
+## Configure the OIDC Provider Auth0 Tenant
 
-1. Create a Client or edit an existing one.
-2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the master tenant.
-3. Add the master tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
+1. Create a Client or edit an existing one. Set the client type to regular web app.
+2. Take note of its **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
+3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
-![](/media/articles/connections/social/auth0-oidc/child-app.png)
+![Provider tenant settings](/media/articles/connections/social/auth0-oidc/child-app.png)
 
-## Configure the Master Auth0 Tenant
+4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the client's **Advance Settings** is turned **off**.
+
+::: note
+The requirement for the **OIDC-Conformant** toggle to be **off** is a temporary requirement that will be removed in the future.
+:::
+
+## Configure the Relying Party Auth0 Tenant
 
 The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
 
@@ -35,9 +40,9 @@ with the **auth-oidc-connection.json** file containing:
   "name": "YOUR-AUTH0-CONNECTION-NAME",
   "strategy": "auth0-oidc",
   "options": {
-    "client_id": "CHILD_CLIENT_ID",
-    "client_secret": "CHILD_CLIENT_SECRET",
-    "domain": "CHILD_AUTH0_DOMAIN",
+    "client_id": "OIDC_PROVIDER_CLIENT_ID",
+    "client_secret": "OIDC_PROVIDER_CLIENT_SECRET",
+    "domain": "OIDC_PROVIDER_AUTH0_DOMAIN",
     "scope": "openid"
   },
   "enabled_clients":["${account.clientId}"]
@@ -48,9 +53,9 @@ The required parameters for this connection are:
 
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `auth0-oidc`.
-* **options.client_id**: the `clientID` of the target Client in the child Auth0 tenant.
-* **options.client_secret**: the `cliendSecret` of the target Client in the child Auth0 tenant.
-* **options.domain**: the domain of the child Auth0 tenant.
+* **options.client_id**: the `clientID` of the target Client in the OIDC Provider Auth0 tenant.
+* **options.client_secret**: the `cliendSecret` of the target Client in the OIDC Provider Auth0 tenant.
+* **options.domain**: the domain of the OIDC Provider Auth0 tenant.
 
 Optionally, you can add:
 
@@ -63,13 +68,15 @@ You can use any of the standard Auth0 mechanisms (e.g. direct links, [Auth0 Lock
 
 A direct link would look like:
 
-`https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR-AUTH0-CONNECTION-NAME`
+```text
+https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR-AUTH0-CONNECTION-NAME
+```
 
 To add a custom connection in Lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
-The user will be redirected to the built-in login page of the child Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
+The user will be redirected to the built-in login page of the OIDC Provider Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
 
-![](/media/articles/connections/social/auth0-oidc/login-page.png)
+![Login widget](/media/articles/connections/social/auth0-oidc/login-page.png)
 
 ## The resulting profile
 
@@ -101,26 +108,17 @@ Once the user is authenticated, the resulting profile will contain the [Auth0 No
 
 Note that the generated `user_id` has the following format:
 
-`auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_CHILD_AUTH0_CONNECTION|THE_CHILD_USER_ID`
+`auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_OIDC_PROVIDER_AUTH0_CONNECTION|THE_OIDC_PROVIDER_USER_ID`
 
-The `access_token` is the JWT of the user in the child Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid identities` will return:
+The `access_token` is the JWT of the user in the OIDC Provider Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid email` will return:
 
 ```js
 {
-  "identities": [
-    {
-      "user_id": "563b9b6cf50bc24402a69b80",
-      "provider": "auth0",
-      "connection": "Username-Password-Authentication",
-      "isSocial": false
-    }
-  ],
-  "iss": "https://child.auth0.com/",
+  "email": "john.doe@domain.com",
+  "iss": "https://oidc-provider.auth0.com/",
   "sub": "auth0|563b9b6cf50bc24402a69b80",
   "aud": "eQVR4UI4b6ht1hXIcb90cMJN6pvvDPWD",
   "exp": 1446783017,
   "iat": 1446747017
 }
 ```
-
-This token can be used to access the Auth0 API of the child tenant.
