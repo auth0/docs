@@ -6,32 +6,39 @@ toc: true
 
 # Scopes
 
-In OpenID Connect (OIDC), we have the notion of __claims__. These are strings that are sent as part of the `scope` request parameter. There are two types of claims:
+The OAuth2 protocol is a delegated authorization mechanism, where a client application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the client a more restricted set of credentials than those of the user.
+
+The `scope` parameter allows the client to express the desired scope of the access request. In turn, the `scope` parameter can be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
+
+You can use scopes to:
+
+- Let a client application authenticate users and get additional information about them, such as their email or picture. For details, refer to [OpenID Connect Scopes](#openid-connect-scopes).
+
+- Implement granular access control to your API. In this case, you need to define custom scopes for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](#api-scopes).
+
+## OpenID Connect Scopes
+
+OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the client application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
+
+The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the client application to use the OIDC protocol to verify the identity of the user.
+
+In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
 
 * [Standard](#standard-claims) (which means that they meet OIDC specification)
 * [Custom](#custom-claims)
 
-Claims are used to:
-
-- Get additional user information, such as their email or picture. For details, refer to [Standard Claims](#standard-claims).
-
-- Implement granular access control to your API. In this case, you need to define custom scopes for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](#api-scopes).
-
-## Standard Claims
+### Standard Claims
 
 OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the client with user details such as email, name and picture.
 
-This information can be returned in the `id_token` or in the response from [the /userinfo endpoint](/api/authentication#get-user-info).
+The basic claim returned for the `openid` scope is the `sub` claim, which uniquely identifies the user (`iss`, `aud`, `exp`, `iat` and `at_hash` claims will also be present in the `id_token`). Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:
+
+- `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
+- `email`: will request the `email` and `email_verified` claims.
 
 ### Example: Ask for Standard Claims
 
 In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an `id_token` that contains the user's name, nickname, profile picture, and email information.
-
-The following applies:
-
-- `scope=openid`: will only return the `iss`, `sub`, `aud`, `exp`, `iat` and `at_hash` claims.
-- `scope=openid profile`: will return the claims listed above, plus `name`, `nickname`, `picture` and `updated_at`.
-- `scope=openid profile email`: will return the claims listed above, plus `email` and `email_verified`.
 
 To initiate the authentication flow, send the user to the authorization URL and request an `id_token`:
 
@@ -104,7 +111,7 @@ This would be the profile stored by Auth0:
 In order to add these claims to the `id_token`, we need to create a [rule](/rules) to: 
 
 * Customize the token 
-* Add these scopes using namespaced format in the rule
+* Add these claims using namespaced format in the rule
 
 Sample Rule:
 
