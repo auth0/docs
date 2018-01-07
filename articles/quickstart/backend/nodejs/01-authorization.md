@@ -79,7 +79,7 @@ The `checkJwt` middleware shown above checks if the user's access token included
 
 ## Protect Individual Endpoints
 
-To protect an individual route that requires a valid JWT, set up the express-jwt-authz middleware.
+To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` express-jwt middleware.
 
 ```js
 // server.js
