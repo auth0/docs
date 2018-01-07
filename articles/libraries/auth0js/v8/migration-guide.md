@@ -163,11 +163,15 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## The parseHash Method
+## Id Token Validation
 
-The `parseHash` method now validates the id_token. In order for this to work properly, the token should be signed using RS256, and will fail if the token is signed using HS256.
+When the `id_token` signature method is HS256, auth0.js cannot validate the token, as it does not have the secret key. To populate the `idTokenPayload` property in the `parseHash` callback, it will call the [/userinfo](/api/authentication#get-user-info) endpoint to retrieve user information.
 
-This can be avoided by either switching how your id_tokens are signed, or by manually parsing hashes, rather than using the `parseHash` method.
+If the `id_token` is signed with RS256, auth0.js will validate the token, decode it, and populate the `idTokenPayload` with the decoded data.
+
+:::note
+We recommend that you use RS256 for signing tokens in Single Page Applications.
+:::
 
 ### Switching from HS256 to RS256
 
@@ -185,10 +189,6 @@ To switch from HS256 to RS256 for a specific client, follow these instructions:
 1. Change the __JsonWebToken Signature Algorithm__ to `RS256`
 
 Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
-
-### Manually Parsing Hashes
-
-If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [what parseHash is doing](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js) to help you get started replicating that.
 
 ## Refreshing Tokens
 
