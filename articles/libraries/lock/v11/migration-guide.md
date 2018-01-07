@@ -49,7 +49,9 @@ If you have any questions or concerns, you can discuss them in the [Auth0 Commun
 
 ## Disabling Legacy Lock API
 
-After you update to Lock 11 and Auth0.js v9, it is advised that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the API is no longer available, so you can make sure you completed the required changes successfully. You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanced) of Tenant Settings.
+After you update to Lock 11 and Auth0.js v9, it is advised that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the API is no longer available. Starting on April 1st, this option will be forcibly disabled, so it is recommended you opt-in before that time to verify your configuration will work correctly. 
+
+You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanced) of Tenant Settings.
 
 ![Allowed Web Origins](/media/articles/libraries/lock/legacy-lock-api-off.png)
 
