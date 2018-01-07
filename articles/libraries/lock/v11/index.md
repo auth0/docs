@@ -59,7 +59,11 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
-Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication), which is only enabled for [first-party clients](/clients/client-types#first-party-client). Cross-origin authentication has [limitations](/cross-origin-authentication#limitations-of-cross-origin-authentication), which should be understood before implementing embedded Lock.
+Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
+
+Make sure you read about the [limitations of cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) before implementing Lock. 
 
 ## Usage
 
