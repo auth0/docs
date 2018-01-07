@@ -77,10 +77,6 @@ The `checkJwt` middleware shown above checks if the user's access token included
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-::: note
-This example uses the `read:messages` scope.
-:::
-
 ## Protect Individual Endpoints
 
 To protect an individual route that requires a valid JWT, set up the express-jwt-authz middleware.
