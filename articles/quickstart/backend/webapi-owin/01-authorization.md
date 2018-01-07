@@ -31,6 +31,8 @@ The final project after each of the steps is also available in the [Sample repos
 Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
 
 ```xml
+// web.config
+
 <appSettings>
   <add key="Auth0Domain" value="${account.namespace}" />
   <add key="Auth0ApiIdentifier" value="${apiIdentifier}" />
