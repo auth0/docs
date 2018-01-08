@@ -28,7 +28,7 @@ github:
   repo: auth0-cyclejs-samples
   branch: master
 requirements:
-  - @cycle/xstream-run 3.0.3
+  - cycle/xstream-run 3.0.3
   - cyclejs-auth0 3.0.0
 author:
   community: true
