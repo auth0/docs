@@ -48,8 +48,8 @@ Configure the express-jwt middleware so it uses the remote JWKS for your Auth0 a
 const express = require('express');
 const app = express();
 const jwt = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
 const jwtAuthz = require('express-jwt-authz');
+const jwksRsa = require('jwks-rsa');
 
 // Authentication middleware. When used, the
 // access token must exist and be verified against
