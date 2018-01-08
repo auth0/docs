@@ -104,20 +104,33 @@ The configuration that is set up above for the **hapi-auth-jwt2** plugin specifi
 ```js
 // server.js
 
-// ...
-
+// This route doesn't need authentication
 server.route({
-    method: 'GET',
-    path: '/api/private',
-    config: {
-      auth: 'jwt',
-      handler: (req, res) => {
-        res({
-          message: 'Hello from a private endpoint! You need to be authenticated to see this.'
-        });
-      }
+  method: 'GET',
+  path: '/api/public',
+  config: {
+    auth: false,
+    handler: (req, res) => {
+      res({
+        message: "Hello from a public endpoint! You don't need to be authenticated to see this."
+      });
     }
-  });
+  }
+});
+
+// This route need authentication
+server.route({
+  method: 'GET',
+  path: '/api/private',
+  config: {
+    auth: 'jwt',
+    handler: (req, res) => {
+      res({
+        message: 'Hello from a private endpoint! You need to be authenticated to see this.'
+      });
+    }
+  }
+});
 ```
 
 <%= include('../_includes/_api_scope_description') %>
