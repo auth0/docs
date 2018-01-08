@@ -150,7 +150,7 @@ Note that:
 * There is no automatic merging of user profiles with associated identities
 * The secondary account is removed from the users list
 
-#### Merging Metadata
+### Merging Metadata
 
 [Metadata](/metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](/api/v2#!/Users/patch_users_by_id).
 

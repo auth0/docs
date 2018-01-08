@@ -8,7 +8,7 @@ There are several business flows that can occur when integrating Auth0 with your
 
 ![](/media/articles/cms/wordpress/plugin-auth-page.png)
 
-### Scenario 1: A user that doesn't exist in WordPress, but exists in Auth0, attempts to log in.
+## Scenario 1: A user that doesn't exist in WordPress, but exists in Auth0, attempts to log in.
 
 1. The user access your WordPress site's login page.
 2. The user provides their credentials.
@@ -20,7 +20,7 @@ There are several business flows that can occur when integrating Auth0 with your
   * If there **is not** a user whose credentials match an Auth0 `user_id`, the Auth0-Wordpress plugin creates a new user profile and logs the user in.
 
 
-### Scenario 2: A user that exists in WordPress **and** in Auth0 attempts to log in.
+## Scenario 2: A user that exists in WordPress **and** in Auth0 attempts to log in.
 
 In this scenario, the user has existed in your WordPress database and Auth0 *prior* to you installing the Auth0-Wordpress plugin.
 
@@ -36,7 +36,7 @@ In this scenario, the user has existed in your WordPress database and Auth0 *pri
     * If the user has **verified** their email, the Auth0-WordPress plugin will update the WordPress user's `user_id` and log the user in.
     * If the user has **not** verified their email, the Auth0-WordPress plugin will end the authentication process, indicating that the user needs to verify their email prior to proceeding.
 
-### Scenario 3: A newly-created Wordpress user that exists in Auth0 attempts to log in.
+## Scenario 3: A newly-created Wordpress user that exists in Auth0 attempts to log in.
 
 1. The user access your WordPress site's login page.
 2. The user provides their credentials.
@@ -45,7 +45,7 @@ In this scenario, the user has existed in your WordPress database and Auth0 *pri
 5. The Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`.
 6. The Auth0-Wordpress plugin finds the user in the WordPress database using their Auth0 user_id, so it logs the user in.
 
-### Scenario: Data Migration
+## Scenario: Data Migration
 
 If you enable [data migration](/connections/database/migrating), the Auth0-WordPress plugin will expose two secure endpoints that allow Auth0 authenticate the users. These endpoints are secured with a secret token and only available to IP addresses associated with Auth0. You can change this in the Auth0 Dashboard's Client [Advanced Settings](${manage_url}/#/clients) page.
 
@@ -58,7 +58,9 @@ The login flow is as follows:
 
 ## More on the Login by Auth0 WordPress Plugin
 
+:::next-steps
 - [Installation](/cms/wordpress/installation)
 - [Configuration](/cms/wordpress/configuration)
 - [JWT Authentication](/cms/wordpress/jwt-authentication)
 - [Troubleshoot](/cms/wordpress/troubleshoot)
+:::

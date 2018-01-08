@@ -24,7 +24,7 @@ Configuring an AD/LDAP connection in Auth0 requires two steps:
 1. Create an AD/LDAP Connection in Auth0 and download the installer.
 2. Install the connector on your network.
 
-### Create an AD/LDAP Connection in Auth0
+## Create an AD/LDAP Connection in Auth0
 
 These are the steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
@@ -50,7 +50,7 @@ We ship different versions of the connector to install on Windows or Linux platf
 
 Keep the **TICKET URL** on hand as you will need it later.
 
-### Install the connector on your network
+## Install the connector on your network
 
 Continue to the instructions on how to [Install the Connector](/connector).
 

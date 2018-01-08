@@ -23,7 +23,7 @@ Go to your [client settings](${manage_url}/#/clients/${account.clientId}/setting
 After you set the values make sure to click the "Save Changes" button. Next we'll have to configure either the SMS or Email connection.
 
 
-#### Getting your Signing Certificates Fingerprint
+### Getting your Signing Certificates Fingerprint
 
 You can use the following command to generate the fingerprint via the Java keytool:
 

@@ -15,14 +15,14 @@ To connect your Auth0 app to Shopify, you will need to create an app on the Shop
 Due to Shopify's OAuth implementation, successful user authentication returns the **Shop** profile, not the user profile.
 :::
 
-### 1. Create an app on the Shopify Partner portal
+## 1. Create an app on the Shopify Partner portal
 
 Login to the [Shopify Partner](https://app.shopify.com/services/partners) portal. Select **Apps** in the left nav and click **Create a new app**:
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-1.png)
 
 
-### 2. Create your app
+## 2. Create your app
 
 Complete the form. 
 
@@ -35,13 +35,13 @@ In the fields below, enter the following:
 
 Click **Create app**.
 
-### 3. Get your API Key and Shared Secret
+## 3. Get your API Key and Shared Secret
 
 On the page that follows, your `API Key` and `Shared Secret` will be displayed. Save these for use in the next step.
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-3.png)
 
-### 4. Enter your API Key and Shared Secret into Auth0
+## 4. Enter your API Key and Shared Secret into Auth0
 
 In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard.
 
@@ -59,13 +59,13 @@ Click **SAVE**.
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-5.png)
 
-### 5. Enable the Connection
+## 5. Enable the Connection
 
 Go to the **Apps** tab of the Shopify connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-6.png)
 
-### 6. Test the connection
+## 6. Test the connection
 
 Close the Settings window to return to the **Connections > Social** section of the Auth0 dashboard.
 

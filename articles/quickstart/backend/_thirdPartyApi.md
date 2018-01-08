@@ -2,7 +2,7 @@
 
 Please follow the steps below to configure your Auth0 tenant to work with <%= meta.name %>.
 
-### 1. Activate the add-on.
+## 1. Activate the add-on
 
 <% if (account.clientId) { %>
 Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
@@ -15,10 +15,10 @@ Go to <a href="${manage_url}/#/applications/">Application Add-ons</a> page and a
 
 Each integration is different and requires different parameters and configuration. Once the add-on is activated, you will see tailored instructions with details on how to get this done.
 
-### 2. Use it
+## 2. Use it
 
 The key to this integration is the Delegation endpoint in Auth0. Check the documentation of any of our frontend or Mobile SDKs to learn how to call [the /delegation endpoint](/api/authentication#delegation). You can download your favorite library from any of the [Quickstarts](/).
 
-### 3. You are done!
+## 3. You are done!
 
 Congrats! You've implemented Delegation for the <%= meta.name %> API

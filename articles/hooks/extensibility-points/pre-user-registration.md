@@ -57,7 +57,7 @@ module.exports = function (user, context, cb) {
 
 The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
 
-#### Response
+### Response
 
 The default response object every time the Hook runs is as follows:
 
@@ -76,7 +76,7 @@ If you specify `app_metadata` and `user_metadata` in the response object, Auth0 
 Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
-### Testing Your Hook
+## Testing Your Hook
 
 ::: note
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.

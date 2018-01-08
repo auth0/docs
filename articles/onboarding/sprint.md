@@ -2,7 +2,6 @@
 sitemap: false
 description: An overview of Auth0’s onboarding program for enterprise customers.
 ---
-
 # Auth0 Sprint Onboarding
 
 Sprint is Auth0’s enterprise customer onboarding program.  It helps you achieve value quickly by ensuring your setup for success with your Auth0 subscription.
@@ -11,7 +10,7 @@ All customer's who subscribe to a qualifying 12 month+ subscription agreement ob
 
 ## Sprint Onboarding Overview
 
-#### Goal
+### Goal
 
 During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfill our obligation to:
 
@@ -22,7 +21,7 @@ During the onboarding process, the Auth0 Customer Success Team’s goal is to fu
 
 The outcome of these obligations is a Success Plan that will be co-managed by your lead contact and the Auth0 Customer Success Management team.
 
-#### Sprint Onboarding Activities by Subscription
+### Sprint Onboarding Activities by Subscription
 
 <table class="table">
   <thead>
@@ -81,11 +80,11 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
 
 <sup>*</sup> *Live sessions are delivered remotely via web conference.*
 
-#### Timing
+### Timing
 
 The Sprint program isn’t bound by a specific time restriction, but rather it’s considered completed on delivery of the obligations and the Success Plan.  For customers with a Cloud subscription, this usually takes between 1 and 3 weeks.  For customers with an on-premise or private cloud managed service it can take up to 6 weeks.  Sprint onboarding ends when the final Success Plan is shared with you.
 
-#### What happens after the Sprint onboarding program finishes?
+### What happens next?
 
 At the conclusion of the Sprint program, our Customer Success Management team will continue to monitor your progress against the Success Plan and work with you throughout different stages of the subscription lifecycle or when things are not moving to plan.  This can mean a number of different activities and interactions depending on where you’re at in the development lifecycle and based on your subscription.
 

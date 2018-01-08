@@ -59,8 +59,6 @@ Before you can begin using Lock, you will need to import Lock into your codebase
 
 If you are working in Objective-C, import this header when you need to use Lock's classes:
 
-#### Objective C
-
 ```objc
 #import <Lock/Lock.h>
 ```
@@ -72,8 +70,6 @@ If you need help creating the Objective-C Bridging Header, see: [Swift and Objec
 :::
 
 If you are working in Swift with Lock included as an framework, just include the module in your Swift files like this:
-
-#### Swift
 
 ```swift
 import Lock
@@ -87,13 +83,13 @@ You can store `A0Lock` in a different location as long as you keep it alive as l
 
 This examples creates `A0Lock` inside `-application:didFinishLaunchingWithOptions:`
 
-#### Objective C
+**Objective C**:
 
 ```objc
 self.lock = [A0Lock newLock];
 ```
 
-#### Swift
+**Swift**:
 
 ```swift
 self.lock = A0Lock()
@@ -101,13 +97,13 @@ self.lock = A0Lock()
 
 Then call this method:
 
-#### Objective C
+**Objective C**:
 
 ```objc
 [self.lock applicationLaunchedWithOptions:launchOptions];
 ```
 
-#### Swift
+**Swift**:
 
 ```swift
 lock.applicationLaunched(options: launchOptions)
@@ -115,7 +111,7 @@ lock.applicationLaunched(options: launchOptions)
 
 Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:sourceApplication:annotation:` method and add the following line:
 
-#### Objective C
+**Objective C**:
 
 ```objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -123,7 +119,7 @@ Lastly, you will need to handle the already registered custom scheme in your `Ap
 }
 ```
 
-#### Swift
+**Swift**:
 
 ```swift
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -277,7 +273,7 @@ Your `viewController` should also implement the `A0LockEventDelegate` methods:
 
 After implementating your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
 
-#### Objective-C
+**Objective-C**:
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -308,7 +304,7 @@ if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 [self presentViewController:navController animated:YES completion:nil];
 ```
 
-#### Swift
+**Swift**:
 
 ```swift
 let controller: A0LockViewController = A0Lock.shared().newLockViewController()
@@ -335,24 +331,24 @@ if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
 self.present(navController, animated: true, completion: nil)
 ```
 
-#### Automatic login after sign-up
+### Automatic login after sign-up
 
 After a successful sign-up, the user can be logged in automatically using the `loginAfterSignUp` property. If `loginAfterSignUp` is set to `YES`, `A0AuthenticationViewController` will attempt to log in the user . Otherwise, it will call `onAuthenticationBlock` with both parameters set to `nil`. The default value of `loginAfterSignUp` is `YES`.
 
-#### Disclaimer View
+### Disclaimer View
 
 If you want to show a disclaimer for your app, you will need to set `signUpDisclaimerView`. This view will appear at the bottom of the sign-up screen.
 
-### Logout
+## Logout
 
 To log out a user, call `clearSessions` for `A0Lock`. This method removes all stored sessions of any IdP in your application.
 
-#### Important notes:
-
+:::note
 * If the user has logged in using Safari, their sessions will not be cleared.
 * If you stored the credentials in the keychain, you need to clear them there as well.
+:::
 
-#### Objective-C
+### Objective-C
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -362,7 +358,7 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:<Your_Keychai
 //redirect the user to Login Page
 ```
 
-#### Swift
+### Swift
 
 ```swift
 A0Lock.shared().clearSessions()
@@ -371,11 +367,11 @@ keychain.clearAll()
 //redirect the user to Login Page
 ```
 
-### WebView
+## WebView
 
 When authenticating with a social connection, you can choose between using Safari or the embedded webView. To use embedded webView, set the `useWebView` property to `YES`. The default value is `YES`.
 
-#### Objective-C
+### Objective-C
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -390,7 +386,7 @@ controller.onUserDismissBlock = ^(){
 [self presentViewController:controller animated:YES completion:nil];
 ```
 
-#### Swift
+### Swift
 
 ```swift
 let controller: A0LockViewController = A0Lock.shared().newLockViewController()
@@ -410,7 +406,7 @@ For more information on how to use Lock with Swift, see: [Lock iOS: Using Swift]
 
 For more information on Lock for CocoaPods, see the [Lock documentation in CocoaDocs](http://cocoadocs.org/docsets/Lock).
 
-### Further Reading
+## Further reading
 
 ::: next-steps
 - [Customization of the Look and Feel of Lock iOS](/libraries/lock-ios/v1/customization)
