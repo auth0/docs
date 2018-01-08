@@ -89,12 +89,14 @@ rescue JWT::DecodeError => e
   halt 401, json(error: e.class, message: e.message)
 end
 
-before do
-  authenticate!
+# This route doesn't need authentication
+get '/api/public' do
+  json( message: 'All good. You don\'t need to be authenticated to call this.' )
 end
 
-get '/restricted_resource' do
-  json( message: 'Access Granted', allowed_scopes: String(@auth_payload['scope']).split(' ') )
+get '/api/private' do
+  authenticate!
+  json( message: 'All good. You only get this message if you\'re authenticated.' )
 end
 ```
 
@@ -110,14 +112,14 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 To look for a particular `scope` in an `access_token`, provide an array of required scopes and check if they are present in the payload of the token.
 
-In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the `scopes` contained in the payload of the `access_token` to determine if it contains one or more items from the array.
+In this example the `SCOPES` array for the given key `/api/private-scoped` is intersected with the `scopes` contained in the payload of the `access_token` to determine if it contains one or more items from the array.
 
 ```rb
 # lib/server_rs256.rb
 
 SCOPES = {
-  '/restricted_resource' => ['read:messages'],
-  '/another_resource'    => ['some:scope', 'some:other_scope']
+  '/api/private' => nil,
+  '/api/private-scoped' => ['read:messages']
 }
 
 def authenticate!
@@ -133,12 +135,21 @@ rescue JWT::DecodeError => e
 end
 
 def scope_included
-  # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
-  # the PATH_INFO, should contain at least one element
-  (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
+  if SCOPES[request.env['PATH_INFO']] == nil
+    true
+  else
+    # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
+    # the PATH_INFO, should contain at least one element
+    (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
+  end
+end
+
+# ...
+
+get '/api/private-scoped' do
+  authenticate!
+  json( message: 'All good. You only get this message if you\'re authenticated and have a scope of read:messages.' )
 end
 ```
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
-
-<%= include('../_includes/_call_api') %>
