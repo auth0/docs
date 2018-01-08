@@ -1,5 +1,3 @@
-System Requirements: Angular 2+
-
 ::: note
 **New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/application-auth/current/client-side-web) it uses.
 :::
