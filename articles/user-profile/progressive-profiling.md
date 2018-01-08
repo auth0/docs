@@ -11,7 +11,7 @@ For example, you might collect just the user's name, email, and password on init
 Golden Rule: Never ask what you already know. If a user signs-up using a social network, you might already have demographic information on that user.
 :::
 
-## Implementing Progressive Profiling and Auth0
+## Progressive Profiling and Auth0
 
 One of the places you can get information for your progressive profile is Auth0. Every user that authenticates through Auth0 gets a User Profile, and the profile's contents can come from three different sources:
 
@@ -37,6 +37,6 @@ Auth0 provides two [metadata](/metadata) attributes: **user metadata** and **app
 
 The use of progressive profiling within your application makes it very easy to control what information gets collected and when. As this happens, you can enrich the user profile with the data you've collected:
 
-![](/media/articles/user-profile/progressive-profiling-example.png)
+![Progressive profiling example](/media/articles/user-profile/progressive-profiling-example.png)
 
 In the example above, the application collects **last name** and **first name** on signup. It then collects the user's **title** and **company** at a later point. Finally, in the context of an article that might interest the user, the app adds information to the **subscribed** property.
