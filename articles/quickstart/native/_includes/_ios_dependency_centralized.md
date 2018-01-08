@@ -1,6 +1,6 @@
 ## Install Dependencies
 
-#### Carthage
+### Carthage
 
 If you are using Carthage, add the following to your `Cartfile`:
 
@@ -14,7 +14,7 @@ Then, run `carthage bootstrap`.
 For more information on how to use Carthage, read [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
 
-#### Cocoapods
+### Cocoapods
 
 If you are using [Cocoapods](https://cocoapods.org/), add the following to your `Podfile`:
 

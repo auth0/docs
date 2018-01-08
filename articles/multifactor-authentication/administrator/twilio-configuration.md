@@ -10,11 +10,11 @@ Click on the **SMS** box to configure your SMS settings.
 
 ![](/media/articles/mfa/sms-config.png)
 
-#### 1. Open an account with Twilio
+## 1. Open an account with Twilio
 
 You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user. You may also need to enable permissions for your [geographic region](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work).
 
-#### 2. Configure the connection
+## 2. Configure the connection
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 

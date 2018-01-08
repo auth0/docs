@@ -2,7 +2,7 @@
 description: How to track sign-ups, enrich user profiles and generate new leads.
 ---
 
-# How to track __Sign-ups__, enrich __User Profile__ and generate new __Leads__
+# How to track Sign-ups, enrich User Profile and generate new Leads
 
 Upon a signup of a new user to a website with any social credential, we want to:
 
@@ -14,13 +14,13 @@ Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in yo
 
 ![](/media/articles/tutorials/signups.png)
 
-### 1. Recording a __SignUp__ in MixPanel:
+## 1. Recording a SignUp in MixPanel
 
 This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
 
 We also call this event `Sign Up`:
 
-```
+```js
 function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,context);
@@ -45,13 +45,15 @@ function (user, context, callback) {
 
 ```
 
-### 2.Augment __User Profile__ with FullContact:
+## 2.Augment User Profile with FullContact
 
 The 2nd step is to obtain more information about this user using their email address. __FullContact__ provides an API to retrieve public information about a user using the email as input. We store this additional information in a property called `fullContactInfo`:
 
->Note we are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`).
+:::note
+We are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`).
+:::
 
-```
+```js
 function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,context);
@@ -74,7 +76,7 @@ function (user, context, callback) {
 }
 ```
 
-### 3.Create a __New Lead__ in Salesforce: 
+## 3. Create a New Lead in Salesforce
 
 In the last step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
@@ -82,7 +84,7 @@ In the last step we record the information as a __New Lead__ in Salesforce, so t
 2. We are just recording the user name and a fixed company name. We would of course us anything available in the enriched user profile we obtained in step 2, to record more information and have better context for the sales representative.
 3. If everything went well, we use a __persistent__ property: `user.signedUp` and set it to `true`. So next time this same users logs in, none of these rules will do anything.
 
-```
+```js
 function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,callback);

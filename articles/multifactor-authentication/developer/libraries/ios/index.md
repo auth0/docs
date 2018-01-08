@@ -17,7 +17,7 @@ The Guardian iOS SDK requires iOS 9.3+ and Swift 3.
 
 ## Installation
 
-#### CocoaPods
+### CocoaPods
 
 Guardian.swift is available through [CocoaPods](http://cocoapods.org).
 To install it, simply add the following line to your Podfile:
@@ -26,7 +26,7 @@ To install it, simply add the following line to your Podfile:
 pod "Guardian"
 ```
 
-#### Carthage
+### Carthage
 
 In your Cartfile add this line
 

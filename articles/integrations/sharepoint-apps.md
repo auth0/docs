@@ -1,7 +1,6 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
 ---
-
 # Connecting Provider Hosted Apps to SharePoint Online
 
 Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to call SharePoint APIs.
@@ -20,15 +19,15 @@ You need to obtain a __Client ID__ and a __Client Secret__ for your client. Ther
 [This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your client in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
 :::
 
-#### Open SharePoint Online
+### Open SharePoint Online
 
 The URL for the dashboard is `https://{your Office365 tenant}.sharepoint.com/_layouts/15/appregnew.aspx`
 
-#### Generate a __Client_Id__ and __ClientSecret__:
+### Generate a __Client_Id__ and __ClientSecret__:
 
 ![](/media/articles/integrations/sharepoint-apps/90SvG.png)
 
-#### Complete the information in the form:
+### Complete the information in the form:
 
 Since Auth0 is in between your app and the Office 365 infrastructure, you need to use this URL for the app:
 
@@ -44,7 +43,7 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 * `client_id` identifies your app in Auth0 (created in steps 1).
 * `redirect_uri` is the location in your actual app, where your users will land eventually after all negotiations complete. If you don't specify it, it will always be the app's callback URL defined in Auth0 (it could be localhost)
 
-#### Package the app and upload to SharePoint:
+### Package the app and upload to SharePoint:
 
 Complete the information in your app manifest in Visual Studio:
 

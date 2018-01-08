@@ -13,15 +13,17 @@ Implementing this with Auth0 is very easy. You just need 2 [Rules](/rules) in yo
 
 ![](/media/articles/tutorials/rapleaf-salesforce.png)
 
-### 1. Augment __User Profile__ with RapLeaf:
+## 1. Augment User Profile with RapLeaf
 
 The 1st step is to obtain more information about this user using their email address. __RapLeaf__ provides an API to retrieve public information about a user using the email as input that is extremely easy to use. 
 
 Once the call to RapLeaf completes, we store this additional information in a property called `rapLeafData`:
 
->Note we are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`). The entire rule is ignored if the user has already signed up (signaled by the `user.signedUp` property setup after recording a new lead in step 2 below).
+:::note
+We are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`). The entire rule is ignored if the user has already signed up (signaled by the `user.signedUp` property setup after recording a new lead in step 2 below).
+:::
 
-```
+```js
 function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,callback);
@@ -48,7 +50,7 @@ function (user, context, callback) {
 }
 ```
 
-### 2. Create a __New Lead__ in Salesforce: 
+## 2. Create a New Lead in Salesforce
 
 In this second step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
@@ -56,7 +58,7 @@ In this second step we record the information as a __New Lead__ in Salesforce, s
 2. We are just recording the user name and a fixed company name. We could of course use anything available in the enriched user profile we obtained in step 1, to record more information, and have better context for the sales representative.
 3. If everything went well, we use a __persistent__ property: `user.signedUp` and set it to `true`. So next time this same users logs in, these rules will be skipped.
 
-```
+```js
 function (user, context, callback) {
 
   if(user.signedUp) return callback(null, user, callback);

@@ -119,7 +119,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 ## Using recovery codes
 
 ::: note
-  This flow is currently only available for the Guardian Provider.
+This flow is currently only available for the Guardian Provider.
 :::
 
 ![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)
@@ -145,7 +145,7 @@ Steps 1-4 are the same as above.
 
 ## Examples
 
-#### Resource Owner Password Grant Request
+### Resource Owner Password Grant Request
 
 ```javascript
 var request = require("request");

@@ -271,7 +271,7 @@ Auth0
 }
 ```
 
-#### Delegation
+### Delegation
 
 Delegation is no available through Lock, but Lock v1 users who still need delegation can implement it via the the [Auth0.Swift library](/libraries/auth0-swift). The following is an example of delegation using Auth0.Swift:
 
