@@ -2,18 +2,17 @@
 description: How to sign-up and login using the Guardian app.
 toc: true
 ---
-
 # How to Use the Guardian App
 
 Guardian is an app that can be downloaded from the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
 
 This page will help to explain how to sign up and log in using the Guardian app and using other forms of two-factor authentication.
 
-### Enrolling for MFA
+## Enroll for MFA
 
 Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to pre-emptively [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
 
-### Enrolling from the Guardian widget
+## Enroll from the Guardian widget
 
 In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
 
@@ -60,7 +59,7 @@ Then select your phone number's country code and enter your mobile phone number.
 
 Then you should receive a six digit code in a message to your phone. Enter this code into the box. Then you will see a recovery code, make sure to note this code as you will need it to login if you do not have your device. Check the box that you have recorded the code, and then you are all set and logged in.
 
-## Logging in
+## Log in
 
 Depending on the type of two-factor authentication you chose when you were signing up, this will affect how you login.
 
