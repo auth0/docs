@@ -114,6 +114,16 @@ end
 With the `Secured` Concern in place, you can now apply it to whichever endpoints you wish to protect. Applying the Concern means that a valid `access_token` **must** be present in the request before the resource can be released.
 
 ```rb
+# frozen_string_literal: true
+class PublicController < ActionController::API
+  # This route doesn't need authentication
+  def public
+    render json: { message: 'All good. You don\'t need to be authenticated to call this' }
+  end
+end
+```
+
+```rb
 # app/controllers/private_controller.rb
 
 # frozen_string_literal: true
