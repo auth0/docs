@@ -63,7 +63,7 @@ Next, we need to set our dependencies. We will use the following modules:
 To install these dependencies run the following:
 
 ```bash
-npm install express cors express-jwt jwks-rsa body-parser --save
+npm install express cors express-jwt jwks-rsa body-parser express-jwt-authz --save
 ```
 
 ### Implement the Endpoints
