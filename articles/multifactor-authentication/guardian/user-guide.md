@@ -10,13 +10,13 @@ This page will help to explain how to sign up and log in using the Guardian app 
 
 ## Enroll for MFA
 
-Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to pre-emptively [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
+Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
 
-## Enroll from the Guardian widget
+If you choose to enroll from the Guardian widget, then following your initial authentication you will see the option to download the Auth0 Guardian app from the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). 
 
-In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
+Underneath that, there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
 
-![](/media/articles/mfa/choose-mfa.png)
+![Guardian widget enroll](/media/articles/mfa/choose-mfa.png)
 
 Choose the type of two-factor to use: the Guardian app, the Google Authenticator app, or an SMS.
 
@@ -26,11 +26,11 @@ To use the Guardian app, first download either the [iOS](https://itunes.apple.co
 
 Next, a code will appear, you will have five minutes to scan the code before it expires. Open the Guardian app and scan the code.
 
-![](/media/articles/mfa/guardian-code.png)
+![Guardian code](/media/articles/mfa/guardian-code.png)
 
 After the code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
-![](/media/articles/mfa/guardian-recover-code.png)
+![Guardian recover code](/media/articles/mfa/guardian-recover-code.png)
 
 ::: panel Passphrase for Android Users
 After first enrolling using the Guardian app for Android, you will be required to create a passphrase. This recovery passphrase will not be required every time you use the app, but could be required when your lock screen security options have been changed. You can use the suggested passphrase or create your own.
@@ -45,9 +45,9 @@ If you would prefer to use the Google Authenticator app, click on the link for G
 
 A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
-![](/media/articles/mfa/google-code.png)
+![Google Authenticator code](/media/articles/mfa/google-code.png)
 
-For more information about Google Authenticator, see: [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).
+For more information about Google Authenticator, see [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).
 
 ### SMS
 
@@ -55,7 +55,7 @@ Depending on the applications settings, SMS may be an option to use for two-fact
 
 Then select your phone number's country code and enter your mobile phone number. You must be able to receive SMS to your device to use this option.
 
-![](/media/articles/mfa/sms.png)
+![SMS enroll](/media/articles/mfa/sms.png)
 
 Then you should receive a six digit code in a message to your phone. Enter this code into the box. Then you will see a recovery code, make sure to note this code as you will need it to login if you do not have your device. Check the box that you have recorded the code, and then you are all set and logged in.
 
@@ -69,7 +69,7 @@ After entering your username and password, a push notification will be sent to t
 
 If you are not currently connected to the internet on your mobile device to receive push notifications, you can enter the OTP (One-time password) manually by clicking "enter the code".
 
-![](/media/articles/mfa/guardian-enter-code.png)
+![Enter code at Guardian widget](/media/articles/mfa/guardian-enter-code.png)
 
 To find this code, go into the Guardian app on your device, and click on the application you are trying to log into. Then you should see information on your last sign in and a 6-digit code at the bottom which is your OTP.
 
