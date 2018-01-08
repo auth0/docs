@@ -39,6 +39,11 @@ Define the `refreshSubscription` class property, which will hold a reference to 
 
 ```ts
 // src/app/auth/auth.service.ts
+export class AuthService {
+
+  // ..
+  // define the refreshSubscription property
+  refreshSubscription: any;
 
 // ...
 public scheduleRenewal() {
