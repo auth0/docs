@@ -108,5 +108,3 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
 ```
 
 In this configuration, only the access tokens with the `read:messages` scope can access the endpoint.
-
-<%= include('../_includes/_call_api') %>
