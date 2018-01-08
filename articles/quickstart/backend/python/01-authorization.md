@@ -165,31 +165,6 @@ ${snippet(meta.snippets.use)}
 
 ## Protect individual endpoints
 
-Add `requires_auth` decorator to the routes that requires authentication.
-
-```python
-# /server.py
-
-@APP.route("/api/public")
-@cross_origin(headers=["Content-Type", "Authorization"])
-def public():
-    """No access token required to access this route
-    """
-    response = "All good. You don't need to be authenticated to call this"
-    return jsonify(message=response)
-
-
-@APP.route("/api/private")
-@cross_origin(headers=["Content-Type", "Authorization"])
-@cross_origin(headers=["Access-Control-Allow-Origin", "*"])
-@requires_auth
-def private():
-    """A valid access token is required to access this route
-    """
-    response = "All good. You only get this message if you're authenticated"
-    return jsonify(message=response)
-```
-
 Individual routes can be configured to look for a particular `scope` in the `access_token` by using the following:
 
 ```python
