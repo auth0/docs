@@ -29,8 +29,10 @@ You can also obtain an access token using [cUrl](https://curl.haxx.se/) by using
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{ "client_id":"${account.clientId}", "client_secret": "${account.clientSecret}", "audience": "YOUR_API_AUDIENCE", "grant_type": "client_credentials" }'
+  --data '{ "client_id":"YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "audience": "YOUR_API_AUDIENCE", "grant_type": "client_credentials" }'
 ```
+
+When using the Client Credentials flow, you will need to register a [Non Interactive Client](/clients). You should then subsequently use the **Client ID** and **Client Secret** of this Non Interactive Client when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
 
 **2. Using Resource Owner Password**
 
