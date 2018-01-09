@@ -128,7 +128,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 lock.on('authenticated', function(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
         setSession(authResult);
-        // use authResut.idTokenPayload for profile information
+        // use authResult.idTokenPayload for profile information
     }
 });
 
