@@ -110,7 +110,7 @@ If you still intend to override CSS to further style your Lock, we recommend tha
 Additionally, we of course recommend that you test your CSS changes exhaustively, to ensure that the experience is the one you intend it to be for your customers.
 
 ::: panel-warning Regarding Lock CSS Themes
-At this time, Auth0 doesn't offer any alternative pre-made CSS themes for Lock 11, and the ones that existed for earlier versions of Lock will not work with Lock 11.
+At this time, Auth0 doesn't offer any alternative pre-made CSS themes for Lock v11, and the ones that existed for earlier versions of Lock will not work with Lock v11.
 :::
 
 ## Further Information

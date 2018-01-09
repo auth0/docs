@@ -6,7 +6,7 @@ toc: true
 ---
 # Migrating from Lock v10 to v11
 
-This guide includes all the information you need to update your Lock 10 application to [Lock 11](/libraries/lock).
+This guide includes all the information you need to update your Lock v10 application to [Lock v11](/libraries/lock).
 
 ## Migration Steps
 

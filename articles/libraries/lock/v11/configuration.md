@@ -1,7 +1,7 @@
 ---
 section: libraries
 toc: true
-description: Lock 11 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+description: Lock v11 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
 ---
 # Lock Configuration Options
 

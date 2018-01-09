@@ -1,7 +1,7 @@
 ---
 section: libraries
-title: Migrating React applications to Lock 11
-description: How to migrate React applications to Lock 11
+title: Migrating React applications to Lock v11
+description: How to migrate React applications to Lock v11
 ---
 # Migrating React Applications to Lock v11
 

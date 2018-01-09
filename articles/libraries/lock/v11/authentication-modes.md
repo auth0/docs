@@ -9,7 +9,7 @@ Lock can function in two different modes. The default mode is **redirect mode**.
 
 ## Redirect Mode
 
-When you click the IdP button (For example, Facebook) with redirect mode, you are redirected to Facebook momentarily. Redirect mode is the default with Lock 11, and is the recommended mode for almost all use cases. Once you successfully login (to Facebook, in this example), Facebook will redirect you back to your app (through Auth0). The majority of examples or samples in the reference documentation employ redirect mode.
+When you click the IdP button (For example, Facebook) with redirect mode, you are redirected to Facebook momentarily. Redirect mode is the default with Lock v11, and is the recommended mode for almost all use cases. Once you successfully login (to Facebook, in this example), Facebook will redirect you back to your app (through Auth0). The majority of examples or samples in the reference documentation employ redirect mode.
 
 ## Popup Mode
 

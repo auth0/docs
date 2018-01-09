@@ -6,13 +6,13 @@ toc: true
 ---
 # Migrating Angular 1.x Applications from Lock v9 to v11
 
-This guide will help you migrating your Angular 1.x application from Lock 9 to Lock 11. 
+This guide will help you migrating your Angular 1.x application from Lock 9 to Lock v11. 
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 
 ## 2. Adding Angular Lock Library
 
-Most Angular 1.x apps used the [auth0-angular](https://www.npmjs.com/package/auth0-angular) which is currently deprecated. This guide will use [auth0-lock](https://www.npmjs.com/package/auth0-lock) 3.0 to simplify using Lock 11.
+Most Angular 1.x apps used the [auth0-angular](https://www.npmjs.com/package/auth0-angular) which is currently deprecated. This guide will use [auth0-lock](https://www.npmjs.com/package/auth0-lock) 3.0 to simplify using Lock v11.
 
 Use npm to uninstall the old library and install the new one.
 
@@ -107,7 +107,7 @@ In your `app.js` file:
 
 ## 4. Updating Authentication Service
 
-If you are using an authentication service, you will need to make a few minor changes there as well. Lock 11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock 11 documentation](/libraries/lock/v11).
+If you are using an authentication service, you will need to make a few minor changes there as well. Lock v11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock v11 documentation](/libraries/lock/v11).
 
 ```js
 // auth.service.js
@@ -185,7 +185,7 @@ If you are using an authentication service, you will need to make a few minor ch
 If you are not using a service, you can implement the `handleAuthentication()` method's functionality in your app's `run()` method, and implement the `login()`, `logout()`, and `_setSession()` functionality in the controller where your login is located.
 :::
 
-<%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
+<%= include('../../_includes/_configure_embedded_login', { library : 'Lock v11'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 
 ## Behavioral Changes in Lock v11

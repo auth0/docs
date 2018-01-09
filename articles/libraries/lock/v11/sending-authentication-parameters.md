@@ -48,7 +48,7 @@ For more information about scopes, see the [scopes documentation page](/scopes).
 
 #### Example: retrieve a token
 
-In Lock 11, if you wish to receive a token with the ability to fetch the user's profile data, you should add the `scope` parameter.
+In Lock v11, if you wish to receive a token with the ability to fetch the user's profile data, you should add the `scope` parameter.
 
 ```js
 var options = {
@@ -61,7 +61,7 @@ var options = {
 ```
 
 ::: note
-There is also a `connectionScopes` configuration option for Lock 11, which allows you to specify scopes on any specific connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes from a specific connection. Read more about it on the [Lock Configuration Options](/libraries/lock/v11/configuration#connectionscopes-object-) page.
+There is also a `connectionScopes` configuration option for Lock v11, which allows you to specify scopes on any specific connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes from a specific connection. Read more about it on the [Lock Configuration Options](/libraries/lock/v11/configuration#connectionscopes-object-) page.
 :::
 
 ### state {string}

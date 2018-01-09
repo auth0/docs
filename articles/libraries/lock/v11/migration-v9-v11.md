@@ -6,11 +6,11 @@ toc: true
 ---
 # Migrating from Lock v9 to v11
 
-This guide includes all the information you need to update your Lock 9 applications to [Lock 11](/libraries/lock).
+This guide includes all the information you need to update your Lock v9 applications to [Lock v11](/libraries/lock).
 
 ## Migration Steps
 
-Given that Lock v10 is very similar to Lock v11 you can read the [Lock 9 to Lock 10 migration guide](/libraries/lock/v10/migration-guide).
+Given that Lock v10 is very similar to Lock v11 you can read the [Lock v9 to Lock v10 migration guide](/libraries/lock/v10/migration-guide).
 
 Building Single Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
 
@@ -110,7 +110,7 @@ function login() {
 }
 ```
 
-In Lock 11, the code should instead use the following format.
+In Lock v11, the code should instead use the following format.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
