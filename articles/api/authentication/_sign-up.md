@@ -18,7 +18,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 'a111' }"}'
+  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
 ```
 
 ```javascript
@@ -47,9 +47,10 @@ curl --request POST \
 
 ```json
 {
-  "user_id": "58457fe6b27...",
+  "_id": "58457fe6b27...",
   "email_verified": false,
-  "email": "test.account@signup.com"
+  "email": "test.account@signup.com",
+  "user_metadata":{"plan":"silver","team_id":"a111"}
 }
 ```
 
