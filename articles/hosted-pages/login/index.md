@@ -8,7 +8,7 @@ crews: crew-2
 
 ## About Universal Login
 
-Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the universal login page uses Auth0's [Lock Widget](/libraries/lock/v10) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js/v8) for authentication.
+Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock/v10) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js/v8) for authentication.
 
 If you cannot use universal login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
 
@@ -57,7 +57,7 @@ The login page is truly a single page constructed within the editor, so all cust
 
 Currently, universal login is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. So if your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use the universal login.
 
-## How to Customize Your Universal Login Page
+## How to Customize Your Login Page
 
 ### 1. Enable Customization on the Login Page
 
