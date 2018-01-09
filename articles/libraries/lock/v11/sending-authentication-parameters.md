@@ -34,7 +34,15 @@ var options = {
 
 There are different values supported for scope. Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 
-The default `scope` value in Lock 11 is `openid profile email`.
+The default `scope` value in Lock v11 is `openid profile email`. This minimum scope value is required to make the **Last time you logged in with** feature work correctly.
+
+::: panel Running Lock Locally
+If you don't specify at least the above scope when initializing Lock, and you are running your website from `http://localhost` or `http://127.0.0.1`, you will get the following error in the browser console:
+
+`Consent required. When using getSSOData, the user has to be authenticated with the following scope: openid profile email`
+
+That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients) document.
+:::
 
 For more information about scopes, see the [scopes documentation page](/scopes).
 
