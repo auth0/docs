@@ -846,7 +846,7 @@ var options = {
 
 ### oidcConformant {Boolean}
 
-Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when using Lock on an [Auth0-hosted login page](/hosted-pages/login).
+Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing universal login with a [login page](/hosted-pages/login).
 
 To enable OIDC conformant mode, pass a flag in the options object.
 

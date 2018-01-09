@@ -53,7 +53,7 @@ app.use(passport.session());
 
 ## Trigger Authentication
 
-The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features.
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
@@ -65,7 +65,7 @@ Add a route called `/login`. Use the `env` object to set the following propertie
 * Domain
 * Callback URL
 
-The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the Auth0 hosted login page.
+The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the login page.
 
 You need to make sure you get an OIDC-conformant response. You can achieve it two ways:
 * set the audience. 

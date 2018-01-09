@@ -82,7 +82,7 @@ To customize the tokens, use Hooks for Client Credentials, and Rules for the res
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to an Auth0-hosted login page and redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
   Support for SSO from client applications is planned for a future release.
@@ -246,7 +246,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, the users must be redirected to an Auth0-hosted login page.</td>
+      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>

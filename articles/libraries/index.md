@@ -21,7 +21,7 @@ When adding Auth0 to your web apps, the best solution is to use Auth0's [univers
 
 You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page).
 
-If the Auth0-hosted login page does not meet your requirements, however, Auth0 has a variety of options which can be embedded in your applications to assist with authentication.
+If universal login does not meet your requirements, however, Auth0 has a variety of options which can be embedded in your applications to assist with authentication.
 
 * [Lock](#lock) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
 * [Auth0 SDKs](#auth0-sdks) are client-side libraries that do not come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.

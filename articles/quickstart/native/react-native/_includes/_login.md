@@ -1,6 +1,6 @@
 The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Login Page"></div>
 
 ## Configuration
 
@@ -93,7 +93,7 @@ The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the de
 
 ## Add Authentication with Auth0
 
-We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
+We recommend using universal login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
 
 ::: note
 You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 

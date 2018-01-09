@@ -9,7 +9,7 @@ title: OIDC Single sign-on
 Single sign-on (SSO) occurs when a user logs in to one client and is then signed in to other clients automatically.
 
 In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not client applications.
-This means that for SSO to happen, you must employ [universal login](/hosted-pages/login) and redirect users to an Auth0-hosted login page.
+This means that for SSO to happen, you must employ [universal login](/hosted-pages/login) and redirect users to the login page.
 
 We are planning on providing support for SSO from client applications in future releases.
 
@@ -20,7 +20,7 @@ At a general level, this is what happens when performing SSO:
 1. If the user is not logged in locally, redirect them to Auth0 for authentication. This is done using the [authorization code](/api-auth/grant/authorization-code) or [implicit](/api-auth/grant/implicit) grants, depending on the type of application.
 2. If the user was logged in through SSO, Auth0 will immediately authenticate them without needing to re-enter credentials.
 
-An application that does not use SSO might decide to show a self-hosted login page to unauthenticated users instead of redirecting to Auth0 for authentication.
+An application that does not use SSO might decide to use embedded login to authenticate users instead of redirecting to Auth0 for authentication.
 
 ## Determining if users are logged in via SSO
 
@@ -45,7 +45,7 @@ The following flows are request-based and are currently not capable of SSO:
 
 ## Custom domains
 
-The Auth0-hosted login page is by default hosted at an Auth0 domain, so any SSO will be performed at an Auth0 domain instead of your organization's domain.
+When using universal login, the login page is by default hosted at an Auth0 domain, so any SSO will be performed at an Auth0 domain instead of your organization's domain.
 
 This is only an aesthetic limitation and does not impact the security or functionality of SSO logins in any way.
 

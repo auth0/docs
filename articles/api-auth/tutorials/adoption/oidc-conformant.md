@@ -17,7 +17,7 @@ Enabling this flag on a client will have the following effects:
 * The following features are deprecated in favor of [silent authentication](/api-auth/tutorials/adoption/implicit):
     - Refresh Tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
     - /ssodata endpoint and `getSSOData()` method from Lock/auth0.js
-* [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on) can only be performed from Auth0-hosted login pages.
+* [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on) can only be performed from Auth0 login pages.
 * Using `response_type=token` will only return an Access Token, not an ID Token. Use `response_type=id_token` or `response_type=token id_token` instead.
 * ID Tokens obtained with the implicit grant will be signed asymmetrically using RS256.
 * The /tokeninfo endpoint is disabled.

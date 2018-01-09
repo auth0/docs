@@ -3,7 +3,7 @@ description: How to Use the Auth0.js with the Hosted Login Page
 ---
 # Using Auth0.js in the Hosted Login Page
 
-Within the Hosted Login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js in addition to Lock, for authentication or user management tasks).
+Within the login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI.
 
 ## Auth0.js Template for the Login Page
 
