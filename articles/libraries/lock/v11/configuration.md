@@ -562,6 +562,10 @@ var options = {
 };
 ```
 
+::: note
+When the `responseType` is set to `code`, Lock will never show the **Last time you logged in with** message, and will always prompt the user for credentials.
+:::
+
 #### sso {Boolean}
 
 Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
