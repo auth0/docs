@@ -25,7 +25,7 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With the hosted login page
+// With universal login
 auth0.login({});
 
 // With a social connection
@@ -50,7 +50,7 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token id_token'
 });
 
-// with the hosted login page
+// with universal login
 webAuth.authorize({});
 
 // with a social connection
@@ -77,7 +77,7 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With the hosted login page
+// With universal login
 auth0.login({
   popup: true
 });
@@ -106,7 +106,7 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token'
 });
 
-// with the hosted login page
+// with universal login
 webAuth.popup.authorize({});
 
 // with a social connection

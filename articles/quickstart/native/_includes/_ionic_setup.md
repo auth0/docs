@@ -39,7 +39,7 @@ yarn add auth0-js @auth0/cordova
 
 ## Add Cordova Plugins
 
-You must install the `SafariViewController` plugin from Cordova to be able to show Auth0's hosted login page. The downloadable sample project already has this plugin added, but if you are adding Auth0 to your own application, install the plugin via the command line.
+You must install the `SafariViewController` plugin from Cordova to be able to use universal login. The downloadable sample project already has this plugin added, but if you are embedding Auth0 in your own application, install the plugin via the command line.
 
 ```bash
 ionic cordova plugin add cordova-plugin-safariviewcontroller

@@ -5,15 +5,7 @@ description: How to migrate to Lock v11
 ---
 # Migrating to Lock v11
 
-<<<<<<< HEAD
 [Lock v11](/libraries/lock) operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
-=======
-[Lock v11](/libraries/lock) is designed for [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
-
-::: warning
-If you are using Lock to implement login embedded in your applications, we recommend [moving to a universal login approach](/guides/login/migration-embedded-centralized), as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
-:::
->>>>>>> Replacing the term 'centralized login' with 'universal login'
 
 ## Should I migrate to v11?
 

@@ -13,11 +13,11 @@ If you want to change any of Lock's [configurable options](/libraries/lock/confi
 
 When you're done making changes to the code, click **Save** to persist the changes.
 
-![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
+![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
 ## Next Steps
 
 ::: next-steps
 * [Read more About Lock](/libraries/lock)
-* [Get Started on Your Own Hosted Login Page](${manage_url}/#/login_page)
+* [Get Started on Your Own Login Page](${manage_url}/#/login_page)
 :::

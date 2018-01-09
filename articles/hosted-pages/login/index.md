@@ -12,7 +12,7 @@ Auth0's universal login is the most secure way to easily authenticate users for 
 
 If you cannot use universal login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
 
-![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
+![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
 ### How Does Universal Login Work
 
@@ -63,7 +63,7 @@ Currently, universal login is the **only** way to use [Passwordless](/connection
 
 In the [Dashboard](${manage_url}), you can enable a custom login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
 
-![Hosted Login Page](/media/articles/hosted-pages/login.png)
+![Login Page](/media/articles/hosted-pages/login.png)
 
 ### 2. Choose a Technology
 
@@ -121,7 +121,7 @@ webAuth.authorize({
 });
 ```
 
-You will then be able to access the value of `login_hint` within the Hosted Login Page editor by using `config.extraParams.login_hint`.
+You will then be able to access the value of `login_hint` within the login page editor by using `config.extraParams.login_hint`.
 
 ##### Callback URL
 
@@ -139,7 +139,7 @@ webAuth.authorize({
 
 ## Configure Multiple Pages by Using Separate Tenants
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page. 
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each client that requires a different hosted page. 
 
 In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
 

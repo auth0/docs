@@ -57,7 +57,7 @@ The `login` method of version 7 was divided into several different methods in ve
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/hosted-pages/login), or via social connections, as exhibited below.
+The `authorize` method can be used for logging in users via [universal login](/hosted-pages/login), or via social connections, as exhibited below.
 
 For hosted login, one must call the authorize endpoint
 

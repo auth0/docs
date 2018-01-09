@@ -4,7 +4,7 @@ When you integrate universal login in your application, you redirect the user to
 
 You can customize the login page in your [Dashboard](${manage_url}/#/login_page) under Hosted Pages, by enabling the **Customize Login Page** toggle.
 
-![Hosted Login Page](/media/articles/hosted-pages/login.png)
+![Login Page](/media/articles/hosted-pages/login.png)
 
 ## Customize Lock in the Login Page
 
@@ -14,4 +14,4 @@ If you want to change any of Lock's [configurable options](/libraries/lock/confi
 
 When you're done making changes to the code, click **Save** to persist the changes.
 
-![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
+![Login Page](/media/articles/hosted-pages/hlp-lock.png)

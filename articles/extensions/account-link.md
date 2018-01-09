@@ -24,9 +24,9 @@ We recommend changing the name of the default client used for the extension to s
 
 By default, Auth0's [universal login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
 
-To prevent this, we send over a query parameter to let the **Hosted Login Page** know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the **Login Page**.
+To prevent this, we send over a query parameter to let the login page know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the login page.
 
-First go to your [Dashboard](${manage_url}) and click on **Hosted Pages**. It should open to the **Login Page** by default. 
+First go to your [Dashboard](${manage_url}) and click on **Hosted Pages**. It should open to the login page by default. 
 
 If it is not already enabled, toggle the **Customize Login Page** to enable the custom editor below. In the editor we're going to add a new line to the Lock config.
 

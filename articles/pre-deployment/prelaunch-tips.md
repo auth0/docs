@@ -45,7 +45,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Review your [list of rules](${manage_url}/#/rules) and make sure only the appropriate rules are turned on. 
 
-* Review your rule code, any custom DB scripts and any custom code in the hosted login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
+* Review your rule code, any custom DB scripts and any custom code in the login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
 
 * Configure your application name, support URL and support email in the [Tenant Settings General](${manage_url}/#/tenant) section so when an error occurs your end users will be directed to an appropriate page.
 

@@ -1,5 +1,5 @@
 ---
-description: How to use Lock Passwordless with the Hosted Login Page
+description: How to use Lock Passwordless with Universal Login
 ---
 # Universal Login with Lock Passwordless
 
@@ -23,5 +23,5 @@ Are you looking for more information about Lock? Or are you ready to get started
 
 ::: next-steps
 * [Read more About Lock](/libraries/lock/v10)
-* [Get Started on Your Own Hosted Login Page](${manage_url}/#/login_page)
+* [Get Started on Your Own Login Page](${manage_url}/#/login_page)
 :::
