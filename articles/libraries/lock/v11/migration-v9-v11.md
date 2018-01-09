@@ -180,7 +180,7 @@ function login() {
 
 Note that, once more, the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11.
 
-<%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
+<%= include('../../_includes/_configure_embedded_login', { library : 'Lock v11'}) %>
 <%= include('../../_includes/_legacy_flows') %>
 <%= include('../../_includes/_change_get_profile') %>
 

@@ -11,7 +11,7 @@ This guide includes all the information you need to update your Lock 10 applicat
 ## Migration Steps
 
 <%= include('../../_includes/_get_lock_latest_version') %>
-<%= include('../../_includes/_configure_embedded_login', { library : 'lock'}) %>
+<%= include('../../_includes/_configure_embedded_login', { library : 'Lock v11'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_oidc_conformant') %>
 
