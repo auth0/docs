@@ -135,11 +135,11 @@ func main() {
     w.WriteHeader(http.StatusOK)
     json.NewEncoder(w).Encode(response)
 
-    })))
+  })))
 
-    // This route is only accessible if the user has a valid access_token with the read:messages scope
-    // We are wrapping the checkJwt middleware around the handler function which will check for a
-    // valid token and scope.
+  // This route is only accessible if the user has a valid access_token with the read:messages scope
+  // We are wrapping the checkJwt middleware around the handler function which will check for a
+  // valid token and scope.
   r.Handle("/api/private-scoped", checkJwt(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     // Ensure the token has the correct scope
     JWKS_URI := "https://" + os.Getenv("AUTH0_DOMAIN") + "/.well-known/jwks.json"
