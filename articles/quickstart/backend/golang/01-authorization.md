@@ -140,7 +140,7 @@ func main() {
     // This route is only accessible if the user has a valid access_token with the read:messages scope
     // We are wrapping the checkJwt middleware around the handler function which will check for a
     // valid token and scope.
-    r.Handle("/api/private-scoped", checkJwt(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+  r.Handle("/api/private-scoped", checkJwt(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     // Ensure the token has the correct scope
     JWKS_URI := "https://" + os.Getenv("AUTH0_DOMAIN") + "/.well-known/jwks.json"
     client := auth0.NewJWKClient(auth0.JWKClientOptions{URI: JWKS_URI})
@@ -166,13 +166,9 @@ func main() {
       w.Header().Set("Content-Type", "application/json")
       w.WriteHeader(http.StatusUnauthorized)
       json.NewEncoder(w).Encode(response)
-
     }
-
   })))
 }
 ```
 
 In our example we only checked for the `read:messages` scope. You may want to extend the `checkScope` function or make it a standalone middleware that accepts multiple roles to fit your use case.
-
-<%= include('../_includes/_call_api') %>
