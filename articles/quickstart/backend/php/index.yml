@@ -13,3 +13,4 @@ snippets:
   use: server-apis/php/use
 articles:
   - 01-authentication
+  - 02-using
