@@ -1,4 +1,4 @@
-## Customizing the Universal Login Page
+## Customizing the Login Page
 
 When you integrate universal login in your application, you redirect the user to the `/authorize` endpoint of your Auth0 tenant. If Auth0 needs to authenticate the user, it will show the default login page.
 

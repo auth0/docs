@@ -27,7 +27,7 @@ credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
 
 ### Login
 
-Present the HLP and pass the credentials upon successful authentication to the Credentials Manager.
+Present the login page and pass the credentials upon successful authentication to the Credentials Manager.
 
 ```swift
 Auth0

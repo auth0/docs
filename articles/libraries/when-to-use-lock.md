@@ -21,7 +21,7 @@ When adding Auth0 to your web apps, the best solution is to use Auth0's [univers
 If universal login doesn't work for you, all of the above can be embedded in your own application and used in that way, as well.  
  
 ::: note 
-Passwordless authentication from native mobile apps currently must use univeral login - there is no native passwordless option at this time. 
+Passwordless authentication from native mobile apps currently must use universal login - there is no native passwordless option at this time. 
 ::: 
 
 ## When to Implement Lock vs. a Custom UI 

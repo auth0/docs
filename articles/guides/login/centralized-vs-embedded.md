@@ -1,11 +1,11 @@
 ---
-title: Centralized vs Embedded Login
-description: Read about the differences between Centralized and Embedded login
+title: Universal vs Embedded Login
+description: Read about the differences between Universal and Embedded login
 toc: true
 ---
-# Centralized vs Embedded Login
+# Universal vs Embedded Login
 
-When you design the authentication experience for your application, you have to choose whether the login flow will use **centralized** or **embedded** login.
+When you design the authentication experience for your application, you have to choose whether the login flow will use **universal** or **embedded** login.
 
 With universal login, when the users try to log in they are redirected to a central domain, through which authentication is performed, and then they are redirected back to the app. An example is Google Apps. No matter which service you are trying to access (gmail, google calendar, google docs, etc) if you are not logged in you are redirected to `https://accounts.google.com` and once you successfully log in you are redirected back to the calling app.
 
@@ -14,7 +14,7 @@ With universal login, when the users try to log in they are redirected to a cent
 On the other hand, an embedded login flow does not redirect the user somewhere central. The login widget is served from the same page without redirecting the user to another domain. The credentials are then sent to the authentication provider for authentication. In a web app this is a **cross-origin** request.
 
 ::: zoomable
-![Centralized vs Embedded login flow](/media/articles/guides/login/centralized-embedded-flow.svg)
+![Universal vs Embedded login flow](/media/articles/guides/login/centralized-embedded-flow.svg)
 :::
 
 In this article, we will evaluate the pros and cons of these two options and see how you can use Auth0 to implement them.
@@ -23,9 +23,9 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 - **Single Sign-On (SSO)**: If you are working with mobile apps you cannot have SSO unless you use universal login. With web apps you can, although the most secure way is to use a central service so the cookies are from the same origin. With embedded login, you'd have to collect the user credentials in an application served from one origin and then send them to another origin, which can present certain security vulnerabilities, including the possibility of a phishing attack (see [Embedded Login with Auth0 > Security risks](#security-risks) for more info). There are workarounds you could use, like third-party cookies, but the most secure option for SSO, and logins in general, is using a central service.
 
-- **Consistency and Maintenance**: With embedded login, if you have more than one app, you will have to implement more than one login page. You will also have to maintain and manage these pages. Besides the extra effort it can also introduce inconsistencies which results in bad UX. Furthermore, with embedded login you would have to manage the dangers of cross-origin attack vectors. On the other hand, if you are using universal login, then your Authorization Server (the domain that logs the users in) owns all the login pages which makes the management easier and the pages more consistent and secure. You could also use a single login page among your apps, a process that creates an impression that users are logging into a centralized system, rather than an individual app. In the following diagram you can see an example of how the centralized and embedded logins look like. The reason why the universal login offers a more consistent and thus superior use experience is evident.
+- **Consistency and Maintenance**: With embedded login, if you have more than one app, you will have to implement more than one login page. You will also have to maintain and manage these pages. Besides the extra effort it can also introduce inconsistencies which results in bad UX. Furthermore, with embedded login you would have to manage the dangers of cross-origin attack vectors. On the other hand, if you are using universal login, then your Authorization Server (the domain that logs the users in) owns all the login pages which makes the management easier and the pages more consistent and secure. You could also use a single login page among your apps, a process that creates an impression that users are logging into a centralized system, rather than an individual app. In the following diagram you can see an example of how the universal and embedded logins look. The reason why the universal login offers a more consistent and thus superior use experience is evident.
 
-![Centralized vs Embedded login UX](/media/articles/guides/login/centralized-embedded-ux.jpg)
+![Universal vs Embedded login UX](/media/articles/guides/login/centralized-embedded-ux.jpg)
 
 - **Central Features Management**: When you use universal login with Auth0, you can turn on and off features across all your apps, using the Dashboard. An example is [Multifactor Authentication](/multifactor-authentication) which you can enable using the toggles located at the [Dashboard > Multifactor Auth](${manage_url}/#/guardian) page. These changes will be automatically available to all your registered apps.
 
@@ -37,7 +37,7 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 For most situations, we recommend using a a universal login strategy, where Auth0 will show a [login page](/hosted-pages/login) if authentication is required. You can customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
-You can use **Auth0's Custom Domains** in order to persist the same domain across the universal login page and the app. This way the redirect to the HLP will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
+You can use **Auth0's Custom Domains** in order to persist the same domain across the login page and the app. This way the redirect to the login page will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
 
 Whenever your app triggers an authentication request, the user will be redirected to the login page in order to authenticate. This will create a cookie. In future authentication requests, Auth0 will check for this cookie, and if it is present the user will not be redirected to the login page. They will see the page only when they need to actually log in. This is the easiest way to implement SSO.
 
