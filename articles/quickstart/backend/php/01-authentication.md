@@ -161,7 +161,7 @@ With this configuration, any time an endpoint which includes `/api/private` is r
 ```php
 // index.php
 
-// This route doesn't need authetication
+// This route doesn't need authentication
 $router->get('/api/public', function() use ($app){
   header('Content-Type: application/json; charset=utf-8');
   echo json_encode($app->publicEndpoint());
@@ -199,7 +199,7 @@ public function checkScope($scope){
 public function privateScopedEndpoint() {
   return array(
     "status" => "ok",
-    "message" => "Hello from a private endpoint! You DO need to be authenticated and a scope of read:messages to see this."
+    "message" => "Hello from a private endpoint! You DO need to be authenticated and have a scope of read:messages to see this."
   );
 }
 ```
