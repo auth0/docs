@@ -47,7 +47,7 @@ import json
 from six.moves.urllib.request import urlopen
 from functools import wraps
 
-from flask import Flask, request, jsonify, _app_ctx_stack
+from flask import Flask, request, jsonify, _request_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
 
@@ -150,7 +150,7 @@ def requires_auth(f):
                                     "Unable to parse authentication"
                                     " token."}, 400)
 
-            _app_ctx_stack.top.current_user = payload
+            _request_ctx_stack.top.current_user = payload
             return f(*args, **kwargs)
         raise AuthError({"code": "invalid_header",
                         "description": "Unable to find appropriate key"}, 400)
@@ -185,21 +185,23 @@ def requires_scope(required_scope):
     return False
 ```
 
-Then, establish what scopes are needed in order to access the route. In this case `example:scope` is used:
+Then, establish what scopes are needed in order to access the route. In this case `read:messages` is used:
 
 ```python
 # /server.py
 
-@APP.route("/secured/private/ping")
+@APP.route("/api/private-scoped")
 @cross_origin(headers=["Content-Type", "Authorization"])
 @cross_origin(headers=["Access-Control-Allow-Origin", "*"])
 @requires_auth
-def secured_private_ping():
+def private_scoped():
     """A valid access token and an appropriate scope are required to access this route
     """
-    if requires_scope("example:scope"):
-        return "All good. You're authenticated and the access token has the appropriate scope"
-    return "You don't have access to this resource"
+    if requires_scope("read:messages"):
+        response = "All good. You're authenticated and the access token has the appropriate scope."
+        return jsonify(message=response)
+    raise AuthError({
+        "code": "Unauthorized",
+        "description": "You don't have access to this resource."
+    }, 403)
 ```
-
-<%= include('../_includes/_call_api') %>
