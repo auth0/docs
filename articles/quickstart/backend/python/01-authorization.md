@@ -198,10 +198,10 @@ def private_scoped():
     """A valid access token and an appropriate scope are required to access this route
     """
     if requires_scope("read:messages"):
-        response = "All good. You're authenticated and the access token has the appropriate scope"
+        response = "All good. You're authenticated and the access token has the appropriate scope."
         return jsonify(message=response)
     raise AuthError({
-        "code": "Anauthorized",
-        "desciption": "You don't have access to this resource"
+        "code": "Unauthorized",
+        "description": "You don't have access to this resource."
     }, 403)
 ```
