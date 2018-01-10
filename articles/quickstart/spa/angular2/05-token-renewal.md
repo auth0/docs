@@ -39,36 +39,42 @@ Define the `refreshSubscription` class property, which will hold a reference to 
 
 ```ts
 // src/app/auth/auth.service.ts
+export class AuthService {
 
-// ...
-public scheduleRenewal() {
-  if(!this.isAuthenticated()) return;
-  this.unscheduleRenewal();
+  // ..
+  // define the refreshSubscription property
+  refreshSubscription: any;
 
-  const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+  // ...
+  public scheduleRenewal() {
+     if(!this.isAuthenticated()) return;
+     this.unscheduleRenewal();
 
-  const source = Observable.of(expiresAt).flatMap(
-    expiresAt => {
+     const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
 
-      const now = Date.now();
+     const source = Observable.of(expiresAt).flatMap(
+        expiresAt => {
 
-      // Use the delay in a timer to
-      // run the refresh at the proper time
-      return Observable.timer(Math.max(1, expiresAt - now));
+        const now = Date.now();
+
+        // Use the delay in a timer to
+        // run the refresh at the proper time
+        return Observable.timer(Math.max(1, expiresAt - now));
     });
 
-  // Once the delay time from above is
-  // reached, get a new JWT and schedule
-  // additional refreshes
-  this.refreshSubscription = source.subscribe(() => {
-    this.renewToken();
-    this.scheduleRenewal();
-  });
-}
+    // Once the delay time from above is
+    // reached, get a new JWT and schedule
+    // additional refreshes
+    this.refreshSubscription = source.subscribe(() => {
+       this.renewToken();
+       this.scheduleRenewal();
+     });
+  }
 
-public unscheduleRenewal() {
-  if(!this.refreshSubscription) return;
-  this.refreshSubscription.unsubscribe();
+  public unscheduleRenewal() {
+     if(!this.refreshSubscription) return;
+     this.refreshSubscription.unsubscribe();
+  }
 }
 ```
 
