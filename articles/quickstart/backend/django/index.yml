@@ -13,5 +13,6 @@ snippets:
   use: server-apis/django/use
 articles:
   - 01-authorization
+  - 02-using
 seo_alias: django
 default_article: 01-authorization
