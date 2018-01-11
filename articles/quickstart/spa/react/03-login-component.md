@@ -80,4 +80,4 @@ This example uses Bootstrap styles. You can use any style library you want, or n
 
 Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
 
-<%= include('../../_includes/_hosted_login_customization' }) %>
+<%= include('../_includes/_hosted_login_customization' }) %>

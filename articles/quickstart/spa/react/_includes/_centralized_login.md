@@ -1,7 +1,5 @@
 <%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
-# ---------------------------------------
-
 ## Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
@@ -51,8 +49,6 @@ auth.login();
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
-
-# ---------------------------------------
 
 ### Finish the Service
 

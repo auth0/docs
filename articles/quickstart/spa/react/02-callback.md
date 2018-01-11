@@ -15,6 +15,8 @@ budicon: 448
 
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback' }) %>
 
+<%= include('../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
+
 ## Add a Callback Component
 
 When using the Auth0 hosted login page, users are taken away from your application. After
@@ -24,7 +26,7 @@ authenticating, they are returned to your application and a client-side session 
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
 :::
 
-<%= include('../../_includes/_callback_component') %>
+<%= include('../_includes/_callback_component') %>
 
 Create a component named `CallbackComponent` and add a loading indicator.
 
