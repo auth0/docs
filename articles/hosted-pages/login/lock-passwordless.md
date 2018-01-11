@@ -17,21 +17,32 @@ Choose `Lock Passwordless` to get started.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-lock-passwordless.png)
 
+## Enable Your Passwordless Connection for Your Client
+
+Once you have your login page set up with lock-passwordless (the default template normally works fine to start), you have two more things to configure.
+
+1. Make sure that you have a passwordless connection set up. Head to the [Dashboard](${manage_url}/#/connections/passwordless) and (for this example) ensure that the `email` connection is enabled.
+2. Click to open up the `email` connection settings, click on **Apps** at the top, and then enable the `email` connection on your client.
+
+Now, your passwordless connection is enabled, and is able to be used by your client.
+
 ## Call the Login Page From Your Application
 
-Now, in your application, all you will have to do is call the login page via the `authorize` endpoint. This can be done via use of Auth0.js, if your app is a web app.
+Now, in your application code, all you will have to do is call the login page via the `authorize` endpoint. This can be done via use of Auth0.js, if your app is a web app.
 
 ```html
-```html
+// Include auth0.js via CDN
 <script src="${auth0js_url}"></script>
 
 <script type="text/javascript">
 
+// Initialize webAuth
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
 
+// Call authorize
 webAuth.authorize();
 
 </script>
