@@ -54,9 +54,7 @@ export default class Auth {
 }
 ```
 
-::: panel Checkpoint
-Import the `Auth` service from somewhere in your application. Call the `login` method from 
-the service to see the login page. 
+Import the `Auth` service into your application and call the `login` method to see the login page. 
 
 For example:
 
@@ -68,7 +66,9 @@ const auth = new Auth();
 auth.login();
 ```
 
-:::
+You should see something similar to this:
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
+If you've entered your API keys correctly, you can now log in to your application. However, after logging in your application
+will likely encounter an error as the `callback` URL that was specified in your Auth0 configuration needs to be set up.
