@@ -13,9 +13,6 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback' }) %>
-
-
 When using the Auth0 hosted login page, users are taken away from your application. After
 authenticating, they are returned to your application via the `callback` URL that you provided.
 

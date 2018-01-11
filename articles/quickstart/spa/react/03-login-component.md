@@ -13,8 +13,6 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback' }) %>
-
 Your aplication can successfully log in and handle the authentication callback to create a session. But you don't want
 to show a login form on the application homepage every time it's opened.
 
