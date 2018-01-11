@@ -92,6 +92,7 @@ Some existing options suffered changes, in addition to the beforementioned remov
 - The `disableSignUpAction` option was renamed to [allowSignUp](/libraries/lock/v10/configuration#allowsignup-boolean-).
 - The `defaultUserPasswordConnection` option has been replaced by the [defaultDatabaseConnection](/libraries/lock/v10/configuration#defaultdatabaseconnection-string-) and the [defaultEnterpriseConnection](/libraries/lock/v10/configuration#defaultenterpriseconnection-string-) options.
 - The `resetLink` option was renamed to [forgotPasswordLink](/libraries/lock/v10/configuration#forgotpasswordlink-string-).
+- The `signupLink` option was renamed to [signUpLink](/libraries/lock/v10/configuration#signuplink-string-) (change in casing).
 
 ### Other Options
 
