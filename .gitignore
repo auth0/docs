@@ -8,3 +8,8 @@ config.json
 
 # IDE
 .idea
+*.swp
+*.swo
+*.swn
+*.swm
+*.orig
