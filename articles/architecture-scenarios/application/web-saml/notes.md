@@ -27,3 +27,22 @@ Most general:
 - Both with encrypted assertion/requests or without encryption
 
 Tableau and WatchGuard were massive users of SAML, and the above was most common; SLO was important for Tableau, but only when the SP was a 3rd party
+
+
+- Index
+    Overview
+    TL;DR Panel
+    Premise
+    Goals & Requirements
+
+- Part 1
+    Solutions Overview
+
+- Part 2
+    Auth0 Configuration
+
+- Part 3
+    Non-Auth0 (Application) Configuration
+
+- Part 4
+    Conclusion
