@@ -17,7 +17,9 @@ seo_alias: react
 default_article: dashboard-default
 articles:
   - 01-login
-  - 02-user-profile
-  - 03-calling-an-api
-  - 04-authorization
-  - 05-token-renewal
+  - 02-callback
+  - 03-login-component
+  - 04-user-profile
+  - 05-calling-an-api
+  - 06-authorization
+  - 07-token-renewal

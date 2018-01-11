@@ -1,5 +1,7 @@
 <%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
+# ---------------------------------------
+
 ## Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
@@ -49,6 +51,8 @@ auth.login();
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
+
+# ---------------------------------------
 
 ### Finish the Service
 
@@ -122,20 +126,6 @@ import createHistory from 'history/createBrowserHistory'
 
 export default createHistory()
 ```
-
-## Provide a Login Control
-
-Provide a component with controls for the user to log in and log out.
-
-${snippet(meta.snippets.use)}
-
-::: note
-This example uses Bootstrap styles. You can use any style library you want, or not use one at all.
-:::
-
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
-
-<%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Add a Callback Component
 
