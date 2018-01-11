@@ -5,6 +5,8 @@ description: How to request tokens for your applications.
 
 <%= include('../../_includes/_pipeline2') %>
 
+<%= include('../../_includes/_client-credentials-warning') %>
+
 Before beginning this tutorial, please:
 
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately

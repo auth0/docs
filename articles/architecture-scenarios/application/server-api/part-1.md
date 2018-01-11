@@ -11,6 +11,8 @@ toc: true
 
 ## Client Credentials Grant
 
+<%= include('../../../_includes/_client-credentials-warning') %>
+
 OAuth 2 provides several *grant types* for different use cases. In this particular use case where a cron job will be uploading timesheets via an API, there is no interactive user (or resource owner) who grants permission to the cron job to access the API.
 
 The cron job is also not making the API calls on behalf of any user. Instead there is a machine-to-machine authorization and the client (i.e. the cron job) makes calls to the Resource Server (i.e. the API) on its own behalf.

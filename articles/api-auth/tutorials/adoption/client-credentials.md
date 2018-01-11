@@ -6,6 +6,8 @@ title: Client Credentials exchange
 
 <%= include('./_about.md') %>
 
+<%= include('../../../_includes/_client-credentials-warning') %>
+
 The [Client Credentials exchange](/api-auth/grant/client-credentials) allows clients to authenticate as themselves (i.e. not on behalf of any user) to programmatically and securely obtain access to an API.
 
 This exchange does not exist in the legacy pipeline, but the [Resource Owner Password Credentials exchange](/api-auth/tutorials/adoption/password) can be used to simulate it by creating a "service user".

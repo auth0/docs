@@ -5,11 +5,9 @@ description: Describes how to call APIs from server processes using the Client C
 
 <%= include('../../_includes/_pipeline2') %>
 
-The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
+<%= include('../../_includes/_client-credentials-warning') %>
 
-::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
-:::
+The [OAuth 2.0](/protocols/oauth2) grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
 ## Overview of the flow
 
