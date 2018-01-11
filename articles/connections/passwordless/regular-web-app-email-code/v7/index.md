@@ -3,6 +3,8 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 ---
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_older-version-alert' %>
 
 <%= include('../../_introduction-email', { isMobile: false }) %>

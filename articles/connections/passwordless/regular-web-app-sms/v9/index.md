@@ -3,6 +3,8 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 ---
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_introduction-sms', { isMobile: false }) %>
 
 ## Setup

@@ -3,6 +3,8 @@ title: Using Passwordless Authentication with a one-time code via email on SPA
 ---
 # Authenticate users with a one-time code via e-mail on SPA
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_older-version-alert' %>
 
 <%= include('../../_introduction-email', { isMobile: false }) %>

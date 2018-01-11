@@ -3,6 +3,8 @@ title: Using Passwordless Authentication in SPA with SMS
 ---
 # Authenticate Users With a One Time Code via SMS in a SPA
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_older-version-alert' %>
 
 <%= include('../../_introduction-sms', { isMobile: true }) %>

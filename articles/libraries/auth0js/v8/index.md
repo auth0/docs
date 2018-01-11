@@ -220,6 +220,10 @@ The `state` parameter, is not required, but it is recommended. It is an opaque v
 
 ## Passwordless Login
 
+::: warning
+Embedded passwordless authentication has legacy dependencies and is disabled by default for new tenants. Updates to Auth0.js and Lock are in progress to allow for embedded passwordless authentication within applications, but until then, passwordless authentication can still be performed via [universal login](/hosted-pages/login/lock-passwordless).
+:::
+
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
 In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.

@@ -4,6 +4,8 @@ description: Learn how to authenticate users with a one-time-code using email in
 ---
 # Using Passwordless Authentication in SPA with Email
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_introduction-email', { isMobile: false }) %>
 
 ## Setup
