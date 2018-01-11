@@ -530,7 +530,7 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "mfa_token": "MFA_TOKEN",
-  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-otp",
+  "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp",
   "otp": "OTP_CODE"
 }
 ```
@@ -539,7 +539,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
 ```
 
 ```javascript
@@ -605,7 +605,7 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "mfa_token": "MFA_TOKEN",
-  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-oob",
+  "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob",
   "oob_code": "OOB_CODE",
   "binding_code": "BINDING_CODE"
 }
@@ -615,7 +615,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
 ```
 
 ```javascript
@@ -710,7 +710,7 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "mfa_token": "MFA_TOKEN",
-  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code",
+  "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code",
   "recovery_code": "RECOVERY_CODE"
 }
 ```
@@ -719,7 +719,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
 ```
 
 ```javascript
