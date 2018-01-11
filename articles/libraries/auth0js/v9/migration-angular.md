@@ -1,7 +1,7 @@
 ---
 section: libraries
-title: Migrating Angular applications to Auth0.js 9
-description: How to migrate Angular applications to Auth0.js 9
+title: Migrating Angular applications to Auth0.js v9
+description: How to migrate Angular applications to Auth0.js v9
 ---
 # Migrating Angular 2+ Applications to Auth0.js v9
 

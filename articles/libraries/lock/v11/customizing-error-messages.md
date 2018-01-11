@@ -1,10 +1,10 @@
 ---
 section: libraries
-description: Customizing error messages with Lock 11
+description: Customizing error messages with Lock v11
 ---
 # Customizing Lock Error Messages
 
-You can customize the error messages that will be displayed in certain situations by providing a [languageDictionary option](/libraries/lock/v11/configuration#languagedictionary-object-). A full listing of available `languageDictionary` fields to customize can be found in the GitHub repository's [English Dictionary file for Lock 11](https://github.com/auth0/lock/blob/master/src/i18n/en.js). Below is an example of some customized error messages:
+You can customize the error messages that will be displayed in certain situations by providing a [languageDictionary option](/libraries/lock/v11/configuration#languagedictionary-object-). A full listing of available `languageDictionary` fields to customize can be found in the GitHub repository's [English Dictionary file for Lock v11](https://github.com/auth0/lock/blob/master/src/i18n/en.js). Below is an example of some customized error messages:
 
 ```js
 // Examples of customized error messages in the languageDictionary option

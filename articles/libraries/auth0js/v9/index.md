@@ -21,6 +21,9 @@ The [example directory](https://github.com/auth0/auth0.js/tree/master/example) o
 
 Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#signup), [login](#login), [logout](#logout), and more!
 
+<%= include('../../_includes/_configure_embedded_login', { library: 'Auth0.js v9' }) %>
+
+
 ### Installation options
 
 You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
@@ -68,6 +71,18 @@ There are two required parameters that must be passed in the `options` object wh
 | `responseType` | optional | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
+
+##### Scope
+
+The default `scope` value in Auth0.js v9 is `openid profile email`. 
+
+::: panel Running Auth0.js Locally
+If you don't specify at least the above scope when initializing Auth0.js, and you are running your website from `http://localhost` or `http://127.0.0.1`, calling the `getSSOData()` method will result in the following error in the browser console:
+
+`Consent required. When using getSSOData, the user has to be authenticated with the following scope: openid profile email`
+
+That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients) document.
+:::
 
 ## Login
 

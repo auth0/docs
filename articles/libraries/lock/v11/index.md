@@ -1,21 +1,21 @@
 ---
 section: libraries
 toc: true
-title: Lock 11 for Web
+title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
 ---
-# Lock 11 for Web
+# Lock v11 for Web
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: panel Hosted Login Page
-Lock 11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), do not upgrade to Lock 11. Instead, keep using the latest version of Lock 10. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock 11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
+Lock v11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), do not upgrade to Lock v11. Instead, keep using the latest version of Lock 10. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock v11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
 :::
 
 ## Lock Installation
 
-You can install Lock 11 via several methods. Select any of the following installation sources that best suit your environment and application.
+You can install Lock v11 via several methods. Select any of the following installation sources that best suit your environment and application.
 
 ### Installation Sources
 
@@ -41,7 +41,7 @@ Include via our CDN (Replace `.x` and `.y` with the latest minor and patch relea
 <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
 ```
 
-::: note
+::: panel Updating patch versions
 It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation. Check the [GitHub repository](https://github.com/auth0/lock/releases) for a current list of releases.
 :::
 
