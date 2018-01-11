@@ -1,6 +1,6 @@
 ---
-title: Login
-description: This tutorial demonstrates how to add user login to your application with Auth0
+title: Login Control
+description: This tutorial demonstrates how to add a user login control to your application with Auth0
 budicon: 448
 ---
 
@@ -15,7 +15,10 @@ budicon: 448
 
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
+Your aplication can successfully log in and handle the authentication callback to create a session. But you don't want
+to show a login form on the application homepage every time it's opened.
+
+It's time to build a login control that will show the correctl "Log In" or "Log Out" button to the user.
 
 ## Is Authenticated?
 

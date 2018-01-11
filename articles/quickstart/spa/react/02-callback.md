@@ -1,6 +1,6 @@
 ---
-title: Login
-description: This tutorial demonstrates how to add user login to your application with Auth0
+title: Callback URL
+description: This tutorial demonstrates how to handle the authentication result from Auth0
 budicon: 448
 ---
 
@@ -15,12 +15,13 @@ budicon: 448
 
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
-
-## Add a Callback Component
 
 When using the Auth0 hosted login page, users are taken away from your application. After
-authenticating, they are returned to your application and a client-side session is set for them. 
+authenticating, they are returned to your application via the `callback` URL that you provided.
+
+Now that you have the basic login working, it's time to set up the callback endpoint and a component to create a client-side session. 
+
+## Add a Callback Component
 
 ::: note
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
