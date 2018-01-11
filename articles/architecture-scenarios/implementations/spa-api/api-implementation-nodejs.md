@@ -146,7 +146,7 @@ const checkJwt = jwt({
 // Enable the use of request body parsing middleware - code omitted
 
 // create timesheets API endpoint - code omitted
-app.post('/timesheets', checkJwt, function(req, res){
+app.post('/timesheets', function(req, res){
   var timesheet = req.body;
 
   // Save the timesheet to the database...
