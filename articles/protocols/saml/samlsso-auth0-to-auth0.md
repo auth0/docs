@@ -268,6 +268,7 @@ Create an HTML page and insert the following HTML and javascript code:
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
         auth: {
           redirectUrl: 'http://jwt.io',
+          audience: 'https://your-audience.com',
           responseType: 'token',
           params: {scope: 'openid'}
         }
@@ -283,7 +284,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 ```
 
-Make sure you replace `YOUR-APP-CLIENT-ID` with the actual value of the app you registered in step 7 above.  
+Make sure you replace **YOUR-APP-CLIENT-ID** with the actual value of the app you registered in step 7 above. You can also replace **audience** with the value appropriate for your Client -- however, for the purposes of this test, a placeholder will work.
 
 The client ID for your client can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Clients" link and clicking on the "Settings" (gear) icon to the right of your client's name.
 
