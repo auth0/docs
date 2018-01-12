@@ -162,6 +162,8 @@ If the user logs out of `app1.com`, then you'll want the user's tokens cleaned u
 To implement [Single Log Out](/logout), you need to check periodically to see if Auth0 has expired the SSO session. If so, remove the token from the application's local storage to ensure that the local session clears.
 
 ```js
+// check every 15 minutes if the SSO session is still active
+
 setInterval(function() {
   // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
@@ -174,5 +176,5 @@ setInterval(function() {
       window.location.href = '#login';
     }
   });
-}, 5000)
+}, 900000)
 ```
