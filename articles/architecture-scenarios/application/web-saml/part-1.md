@@ -12,7 +12,16 @@ In this section, we'll go over the solution we're implementing, including detail
 
 ## Identity Management
 
+For the purposes of this example, we will have:
+
+* Auth0 act as the identity provider
+* The regular web app act as the service provider
+
+What this means is that all identity-related functionality is strictly the responsibility of Auth0. Auth0, as an Identity-as-a-Service provider, offers cloud-based services for identity and access management, and its services include SSO, federated identity, password management, and more.
+
 ## The SAML 2.0 Protocol
+
+The protocol we're using for authentication in this tutorial is **SAML 2.0**.
 
 ## The Authentication Flow
 
