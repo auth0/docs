@@ -468,7 +468,7 @@ articles:
             url: "/integrations/marketing/marketo"
 
           - title: "Sailthru"
-            url: "/integrations/marketing/marketo"
+            url: "/integrations/marketing/sailthru"
 
           - title: "Salesforce"
             url: "/integrations/marketing/salesforce"
