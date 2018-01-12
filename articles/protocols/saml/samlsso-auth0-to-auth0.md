@@ -268,7 +268,7 @@ Create an HTML page and insert the following HTML and javascript code:
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
         auth: {
           redirectUrl: 'http://jwt.io',
-          audience: 'https://your-audience.com'
+          audience: 'https://your-audience.com',
           responseType: 'token',
           params: {scope: 'openid'}
         }
