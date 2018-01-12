@@ -31,19 +31,20 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 Your users may want to link their other accounts to the account they are logged in to.
 
-To achieve this, you need to store the user ID for the logged user in the Intent so it can be accessed in other activities.
+To achieve this, you need to store the user ID for the logged user in the Intent, along with the id token and access token provided by the LoginActivity at launch, which are already available in the intent extras. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 Intent intent = new Intent(MainActivity.this, LoginActivity.class);        
-intent.putExtra(Constants.LINK_ACCOUNTS, true);
-intent.putExtra(Constants.PRIMARY_USER_ID, profile.getId());
+intent.putExtras(getIntent().getExtras());
+intent.putExtra(LoginActivity.KEY_LINK_ACCOUNTS, true);
+intent.putExtra(LoginActivity.KEY_PRIMARY_USER_ID, profile.getId());
 startActivity(intent);
 ```
 
 Obtain the stored values in `LoginActivity`.
 
-First in `onCreate`, check if a new account linking was requested. Check as well if a previous `savedInstanceState` exists and contains the "logging in" state. This flag is set when the web authentication is launched and must be correctly handled to avoid state loss errors.
+First in `onCreate`, check if a new account linking was requested. Check as well if a previous `savedInstanceState` exists and contains the "logging in" state. This flag is set when the web authentication is launched and must be correctly handled to avoid state loss.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -59,29 +60,48 @@ protected void onCreate(Bundle savedInstanceState) {
   auth0.setOIDCConformant(true);
   credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
-  linkSessions = getIntent().getBooleanExtra(Constants.LINK_ACCOUNTS, false);
-  loggingIn = savedInstanceState != null && savedInstanceState.getBoolean(LOGGING_IN, false);
-
-  // Account linking was requested
-  if (linkSessions && !loggingIn) {
-    doLogin();
-    return;
-  }
+  linkSessions = getIntent().getBooleanExtra(KEY_LINK_ACCOUNTS, false);
+  loggingIn = savedInstanceState != null && savedInstanceState.getBoolean(KEY_LOG_IN_IN_PROGRESS, false);
 
   // Normal log in with existing credentials
   if (!linkSessions && credentialsManager.hasValidCredentials()) {
-    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-    finish();
+        // Obtain the existing credentials and move to the next activity
+        credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
+            @Override
+            public void onSuccess(final Credentials credentials) {
+                showNextActivity(credentials);
+            }
+
+            @Override
+            public void onFailure(CredentialsManagerException error) {
+                //Authentication cancelled by the user. Exit the app
+                finish();
+            }
+        });
     return;
   }
 
-  // Normal log in without existing credentials
-  // Show layout and wait for user action
+  // Show log in layout
+  setContentView(R.layout.activity_login);
+  final Button loginButton = (Button) findViewById(R.id.loginButton); 
+  loginButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            doLogin();
+        }
+  });
+
+  // Account linking was requested
+  if (linkSessions && !loggingIn) {
+    loginButton.setText(R.string.link_account);
+    //Auto log in but allow to retry if authentication is cancelled
+    doLogin();
+  }
 }
 
 @Override
 protected void onSaveInstanceState(Bundle outState) {
-  outState.putBoolean(LOGGING_IN, loggingIn);
+  outState.putBoolean(KEY_LOG_IN_IN_PROGRESS, loggingIn);
   super.onSaveInstanceState(outState);
 }
 ```
@@ -100,11 +120,14 @@ public void onSuccess(Credentials credentials) {
 
   //Store the credentials and move to the next activity
   credentialsManager.saveCredentials(credentials);
-  Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-  startActivity(intent);
-  finish();
+  showNextActivity(credentials);
 }
 ```
+
+::: note
+Make sure to handle the callback's failure calls as well
+:::
+
 
 ## Link the Accounts
 
@@ -116,33 +139,20 @@ Now, you can link the accounts. To do this, you need the logged-in user's ID and
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
 
 private void performLink(final String secondaryIdToken) {
-  credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
-      @Override
-      public void onSuccess(Credentials credentials) {
-          UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
-          String primaryUserId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
-          client.link(primaryUserId, secondaryIdToken)
-                  .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-                      @Override
-                      public void onSuccess(List<UserIdentity> userIdentities) {
-                          //Accounts linked
-                      }
+    UsersAPIClient client = new UsersAPIClient(auth0, getIntent().getExtras().getString(KEY_ID_TOKEN));
+    String primaryUserId = getIntent().getExtras().getString(KEY_PRIMARY_USER_ID);
+    client.link(primaryUserId, secondaryIdToken)
+        .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+            @Override
+            public void onSuccess(List<UserIdentity> userIdentities) {
+                //Accounts linked
+            }
 
-                      @Override
-                      public void onFailure(ManagementException error) {
-                          //Linking failed
-                      }
-                  });
-
-      }
-
-      @Override
-      public void onFailure(CredentialsManagerException error) {
-          //Credentials probably expired. Remove them and login again
-          credentialsManager.clearCredentials();
-          finish();
-      }
-  });
+            @Override
+            public void onFailure(ManagementException error) {
+                //Linking failed
+            }
+        });
 }
 ```
 

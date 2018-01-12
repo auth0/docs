@@ -44,7 +44,7 @@ The profile obtained this way is OIDC-conformant. Depending on the [scopes](/sco
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). This step is explained next:
 
 
-Create an instance of the Users API client using the id token. The snippet below makes use of the Credentials Manager to retrieve the credentials that you saved in the log in step. This client is used to request the users' profile data.
+Create an instance of the Users API client using the id token that you saved in the log in step. In the snippet bellow we obtain it from the extras that the LoginActivity class has passed when starting this activity. The API client is used to request the users' profile data.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -52,21 +52,8 @@ Create an instance of the Users API client using the id token. The snippet below
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 
-SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
-credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
-
-    @Override
-    public void onSuccess(Credentials credentials) {
-        String idToken = credentials.getIdToken();
-        UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
-        //...
-    }
-
-    @Override
-    public void onFailure(CredentialsManagerException error) {
-        //Credentials expired. Log in again
-    }
-});
+String idToken = getIntent().getStringExtra(LoginActivity.KEY_ID_TOKEN);
+UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
 ```
 
 ::: note

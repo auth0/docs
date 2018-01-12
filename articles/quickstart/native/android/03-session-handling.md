@@ -47,7 +47,7 @@ WebAuthProvider.init(auth0)
                 .withScheme("demo")
                 .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                 .withScope("openid offline_access")
-                .start(LoginActivity.this, callback);
+                .start(LoginActivity.this, webCallback);
 ```
 
 ## Check for Tokens when the Application Starts
@@ -63,7 +63,7 @@ It is important that you remember the following:
 You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens.md) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
 
 
-Create a new instance of the Credentials Manager. The instance can be shared across activities or a new one can be created anytime needed as long as the Storage strategy persists the data in the same location. When you run the application you'd first check if there are any previous saved credentials, in order to skip the login screen:
+Create a new instance of the Credentials Manager. When you run the application you'd first check if there are any previous saved credentials, in order to skip the login screen:
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -71,12 +71,21 @@ Create a new instance of the Credentials Manager. The instance can be shared acr
   auth0.setOIDCConformant(true);
   SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
-  if (credentialsManager.hasValidCredentials()) {
-    // Try to make an automatic login
-  } else {
+  // Check if the activity was launched after a logout
+  if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
+      credentialsManager.clearCredentials();
+  }
+
+  if (!credentialsManager.hasValidCredentials()) {
     // Prompt Login screen.
+  } else {
+    // Obtain credentials and move to the next activity
   }
 ```
+
+::: note
+Ideally a single class should have the knowledge of handling credentials, but you can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
+:::
 
 
 ## Save the User's Credentials
@@ -86,7 +95,7 @@ After a successful login response save the user's credentials on the Credentials
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 
-private final AuthCallback callback = new AuthCallback() {
+private final AuthCallback webCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
         //show error dialog
@@ -111,41 +120,54 @@ The Storage implementation given to the Credentials Manager in the seed project 
 
 ## Recover the User's Credentials
 
-Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will raise if the credentials have expired and no valid Refresh Token was found.
+Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will raise if the credentials have expired and the network request to refresh them has failed.
 
 ```java
-// app/src/main/java/com/auth0/samples/MainActivity.java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
 
 credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
     @Override
     public void onSuccess(Credentials credentials) {
-        // use credentials
+        // Move to the next activity
     }
 
     @Override
     public void onFailure(CredentialsManagerException error) {
-        // Credentials could not be refreshed. Log in again
+        // Credentials could not be refreshed.
     }
 });
 ```
 
+::: note
+The `SecureCredentialsManager` can prompt the user for local device authentication using the configured Lock Screen (PIN, Password, Pattern, Fingerprint) before giving them the stored credentials. This behavior can be enabled calling the `SecureCredentialsManager#requireAuthentication` method when setting up the Credentials Manager. The sample has this line commented for convenience, remove the comment to try it. 
+:::
 
 ## Log the User Out
 
-To log the user out, you remove their credentials and navigate them to the login screen. 
+To log the user out, you remove their credentials and navigate them to the login screen. When using a Credentials Manager you do that calling `clearCredentials`.
 
-When using a Credentials Manager, you do that calling `clearCredentials`.
+In the sample, the LoginActivity checks that a boolean extra is present in the Intent at the Activity launch, so that if this flag is true the credentials are first removed from the Credentials Manager.
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
 private void logout() {
-  credentialsManager.clearCredentials();
-  startActivity(new Intent(this, LoginActivity.class));
-  finish();
+    Intent intent = new Intent(this, LoginActivity.class);
+    intent.putExtra(LoginActivity.KEY_CLEAR_CREDENTIALS, true);
+    startActivity(intent);
+    finish();
+}
+
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    //...
+    if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
+        credentialsManager.clearCredentials();
+    }
 }
 ```
 
 ::: note
-Depending on the way you store users' credentials, you delete them differently. 
+If you are not using our Credentials Manager classes, depending on the way you store users' credentials you delete them differently. 
 :::
