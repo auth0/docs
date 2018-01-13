@@ -181,7 +181,7 @@ articles:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
 
-      - title: "Custom Database"
+      - title: "Your Database"
         url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"

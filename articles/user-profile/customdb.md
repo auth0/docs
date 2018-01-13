@@ -1,10 +1,10 @@
 ---
-title: Update Users using your Database
+title: Update Users Using Your Database
 description: How to update user profiles when using your own database as an identity provider.
 toc: true
 ---
 
-# Update Users using your Database
+# Update Users Using Your Database
 
 You can update user profiles when using [your own database as an identity provider](/connections/database/custom-db) by:
 
