@@ -12,7 +12,7 @@ seo_alias: java
 default_article: dashboard-default
 articles:
   - 01-login
-how_steps: false
+show_steps: false
 github:
   org: auth0-samples
   repo: auth0-servlet-sample

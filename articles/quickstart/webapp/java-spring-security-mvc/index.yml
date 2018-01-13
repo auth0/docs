@@ -17,7 +17,7 @@ articles:
 show_steps: false
 github:
   org: auth0-samples
-  repo: auth0-servlet-sample
+  repo: auth0-spring-security-mvc-sample
   branch: master
 requirements:
   - Java 7 and up
