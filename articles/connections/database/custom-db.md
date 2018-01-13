@@ -35,12 +35,12 @@ To create the database connection for your database, follow these steps.
 2. Click the **+ Create DB Connection** button.
 3. Provide a name for the database and configure the available options.
 
-![](/media/articles/connections/database/database-connections.png)
+![Database connections](/media/articles/connections/database/database-connections.png)
 
 3. Navigate to the **Custom Database** tab.
 4. Toggle on the **Use my own database** switch.
 
-![](/media/articles/connections/database/custom-database.png)
+![Custom database tab](/media/articles/connections/database/custom-database.png)
 
 ## Create database action scripts
 
@@ -65,13 +65,13 @@ When creating users, Auth0 calls the **Get User** script before the **Create** s
 
 ### Create the Login script
 
-Create the required Login script to authenticate users. The Login script will run each time a user attempts to log in. You can write your own Login script or select a template from the **Templates** dropdown.
+The Login script will run each time a user attempts to log in. You can write your own Login script or select a template from the **Templates** dropdown.
 
 ::: note
 If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
 :::
 
-![](/media/articles/connections/database/mysql/db-connection-login-script.png)
+![Database action script templates](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
 For example, the MySQL Login template:
 
@@ -117,14 +117,11 @@ The above script connects to a MySQL database and executes a query to retrieve t
 
 ## Add configuration parameters
 
-Store the credentials required to connect to your database in the **Settings** section below the script editor. Parameters stored there are available in all of your scripts.
+You can store parameters, like the credentials required to connect to your database, in the Settings section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
 
-You can access parameter values using the `configuration` object in your database action scripts, for example: `configuration.PARAMETER_NAME`.
+You can access parameter values using the `configuration` object in your database action scripts, for example: `configuration.MYSQL_PASSWORD`.
 
-![](/media/articles/connections/database/mysql/db-connection-configurate.png)
-
-Heads up! You can use this section to store values which are available in all scripts. 
-The values are accessible through the global configuration object.
+![Custom database settings](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
 Use the added parameters in your scripts to configure the connection. For example, in the MySQL Login template:
 
@@ -141,17 +138,17 @@ function login (username, password, callback) {
 
 ## Error Handling
 
+There are three different errors you can return from a database connection:
+
+* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
+* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
+* `new Error(<message>)`: simple errors (no error code).
+
 To return an error, call the callback with an error as the first parameter:
 
 ```js
 callback(error);
 ```
-
-There are three different errors you can return from a DB Connection:
-
-* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
-* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
-* `new Error(<message>)`: simple errors (no error code).
 
 For example:
 
@@ -163,9 +160,9 @@ callback(new ValidationError('email-too-long', 'Email is too long.'));
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
-![](/media/articles/connections/database/mysql/db-connection-try-ok.png)
+![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
 
-If you add a `console.log` statement to the script you will be able to see the output here.
+If you do not get the expected result or receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
 
 ::: note
 The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) can be used to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
@@ -173,8 +170,8 @@ The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-cu
 
 ## Auth0 Login widget
 
-After you enabling the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
+If you use [Lock](https://auth0.com/docs/libraries#lock), enabling the database connection lets users enter their username and password on the Auth0 Login widget. Once entered, this data is passed to your scripts.
 
-![](/media/articles/connections/database/mysql/db-connection-widget.png)
+![Auth0 login widget](/media/articles/connections/database/mysql/db-connection-widget.png)
 
 <%= include('../_quickstart-links.md') %>
