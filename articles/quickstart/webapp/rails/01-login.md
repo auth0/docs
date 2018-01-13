@@ -2,19 +2,10 @@
 title: Login
 description: Ruby on Rails Login with Auth0
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '01-Login',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
-
-The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
+The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [universal login page](/hosted-pages/login).
 
 ## Create an Application
 

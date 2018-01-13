@@ -2,18 +2,9 @@
 title: User Profile
 description: Access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
+github:
+  path: 03-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '03-User-Profile',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
-
 ## The OmniAuth Auth Hash
 
 After receiving a successful callback at `/auth/oauth2/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.

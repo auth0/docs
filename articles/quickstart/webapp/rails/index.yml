@@ -19,3 +19,11 @@ articles:
   - 01-login
   - 02-session-handling
   - 03-user-profile
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-rubyonrails-sample
+  branch: master
+requirements:
+  - Ruby 2.3.1
+  - Rails 5.0.0
