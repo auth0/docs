@@ -12,6 +12,27 @@ This API is designed for people who feel comfortable integrating with RESTful AP
 
 The Authentication API is served over HTTPS. All URLs referenced in the documentation have the following base: `https://${account.namespace}`
 
+## Authentication methods
+
+There are three ways to authenticate with this API: 
+- with an OAuth2 access token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the access token)
+- with your Client Id and Client Secret credentials
+- only with your Client Id
+
+Each endpoint supports only one option.
+
+### OAuth2 token
+
+In this case, you have to send a valid [access token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an access token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+
+### Client Id and Client Secret
+
+In this case, you have to send your Client Id and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential clients (i.e. clients that are able to hold credentials in a secure way without exposing them to unauthorized parties).
+
+### Client Id
+
+For public clients (i.e. clients that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client Id. An example is the [Implicit Grant](#implicit-grant).
+
 ## Parameters
 
 For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
