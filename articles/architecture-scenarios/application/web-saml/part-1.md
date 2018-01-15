@@ -10,6 +10,8 @@ In this section, we'll go over the solution we're implementing, including detail
 * Protocols used
 * Authentication flow
 
+![](/media/articles/architecture-scenarios/web-saml.png)
+
 ## Identity Management
 
 For the purposes of this example, we will have:

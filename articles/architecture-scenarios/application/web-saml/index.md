@@ -18,9 +18,11 @@ The company has built a timesheets app, which we covered in [Single Sign-On for 
 
 ExampleCo wants to revamp the way that users who want access to the timesheets app are authenticated and authorized. Rather than rolling their own identity management solution, ExampleCo wants to integrate with Auth0, who will handle these tasks and implement the SAML authentication process.
 
+ExampleCo also wants to maintain records of information submitted by employees using the timesheets.
+
 ## Goals & Requirements
 
-![](/media/articles/architecture-scenarios/web-saml.png)
+For the purposes of this tutorial, Auth0 acts as the SAML identity provider. The regular web app handling timesheets, as well as Tableau (which we will discuss further down on this page), will act as the SAML service providers.
 
 The application should be available to logged in users only. Each user will have a role, and based on this role, they should be able to perform certain actions and view specific data.
 
@@ -41,3 +43,7 @@ The timesheets app needs a SAML library that can:
 ::: note
 Though Auth0 returns an access token to the user, the token itself is rarely used since there is no API against which the user is authenticated.
 :::
+
+ExampleCo also uses Tableau for its analytics purposes. While not all of ExampleCo's employees have access to this product, many do and the company takes advantage of Tableau's SAML SSO functionality. As such, our integration will need to be able to handle users who want to log in to the regular web app using their Tableau credentials.
+
+Finally, we will need to ensure that we've encrypted our SAML requests, as well as implemented single logout.
