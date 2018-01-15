@@ -1,17 +1,17 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2 app
+description: This tutorial demonstrates how to add authentication and authorization to an Ionic 3 app
 budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ionic2-samples',
+  repo: 'auth0-ionic3-samples',
   path: '01-Login',
   requirements: [
-    'Ionic 2.x',
-    'Angular 4+'
+    'Ionic 3.x',
+    'Angular 5+'
   ]
 }) %>
 
@@ -23,13 +23,12 @@ Use the `onRedirectUri` method from **auth0-cordova** when your app loads to pro
 
 ```js
 // app.component.ts
-
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
 
 // Import Auth0Cordova
 import Auth0Cordova from '@auth0/cordova';
@@ -38,18 +37,23 @@ import Auth0Cordova from '@auth0/cordova';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen
+  ) {
     platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
 
-      // Add this function
-      (<any>window).handleOpenURL = (url) => {
+      // Redirect back to app after authenticating
+      (window as any).handleOpenURL = (url: string) => {
         Auth0Cordova.onRedirectUri(url);
-      };
-
+      }
     });
   }
 }
@@ -61,24 +65,26 @@ To coordinate authentication tasks, it's best to set up an injectable service th
 
 ${snippet(meta.snippets.use)}
 
-## Add a Login Control
+## Show Authentication State
 
 Add a control to your app to allow users to log in. The control should call the `login` method from the `AuthService`. Start by injecting the `AuthService` in a component.
 
 ```js
 // src/pages/home/home.ts
-
 import { Component } from '@angular/core';
-
-import { AuthService } from '../../services/auth.service';
+import { NavController } from 'ionic-angular';
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public auth: AuthService) {}
+  
+  constructor(
+    public navCtrl: NavController,
+    public auth: AuthService
+  ) {}
 
 }
 ```
@@ -87,42 +93,38 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
 
 ```html
 <!-- src/pages/home/home.html -->
-
-<div *ngIf="!auth.isAuthenticated()">
-  <button ion-button block color="primary" (click)="auth.login()">Log In</button>
-</div>
-```
-
-## Display Profile Data
-
-Your application will likely require some kind of profile area for users to see their information. Depending on your needs, this can also serve as the place for them to log out of the app.
-
-The `login` method in the `AuthService` includes a call to Auth0 for the authenticated user's profile. This profile information can now be used in a template.
-
-```html
-<!-- src/pages/home/home.html -->
-
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Home Page
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-  <!-- a card with the user's picture and name, plus a logout button -->
-  <div *ngIf="auth.isAuthenticated()">
-    <ion-card>
-      <img [src]="auth.user.picture" />
-      <ion-card-content>
-        <ion-card-title>{{ auth.user.name }}</ion-card-title>
-      </ion-card-content>
-    </ion-card>
-    <button ion-button block color="primary" (click)="auth.logout()">Logout</button>
-  </div>
-
+  <p *ngIf="auth.loading" text-center>Loading...</p>
+  <ng-template [ngIf]="!auth.loading">
+    <!-- Not loading, not logged in: show login button -->
+    <button
+      ion-button
+      block
+      color="primary"
+      *ngIf="!auth.loggedIn"
+      (click)="auth.login()">Log In</button>
+    <!-- Not loading, logged in: show profile and logout button -->
+    <ng-template [ngIf]="auth.loggedIn">
+      <ion-card *ngIf="auth.user">
+        <img [src]="auth.user.picture">
+        <ion-card-content>
+          <ion-card-title>{{ auth.user.name }}</ion-card-title>
+          <pre>{{ auth.user | json }}</pre>
+        </ion-card-content>
+      </ion-card>
+      <button
+        ion-button
+        block
+        color="danger"
+        (click)="auth.logout()">Log Out</button>
+    </ng-template>
+  </ng-template>
 </ion-content>
 ```
 

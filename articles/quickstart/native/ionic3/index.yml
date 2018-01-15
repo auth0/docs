@@ -1,20 +1,20 @@
-title: Ionic 2
+title: Ionic 3
 logo_name: ionic
 alias:
-  - ionic2
+  - ionic3
 language:
   - Typescript
 framework:
-  - Ionic2
-  - Angular4
+  - Ionic3
+  - Angular5
   - Cordova
 hybrid: true
 image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
-  use: native-platforms/ionic2/use
-seo_alias: ionic2
+  use: native-platforms/ionic3/use
+seo_alias: ionic3
 default_article: 01-login
 articles:
   - 01-login
