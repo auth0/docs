@@ -10,6 +10,16 @@ toc: true
 
 In this scenario, we will build a regular web app for a fictitious company called ExampleCo. The app will be used by ExampleCo's in-house employees and external contractors. Employees and contractors are stored in differing directories, but regardless of where the user information is located, the regular web app will "outsource" all authentication tasks to Auth0, which will be utilizing the SAML 2.0 protocol.
 
+::: panel TL;DR
+* Your application will be configured in Auth0 as a [Client](/architecture-scenarios/application/web-saml/)
+* Your Identity Providers will be configured in Auth0 as [Connections](/architecture-scenarios/application/web-saml/)
+* [SAML 2.0](/architecture-scenarios/application/web-saml/) is a framework that allows security credentials to be shared and for one party to handle some (or all) of the security-related actions for another party
+* Auth0 provides a Lock widget, which [allows users to log in](/architecture-scenarios/application/web-saml/) to the application
+* The web application needs to [manage session state](/architecture-scenarios/application/web-saml/) to keep track of the fact that the user is logged in. Along with this, Auth0 and the Identity Provider is also managing session information
+* At the other end of the process, [logging a user out](/architecture-scenarios/application/web-saml/) also involves three layers of session management
+* You can manage [access control](/architecture-scenarios/application/web-saml/) using the Auth0 Authorization Extension
+:::
+
 ## The Premise
 
 ExampleCo is a consulting startup company. The company currently has about 100 employees, and they outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week.
