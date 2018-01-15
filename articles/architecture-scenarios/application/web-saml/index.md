@@ -34,7 +34,7 @@ However, the approved timesheets are used for customer charging so security is d
 ExampleCo wants to __authenticate__ and __authorize__ each user. Authentication has to do with identity: verifying that the user is indeed who they claim to be. Authorization is about deciding which resources a user should have access to, and what they should be allowed to do with those resources.
 :::
 
-The timesheets app needs a SAML library that can:
+Because ExampleCo wants to utilize the SAML 2.0 protocol, the timesheets app itself needs a SAML library that can:
 
 1. Process the SAML response received from Auth0
 2. Validate the user based on assertions included in the SAML response
@@ -46,4 +46,10 @@ Though Auth0 returns an access token to the user, the token itself is rarely use
 
 ExampleCo also uses Tableau for its analytics purposes. While not all of ExampleCo's employees have access to this product, many do and the company takes advantage of Tableau's SAML SSO functionality. As such, our integration will need to be able to handle users who want to log in to the regular web app using their Tableau credentials.
 
-Finally, we will need to ensure that we've encrypted our SAML requests, as well as implemented single logout.
+Furthermore, for those who choose to log in using Tableau, there will be information-rich profiles. We will want to extract details from these profiles and store them on the Auth0 profile (remember: never ask the user for something you already know, and there is an abundance of information available already from their Tableau profiles). We can then include such information in the SAML response.  
+
+Finally, we will need to ensure that we've encrypted our SAML requests (for the purposes of this tutorial, we will include a discussions as to why or why you might not encrypt your requests), as well as implemented single logout.
+
+<%= include('./_stepnav', {
+ next: ["1. Solution Overview", "/architecture-scenarios/application/web-saml/part-1"]
+}) %>
