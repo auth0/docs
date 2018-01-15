@@ -13,7 +13,7 @@ Auth0 offers a [hosted login page](/hosted-pages/login) option that you can use 
 
 ## Using Lock
 
-Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-).
+Lock supports [custom fields signup](/libraries/lock/customization#additionalsignupfields-array-).
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
