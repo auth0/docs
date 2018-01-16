@@ -189,7 +189,7 @@ Our new implementation does not support passwordless authentication. We are curr
 
 - [/oauth/access_token](/api/authentication#social-with-provider-s-access-token): The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint, used on native social authentication on mobile devices (for example, use the Facebook SDK and then this endpoint to create the user in Auth0), is now disabled. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) since last year.
 
-- [/oauth/ro](/api/authentication#resource-owner): Replaced in favor of password grant. This should be used only by highly trusted clients, with the current exception of native apps (not with SPAs). It's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA.
+- [/oauth/ro](/api/authentication#resource-owner): This endpoint will soon be deprecated. Use the password grant instead. Note that the password grant should be used only by highly trusted clients, with the current exception of native apps (not with SPAs). This grant's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA. For more information on this grant refer to [Call APIs from Highly Trusted Clients](/api-auth/grant/password).
 
 ## How to use the new flows
 
