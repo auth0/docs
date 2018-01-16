@@ -24,7 +24,7 @@ The primary characteristics of a Client in Auth0 are:
 
 We will need to create two clients: one for the service provider (SP) and one for the identity provider (IdP).
 
-### Create a Client for the Service Provider
+### Create a Client for the Identity Provider
 
 To create a new client, go to the [Clients](${manage_url}/#/clients) section of the [dashboard](${manage_url}).
 
@@ -78,7 +78,7 @@ At this point, we will configure the identity providers that will be used for au
 
 You'll need to configure two connections:
 
-* One to store the users who are logging in via single sign on (SSO) using Tableau
+* One to store the users who are logging in via single sign on (SSO) using Slack
 * One to store users who are logging in with a username (or email) and a password
 
 ::: panel Supported identity providers
@@ -107,7 +107,7 @@ For more information on database connections refer to [Database Identity Provide
 
 ### Create an Enterprise SAML-P Connection
 
-At this point, you'll need to configure a connection to hold the users that will be using single sign on with their Tableau accounts.
+At this point, you'll need to configure a connection to hold the users that will be using single sign on with their Slack accounts.
 
 Go to [Connections > Enterprise](${manage_url}/#/connections/enterprise)).
 
