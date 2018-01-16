@@ -17,7 +17,7 @@ budicon: 448
   ]
 }) %>
 
-${include('../\_callback')}
+${include('../_callback')}
 
 ## 1. Install the `cyclejs-auth0` Package
 
