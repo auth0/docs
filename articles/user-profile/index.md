@@ -8,7 +8,7 @@ The Auth0 **User Profile** is the set of attributes that contains specific infor
 
 User Profile attributes can come from many places. Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
 
-## Manage Users using the Management Dashboard
+## Manage users using the Dashboard
 
 Use the [Dashboard > Users](${manage_url}/#/users) to create, view, modify, or delete users.
 
@@ -18,7 +18,7 @@ User Management is included as part of the **Developer** subscription plan. You 
 
 ![User Profile Dashboard](/media/articles/user-profile/user1.png)
 
-### Create a New User
+### Create a user
 
 To create a new user and their corresponding User Profile, click the [Users](${manage_url}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the *Users* page. You will be prompted to enter the following information:
 
@@ -33,7 +33,7 @@ Fill in the required information and click **Save** to create the new user. For 
 The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
-### View Users
+### View users
 
 The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
 
@@ -80,7 +80,7 @@ The Locations tab displays a map with pins indicating the user's location(s) whe
 
 The Raw JSON tab displays all of the information contained on the user's profile in JSON format so you can quickly view all of the available information about the user.
 
-### Impersonate a User
+### Impersonate a user
 
 ::: panel-warning Advanced Feature
 Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
@@ -108,7 +108,7 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
 
-### Block and Unblock a User
+### Block and unblock a user
 
 To disable a user's access to your apps, you can block the user in the Dashboard.
 
@@ -122,7 +122,7 @@ To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Da
 
 ![Unblock a User](/media/articles/user-profile/user4.png)
 
-### Delete a User
+### Delete a user
 
 To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the **Actions** button. Select **Delete User** from the dropdown menu.
 
@@ -130,7 +130,7 @@ To permanently delete a user, navigate to the [Users](${manage_url}/#/users) pag
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the **Yes, Delete It** button to confirm. This will permanently delete the user.
 
-## Manage Users using the Management API
+## Manage users using the Management API
 
 Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
@@ -138,7 +138,7 @@ First, you have to generate an `access_token` to call the Management API. For in
 
 Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
-## User Access to Clients
+## User access to clients
 
 Inside a single Auth0 tenant the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
 
