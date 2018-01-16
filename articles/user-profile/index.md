@@ -8,11 +8,9 @@ The Auth0 **User Profile** is the set of attributes that contains specific infor
 
 User Profile attributes can come from many places. Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
 
-## Manage Users using the Management Dashboard
+## Manage users using the Dashboard
 
-Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
-
-Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
+Use the [Dashboard > Users](${manage_url}/#/users) to create, view, modify, or delete users.
 
 ::: note
 User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/tenant/billing/subscription) to access these features.
@@ -20,7 +18,7 @@ User Management is included as part of the **Developer** subscription plan. You 
 
 ![User Profile Dashboard](/media/articles/user-profile/user1.png)
 
-### Create a New User
+### Create a user
 
 To create a new user and their corresponding User Profile, click the [Users](${manage_url}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the *Users* page. You will be prompted to enter the following information:
 
@@ -35,7 +33,7 @@ Fill in the required information and click **Save** to create the new user. For 
 The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
-### View Users
+### View users
 
 The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
 
@@ -52,14 +50,14 @@ The User Details page has links for five tabs:
 The Details tab contains three sections that provide a high-level overview of the information in the user's profile:
 
 1. **User Identity** provides at-a-glance details about the user, including their email address, associated Connections, and access rights.
-2. **Metadata** displays the information available via the `app_metadata` and `user_metadata` attributes. Click the "Edit" button in this section to edit the user's `user_metadata` attributes. Note that all `app_metadata` attributes are read-only.
-3. **Identity Provider Attributes** displays the information retrieved from the authentication provider. Note that Identity Provider Attributes are read-only.
+2. **Metadata** displays the `app_metadata` and `user_metadata` information. You can edit these values.
+3. **Identity Provider Attributes** displays the information retrieved from the authentication provider. Note that identity provider attributes are read-only.
 
 #### User Details: Devices
 
 The Devices tab lists the devices with which the user has requested authentication. Requesting authorization on a device links the device to the user's account.
 
-Login details for the user are associated with the refresh token assigned to that device. To revoke the refresh token, click "Unlink" next to the device.
+Login details for the user are associated with the refresh token assigned to that device. To revoke the refresh token, click **Unlink** next to the device.
 
 #### User Details: History
 
@@ -67,12 +65,12 @@ The History tab displays a log of the user's account activity for the past 2 day
 
 The logs include information about:
 
-* Events that have occurred.
-* When the events occurred.
-* The apps associated with the events.
-* The identity provider used for authentication.
-* The originating IP addresses for the events.
-* Where the events originated.
+* Events that have occurred
+* When the events occurred
+* The apps associated with the events
+* The identity provider used for authentication
+* The originating IP addresses for the events
+* Where the events originated
 
 #### User Details: Locations
 
@@ -82,7 +80,7 @@ The Locations tab displays a map with pins indicating the user's location(s) whe
 
 The Raw JSON tab displays all of the information contained on the user's profile in JSON format so you can quickly view all of the available information about the user.
 
-### Impersonate a User
+### Impersonate a user
 
 ::: panel-warning Advanced Feature
 Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
@@ -110,29 +108,29 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
 
-### Block and Unblock a User
+### Block and unblock a user
 
 To disable a user's access to your apps, you can block the user in the Dashboard.
 
-To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
+To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select **Block User** from the dropdown menu.
 
 ![Block a User](/media/articles/user-profile/user4.png)
 
 If a blocked user tries to access an application, they will see the error message `user is blocked`.
 
-To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
+To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the **Actions** button. Select **Unblock User** from the dropdown menu.
 
 ![Unblock a User](/media/articles/user-profile/user4.png)
 
-### Delete a User
+### Delete a user
 
-To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the "Actions" button. Select _Delete User_ from the dropdown menu.
+To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the **Actions** button. Select **Delete User** from the dropdown menu.
 
 ![Delete a User](/media/articles/user-profile/user4.png)
 
-A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the "Yes, Delete It" button to confirm. This will permanently delete the user.
+A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the **Yes, Delete It** button to confirm. This will permanently delete the user.
 
-## Manage Users using the Management API
+## Manage users using the Management API
 
 Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
@@ -140,7 +138,7 @@ First, you have to generate an `access_token` to call the Management API. For in
 
 Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
-## User Access to Clients
+## User access to clients
 
 Inside a single Auth0 tenant the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
 
