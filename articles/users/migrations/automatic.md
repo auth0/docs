@@ -119,7 +119,7 @@ After you've enabled migration, you can verify the users that have migrated by:
 
 ![Database Users](/media/articles/connections/database/migrated-users.png)
 
-Once all your users are in the Auth0 database, you are ready to turn off the import users feature and convert the database to Auth0.
+Once all your users are in the Auth0 database, you are ready to convert the database to Auth0.
 
 1. Go to your custom database connection on the [Dashboard](${manage_url}/#/connections/database).
 
@@ -139,6 +139,6 @@ function getByEmail (email, callback) {
 }
 ```
 
-By doing this, you are changing the **Login** and **Get User** Database Action Scripts to NO-OP functions. You will need to implement the other script types for sign up, email verification, password reset and delete user functionality on the Auth0 database that you have migrated to. [Click here](/connections/database/mysql#3-provide-action-scripts) to learn more about the action scripts for your custom database.
+By doing this, you are changing the **Login** and **Get User** [Database Action Scripts](/connections/database/mysql#3-provide-action-scripts) to NO-OP functions.
 
-At this point, you can disconnect your legacy database (**not** the Auth0 database). Your users will then be directed to use the new database workflow. You can configure [rules](/rules) to execute other functions when a user authenticates to your application.
+At this point, you can disconnect your legacy database (**not** the Auth0 database). You will also want to keep **Import Users to Auth0** (on the **Settings** page) enabled. Your users will then be directed to use the new database workflow. You can configure [rules](/rules) to execute other functions when a user authenticates to your application.
