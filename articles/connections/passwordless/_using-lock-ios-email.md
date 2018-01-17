@@ -1,5 +1,3 @@
-# Authenticate users with a one-time code via e-mail
-
 <%= include('./_introduction-email', { isMobile: true }) %>
 
 ## Setup
