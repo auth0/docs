@@ -2,7 +2,6 @@
 description: Step 3 of Amazon API Gateway Tutorial
 toc: true
 ---
-
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 
 In [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1), we showed you how to configure Auth0 for use with API Gateway, and in [part 2](/integrations/aws-api-gateway/custom-authorizers/part-2) of this tutorial, we showed you how to import, test, and deploy an API using Amazon Web Services' (AWS) API Gateway. In this tutorial, we will show you how to secure this API so that only those with the appropriate authorization may access the back-end behind the API.
@@ -26,7 +25,7 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 
 | **Parameter** | **Value** |
 | - | - |
-| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}` |
+| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
 | **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
