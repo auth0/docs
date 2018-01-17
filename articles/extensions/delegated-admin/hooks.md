@@ -191,24 +191,37 @@ Supported action names:
  - `unblock:user`
  - `send:verification-email`
 
-#### Create Hook
+#### Write Hook
 
-Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Create Hook** allows you to configure.
+Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Write Hook** allows you to configure.
 
 Hook contract:
 
  - `ctx`: The context object.
+   - `request.originalUser`: The current user values, payload is the new set of fields.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
      - `email`: The email address of the user.
      - `password`: The password of the user.
      - `connection`: The name of the user.
+   - `userFields`: The user fields array, if one is specified in the settings query.
+   - `method`: Either `create` or `update` depending on whether this is being called as a result of a create or an update call
  - `callback(error, user)`: The callback to which you can return an error and the user object that should be sent to the Management API.
 
 Example: **Kelly** manages the Finance department. When she creates users, these users should be assigned to her department.
 
 ```js
 function(ctx, callback) {
+  var newProfile = {
+    email: ctx.payload.email,
+    password: ctx.payload.password,
+    connection: ctx.payload.connection,
+    app_metadata: {
+      department: ctx.payload.memberships && ctx.payload.memberships[0],
+      ...ctx.payload.app_metadata
+    }
+  };
+
   if (!ctx.payload.memberships || ctx.payload.memberships.length === 0) {
     return callback(new Error('The user must be created within a department.'));
   }
@@ -225,15 +238,17 @@ function(ctx, callback) {
     return callback(new Error('You can only create users within your own department.'));
   }
 
+  if (ctx.method === 'update') {
+    /* If updating, only set the fields we need to send */
+    Object.keys(newProfile).forEach(function(key) {
+      if (newProfile[key] === ctx.request.originalUser[key]) delete newProfile[key];
+    });
+  }
+
+  // NOTE: if you are setting userFields with restricted values using the settings query, you should enforce their limits here using the ctx.userFields array
+
   // This is the payload that will be sent to API v2. You have full control over how the user is created in API v2.
-  return callback(null, {
-    email: ctx.payload.email,
-    password: ctx.payload.password,
-    connection: ctx.payload.connection,
-    app_metadata: {
-      department: ctx.payload.memberships[0]
-    }
-  });
+  return callback(null, newProfile);
 }
 ```
 
@@ -310,10 +325,272 @@ function(ctx, callback) {
     // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
     dict: {
       title: department ? department + ' User Management' : 'User Management Dashboard',
-      memberships: 'Departments'
+      memberships: 'Departments',
+      menuName: ctx.request.user.name
     },
     // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
     css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
+  });
+}
+```
+
+## Custom Fields
+
+Starting with version 3.0 of the Delegated Admin Extension you can now specify custom fields.  These custom fields can be stored anywhere in user_metadata or app_metadata when creating,
+updating, or displaying users.  You can use these fields to search for users and display them in the search results.  Also, it allows you to customize existing fields, such as email, username,
+name, and connection.
+
+To utilize custom fields, you must add a list of userFields to the **Settings Query**.
+
+Schema for a user field:
+```js
+userFields: [
+    {
+        "property": string, // required
+        "label": string,
+        "sortProperty": string,
+        "display": true || function.toString(),
+        "search": false || {
+            "display": true || function.toString()
+            "listOrder": 1,
+            "listSize": string(###%), // e.g. 15%
+            "filter": boolean,
+            "sort": boolean
+        },
+        "edit": false || {
+            "display": true || function.toString()
+            "type": "text || select || password",
+            "component": "InputText || Input Combo || InputMultiCombo || InputSelectCombo",
+            "options": Array(string) || Array ({ "value": string, "label": string }),
+            "disabled": true,
+        },
+        "create": false || {
+            "display": true || function.toString()
+            "type": "text || select || password",
+            "component": "InputText || Input Combo || InputMultiCombo || InputSelectCombo",
+            "options": Array(string) || Array ({ "value": string, "label": string }),
+            "disabled": true,
+        }
+    },
+    ...
+]
+```
+
+- **property** (**required**): This is the property name of the ctx.payload object for the write hook.
+    - Example: `"property": "app_metadata.dbId"` will get set in `ctx.payload.app_metadata.dbId` in the write hook
+- **label**: This is the label that will be used when adding a label for the field on the user info page, create page, edit profile page, or search page
+- **sortProperty**: If sorting by a different field than this for the search table, use this field.  Dot notation is allowed.
+- **display**: true || false || stringified => This is the default display value.  If not overridden in search, edit, or create, it will use this value.
+    - if `true` will just return `user.<property>`
+    - if `false` this value will not be displayed on any page (unless overridden in search, edit, or create)
+    - if stringified function, will execute that function to get the value to display
+        - Example: `(function display(user, value) { return moment(value).fromNow(); }).toString()`
+- **search**: false || object => This describes how this field will behave on the search page
+    - if `false` will not show up in the search table
+    - **search.display**: This will override the default display value
+    - **search.listOrder**: This will specify the column order for the search display table
+    - **search.listSize**: This will specify the default width of the column
+    - **search.filter**: This will specify whether to allow this field to be search in the search dropdown
+    - **search.sort**: This will specify whether this column is sortable.  Use sortProperty if you want to sort by a field other than property.
+- **edit**: false || object => This describes whether the field shows up on the edit dialogs.  If not a default field and set to an object, this will show up in the `Change Profile` page on the User Actions dropdown on the user page.
+    - **edit.display**: This will override the default display value
+    - **edit.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value
+    - **edit.type**: text || select || password
+    - **edit.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
+        - **InputText**: A simple text box
+        - **InputCombo**: A searchable text box
+        - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
+        - **InputSelectCombo**: A searchable dropdown, single value only
+    - **edit.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
+        - **Array(string)**: A simple array of values, label and value will be set to the same
+        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
+    - **edit.disabled**: true if component should be read only
+    - **edit.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
+        - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
+- **create**: false || object => This describes whether the field shows up on the create dialog.
+    - **create.display**: This will override the default display value
+    - **create.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value
+    - **create.type**: text || select || password
+    - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
+        - **InputText**: A simple text box
+        - **InputCombo**: A searchable text box
+        - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
+        - **InputSelectCombo**: A searchable dropdown, single value only
+    - **create.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
+        - **Array(string)**: A simple array of values, label and value will be set to the same
+        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
+    - **create.disabled**: true if component should be read only
+    - **create.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
+        - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
+
+###Pre-Defined Fields
+There are a set of pre-defined fields for default behavior.  You can override the default behavior by adding the field as a userField and then overriding the behavior you would like to change.  This would often be done to suppress a field by setting display to false.
+Here are the existing fields:
+####Search Table Fields
+- **name**: A constructed field from other fields: default display function: `(function(user, value) { return (value || user.nickname || user.email || user.user_id); }).toString()`
+- **email**: email address or N/A
+- **last_login_relative**: The last login time
+- **logins_count**: The number of logins
+- **connection**: Their database connection
+####User Info Fields
+- **user_id**: The user ID
+- **name**: The user's name
+- **username**: The user's username
+- **email**: The user's email
+- **identity.connection**: The connection value
+- **isBlocked**: Whether or not the user is blocked
+- **last_ip**: What the last IP was the user used to log in
+- **logins_count**: How many times the user has logged in
+- **currentMemberships**: The list of memberships for this user
+- **created_at**: How long ago the user was created.
+- **updated_at**: How long ago the user was updated.
+- **last_login**: How long ago the user last logged in.
+####Create and Edit User Fields
+- **connection**: The user's database
+- **password**: The new password
+- **repeatPassword**: A repeat of the user's password
+- **email**: The user's email
+- **username**: The user's username
+
+###Example:
+```js
+function(ctx, callback) {
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
+
+  return callback(null, {
+    // Only these connections should be visible in the connections picker.
+    // If only one connection is available, the connections picker will not be shown in the UI.
+    connections: [ 'Username-Password-Authentication', 'My-Custom-DB' ],
+    // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
+    dict: {
+      title: department ? department + ' User Management' : 'User Management Dashboard',
+      memberships: 'Departments'
+    },
+    // User Fields are the custom fields that can be displayed in create and edit, and can also be used for searching, and can be used to customize the view user page
+    userFields: [
+        {
+            "label": "Connection",
+            "property": "connection",
+            "display": false,
+            "create": false,
+            "edit": false,
+            "search": false
+        },
+        {
+            "label": "First Name",
+            "property": "user_metadata.given_name",
+            "display": true,
+            "create": {
+                "type": "text"
+            },
+            "edit": {
+                "type": "text"
+            },
+            "search": {
+                "listSize": "10%",
+                "listOrder": 0
+            }
+        },
+        {
+            "label": "Last Name",
+            "property": "user_metadata.family_name",
+            "display": true,
+            "create": {
+                "type": "text"
+            },
+            "edit": {
+                "type": "text"
+            },
+            "search": {
+                "listSize": "10%",
+                "listOrder": 1,
+                "sort": true
+            }
+        }
+    ],
+    // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
+  });
+}
+```
+
+## Localization
+
+Starting with version 3.0 of the Delegated Admin Extension you can now provide a language dictionary for localization.  The language dictionary is used for static page content.  For field level content, you must use the labels of the userFields.
+
+NOTE: The target audience for Localization is allowing customers access to delegated admin if they have to administer some of their own users.  That being the case, localization is targeted at the non-admin functions.  Currently it does not support localization on the configuration pages.
+
+The languageDictionary is set as part of the settings query.  With the settings query you can specify either the languageDictionary itself, or you can put a URL to fetch the languageDictionary.
+
+Here is an example [complete Language Dictionary file](https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/tests/utils/en.json).
+
+### Example Link:
+```js
+function(ctx, callback) {
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
+
+  return callback(null, {
+    // Only these connections should be visible in the connections picker.
+    // If only one connection is available, the connections picker will not be shown in the UI.
+    connections: [ 'Username-Password-Authentication', 'My-Custom-DB' ],
+    // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
+    dict: {
+      title: department ? department + ' User Management' : 'User Management Dashboard',
+      memberships: 'Departments'
+    },
+    // User Fields are the custom fields that can be displayed in create and edit, and can also be used for searching, and can be used to customize the view user page
+    userFields: [
+        {
+            "label": "Conexión",
+            "property": "connection",
+        },
+        {
+            "label": "Correo Electrónico",
+            "property": "email",
+        },
+        ...
+    ],
+    // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css',
+    languageDictionary: 'https://your-cdn.com/locale/es.json'
+  });
+}
+```
+
+### Example Object:
+```js
+function(ctx, callback) {
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
+
+  return callback(null, {
+    // Only these connections should be visible in the connections picker.
+    // If only one connection is available, the connections picker will not be shown in the UI.
+    connections: [ 'Username-Password-Authentication', 'My-Custom-DB' ],
+    // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
+    dict: {
+      title: department ? department + ' User Management' : 'User Management Dashboard',
+      memberships: 'Departments'
+    },
+    // User Fields are the custom fields that can be displayed in create and edit, and can also be used for searching, and can be used to customize the view user page
+    userFields: [
+        {
+            "label": "Conexión",
+            "property": "connection",
+        },
+        {
+            "label": "Correo Electrónico",
+            "property": "email",
+        },
+        ...
+    ],
+    // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css',
+    languageDictionary: {
+        loginsCountLabel: 'Cantidad de Logins:',
+        searchBarPlaceholder: 'Busqueda de usuarios usando la sintaxis de Lucene',
+        deviceNameColumnHeader: 'Dispositivo',
+        ...
+    }
   });
 }
 ```
