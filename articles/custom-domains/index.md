@@ -29,7 +29,7 @@ Currently, the following Auth0 features and flows support use of custom domains:
 
 
 ::: panel Token Issuance
-Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an access token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain**https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**.
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an access token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**.
 
 If you obtain an access token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
 :::
