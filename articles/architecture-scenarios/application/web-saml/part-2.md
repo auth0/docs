@@ -117,6 +117,7 @@ Click **Save** to proceed.
 
 ![Create SAML-P Connection Dialog Box]()
 
+
 ### Enabling Your Connections for Your Client
 
 You've created your client and the two connections needed to hold your users, but you'll need to manually enable your connections for use with your client. You can do this by returning to **Client > Connections**. Make sure that only the sliders next to the connections you want used are green.

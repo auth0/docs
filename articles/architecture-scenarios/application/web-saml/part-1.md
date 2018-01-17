@@ -16,7 +16,7 @@ In this section, we'll go over the solution we're implementing, including detail
 
 For the purposes of this example, we will have:
 
-* The regular web app (and later Slack) act as the service provider
+* The regular web app (and later SalesForce) act as the service provider
 * Auth0 act as the identity provider
 
 When working with the SAML protocol, it's important to remember that the **service provider** is the part *provide* or *consume* SAML services. An **identity provider** (which, in this case, is Auth0) handles everything related to authentication and authorization.
@@ -42,13 +42,13 @@ At this point, Auth0 begins to:
 
 1. Parse the SAML request
 2. Authenticate the user
-3. Generate a SAML response to send back to the regular web app/Slack for verification. This is sent using an **HTTP POST** call to a designated endpoint (or callback) for the regular web app/Slack. The response contains SAML assertions about the user.
+3. Generate a SAML response to send back to the regular web app/SalesForce for verification. This is sent using an **HTTP POST** call to a designated endpoint (or callback) for the regular web app/SalesForce. The response contains SAML assertions about the user.
 
-If the regular web app/Slack is able to verify the SAML response, it allows the user to log in and access the timesheets.
+If the regular web app/SalesForce is able to verify the SAML response, it allows the user to log in and access the timesheets.
 
 ## The Implementation Process
 
-In this tutorial, we will cover two methods for using Auth0 as a SAML identity provider (IdP). Because our timesheets app is a custom application, we'll need to manually configure the SAML integration. However, when integrating with Slack for SSO, we can take advantage of Auth0's built-in SSO support.
+In this tutorial, we will cover two methods for using Auth0 as a SAML identity provider (IdP). Because our timesheets app is a custom application, we'll need to manually configure the SAML integration. However, when integrating with SalesForce for SSO, we can take advantage of Auth0's built-in SSO support.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/architecture-scenarios/application/web-saml"],

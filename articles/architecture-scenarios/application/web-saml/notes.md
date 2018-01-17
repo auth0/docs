@@ -46,3 +46,8 @@ Tableau and WatchGuard were massive users of SAML, and the above was most common
 
 - Part 4
     Conclusion
+
+
+SalesForce SSO Integrations: https://auth0.com/docs/sso/current/integrations/salesforce
+
+https://salesforce.stackexchange.com/questions/114671/salesforce-as-service-provider
