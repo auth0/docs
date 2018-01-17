@@ -1,5 +1,3 @@
-# Authenticate users with a one-time code via SMS
-
 <%= include('./_introduction-sms', { isMobile: true }) %>
 
 ## Setup
