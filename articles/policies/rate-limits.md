@@ -32,13 +32,7 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 ## Exceeding the Rate Limit
 
-If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response with the following message:
-
-```text
-{
-    "message": "Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers."
-}
-```
+If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
 Actions such as rapidly updating configuration settings, aggressive polling, or making highy concurrent API calls may result in your app being rate limited.
 
@@ -46,11 +40,11 @@ If your app triggers the rate limit, please refrain from making additional reque
 
 ## HTTP Response Headers
 
-API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
+API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
-* **X-RateLimit-Limit**: Request limit
-* **X-RateLimit-Remaining**: Requests available for the current time frame
-* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
+* **X-RateLimit-Limit**: The maximum number of requests available in the current time frame.
+* **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
+* **X-RateLimit-Reset**: A [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) of the expected time when the rate limit will reset.
 
 ## Endpoints with Rate Limits
 
@@ -184,10 +178,98 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ### Authentication API
 
-The following Auth0 Authentication API endpoints return rate limit-related headers:
+The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-| Endpoint | Scope | GET | POST |
-| - | - | - | - |
-| User Profile | Per User ID (GET), Per IP (POST) | /userinfo | /tokeninfo |
-| Delegated Authentication | Per User ID per IP | | /delegation |
-| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | /dbconnections/change_password |
+<table class="table">
+  <tr>
+      <th><strong>Endpoint</strong></th>
+      <th><strong>Path</strong></th>
+      <th><strong>Limited By</strong></th>
+      <th><strong>Affected Tenants</strong></th>
+  </tr>
+  <tr>
+    <td rowspan="2">User Profile</td>
+    <td>/tokeninfo (legacy)</td>
+    <td>IP</td>
+    <td>All</td>
+  </tr>
+  <tr>
+    <td>/userinfo</td>
+    <td>User ID</td>
+    <td>All</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Delegated Authentication (legacy)</td>
+    <td rowspan="3">/delegation</td>
+    <td>User ID and IP</td>
+    <td>All</td>
+  </tr>
+  <tr>
+    <td>(any request)</td>
+    <td>Free (*)</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+  <tr>
+    <td>Change Password</td>
+    <td>/dbconnections/change_password</td>
+    <td>User ID and IP</td>
+    <td>All</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Get Token</td>
+    <td rowspan="2">/oauth/token</td>
+    <td>(any request)</td>
+    <td>Free</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Cross Origin Authentication</td>
+    <td rowspan="2">/co/authenticate</td>
+    <td>(any request)</td>
+    <td>Free</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Authentication</td>
+    <td rowspan="2">/usernamepassword/login</td>
+    <td>(any request)</td>
+    <td>Free</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Resource Owner (legacy)</td>
+    <td rowspan="2">/oauth/ro</td>
+    <td>(any request)</td>
+    <td>Free</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Json Web Token Keys</td>
+    <td rowspan="2">/.well-known/jwks.json</td>
+    <td>(any request)</td>
+    <td>Free</td>
+  </tr>
+  <tr>
+    <td>IP</td>
+    <td>Paid</td>
+  </tr>
+</table>
+
+:::note
+(*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers. 
+:::
