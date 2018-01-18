@@ -7,10 +7,10 @@ toc: true
 
 Auth0 is offered in four deployment models:
 
-- As a __multi-tenant cloud service__ running on Auth0's cloud
-- As a __dedicated cloud service__ running on Auth0's cloud
-- As a __dedicated cloud service__ running on Customer's cloud infrastructure
-- As an __on-premises virtual Private SaaS (PSaaS) Appliance__ running on Customer's data centers
+- As a **multi-tenant cloud service** running on Auth0's cloud
+- As a **dedicated cloud service** running on Auth0's cloud
+- As a **dedicated cloud service** running on Customer's cloud infrastructure
+- As an **on-premises virtual Private SaaS (PSaaS) Appliance** running on Customer's data centers
 
 ::: note
 PSaaS Appliance is a managed service that you can use if your organization's requirements prevent you from using a multi-tenant cloud service. To learn more refer to [Private SaaS (PSaaS) Appliance](/appliance).

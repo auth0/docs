@@ -11,9 +11,16 @@ classes: topic-page
   </p>
 </div>
 
-Welcome! If you are new to Auth0 then you are at the right place.
+Welcome! If you are new to Auth0, you are in the right place.
 
-This is an introduction to Auth0: what is it we do, how we can help you, what's the basic terminology we use, what's the implementation process and our ecosystem, and many more.
+This is an introduction to Auth0, and covers things like:
+
+* What is it we do
+* How we can help you
+* The basic terminology we use
+* The process of implementing Auth0
+* The Auth0 ecosystem
+* ... and many more
 
 Let's get started!
 
@@ -25,11 +32,11 @@ Let's get started!
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/the-basics">Learn the Basics</a>
-    <p>Learn the Auth0 basics and familiarize yourself with the basic terminology.</p>
+    <p>Learn the basics of Auth0 and familiarize yourself with the basic terminology.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/dashboard-overview">Dashboard Overview</a>
-    <p>The Dashboard is where you configure and manage all things Auth0. This article offers a brief overview of the sections it contains and what you can do on each one.</p>
+    <p>The Dashboard is where you configure and manage all things Auth0. This article offers a brief overview of the sections it contains and what you can do in each section.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/deployment-models">Deployment Models</a>
