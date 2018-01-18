@@ -186,88 +186,77 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
       <th><strong>Path</strong></th>
       <th><strong>Limited By</strong></th>
       <th><strong>Affected Tenants</strong></th>
+      <th><strong>Rate Limit</strong></th>
   </tr>
   <tr>
     <td rowspan="2">User Profile</td>
     <td>/tokeninfo (legacy)</td>
     <td>IP</td>
     <td>All</td>
+    <td>800 requests per minute</td>
   </tr>
   <tr>
     <td>/userinfo</td>
     <td>User ID</td>
     <td>All</td>
+    <td>5 requests per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
-    <td rowspan="3">Delegated Authentication (legacy)</td>
-    <td rowspan="3">/delegation</td>
+    <td rowspan="2">Delegated Authentication (legacy)</td>
+    <td rowspan="2">/delegation</td>
     <td>User ID and IP</td>
     <td>All</td>
+    <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
     <td>(any request)</td>
     <td>Free (*)</td>
-  </tr>
-  <tr>
-    <td>IP</td>
-    <td>Paid</td>
+    <td>10 requests per second</td>
   </tr>
   <tr>
     <td>Change Password</td>
     <td>/dbconnections/change_password</td>
     <td>User ID and IP</td>
     <td>All</td>
+    <td>RL</td>
   </tr>
   <tr>
-    <td rowspan="2">Get Token</td>
-    <td rowspan="2">/oauth/token</td>
+    <td>Get Token</td>
+    <td>/oauth/token</td>
     <td>(any request)</td>
     <td>Free</td>
+    <td>RL</td>
   </tr>
   <tr>
-    <td>IP</td>
-    <td>Paid</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Cross Origin Authentication</td>
-    <td rowspan="2">/co/authenticate</td>
+    <td>Cross Origin Authentication</td>
+    <td>/co/authenticate</td>
     <td>(any request)</td>
     <td>Free</td>
+    <td>RL</td>
   </tr>
+
   <tr>
-    <td>IP</td>
-    <td>Paid</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Authentication</td>
-    <td rowspan="2">/usernamepassword/login</td>
+    <td>Authentication</td>
+    <td>/usernamepassword/login</td>
     <td>(any request)</td>
     <td>Free</td>
+    <td>RL</td>
   </tr>
   <tr>
-    <td>IP</td>
-    <td>Paid</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Resource Owner (legacy)</td>
-    <td rowspan="2">/oauth/ro</td>
+    <td>Resource Owner (legacy)</td>
+    <td>/oauth/ro</td>
     <td>(any request)</td>
     <td>Free</td>
+    <td>RL</td>
   </tr>
   <tr>
-    <td>IP</td>
-    <td>Paid</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Json Web Token Keys</td>
-    <td rowspan="2">/.well-known/jwks.json</td>
+    <td>Json Web Token Keys</td>
+    <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>
+    <td>RL</td>
   </tr>
-  <tr>
-    <td>IP</td>
-    <td>Paid</td>
-  </tr>
+
 </table>
 
 :::note
