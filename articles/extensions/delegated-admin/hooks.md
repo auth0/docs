@@ -195,10 +195,12 @@ Supported action names:
 
 Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Write Hook** allows you to configure.
 
+If you are using custom fields (you have created a userFields property in the settings query).  This hook will also run anytime the user is updated (change password, change email, change profile, etc.).
+
 Hook contract:
 
  - `ctx`: The context object.
-   - `request.originalUser`: The current user values, payload is the new set of fields.
+   - `request.originalUser`: The current user values, payload is the new set of fields.  Only available when method is update.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
      - `email`: The email address of the user.
@@ -382,44 +384,46 @@ userFields: [
 - **sortProperty**: If sorting by a different field than this for the search table, use this field.  Dot notation is allowed.
 - **display**: true || false || stringified => This is the default display value.  If not overridden in search, edit, or create, it will use this value.
     - if `true` will just return `user.<property>`
-    - if `false` this value will not be displayed on any page (unless overridden in search, edit, or create)
+    - Default: if `false` this value will not be displayed on any page (unless overridden in search, edit, or create)
     - if stringified function, will execute that function to get the value to display
         - Example: `(function display(user, value) { return moment(value).fromNow(); }).toString()`
 - **search**: false || object => This describes how this field will behave on the search page
-    - if `false` will not show up in the search table
+    - Default: if `false` will not show up in the search table
     - **search.display**: This will override the default display value
     - **search.listOrder**: This will specify the column order for the search display table
     - **search.listSize**: This will specify the default width of the column
-    - **search.filter**: This will specify whether to allow this field to be search in the search dropdown
-    - **search.sort**: This will specify whether this column is sortable.  Use sortProperty if you want to sort by a field other than property.
+    - **search.filter**: This will specify whether to allow this field to be search in the search dropdown.  Default is false.
+    - **search.sort**: This will specify whether this column is sortable.  Use sortProperty if you want to sort by a field other than property.  Default is false.
 - **edit**: false || object => This describes whether the field shows up on the edit dialogs.  If not a default field and set to an object, this will show up in the `Change Profile` page on the User Actions dropdown on the user page.
+    - Default: if `false` will not show up on any edit/update page
     - **edit.display**: This will override the default display value
-    - **edit.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value
-    - **edit.type**: text || select || password
+    - **edit.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value.  Default is false.
+    - **edit.type** **required**: text || select || password
     - **edit.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
-        - **InputText**: A simple text box
-        - **InputCombo**: A searchable text box
+        - Default: **InputText**: A simple text box
+        - **InputCombo**: A searchable dropdown, single value only
         - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
-        - **InputSelectCombo**: A searchable dropdown, single value only
+        - **InputSelectCombo**: A select dropdown of options
     - **edit.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
         - **Array(string)**: A simple array of values, label and value will be set to the same
         - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
-    - **edit.disabled**: true if component should be read only
+    - **edit.disabled**: true if component should be read only, default is false
     - **edit.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
         - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
 - **create**: false || object => This describes whether the field shows up on the create dialog.
+    - Default: if `false` will not show up on the create page
     - **create.display**: This will override the default display value
-    - **create.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value
-    - **create.type**: text || select || password
+    - **create.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value.  Default is false.
+    - **create.type** **required**: text || select || password
     - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
-        - **InputText**: A simple text box
-        - **InputCombo**: A searchable text box
+        - Default: **InputText**: A simple text box.  Default for type text and password.
+        - **InputCombo**: A searchable dropdown, single value only
         - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
-        - **InputSelectCombo**: A searchable dropdown, single value only
+        - **InputSelectCombo**: A select dropdown of options
     - **create.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
         - **Array(string)**: A simple array of values, label and value will be set to the same
         - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
-    - **create.disabled**: true if component should be read only
+    - **create.disabled**: true if component should be read only, default is false
     - **create.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
         - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
 
