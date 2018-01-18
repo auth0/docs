@@ -180,6 +180,10 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
+:::
+
 <table class="table">
   <tr>
       <th><strong>Endpoint</strong></th>
