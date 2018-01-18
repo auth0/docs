@@ -9,6 +9,7 @@ This document contains spellings and definitions as they are to be used in the A
 - **Email**: Use the un-hyphenated "email" to refer to an email address.
 - **Click**: Use "Click on" when referring to text links in a webpage or UI, "Click" when referring to a button. For example: Click **Save**. Click on **This link**.
 - **Website**: Use "website", NOT "web site".
+- **i.e. / e.g.**: I.e. and e.g. are both Latin abbreviations. E.g. stands for `exempli gratia` and means `for example.`. I.e. is the abbreviation for `id est` and means `in other words`.
 
 ## Dashboard-Related Terminology
 
