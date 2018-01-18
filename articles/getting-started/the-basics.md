@@ -5,7 +5,7 @@ toc: true
 ---
 # Learn the Basics
 
-Often, the biggest barrier to learning new things, expecially in the tech industry, is terminology. The words that are used to describe things can really cause problems when trying to understand new concepts. This document explains some of the basic terminology in use here at Auth0, and how these terms might be similar to concepts that are already familiar to you.
+Often, the biggest barrier to learning new things, especially in the tech industry, is terminology. The words that are used to describe things can really cause problems when trying to understand new concepts. This document explains some of the basic terminology in use here at Auth0, and how these terms might be similar to concepts that are already familiar to you.
 
 ::: panel TL;DR
 This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **clients**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
