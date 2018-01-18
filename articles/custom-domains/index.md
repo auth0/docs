@@ -6,7 +6,7 @@ toc: true
 ---
 # Custom Domains
 
-Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
+Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
 Using custom domains with centralized login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [centralized login and customizing the hosted login pages](/hosted-pages/login).
 
@@ -20,7 +20,7 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 ## Features Supporting Use of Custom Domains
 
-Currently, the following Auth0 features and flows support use of custom domains:
+Currently, the following Auth0 features and flows support the use of custom domains:
 
 * OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](https://auth0.com/docs/api/authentication#get-token) endpoints)
 * Guardian (Version 1.3.3 or later)
@@ -70,7 +70,7 @@ When you've done so, click **Verify** to proceed.
 It may take a few minutes before Auth0 is able to verify your CNAME record, depending on your DNS settings.
 :::
 
-::: panel TL;DR
+::: panel TL;DR;
 Here's how to add the CNAME verification record to your domain's DNS record. The steps specified may vary by domain host provider, but generally speaking, you will need to:
 
 1. Log in to your domain management service (such as GoDaddy or Google Domains)
