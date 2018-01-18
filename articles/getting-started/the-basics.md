@@ -63,7 +63,7 @@ We won't get into details on how to create a client, since this article is meant
 
 Now that you have set up your **Clients**, you are ready to configure how your users will login. 
 
-Auth0 sits between your app and the identity provider that authenticates your users (e.g., Google or Facebook). Through this level of abstraction, Auth0 keeps your app isolated from any changes of the provider's implementation.
+Auth0 sits between your app and the identity provider that authenticates your users (e.g. Google or Facebook). Through this level of abstraction, Auth0 keeps your app isolated from any changes of the provider's implementation.
 
 This relationship between Auth0 and the identity provider is referred to as a **Connection**.
 
