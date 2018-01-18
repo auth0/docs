@@ -218,21 +218,21 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
     <td>/dbconnections/change_password</td>
     <td>User ID and IP</td>
     <td>All</td>
-    <td>RL</td>
+    <td></td>
   </tr>
   <tr>
     <td>Get Token</td>
     <td>/oauth/token</td>
     <td>(any request)</td>
     <td>Free</td>
-    <td>RL</td>
+    <td>30 requests per second</td>
   </tr>
   <tr>
     <td>Cross Origin Authentication</td>
     <td>/co/authenticate</td>
     <td>(any request)</td>
     <td>Free</td>
-    <td>RL</td>
+    <td>5 requests per second</td>
   </tr>
 
   <tr>
@@ -240,21 +240,21 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
     <td>/usernamepassword/login</td>
     <td>(any request)</td>
     <td>Free</td>
-    <td>RL</td>
+    <td>5 requests per second</td>
   </tr>
   <tr>
     <td>Resource Owner (legacy)</td>
     <td>/oauth/ro</td>
     <td>(any request)</td>
     <td>Free</td>
-    <td>RL</td>
+    <td>10 requests per second</td>
   </tr>
   <tr>
     <td>Json Web Token Keys</td>
     <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>
-    <td>RL</td>
+    <td>20 requests per second</td>
   </tr>
 
 </table>
