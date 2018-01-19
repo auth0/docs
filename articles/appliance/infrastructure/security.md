@@ -76,7 +76,3 @@ Auth0's remote access method for initial configuration requires SSH access via J
 ### Updates, Maintenance, and Troubleshooting
 
 Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN. This connection may be enabled for and disabled after the agreed-upon time frames for work.
-
-### Around-the-Clock Accessibility for Custom SLAs
-
-Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the PSaaS Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. 
