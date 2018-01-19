@@ -533,10 +533,6 @@ module.exports = [
     to: '/tutorials/get-user-information-with-unbounce-landing-pages'
   },
   {
-    from: '/scenarios/zendesk-sso',
-    to: '/tutorials/single-sign-on-with-zendesk-using-jwt'
-  },
-  {
     from: '/scenarios',
     to: '/tutorials'
   },
@@ -1445,10 +1441,6 @@ module.exports = [
   {
     from: '/tutorials/how-auth0-versions-software',
     to: '/support/how-auth0-versions-software',
-  },
-  {
-    from: '/tutorials/single-sign-on-with-zendesk-using-jwt',
-    to: '/sso/single-sign-on-with-zendesk-using-jwt',
   },
   {
     from: '/tutorials/authenticating-a-tessel-device',
