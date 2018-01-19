@@ -37,6 +37,13 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
     * Has this worked before, or are you trying a new configuration?
     * Does the problem occur for all users or just a few?
     * What troubleshooting steps have you tried?
+
+    *For PSaaS Appliance Customers*:
+
+    * PSaaS Appliance version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
+    * Status of nodes (https://yourmanage.yourdomain.com/configuration#/nodes)
+    * Status of health check (https://yourmanage.yourdomain.com/configuration#/troubleshoot)
+    
 1. When you have completed all the fields, click on the **SUBMIT** button.
 
 ## Updating an Existing Ticket
@@ -46,6 +53,10 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
 ![](/media/articles/support/update-ticket.png)
+
+::: warning
+If you do not set your ticket status to **Urgent**, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if you realize at a later point that you need to adjust the status, you will have to create a new ticket with the correct severity level set.
+:::
 
 ### Closed Tickets
 

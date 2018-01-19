@@ -53,6 +53,8 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
 
+Additionally, your Auth0 Customer Success Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
+
 Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
 
 ## Support Channels
@@ -70,6 +72,10 @@ In addition to the Auth0 Community, paid subscribers can create a private ticket
 [Learn more about creating tickets with Support Center](/support/tickets)
 
 Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
+
+::: note
+As a secondary point of escalation, PSaaS Appliance customers can also send an email to **productionoutage@auth0.com** to log a critical support issue. Note that this should only be a secondary escalation point, as a ticket created in Support Center provides a more reliable way to identify the customer having the problem and interact with the user.
+:::
 
 #### Add Support-Only Users
 
