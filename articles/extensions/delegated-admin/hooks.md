@@ -5,9 +5,16 @@ toc: true
 
 # Delegated Administration: Hooks
 
-If you are a user with the `Delegated Admin - Administrator` role in your User Profile, log in to the Delegated Administration Dashboard, and click on your name in the top right corner, you'll see a  *Configure* option. On the Configuration page, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension.
+If you're a user assigned the **Delegated Admin - Administrator** role, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension. 
 
 ![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
+
+To access the configuration area:
+
+1. Log in to the Delegated Administration Dashboard
+2. Click on your name in the top right corner. You'll see a drop-down menu; click on the **Configure** option.
+
+The **Configuration** page to which you're redirected is where you can manage your Hooks and queries.
 
 ## Hooks Signature
 
@@ -23,11 +30,11 @@ function(ctx, callback) {
 }
 ```
 
-The context object will expose a few helpers and information about the current request. The following methods and properties are available in every Hook.
+The context (**ctx**) object will expose a few helpers and information about the current request. The following methods and properties are available in every Hook.
 
 **1. Logging**
 
-  To add a message to the Webtask logs (which you can view using the [Realtime Webtask Logs](/extensions/realtime-webtask-logs) extension), call the `log` method:
+  To add a message to the Webtask logs (which you can view using the [Realtime Webtask Logs](/extensions/realtime-webtask-logs) extension), call the **log** method:
 
   ```js
   ctx.log('Hello there', someValue, otherValue);
@@ -35,7 +42,7 @@ The context object will expose a few helpers and information about the current r
 
 **2. Caching**
 
-  To cache something (such as a long list of departments), you can store it on the context's `global` object. This object will be available until the Webtask container recycles.
+  To cache something (such as a long list of departments), you can store it on the context's **global** object. This object will be available until the Webtask container recycles.
 
   ```js
   ctx.global.departments = [ 'IT', 'HR', 'Finance' ];
