@@ -1,0 +1,52 @@
+[
+  {
+    "path": "01-login",
+    "list": [
+      {
+        "text": "Login for SPA applications",
+        "icon": 350,
+        "href": "/login-spa-applications"
+      },
+      {
+        "text": "Testing for SPA applications",
+        "icon": 345,
+        "href": "/testing-spa-applications"
+      },
+      {
+        "text": "Custom login form",
+        "icon": 348,
+        "href": "/custom-login-form"
+      },
+      {
+        "text": "Download SPA text",
+        "icon": 370,
+        "href": "/download-spa-text"
+      }
+    ]
+  },
+  {
+    "path": "02-user-profile",
+    "list": [
+      {
+        "text": "Login for SPA applications",
+        "icon": 350,
+        "href": "/login-spa-applications"
+      },
+      {
+        "text": "Testing for SPA applications",
+        "icon": 345,
+        "href": "/testing-spa-applications"
+      },
+      {
+        "text": "Custom login form",
+        "icon": 348,
+        "href": "/custom-login-form"
+      },
+      {
+        "text": "Download SPA text",
+        "icon": 370,
+        "href": "/download-spa-text"
+      }
+    ]
+  }
+]
