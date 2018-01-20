@@ -30,13 +30,13 @@
   articles:
 
     - title: "Lock for Web"
-      url: "/libraries/lock"
+      url: "/libraries/lock/v11"
 
     - title: "Lock for iOS"
-      url: "/libraries/lock-ios"
+      url: "/libraries/lock-ios/v2"
 
     - title: "Lock for Android"
-      url: "/libraries/lock-android"
+      url: "/libraries/lock-android/v2"
 
 - id: "authentication-flows"
   title: "Authentication Flows"
