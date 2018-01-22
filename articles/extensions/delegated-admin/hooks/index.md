@@ -144,6 +144,7 @@ Do not use single quotes, double quotes, or any other special characters (such a
 
 If you do not configure this Hook, the search returns **all users**.
 
+<<<<<<< HEAD
 ### The Hook contract:
 
  - `ctx`: The context object
@@ -344,6 +345,16 @@ function(ctx, callback) {
   });
 }
 ```
+
+## Available Hooks
+
+The following Hooks are available for use with your Delegated Administration extension:
+
+* [/extensions/delegated-admin/hooks/access](The Access Hook)
+* [/extensions/delegated-admin/hooks/filter](The Filter Hooks)
+* [/extensions/delegated-admin/hooks/membership](The Memberships Query Hook)
+* [/extensions/delegated-admin/hooks/settings](The Settings Query Hook)
+* [/extensions/delegated-admin/hooks/write](The Write Hook)
 
 ## Custom Fields
 
