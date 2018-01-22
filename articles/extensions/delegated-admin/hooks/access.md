@@ -5,6 +5,7 @@ toc: false
 # Delegated Administration Hooks: The Access Hook
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Because the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic, you'll need a second layer of logic to determine if the current user (or the person acting as the administrator) is allowed to access a specific user. 
 
 The **Access Hook** allows you to determine if the current user is allowed to read, delete, block, unblock, or update a specific user.
@@ -22,17 +23,28 @@ The **Access Hook** allows you to determine if the current user is allowed to re
 Kelly manages the Finance department, and she should only be able to access users within her department.
 =======
 While the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
+=======
+Because the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic, you'll need a second layer of logic to determine if the current user (or the person acting as the administrator) is allowed to access a specific user. 
+>>>>>>> Edit Hooks docs
 
-### The Hook contract:
+The **Access Hook** allows you to determine if the current user is allowed to read, delete, block, unblock, or update a specific user.
 
- - `ctx`: The context object
-   - `payload`: The payload object
-     - `action`: The current action (eg: `delete:user`) that is being executed
-     - `user`: The user on which the action is being executed
- - `callback(error)`: The callback to which you can return an error if access is denied
+## The Hook Contract
 
+<<<<<<< HEAD
 Example: **Kelly** manages the Finance department and she should only be able to access users within her department.
 >>>>>>> Move Hooks to their own pages
+=======
+ - **ctx**: The context object
+   - **payload**: The payload object
+     - **action**: The current action (eg: **delete:user**) that is being executed
+     - **user**: The user on which the action is being executed
+ - **callback(error)**: The callback to which you can return an error if access is denied
+
+## Sample Usage
+
+Kelly manages the Finance department, and she should only be able to access users within her department.
+>>>>>>> Edit Hooks docs
 
 ```js
 function(ctx, callback) {
@@ -62,6 +74,9 @@ function(ctx, callback) {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Edit Hooks docs
 ## Notes
 
 If this hook is not configured, all users will be accessible to the current user.
@@ -79,6 +94,7 @@ The Hook supports the following action names (which you set using as the value f
 - **remove:multifactor-provider**
 - **block:user**
 - **unblock:user**
+<<<<<<< HEAD
 - **send:verification-email**
 
 <%= include('./_stepnav', {
@@ -102,3 +118,6 @@ Supported action names:
  - `unblock:user`
  - `send:verification-email`
 >>>>>>> Move Hooks to their own pages
+=======
+- **send:verification-email**
+>>>>>>> Edit Hooks docs
