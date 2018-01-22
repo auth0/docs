@@ -4,16 +4,16 @@ toc: false
 ---
 # Delegated Administration Hooks: The Memberships Query Hook
 
-## The Memberships Query Hook
+When creating a new user, the User Interface shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query**.
 
-When creating a new user, the UI shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query**.
+## The Hook Contract
 
-### The Hook Contract:
+ - **ctx**: The context object
+ - **callback(error, { createMemberships: true/false, memberships: [ ...] })**: The callback to which you can return an error and an object containing the membership configuration
 
- - `ctx`: The context object
- - `callback(error, { createMemberships: true/false, memberships: [ ...] })`: The callback to which you can return an error and an object containing the membership configuration
+## Sample Usage
 
-Example: Users of the IT department should be able to create users in other departments. Users from other departments should only be able to create users for their departments.
+Users of the IT department should be able to create users in other departments. Users from other departments should only be able to create users for their departments.
 
 ```js
 function(ctx, callback) {
@@ -30,12 +30,13 @@ function(ctx, callback) {
 }
 ```
 
-**Notes**:
+## Notes
 
-* Because you can only use this query in the UI, you'll need to assign memberships using the *Create Users* function if you need to enforce the assigning of users to specific departments.
-* If there is only one membership possible, this field will not show in the UI.
+Because you can only use this query in the UI, you'll need to assign memberships using the **Write Hook** if you need to enforce rules regarding the assignment of users to specific departments.
 
-You can allow the end user to enter any value `memberships` by setting `createMemberships` to true.
+If there is only one membership group possible, the Memberships field will not show in the UI.
+
+You can allow the end user to enter any value into the **memberships** field by setting **createMemberships** to true:
 
 ```js
 function(ctx, callback) {
