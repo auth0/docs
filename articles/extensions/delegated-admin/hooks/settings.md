@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 description: How to use the Settings Query Hook with the Delegated Administration
 toc: true
 ---
@@ -337,3 +338,9 @@ function(ctx, callback) {
 <%= include('./_stepnav', {
  prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
+=======
+description:
+toc: false
+---
+# Delegated Administration Hooks: The Settings Query Hook
+>>>>>>> Add indiv Hooks pages

@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 description: How to use the Memberships Query Hook with the Delegated Administration
 toc: false
 ---
@@ -55,3 +56,9 @@ function(ctx, callback) {
 <%= include('./_stepnav', {
  prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
+=======
+description:
+toc: false
+---
+# Delegated Administration Hooks: The Memberships Query Hook
+>>>>>>> Add indiv Hooks pages
