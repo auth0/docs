@@ -50,7 +50,7 @@ The context (**ctx**) object will expose a few helpers and information about the
 
 **3. Custom Data**
 
-  You can store custom data within the extension. This is field is limited to 400kb of data.
+  You can store custom data within the extension. This field is limited to 400kb of data.
 
   ```js
   var data = {
@@ -80,7 +80,7 @@ The context (**ctx**) object will expose a few helpers and information about the
 
 **4. Payload and Request**
 
-  Each Hook exposes the current payload and/or request with specific information. The request will always contain information about the user that is logged into the Users Dashboard:
+  Each Hook exposes the current payload or request with specific information. The request will always contain information about the user that is logged into the Users Dashboard:
 
   ```js
   var currentUser = ctx.request.user;
@@ -142,17 +142,17 @@ If you do not configure this Hook, the search returns **all users**.
 
 ## The Access Hook
 
-While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
+Because the **Filter Hook** only applies filtering logic, you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, or unblock a specific user.
 
 ### The Hook contract:
 
  - `ctx`: The context object
    - `payload`: The payload object
-     - `action`: The current action (eg: `delete:user`) that is being executed
+     - `action`: The current action (for example, `delete:user`) that is being executed
      - `user`: The user on which the action is being executed
  - `callback(error)`: The callback to which you can return an error if access is denied
 
-Example: **Kelly** manages the Finance department and she should only be able to access users within her department.
+Example: Kelly manages the Finance department, and she should only be able to access users within her department.
 
 ```js
 function(ctx, callback) {
@@ -181,7 +181,7 @@ function(ctx, callback) {
 }
 ```
 
-If this hook is not configured all users will be accessible.
+If this hook is not configured, all users will be accessible.
 
 Supported action names:
 
@@ -200,24 +200,26 @@ Supported action names:
 
 #### Write Hook
 
-Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Write Hook** allows you to configure.
+Whenever you're creating new users and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
 
-If you are using custom fields (you have created a userFields property in the settings query).  This hook will also run anytime the user is updated (change password, change email, change profile, etc.).
+The Write Hook will run anytime a user is updated if you are using custom fields. The activities that trigger the Write Hook to run include changing the user's password, changing their email address, updating their profile, and so on.
 
-Hook contract:
+The Hook Contract:
 
  - `ctx`: The context object.
-   - `request.originalUser`: The current user values, payload is the new set of fields.  Only available when method is update.
+   - `request.originalUser`: The current user's values where the ***payload** is the new set of fields.  Only available when the method is **update**.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
      - `email`: The email address of the user.
      - `password`: The password of the user.
      - `connection`: The name of the user.
-   - `userFields`: The user fields array, if one is specified in the settings query.
+   - `userFields`: The user fields array (if specified in the [settings query](#the-settings-query-hook))
    - `method`: Either `create` or `update` depending on whether this is being called as a result of a create or an update call
  - `callback(error, user)`: The callback to which you can return an error and the user object that should be sent to the Management API.
 
-Example: **Kelly** manages the Finance department. When she creates users, these users should be assigned to her department.
+##### Sample Usage
+
+Kelly manages the Finance Department. When she creates users, these users should be assigned as members of the Finance Department.
 
 ```js
 function(ctx, callback) {
@@ -248,13 +250,13 @@ function(ctx, callback) {
   }
 
   if (ctx.method === 'update') {
-    /* If updating, only set the fields we need to send */
+    // If updating, only set the fields we need to send
     Object.keys(newProfile).forEach(function(key) {
       if (newProfile[key] === ctx.request.originalUser[key]) delete newProfile[key];
     });
   }
 
-  // NOTE: if you are setting userFields with restricted values using the settings query, you should enforce their limits here using the ctx.userFields array
+  // NOTE: If you are using the settings query to set userFields with restricted values, you should enforce their limits here using the ctx.userFields array
 
   // This is the payload that will be sent to API v2. You have full control over how the user is created in API v2.
   return callback(null, newProfile);
@@ -269,12 +271,12 @@ Auth0 only supports user creation with Database Connections.
 
 When creating a new user, the UI shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query**.
 
-### The Hook contract:
+### The Hook Contract:
 
  - `ctx`: The context object
  - `callback(error, { createMemberships: true/false, memberships: [ ...] })`: The callback to which you can return an error and an object containing the membership configuration
 
-Example: Users of the IT department should be able to create users in other departments. Users from other departments should only be able to create users for their own departments.
+Example: Users of the IT department should be able to create users in other departments. Users from other departments should only be able to create users for their departments.
 
 ```js
 function(ctx, callback) {
@@ -345,13 +347,14 @@ function(ctx, callback) {
 
 ## Custom Fields
 
-Starting with version 3.0 of the Delegated Admin Extension you can now specify custom fields.  These custom fields can be stored anywhere in user_metadata or app_metadata when creating,
-updating, or displaying users.  You can use these fields to search for users and display them in the search results.  Also, it allows you to customize existing fields, such as email, username,
-name, and connection.
+Beginning with version 3.0 of the Delegated Admin Extension, you can define custom fields and specify their values. Custom fields can be stored in the **user metadata** and **app metadata** fields accessible during the user creation or update processes. 
 
-To utilize custom fields, you must add a list of userFields to the **Settings Query**.
+You may also customize existing fields defined by Auth0, such as email, username, name, and connection.
 
-Schema for a user field:
+To utilize custom fields, you must add your list of **userFields** to the **Settings Query**.
+
+Sample schema for **userFields**:
+
 ```js
 userFields: [
     {
@@ -385,9 +388,9 @@ userFields: [
 ]
 ```
 
-- **property** (**required**): This is the property name of the ctx.payload object for the write hook.
-    - Example: `"property": "app_metadata.dbId"` will get set in `ctx.payload.app_metadata.dbId` in the write hook
-- **label**: This is the label that will be used when adding a label for the field on the user info page, create page, edit profile page, or search page
+- **property** (**required**): This is the property name of the ctx.payload object for the Write hook.
+    - Example: `"property": "app_metadata.dbId"` will get set in `ctx.payload.app_metadata.dbId` in the Write hook
+- **label**: This is the label that will be used when adding a label to the field on the user info page, create page, edit profile page, or search page
 - **sortProperty**: If sorting by a different field than this for the search table, use this field.  Dot notation is allowed.
 - **display**: true || false || stringified => This is the default display value.  If not overridden in search, edit, or create, it will use this value.
     - if `true` will just return `user.<property>`
@@ -413,8 +416,8 @@ userFields: [
         - **InputSelectCombo**: A select dropdown of options
     - **edit.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
         - **Array(string)**: A simple array of values, label and value will be set to the same
-        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
-    - **edit.disabled**: true if component should be read only, default is false
+        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the Write hook.
+    - **edit.disabled**: true if the component should be read only, default is false
     - **edit.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
         - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
 - **create**: false || object => This describes whether the field shows up on the create dialog.
@@ -435,7 +438,7 @@ userFields: [
         - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
 
 ###Pre-Defined Fields
-There are a set of pre-defined fields for default behavior.  You can override the default behavior by adding the field as a userField and then overriding the behavior you would like to change.  This would often be done to suppress a field by setting display to false.
+There are a set of pre-defined fields for default behavior.  You can override the default behavior by adding the field as a userField and then overriding the behavior you would like to change.  This would often be done to suppress a field by setting the display to false.
 Here are the existing fields:
 ####Search Table Fields
 - **name**: A constructed field from other fields: default display function: `(function(user, value) { return (value || user.nickname || user.email || user.user_id); }).toString()`
@@ -527,15 +530,21 @@ function(ctx, callback) {
 
 ## Localization
 
-Starting with version 3.0 of the Delegated Admin Extension you can now provide a language dictionary for localization.  The language dictionary is used for static page content.  For field level content, you must use the labels of the userFields.
+Beginning with version 3.0 of the Delegated Admin Extension, you can provide a language dictionary for use with localization. The language dictionary is used only for static page content -- for field level content, you must use **userFields** labels.
 
-NOTE: The target audience for Localization is allowing customers access to delegated admin if they have to administer some of their own users.  That being the case, localization is targeted at the non-admin functions.  Currently it does not support localization on the configuration pages.
+::: note
+Localization is aimed at those working with non-administrative functions when managing users. Auth0 currently does not support localization on any of the Configuration pages.
+:::
 
-The languageDictionary is set as part of the settings query.  With the settings query you can specify either the languageDictionary itself, or you can put a URL to fetch the languageDictionary.
+The **languageDictionary** is set as part of the settings query, which allows you to:
 
-Here is an example [complete Language Dictionary file](https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/tests/utils/en.json).
+* Explicitly define **languageDictionary**
+* Provide URL to fetch the contents for the **languageDictionary** parameter
 
-### Example Link:
+Here is a sample of what a  [complete Language Dictionary file](https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/tests/utils/en.json) looks like.
+
+### Example: Providing a Link to a Language Dictionary File
+
 ```js
 function(ctx, callback) {
   var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
@@ -568,7 +577,7 @@ function(ctx, callback) {
 }
 ```
 
-### Example Object:
+### Example: Providing a Language Dictionary Object:
 ```js
 function(ctx, callback) {
   var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
