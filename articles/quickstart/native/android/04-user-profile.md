@@ -44,7 +44,7 @@ The profile obtained this way is OIDC-conformant. Depending on the [scopes](/sco
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). This step is explained next:
 
 
-Create an instance of the Users API client using the id token that you saved in the log in step. In the snippet bellow we obtain it from the extras that the LoginActivity class has passed when starting this activity. The API client is used to request the users' profile data.
+Create an instance of the Users API client using the id token that you saved in the log in step. In the snippet bellow we obtain it from the extras that the LoginActivity class has passed when starting this activity. The API client is used to request the user's profile data.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

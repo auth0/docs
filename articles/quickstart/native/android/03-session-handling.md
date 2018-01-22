@@ -57,13 +57,13 @@ Before you go further with this tutorial, read the [refresh token documentation]
 It is important that you remember the following:
 * Refresh tokens must be securely saved.
 * Even though refresh tokens cannot expire, they can be revoked.
-* New tokens will never have a different scope than the scope you requested during the first login.
+* New tokens will have the same scope as was originally requested during the first authentication.
 :::
 
 You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens.md) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
 
 
-Create a new instance of the Credentials Manager. When you run the application you'd first check if there are any previous saved credentials, in order to skip the login screen:
+Create a new instance of the Credentials Manager. When you run the application, you should check if there are any previously stored credentials. You can use these credentials to bypass the login screen:
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -84,13 +84,13 @@ Create a new instance of the Credentials Manager. When you run the application y
 ```
 
 ::: note
-Ideally a single class should have the knowledge of handling credentials, but you can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
+Ideally a single class should manage the handling of credentials. You can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
 :::
 
 
 ## Save the User's Credentials
 
-After a successful login response save the user's credentials on the Credentials Manager. Use the `saveCredentials` method.
+After a successful login response, you can store the user's credentials using the `saveCredentials` method.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -115,12 +115,12 @@ private final AuthCallback webCallback = new AuthCallback() {
 ```
 
 ::: note
-The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). Change this behavior by implementing a custom Storage. 
+A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage. 
 :::
 
 ## Recover the User's Credentials
 
-Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will raise if the credentials have expired and the network request to refresh them has failed.
+Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will be raised if the credentials cannot be renewed.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -169,5 +169,5 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 ::: note
-If you are not using our Credentials Manager classes, depending on the way you store users' credentials you delete them differently. 
+If you are not using our Credentials Manager classes, you are responsible for ensuring that the user's credentials have been removed.
 :::
