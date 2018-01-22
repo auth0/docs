@@ -100,6 +100,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 | `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
+| `state` | optional | (String)  Custom state parameter e.g. encoded json object that can hold multiple values such as a return URL; More information can be found on the [State Parameter Page](/docs/protocols/oauth2/oauth-state). |
 
 ::: note
 Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
