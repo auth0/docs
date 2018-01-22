@@ -4,17 +4,21 @@ toc: false
 ---
 # Delegated Administration Hooks: The Access Hook
 
-While the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
+Because the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic, you'll need a second layer of logic to determine if the current user (or the person acting as the administrator) is allowed to access a specific user. 
 
-### The Hook contract:
+The **Access Hook** allows you to determine if the current user is allowed to read, delete, block, unblock, or update a specific user.
 
- - `ctx`: The context object
-   - `payload`: The payload object
-     - `action`: The current action (eg: `delete:user`) that is being executed
-     - `user`: The user on which the action is being executed
- - `callback(error)`: The callback to which you can return an error if access is denied
+## The Hook Contract
 
-Example: **Kelly** manages the Finance department and she should only be able to access users within her department.
+ - **ctx**: The context object
+   - **payload**: The payload object
+     - **action**: The current action (eg: **delete:user**) that is being executed
+     - **user**: The user on which the action is being executed
+ - **callback(error)**: The callback to which you can return an error if access is denied
+
+## Sample Usage
+
+Kelly manages the Finance department, and she should only be able to access users within her department.
 
 ```js
 function(ctx, callback) {
@@ -43,19 +47,21 @@ function(ctx, callback) {
 }
 ```
 
-If this hook is not configured all users will be accessible.
+## Notes
 
-Supported action names:
+If this hook is not configured, all users will be accessible to the current user.
 
- - `read:user`
- - `delete:user`
- - `reset:password`
- - `change:password`
- - `change:username`
- - `change:email`
- - `read:devices`
- - `read:logs`
- - `remove:multifactor-provider`
- - `block:user`
- - `unblock:user`
- - `send:verification-email`
+The Hook supports the following action names (which you set using as the value for **ctx.payload.action**:
+
+- **read:user**
+- **delete:user**
+- **reset:password**
+- **change:password**
+- **change:username**
+- **change:email**
+- **read:devices**
+- **read:logs**
+- **remove:multifactor-provider**
+- **block:user**
+- **unblock:user**
+- **send:verification-email**

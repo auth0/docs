@@ -4,26 +4,28 @@ toc: false
 ---
 # Delegated Administration Hooks: The Write Hook
 
-#### Write Hook
-
 Whenever you're creating new users and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
+
+::: warning
+Auth0 only supports user creation with Database Connections.
+:::
 
 The Write Hook will run anytime a user is updated if you are using custom fields. The activities that trigger the Write Hook to run include changing the user's password, changing their email address, updating their profile, and so on.
 
-The Hook Contract:
+## The Hook Contract
 
- - `ctx`: The context object.
-   - `request.originalUser`: The current user's values where the ***payload** is the new set of fields.  Only available when the method is **update**.
-   - `payload`: The payload object.
-     - `memberships`: An array of memberships that were selected in the UI when creating the user.
-     - `email`: The email address of the user.
-     - `password`: The password of the user.
-     - `connection`: The name of the user.
-   - `userFields`: The user fields array (if specified in the [settings query](#the-settings-query-hook))
-   - `method`: Either `create` or `update` depending on whether this is being called as a result of a create or an update call
- - `callback(error, user)`: The callback to which you can return an error and the user object that should be sent to the Management API.
+ - **ctx**: The context object.
+   - **request.originalUser**: The current user's values where the ***payload** is the new set of fields.  Only available when the method is **update**.
+   - **payload**: The payload object.
+     - **memberships**: An array of memberships that were selected in the UI when creating the user.
+     - **email**: The email address of the user.
+     - **password**: The password of the user.
+     - **connection**: The name of the user.
+   - **userFields**: The user fields array (if specified in the [settings query](#the-settings-query-hook))
+   - **method**: Either **create** or **update** depending on whether this is being called as a result of a create or an update call
+ - **callback(error, user)**: The callback to which you can return an error and the user object that should be sent to the Management API.
 
-##### Sample Usage
+## Sample Usage
 
 Kelly manages the Finance Department. When she creates users, these users should be assigned as members of the Finance Department.
 
@@ -68,7 +70,3 @@ function(ctx, callback) {
   return callback(null, newProfile);
 }
 ```
-
-::: warning
-Auth0 only supports user creation with Database Connections.
-:::
