@@ -222,7 +222,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>/dbconnections/change_password</td>
     <td>User ID and IP</td>
     <td>All</td>
-    <td></td>
+    <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
     <td>Get Token</td>
