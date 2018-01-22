@@ -16,12 +16,16 @@ The next step is to add the **auth0-java-mvc-commons** library. This one allows 
 If you are using Gradle, add it to your `build.gradle`:
 
 ```java
+// build.gradle
+
 compile 'com.auth0:mvc-auth-commons:1.+'
 ```
 
 If you are using Maven, add it to your `pom.xml`:
 
 ```xml
+//pom.xml
+
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>mvc-auth-commons</artifactId>
@@ -34,6 +38,8 @@ If you are using Maven, add it to your `pom.xml`:
 Your Java Spring Security App needs some information in order to authenticate against your Auth0 account. The samples read this information from the properties file `src/main/resources/auth0.properties`, but you could store them anywhere else. The required information is:
 
 ```xml
+// src/main/resources/auth0.properties
+
 com.auth0.domain: ${account.namespace}
 com.auth0.clientId: ${account.clientId}
 com.auth0.clientSecret: ${account.clientSecret}
