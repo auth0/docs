@@ -43,10 +43,19 @@ You will be presented with a pop-up window titled **Create SAMLP Identity Provid
 * **Email Domains:** if you are using Lock, the email domain name(s) for the users that will be logging in via this Connection (for example `auth0.com`)
 * **Sign In URL:** the location URL for the `SingleSignOnService` attribute with an `HTTP-Redirect` type from SSOCircle's metadata
 * **Sign Out URL:** the Location URL for the `SingleLogoutService` attribute with an `HTTP-Redirect` type from SSOCircle's metadata
+* Upload the **SSOCircle CA Certificate** you saved in [step 1](#1-obtain-the-ssocircle-metadata) as the **X509 Signing Certificate**.
 
-Finally, upload the **SSOCircle CA Certificate** you saved in [step 1](#1-obtain-the-ssocircle-metadata) as the **X509 Signing Certificate**.
+Finally, click on the **Mappings** tab and use the following JSON to properly map SAML attributes from SSO Circle:
 
-You can leave the rest of the fields on the page blank. Click **Save**.
+```json
+{
+  "email": "EmailAddress",
+  "given_name": "FirstName",
+  "family_name": "LastName"
+}
+```
+
+Click **Save**.
 
 ![Auth0 Configure SSOCircle Connection Screen](/media/articles/saml/identity-providers/ssocircle/configure-ssocircle-connection.png)
 
