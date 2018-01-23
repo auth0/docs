@@ -109,7 +109,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 8. The Client application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
-    - `pending_authentication` error: if the challenge has not been accepted nor rejected.
+    - `authorization_pending` error: if the challenge has not been accepted nor rejected.
     - `slow_down` error: if the polling is too frequent.
     - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
     - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
