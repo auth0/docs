@@ -1,5 +1,6 @@
 ---
 description: Auth0 normalizes common user properties in the User Profile.
+toc: true
 ---
 
 # Auth0 Normalized User Profile
