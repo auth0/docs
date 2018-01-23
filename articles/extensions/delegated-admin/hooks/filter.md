@@ -1,5 +1,6 @@
 ---
 <<<<<<< HEAD
+<<<<<<< HEAD
 description: How to use the Filter Hook with the Delegated Administration
 toc: false
 ---
@@ -54,6 +55,9 @@ If you do not configure this Hook, the search returns **all users**.
 }) %>
 =======
 description:
+=======
+description: How to use the Filter Hook with the Delegated Administration
+>>>>>>> Update Hooks docs
 toc: false
 ---
 # Delegated Administration Hooks: The Filter Hook

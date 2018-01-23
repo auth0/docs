@@ -1,5 +1,6 @@
 ---
 <<<<<<< HEAD
+<<<<<<< HEAD
 description: How to use the Memberships Query Hook with the Delegated Administration
 toc: false
 ---
@@ -58,6 +59,9 @@ function(ctx, callback) {
 }) %>
 =======
 description:
+=======
+description: How to use the Memberships Query Hook with the Delegated Administration
+>>>>>>> Update Hooks docs
 toc: false
 ---
 # Delegated Administration Hooks: The Memberships Query Hook
