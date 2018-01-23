@@ -1,5 +1,5 @@
 ---
-description:
+description: How to use the Filter Hook with the Delegated Administration
 toc: false
 ---
 # Delegated Administration Hooks: The Filter Hook
