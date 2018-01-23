@@ -14,7 +14,6 @@ This method of linking accounts using the linking endpoint of the [Authenticatio
 <script src="${lock_url}"></script>
 <script type="text/javascript">
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-    oidcConformant: true,
     callbackURL: '${account.callback}',
     languageDictionary: {
       title: 'Link with another account'

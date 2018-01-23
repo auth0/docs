@@ -266,7 +266,6 @@ Create an HTML page and insert the following HTML and javascript code:
 <script src="${lock_url}"></script>
 <script type="text/javascript">
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
-        oidcConformant: true,
         auth: {
           redirectUrl: 'http://jwt.io',
           audience: 'https://your-audience.com',

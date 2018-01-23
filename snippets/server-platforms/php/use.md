@@ -1,7 +1,7 @@
 ```html
 <script src="${lock_url}"></script>
 <script>
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', { oidcConformant: true });
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
 
 function signin() {

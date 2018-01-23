@@ -15,7 +15,7 @@ The following steps implement user-initiated account linking for a Single Page A
 
 ## 1. Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](https://github.com/auth0/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
+First, the user will authenticate to the Single Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/spa-initial-login.png)
 
@@ -68,13 +68,10 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   ```html
   <script src="${lock_url}"></script>
   <script type="text/javascript">
-    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-      oidcConformant: true
-    });
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
     function linkPasswordAccount(connection){
       var opts = { 
-        oidcConformant: true,
         rememberLastLogin: false,
         languageDictionary: {
           title: 'Link with another account'

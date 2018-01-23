@@ -122,7 +122,6 @@ Sample script:
   }
 
   var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
-    oidcConformant: true,
     auth: {
       redirectUrl: config.callbackURL,
       responseType: config.callbackOnLocationHash ? 'token' : 'code',
