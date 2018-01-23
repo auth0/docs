@@ -25,7 +25,7 @@ Click **Social** then **Manual Setup** to walk through the basic setup.
 
 In the modal that appears, enter the domain name for your tenant and a valid, manually-generated access token. [Follow the instructions here](/api/management/v2/tokens#get-a-token-manually) - "Get a token manually" section - to create the token and find your domain.  
 
-If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. If not, to go Auth0 > Settings > Basic, delete your Client ID and domain, then click **Setup Wizard** in the admin menu to start again. Check the Auth0 Error Log in wp-admin for more information about what went wrong and [post in our Community](https://community.auth0.com/topics/wordpress) if you need support. 
+If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. If not, to go **Auth0 > Settings > Basic**, delete your Client ID and domain, then click **Setup Wizard** in the admin menu to start again. Check the Auth0 Error Log in wp-admin for more information about what went wrong and [post in our Community](https://community.auth0.com/topics/wordpress) if you need support. 
 
 Click **Next** to continue the setup process by migrating your administrator account.
 
@@ -33,16 +33,16 @@ Click **Next** to continue the setup process by migrating your administrator acc
 
 This step connects your WordPress user with an Auth0 user that authorizes you to log in. You can choose the same password as your admin account or different but make sure it conforms to the ["Fair" password policy described here](/connections/database/password-strength#password-policies) (the default for this plugin).
 
-When you see the "Done" screen, Auth0 is setup and ready to accept logins and, if configured, sign ups!
+When you see the "Done" screen, Auth0 is setup and ready to accept logins and, if configured, signups!
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-complete.png)
 
 This is a good time to confirm that the basics are working for your site before changing any of the default settings:
 
-1. Log out of WordPress and confirm that the Auth0 form now appears at /wp-login.php
-2. Log in with the Auth0 user created above
-3. Log out and try creating an account with a different email address (if you have "Anyone can register" turned on in your General WordPress settings)
-4. Try logging in using a social connection (if you've turned those on)
+1. Log out of WordPress and confirm that the Auth0 form now appears at `/wp-login.php`.
+1. Log in with the Auth0 user created above.
+1. Log out and try creating an account with a different email address (if you have "Anyone can register" turned on in your General WordPress settings).
+1. Try logging in using a social connection (if you've turned those on).
 
 Now you're ready to [Configure](/cms/wordpress/configuration)!
 
@@ -54,4 +54,3 @@ Now you're ready to [Configure](/cms/wordpress/configuration)!
 * [JWT Authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshoot](/cms/wordpress/troubleshoot)
 :::
-
