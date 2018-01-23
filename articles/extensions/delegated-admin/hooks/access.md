@@ -1,5 +1,5 @@
 ---
-description:
+description: How to use the Access Hook with the Delegated Administration
 toc: false
 ---
 # Delegated Administration Hooks: The Access Hook

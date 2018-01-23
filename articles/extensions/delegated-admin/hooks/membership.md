@@ -1,5 +1,5 @@
 ---
-description:
+description: How to use the Memberships Query Hook with the Delegated Administration
 toc: false
 ---
 # Delegated Administration Hooks: The Memberships Query Hook
