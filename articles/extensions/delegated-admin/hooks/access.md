@@ -125,7 +125,13 @@ Supported action names:
 =======
 - **send:verification-email**
 
+<<<<<<< HEAD
 <%= include('../_stepnav', {
  prev: ["Go back", "/extensions/delegated-admin/hooks"]
 }) %>
 >>>>>>> Test nav
+=======
+<%= include('./_stepnav', {
+ prev: ["1. Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>
+>>>>>>> Fix test nav
