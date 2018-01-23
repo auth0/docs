@@ -99,4 +99,11 @@ function(ctx, callback) {
 Do not use single quotes, double quotes, or any other special characters (such as **+** or **-**) in terms on which you'll want to filter. This may cause issues with the Lucene query.
 
 If you do not configure this Hook, the search returns **all users**.
+<<<<<<< HEAD
 >>>>>>> Move Hooks to their own pages
+=======
+
+<%= include('./_stepnav', {
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>
+>>>>>>> Add nav

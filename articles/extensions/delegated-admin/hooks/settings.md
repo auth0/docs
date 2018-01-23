@@ -657,4 +657,11 @@ function(ctx, callback) {
   });
 }
 ```
+<<<<<<< HEAD
 >>>>>>> Update Hooks docs
+=======
+
+<%= include('./_stepnav', {
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>
+>>>>>>> Add nav

@@ -132,6 +132,11 @@ Supported action names:
 >>>>>>> Test nav
 =======
 <%= include('./_stepnav', {
+<<<<<<< HEAD
  prev: ["1. Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
 >>>>>>> Fix test nav
+=======
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>
+>>>>>>> Add nav

@@ -56,6 +56,7 @@ function(ctx, callback) {
 
 <%= include('./_stepnav', {
  prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+<<<<<<< HEAD
 }) %>
 =======
 description:
@@ -117,3 +118,6 @@ function(ctx, callback) {
 }
 ```
 >>>>>>> Move Hooks to their own pages
+=======
+}) %>
+>>>>>>> Add nav
