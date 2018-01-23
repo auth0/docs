@@ -1,5 +1,6 @@
 ---
 description: Auth0 normalizes common user properties in the User Profile.
+toc: true
 ---
 
 # Auth0 Normalized User Profile
@@ -195,6 +196,6 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 }
 ```
 
-## How to Retrieve the User Profile
+## How to retrieve the user profile
 
-You can retrieve the user profile using the [Management API's Get a User endpoint](/api/management/v2#!/Users/get_users_by_id).
+There are more than one endpoints you can use to retrieve users. You can search by Id, email, or other criteria, depending on your scenario. For more information on these endpoints and sample requests, refer to [User Search](/users/search).
