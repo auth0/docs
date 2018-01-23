@@ -24,13 +24,9 @@ Then you can trigger the login widget with the following code:
 <script type="text/javascript">
   function login() {
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-        oidcConformant: true,                    // Forces an OIDC comformant flow
         allowedConnections: ['sms'],             // Should match the SMS connection name  
         auth: {
-          redirectUrl: '${account.callback}',    
-          params: {
-            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
-          }          
+          redirectUrl: '${account.callback}'     
         }
       }
  

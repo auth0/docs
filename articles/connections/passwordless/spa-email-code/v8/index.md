@@ -26,14 +26,10 @@ Then you can trigger the login with the following code:
   function login()
   {
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-        oidcConformant: true,                    // Forces an OIDC comformant flow
         allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
         passwordlessMethod: 'code',              // If not specified, defaults to 'code'
         auth: {
-          redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
-          params: {
-            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
-          }          
+          redirectUrl: '${account.callback}'      
         }
       });
 
@@ -59,7 +55,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will trigger the `authenticated` event where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will trigger the `authenticated` event where the access_token will be available.
 
 ### Use your own UI
 

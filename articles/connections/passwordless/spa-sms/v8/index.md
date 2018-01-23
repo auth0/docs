@@ -28,12 +28,7 @@ You can then trigger the login widget with the following code:
     // the authentication in page
       var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         autoclose: true,
-        oidcConformant: true,                    // Forces an OIDC comformant flow
-        allowedConnections: ['sms'],             // Should match the SMS connection name  
-        auth: {
-          params: {
-            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
-          }          
+        allowedConnections: ['sms']        
         }
       });
 
@@ -59,7 +54,7 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where `id_token`, `refresh_token` can be accessed and stored. Then the user will be allowed to continue to the authenticated part of the application.
+If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the access token will be available. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 

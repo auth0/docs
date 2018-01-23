@@ -117,7 +117,6 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
       // Initialize Passwordless Lock instance
       var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         autoclose: true,
-        oidcConformant: true,
         allowedConnections: ["sms"],
         languageDictionary: {
           passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."

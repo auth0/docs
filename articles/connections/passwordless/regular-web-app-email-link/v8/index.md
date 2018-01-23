@@ -24,13 +24,9 @@ Then you can trigger the login using the `callbackURL` option to specify the end
 <script type="text/javascript">
   function login() {
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-      oidcConformant: true,                    // Forces an OIDC comformant flow
       passwordlessMethod: "link",              // Sets Lock to use magic link
       auth: {
-        redirectUrl: '${account.callback}',    
-        params: {
-          scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
-        }          
+        redirectUrl: '${account.callback}'       
       }
     });
     
