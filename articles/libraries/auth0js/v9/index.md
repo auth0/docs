@@ -95,6 +95,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
+| `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the client. |
 | `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
