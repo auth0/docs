@@ -12,8 +12,7 @@ If you are opting to move out from our service, then you might want to check [th
 
 ## Frequently made requests that are not supported
 
-* Transfering data from a non-production tenant to a production tenant.
-
-* Renaming a tenant.
-
-* Renaming a connection.
+* Transfer data from a non-production tenant to a production tenant
+* Rename a tenant
+* Rename a connection
+* Migrate a tenant from one region to another (for example, from US to EU)
