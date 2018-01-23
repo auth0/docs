@@ -114,7 +114,7 @@ var request = require('request');
 The following Hooks are available for use with your Delegated Administration extension:
 
 * [The Access Hook](/extensions/delegated-admin/hooks/access)
-* [The Filter Hooks](/extensions/delegated-admin/hooks/filter)
+* [The Filter Hook](/extensions/delegated-admin/hooks/filter)
 * [The Memberships Query Hook](/extensions/delegated-admin/hooks/membership)
 * [The Settings Query Hook](/extensions/delegated-admin/hooks/settings)
 * [The Write Hook](/extensions/delegated-admin/hooks/write)
