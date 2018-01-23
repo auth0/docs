@@ -67,5 +67,5 @@ The Hook supports the following action names (which you set using as the value f
 - **send:verification-email**
 
 <%= include('./_stepnav', {
- prev: ["1. Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
