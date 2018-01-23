@@ -66,6 +66,6 @@ The Hook supports the following action names (which you set using as the value f
 - **unblock:user**
 - **send:verification-email**
 
-<%= include('../_stepnav', {
- prev: ["Go back", "/extensions/delegated-admin/hooks"]
+<%= include('./_stepnav', {
+ prev: ["1. Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
