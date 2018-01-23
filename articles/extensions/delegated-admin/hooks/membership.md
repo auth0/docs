@@ -51,3 +51,7 @@ function(ctx, callback) {
   });
 }
 ```
+
+<%= include('./_stepnav', {
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>

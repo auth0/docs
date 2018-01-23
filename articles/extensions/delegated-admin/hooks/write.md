@@ -4,7 +4,7 @@ toc: false
 ---
 # Delegated Administration Hooks: The Write Hook
 
-Whenever you're creating new users and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
+Whenever you're creating new users, and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
 
 ::: warning
 Auth0 only supports user creation with Database Connections.
@@ -70,3 +70,7 @@ function(ctx, callback) {
   return callback(null, newProfile);
 }
 ```
+
+<%= include('./_stepnav', {
+ prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
+}) %>
