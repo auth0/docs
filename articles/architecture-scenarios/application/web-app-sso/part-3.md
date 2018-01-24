@@ -105,7 +105,7 @@ There are various ways in which you can retrieve and set the user authorization 
 Since in our case the company has already Active Directory set up, we will enforce access control using the Authorization Extension in combination with Active Directory groups.
 
 ::: panel Authorization Extension
-At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
+At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (such as whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
 :::
 
 All users will implicitly be regular users, but timesheet administrators will be assigned to an `Admin` group which will allow them to approve timesheets. The Authorization Extension allows for mapping groups to existing group membership.

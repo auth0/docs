@@ -16,7 +16,7 @@ In addition to that users can also setup SSO with custom apps or integrations li
 
 ## High-level Overview
 
-Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (i.e. Lync Online, Exchange Online).
+Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (such as Lync Online, Exchange Online).
 
 ![Office 365 Users](/media/articles/integrations/office-365/office-365-users-overview.png)
 

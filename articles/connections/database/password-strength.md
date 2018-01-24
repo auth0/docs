@@ -80,7 +80,7 @@ This is a sample `description` error report from a `good` policy with `hello` as
         "items":[
           {"message":"lower case letters (a-z)","verified":true},
           {"message":"upper case letters (A-Z)","verified":false},
-          {"message":"numbers (i.e. 0-9)","verified":false},
+          {"message":"numbers (such as 0-9)","verified":false},
           {"message":"special characters (e.g. !@#$%^&*)","verified":false}
         ],"verified":false}
       ],"
@@ -98,7 +98,7 @@ This is a sample `description` error report from a `good` policy with `hello1234
         "items":[
           {"message":"lower case letters (a-z)","verified":true},
           {"message":"upper case letters (A-Z)","verified":false},
-          {"message":"numbers (i.e. 0-9)","verified":true},
+          {"message":"numbers (such as 0-9)","verified":true},
           {"message":"special characters (e.g. !@#$%^&*)","verified":false}
         ],"verified":false}
       ],"

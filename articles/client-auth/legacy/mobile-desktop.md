@@ -57,7 +57,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For mobile applications using the Implicit Grant Flow this **must be set** to `token` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
-| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (or attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL where the user will be redirected to after they have authenticated. For mobile applications you should specify this as `https://${account.namespace}/mobile`|
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `google-oauth2` to send the user directly to Google to log in with their Google account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 | state | The state parameter will be sent back should be used for CSRF and contextual information (like a return url) |
@@ -76,7 +76,7 @@ https://${account.namespace}/mobile#id_token=eyJ0...&token_type=Bearer
 
 The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can extract both of these values from the URL using basic string manipulation techniques in whatever programming language you are using.
 
-As mentioned, the `id_token` is a JWT and you will need to decode this token in order to read the claims (i.e. attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+As mentioned, the `id_token` is a JWT and you will need to decode this token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
 
 You can also refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
 

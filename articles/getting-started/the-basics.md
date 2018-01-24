@@ -25,7 +25,7 @@ Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
 - The tenant name cannot be changed after creation.
-- You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (i.e. Development, Staging, Production).
+- You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
 
 ## Domain

@@ -18,7 +18,7 @@ The Password Grant relies on a connection capable of authenticating users via us
 
 1. Open the [Dashboard](${manage_url}) and browse to your [Tenant Settings](${manage_url}/#/tenant).
 1. Scroll down to the __Settings__ section and locate the __Default Directory__ setting.
-1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
+1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (such as database connections, AD, LDAP, Windows Azure AD, ADFS)
 
 ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
 

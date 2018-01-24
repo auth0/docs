@@ -57,7 +57,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 1. Auth0 will update the SSO cookie if required
 1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
-If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the [Implement Single Sign On with Auth0](/sso/current/implement-with-auth0) tutorial.
+If an SSO cookie is present you can also sign the user in silently, (that is, without even displaying Lock so they can enter their credentials). This is covered in more detail in the [Implement Single Sign On with Auth0](/sso/current/implement-with-auth0) tutorial.
 
 ## SSO with Native Platforms
 

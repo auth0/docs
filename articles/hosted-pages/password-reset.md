@@ -60,7 +60,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
         //   containsAtLeast: "Contain at least %d of the following %d types of characters:",
         //   identicalChars: "No more than %d identical characters in a row (e.g., \"%s\" not allowed)",
         //   nonEmpty: "Non-empty password required",
-        //   numbers: "Numbers (i.e. 0-9)",
+        //   numbers: "Numbers (such as 0-9)",
         //   lengthAtLeast: "At least %d characters in length",
         //   lowerCase: "Lower case letters (a-z)",
         //   shouldContain: "Should contain:",
