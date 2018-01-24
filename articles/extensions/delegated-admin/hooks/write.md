@@ -35,6 +35,7 @@ function(ctx, callback) {
     email: ctx.payload.email,
     password: ctx.payload.password,
     connection: ctx.payload.connection,
+    user_metadata: ctx.payload.user_metadata,
     app_metadata: {
       department: ctx.payload.memberships && ctx.payload.memberships[0],
       ...ctx.payload.app_metadata
