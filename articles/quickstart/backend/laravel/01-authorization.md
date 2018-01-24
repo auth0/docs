@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonatrates how to add authorization to your Laravel API using Auth0
+description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
 ---
 
 <%= include('../../../_includes/_package', {
@@ -35,7 +35,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Enable the Provider
 
-The `laravel-auth0` package comes with a provder called `LoginServiceProvider`. Add this to the list of application `providers`.
+The `laravel-auth0` package comes with a provider called `LoginServiceProvider`. Add this to the list of application `providers`.
 
 ${snippet(meta.snippets.setup)}
 
@@ -95,7 +95,7 @@ The [Laravel authentication system](https://laravel.com/docs/5.5/authentication)
 
 The **laravel-auth0** plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [normalized user profile](https://auth0.com/docs/user-profile/normalized) defined by Auth0. It doesn't actually persist the object but rather simply stores it in the session for future calls.
 
-This is adequate for basic testing or if you don't have a requirement to persist the user. At any point you can call `Auth::check()` to determine if there is a user logged in and `Auth::user()` to retreive the wrapper with the user information.
+This is adequate for basic testing or if you don't have a requirement to persist the user. At any point you can call `Auth::check()` to determine if there is a user logged in and `Auth::user()` to retrieve the wrapper with the user information.
 
 Configure the `driver` in `/config/auth.php` to use `auth0`.
 
@@ -112,35 +112,213 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 
 ## Protect the API Routes
 
-Protecting individual API endpoints can be done by applying the `auth:api` middleware to them.
+Define a middleware to check and verify `access_token` in the `Authorization` header of an incoming HTTP request.
+
+To create a middleware use the `make:middleware` Artisan command.
+
+```bash
+php artisan make:middleware CheckJWT
+```
+
+Implement `handle` method to check for an `access_token`, and if it is valid log the user in Laravel authentication system.
+
+```php
+// /app/Http/Middleware/CheckJWT.php
+
+<?php
+
+namespace App\Http\Middleware;
+
+use Auth0\Login\Contract\Auth0UserRepository;
+use Auth0\SDK\Exception\CoreException;
+use Auth0\SDK\Exception\InvalidTokenException;
+use Closure;
+
+class CheckJWT
+{
+    protected $userRepository;
+
+    /**
+     * CheckJWT constructor.
+     *
+     * @param Auth0UserRepository $userRepository
+     */
+    public function __construct(Auth0UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $auth0 = \App::make('auth0');
+
+        $accessToken = $request->bearerToken();
+        try {
+            $tokenInfo = $auth0->decodeJWT($accessToken);
+            $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
+            if (!$user) {
+                return response()->json(["message" => "Unauthorized user"], 401);
+            }
+
+            \Auth::login($user);
+
+        } catch (CoreException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        }
+
+        return $next($request);
+    }
+}
+```
+
+To Assign the middleware to specific routes, append it to the list and assign a key in `$routeMiddleware` property.
+
+```php
+// /app/Http/Kernel.php
+
+protected $routeMiddleware = [
+    // ...
+    'jwt' => \App\Http\Middleware\CheckJWT::class,
+];
+```
+
+Protecting individual API endpoints can be done by applying the `jwt` middleware to them.
 
 ```php
 // routes/api.php
 
+// This endpoint doesn't need authentication
+Route::get('/public', function (Request $request) {
+    return response()->json(["message" => "Hello from a public endpoint! You don't need to be authenticated to see this."]);
+});
+
 Route::get('/private', function (Request $request) {
     return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
-})->middleware('auth:api');
+})->middleware('jwt');
 ```
 
 This route is now only accessible if an `access_token` is included in the `Authorization` header of the incoming request.
 
-## Make Calls to the API
+## Configure the Scopes
 
-With the **laravel-auth0** plugin configured and the `auth:api` middleware applied to a route, you can now run the application and make calls to it.
+The middleware defined above that the `access_token` in the incoming HTTP request is valid, however it does not include a mechanism to check if the `access_token` has sufficient **scope** to access the requested resource.
 
-Use `artisan` to serve the application.
+<%= include('../_includes/_api_scopes_access_resources') %>
 
-```bash
-php artisan serve
-```
+Define a middleware to look for a particular **scope** claim in the `access_token`.
 
-Next send a request to your protected endpoint which includes an `access_token`.
+To create a middleware use the `make:middleware` Artisan command.
 
 ```bash
-curl --request GET \
-  --url http://localhost:3010/api/private \
-  --header 'authorization: Bearer <ACCESS TOKEN>'
+php artisan make:middleware CheckScope
 ```
+
+Implement `handle` method to check for an `access_token`, and if it is valid and have the appropriate scope log the user in Laravel authentication system.
+
+```php
+// /app/Http/Middleware/CheckScope.php
+
+<?php
+
+namespace App\Http\Middleware;
+
+use Auth0\Login\Contract\Auth0UserRepository;
+use Auth0\SDK\Exception\CoreException;
+use Auth0\SDK\Exception\InvalidTokenException;
+use Closure;
+
+class CheckScope
+{
+    protected $userRepository;
+
+    /**
+     * CheckScope constructor.
+     *
+     * @param Auth0UserRepository $userRepository
+     */
+    public function __construct(Auth0UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  \string  $scope
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $scope)
+    {
+        $auth0 = \App::make('auth0');
+
+        $accessToken = $request->bearerToken();
+        try {
+            $tokenInfo = $auth0->decodeJWT($accessToken);
+            $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
+            if (!$user) {
+                return response()->json(["message" => "Unauthorized user"], 401);
+            }
+
+            if($scope) {
+                $hasScope = false;
+                if(isset($tokenInfo->scope)) {
+                    $scopes = explode(" ", $tokenInfo->scope);
+                    foreach ($scopes as $s) {
+                        if ($s === $scope)
+                            $hasScope = true;
+                    }
+                }
+                if(!$hasScope)
+                    return response()->json(["message" => "Insufficient scope"], 403);
+
+                \Auth::login($user);
+            }
+        } catch (CoreException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        }
+
+        return $next($request);
+    }
+}
+```
+
+Assign the middleware to specific routes like the previous one.
+
+```php
+// /app/Http/Kernel.php
+
+protected $routeMiddleware = [
+    // ...
+    'check.scope' => \App\Http\Middleware\CheckScope::class,
+];
+```
+
+Apply the `check.scope` middleware to the route you want to protect.
+
+```php
+// routes/api.php
+
+Route::get('/private-scoped', function (Request $request) {
+    return response()->json([
+        "message" => "Hello from a private endpoint! You need to have a valid access token and a scope of read:messages to see this."
+    ]);
+})->middleware('check.scope:read:messages');
+```
+
+This route is now only accessible if an `access_token` with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
 
 ## Extend the `Auth0UserRepository` Class
 
