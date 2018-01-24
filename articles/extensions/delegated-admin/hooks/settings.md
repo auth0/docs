@@ -41,7 +41,7 @@ function(ctx, callback) {
     - **dict.menuName**: The name to set for the upper right-hand dropdown menu
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
 - **css**: A string URL for CSS to import
-- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization)
+- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
 
 ## Custom Fields
