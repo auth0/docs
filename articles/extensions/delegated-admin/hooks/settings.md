@@ -257,7 +257,7 @@ function(ctx, callback) {
 >>>>>>> Move def
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
 - **css**: A string URL for CSS to import
-- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization)
+- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
 
 <<<<<<< HEAD
