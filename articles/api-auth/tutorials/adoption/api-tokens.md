@@ -14,7 +14,7 @@ Auth0 entities, which allows you to obtain access tokens for your own APIs.
 This enables simpler integrations of APIs, since each
 API is no longer tied to the client applications that make calls to it.
 It also enables machine to machine integration scenarios, since [clients
-can authenticate as themselves](/api-auth/grant/client-credentials) (i.e. not on behalf on any user) to
+can authenticate as themselves](/api-auth/grant/client-credentials) (that is, not on behalf on any user) to
 programmatically and securely obtain an API token. For example, [the
 Auth0 Management API is already defined as a resource server on your
 Auth0 domain](${manage_url}/#/apis/management/settings). You

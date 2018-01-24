@@ -27,11 +27,11 @@ In this case, you have to send a valid [access token](/tokens/access-token) in t
 
 ### Client Id and Client Secret
 
-In this case, you have to send your Client Id and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential clients (i.e. clients that are able to hold credentials in a secure way without exposing them to unauthorized parties).
+In this case, you have to send your Client Id and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential clients (such as clients that are able to hold credentials in a secure way without exposing them to unauthorized parties).
 
 ### Client Id
 
-For public clients (i.e. clients that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client Id. An example is the [Implicit Grant](#implicit-grant).
+For public clients (such as clients that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client Id. An example is the [Implicit Grant](#implicit-grant).
 
 ## Parameters
 

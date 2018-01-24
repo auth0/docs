@@ -59,7 +59,7 @@ The required parameters for this connection are:
 
 Optionally, you can add:
 
-* **options.scope**: the scope parameters for which you wish to request consent (i.e. `profile`, `identities`, etc.).
+* **options.scope**: the scope parameters for which you wish to request consent (such as `profile`, `identities`, etc.).
 * **enabled_clients**: an array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
 
 ## Use the Auth0 connection

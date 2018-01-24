@@ -127,10 +127,10 @@ Create a row for every additional LDAP attribute you need, choosing the attribut
 
 If the claim type you are looking for doesn't exist, you have two options:
 
-* Type a namespace-qualified name for the new claim (i.e. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
+* Type a namespace-qualified name for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
 * Register a new claim type (under **AD FS | Services | Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
 
-Auth0 will use the name part of the claim type (i.e. `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
+Auth0 will use the name part of the claim type (for example `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
 
 ## Next Steps
 

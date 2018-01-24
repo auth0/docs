@@ -158,7 +158,7 @@ In order to test the working scenario as well we need to:
 
 ## 3. Check the Client permissions
 
-In this step we will add to our implementation the ability to check if the client has permissions (i.e. `scope`) to use our endpoint in order to upload a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
+In this step we will add to our implementation the ability to check if the client has permissions (or `scope`) to use our endpoint in order to upload a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
 
 In order to do this we will make use of the `express-jwt-authz` Node.js package, so go ahead and add that to your project:
 

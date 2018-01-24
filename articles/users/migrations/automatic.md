@@ -39,7 +39,7 @@ Auth0 can only assist users in the Auth0 database with password reset.
 There are certain validations that Auth0 can run before adding the user to the Auth0 database:
 
 - The email must be set and unique
-- If the connection requires a username (i.e. the **Requires Username** toggle is enabled at the connection's settings), then one must be set
+- If the connection requires a username (for example, the **Requires Username** toggle is enabled at the connection's settings), then one must be set
 - If a username is set, then it must be unique
 - The email format must be valid
 
