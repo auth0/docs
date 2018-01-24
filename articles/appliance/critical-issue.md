@@ -35,7 +35,7 @@ As a secondary point of escalation, PSaaS Appliance customers can also send an e
 1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
 2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
 3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your PSaaS Appliance installation.**
-4. In **Environment** indicate the specific installation having the problem (i.e. Production, QA).
+4. In **Environment** indicate the specific installation having the problem (such as Production, QA).
 5. For **What can we help you with?** select `Auth0 Service Issue`.
 6. For **Severity** select `Urgent`
   ::: note

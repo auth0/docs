@@ -17,7 +17,7 @@ If you are new to Auth0, go through the [What’s New](#what-s-new) section of t
 
 If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
 
-If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (i.e. not using OIDC/OAuth), then you do not need to make any changes.
+If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
 
 ## What's New
 
@@ -47,7 +47,7 @@ So far, third-party clients cannot be created from the dashboard. They must be c
 
 ### Calling APIs from a Service (machine-to-machine)
 
-We implemented the OAuth 2.0 Client Credentials grant which allows clients to authenticate as themselves (i.e. not on behalf of any user), in order to programatically and securely obtain access to an API.
+We implemented the OAuth 2.0 Client Credentials grant which allows clients to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
 
 ::: note
   For more information on the Client Credentials grant, refer to <a href="/api-auth/grant/client-credentials">Calling APIs from a Service</a>.

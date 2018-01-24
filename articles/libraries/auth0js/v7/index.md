@@ -583,7 +583,7 @@ function(err) {
 
 If the login succeeds, Auth0 will redirect to your `callbackURL`, and if it fails, control will be given to the `callback`.
 
-And if you don't want that redirect to occur (i.e. you have a Single Page App), you can use a `callback` argument that takes the additional parameters (like what's shown in [Popup Mode](#popup-mode)), and control will go to your callback function with a failed or successful login.
+And if you don't want that redirect to occur (for example, you have a Single Page App), you can use a `callback` argument that takes the additional parameters (like what's shown in [Popup Mode](#popup-mode)), and control will go to your callback function with a failed or successful login.
 
 ### Response configuration
 
