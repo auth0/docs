@@ -32,6 +32,18 @@ function(ctx, callback) {
 }
 ```
 
+### Properties
+
+- **connections**: The list of the connections this admin is allowed to create and edit users within
+- **dict**: The dictionary allows you to overwrite the title of the dashboard and the **Memberships** label in the Create User dialog
+    - **dict.title**: The title to display at the top of the UI
+    - **dict.memberships**: The label to set for memberships fields
+    - **dict.menuName**: The name to set for the upper right-hand dropdown menu
+- **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
+- **css**: A string URL for CSS to import
+- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization)
+- **suppressRawData**: Set to **true** to skip pages that show raw JSON
+
 ## Custom Fields
 
 Beginning with version 3.0 of the Delegated Admin Extension, you can define custom fields and specify their values. Custom fields can be stored in the **user metadata** and **app metadata** fields accessible during the user creation or update processes. 
@@ -223,17 +235,6 @@ function(ctx, callback) {
   });
 }
 ```
-### Properties
-
-- **connections**: The list of the connections this admin is allowed to create and edit users within
-- **dict**: The dictionary allows you to overwrite the title of the dashboard and the **Memberships** label in the Create User dialog
-    - **dict.title**: The title to display at the top of the UI
-    - **dict.memberships**: The label to set for memberships fields
-    - **dict.menuName**: The name to set for the upper right-hand dropdown menu
-- **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
-- **css**: A string URL for CSS to import
-- **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization)
-- **suppressRawData**: Set to **true** to skip pages that show raw JSON
 
 ## Localization
 
