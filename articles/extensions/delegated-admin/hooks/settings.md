@@ -43,6 +43,7 @@ function(ctx, callback) {
     - **dict.title**: The title to display at the top of the UI
     - **dict.memberships**: The label to set for memberships fields
     - **dict.menuName**: The name to set for the upper right-hand dropdown menu
+<<<<<<< HEAD
     - **dict.logoutUrl**: An alternate URL for the logout menu option
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
 - **css**: A string URL for CSS to import
@@ -252,11 +253,14 @@ function(ctx, callback) {
     - **dict.title**: The title to display at the top of the UI
     - **dict.memberships**: The label to set for memberships fields
     - **dict.menuName**: The name to set for the upper right-hand dropdown menu
+=======
+>>>>>>> Move def
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
 - **css**: A string URL for CSS to import
 - **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization)
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
 
+<<<<<<< HEAD
 ## Localization
 
 Beginning with version 3.0 of the Delegated Admin Extension, you can provide a language dictionary for use with localization. The language dictionary is used only for static page content - for field level content, you must use **userFields** labels.
@@ -394,6 +398,8 @@ function(ctx, callback) {
 >>>>>>> Move Hooks to their own pages
 =======
 
+=======
+>>>>>>> Move def
 ## Custom Fields
 
 Beginning with version 3.0 of the Delegated Admin Extension, you can define custom fields and specify their values. Custom fields can be stored in the **user metadata** and **app metadata** fields accessible during the user creation or update processes. 
