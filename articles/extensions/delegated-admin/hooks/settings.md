@@ -130,14 +130,16 @@ There are a set of pre-defined, searchable fields for default behavior.
 
 You can override the default behavior by adding the field as a userField and then overriding the behavior you would like to change. This would often be done to suppress a field by setting the display to false.
 
-Here are the existing fields:
+### Search Fields
 
 - **name**: A constructed field from other fields: default display function: `(function(user, value) { return (value || user.nickname || user.email || user.user_id); }).toString()`
 - **email**: email address or N/A
 - **last_login_relative**: The last login time
 - **logins_count**: The number of logins
 - **connection**: Their database connection
-####User Info Fields
+
+### User Info Fields:
+
 - **user_id**: The user ID
 - **name**: The user's name
 - **username**: The user's username
@@ -150,7 +152,9 @@ Here are the existing fields:
 - **created_at**: How long ago the user was created.
 - **updated_at**: How long ago the user was updated.
 - **last_login**: How long ago the user last logged in.
-####Create and Edit User Fields
+
+### Create and Edit User Fields
+
 - **connection**: The user's database
 - **password**: The new password
 - **repeatPassword**: A repeat of the user's password
