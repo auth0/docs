@@ -6,7 +6,7 @@ description: Using Auth0.Swift in Passwordless mode
 # Passwordless Authentication with Auth0.Swift
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types).
+This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types). Passwordless authentication can still be performed [via Universal Login](/connections/passwordless/native-passwordless-universal) in native apps.
 :::
 
 Passwordless authentication allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.

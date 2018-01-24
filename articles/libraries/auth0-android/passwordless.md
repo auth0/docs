@@ -6,9 +6,7 @@ description: How to use Auth0.Android with passwordless connections
 # Auth0.Android Passwordless Authentication
 
 ::: panel-warning Passwordless on Native Platforms
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
-
-Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Passwordless authentication can still be performed [via Universal Login](/connections/passwordless/native-passwordless-universal) in native apps.
 :::
 
 Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. 
