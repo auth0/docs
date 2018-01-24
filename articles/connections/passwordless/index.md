@@ -26,6 +26,7 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
 ### Passwordless on iOS
 
+ - [Authenticate users with Universal Login](/connections/passwordless/native-passwordless-universal)
  - [Authenticate users with a one time code via SMS](/connections/passwordless/ios-sms-swift)
  - [Authenticate users with a one time code via e-mail](/connections/passwordless/ios-email-swift)
  - [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
@@ -33,6 +34,7 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
 ### Passwordless on Android
 
+ - [Authenticate users with Universal Login](/connections/passwordless/native-passwordless-universal)
  - [Authenticate users with a one time code via SMS](/connections/passwordless/android-sms)
  - [Authenticate users with a one time code via e-mail](/connections/passwordless/android-email)
  - [Authenticate users with Magic Link](/libraries/lock-android/passwordless-magic-link)
