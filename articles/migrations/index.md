@@ -25,6 +25,19 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
 
+### Summary of Endpoint Migrations
+
+This table is a summary of the below endpoint migrations for the first part of 2018. See the entries below the table for more detailed explanations.
+
+| Endpoint | Replacement | Deadline |
+| --- | --- | --- | --- |
+| `usernamepassword/login` | `/co/authenticate` | April 01, 2018 |
+| `/oauth/ro` | `/oauth/token` | July 01, 2018 |
+| `/ssoData` | `/authorize?prompt=none` | April 01, 2018 |
+| `/tokeninfo` | `/userinfo` | June 01, 2018 |
+| `/delegation` | TBD | June 01, 2018 |
+| `/oauth/access_token` | TBD | TBD |
+
 ### Introducing Lock v11, Auth0.js v9
 
 | Severity | Grace Period Start | Mandatory Opt-In|
