@@ -31,12 +31,12 @@ This table is a summary of the below endpoint migrations for the first part of 2
 
 | Endpoint | Replacement | Deadline |
 | --- | --- | --- | --- |
-| `usernamepassword/login` | `/co/authenticate` | April 01, 2018 |
-| `/oauth/ro` | `/oauth/token` | July 01, 2018 |
-| `/ssoData` | `/authorize?prompt=none` | April 01, 2018 |
-| `/tokeninfo` | `/userinfo` | June 01, 2018 |
-| `/delegation` | TBD | June 01, 2018 |
-| `/oauth/access_token` | TBD | TBD |
+| usernamepassword/login` | /co/authenticate | April 01, 2018 |
+| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | July 01, 2018 |
+| /ssoData | /authorize?prompt=none | April 01, 2018 |
+| [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | June 01, 2018 |
+| [/delegation](/api/authentication#delegation) | TBD | June 01, 2018 |
+| [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD |
 
 ### Introducing Lock v11, Auth0.js v9
 
@@ -44,11 +44,11 @@ This table is a summary of the below endpoint migrations for the first part of 2
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-04-01 |
 
-We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (`usernamepassword/login`, `/ssodata`, `/tokeninfo`, `/delegation`) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
+We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (`usernamepassword/login`, `/ssodata`, [tokeninfo](/api/authentication/reference#get-token-info), [/delegation](/api/authentication#delegation)) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
 
 We are offering two options for this update:
 
-1. We are moving towards a centralized login experience and are recommending this option moving forward. There are many benefits of using a centralized login experience, read more about how Centralized Login works [here](/hosted-pages/login). Moving to the centralized login experience is straightforward and will simplify your code base. Read [this guide](/guides/login/centralized-vs-embedded) to learn more about the benefits of centralized login vs embedded login.
+1. We are moving towards a centralized login experience and are recommending this option moving forward. There are many benefits of using a centralized login experience, [read more about how Centralized Login works](/hosted-pages/login). Moving to the centralized login experience is straightforward and will simplify your code base. Read [this guide comparing centralized and embedded login](/guides/login/centralized-vs-embedded) to learn more about the differences between the two. If you choose to use centralized login, you will continue to use Lock 10 or Auth0.js v8 inside your Auth0 login page, as the new versions are designed for embedded scenarios.
 1. If you decide you need to continue using embedded login, here are the migration guides for [Auth0.js](/libraries/auth0js/v9/migration-guide) and [Lock](/libraries/lock/v11/migration-guide).
 
 #### Am I affected by the change?
@@ -63,25 +63,29 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-07-01 |
 
-We’ve introduced support for Resource Owner Password to the `oauth/token` endpoint earlier this year ([doc](/api/authentication#resource-owner-password)). We will deprecate the current `oauth/ro` and `oauth/access_token` endpoints. Applications must be updated before July 1, 2018, when `oauth/ro` will become unavailable. A migration guide will be available in Q1.
+Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
+
+We will now deprecate the current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints.
+
+Applications must be updated before July 1, 2018, when [/oauth/ro](/api/authentication#resource-owner) will become unavailable. The migration guide will be available in Q1 2018.
 
 #### Am I affected by the change?
 
-If you are currently implementing the `oauth/ro` endpoint your application will need to be updated.
+If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will need to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### API Authorization with 3rd Party Vendor APIs. Deprecating Delegation Endpoint
+### Introducing API Authorization with Third-Party Vendor APIs
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-06-01 |
+| Medium | Q1 2018 |  2018-06-01 |
 
-We’re re-architecting the mechanism by which you get tokens for 3rd Party/Vendor APIs (such as AWS, Firebase, and others). It now works the same as any custom API, providing better consistency. This new architecture will be available in Q1 2018 and its availability will officially deprecate the Delegation Endpoint. All clients must be updated prior to June 1, 2018. Formal migration guide will be available in Q1.
+The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It now works the same as any custom API, providing better consistency. This new architecture will be available in Q1 2018 and at that point the [/delegation](/api/authentication#delegation) endpoint will be deprecated. All clients must be updated prior to June 1, 2018. The migration guide will be available in Q1 2018.
 
 #### Am I affected by the change?
 
-If you are currently using delegation to provide third party authorization, your application will need to be updated.
+If you are currently using [/delegation](/api/authentication#delegation) to provide third party authorization, your application will need to be updated.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -91,11 +95,11 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of id tokens when calling `PATCH/GET` `/user` and `/device-credentials`. We have moved to regular access tokens, and this is available now. Applications must be updated by June 1, 2018, when the ability to use id tokens will become unavailable. Migration guides will be available by February 2018.
+We are deprecating the usage of [id tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [id tokens](/tokens/access-token), and this is available now. Applications must be updated by June 1, 2018, when the ability to use id tokens will become unavailable. Migration guides will be available by February 2018.
 
 #### Am I affected by the change?
 
-If you are currently using id tokens to access any part of the Management API, your application will need to be updated.
+If you are currently using [[id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -105,11 +109,11 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-07-01 |
 
-We’re updating the `userinfo` endpoint to return OIDC conformant user profile attributes. The most notable change is that `user_id` becomes `sub`. This will deprecate the legacy Auth0 user profile (in `userinfo` and in ID Tokens). Applications must be updated to use the new user profile before July 1, 2018. Migration guide will be available in late Q1 2018.
+The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)). Applications must be updated to use the new user profile before July 1, 2018. Migration guide will be available in late Q1 2018.
 
 #### Am I affected by the change?
 
-If you are currently using the `userinfo` endpoint to return user information, you will need to ensure that your applications are migrated where applicable.
+If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint to retrieve user information, you are affected by this change and need to update your implementation.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -214,11 +218,11 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [access token](/tokens/access-token) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
 
 #### Am I affected by the change?
 
-If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an access token in your [authorize](/api/authentication#authorization-code-grant) calls.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -230,7 +234,7 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 
 As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the Refresh Token exchange.
 
-You are using this feature if you are calling the `/oauth/token` endpoint of our Authentication API with `grant_type = "password"` , `grant_type = "http://auth0.com/oauth/grant-type/password-realm"`, or `grant_type = "refresh_token"`.
+You are using this feature if you are calling the [/oauth/token](/api/authentication#authorization-code) endpoint of our Authentication API with `grant_type = "password"` , `grant_type = "http://auth0.com/oauth/grant-type/password-realm"`, or `grant_type = "refresh_token"`.
 
 #### Am I affected by the change?
 
@@ -268,7 +272,7 @@ If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 #### Am I affected by the change?
 
-If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
+If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -318,7 +322,7 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- | --- | --- |
 | Low | 2016-09-13 |
 
-The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This is rather similar to the endpoint to delete _one_ user: `DELETE /api/v2/users/{id}`. To prevent accidental requests to the delete all users endpoint, the url has been changed to `DELETE /api/v2/allusers`. This should ensure that only intentional calls to this endpoint get made.
+The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This is rather similar to the endpoint to delete _one_ user: [DELETE  /api/v2/users](/api/management/v2#!/Users/delete_users_by_id). To prevent accidental requests to the delete all users endpoint, the url has been changed to `DELETE /api/v2/allusers`. This should ensure that only intentional calls to this endpoint get made.
 
 #### Am I affected by the change?
 
