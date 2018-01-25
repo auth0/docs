@@ -22,3 +22,4 @@ snippets:
   SecurePingController: server-apis/java-spring-security/SecurePingController
 articles:
   - 01-authorization
+  - 02-using
