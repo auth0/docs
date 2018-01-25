@@ -30,7 +30,9 @@ Migration to v9 will depend on how you are using auth0.js:
 | In your application, to implement embedded login | Required |
 | In a customized hosted page | Not Supported |
 
-(*) There a certain usage patterns with centralized login and auth0.js v8 that don't require migration. However, given that for those scenarios just updating the library version will work, we recommend that you always migrate to v9 when embedding auth0.js.
+::: note 
+There a certain usage patterns with centralized login and auth0.js v8 that don't require migration. However, given that for those scenarios just updating the library version will work, we recommend that you migrate auth0.js to v9 in your applications.
+:::
 
 ## Migration Instructions
 
