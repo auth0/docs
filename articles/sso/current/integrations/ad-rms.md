@@ -5,6 +5,10 @@ toc: true
 public: true
 ---
 
+::: warning
+The steps in this tutorial are valid for Active Directory Rights Management Services 2008 and earlier.
+:::
+
 <%= include('./_template', {
   service: "Active Directory RMS",
   img: "ad-rms"
