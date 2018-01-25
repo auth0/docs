@@ -31,7 +31,7 @@ This table is a summary of the below endpoint migrations for the first part of 2
 
 | Endpoint | Replacement | Deadline |
 | --- | --- | --- | --- |
-| usernamepassword/login` | /co/authenticate | April 01, 2018 |
+| usernamepassword/login | /co/authenticate | April 01, 2018 |
 | [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | July 01, 2018 |
 | /ssoData | /authorize?prompt=none | April 01, 2018 |
 | [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | June 01, 2018 |
