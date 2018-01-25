@@ -222,7 +222,6 @@ webAuth.passwordlessLogin({
 ```
 
 <%= include('../../_includes/_configure_embedded_login', { library : 'Auth0.js v9'}) %>
-<%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>
 <%= include('../../_includes/_legacy_flows') %>
 
