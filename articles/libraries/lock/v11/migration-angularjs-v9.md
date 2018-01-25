@@ -10,7 +10,7 @@ This guide will help you migrating your Angular 1.x application from Lock 9 to L
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 
-## 2. Adding Angular Lock Library
+## Add the angular-lock library
 
 Most Angular 1.x apps used the [auth0-angular](https://www.npmjs.com/package/auth0-angular) which is currently deprecated. This guide will use [auth0-lock](https://www.npmjs.com/package/auth0-lock) 3.0 to simplify using Lock v11.
 
@@ -28,7 +28,7 @@ Then include it in your `index.html` file:
 <script src="node_modules/angular-lock/dist/angular-lock.min.js"></script>
 ```
 
-## 3. Updating App File
+## Update the app.js file
 
 In your `app.js` file:
 
@@ -105,7 +105,7 @@ In your `app.js` file:
 }());
 ```
 
-## 4. Updating Authentication Service
+## Update the authentication service
 
 If you are using an authentication service, you will need to make a few minor changes there as well. Lock v11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock v11 documentation](/libraries/lock/v11).
 
