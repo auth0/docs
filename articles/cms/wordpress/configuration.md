@@ -192,7 +192,7 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 * **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
 
     ::: note
-      If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
     :::
 
 * **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
