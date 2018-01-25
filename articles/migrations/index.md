@@ -25,6 +25,85 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
 
+### Introducing Lock v11, Auth0.js v9
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-04-01 |
+
+We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (`usernamepassword/login`, `/ssodata`, `/tokeninfo`, `/delegation`) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
+
+We are offering two options for this update:
+
+1. We are moving towards a centralized login experience and are recommending this option moving forward. There are many benefits of using a centralized login experience, read more about how Centralized Login works [here](/hosted-pages/login). Moving to the centralized login experience is straightforward and will simplify your code base. Read [this guide](/guides/login/centralized-vs-embedded) to learn more about the benefits of centralized login vs embedded login.
+1. If you decide you need to continue using embedded login, here are the migration guides for [Auth0.js](/libraries/auth0js/v9/migration-guide) and [Lock](/libraries/lock/v11/migration-guide).
+
+#### Am I affected by the change?
+
+If you are currently using Lock v9 or v10, or Auth0.js v7 or v8, you will be affected.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### Introducing Resource Owner Support for oauth/token Endpoint
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-07-01 |
+
+We’ve introduced support for Resource Owner Password to the `oauth/token` endpoint earlier this year ([doc](/api/authentication#resource-owner-password)). We will deprecate the current `oauth/ro` and `oauth/access_token` endpoints. Applications must be updated before July 1, 2018, when `oauth/ro` will become unavailable. A migration guide will be available in Q1.
+
+#### Am I affected by the change?
+
+If you are currently implementing the `oauth/ro` endpoint your application will need to be updated.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### API Authorization with 3rd Party Vendor APIs. Deprecating Delegation Endpoint
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-06-01 |
+
+We’re re-architecting the mechanism by which you get tokens for 3rd Party/Vendor APIs (such as AWS, Firebase, and others). It now works the same as any custom API, providing better consistency. This new architecture will be available in Q1 2018 and its availability will officially deprecate the Delegation Endpoint. All clients must be updated prior to June 1, 2018. Formal migration guide will be available in Q1.
+
+#### Am I affected by the change?
+
+If you are currently using delegation to provide third party authorization, your application will need to be updated.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### Deprecating the Usage of ID Tokens on the Auth0 Management API
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-06-01 |
+
+We are deprecating the usage of id tokens when calling `PATCH/GET` `/user` and `/device-credentials`. We have moved to regular access tokens, and this is available now. Applications must be updated by June 1, 2018, when the ability to use id tokens will become unavailable. Migration guides will be available by February 2018.
+
+#### Am I affected by the change?
+
+If you are currently using id tokens to access any part of the Management API, your application will need to be updated.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### Improved OpenID Connect Interoperability in Auth0
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-07-01 |
+
+We’re updating the `userinfo` endpoint to return OIDC conformant user profile attributes. The most notable change is that `user_id` becomes `sub`. This will deprecate the legacy Auth0 user profile (in `userinfo` and in ID Tokens). Applications must be updated to use the new user profile before July 1, 2018. Migration guide will be available in late Q1 2018.
+
+#### Am I affected by the change?
+
+If you are currently using the `userinfo` endpoint to return user information, you will need to ensure that your applications are migrated where applicable.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+## Past Migrations
+
+These are migrations that have already been enabled for all customers.
+
 ### New IP Addresses for Whitelisting in Australia
 
 | Severity | Grace Period Start | Mandatory Opt-In|
@@ -79,10 +158,6 @@ This change shouldn't cause any disruption or change in behavior in your applica
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-## Past Migrations
-
-These are migrations that have already been enabled for all customers.
-
 ### Whitelisting IP Address Ranges (Q1 2017)
 
 | Severity | Grace Period Start | Mandatory Opt-In|
@@ -103,7 +178,6 @@ If you are using a custom database connection, rule, and/or custom email provide
 ```
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
 
 ### Vulnerable Password Flow
 
@@ -134,7 +208,6 @@ As part of Auth0's efforts to improve security and standards compliance, we will
 If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
-
 
 ### Password and Refresh Token Exchange Rules Migration Notice
 
@@ -203,6 +276,7 @@ You will still have access to the Identity Provider access token in the `user` a
 :::
 
 #### Am I affected by the change?
+
 You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
@@ -234,6 +308,7 @@ For more information, see: [Emails in Auth0](/email).
 The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This is rather similar to the endpoint to delete _one_ user: `DELETE /api/v2/users/{id}`. To prevent accidental requests to the delete all users endpoint, the url has been changed to `DELETE /api/v2/allusers`. This should ensure that only intentional calls to this endpoint get made.
 
 #### Am I affected by the change?
+
 You are affected by the change only if you currently make use of the delete all users endpoint. If so, the only change you need to make is to change the URL as explained above.
 
 ### State Parameter required on redirect from rule
@@ -247,6 +322,7 @@ When a redirect is done from an Auth0 rule, Auth0 takes care of generating and s
 This is documented [here](/rules/redirect#what-to-do-after-redirecting)
 
 #### Am I affected by the change?
+
 You are effected by the change only if you redirect from rules, and do not yet capture and return (to the /continue end point) the state parameter.
 
 ### Patch and Post endpoints no longer accept secret_encoded flag
