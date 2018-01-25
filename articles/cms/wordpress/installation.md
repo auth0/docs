@@ -17,9 +17,19 @@ As soon as the plugin is activated, you are redirected to the start of the Setup
 
 If you don't already have an Auth0 account, click the **[Sign Up For Free](https://auth0.com/signup).** button and create one before proceeding. 
 
-## Social Login (basic setup)
+## Social Login
 
-Click **Social** then **Manual Setup** to walk through the basic setup.
+Click **Social** to start the basic Auth0 setup. 
+
+### Automatic
+
+Public servers that allow incoming connections from Auth0 will begin the Automatic setup process. Authorize the WordPress site for your tenant and everything will be setup automatically, including user migration. 
+
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/auth0-authorize-app.png)
+
+### Manual
+
+This process is used for servers without incoming connections from Auth0, such as a local development machine or a server with access blocked by a firewall or other protection. 
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-social-modal.png)
 
@@ -32,6 +42,8 @@ Click **Next** to continue the setup process by migrating your administrator acc
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-migrate-admin.png)
 
 This step connects your WordPress user with an Auth0 user that authorizes you to log in. You can choose the same password as your admin account or different but make sure it conforms to the ["Fair" password policy described here](/connections/database/password-strength#password-policies) (the default for this plugin).
+
+## Setup complete
 
 When you see the "Done" screen, Auth0 is setup and ready to accept logins and, if configured, signups!
 
