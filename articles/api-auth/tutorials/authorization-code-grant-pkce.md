@@ -55,7 +55,7 @@ String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP |
 _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
 let verifier = Data(bytes: buffer).base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "/", with: "\_")
     .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
@@ -114,7 +114,7 @@ data.withUnsafeBytes {
 let hash = Data(bytes: buffer)
 let challenge = hash.base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "/", with: "\_")
     .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
