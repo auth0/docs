@@ -27,24 +27,24 @@ Current migrations are listed below, newest first. For migrations that have alre
 
 ### Summary of Endpoint Migrations
 
-This table is a summary of the below endpoint migrations for the first part of 2018. See the entries below the table for more detailed explanations.
+This table is a summary of the endpoint migrations for the first part of 2018. See the entries below the table for more detailed explanations.
 
-| Endpoint | Replacement | Deadline |
-| --- | --- | --- | --- |
-| usernamepassword/login | /co/authenticate | April 01, 2018 |
-| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | July 01, 2018 |
-| /ssoData | /authorize?prompt=none | April 01, 2018 |
-| [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | June 01, 2018 |
-| [/delegation](/api/authentication#delegation) | TBD | June 01, 2018 |
-| [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD |
+| Endpoint | Replacement | Mandatory Opt-In | More Info |
+| --- | --- | --- | --- | --- |
+| /usernamepassword/login | /co/authenticate | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
+| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | 2018-07-01 | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
+| /ssoData | /authorize?prompt=none | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
+| [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | 2018-06-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
+| [/delegation](/api/authentication#delegation) | TBD | 2018-06-01 | [More Info](#introducing-api-authorization-with-third-party-vendor-apis) |
+| [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 
-### Introducing Lock v11, Auth0.js v9
+### Introducing Lock v11 and Auth0.js v9
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-04-01 |
 
-We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (`usernamepassword/login`, `/ssodata`, [tokeninfo](/api/authentication/reference#get-token-info), [/delegation](/api/authentication#delegation)) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
+We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (/usernamepassword/login, /ssodata, [tokeninfo](/api/authentication/reference#get-token-info), [/delegation](/api/authentication#delegation)) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
 
 We are offering two options for this update:
 
@@ -53,7 +53,7 @@ We are offering two options for this update:
 
 #### Am I affected by the change?
 
-If you are currently using Lock v9 or v10, or Auth0.js v7 or v8, you will be affected.
+If you are currently implementing embedded login in your application with Lock v9 or v10, or Auth0.js v7 or v8, you will be affected by these changes.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -99,7 +99,7 @@ We are deprecating the usage of [id tokens](/tokens/id-token) when calling [/use
 
 #### Am I affected by the change?
 
-If you are currently using [[id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
+If you are currently using [id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -113,7 +113,7 @@ The [userinfo](/api/authentication#get-user-info) endpoint is being updated to r
 
 #### Am I affected by the change?
 
-If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint to retrieve user information, you are affected by this change and need to update your implementation.
+If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint or receiving id tokens, you are affected by this change and need to update your implementation so that it expects normalized OIDC conformant user profile attributes.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
