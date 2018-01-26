@@ -19,7 +19,7 @@ The User Details page will show `pending` when a user is first created until the
 
 * `email` (unique): the user's email address
 
-* `email_verified`: the `yes/no` value indicating if the user has verified their email address;
+* `email_verified`: the `true/false` value indicating if the user has verified their email address;
 
 * `identities`: the array of objects with information about the user's identities:
 
