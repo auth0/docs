@@ -16,11 +16,11 @@ If you are using auth0.js to implement login embedded in your applications, we r
 
 Auth0.js can be used to implement authentication in different ways:
 
-- In your application, to trigger centralized login, using the `.authorize()` method, where the user is redirected from your website to an Auth0's Hosted Login Page.
+- In your application, to trigger centralized login, using the `.authorize()` method, where the user is redirected from your website to an Auth0 Hosted Login Page.
 
 - In your application, to implement embedded login, using the `.login()`, `popup.loginWithCredentials()`, `client.loginWithCredentials()` methods, where the login dialog is displayed in the application's website.
 
-- In the [Hosted Login Page](/hosted-pages/login), where you can use the same methods as in embedded login but from inside a customized Auth0's Hosted Login Page. Most customers don't customize Auth0 Hosted Login Page with auth0.js, so you probably don't need to worry about this scenario.
+- In the [Hosted Login Page](/hosted-pages/login), where you can use the same methods as in embedded login but from inside a customized Hosted Login Page.
 
 Migration to v9 will depend on how you are using auth0.js:
 
@@ -30,7 +30,9 @@ Migration to v9 will depend on how you are using auth0.js:
 | In your application, to implement embedded login | Required |
 | In a customized hosted page | Not Supported |
 
-(*) There a certain usage patterns with centralized login and auth0.js v8 that don't require migration. However, given that for those scenarios just updating the library version will work, we recommend that you always migrate to v9.
+::: note 
+There a certain usage patterns with centralized login and auth0.js v8 that don't require migration. However, given that for those scenarios just updating the library version will work, we recommend that you migrate auth0.js to v9 in your applications.
+:::
 
 ## Migration Instructions
 

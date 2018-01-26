@@ -8,7 +8,7 @@ toc: true
 
 This guide includes all the information you need to update [Auth0.js](/libraries/auth0js) from v8 to v9.  Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
 
-## Migration Steps
+## Migration steps
 
 <%= include('../../_includes/_get_auth0_js_latest_version') %>
 <%= include('../../_includes/_configure_embedded_login', { library : 'Auth0.js v9'}) %>

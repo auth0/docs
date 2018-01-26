@@ -8,14 +8,14 @@ toc: true
 
 This guide includes all the information you need to update your Lock v10 application to [Lock v11](/libraries/lock).
 
-## Migration Steps
+## Migration steps
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 <%= include('../../_includes/_configure_embedded_login', { library : 'Lock v11'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_oidc_conformant') %>
 
-## Behavioral Changes in Lock v11
+## Behavioral changes in Lock v11
 
 <%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>

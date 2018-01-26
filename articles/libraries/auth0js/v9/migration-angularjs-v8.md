@@ -8,7 +8,7 @@ toc: true
 
 This guide includes all the information you need to update auth0.js from v8 to v9. Find out if you should upgrade or not by reading [Migrating to Auth0.js v9](/libraries/auth0js/v9/migration-guide).
 
-## Migration Steps
+## Migration steps
 
 ### Update angular-auth0
 
@@ -35,7 +35,7 @@ The script files need to be added to your build system, or added to the project 
 <%= include('../../_includes/_change_get_profile') %> 
 <%= include('../../_includes/_review_get_ssodata') %>
 
-## Behavioral Changes
+## Behavioral changes
 
 <%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

@@ -4,7 +4,7 @@ description: How to select different connection types for multiple login options
 ---
 # Selecting the Connection in Lock
 
-Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multi-tenant apps, in which a single app is used by many different organizations, each one of which is potentially using different systems such as LDAP, Active Directory, Google Apps, or username/password stores.
+Auth0 allows you to offer your users multiple methods of authenticating. This is especially important with SaaS, multi-tenant apps, in which a single app is used by many different organizations, each one of which is potentially using different systems such as LDAP, Active Directory, Google Apps, or username/password stores.
 
 ![](/media/articles/hrd/sd4h-6wlwOsQA1PCQKLAmtQ.png)
 

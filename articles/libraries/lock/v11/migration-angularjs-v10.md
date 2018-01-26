@@ -6,7 +6,7 @@ toc: true
 ---
 # Migrating Angular 1.x applications from Lock v10 to v11
 
-## Migration Steps
+## Migration steps
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 

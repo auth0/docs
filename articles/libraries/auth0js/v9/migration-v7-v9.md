@@ -66,7 +66,7 @@ webAuth.login({
   password: 'the-password'
 });
 ```
-## Using Auth0.js to Log-in Users in 'popup` mode
+## Using Auth0.js to log in users in 'popup mode'
 
 ### Using Auth0.js v7
 
@@ -123,7 +123,7 @@ webAuth.popup.loginWithCredentials({
 });
 ```
 
-## Using Auth0.js to Log-in Users Using Passwordless
+## Using Auth0.js to log in users using passwordless
 
 ### Using Auth0.js v7
 
