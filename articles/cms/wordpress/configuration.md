@@ -31,13 +31,13 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
 
-     ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. **Client Type** must be set to **Regular Web Application**
 
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's login URL and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-    ![Client allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
+    ![Client - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -53,10 +53,14 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Turn off **OIDC Conformant**.
 
+    ![Client - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+
+1. Click the **Grant Types** tab and select **Implicit,** **Authorization Code,** **Refresh Token,** and **Client Credentials**.
+
+    ![Client - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
+
 1. Click **Save Changes** if anything was modified.
     
-    ![Client Advanced Settings](/media/articles/cms/wordpress/client-advanced-settings.png)
-
 ### Connection setup
 
 Next, we'll need a Connection to store our users. 
