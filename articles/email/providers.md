@@ -11,6 +11,7 @@ Auth0 currently supports the following providers:
 * [Amazon SES](#configure-amazon-ses-for-sending-email)
 * [Mandrill](#configure-mandrill-for-sending-email)
 * [SendGrid](#configure-sendgrid-for-sending-email)
+* [SparkPost](#configure-sparkpost-for-sending-email)
 * [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
 ::: note
@@ -131,6 +132,26 @@ If you do not receive an email after a few minutes, please check your [dashboard
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now display all emails which have been sent to your users and the delivery status of each message.
 
 ![](/media/articles/email/providers/email-sendgrid-monitoring.png)
+
+## Configure SparkPost for Sending Email
+
+1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or login. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
+
+    ![](/media/articles/email/providers/sparkpost-api-key-creation.png)
+
+2. Go to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SparkPost** logo.
+
+3. Enter your previously obtained SparkPost `API Key`:
+
+    ![](/media/articles/email/providers/sparkpost-set-key.png)
+
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Note that SparkPost only allows sending emails from verified domains. To verify a custom domain go to the [Sending Domains page](https://app.sparkpost.com/account/sending-domains) and add your custom domain. Alternatively, you can send test emails from the `sparpostbox.com` domain, but this is limited to only five test emails. See the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain) for details.
+
+If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
+
+The [Message Events](https://app.sparkpost.com/reports/message-events) page in SparkPost will now display all emails which have been sent to your users, including the delivery status of each message.
+
+![](/media/articles/email/providers/sparkpost-message-events.png)
 
 ## Configure a Custom SMTP Server for Sending Email
 
