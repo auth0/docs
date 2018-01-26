@@ -1,5 +1,11 @@
 # ${service} Single Sign On Integration
 
+<% if (service === "Active Directory RMS") { %>
+::: warning
+The steps in this tutorial are valid for Active Directory Rights Management Services 2008 and earlier.
+:::
+<% } %>
+
 The ${service} Single Sign On (SSO) Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to [configured clients](/sso/current/setup).
 
 ## Create a New SSO Integration
