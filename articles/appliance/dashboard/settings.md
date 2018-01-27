@@ -29,14 +29,14 @@ The Settings page is broken down into the following sections:
 ## General
 
 * **Company Handle**: the internal identifier for your company. Use only lowercase characters (no spaces or special characters);
-* **NTP Servers**: the IP address of an internal NTP server (e.g.: *10.4.2.39*) or a public NTP server (e.g.: *1.north-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5*). This setting is particularly important, since it assists in time synchronization among the various pieces of your infrastructure;
+* **NTP Servers**: the IP address of an internal NTP server (such as *10.4.2.39*) or a public NTP server (such as *1.north-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5*). This setting is particularly important, since it assists in time synchronization among the various pieces of your infrastructure;
 * **Enable GeoIP**: if enabled, Auth0 will update the geo-coding database for mapping IP addresses to locations (you **MUST** permit access to www.maxmind.com through your firewall);
 * **Enforce Logout URLs**: if enabled, Auth0 requires the Logout URL used to be included in the list indicated under Allowed Logout URLs.
 
 ## Dashboard
 
 * **Enable "New Account" in Dashboard**: if enabled, you may create new isolated accounts (called tenants) in the PSaaS Appliance;
-* **Federated Logout**: if enabled, signing out of the Dashboard also signs you out from the ldP (e.g. when using enterprise connections with the Dashboard).
+* **Federated Logout**: if enabled, signing out of the Dashboard also signs you out from the ldP (such as when using enterprise connections with the Dashboard).
 
 ## HTTPS Configuration
 

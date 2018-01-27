@@ -28,7 +28,7 @@ The final project after each of the steps is also available in the [Sample repos
 
 <%= include('../_includes/_api_create_new_2') %>
 
-Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
+Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, such as
 
 ```xml
 // web.config

@@ -86,7 +86,7 @@ In your Auth0 Dashboard, go to the _Rules_ tab. You should see the Rule created 
 
 ![Rules](/media/articles/architecture-scenarios/mobile-api/rules-1.png)
 
-Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, e.g. **Access Token Scopes**, and then specify the following code for the Rule:
+Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, such as **Access Token Scopes**, and then specify the following code for the Rule:
 
 ```js
 function (user, context, callback) {

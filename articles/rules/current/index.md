@@ -24,7 +24,7 @@ Among many possibilities, Rules can be used to:
 * Keep a __white-list of users__ and deny access based on email.
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
-* Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
+* Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
 * Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
 ## Video: Using Rules
@@ -163,7 +163,7 @@ function (user, context, callback) {
 }
 ```
 
-This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
 Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
@@ -217,7 +217,7 @@ After this rule executes, the `access_token` will contain one additional namespa
 
 ### Using the Configuration Object
 
-The global `configuration` object is available in your rules if you wish to save some commonly used items, such as credentials, URLs, etc, that might be subject to change or that you wish to keep out of your Rule code.
+The global `configuration` object is available in your rules if you wish to save some commonly used items, such as credentials, URLs, and so on, that might be subject to change or that you wish to keep out of your Rule code.
 
 The following example is a Rule template for sending a Slack message when a new user has signed up via Auth0:
 

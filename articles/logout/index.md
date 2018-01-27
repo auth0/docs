@@ -97,7 +97,7 @@ To add a list of URLs that the user may be redirected to after logging out at th
 When providing the URL list, you can:
 
 * Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
+* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
 ### Set the Allowed Logout URLs at the Client Level
 
@@ -108,7 +108,7 @@ To redirect the user after they log out from a specific client, you must add the
 When providing the URL list, you can:
 
 * Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
+* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
 ::: note
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.

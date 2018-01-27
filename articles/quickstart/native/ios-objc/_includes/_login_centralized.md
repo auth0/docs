@@ -50,7 +50,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
         if (error) {
             NSLog(@"Error: %@", error);
         } else if (credentials) {
-          // Do something with credentials e.g.: save them.
+          // Do something with credentials, such as save them.
           // Auth0 will dismiss itself automatically by default.
         }
     });

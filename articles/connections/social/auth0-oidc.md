@@ -59,12 +59,12 @@ The required parameters for this connection are:
 
 Optionally, you can add:
 
-* **options.scope**: the scope parameters for which you wish to request consent (such as `profile`, `identities`, etc.).
+* **options.scope**: the scope parameters for which you wish to request consent (such as `profile`, `identities`, and so on).
 * **enabled_clients**: an array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
 
 ## Use the Auth0 connection
 
-You can use any of the standard Auth0 mechanisms (e.g. direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/auth0js), etc.) to login a user with the auth0-oidc connection.
+You can use any of the standard Auth0 mechanisms (such as direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/auth0js), and so on) to login a user with the auth0-oidc connection.
 
 A direct link would look like:
 

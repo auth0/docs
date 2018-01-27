@@ -56,7 +56,7 @@ credentialsManager.credentials { error, credentials in
     guard error == nil, let credentials = credentials else {
         // Handle Error, Present Hosted Login Page
     }
-    // Valid credentials, you can access the token properties e.g. `idToken`, `accessToken`.
+    // Valid credentials, you can access the token properties such as `idToken`, `accessToken`.
 }
 ```
 

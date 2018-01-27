@@ -84,7 +84,7 @@ Access tokens are opaque to clients. This means that clients are unable to inspe
 There are two options to determine when an access token expires:
 
 1. Read the `expires_in` response parameter returned by Auth0
-2. Ignore expiration dates altogether. Instead, try to renew the access token if your API rejects a request from the client (e.g. with a 401).
+2. Ignore expiration dates altogether. Instead, try to renew the access token if your API rejects a request from the client (such as with a 401).
 
 In the case of the [Implicit Grant](/api-auth/grant/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. For the [Authorization Code Grant](/api-auth/grant/code), it is returned to the backend server when performing the authorization code exchange.
 

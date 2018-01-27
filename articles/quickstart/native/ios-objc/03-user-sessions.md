@@ -68,7 +68,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
         if (error) {
             NSLog(@"Error: %@", error);
         } else if (credentials) {
-          // Do something with credentials e.g.: save them.
+          // Do something with credentials such as save them.
           // Auth0 will dismiss itself automatically by default.
         }
     });
@@ -185,7 +185,7 @@ if (!refreshToken) {
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth renewWithRefreshToken:[keychain stringForKey:@"refresh_token"] scope:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
               if (error) {
-                  // refreshToken is no longer valid (e.g. it has been revoked)
+                  // refreshToken is no longer valid (for example, it has been revoked)
                   // Cleaning stored values since they are no longer valid
                   [keychain clearAll];
                   // At this point, you should ask the user to enter their credentials again!
@@ -193,7 +193,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
                   // Just got a new accessToken!
                   // Don't forget to store it...
                   [keychain setString:[credentials accessToken] forKey:@"access_token"];
-                  // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
+                  // At this point, you can log the user into your app, for example, by navigating to the corresponding screen
               }
       }];
 ```

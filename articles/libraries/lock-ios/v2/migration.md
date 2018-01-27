@@ -113,7 +113,7 @@ In v1 to show Lock from a `UIViewController` you'd add the following code:
 let lock = A0Lock.shared()
 let controller = lock.newLockViewController()
 controller.onAuthenticationBlock = {(profile, token) in
-  // Do something with token & profile. e.g.: save them.
+  // Do something with token & profile, such as save them.
   // Lock will not save the Token and the profile for you.
   // And dismiss the UIViewController.
   self.dismissViewController(animated: true, completion: nil)
@@ -170,7 +170,7 @@ let lock = A0Lock.shared()
 let controller: A0EmailLockViewController = lock.newEmailViewController()
 controller.useMagicLink = true
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile, such as save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     self.dismiss(animated: true, completion: nil)
@@ -185,7 +185,7 @@ let lock = A0Lock.shared()
 let controller: A0SMSLockViewController = lock.newSMSViewController()
 controller.useMagicLink = true
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile, such as save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     self.dismiss(animated: true, completion: nil)

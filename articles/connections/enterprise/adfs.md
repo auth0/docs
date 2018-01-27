@@ -87,7 +87,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 1. Click **Start** on the first step.
 1. Select **Enter data about the relying party manually** and click **Next**.
     ![](/media/articles/connections/enterprise/adfs/adfs-importmanual.png)
-1. Enter an arbitrary name (e.g. "${account.appName}") and click **Next**.
+1. Enter an arbitrary name (such as "${account.appName}") and click **Next**.
 1. Leave the default selection (`ADFS 2.0 profile`) and click **Next**.
 1. Leave the default (`no encryption certificate`) and click **Next**.
 1. Check **Enable support for the WS-Federation...**, enter the following value in the textbox and click **Next**.

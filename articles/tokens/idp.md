@@ -19,7 +19,7 @@ The contents of third-party access tokens will vary by the issuing IdP.
 
 ## Validity
 
-Since these tokens are created and managed by a third-party (such as Facebook, GitHub, etc) **the validity period for third-party tokens will vary by the issuing IdP**. If you believe these tokens have been compromised, you will need to revoke or reset them with the third-party that issued them. 
+Since these tokens are created and managed by a third-party (such as Facebook, GitHub, and so on) **the validity period for third-party tokens will vary by the issuing IdP**. If you believe these tokens have been compromised, you will need to revoke or reset them with the third-party that issued them. 
 
 ## Renewing the token
 

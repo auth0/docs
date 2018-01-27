@@ -61,7 +61,7 @@ client_id=your_app_id&
 redirect_uri=your_redirect_uri
 ```
 
-Notice that Auth0 will automatically pass all required OAuth2 parameters (e.g. `response_type`, `client_id`, etc) and concatenate other elements to the path (e.g. `oauth2/authorize`). All that is required is that you configure the __base__ community site URL: `https://contoso.force.com/customers`.
+Notice that Auth0 will automatically pass all required OAuth2 parameters (such as `response_type`, `client_id`, and so on) and concatenate other elements to the path (such as `oauth2/authorize`). All that is required is that you configure the __base__ community site URL: `https://contoso.force.com/customers`.
 
 ::: note
 For full details refer to this [Salesforce article](http://www.salesforce.com/us/developer/docs/chatterapi/Content/quickstart_communities.htm).

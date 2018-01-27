@@ -45,7 +45,7 @@ To attach an access token to a request:
 let token  = ... // The accessToken you stored after authentication
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
-// Configure your request here (method, body, etc)
+// Configure your request here (method, body, and so on)
 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 let task = URLSession.shared.dataTask(with: request) { data, response, error in
     // Parse the response
@@ -71,7 +71,7 @@ When you are testing the sample project, configure your URL request in the `Prof
 
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
-// Configure your request here (method, body, etc)
+// Configure your request here (method, body, and so on)
 ```
 
 After you send a request and receive a response from your API, the request status code will be displayed in an alert view. 

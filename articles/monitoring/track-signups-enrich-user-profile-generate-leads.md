@@ -16,7 +16,7 @@ Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in yo
 
 ## 1. Recording a SignUp in MixPanel
 
-This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
+This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (such as IP addresses, agent, and so on.).
 
 We also call this event `Sign Up`:
 

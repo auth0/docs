@@ -21,4 +21,4 @@ ${include('./\_header')}
 }
 ```
 
-Notice that Webex has an option to automatically provision new users. You will need to send that info along as claims (lastname, etc).
+Notice that Webex has an option to automatically provision new users. You will need to send that info along as claims (lastname, and so on).

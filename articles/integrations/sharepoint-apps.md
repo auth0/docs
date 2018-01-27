@@ -39,7 +39,7 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
   https://${account.namespace}/login/callback?SP_APP_TOKEN&connection=CONNECTION&client_id=${account.clientId}&redirect_uri=${account.callback}
 
-* `connection` is just the name you will use in Auth0's connections (e.g. "sharepoint").
+* `connection` is just the name you will use in Auth0's connections (such as "sharepoint").
 * `client_id` identifies your app in Auth0 (created in steps 1).
 * `redirect_uri` is the location in your actual app, where your users will land eventually after all negotiations complete. If you don't specify it, it will always be the app's callback URL defined in Auth0 (it could be localhost)
 
@@ -68,7 +68,7 @@ You will need:
 
 * `Connection Name`. This is an arbitrary name. It has to match with what you entered in step 2.
 * `Client Id` & `Client Secret`. Also need to match what you entered in step 2.
-* `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (e.g. when pressing the 'Try' button on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
+* `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (such as when pressing the 'Try' button on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
 
 
 Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the access token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
@@ -76,7 +76,7 @@ Users will install your app from the Office Marketplace. When they click on the 
 ![](/media/articles/integrations/sharepoint-apps/8Xp6x.png)
 
 ::: note
-Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (e.g. lists, etc.).
+Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (such as lists).
 :::
 
 ```text

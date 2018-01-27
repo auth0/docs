@@ -179,6 +179,10 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 * **Lock Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-).
 
+* **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
+
+* **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', and so on) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
+
 ### Advanced
 
 * **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). 
@@ -232,6 +236,8 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 
 * **Auth0 server domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information.
+
+* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
 
 * **Anonymous data:** The plugin tracks anonymous usage data by default. Click to disable.
 

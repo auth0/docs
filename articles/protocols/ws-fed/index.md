@@ -3,7 +3,7 @@ description: Details on the WS-Federation protocol and how this is used by Auth0
 ---
 # WS-Federation
 
-WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS).
+WS-Federation is supported both for apps (for example, any WIF based app) and for identity providers (such as ADFS or ACS).
 
 ## For apps
 All registered apps in Auth0 get a WS-Fed endpoint of the form:
@@ -33,7 +33,7 @@ https://${account.namespace}/wsfed/${account.clientId}?whr=google-oauth2
 ```
 
 ## For IdP
-If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
+If you are connecting a WS-Fed IdP (such as ADFS, Azure ACS and IdentityServer), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, and so on
 
 ::: note
 You can also upload a Federation Metadata file.

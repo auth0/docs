@@ -57,7 +57,7 @@ In the typical SPA login, the callback is handled client-side by the same page a
 
 ## 2. User initiates account linking
 
-Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, etc.). For example, in the user's settings page:
+Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, and so on). For example, in the user's settings page:
 
 ![](/media/articles/link-accounts/spa-user-settings.png)
 

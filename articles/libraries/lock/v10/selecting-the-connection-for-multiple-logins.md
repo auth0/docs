@@ -36,7 +36,7 @@ There are multiple practical ways of determining which of your `connection` valu
 
 * You can use vanity URLs: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`. When a user arrives at your application with the vanity URL, you can pick up that value and pass it to Lock as the `allowedConnections` value.
 * You can just ask the user to pick from a list of all of your available connections (or those you want to be chosen from) at some point, and then show only that connection to that user.
-* You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
+* You could use non-human-readable connection names and use some external mechanism to map these to users (for example, through a primary verification, out of band channel for example).
 
 ::: note
 The first two methods above assume it is acceptable for your app to disclose the names of all of your connections, which may not be appropriate for your application.

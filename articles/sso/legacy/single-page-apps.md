@@ -68,7 +68,7 @@ auth0.getSSOData(function (err, ssoData) {
       state: getQueryParameter('targetUrl')
     });
   } else {
-    // Display regular login option, e.g. a Login button which will invoke Lock
+    // Display regular login option, such as a Login button which will invoke Lock
   }
 });
 ```

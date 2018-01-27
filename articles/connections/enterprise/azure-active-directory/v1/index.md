@@ -27,7 +27,7 @@ Click on **ADD+** at the bottom of the screen.
 
 ![](/media/articles/connections/enterprise/azure-active-directory/waad-1.png)
 
-Enter a *subdomain*, e.g.: **${account.tenant}**. This can be any text. (It does not have to match the Auth0 subdomain and it will be used in the next step.) Also enter your country and a friendly name for your organization.
+Enter a *subdomain*, such as: **${account.tenant}**. This can be any text. (It does not have to match the Auth0 subdomain and it will be used in the next step.) Also enter your country and a friendly name for your organization.
 
 ![](/media/articles/connections/enterprise/azure-active-directory/waad-2.png)
 

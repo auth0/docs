@@ -48,7 +48,7 @@ If you have complex requirements needing deeper consulting and advice from our e
 ### Step 3. Management Dashboard Guidance
 **When?**  You can access self service resources immediately.  A live session is generally booked soon after the Technical Discovery & Guidance session.
 
-**What?** The goal of this light technical session is to familiarize your team with the Auth0 Management Dashboard to understand both some of the administrative elements (e.g. setting up new Dashboard Admin users) as well as functional elements.
+**What?** The goal of this light technical session is to familiarize your team with the Auth0 Management Dashboard to understand both some of the administrative elements (such as setting up new Dashboard Admin users) as well as functional elements.
 
 [Comprehensive Dashboard Walkthrough](https://youtu.be/hkMHBXRImPk?t=8m9s) - This 40 minute video walks you through many elements of the Auth0 Dashboard in a practical manner.
 

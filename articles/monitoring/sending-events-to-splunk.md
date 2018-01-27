@@ -13,7 +13,7 @@ This example shows how you can very easily connect Auth0 to Splunk and stream `s
 
 This [Auth0 rule](/rules) uses the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8) to record `signup` and `login` events from users to your apps. This is tracked with the `signedUp` property. If the property is present, then we assume this is a `login` event. Otherwise we assume that this event is a new `signup`.
 
-You can send any number of properties. This sample sends contextual information like the user IP address (can be used for location), the application, the username, etc.
+You can send any number of properties. This sample sends contextual information like the user IP address (can be used for location), the application, the username, and so on.
 
 Splunk's API supports basic & token based auth. For simplicity, we use basic auth, with credentials in the rule. You can store these credentials securely in Auth0 using standard settings on the dashboard.
 

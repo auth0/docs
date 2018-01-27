@@ -40,7 +40,7 @@ The first part of the function instantiates a variable called `profile` and has 
 
 `profile['department'] = raw_data['companydept'];`
 
-In this example, `department` is the name of the attribute in the Auth0 User Profile and `companydept` is the name of the attribute in the source directory service (e.g. AD).
+In this example, `department` is the name of the attribute in the Auth0 User Profile and `companydept` is the name of the attribute in the source directory service (such as AD).
 
 ## Import / Export
 
@@ -48,7 +48,7 @@ The __Import/Export__ feature of the **Connector Admin Console** can be used to 
 
 ## Troubleshooting
 
-The __Troubleshooting__ feature of the **Connector Admin Console** can be used to detect issues with the environment that may prevent the AD/LDAP connector from working properly. It will check for common problems like network connectivity, clock skew, connectivity to LDAP, etc.
+The __Troubleshooting__ feature of the **Connector Admin Console** can be used to detect issues with the environment that may prevent the AD/LDAP connector from working properly. It will check for common problems like network connectivity, clock skew, connectivity to LDAP, and so on.
 
 This feature also displays the contents of the AD/LDAP connector log file.
 

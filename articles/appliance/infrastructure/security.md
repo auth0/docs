@@ -61,7 +61,7 @@ You must configure an SMTP server in order for the PSaaS Appliance to send email
 
 **AWS SES Users**: If your domain is not validated, you will not be able to send email with AWS SES.
 
-Optionally, you may use a Transactional Email Provider (e.g. SendGrid, Amazon SES, Mandrill).
+Optionally, you may use a Transactional Email Provider (such as SendGrid, Amazon SES, Mandrill).
 
 The PSaaS Appliance supports STARTTLS, but it is not required.
 

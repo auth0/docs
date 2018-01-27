@@ -22,7 +22,7 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Implicit Grant flow is initiated by redirecting the user in an embedded web browser inside of your application to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the `redirect_uri` (also known as the **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier) or the URL. The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture etc.
+After the user has authenticated, Auth0 will redirect the browser back to the `redirect_uri` (also known as the **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier) or the URL. The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.
 
 The `id_token` can be decoded to extract the claims and you can use these inside of your application, to display a user's name and profile image for example.
 
@@ -68,7 +68,7 @@ This endpoint supports the following query string parameters:
 
 ## Handle the callback
 
-After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along the `id_token` and the `token_type` in the hash fragment of the URL, e.g.
+After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along the `id_token` and the `token_type` in the hash fragment of the URL, such as
 
 ```text
 https://${account.namespace}/mobile#id_token=eyJ0...&token_type=Bearer
@@ -106,7 +106,7 @@ The payload above contains the following claims:
 | name | The name of the user which is returned from the Identity Provider. |
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
-| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), e.g. github&#124;1234567890. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), such as github&#124;1234567890. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
@@ -122,7 +122,7 @@ The [JWT.io website](https://jwt.io) has a handy debugger which will allow you t
 
 Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application which will keep track of whether the user has logged in.
 
-You can also use this object to store information about the user (e.g. name, profile image, etc.) and then use those inside of your application to display the user's information or otherwise personalize the user's experience.
+You can also use this object to store information about the user (such as name, profile image, and so on.) and then use those inside of your application to display the user's information or otherwise personalize the user's experience.
 
 ## Examples
 

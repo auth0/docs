@@ -412,7 +412,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 {
   "name":     ""
-  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0|etc",
+  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0",
   "options":   {
     "tenant_domain":
     "domain_aliases":

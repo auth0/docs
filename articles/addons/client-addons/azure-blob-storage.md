@@ -30,7 +30,7 @@ Content-Type: 'application/json'
 }
 ```
 
-* The `client_id` value identifies the requesting app (e.g. your website) and `YOUR_ID_TOKEN` identifies the user you are requesting this on behalf-of. (Notice that the `id_token` is signed with the `client_id` corresponding `clientSecret`).
+* The `client_id` value identifies the requesting app (such as your website) and `YOUR_ID_TOKEN` identifies the user you are requesting this on behalf-of. (Notice that the `id_token` is signed with the `client_id` corresponding `clientSecret`).
 * The `target` parameter identifies this API endpoint in Auth0 (often the same as `${account.clientId}`. This is the `client_id` of the app where this add-on has been enabled.
 * `api_type` must be `azure_blob`.
 * `scope` must be `openid`.

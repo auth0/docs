@@ -17,7 +17,7 @@ This architecture scenario is under construction and will be updated soon.
 
 Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
 
-Users are created and stored with a Database connection (username/password) which they can then later use to log in, or alternatively users can use a social connection such as Facebook, Twitter, Google, etc to log in. Passwordless connections are also common with B2C.
+Users are created and stored with a Database connection (username/password) which they can then later use to log in, or alternatively users can use a social connection such as Facebook, Twitter, Google, and so on to log in. Passwordless connections are also common with B2C.
 
 ## Read More
 

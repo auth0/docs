@@ -19,7 +19,7 @@ toc: true
 
 There are different scenarios in which you might want to integrate with Microsoft Azure AD:
 
-* You want to let users into your application from an Azure AD you or your organization controls (e.g. employees in your company).
+* You want to let users into your application from an Azure AD you or your organization controls (such as employees in your company).
 
 * You want to let users coming from other companies' Azure ADs into your application. You may set up those external directories manually as different connections, or [create a multi-tenant application that accepts new directories dynamically](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory).
 

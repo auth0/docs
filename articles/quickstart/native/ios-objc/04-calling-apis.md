@@ -36,7 +36,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
         if (error) {
             NSLog(@"Error: %@", error);
         } else if (credentials) {
-          // Do something with credentials e.g.: save them.
+          // Do something with credentials such as save them.
           // Auth0 will dismiss itself automatically by default.
         }
     });
@@ -59,7 +59,7 @@ To attach an access token to a request:
 NSString* token = ... // The accessToken you stored after authentication
 NSString *url = @"https://localhost/api"; // Change to your API
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-// Configure your request here (method, body, etc)
+// Configure your request here (method, body, and so on)
 
 [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
 [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -76,7 +76,7 @@ When you are testing the sample project, configure your URL request in the `Prof
 
 NSString *url = @"https://localhost/api"; // Change to your API
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-// Configure your request here (method, body, etc)
+// Configure your request here (method, body, and so on)
 ```
 
 After you send a request and receive a response from your API, you can check the request status code in an alert view. 

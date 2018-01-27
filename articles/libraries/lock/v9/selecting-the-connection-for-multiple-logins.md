@@ -43,7 +43,7 @@ There are multiple practical ways of getting the `connection` value. Among the m
 These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
 :::
 
-* You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
+* You could use non-human-readable connection names and use some external mechanism to map these to users (for example, through a primary verification, out of band channel for example).
 
 ## Option 2: using email domains with Lock
 

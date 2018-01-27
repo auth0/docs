@@ -550,4 +550,4 @@ The [access token](#get-an-access-token) should have the following scopes:
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
 | `connectionName` | The connection name the user logged in with |
-| `groups` | List of group names received from the IdP (AD, ADFS, etc) |
+| `groups` | List of group names received from the IdP (AD, ADFS, and so on) |
