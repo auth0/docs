@@ -13,13 +13,13 @@ With Auth0, you can access, edit, and delete user information:
 
 ## Manual process
 
-You can view, edit, and delete user information at Dashboard > Users. Drill down to a user to view their info. The information you can change are:
+You can view, edit, and delete user information at [Dashboard > Users](${manage_url}/#/users). Drill down to a user to view their info. The information you can change are:
 
 | **Field** | **How to edit**
 |-|-|
 | **Email** | Click Edit. Set the new email.
 | **Email verified** | Click **Edit** at the **Εmail** field. Click the **Set email as verified** link.
-| **Metadata** | Both the `app_metadata` and the `ser_metadata` objects are editable from this screen. Edit the JSON at the **Metadata** section and save your changes.
+| **Metadata** | Both the `app_metadata` and the `user_metadata` objects are editable from this screen. Edit the JSON at the **Metadata** section and save your changes.
 | **Blocked** | Not directly editable. Click **Actions > Block User** at the top right of this screen. To unblock click **Actions > Unblock User**.
 | **Email** | Not directly editable. Click **Actions > Change Email** at the top right of this screen.
 | **Password** | Not directly editable. Click **Actions > Change Password** at the top right of this screen.
@@ -47,6 +47,8 @@ Each endpoint at the [Management API explorer](/api/management/v2) has a section
 :::
 
 You can [get an access token for the Management API manually](/api/management/v2/tokens#get-a-token-manually) or you can [automate the process](/api/management/v2/tokens#automate-the-process).
+
+Once you know which endpoint you want to access, and you have a valid access token, you are ready to send your request.
 
 ## Editable data
 

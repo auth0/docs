@@ -9,7 +9,7 @@ In this article you can find a list of GDPR regulations and find out how Auth0 c
 
 ## Conditions for consent
 
-According to article 7 of GDPR, you have to request users for consent on the processing of their personal data, in a clear and easily accessible form. You also have to be able to show that the user has consented, and provide an easy way to withdraw consent at any time. You can use Auth0 to ask your users for consent upon signup (using either Lock or a custom form), save this information at the user profile, and update it using our API. 
+According to article 7 of GDPR, you have to ask users for consent on the processing of their personal data, in a clear and easily accessible form. You also have to be able to show that the user has consented, and provide an easy way to withdraw consent at any time. You can use Auth0 to ask your users for consent upon signup (using either Lock or a custom form), save this information at the user profile, and update it using our API. 
 
 For all the details, see [Conditions for consent](/compliance/gdpr/features-aiding-compliance/user-consent).
 

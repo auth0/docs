@@ -5,7 +5,7 @@ toc: true
 ---
 # GDPR Compliance: Conditions for Consent
 
-According to article 7 of GDPR, you have to request users for consent on the processing of their personal data, in a clear and easily accessible form. You also have to be able to show that the user has consented, and provide an easy way to withdraw consent at any time. 
+According to article 7 of GDPR, you have to ask users for consent on the processing of their personal data, in a clear and easily accessible form. You also have to be able to show that the user has consented, and provide an easy way to withdraw consent at any time. 
 
 This article explains how you can use Auth0 features to implement these requirements.
 
@@ -13,9 +13,13 @@ This article explains how you can use Auth0 features to implement these requirem
 
 Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
 
+::: note
+Before you design your solution using `user_metadata` make sure you have reviewed the [custom fields limitations](/libraries/custom-signup#custom-fields-limitations).
+:::
+
 ---
 
-**If you use Lock and authenticate users with a database connection**, add an extra field to the signup screen using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). This extra field will be automatically added to the `user_metadata`. Note that the `user_metadata` have some limitations, you can review them at [Custom fields limitations](/libraries/custom-signup#custom-fields-limitations).
+**If you use Lock and authenticate users with a database connection**, add an extra field to the signup screen using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). This extra field will be automatically added to the `user_metadata`.
 
 Alternatively, you can use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-).
 

@@ -13,10 +13,6 @@ As per article 32 of GDPR, you have to implement appropriate measures in order t
 
 There are several Auth0 features than can help you achieve that, like user profile encryption, brute-force protection, breached password detection, step-up authentication, and more.
 
-## Lower administration provileges
-
-Delegated Admin: Administer users with a lower level of admin privilege (e.g. help desk support and login).
-
 ## Encrypt user profile information
 
 You can encrypt user information before you save them in the user profile. You can use any encryption mechanism you'd like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality (there is also a **Decrypt sensitive data from the user profile** template).

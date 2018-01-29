@@ -26,7 +26,6 @@ You can export a user's full profile using our Management API. The response will
 - [Search for a user using their email address](/users/search#users-by-email)
 - [Search for a user using their Id](/users/search#users-by-id)
 - [Search for a set of users](/users/search#users)
-- [Update a user's metadata](/api/management/v2#!/Users/patch_users_by_id)
 - [Export a list of your users](/users/search#user-export)
 
 <%= include('../_stepnav', {
