@@ -40,7 +40,7 @@ In addition, please be aware that using Rules and/or the Management Dashboard ma
 :::
 
 ::: warning
-Please note that an authenticated user can modify data in their profile's `user_metadata`, but they can't modify anything in their `app_metadata`.
+Please note that an authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
 :::
 
 ::: note
