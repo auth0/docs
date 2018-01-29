@@ -58,6 +58,8 @@ With Auth0 you can save the user's consent information as part of the `user_meta
 To access the Management API you will need an access token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
 :::
 
+The Management API offers several offers several options when it comes to user search (search by email, id, or other fields) and endpoints to update `user_metadata` or batch export users.
+
 ### Search for a user using their email address
 
 To search for a user using their email address, use [the Search user by email endpoint](/users/search#users-by-email). 
@@ -107,21 +109,160 @@ Sample response:
 
 ### Search for a user using their Id
 
-- [Search for a user using their Id](/users/search#users-by-id)
+To search for a user using their Id, use [the Get a user endpoint](/users/search#users-by-id). 
+
+Set the **fields** request parameter to `user_metadata` in order to limit the fields returned. This way, only the `user_metadata` will be returned instead of the complete user profile.
+
+Sample request:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users/YOUR_USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }],
+    "queryString":  [
+        {
+          "name": "fields",
+          "value": "user_metadata"
+        }
+    ]
+}
+```
+
+Sample response:
+
+```json
+{
+  "user_metadata": {
+    "consent": {
+	    "given": true,
+	    "date": "01/23/2018",
+	    "text_details": "some-url"
+  	}
+  }
+}
+```
 
 ### Search for a set of users
 
-- [Search for a set of users](/users/search#users)
+To search for a set of users, use [the List or search users endpoint](/users/search#users). 
+
+This endpoint is eventually consistent (that is, the response might not reflect the results of a recently-complete write operation) and that [only specific fields are available for search](/api/management/v2/user-search#searchable-fields). 
+
+Consent information that are saved as part of the `user_metadata` are not searchable. 
+
+For a sample request and response see [Search Users](/users/search#users). For more examples, see [Example Queries](/api/management/v2/user-search#example-queries).
 
 ### Update consent information
 
-- [Update a user's metadata](/api/management/v2#!/Users/patch_users_by_id)
+To update a user's `user_metadata`, use [the Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+
+How you will structure your request depends on how you have structured your metadata: as root or as inner properties.
+
+Metadata as root properties:
+
+```json
+{
+  "consentGiven": true,
+  "consentDetails": "some-url"
+}
+```
+
+Metadata as inner properties:
+
+```json
+{
+  "consent": {
+    "given": true,
+    "text_details": "some-url"
+  }
+}
+```
+
+#### Update a root property
+
+In this case the metadata are merged so you need only send the field you want to update. For example, let's say we want to add a consent date and set it to `01/23/2018`.
+
+```har
+{
+    "method": "PATCH",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    },
+    {
+        "name": "content-type",
+        "value": "application/json"
+    }],
+    "postData" : {
+        "mimeType": "application/json",
+        "text": "{\"user_metadata\":{\"consentDate\":\"01/24/2018\"}}"
+    }
+}
+```
+
+This will add a new property to the user profile, the **user_metadata.consentDate**, which will hold the date the customer consented. The response will be the full user profile. The updated metadata will look like this:
+
+```json
+{
+  "consentGiven": true,
+  "consentDate": "01/23/2018",
+  "consentDetails": "some-url"
+}
+```
+
+#### Update an inner property
+
+In this case you have to send the whole object, even though you might want to update only one property. If you do not, the other properies will be removed. Let's add an inner property for the consent date and set it to `01/23/2018`.
+
+```har
+{
+    "method": "PATCH",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    },
+    {
+        "name": "content-type",
+        "value": "application/json"
+    }],
+    "postData" : {
+        "mimeType": "application/json",
+        "text": "{\"user_metadata\":{\"consent\": {\"given\":true, \"date\":\"01/23/2018\", \"text_details\":\"some-url\"}}}"
+    }
+}
+```
+
+This will add a new property to the user profile, the **user_metadata.consent.date**, which will hold the date the customer consented. The response will be the full user profile. The updated metadata will look like this:
+
+```json
+{
+  "consent": {
+    "given": true,
+    "date": "01/23/2018",
+    "text_details": "some-url"
+  }
+}
+```
 
 ### Export consent information
 
-- [Export a list of your users](/users/search#user-export)
+To export a list of your users using the Management API, use [the User export endpoint](/users/search#user-export). 
 
-:::panel Whar else do I have to do?
+This endpoint creates a job that exports all users associated with a connection. You will need the Id of the connection. To find this Id, use [the Get Connections endpoint](/api/management/v2#!/Connections/get_connections) (you can set the **name** parameter to the name of the connection to retrieve only this one).
+
+Once you have the connection Id and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
+
+
+:::panel What else do I have to do?
 - Determine how you want to track consent. We recommend putting in not just the date but the correct version of terms and conditions, specifying the version, and including an array for those who will withdraw, provide and withdraw consent again.
 - Choose where you want to store consent, in Auth0's database or elsewhere
 :::
