@@ -78,7 +78,7 @@ You will need to add the non-encoded `returnTo` URL (for these examples, it is `
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-tenant-level) for more information.
+  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-tenant-level) for more information.
 
 * For logout requests that include the `client_id` parameter, such as:
 
@@ -86,7 +86,7 @@ You will need to add the non-encoded `returnTo` URL (for these examples, it is `
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
+  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
 
 ### Set the Allowed Logout URLs at the Tenant Level
 
@@ -97,7 +97,7 @@ To add a list of URLs that the user may be redirected to after logging out at th
 When providing the URL list, you can:
 
 * Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
+* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
 ### Set the Allowed Logout URLs at the Client Level
 
@@ -108,7 +108,7 @@ To redirect the user after they log out from a specific client, you must add the
 When providing the URL list, you can:
 
 * Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
+* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
 ::: note
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.

@@ -100,7 +100,7 @@ To speed resolution, please provide the following when logging an issue:
 * Name of Auth0 account/tenant
 * Name of application(s)
 * Name of connection(s)
-* Description of the problem - what happens?  How far into login sequence does user get? (e.g. does issue happen before or after entering credentials, etc)
+* Description of the problem - what happens?  How far into login sequence does user get? (for example, does issue happen before or after entering credentials, and so on)
 * When did it start?  (first noticed)
 * Issue experienced by all users or just some?
 * Issue experienced by users every time or just some times?

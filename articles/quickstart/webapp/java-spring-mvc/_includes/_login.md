@@ -60,7 +60,7 @@ public class AppConfig {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here, such as requesting a different scope or using a different signature verification algorithm.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java

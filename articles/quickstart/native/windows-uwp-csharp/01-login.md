@@ -51,7 +51,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 This will print out the callback URL to your Debug window in Visual Studio.
 
 <div class="setup-callback">
-<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, e.g.:</p>
+<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, such as</p>
 
 <pre><code>ms-app://S-1-xxx...</pre></code>
 </div>

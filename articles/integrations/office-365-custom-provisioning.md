@@ -21,7 +21,7 @@ Custom provisioning uses the Azure AD Graph API to provision new users in Azure 
 3. Select **App registrations** in the new menu.
 4. Click on **New application registration**.
 5. Fill the form:
-    1. Input a name for the application (e.g. `Auth0 Provisioning`)
+    1. Input a name for the application (such as `Auth0 Provisioning`)
     2. Select **Web app / API** as the **Application type**.
     3. Insert a sign-on URL. Any valid url as this won't be really used.
 5. The recently created app will appear in the **App registrations** list. Select it.

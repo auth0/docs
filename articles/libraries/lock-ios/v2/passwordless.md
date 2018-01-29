@@ -16,7 +16,7 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .passwordless()
-    // withConnections, withOptions, withStyle, etc
+    // withConnections, withOptions, withStyle, and so on.
     .onAuth { credentials in
       // Save the Credentials object
     }

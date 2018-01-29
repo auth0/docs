@@ -128,7 +128,7 @@ You can handle additional information within any of the following maps:
 
 #### A. User metadata
 
-The `userMetadata` map contains user profile fields that can be added from the client-side (e.g. when a user edits their profile). You can access this information in the following way:
+The `userMetadata` map contains user profile fields that can be added from the client-side (such as when a user edits their profile). You can access this information in the following way:
 
 ```java
 String country = (String) profile.getUserMetadata().get("country");

@@ -83,7 +83,7 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .classic()
-    // withConnections, withOptions, withStyle, etc
+    // withConnections, withOptions, withStyle, and so on
     .withOptions {
       $0.oidcConformant = true
       $0.scope = "openid profile"

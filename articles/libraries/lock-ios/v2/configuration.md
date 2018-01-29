@@ -66,7 +66,7 @@ By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and
 
 ### allow
 
-Which database screens will be accessible, the default is enable all screens e.g. `.Login, .Signup, .ResetPassword`.
+Which database screens will be accessible, the default is enable all screens such as `.Login, .Signup, .ResetPassword`.
 
 ```swift
 .withOptions {

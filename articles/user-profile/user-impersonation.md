@@ -100,7 +100,7 @@ You can now send a request to the [impersonation endpoint](/api/authentication/r
 
 The data part of the request should include the following:
 
-- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
+- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (for example, Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
 
 - `impersonator_id`: the `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`.
 

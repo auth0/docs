@@ -1,4 +1,4 @@
----
+s---
 title: Auth0 Overview
 description: Learn what Auth0 is and how you can use it
 toc: true
@@ -19,7 +19,7 @@ Based on your app's technology, choose one of our SDKs (or call our API) and hoo
 
 Take a look at just a few of the use cases for which you can use Auth0:
 
-- You built an awesome app and you want to add user authentication and authorization. Your users should be able to log in either with username/password or with their social accounts (Facebook, Twitter, etc). You want to retrieve the user's profile after the login so you can customize the UI and apply your authorization policies.
+- You built an awesome app and you want to add user authentication and authorization. Your users should be able to log in either with username/password or with their social accounts (Facebook, Twitter, and so on.). You want to retrieve the user's profile after the login so you can customize the UI and apply your authorization policies.
 - You built an API and you want to secure it with [OAuth 2.0](/protocols/oauth2).
 - You have more than one app and you want to implement [Single Sign On](/sso).
 - You built a JavaScript front-end app and a mobile app and you want them both to securely access your API.

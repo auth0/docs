@@ -329,7 +329,7 @@ The body of the request is formatted as a `connection` object. For example, the 
 
 Once again, the `options` object is dependent on the strategy specified.
 
-If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.).
+If successful, the response body will contain a complete `connection` object. This will include additional fields (such as the entity `id`, and so on).
 
 #### Updating a Connection
 
@@ -372,7 +372,7 @@ Most attributes in the `user` object are self-explanatory. Some comments are bel
 |`issuer` | The name of the authentication server. In the example above it is the URL of Fabrikam's ADFS server used.|
 |`user_id` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 |`picture` | The URL of the user's gravatar, if available. |
-|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, etc.). |
+|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, and so on). |
 
 #### Other resources
 

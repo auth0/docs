@@ -56,7 +56,7 @@ Since confidential clients are capable of holding secrets, you can choose to hav
 Public clients **cannot** hold credentials securely. The following application types use public clients:
 
 * Native desktop or mobile applications using the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
-* JavaScript-based client-side web applications (i.e. single-page apps) using the [Implicit](/api-auth/grant/implicit) grant
+* JavaScript-based client-side web applications (such as single-page apps) using the [Implicit](/api-auth/grant/implicit) grant
 
 Since public clients are unable to hold secrets, [ID tokens](/tokens/id-token) issued to them must be:
 

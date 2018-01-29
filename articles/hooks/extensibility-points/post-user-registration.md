@@ -46,7 +46,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {function} cb - function (error, response)
 */
 module.exports = function (user, context, cb) {
-  // Perform any asynchronous actions, e.g. send notification to Slack.
+  // Perform any asynchronous actions, such as send notification to Slack.
   cb();
 };
 ```

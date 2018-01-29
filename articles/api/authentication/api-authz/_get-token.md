@@ -678,7 +678,7 @@ Content-Type: application/json
   "link": "#resource-owner-password-and-mfa"
 }) %>
 
-To verify MFA using an OOB challenge (e.g. Push / SMS) your app must make a request to `/oauth/token`
+To verify MFA using an OOB challenge (either Push / SMS) your app must make a request to `/oauth/token`
 with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
 The response to this request depends on the status of the underlying challenge verification:

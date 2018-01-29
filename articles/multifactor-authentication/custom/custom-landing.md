@@ -98,7 +98,7 @@ By using the redirect protocol, you interrupt the authentication transaction and
 Some MFA options you can implement using the redirect protocol include:
 
 * A one-time code sent via SMS
-* A personally identifying question (e.g. about the user's parents, childhood friends, etc.)
+* A personally identifying question (such as about the user's parents, childhood friends, and so on)
 * Integration with specialized providers, such as those that require hardware tokens
 
 To use the redirect protocol, edit the `URL` field:

@@ -79,7 +79,7 @@ We have created a [sample application](https://github.com/auth0-samples/auth0-sp
 This sample application shows you how to:
 - Configure and run Java based Spring API server with Auth0 and Spring Security.
 - Use 100% Java Configuration (Annotations).
-- Secure one or more URL endpoints with Role / Authority based permissions (ROLE_USER, ROLE_ADMIN, etc).
+- Secure one or more URL endpoints with Role / Authority based permissions (ROLE_USER, ROLE_ADMIN, and so on).
 - Secure Java Services using method level security annotations for role based access control.
 
 You can find more details on how to setup and use this sample application [here](https://github.com/auth0-samples/auth0-spring-security-api-resource-server-sample).
@@ -88,4 +88,4 @@ You can find more details on how to setup and use this sample application [here]
 
 - [auth0-java](https://github.com/auth0/auth0-java): This is a Client library to make calls to our Authentication and Management APIs.
 
-- [java-jwt](https://github.com/auth0/java-jwt): This library is used for performing JWT Token related actions (JWT creation, verification, etc.)
+- [java-jwt](https://github.com/auth0/java-jwt): This library is used for performing JWT Token related actions (JWT creation, verification, and so on)

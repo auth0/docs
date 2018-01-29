@@ -31,7 +31,7 @@ The access token that the user currently has does not include this scope and the
 
 The solution is that the client performs another authentication call, but this time it requests the required scope. The browser redirects to Auth0 and a rule is used to challenge the user to authenticate with MFA since a high-value scope was requested.
 
-The result is a new access token which includes the high-value scope. The client will discard the token (i.e. not store it in local storage like the original token) thereby treating it like a single-use token.
+The result is a new access token which includes the high-value scope. The client will discard the token (that is, not store it in local storage like the original token) thereby treating it like a single-use token.
 
 ## Keep reading
 

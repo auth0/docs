@@ -16,5 +16,5 @@ You have two fields to customize your messages:
 
 [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax is the supported templating engine to use when accessing user attributes in SMS templates. The following attributes are available:
 * `code`: The Enrollment/Verification code.
-* `requestInfo.lang`: The browser language (ie, `es-AR,es;q=0.8`, `en-US,en`, etc.).
+* `requestInfo.lang`: The browser language (ie, `es-AR,es;q=0.8`, `en-US,en`, and so on.).
 * `tenant.friendlyName`: The **Friendly Name** set in [Tenant Settings](${manage_url}/#/tenant).

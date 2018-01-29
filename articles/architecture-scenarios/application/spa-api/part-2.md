@@ -137,7 +137,7 @@ In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule create
 
 ![Rules](/media/articles/architecture-scenarios/spa-api/rules-1.png)
 
-Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, e.g. **Access Token Scopes**, and then specify the following code for the Rule:
+Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, such as **Access Token Scopes**, and then specify the following code for the Rule:
 
 ```js
 function (user, context, callback) {

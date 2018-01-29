@@ -165,7 +165,7 @@ To implement [Single Log Out](/logout), you need to check periodically to see if
 // check every 15 minutes if the SSO session is still active
 
 setInterval(function() {
-  // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
+  // if the token is not in local storage, there is nothing to check (that is, the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
 
   auth0.checkSession(function (err, data) {

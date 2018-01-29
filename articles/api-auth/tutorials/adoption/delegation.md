@@ -16,7 +16,7 @@ Given that [ID tokens should no longer be used as API tokens](/api-auth/tutorial
 
 Clients marked as [OIDC-conformant](/api-auth/tutorials/adoption/oidc-conformant) cannot be the source or target of Auth0-to-Auth0 delegation requests.
 
-## Third-party APIs (Firebase, AWS, etc.)
+## Third-party APIs (such as Firebase or AWS)
 
 At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens.
 In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens.

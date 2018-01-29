@@ -21,7 +21,7 @@ Single Sign On usually makes use of a **Central Service** which orchestrates the
 
 ## What is Single Log Out?
 
-Single Logout is the process where you terminate the session of each application or service where the user is logged in. To continue with the Google example, if you logout from Gmail, you get logged out also from YouTube, Google Analytics, etc.
+Single Logout is the process where you terminate the session of each application or service where the user is logged in. To continue with the Google example, if you logout from Gmail, you get logged out also from YouTube, Google Analytics, and so on.
 
 There may be up to three different layers of sessions for a user with SSO.
 
@@ -39,7 +39,7 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
 
 1. Your application will redirect the user to the Auth0 Hosted Login page where they can log in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
-1. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+1. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, and so on. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
@@ -57,7 +57,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 1. Auth0 will update the SSO cookie if required
 1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
-If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the [Implement Single Sign On with Auth0](/sso/current/implement-with-auth0) tutorial.
+If an SSO cookie is present you can also sign the user in silently, (that is, without even displaying Lock so they can enter their credentials). This is covered in more detail in the [Implement Single Sign On with Auth0](/sso/current/implement-with-auth0) tutorial.
 
 ## SSO with Native Platforms
 

@@ -156,7 +156,7 @@ public class AccountController : Controller
 }
 ```
 
-At this point ASP.NET Core will call `SignOutAsync` for the **Auth0** authentication scheme (i.e. the OIDC middleware), but the OIDC middleware does not know what the actual Logout URL is it should call to log the user out of Auth0. To do this you should handle the `OnRedirectToIdentityProviderForSignOut` event when registering the OIDC middleware.
+At this point ASP.NET Core will call `SignOutAsync` for the **Auth0** authentication scheme (such as the OIDC middleware), but the OIDC middleware does not know what the actual Logout URL is it should call to log the user out of Auth0. To do this you should handle the `OnRedirectToIdentityProviderForSignOut` event when registering the OIDC middleware.
 
 So back in the `Startup.cs` file, update the instantiation of `OpenIdConnectOptions` with the following code:
 

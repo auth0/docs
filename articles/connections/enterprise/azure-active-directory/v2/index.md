@@ -19,7 +19,7 @@ toc: true
 
 There are different scenarios in which you might want to integrate with Microsoft Azure AD:
 
-* You want to let users into your application from an Azure AD you or your organization controls (e.g. employees in your company).
+* You want to let users into your application from an Azure AD you or your organization controls (such as employees in your company).
 
 * You want to let users coming from other companies' Azure ADs into your application. You may set up those external directories manually as different connections, or [create a multi-tenant application that accepts new directories dynamically](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory).
 
@@ -82,7 +82,7 @@ Click the **SAVE** button at the top to save these changes.
 
 ## 3. Allowing access from external organizations (optional)
 
-If you want to allow users from external organizations (i.e. other Azure directories) to log in, you will need to enable the **Multi-Tenant** flag for this application. In the **Settings** section, click **Properties**. Locate the **Multi-tenanted** toggle at the bottom and select **Yes**. Finally click the **SAVE** button at the top to save these changes.
+If you want to allow users from external organizations (such as other Azure directories) to log in, you will need to enable the **Multi-Tenant** flag for this application. In the **Settings** section, click **Properties**. Locate the **Multi-tenanted** toggle at the bottom and select **Yes**. Finally click the **SAVE** button at the top to save these changes.
 
 ![Enable Multi-tenanted](/media/articles/connections/enterprise/azure-active-directory/enable-multi-tenanted.png)
 

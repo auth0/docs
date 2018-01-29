@@ -61,7 +61,7 @@ description: Auth0 is an identity hub that supports the many authentication prov
 
 # Identity Providers Supported by Auth0
 
-Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, etc. Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
+Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, and so on that Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
 
 ## Social
 

@@ -35,7 +35,7 @@ For this to work, the network must allow the users to connect to the AD/LDAP Con
 
 ![](/media/articles/connector/kerberos/connector-kerberos-flow.png)
 
-On the other hand, when users are not in the corporate network (e.g.: at a customer, working from home without VPN) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password, and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn use Active Directory to validate those credentials).
+On the other hand, when users are not in the corporate network (for example, at a customer site, working from home without VPN) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password, and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn use Active Directory to validate those credentials).
 
 ![](/media/articles/connector/kerberos/connector-credentials-flow.png)
 

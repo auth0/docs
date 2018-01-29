@@ -7,7 +7,7 @@ title: OIDC Single sign-on
 <%= include('./_about.md') %>
 
 Single sign-on (SSO) occurs when a user logs in to one client and is then signed in to other clients automatically.
-In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not client applications.
+In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (that is, Auth0) and not client applications.
 This means that for SSO to happen, users must be redirected to an Auth0-hosted login page.
 
 We are planning on providing support for SSO from client applications in future releases.

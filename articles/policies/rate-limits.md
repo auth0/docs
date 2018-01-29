@@ -16,7 +16,7 @@ Depending on the API endpoint, the request limit and the rate limit window in wh
 Each endpoint is configured with a bucket that defines:
 
 -  the request limit, and
--  the rate limit window (per second, per minute, per hour, etc.)
+-  the rate limit window (per second, per minute, per hour, and so on)
 
 ```text
 bucket:

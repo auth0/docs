@@ -176,7 +176,7 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (e.g. `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
@@ -203,7 +203,7 @@ You will still have access to the Identity Provider access token in the `user` a
 :::
 
 #### Am I affected by the change?
-You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (e.g. Facebook Graph API, Google APIs, etc. ).
+You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 

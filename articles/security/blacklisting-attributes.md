@@ -15,7 +15,7 @@ To blacklist attributes make a `PATCH` call to the [Update Connection](/api/mana
 
 First, you need a valid access token in order to access that endpoint. The token must include the `update:connections` scope. 
 
-You can either get one manually from the Dashboard, or automate the process (i.e. build a simple command line tool that generates tokens). For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+You can either get one manually from the Dashboard, or automate the process (for example, by building a simple command line tool that generates tokens). For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
 ### Step 2. Call the API
 
@@ -52,7 +52,7 @@ Where:
 
 ## Limitations
 
-- Only root fields (e.g. `user.name` or `user.email`) can be blacklisted
+- Only root fields (such as `user.name` or `user.email`) can be blacklisted
 - When you blacklist attributes, they will be still be available via rules and outgoing tokens. However, if any of the following apply, the blacklist attributes will **not** be included in tokens:
   - You have enabled multifactor authentication
   - You have performed a redirect via rules
