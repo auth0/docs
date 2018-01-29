@@ -52,12 +52,73 @@ Alternatively, if you use Auth0.js, you can use [the signup method](/libraries/a
 
 According to GDPR, you should be able to show that the user has consented to the processing of their personal data. 
 
-With Auth0 you can save the user's consent information as part of the user_metadata. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipilate this information using our Management API:
+With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipilate this information using our Management API.
 
-- [Search for a user using their email address](/users/search#users-by-email)
+:::note
+To access the Management API you will need an access token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
+:::
+
+### Search for a user using their email address
+
+To search for a user using their email address, use [the Search user by email endpoint](/users/search#users-by-email). 
+
+Set the **fields** request parameter to `user_metadata` in order to limit the fields returned. This way, only the user_metadata will be returned instead of the complete user profile.
+
+Sample request:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users-by-email",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }],
+    "queryString":  [
+        {
+          "name": "email",
+          "value": "USER_EMAIL_ADDRESS"
+        },
+        {
+          "name": "fields",
+          "value": "user_metadata"
+        }
+    ]
+}
+```
+
+Sample response:
+
+```json
+[
+  {},
+  {
+    "user_metadata": {
+      "consent": {
+	    "given": true,
+	    "date": "01/23/2018",
+	    "text_details": "some-url"
+	  }
+    }
+  }
+]
+```
+
+### Search for a user using their Id
+
 - [Search for a user using their Id](/users/search#users-by-id)
+
+### Search for a set of users
+
 - [Search for a set of users](/users/search#users)
+
+### Update consent information
+
 - [Update a user's metadata](/api/management/v2#!/Users/patch_users_by_id)
+
+### Export consent information
+
 - [Export a list of your users](/users/search#user-export)
 
 :::panel Whar else do I have to do?
