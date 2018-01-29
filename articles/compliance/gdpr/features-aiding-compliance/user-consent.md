@@ -39,6 +39,10 @@ Alternatively, if you use Auth0.js, you can use [the signup method](/libraries/a
 
 ---
 
+**If you have to do re-consent with existing users and you decide to migrate your users from an existing database to Auth0**, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
+
+---
+
 :::panel What else do I have to do?
 - You must write up the notification users will see around how users' data is being used, how long data will be used, users' rights, etc. as well as customize the UI sign-up box
 - You must determine if re-consent is required for your users, depending on your old terms and conditions and previous privacy certifications
