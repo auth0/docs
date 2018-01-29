@@ -135,7 +135,7 @@ The below widget displays brief examples of implementing Auth0 in several ways: 
 
 ## Next Steps
 
-This document has shown how to use Lock 10 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+This document has shown how to use Lock 11 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
 
 ::: next-steps
 * [Lock v11 API Reference](/libraries/lock/v11/api)
