@@ -260,7 +260,11 @@ When you create your job, you'll need to provide:
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}],
+	},
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
@@ -330,6 +334,10 @@ The export request (for all three fields) will be as follows.
   "headers": [{
     "name": "Authorization",
     "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
   }],
   "queryString": [],
   "postData": {
@@ -355,6 +363,10 @@ For the same example we used before, the request will be as follows.
   "headers": [{
     "name": "Authorization",
     "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
   }],
   "queryString": [],
   "postData": {
