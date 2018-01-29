@@ -70,6 +70,7 @@ If you don't want to completely delete the user, flag their profile as deleted a
 - Configure into the app the area where customers will withdraw consent
 :::
 
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"]
+<%= include('../_stepnav', {
+ prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
+ navHeader: "Auth0 Features and GDPR Compliance"
 }) %>

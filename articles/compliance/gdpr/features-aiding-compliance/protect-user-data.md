@@ -83,6 +83,7 @@ For more information on Auth0 architecture, see [Availability & Trust](https://a
 
 For more information on the available deployment models of Auth0, see [Auth0 Deployment Models](/getting-started/deployment-models).
 
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"]
+<%= include('../_stepnav', {
+ prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
+ navHeader: "Auth0 Features and GDPR Compliance"
 }) %>

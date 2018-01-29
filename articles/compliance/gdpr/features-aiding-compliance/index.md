@@ -37,6 +37,7 @@ As per article 32 of GDPR, you have to implement appropriate measures in order t
 
 For all the details, see [Protect and secure user data](/compliance/gdpr/features-aiding-compliance/protect-user-data).
 
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr"]
+<%= include('../_stepnav', {
+ prev: ["Go back", "/compliance/gdpr"],
+ navHeader: "GDPR Home"
 }) %>

@@ -29,6 +29,7 @@ You can export a user's full profile using our Management API. The response will
 - [Update a user's metadata](/api/management/v2#!/Users/patch_users_by_id)
 - [Export a list of your users](/users/search#user-export)
 
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"]
+<%= include('../_stepnav', {
+ prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
+ navHeader: "Auth0 Features and GDPR Compliance"
 }) %>
