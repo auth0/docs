@@ -342,7 +342,7 @@ The export request (for all three fields) will be as follows.
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, \"name\": \"user_metadata.consent.given\", \"name\": \"user_metadata.consent.date\", \"name\": \"user_metadata.consent.text_details\"]}" 
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent.given\"}, {\"name\": \"user_metadata.consent.date\"}, {\"name\": \"user_metadata.consent.text_details\"}]}" 
     },
   "headersSize": -1,
   "bodySize": -1,
@@ -371,7 +371,7 @@ For the same example we used before, the request will be as follows.
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, \"name\": \"user_metadata.consent\"]}" 
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent\"}]}" 
     },
   "headersSize": -1,
   "bodySize": -1,
