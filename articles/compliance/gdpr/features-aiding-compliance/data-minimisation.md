@@ -70,7 +70,7 @@ This sample request, retrieves all logs for successful logins (the event acronym
     },
     {
       "name": "type",
-      "value": "sapi"
+      "value": "s"
     }
 ]
 }
