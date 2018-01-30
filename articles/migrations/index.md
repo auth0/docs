@@ -32,10 +32,10 @@ This table is a summary of the endpoint migrations for the first part of 2018. S
 | Endpoint | Replacement | Mandatory Opt-In | More Info |
 | --- | --- | --- | --- | --- |
 | /usernamepassword/login | /co/authenticate | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
-| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | 2018-07-01 | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 | /ssoData | /authorize?prompt=none | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
 | [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | 2018-06-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
 | [/delegation](/api/authentication#delegation) | TBD | 2018-06-01 | [More Info](#introducing-api-authorization-with-third-party-vendor-apis) |
+| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | 2018-07-01 | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 | [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 
 ### Introducing Lock v11 and Auth0.js v9
