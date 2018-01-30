@@ -337,6 +337,8 @@ function (user, context, callback) {
 
 The script checks the value of the `deleted` metadata property (`user.app_metadata.deleted`), and if it is `true` then returns to your app the error `Access denied (deleted user)`.
 
+Give a name to your rule and save your changes.
+
 ---
 
 :::panel What else do I have to do?
