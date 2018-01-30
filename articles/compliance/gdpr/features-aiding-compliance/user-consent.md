@@ -271,6 +271,8 @@ Once you have the connection Id and a [Management API token](/api/management/v2/
 
 The user should have the option to withdraw consent using your app. This option should be easily accessible, and clearly distinguishable. Once the users decides to withdraw their consent, you should take action. First, you have to decide how you will handle withdrawal of consent: will you delete the users or flag them as deleted?
 
+### Delete user
+
 To delete a user, use the [Delete a user endpoint](/api/management/v2#!/Users/delete_users_by_id). 
 
 ```har
@@ -287,7 +289,55 @@ To delete a user, use the [Delete a user endpoint](/api/management/v2#!/Users/de
 
 The response body for this endpoint is empty, so if you want to confirm that the user was successfully deleted try to [retrieve the user using their email](/users/search#users-by-email). If the endpoint returns an error, then your call to delete the user was successful.
 
-If you don't want to completely delete the user, flag their profile as deleted at the `app_metadata` (endpoint: [Update a user](/api/management/v2#!/Users/patch_users_by_id)). Then, add a rule that will make the authentication process to fail for any user with their profile flagged as such. This way you can keep a record of deleted users in case you need to refer to this information in the future.
+### Flag user as deleted
+
+If you don't want to completely delete the user, flag their profile as deleted at the `app_metadata` (endpoint: [Update a user](/api/management/v2#!/Users/patch_users_by_id)). Then, add some code that will make the authentication process to fail for any user with their profile flagged as such. This way you can keep a record of deleted users in case you need to refer to this information in the future.
+
+#### Step 1: Flag the profile
+
+To flag a user as deleted use the [app_metadata](/metadata). In this example we will add a metadata property `deleted` which when set to `true` means that the user should be treated as deleted.
+
+To update a user's metadata use the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+
+```har
+{
+    "method": "PATCH",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    },
+    {
+        "name": "content-type",
+        "value": "application/json"
+    }],
+    "postData" : {
+        "mimeType": "application/json",
+        "text": "{\"app_metadata\":{\"deleted\":true}}"
+    }
+}
+```
+
+#### Step 2: Disable login for flagged users
+
+In this step we need to disable login for users flagged as deleted. To do so we will add a JavaScript snippet that will run as part of the authentication pipeline. We call these snippets [rules](/rules).
+
+Go to [Dashboard > Rules](${manage_url}/#/rules) and create a new rule. Copy the script you see below.
+
+```js
+function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
+  if (user.app_metadata.deleted){
+  	return callback(new UnauthorizedError('Access denied (deleted user)'));
+  }
+  callback(null, user, context);
+}
+```
+
+The script checks the value of the `deleted` metadata property (`user.app_metadata.deleted`), and if it is `true` then returns to your app the error `Access denied (deleted user)`.
+
+---
 
 :::panel What else do I have to do?
 - Ensure the consent withdrawal piece is granular enough
