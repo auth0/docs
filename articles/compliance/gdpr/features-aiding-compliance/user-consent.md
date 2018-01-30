@@ -271,7 +271,21 @@ Once you have the connection Id and a [Management API token](/api/management/v2/
 
 The user should have the option to withdraw consent using your app. This option should be easily accessible, and clearly distinguishable. Once the users decides to withdraw their consent, you should take action. First, you have to decide how you will handle withdrawal of consent: will you delete the users or flag them as deleted?
 
-To delete a user, use the [Delete a user endpoint](/api/management/v2#!/Users/delete_users_by_id). The response body for this endpoint is empty, so if you want to confirm that the user was successfully deleted try to [retrieve the user using their email](/users/search#users-by-email). If the endpoint returns an error, then your call to delete the user was successful.
+To delete a user, use the [Delete a user endpoint](/api/management/v2#!/Users/delete_users_by_id). 
+
+```har
+{
+    "method": "DELETE",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }]
+}
+```
+
+The response body for this endpoint is empty, so if you want to confirm that the user was successfully deleted try to [retrieve the user using their email](/users/search#users-by-email). If the endpoint returns an error, then your call to delete the user was successful.
 
 If you don't want to completely delete the user, flag their profile as deleted at the `app_metadata` (endpoint: [Update a user](/api/management/v2#!/Users/patch_users_by_id)). Then, add a rule that will make the authentication process to fail for any user with their profile flagged as such. This way you can keep a record of deleted users in case you need to refer to this information in the future.
 
