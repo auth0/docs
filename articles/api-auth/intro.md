@@ -217,94 +217,94 @@ To use the `audience` param instead, configure your app to send it when initiati
   </thead>
   <tbody>
     <tr>
-      <th><strong>Define APIs in the Dashboard</strong</th>
+      <th><strong>Define APIs in the Dashboard</strong></th>
       <td>Not Supported</td>
       <td>Supported</td>
     </tr>
     <tr>
-      <th><strong>Third-party Clients</strong</th>
+      <th><strong>Third-party Clients</strong></th>
       <td>Not Supported</td>
       <td>Supported</td>
     </tr>
     <tr>
-      <th><strong>Client Credentials Grant</strong</th>
+      <th><strong>Client Credentials Grant</strong></th>
       <td>This grant does not exist in the legacy pipeline, but the <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a> can be used to simulate it by creating a "service user". We strongly discourage the latter approach in favor of using Client Credentials, since it allows defining fine-grained permissions for each API client.</td>
       <td>Supported</td>
     </tr>
     <tr>
-      <th><strong>Token used to call an API</strong</th>
+      <th><strong>Token used to call an API</strong></th>
       <td>ID Token</td>
       <td>Access Token</td>
     </tr>
     <tr>
-      <th><strong>Add arbitrary claims in Tokens</strong</th>
+      <th><strong>Add arbitrary claims in Tokens</strong></th>
       <td>Supported</td>
       <td>Supported. The namespaced format has to be used.</td>
     </tr>
     <tr>
-      <th><strong>SSO</strong</th>
+      <th><strong>SSO</strong></th>
       <td>Supported</td>
       <td>Not supported for Resource Owner grant. For the rest, the users must be redirected to an Auth0-hosted login page.</td>
     </tr>
     <tr>
-      <th><strong>Access Token format</strong</th>
+      <th><strong>Access Token format</strong></th>
       <td>Opaque string</td>
       <td>JWT for customer APIs, opaque string for /userinfo only</td>
     </tr>
     <tr>
-      <th><strong>Authenticate users from a specific connection (<code>realm</code>)</strong</th>
+      <th><strong>Authenticate users from a specific connection (<code>realm</code>)</strong></th>
       <td>Supported (using <a href="/api/authentication#resource-owner">/oauth/ro</a>)</td>
       <td><a href="/api-auth/tutorials/password-grant#realm-support">New password-realm extension grant</a></td>
     </tr>
     <tr>
-      <th><strong>Passwordless</strong</th>
+      <th><strong>Passwordless</strong></th>
       <td>Supported</td>
       <td>Not supported at the moment, will be in future releases</td>
     </tr>
     <tr>
-      <th><strong>/tokeninfo endpoint</strong</th>
+      <th><strong>/tokeninfo endpoint</strong></th>
       <td>Supported</td>
       <td>Disabled</td>
     </tr>
     <tr>
-      <th><strong>/delegation endpoint</strong</th>
+      <th><strong>/delegation endpoint</strong></th>
       <td>Supported</td>
       <td>Should only be used to obtain third-party API tokens. A new mechanism will be provided  in future releases.</td>
     </tr>
     <tr>
-      <th><strong>/oauth/access_token endpoint</strong</th>
+      <th><strong>/oauth/access_token endpoint</strong></th>
       <td>Supported</td>
       <td>Disabled, an alternative will be added in future releases</td>
     </tr>
     <tr>
-      <th><strong>/userinfo endpoint</strong</th>
+      <th><strong>/userinfo endpoint</strong></th>
       <td>Supported</td>
       <td>Supported. Responses will <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">conform to the OIDC specification</a>, similar to <a href="/api-auth/tutorials/adoption/scope-custom-claims">the contents of ID tokens</a>.</td>
     </tr>
     <tr>
-      <th><strong>Refresh Tokens with Implicit Grant</strong</th>
+      <th><strong>Refresh Tokens with Implicit Grant</strong></th>
       <td>Supported</td>
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>
       <th><strong>/ssodata endpoint and <code>getSSOData()</code> method from auth0.js
-</strong</th>
+        </strong></th>
       <td>Supported (up to auth0.js v8)</td>
       <td>Deprecated. Silent authentication should be used instead.</td>
     </tr>
     <tr>
-      <th><strong>Implicit Grant requests without nonce parameter set</strong</th>
+      <th><strong>Implicit Grant requests without nonce parameter set</strong></th>
       <td>Supported</td>
       <td>Will be rejected.</td>
     </tr>
     <tr>
-      <th><strong><code>device</code> parameter (used to obtain refresh tokens)</strong</th>
+      <th><strong><code>device</code> parameter (used to obtain refresh tokens)</strong></th>
       <td>Supported</td>
       <td>Not supported. <a href="/api/authentication#resource-owner-password">/oauth/token</a>
 should be used instead with <code>"grant_type": "refresh_token"</code></td>
     </tr>
     <tr>
-      <th><strong>/oauth/ro endpoint</strong</th>
+      <th><strong>/oauth/ro endpoint</strong></th>
       <td>Supported</td>
       <td>Replaced with Password Grant</td>
     </tr>
