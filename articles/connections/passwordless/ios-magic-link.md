@@ -5,6 +5,8 @@ description: Using Passwordless Magic Links with Lock for iOS v1
 
 # Lock iOS v1: Passwordless with Magic Link
 
+<%= include('./_warning-passwordless-native') %>
+
 Using [Lock v1 for iOS](/libraries/lock-ios/v1), you can implement a Passwordless login flow using Magic Link authentication for your iOS applications.
 
 ::: note

@@ -4,6 +4,8 @@ url: /connections/passwordless
 ---
 # Using Passwordless Authentication
 
+<%= include('../../_warning-passwordless') %>
+
 <!-- markdownlint-disable -->
 
 <%= include('./_introduction', { withFingerprint: false }) %>

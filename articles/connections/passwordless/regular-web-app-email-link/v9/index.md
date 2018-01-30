@@ -3,6 +3,8 @@ title: Using Passwordless Authentication with a magic link via email on Regular 
 ---
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 
+<%= include('../../_warning-passwordless') %>
+
 <%= include('../../_introduction-email-magic-link') %>
 
 ## Setup

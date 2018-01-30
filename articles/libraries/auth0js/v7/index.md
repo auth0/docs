@@ -248,6 +248,10 @@ For more information about logout, see the [documentation](https://auth0.com/doc
 
 ### Passwordless Authentication
 
+::: warning
+Embedded passwordless authentication has legacy dependencies and is disabled by default for new tenants. Updates to Auth0.js and Lock are in progress to allow for embedded passwordless authentication within applications, but until then, passwordless authentication can still be performed via [universal login](/hosted-pages/login/lock-passwordless).
+:::
+
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message.
 
 #### With Email
