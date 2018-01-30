@@ -46,12 +46,55 @@ You can export [Auth0 logs](/logs) and either store them yourself or automatical
 
 ### Use the Management API
 
-You can use the Management API to export logs and store them yourself. There are the two available endpoints, each providing slightly different quantities of information:
+You can use the Management API to export logs and store them yourself. There are the two available endpoints, each providing slightly different quantities of information.
 
-- [GET /api/v2/logs](/api/management/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries
+#### Search all logs
 
+The [Search log events endpoint](/api/management/v2#!/Logs/get_logs) retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries. You can search with criteria using the **q** parameter, and retrieve specific fields using the **fields** parameter. To access the API you will need a [Management APIv2 token](/api/management/v2/tokens).
 
-- [GET /api/v2/logs/{LOG_ID}](/api/management/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided ID
+This sample request, retrieves all logs for successful logins (the event acronym for successful login is `s`). The list of fields we will retrieve per log entry is: **date**, **escription**, **client_id**, and **log_id**. 
+
+```har
+{
+"method": "GET",
+"url": "https://${account.namespace}/api/v2/logs",
+"httpVersion": "HTTP/1.1",
+"headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+}],
+"queryString":  [
+    {
+      "name": "fields",
+      "value": "date,description,client_id,log_id"
+    },
+    {
+      "name": "type",
+      "value": "sapi"
+    }
+]
+}
+```
+
+For details on the search criteria you can use and a list with the event acronyms, see the [Search log events endpoint](/api/management/v2#!/Logs/get_logs).
+
+#### Get a single log entry
+
+The [Get a log event by ID endpoint](/api/management/v2#!/Logs/get_logs_by_id) retrieves the single log entry associated with the provided ID. 
+
+This sample request, retrieves a single log entry with the ID `90020180129170850881585554625888895190928456277777449010`.
+
+```har
+{
+"method": "GET",
+"url": "https://${account.namespace}/api/v2/logs/90020180129170850881585554625888895190928456277777449010",
+"httpVersion": "HTTP/1.1",
+"headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+}]
+}
+```
 
 ### Use Extensions to export to an external service
 
