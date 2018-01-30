@@ -14,7 +14,7 @@ var options = {
 };
 ```
 
-The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `nonce` and `state`.
+The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `nonce`, `audience` and `state`.
 
 ::: note
 This would be analogous to triggering the login with `https://${account.namespace}/authorize?state=foo&...`.
@@ -67,3 +67,7 @@ There is also a `connectionScopes` configuration option for Lock 10, which allow
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/tutorials/redirecting-users), that you might need after the authentication process is finished.
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
+
+### audience {string}
+
+The default audience to be used for requesting API access. This indicates the intended recipient of the request. When you [create an api](/apis) you define an audience. This is used when generating an access token during authorization.
