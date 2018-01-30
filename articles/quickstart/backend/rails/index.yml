@@ -6,7 +6,7 @@ languages:
   - Ruby
 framework:
   - Ruby on Rails
-thirdParty: false
+third_party: false
 image: /media/platforms/rails.png
 tags:
   - quickstart

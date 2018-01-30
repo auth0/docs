@@ -1,6 +1,6 @@
 ---
 addon: Azure Blob Storage
-thirdParty: true
+third_party: true
 url: /addons/azure-blob-storage
 alias:
   - azure blob storage

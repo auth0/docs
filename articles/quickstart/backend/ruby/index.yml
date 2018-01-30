@@ -5,7 +5,7 @@ alias:
   - ruby
 languages:
   - Ruby
-thirdParty: false
+third_party: false
 image: /media/platforms/rails.png
 tags:
   - quickstart

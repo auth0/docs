@@ -3,7 +3,7 @@ alias:
   - python
 languages:
   - Python
-thirdParty: false
+third_party: false
 image: /media/platforms/python.png
 tags:
   - quickstart

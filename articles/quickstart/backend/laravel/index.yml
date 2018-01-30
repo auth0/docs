@@ -1,5 +1,5 @@
 title: Laravel API
-thirdParty: false
+third_party: false
 alias:
   - laravel
 languages:

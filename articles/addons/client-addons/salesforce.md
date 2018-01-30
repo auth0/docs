@@ -1,19 +1,9 @@
 ---
-<<<<<<< HEAD
 addon: Salesforce
 alias:
   - salesforce
 url: addons/salesforce  
-thirdParty: true
-=======
 third_party: true
-name: salesforce
-title: Salesforce
-logo_class: Salesforce
-configRoute: /add-ons/salesforce
-callback: https://login.salesforce.com
-public: false
->>>>>>> Rename thirdParty to third_party
 image: /media/addons/salesforce.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce services.
 ---
