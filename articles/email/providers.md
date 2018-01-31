@@ -152,7 +152,7 @@ To be able to use your own SMTP server:
 5. Click **Save**.
 
 ::: note
-Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
+Common ports include 25 and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
 :::
 
 Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
