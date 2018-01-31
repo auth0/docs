@@ -1,4 +1,4 @@
-s---
+---
 title: Auth0 Overview
 description: Learn what Auth0 is and how you can use it
 toc: true
