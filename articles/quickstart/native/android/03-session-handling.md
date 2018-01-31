@@ -44,10 +44,10 @@ Before you launch the login process, make sure you get a valid Refresh Token in 
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
-                .withScheme("demo")
-                .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
-                .withScope("openid offline_access")
-                .start(LoginActivity.this, webCallback);
+    .withScheme("demo")
+    .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
+    .withScope("openid offline_access")
+    .start(LoginActivity.this, webCallback);
 ```
 
 ## Check for Tokens when the Application Starts
@@ -69,7 +69,8 @@ Create a new instance of the Credentials Manager. When you run the application, 
 // app/src/main/java/com/auth0/samples/LoginActivity.java
   Auth0 auth0 = new Auth0(this);
   auth0.setOIDCConformant(true);
-  SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
+  AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
+  SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, client, new SharedPreferencesStorage(this));
 
   // Check if the activity was launched after a logout
   if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
@@ -108,8 +109,8 @@ private final AuthCallback webCallback = new AuthCallback() {
 
     @Override
     public void onSuccess(@NonNull Credentials credentials) {
+        //user successfully authenticated
         credentialsManager.saveCredentials(credentials);
-        //...
     }
 };
 ```

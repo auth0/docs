@@ -10,10 +10,10 @@ To ensure Open ID Connect compliant responses you must either request an `audien
 protected void onCreate(Bundle savedInstanceState) {
     Auth0 auth0 = new Auth0(this);
     lock = Lock.newBuilder(auth0, callback)
-                    .withScheme("demo")
-                    .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
-                    // Add parameters to the Lock Builder
-                    .build(this);
+        .withScheme("demo")
+        .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
+        // Add parameters to the Lock Builder
+        .build(this);
 }
 ```
 
