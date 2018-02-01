@@ -111,6 +111,8 @@ You can install and configure an Auth0 Extension in order to export logs automat
 
 You should minimize any sensitive information contained in URLs that might be captured by Auth0 log files. For example, consider using `health-site` or similar as your domain name instead of `cancer-treatments`.
 
+---
+
 :::panel What else do I have to do?
 - Analyze what you are collecting in sign up and through social media and whether that is necessary for the purpose of your service
 - Configure enterprise identity providers to control what data is returned to Auth0
