@@ -1,25 +1,35 @@
 ---
 section: libraries
 toc: true
-description: Migration Guide for lock-passwordless to Lock 10 with Passwordless Mode
+description: Migration Guide from lock-passwordless to Lock v11 with Passwordless Mode
 ---
-# Migration Guide for lock-passwordless to Lock 10 with Passwordless Mode
+# Migration Guide for lock-passwordless to Lock v11 with Passwordless Mode
 
-The following instructions assume you are migrating from **lock-passwordless** to the latest **Lock 10** using the **Passwordless** mode.
+The following instructions assume you are migrating from the **lock-passwordless** widget to Lock v11.2+ using **Passwordless Mode**.
 
-The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock 10](/libraries/lock/v10). Now, you can migrate your apps to use the newest Lock Passwordless, which is integrated directly into Lock 10. Lock 10 with Passwordless Mode is the latest method by which to quickly and simply deploy a login widget for passwordless authentication in your apps.
+The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock](/libraries/lock/v10). Now, you can migrate your apps to use the Passwordless Mode which is integrated directly into Lock v11. Lock v11 with Passwordless Mode is the latest method by which to deploy a login widget for passwordless authentication in your apps.
 
-To get started, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock 10](https://github.com/auth0/lock/releases). Beyond that, you will then need to take a careful look at each of the sections in this migration guide in order to find out which changes you will need to make to your implementation.
+To get started, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock v11](https://github.com/auth0/lock/releases). 
 
-Of particular importance will be the initialization of `Auth0LockPasswordless`, your calls to Lock methods (now the same methods as used in Lock 10), and also your previously implemented customization options, which will need inspected and changed to use the corresponding options for Lock 10.
+::: note
+To use Passwordless Mode, you must use Lock v11.2 or above.
+:::
 
-## General Changes and Additions
+Beyond that, you will then need to take a careful look at each of the sections in this migration guide in order to find out which changes you will need to make to your implementation. Of particular importance will be the following:
+
+* The initialization of `Auth0LockPasswordless`
+* Your calls to Lock methods (now the same methods as used in Lock v11)
+* Your previously implemented customization options, which will need inspected and changed to use the corresponding options for Lock v11.
+
+## General changes and additions
 
 ### Importing Auth0LockPasswordless
 
-If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The difference is that you'll provide options in the constructor, like we do with `Auth0Lock`:
+You can import Auth0LockPasswordless in the same ways as you would normally import Lock; using the CDN or via NPM.
 
 #### Using the CDN
+
+If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The difference is that you'll provide your options in the constructor, like we do with `Auth0Lock`:
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -39,10 +49,11 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     </div>
     <div id="cdn-after" class="tab-pane">
     <pre class="hljs html"><code>
-    &lt;script src=&quot;https://cdn.auth0.com/js/lock/10.x.y/lock.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
     &lt;script&gt;
+      // example use of options
       var options = {
-        oidcConformant: true
+        closable: false
       }
       var lock = new Auth0LockPasswordless(clientID, domain, options);
     &lt;/script&gt;
@@ -71,7 +82,7 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     <pre class="hljs js"><code>
     import Auth0LockPasswordless from 'auth0-lock/passwordless';
     var options = {
-      oidcConformant: true
+      closable: false
     };
     var lock = new Auth0LockPasswordless(clientID, domain, options);
     </code></pre>
@@ -79,9 +90,9 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
   </div>
 </div>
 
-### Initialization Options
+### Initialization options
 
-`Auth0LockPasswordless` has the same [options available](/libraries/lock/v10/customization) as `Auth0Lock` in addition to a single new option that determines if you want to use a Magic Link or a Email Code when using an email passwordless connection. For this property, `passwordlessMethod`, only two values are accepted:
+`Auth0LockPasswordless` has the same [options available](/libraries/lock/v11/configuration) as `Auth0Lock` in addition to a single new option that determines if you want to use a Magic Link or a Email Code when using an email passwordless connection. For this property, `passwordlessMethod`, only two values are accepted:
 
 - `code` if you want to use an Email Code
 - `link` if you want to use a Magic Link
@@ -97,7 +108,6 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     <div id="method-code" class="tab-pane active">
     <pre class="hljs js"><code>
     var options = {
-      oidcConformant: true,
       passwordlessMethod: 'code'
     };
     var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -105,8 +115,8 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     </div>
     <div id="method-link" class="tab-pane">
     <pre class="hljs js"><code>
+    // example use of options
     var options = {
-      oidcConformant: true,
       passwordlessMethod: 'link'
     };
     var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -141,7 +151,8 @@ If you have both `sms` and `email` passwordless connections enabled in the dashb
     <pre class="hljs js"><code>
     var options = {
       oidcConformant: true,
-      allowedConnections: ['email']
+      allowedConnections: ['email'],
+      passwordlessMethod: 'code'
     };
     var lock = new Auth0LockPasswordless(clientID, domain, options);
     </code></pre>
@@ -149,28 +160,21 @@ If you have both `sms` and `email` passwordless connections enabled in the dashb
   </div>
 </div>
 
-
 ### Show the widget
 
-In the previous version, you can call the passwordless method directly (sms, socialOrMagiclink, socialOrSms etc). In the new version, you'll have to use [the show method](/libraries/lock/v10/api#show-) in order to display the widget.
+In the old `lock-passwordless`, you could call the passwordless method directly (sms, socialOrMagiclink, socialOrSms etc). In Lock v11, you'll have to use [the show method](/libraries/lock/v11/api#show-) in order to display the widget.
 
 ```js
-var options = {
-  oidcConformant: true
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
+var lock = new Auth0LockPasswordless(clientID, domain);
 lock.show();
 ```
 
 ### Subscribe to events
 
-As of Lock 10, we expose a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of callbacks from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v10/api#on-).
+Lock exposes a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of callbacks from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v11/api#on-).
 
 ```js
-var options = {
-  oidcConformant: true
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
+var lock = new Auth0LockPasswordless(clientID, domain);
 lock.on("authenticated", function(authResult) {
   alert(authResult.accessToken);
 });
@@ -180,14 +184,14 @@ lock.on("authenticated", function(authResult) {
 
 Some options have to be renamed.
 
-* `dict` is now `languageDictionary`. [Read more](https://github.com/auth0/lock#language-dictionary-specification) about the language dictionary specification
-* `connections` is now `allowedConnections`
-* `socialBigButtons` is now `socialButtonStyle`
-* all the authentication options were moved to a new `auth` property. [Read more](https://github.com/auth0/lock#authentication-options)
+* `dict` is now [languageDictionary](/libraries/lock/v11/configuration#languagedictionary-object-)
+* `connections` is now [allowedConnections](/libraries/lock/v11/configuration#allowedconnections-array-)
+* `socialBigButtons` is now [socialButtonStyle](/libraries/lock/v11/configuration#socialbuttonstyle-string-)
+* all the authentication options were moved into an [auth object](/libraries/lock/v11/configuration#auth-object-)
 
 ## Further Reading
 
 ::: next-steps
-- [Lock 10 Reference - an overview on how Lock works](/libraries/lock/v10)
-- [Lock 10 Configuration - details on the available configuration options for Lock](/libraries/lock/v10/customization)
+- [Lock 11 Reference - an overview on how Lock works](/libraries/lock/v11)
+- [Lock 11 Configuration - details on the available configuration options for Lock](/libraries/lock/v11/configuration)
 :::
