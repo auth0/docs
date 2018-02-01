@@ -308,7 +308,7 @@ When you create your job, you'll need to provide:
 
 ### Export metadata
 
-If you export in CSV and include metadata information, you have to specify each field that you want exported. 
+If you export user data in CSV and want to include metadata information, you must specify each metadata field that you want exported. 
 
 For example, for metadata structured like this:
 
@@ -322,7 +322,7 @@ For example, for metadata structured like this:
 }
 ```
 
-The export request (for all three fields) will be as follows.
+The export request (for all three fields) will looks like this:
 
 
 ```har
@@ -350,9 +350,9 @@ The export request (for all three fields) will be as follows.
 }
 ```
 
-If you export in JSON, then you need only provide the root property, and not each individual inner property.
+If you export the data in JSON, you need only provide the root property; you do not need to name each individual inner property since they will be included automatically.
 
-For the same example we used before, the request will be as follows.
+In this case, for the same example we used before, the request will look like this:
 
 ```har
 {

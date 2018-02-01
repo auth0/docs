@@ -24,21 +24,23 @@ You can view, edit, and delete user information at [Dashboard > Users](${manage_
 | **Email** | Not directly editable. Click **Actions > Change Email** at the top right of this screen.
 | **Password** | Not directly editable. Click **Actions > Change Password** at the top right of this screen.
 
-To delete a user drill down and click **Actions > Delete User**.
+To delete a user, drill down and click **Actions > Delete User**.
 
 ## Programmatic process
 
-You can also retrieve, edit, and delete user information using our API. First, pick an endpoint that matches your needs:
+You can also retrieve, edit, and delete user information using our API. 
+
+First, pick an endpoint that matches your needs:
 
 - [Retrieve a list of users](/users/search#users)
-- [Retrieve a user using the Id as search criteria](/users/search#users-by-id)
+- [Retrieve a user using the ID as search criteria](/users/search#users-by-id)
 - [Retrieve a user using the Email as search criteria](/users/search#users-by-email)
 - [Export all users to a file using a long running job](/users/search#user-export)
-- [Update a user](/api/management/v2#!/Users/patch_users_by_id). Note that not all fields are editable (see the next paragraph: [Editable data](#editable-data)). Also, keep in mind the following:
-  - The properties of the new object will replace the old ones. The **user_metadata** and **app_metadata** fields are an exception to this rule. These properties are merged instead of being replaced. Note though that the merge only occurs on the first level.
-  - If you are updating **email_verified**, **phone_verified**, **username**, or **password** you need to specify the **connection**.
-  - If your are updating **email** or **phone_number** you need to specify the **connection** and the **client_id**.
-- [Delete a user based on the Id](/api/management/v2#!/Users/delete_users_by_id)
+- [Update a user](/api/management/v2#!/Users/patch_users_by_id). Note that not all fields are editable (see the next paragraph: [Editable data](#editable-data)). Keep in mind that:
+  - The properties of the new object will replace the old ones. The **user_metadata** and **app_metadata** fields are an exception to this rule. These properties are merged instead of being replaced, though the merge happens only on the first level.
+  - If you are updating **email_verified**, **phone_verified**, **username**, or **password**, you must set the **connection** parameter.
+  - If your are updating **email** or **phone_number**, you must set the **connection** and the **client_id** parameters.
+- [Delete a user based on the ID](/api/management/v2#!/Users/delete_users_by_id)
 
 In order to call any of the API's endpoints, you will need an valid access token. This token must have the required permissions per endpoint.
 
@@ -53,6 +55,7 @@ Once you know which endpoint you want to access, and you have a valid access tok
 ## Editable data
 
 The following user information can be updated using the API:
+
 - blocked
 - email_verified
 - email
@@ -78,10 +81,10 @@ The following user information are **not** editable:
 
 ## Searchable fields
 
-You can search for users using the following fields:
+You can search for users using the following:
 
 - All the [normalized user profile fields](/user-profile/normalized/auth0)
-- Only the profile information under the **user_metadata** object:
+- The profile information under the **user_metadata** object:
   - name
   - nickname
   - given_name

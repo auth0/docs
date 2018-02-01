@@ -5,7 +5,7 @@ toc: true
 ---
 # GDPR Compliance: Conditions for Consent
 
-According to article 7 of GDPR, you have to ask users for consent on the processing of their personal data, in a clear and easily accessible form. You also have to be able to show that the user has consented, and provide an easy way to withdraw consent at any time. 
+According to Article 7 of GDPR, you must ask users to consent on the processing of their personal data in a clear and easily accessible form. You must also show that the user has consented, and provide an easy way to withdraw consent at any time.
 
 This article explains how you can use Auth0 features to implement these requirements.
 
@@ -39,7 +39,7 @@ If you use a custom signup form with social providers, you have to add an extra 
 
 ### Re-consent and user migration
 
-If you have to do re-consent with existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
+If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
 
 ---
 
@@ -58,7 +58,7 @@ With Auth0 you can save the user's consent information as part of the `user_meta
 To access the Management API you will need an access token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
 :::
 
-The Management API offers several offers several options when it comes to user search (search by email, id, or other fields) and endpoints to update `user_metadata` or batch export users.
+The Management API offers several offers several options when it comes to user search (search by email, ID, or other fields) and endpoints to update `user_metadata` or batch export users.
 
 ### Search for a user using their email address
 
@@ -107,9 +107,9 @@ Sample response:
 ]
 ```
 
-### Search for a user using their Id
+### Search for a user using their ID
 
-To search for a user using their Id, use [the Get a user endpoint](/users/search#users-by-id). 
+To search for a user using their ID, use [the Get a user endpoint](/users/search#users-by-id). 
 
 Set the **fields** request parameter to `user_metadata` in order to limit the fields returned. This way, only the `user_metadata` will be returned instead of the complete user profile.
 
@@ -151,9 +151,9 @@ Sample response:
 
 To search for a set of users, use [the List or search users endpoint](/users/search#users). 
 
-This endpoint is eventually consistent (that is, the response might not reflect the results of a recently-complete write operation) and that [only specific fields are available for search](/api/management/v2/user-search#searchable-fields). 
+This endpoint is eventually consistent (that is, the response might not reflect the results of a recently-complete write operation) and [only specific fields are available for search](/api/management/v2/user-search#searchable-fields). 
 
-Consent information that are saved as part of the `user_metadata` are not searchable. 
+Information regarding consent that is saved to `user_metadata` are not searchable. 
 
 For a sample request and response see [Search Users](/users/search#users). For more examples, see [Example Queries](/api/management/v2/user-search#example-queries).
 
@@ -161,9 +161,9 @@ For a sample request and response see [Search Users](/users/search#users). For m
 
 To update a user's `user_metadata`, use [the Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-How you will structure your request depends on how you have structured your metadata: as root or as inner properties.
+How you structure your request depends on how you have structured your metadata: as root or as inner properties.
 
-Metadata as root properties:
+If your metadata are stored as root properties:
 
 ```json
 {
@@ -172,7 +172,7 @@ Metadata as root properties:
 }
 ```
 
-Metadata as inner properties:
+If your metadata are stored as inner properties:
 
 ```json
 {
@@ -185,7 +185,7 @@ Metadata as inner properties:
 
 #### Update a root property
 
-In this case the metadata are merged so you need only send the field you want to update. For example, let's say we want to add a consent date and set it to `01/23/2018`.
+Updates to root-level properties are merged, so you only need to send the value for the field you want to update. For example, let's say we want to add a consent date and set it to `01/23/2018`.
 
 ```har
 {
@@ -219,7 +219,9 @@ This will add a new property to the user profile, the **user_metadata.consentDat
 
 #### Update an inner property
 
-In this case you have to send the whole object, even though you might want to update only one property. If you do not, the other properies will be removed. Let's add an inner property for the consent date and set it to `01/23/2018`.
+To update an inner property, you must send the whole metadata object, even if you are not updating more than one property. **If you do not include the entire object, Auth0 will remove your existing properties**. 
+
+Let's add an inner property for the consent date and set it to `01/23/2018`.
 
 ```har
 {
@@ -257,20 +259,22 @@ This will add a new property to the user profile, the **user_metadata.consent.da
 
 To export a list of your users using the Management API, use [the User export endpoint](/users/search#user-export). 
 
-This endpoint creates a job that exports all users associated with a connection. You will need the Id of the connection. To find this Id, use [the Get Connections endpoint](/api/management/v2#!/Connections/get_connections) (you can set the **name** parameter to the name of the connection to retrieve only this one).
+This endpoint creates a job that exports all users associated with a connection. You will need the ID of the connection. To find this ID, use [the Get Connections endpoint](/api/management/v2#!/Connections/get_connections) (you can set the **name** parameter to the name of the connection to retrieve only this one).
 
-Once you have the connection Id and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
+Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
 
 ---
 
 :::panel What else do I have to do?
-- Determine how you want to track consent. We recommend putting in not just the date but the correct version of terms and conditions, specifying the version, and including an array for those who will withdraw, provide and withdraw consent again.
-- Choose where you want to store consent, in Auth0's database or elsewhere
+- Determine how you want to track consent. We recommend including information on not just the date the user consented, but the version of terms and conditions to which the user agreed. We also recommend including an array to hold information about users that withdraw their permission (remember that the user can consent and withdraw multiple times)
+- Choose where you want to store consent: in Auth0's database or elsewhere
 :::
 
 ## Withdraw consent
 
-The user should have the option to withdraw consent using your app. This option should be easily accessible, and clearly distinguishable. Once the users decides to withdraw their consent, you should take action. First, you have to decide how you will handle withdrawal of consent: will you delete the users or flag them as deleted?
+The user should have the option to withdraw consent using your app. This option should be easily accessible, and clearly distinguishable. Once the users decides to withdraw their consent, you should take action. 
+
+First, you have to decide how you will handle withdrawal of consent: will you delete the users or flag them as deleted?
 
 ### Delete user
 
@@ -292,13 +296,15 @@ The response body for this endpoint is empty, so if you want to confirm that the
 
 ### Flag user as deleted
 
-If you don't want to completely delete the user, flag their profile as deleted at the `app_metadata` (endpoint: [Update a user](/api/management/v2#!/Users/patch_users_by_id)). Then, add some code that will make the authentication process to fail for any user with their profile flagged as such. This way you can keep a record of deleted users in case you need to refer to this information in the future.
+If you don't want to delete the user, flag their profile as deleted using the `app_metadata` (endpoint: [Update a user](/api/management/v2#!/Users/patch_users_by_id)). Then, add some code that will make the authentication process to fail for any user with their profile flagged as such. 
+
+This allows you to keep a record of deleted users for future use.
 
 #### Step 1: Flag the profile
 
-To flag a user as deleted use the [app_metadata](/metadata). In this example we will add a metadata property `deleted` which when set to `true` means that the user should be treated as deleted.
+To flag a user as deleted use the [app_metadata](/metadata). In the following example, we will show you how to add a property called **deleted** to the **app_metadata** field. This allows you to configure the authentication process to treat all uses with this property set to true as deleted.
 
-To update a user's metadata use the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+To update a user's metadata, use the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 ```har
 {
@@ -322,7 +328,7 @@ To update a user's metadata use the [Update a user endpoint](/api/management/v2#
 
 #### Step 2: Disable login for flagged users
 
-In this step we need to disable login for users flagged as deleted. To do so we will add a JavaScript snippet that will run as part of the authentication pipeline. We call these snippets [rules](/rules).
+Next, we must disable login for users flagged as deleted. To do so, we will add a [rule](/rules) (that is, a JavaScript snippet that will run as part of the authentication pipeline).
 
 Go to [Dashboard > Rules](${manage_url}/#/rules) and create a new rule. Copy the script you see below.
 
@@ -336,7 +342,10 @@ function (user, context, callback) {
 }
 ```
 
-The script checks the value of the `deleted` metadata property (`user.app_metadata.deleted`), and if it is `true` then returns to your app the error `Access denied (deleted user)`.
+The script: 
+
+- Checks the value of the **deleted** metadata property (`user.app_metadata.deleted`)
+- Returns an `Access denied (deleted user)` error to your app if `user.app_metadata.deleted = true`
 
 Give a name to your rule and save your changes.
 

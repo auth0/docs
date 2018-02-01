@@ -5,7 +5,7 @@ toc: true
 ---
 # GDPR Compliance: Protect and secure user data
 
-As per article 32 of GDPR, you have to implement appropriate measures in order to ensure a level of security appropriate to the risk, including, among other things:
+As per article 32 of GDPR, you must implement appropriate security measures in order to ensure a level of security appropriate to the risk, including (but not limited to):
 
 - Τhe encryption of personal data
 - Τhe ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services
@@ -15,15 +15,20 @@ There are several Auth0 features than can help you achieve that, like user profi
 
 ## Encrypt user profile information
 
-You can encrypt user information before you save them in the user profile. You can use any encryption mechanism you'd like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality (there is also a **Decrypt sensitive data from the user profile** template).
+You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality.
+
+To decrypt your data, you can use the **Decrypt sensitive data from the user profile** built-in [rules](/rules) template.
 
 ## Enable brute-force protection
 
-You can enable the brute-force protection shield in order to stop malicious attempts to access your application. Every time Auth0 detects 10 failed login attempts, into a single account, from the same IP:
-- we can send an email to the affected user, and
-- block the suspicious IP address
+You can enable the brute-force protection shield in order to stop malicious attempts to access your application. 
 
-You can enable brute-force protection , configure which actions you want to take, and customize the blocked account email, using the dashboard. 
+Every time Auth0 detects 10 failed login attempts into a single account from the same IP, we will:
+
+- Send a notification email to the user
+- Block the suspicious IP address
+
+You can enable brute-force protection, configure which actions you want to take, and customize the blocked account email using the Dashboard. 
 
 For more information and configuration steps, see [Brute Force Protection](/anomaly-detection#brute-force-protection).
 
@@ -31,20 +36,21 @@ For more information and configuration steps, see [Brute Force Protection](/anom
 
 The breached password detection shield helps you identity user credentials that might have been compromised in a public data breech. 
 
-Auth0 tracks large security breaches that are happening on major third party sites. If one of your users' credentials were included in a public security breech, you can take action:
+Auth0 tracks large security breaches that are happening on major third party sites. If one of your users' credentials were included in a public security breech, you can take action and:
 
 - Send an email to the affected user
 - Send an email to dashboard owners immediately, and/or have a daily/weekly/monthly summary
-- Block login attempts for suspected user accounts using that username and password combination
-- This block remains in place until the user changes their password
+- Block login attempts for suspected user accounts using that username and password combination. This block remains in place until the user changes their password
 
-You can enable breached password detection, and configure which actions you want to take, using the Dashboard. For more information and steps to follow, see [Breached Password Detection](/anomaly-detection#breached-password-detection).
+You can enable breached password detection and configure which actions you want to take using the Dashboard. 
+
+For more information and steps to follow, see [Breached Password Detection](/anomaly-detection#breached-password-detection).
 
 ## Harden your security with multifactor authentication
 
 With mutifactor authentication (MFA), you can add an additional layer of security to your applications. It is a method of verifying a user's identity by asking them to present more than one piece of identifying information.
 
-We support push notifications, SMS, one-time password authentication services, and custom providers. You can enable MFA for specific users or specific actions (for example, access screens with sensitive data). You can also define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+We support MFA using push notifications, SMS, one-time password authentication services, and custom providers. You can enable MFA for specific users or specific actions (for example, access screens with sensitive data). You can also define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
 To review all available options and their features, and get implementation details for the one that suits your needs, see [Multifactor Authentication in Auth0](/multifactor-authentication).
 
@@ -54,7 +60,9 @@ You can customize the level of password complexity for new sign ups. For example
 
 You can also forbid the use of previous passwords using our Password History feature and stop users from choosing common passwords using our Password Dictionary.
 
-All three features are configurable from the Dashboard. For information on how to use them see [Password Strength](/connections/database/password-strength) and [Password Options](/connections/database/password-options).
+All three features are configurable from the Dashboard. 
+
+For information on how to use them see [Password Strength](/connections/database/password-strength) and [Password Options](/connections/database/password-options).
 
 ## Step-up authentication
 
