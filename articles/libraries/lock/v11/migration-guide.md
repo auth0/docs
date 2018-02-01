@@ -31,6 +31,8 @@ If you decide to keep using embedded Lock you will need to migrate to [Lock v11]
 
 The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
 
+[Migrating from the lock-passwordless widget](/libraries/lock/v11/migration-lock-passwordless)
+
 [Migrating from Lock v10](/libraries/lock/v11/migration-v10-v11)
 
 [Migrating from Lock v10 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v10)
