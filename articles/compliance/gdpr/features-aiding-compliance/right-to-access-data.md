@@ -90,6 +90,8 @@ You can search for users using the following:
   - given_name
   - family_name
 
+---
+
 :::panel What else do I have to do?
 You are responsible for ensuring customer is erased or data is updated in any other databases that Auth0 is not connected to.
 :::
