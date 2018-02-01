@@ -18,10 +18,14 @@ Login features are implemented through a new Login Widget (powered by Auth0) tha
 - Reporting and Analytics
 
 
-## Login by Auth0 WordPress Plugin
+## Keep Reading
 
-- [How does it work?](/cms/wordpress/how-does-it-work)
-- [Installation](/cms/wordpress/installation)
-- [Configuration](/cms/wordpress/configuration)
-- [JWT Authentication](/cms/wordpress/jwt-authentication)
-- [Troubleshoot](/cms/wordpress/troubleshoot)
+For more information on the Login by Auth0 WordPress Plugin, follow these links.
+
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Installation](/cms/wordpress/installation)
+* [Configuration](/cms/wordpress/configuration)
+* [JWT Authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshoot](/cms/wordpress/troubleshoot)
+:::
