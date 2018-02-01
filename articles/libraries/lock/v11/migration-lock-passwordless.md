@@ -7,7 +7,7 @@ description: Migration Guide from lock-passwordless to Lock v11 with Passwordles
 
 The following instructions assume you are migrating from the **lock-passwordless** widget to Lock v11.2+ using **Passwordless Mode**.
 
-The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock](/libraries/lock/v10). Now, you can migrate your apps to use the Passwordless Mode which is integrated directly into Lock v11. Lock v11 with Passwordless Mode is the latest method by which to deploy a login widget for passwordless authentication in your apps.
+The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock](/libraries/lock). Now, you can migrate your apps to use the Passwordless Mode which is integrated directly into Lock v11. Lock v11 with Passwordless Mode is the latest method by which to deploy a login widget for passwordless authentication in your apps.
 
 To get started, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock v11](https://github.com/auth0/lock/releases). 
 
@@ -127,7 +127,7 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
 
 ### Choose between SMS or email
 
-We recommend that you setup which passwordless connections you want enabled in [the dashboard](${manage_url}/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-) option.
+We recommend that you setup which passwordless connections you want enabled in [the dashboard](${manage_url}/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [allowedConnections](/libraries/lock/v11/customization#allowedconnections-array-) option.
 If you have both `sms` and `email` passwordless connections enabled in the dashboard, `Auth0LockPasswordless` will use `email` by default.
 
 <div class="code-picker">
@@ -141,7 +141,6 @@ If you have both `sms` and `email` passwordless connections enabled in the dashb
     <div id="sms-enabled" class="tab-pane active">
     <pre class="hljs js"><code>
     var options = {
-      oidcConformant: true,
       allowedConnections: ['sms']
     };
     var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -150,7 +149,6 @@ If you have both `sms` and `email` passwordless connections enabled in the dashb
     <div id="email-enabled" class="tab-pane">
     <pre class="hljs js"><code>
     var options = {
-      oidcConformant: true,
       allowedConnections: ['email'],
       passwordlessMethod: 'code'
     };
