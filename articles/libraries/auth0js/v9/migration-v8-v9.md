@@ -17,5 +17,4 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 
 ## Behavioral Changes
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

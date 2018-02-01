@@ -37,5 +37,4 @@ The script files need to be added to your build system, or added to the project 
 
 ## Behavioral changes
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

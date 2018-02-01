@@ -17,7 +17,6 @@ This guide includes all the information you need to update your Lock v10 applica
 
 ## Behavioral changes in Lock v11
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>
 <%= include('../../_includes/_last_logged_in_window') %>
 <%= include('../../_includes/_ip_ranges') %>

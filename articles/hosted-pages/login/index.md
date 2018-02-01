@@ -69,17 +69,13 @@ In the [Dashboard](${manage_url}), you can enable a custom Hosted Login Page by 
 
 In order to get started using the Hosted Login Page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
-- [Lock](/hosted-pages/login/lock) - Lock 10 is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
+- [Lock](/hosted-pages/login/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
 - [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same style of interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
-- [Auth0.js v8](/hosted-pages/login/auth0js/v8) - Auth0.js v8 is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
-
-::: note
-Note that Lock 11 and Auth0.js v9 were specifically designed to work with embedded authentication in applications, not the Hosted Login Page. For Hosted Login Page use, Lock 10 or Auth0.js v8 should be implemented.
-:::
+- [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
 
 ### 3. Customization
 
-You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
+You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
 
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
 
@@ -113,7 +109,7 @@ The `config` object contains the set of configuration values that adjusts the be
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ```
 
-The below examples assume that you are using [Auth0.js](/libraries/auth0js/v8) within your application to call the `authorize` endpoint and show the Hosted Login Page. 
+The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `authorize` endpoint and show the Hosted Login Page. 
 
 ##### Login Hint
 

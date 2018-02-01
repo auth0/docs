@@ -1,13 +1,13 @@
 ---
-description: How to Use the Auth0.js v8 with the Hosted Login Page 
+description: How to Use the Auth0.js v9 with the Hosted Login Page 
 ---
-# Using Auth0.js v8 in the Hosted Login Page
+# Using Auth0.js v9 in the Hosted Login Page
 
-Within the Hosted Login page, you can use the the [Auth0.js v8 SDK](/libraries/auth0js/v8), instead of [Lock](/libraries/lock/v10), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
+Within the Hosted Login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
 
 ## Auth0.js Template for Hosted Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in the Hosted Login Page. 
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js in the Hosted Login Page. 
 
 In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
 
@@ -17,9 +17,9 @@ Choose `Custom UI` to get started.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-customui.png)
 
-The template showcases using Auth0.js v8 to allow users to sign up, log in with a database connection, or login with a social provider (Google, in this example).
+The template showcases using Auth0.js to allow users to sign up, log in with a database connection, or login with a social provider (Google, in this example).
 
-Additionally, you can take a look at the following example scenario using Auth0.js v8 as well.
+Additionally, you can take a look at the following example scenario using Auth0.js as well.
 
 ### Passwordless Example
 
