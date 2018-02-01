@@ -37,7 +37,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. Please see the [migration notice](/migrations#introducing-api-authorization-with-third-party-vendor-apis) for more information.
+This feature is disabled by default for new tenants as of 8 June 2017. See the [migration notice](/migrations#introducing-api-authorization-with-third-party-vendor-apis) for more information.
 :::
 
 A delegation token can be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
