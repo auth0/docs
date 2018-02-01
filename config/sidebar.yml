@@ -623,9 +623,6 @@ libraries:
       - title: "Migration Guide"
         url: "/libraries/lock/v11/migration-guide"
 
-      - title: "Passwordless Migration"
-        url: "/libraries/lock/v10/lock-passwordless-migration-guide"
-
       - title: "Internationalization"
         url: "/libraries/lock/v11/i18n"
 
