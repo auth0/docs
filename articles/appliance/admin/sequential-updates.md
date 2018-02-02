@@ -32,10 +32,4 @@ Please note that, when making a change to the mode you're using, you'll impact:
 * The new tenant creation process
 * Runs involving force updates
 
-::: panel Force Updates
-When you run a **force-update** script, the PsaaS Appliance will, by default, use the mode you've selected. That is, it will either update your nodes sequentially or in parallel. However, if you want to override the default behavior, you can use the `force-update --sequential` or `force-update --parallel` commands.
-
-This override will affect any configuration-related process occurring on your PSaaS Appliance until the force-update script finishes *or* you've forced another update strategy. That is, all subsequent calls to `force-update` will use the last-specified mode.
-:::
-
 When using sequential updates, the state of your cluster(s) is eventually consistent. That is, there may be discrepancies in your nodes until all your clusters have been updated successfully.
