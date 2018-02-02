@@ -64,7 +64,7 @@ If you are using browserify or webpack to build your project and bundle its depe
 First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example, `yourname.auth0.com`).
 
 ```js
-// Initializing our Auth0Lock
+// Initializing Auth0Lock
 var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
