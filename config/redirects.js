@@ -1308,11 +1308,11 @@ module.exports = [
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js/v8'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js/v7'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: '/connections/database/mysql',

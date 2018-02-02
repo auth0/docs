@@ -84,7 +84,7 @@ Regardless of which outcome occurs, the sample app's [`postMessage()` function](
 
 ### Silent Authentication using Auth0.js
 
-Users of the `Auth0.js` library have access to [the `checkSession()` method](/libraries/auth0js/v8#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
+Users of the `Auth0.js` library have access to [the `checkSession()` method](/libraries/auth0js#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
 This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's access token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 

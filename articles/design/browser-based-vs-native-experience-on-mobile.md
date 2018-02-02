@@ -41,7 +41,7 @@ Using a browser-based flow protects you from this, since the callback URL is lin
 
 Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multifactor authentication and anomaly detection).
 
-By default, [Lock](/libraries/lock) provides the UX, but you can customize it completely by providing your own UX written in HTML/CSS and integrating it with [auth0.js](libraries/auth0js/v8)
+By default, [Lock](/libraries/lock) provides the UX, but you can customize it completely by providing your own UX written in HTML/CSS and integrating it with [auth0.js](libraries/auth0js)
 
 ## Automatic improvements
 

@@ -190,7 +190,6 @@ If you are not using a service, you can implement the `handleAuthentication()` m
 
 ## Behavioral Changes in Lock v11
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>
 <%= include('../../_includes/_last_logged_in_window') %>
 <%= include('../../_includes/_ip_ranges') %>

@@ -10,9 +10,8 @@ This information applies to those using **Change Password flow v2**. If you are 
 
 To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
+We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
 :::
-
 
 You can change your users' passwords using one of the following methods.
 

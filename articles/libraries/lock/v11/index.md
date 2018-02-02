@@ -9,10 +9,6 @@ img: media/articles/libraries/lock-web.png
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
-::: panel Hosted Login Page
-Lock v11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), do not upgrade to Lock v11. Instead, keep using the latest version of Lock 10. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock v11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
-:::
-
 ## Lock Installation
 
 You can install Lock v11 via several methods. Select any of the following installation sources that best suit your environment and application.

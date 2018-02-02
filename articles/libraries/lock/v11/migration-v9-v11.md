@@ -186,7 +186,6 @@ Note that, once more, the parameters that were passed to `show()` in Lock v9 are
 
 ## Behavioral Changes in Lock v11
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>
 <%= include('../../_includes/_default_values_lock') %>
 <%= include('../../_includes/_ip_ranges') %>

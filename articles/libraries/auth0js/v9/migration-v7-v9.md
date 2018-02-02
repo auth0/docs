@@ -227,5 +227,4 @@ webAuth.passwordlessLogin({
 
 ## Behavioral Changes
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

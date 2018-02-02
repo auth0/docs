@@ -23,11 +23,11 @@ Migration to v11 will depend on how you are using Lock:
 | **Scenario** | **Migration to v11** | 
 | --- | --- | 
 | In your application, to implement embedded login | Required |
-| In a customized Hosted Login Page | Not Supported, keep using Lock 10 and/or Auth0.js |
+| In a customized Hosted Login Page | Recommended |
+
+Even if previous versions of Lock will still work when used in the customized Hosted Login Page, it is a good practice to always migrate to the latest version of Lock.
 
 ## Migration instructions
-
-If you decide to keep using embedded Lock you will need to migrate to [Lock v11](/libraries/lock).
 
 The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
 
