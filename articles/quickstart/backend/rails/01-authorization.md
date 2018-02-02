@@ -120,7 +120,7 @@ With the `Secured` Concern in place, you can now apply it to whichever endpoints
 class PublicController < ActionController::API
   # This route doesn't need authentication
   def public
-    render json: { message: 'You don\'t need to be authenticated to call this' }
+    render json: { message: 'Hello from a public endpoint! You don't need to be authenticated to see this.' }
   end
 end
 ```
@@ -133,7 +133,7 @@ class PrivateController < ActionController::API
   include Secured
 
   def private
-    render json: "You only get this message if you're authenticated."
+    render json: 'Hello from a private endpoint! You need to be authenticated to see this.'
   end
 end
 ```
@@ -162,7 +162,7 @@ class PrivateController < ActionController::API
   # ...
 
   def private_scoped
-    render json: { message: 'You only get this message if you\'re authenticated and have a scope of read:messages.' }
+    render json: { message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.' }
   end
 end
 ```
