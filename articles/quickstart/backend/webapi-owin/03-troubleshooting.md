@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
+name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
 ---

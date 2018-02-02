@@ -17,3 +17,10 @@ snippets:
 articles:
   - 01-authentication
   - 02-using
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-falcor-api
+requirements:
+  - Falcor 0.1.17
+  - Express 4.15.2

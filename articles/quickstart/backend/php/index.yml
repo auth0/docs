@@ -18,3 +18,10 @@ snippets:
 articles:
   - 01-authentication
   - 02-using
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-php-api-sample
+requirements:
+  - PHP v5
+  - Composer 1.0

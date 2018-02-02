@@ -21,3 +21,12 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-laravel-api-sample
+requirements:
+  - Composer 1.5 
+  - PHP 7.0
+  - Laravel 5.5
+  - laravel-auth0 5.0.2

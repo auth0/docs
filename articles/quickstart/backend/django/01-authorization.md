@@ -1,21 +1,9 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to use Auth0 to add authorization to your Django REST Framework API.
+github:
+    path: 01-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-django-api',
-  path: '01-Authorization',
-  requirements: [
-    'python 2.7, 3.3 and up',
-    'django 1.8 and up',
-    'djangorestframework 3.0 and up',
-    'djangorestframework-jwt 1.11.0',
-    'python-jose 1.3.2',
-    'cryptography 2.0.3'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
