@@ -5,7 +5,7 @@ description:
 ---
 # Sequential Updates
 
-Beginning with PSaaS Appliance release **13896**, you can upgrade your PSaaS Appliance one of two ways: in parallel or sequentially.
+Beginning with PSaaS Appliance release **14591**, you can upgrade your PSaaS Appliance one of two ways: in parallel or sequentially.
 
 Previously, you could only update or reconfigure clusters in parallel.
 
