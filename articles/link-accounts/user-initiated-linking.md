@@ -15,7 +15,7 @@ The following steps implement user-initiated account linking for a Single Page A
 
 ## 1. Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+First, the user will authenticate to the Single Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/spa-initial-login.png)
 
@@ -73,13 +73,11 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
     function linkPasswordAccount(connection){
       var opts = { 
         rememberLastLogin: false,
-        dict: {
-          signin: {
-            title: 'Link another account'
-          },
-          auth: {
+        languageDictionary: {
+          title: 'Link with another account'
+        },
+        auth: {
             responseType: 'token id_token'
-          }
         }
       };
             
@@ -112,28 +110,24 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
  * Handling the second authentication with Lock Passwordless:
 
   ```html
-  <script src="${lock_passwordless_url}"></script>
+  <script src="${lock_url}"></script>
   <script type="text/javascript">
     function linkPasswordlessSMS(){
       
       // Initialize Passwordless Lock instance
-      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-
-      var opts = {
+      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         autoclose: true,
-        rememberLastLogin: false,
-        dict:{
-          phone: {
-            headerText: "Enter your phone to sign in <br>or create an account to link to."
-          }
-        }
-      };
-      // Open the lock in SMS mode with the ability to handle the authentication in page
-      lock.sms( opts, function (err, profile, id_token) {
-        if (!err){
-          linkAccount(id_token);
+        allowedConnections: ["sms"],
+        languageDictionary: {
+          passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
         }
       });
+
+      lock.on("authenticated", function(authResult)) {
+          linkAccount(authResult.idToken);
+      }
+
+      lock.show();
     }
   </script>
   <button onclick="linkPasswordlessSMS()">SMS</a>

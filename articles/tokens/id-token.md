@@ -72,7 +72,7 @@ The attributes included in the issued `id_token` are controlled by the use of a 
 - If `scope` is set to `openid email`, then the `id_token` will contain additionally the `email` and `email_verified` claims.
 - If `scope` is set to `openid profile`, then the `id_token` will contain all default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 
-If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
+If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v11/configuration#auth-object-) as follows:
 
 ```js
 var options = {
