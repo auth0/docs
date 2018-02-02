@@ -139,7 +139,7 @@ webAuth.client.login({
 
 ### Passwordless Login
 
-Passwordless authentication is no longer available using the v7 methods. Now, passwordless is a simpler process, begun by calling `passwordlessStart` and completed by calling `passwordlessVerify`. See the v8 [documentation on Passwordless Authentication](/libraries/auth0js#passwordless-login) for more details!
+Passwordless authentication is no longer available using the v7 methods. Now, passwordless is a simpler process, begun by calling `passwordlessStart` and completed by calling `passwordlessLogin`. See the v8 [documentation on Passwordless Authentication](/libraries/auth0js#passwordless-login) for more details!
 
 ```js
 webAuth.passwordlessStart({
@@ -153,7 +153,7 @@ webAuth.passwordlessStart({
 ```
 
 ```js
-webAuth.passwordlessVerify({
+webAuth.passwordlessLogin({
     connection: 'Username-Password-Authentication',
     email: 'foo@bar.com',
     verificationCode: '389945'
