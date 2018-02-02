@@ -192,6 +192,6 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
 
 ## Troubleshooting
 
-1. **Custom Domain is still pending verification** 
+### Custom Domain is still pending verification
 
-Make sure that the CNAME record is properly configured in your domain management service. You can confirm this by using a tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx), [Google](https://dns.google.com) or the `dig` command in your terminal. Please take into consideration that it can take up to 48 hours for the DNS to be propagated.
+Make sure that the CNAME record is properly configured in your domain management service. You can confirm this by using a tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx), [Google](https://dns.google.com), or the `dig` command in your terminal. Please take into consideration that it can take up to 48 hours for the DNS to be propagated.
