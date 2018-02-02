@@ -77,7 +77,7 @@ class Main {
   public function privateEndpoint() {
     return array(
       "status" => "ok",
-      "message" => "Hello from a private endpoint! You DO need to be authenticated to see this."
+      "message" => "Hello from a private endpoint! You need to be authenticated to see this."
     );
   }
 }
@@ -199,7 +199,7 @@ public function checkScope($scope){
 public function privateScopedEndpoint() {
   return array(
     "status" => "ok",
-    "message" => "Hello from a private endpoint! You DO need to be authenticated and have a scope of read:messages to see this."
+    "message" => "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
   );
 }
 ```
