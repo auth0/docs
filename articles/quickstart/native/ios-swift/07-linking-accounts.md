@@ -2,18 +2,9 @@
 title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 budicon: 345
+github:
+    path: 07-Linking-Accounts
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '07-Linking-Accounts',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ## Before You Start
 

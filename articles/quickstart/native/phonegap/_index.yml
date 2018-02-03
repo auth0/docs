@@ -19,3 +19,10 @@ seo_alias: phonegap
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-cordova-samples
+requirements:
+  - NodeJS 4.3
+  - Phonegap 5.5

@@ -67,3 +67,11 @@ next_steps:
     - text: Learn about rules
       icon: 345
       href: "/rules"
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-android-sample
+requirements:
+  - Android Studio 2.3
+  - Android SDK 25
+  - Emulator - Nexus 5X - Android 6.0
