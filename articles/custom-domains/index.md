@@ -205,6 +205,6 @@ You can confirm the configuration of your CNAME record using:
 
 Please remember that it can take up to 48 hours for the DNS to be propagated.
 
-### CName flattening
+### CNAME flattening
 
-Cloudflare has a service called CName Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
+Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
