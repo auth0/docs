@@ -61,7 +61,13 @@ description: Auth0 is an identity hub that supports the many authentication prov
 
 # Identity Providers Supported by Auth0
 
-Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, and so on that Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
+An Identity Provider is a server that can provide identity information to other servers. For example, Google is an Identity Provider. If you log in to a site using your Google account, then a Google server will send your identity information to that site.
+
+Auth0 is an identity hub that supports many identity providers using various protocols (like [OpenID Connect](/protocols/oidc), [SAML](/protocols/saml), [WS-Federation](/protocols/ws-fed), and more).
+
+Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation. In addition, Auth0's [normalized user profile](/user-profile) simplifies user management.
+
+The relationship between Auth0 and any of these authentication providers is referred to as a **connection**. Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
 
 ## Social
 
@@ -92,6 +98,7 @@ You can create any number of custom fields and store this information as part of
 For more details refer to the [Database Connections](/connections/database) documentation.
 
 ## Passwordless
+
 Full documentation on Passwordless authentication can be found at the links below:
 
 <ul>
@@ -108,15 +115,3 @@ Full documentation on Passwordless authentication can be found at the links belo
   <% } %>
 <% }); %>
 </ul>
-
-## Additional Information
-
-Auth0 sits between your app and the identity provider that authenticates your users. Through this level of abstraction, Auth0 keeps your app isolated from any changes to and idiosyncrasies of each provider's implementation. In addition, Auth0's [normalized user profile](/user-profile) simplifies user management.
-
-::: note
-The relationship between Auth0 and any of these authentication providers is referred to as a 'connection'.
-:::
-
-Auth0 is a multi-tenant service. When you register with Auth0, you get your own namespace (${account.namespace}). Many of these identity providers require registration and you will need to provide a `return url`. This will always be:
-
-`https://${account.namespace}/login/callback`
