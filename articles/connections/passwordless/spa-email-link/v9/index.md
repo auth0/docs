@@ -21,15 +21,23 @@ Then you can trigger the passwordless authentication using a magic link with the
 
 ```html
 <script src="${lock_url}"></script>
-<script type="text/javascript">
-  function login(){
-     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-      passwordlessMethod: "link",              // Sets Lock to use magic link
-      auth: {
-        redirectUrl: '${account.callback}'        
-      });
 
+<script type="text/javascript">
+   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    passwordlessMethod: "link",              // Sets Lock to use magic link
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'token id_token'
+    }
+  });
+  
+  lock.on('authenticated', function(authResult) {
+     localStorage.setItem('id_token', authResult.idToken);
+  });
+  
+  function login(){
     lock.show();
+  }
 </script>
 
 <a href="javascript:login()">Login</a>
