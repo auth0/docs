@@ -33,6 +33,7 @@ Then you can trigger the passwordless authentication using a magic link with the
   
   lock.on('authenticated', function(authResult) {
      localStorage.setItem('id_token', authResult.idToken);
+     localStorage.setItem('access_token', authResult.accessToken);
   });
   
   function login(){
@@ -43,28 +44,7 @@ Then you can trigger the passwordless authentication using a magic link with the
 <a href="javascript:login()">Login</a>
 ```
 
-The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application with the token as the hash location. You can parse the hash and retrieve the full user profile as follows:
-
-```js
-//parse hash on page load
-$(document).ready(function(){
-  var hash = lock.parseHash(window.location.hash);
-
-  if (hash && hash.error) {
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else if (hash && hash.id_token) {
-    //use id_token for retrieving profile.
-    localStorage.setItem('id_token', hash.id_token);
-    //retrieve profile
-    lock.getProfile(hash.id_token, function (err, profile) {
-      if (err){
-        //handle err
-      } else {
-        //use user profile
-      }
-    });
-  }
-});
+The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application.
 ```
 
 ::: note
