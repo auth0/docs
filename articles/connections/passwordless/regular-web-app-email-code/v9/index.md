@@ -27,7 +27,8 @@ Then you can trigger the login using the `callbackURL` option to specify the end
       allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
       passwordlessMethod: 'code',              // If not specified, defaults to 'code'
       auth: {
-        redirectUrl: '${account.callback}',        
+        redirectUrl: '${account.callback}',
+        responseType: 'code'
       }
     });
 
