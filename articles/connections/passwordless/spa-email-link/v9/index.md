@@ -45,7 +45,6 @@ Then you can trigger the passwordless authentication using a magic link with the
 ```
 
 The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application.
-```
 
 ::: note
 You can follow any of the [Single Page App Quickstarts](/quickstart/spa) to see more about using Auth0.js in a SPA.
