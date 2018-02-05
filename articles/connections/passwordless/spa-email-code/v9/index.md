@@ -23,22 +23,23 @@ Then you can trigger the login with the following code:
 ```html
 <script src="${lock_url}"></script>
 <script type="text/javascript">
+   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+    passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+    auth: {
+      redirectUrl: '${account.callback}'      
+    }
+  });
+
+  lock.on('authenticated', function(authResult) {
+      localStorage.setItem('id_token', authResult.idToken);
+  });
+
   function login()
   {
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-        allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
-        passwordlessMethod: 'code',              // If not specified, defaults to 'code'
-        auth: {
-          redirectUrl: '${account.callback}'      
-        }
-      });
-
-      lock.on('authenticated', function(authResult) {
-          localStorage.setItem('id_token', authResult.idToken);
-      });
-
       lock.show();
   }
+  
 </script>
 <a href="javascript:login()">Login</a>
 ```
