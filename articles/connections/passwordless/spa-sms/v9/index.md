@@ -33,6 +33,7 @@ You can then trigger the login widget with the following code:
 
   lock.on('authenticated', function(authResult) {
      localStorage.setItem('id_token', authResult.idToken);
+     localStorage.setItem('access_token', authResult.accessToken);
   });
 
   function login() {
