@@ -34,13 +34,12 @@ Then you can trigger the login with the following code:
 
   lock.on('authenticated', function(authResult) {
       localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('access_token', authResult.accessToken);
   });
 
-  function login()
-  {
+  function login() {
       lock.show();
   }
-  
 </script>
 <a href="javascript:login()">Login</a>
 ```
