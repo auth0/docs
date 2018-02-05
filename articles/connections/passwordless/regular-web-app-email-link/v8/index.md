@@ -20,17 +20,13 @@ title: Using Passwordless Authentication with a magic link via email on Regular 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the authentication on the server-side:
 
 ```html
-<script src="${lock_url}"></script>
+<script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
-  function login() {
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-      passwordlessMethod: "link",              // Sets Lock to use magic link
-      auth: {
-        redirectUrl: '${account.callback}'       
-      }
-    });
-    
-    lock.show();
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open Lock in SMS mode
+    lock.magiclink( {callbackURL: '${account.callback}'} );
   }
 </script>
 <a href="javascript:login()">Login</a>
