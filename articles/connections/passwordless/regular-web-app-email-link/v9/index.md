@@ -26,7 +26,8 @@ Then you can trigger the login using the `callbackURL` option to specify the end
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
       passwordlessMethod: "link",              // Sets Lock to use magic link
       auth: {
-        redirectUrl: '${account.callback}'       
+        redirectUrl: '${account.callback}',
+        responseType: 'code'
       }
     });
     
