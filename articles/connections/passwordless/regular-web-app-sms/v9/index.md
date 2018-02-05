@@ -26,7 +26,8 @@ Then you can trigger the login widget with the following code:
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         allowedConnections: ['sms'],             // Should match the SMS connection name  
         auth: {
-          redirectUrl: '${account.callback}'     
+          redirectUrl: '${account.callback}',
+          responseType: 'code'
         }
       }
  
