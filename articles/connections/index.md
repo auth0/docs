@@ -65,7 +65,7 @@ An Identity Provider is a server that can provide identity information to other 
 
 Auth0 is an identity hub that supports many identity providers using various protocols (like [OpenID Connect](/protocols/oidc), [SAML](/protocols/saml), [WS-Federation](/protocols/ws-fed), and more).
 
-Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation. In addition, Auth0's [normalized user profile](/user-profile) simplifies user management.
+Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation.
 
 The relationship between Auth0 and any of these authentication providers is referred to as a **connection**. Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
 
