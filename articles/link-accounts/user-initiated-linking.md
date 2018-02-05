@@ -63,75 +63,76 @@ Your SPA must provide a UI for the user to initiate a link to their other accoun
 
 When the user clicks on any of the **Link Account** buttons, your app will trigger authentication to the account selected. After successful authentication, use the obtained JWT to link the accounts.
 
- * Handling the second authentication with Lock:
+### Handle the second authentication with Lock
 
-  ```html
-  <script src="${lock_url}"></script>
-  <script type="text/javascript">
-    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```html
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
-    function linkPasswordAccount(connection){
-      var opts = { 
-        rememberLastLogin: false,
-        languageDictionary: {
-          title: 'Link with another account'
-        },
-        auth: {
-            responseType: 'token id_token'
-        }
-      };
-            
-      if (connection) {
-        opts.connections = [connection];
+  function linkPasswordAccount(connection){
+    var opts = {
+      rememberLastLogin: false,
+      languageDictionary: {
+        title: 'Link with another account'
+      },
+      auth: {
+        responseType: 'token id_token'
       }
+    };
 
-      // open lock in signin mode with the customized options for linking
-      lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
-      lock.show();
+    if (connection) {
+      opts.connections = [connection];
     }
 
-    function lockAuthenticated(authResult)
-    {
-        if (isUserLoggedIn) {
-          linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
-        } else {
-          // handle authentication for the first login
-        }
-    }
+    // open lock in signin mode with the customized options for linking
+    lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
+    lock.show();
+  }
 
-    $(document).ready(function() {
-      lock.on("authenticated", lockAuthenticated); 
-    });
+  function lockAuthenticated(authResult)
+  {
+      if (isUserLoggedIn) {
+        linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
+      } else {
+        // handle authentication for the first login
+      }
+  }
+
+  $(document).ready(function() {
+    lock.on("authenticated", lockAuthenticated);
+  });
+  
+</script>
+<button onclick="linkPasswordAccount()">Link Account</button>
+```
+
+### Handle the second authentication with Passwordless Mode
+
+```html
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  function linkPasswordlessSMS(){
     
-  </script>
-  <button onclick="linkPasswordAccount()">Link Account</button>
-  ```
-
- * Handling the second authentication with Lock Passwordless:
-
-  ```html
-  <script src="${lock_url}"></script>
-  <script type="text/javascript">
-    function linkPasswordlessSMS(){
-      
-      // Initialize Passwordless Lock instance
-      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-        autoclose: true,
-        allowedConnections: ["sms"],
-        languageDictionary: {
-          passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
-        }
-      });
-
-      lock.on("authenticated", function(authResult)) {
-          linkAccount(authResult.idToken);
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}',
+    {
+      autoclose: true,
+      allowedConnections: ["sms"],
+      languageDictionary: {
+        passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
       }
+    });
 
-      lock.show();
+    lock.on("authenticated", function(authResult)) {
+      linkAccount(authResult.idToken);
     }
-  </script>
-  <button onclick="linkPasswordlessSMS()">SMS</a>
-  ```
+
+    lock.show();
+  }
+</script>
+<button onclick="linkPasswordlessSMS()">SMS</a>
+```
 
 ## 3. Perform linking by calling the Auth0 Management API
 
