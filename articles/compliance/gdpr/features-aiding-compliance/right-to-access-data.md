@@ -42,15 +42,15 @@ First, pick an endpoint that matches your needs:
   - If your are updating **email** or **phone_number**, you must set the **connection** and the **client_id** parameters.
 - [Delete a user based on the ID](/api/management/v2#!/Users/delete_users_by_id)
 
-In order to call any of the API's endpoints, you will need an valid access token. This token must have the required permissions per endpoint.
+In order to call any of the API's endpoints, you will need an valid Access Token. This token must have the required permissions per endpoint.
 
 :::note
-Each endpoint at the [Management API explorer](/api/management/v2) has a section **Scopes** that lists the scope(s) that the access token must contain in order to access it. For example, the [Delete user endpoint](/api/management/v2#!/Users/delete_users_by_id) requires the `delete:users` scope.
+Each endpoint at the [Management API explorer](/api/management/v2) has a section **Scopes** that lists the scope(s) that the Access Token must contain in order to access it. For example, the [Delete user endpoint](/api/management/v2#!/Users/delete_users_by_id) requires the `delete:users` scope.
 :::
 
-You can [get an access token for the Management API manually](/api/management/v2/tokens#get-a-token-manually) or you can [automate the process](/api/management/v2/tokens#automate-the-process).
+You can [get an Access Token for the Management API manually](/api/management/v2/tokens#get-a-token-manually) or you can [automate the process](/api/management/v2/tokens#automate-the-process).
 
-Once you know which endpoint you want to access, and you have a valid access token, you are ready to send your request.
+Once you know which endpoint you want to access, and you have a valid Access Token, you are ready to send your request.
 
 ## Editable data
 

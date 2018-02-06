@@ -23,7 +23,7 @@ An application that does not use SSO might decide to show a self-hosted login pa
 
 ## Determining if users are logged in via SSO
 
-An application can easily determine if a user is logged in locally by checking the validity of a local ID token or session cookie.
+An application can easily determine if a user is logged in locally by checking the validity of a local ID Token or session cookie.
 However, in some cases your application might need to determine if the user has a valid SSO session at Auth0.
 In the legacy authentication pipeline, this could be achieved by using the `/ssodata` endpoint, which would return information about the user's SSO session.
 OIDC-conformant clients must use [silent authentication](/api-auth/tutorials/silent-authentication), which either re-authenticates a user if they are already logged in, or returns an error if they need to authenticate.

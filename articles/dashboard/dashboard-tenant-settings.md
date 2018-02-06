@@ -25,7 +25,7 @@ Click **SAVE** when finished to submit your changes.
 
 ### API Authorization Settings
 
-**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [access tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
+**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
 
 ::: note
 This setting is equivalent to appending the audience to every authorization request made to the tenant for every client. This will cause new behaviour that might result in breaking changes for some of your clients. Please contact support if you require assistance.

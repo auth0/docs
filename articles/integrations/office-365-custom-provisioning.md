@@ -39,7 +39,7 @@ The following rule shows the provisioning process:
 
  1. If the user comes from the AD connection, skip the provisioning process (because this will be handled by DirSync)
  2. If the user was already provisioned in Azure AD, just continue with the login transaction.
- 3. Get an access token of the Graph API using the Azure AD Client ID and Key
+ 3. Get an Access Token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
  5. Assign a license to the user.
  6. Continue with the login transaction.

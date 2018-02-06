@@ -2,7 +2,7 @@
 
 Use this endpoint to:
 - Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
-- Refresh your access token, using a refresh token you got during authorization.
+- Refresh your Access Token, using a refresh token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a refresh token are:
 - [Authorization Code](/api-auth/grant/authorization-code)
@@ -839,7 +839,7 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an access token, using the refresh token you got during authorization.
+Use this endpoint to refresh an Access Token, using the refresh token you got during authorization.
 
 
 ### Request Parameters

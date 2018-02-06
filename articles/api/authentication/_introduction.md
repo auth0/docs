@@ -15,7 +15,7 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 ## Authentication methods
 
 There are three ways to authenticate with this API: 
-- with an OAuth2 access token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the access token)
+- with an OAuth2 Access Token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
 - with your Client Id and Client Secret credentials
 - only with your Client Id
 
@@ -23,7 +23,7 @@ Each endpoint supports only one option.
 
 ### OAuth2 token
 
-In this case, you have to send a valid [access token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an access token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client Id and Client Secret
 

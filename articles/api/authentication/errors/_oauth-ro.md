@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT id token</td>
+      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT ID Token</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>

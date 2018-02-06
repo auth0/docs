@@ -16,7 +16,7 @@ budicon: 280
   ]
 }) %>
 
-The OIDC middleware in ASP.NET Core automatically decodes the ID token returned from Auth0 and adds the claims from the ID token as claims in the `ClaimsIdentity`.
+The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`.
 
 This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 
@@ -24,7 +24,7 @@ The seed project contains a controller action and view that display the claims a
 
 ## Store the Tokens
 
-You may want to access tokens received from Auth0. For example, you can use the access token to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
+You may want to Access Tokens received from Auth0. For example, you can use the Access Token to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
 
 ```csharp
 // Startup.cs

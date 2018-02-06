@@ -29,7 +29,7 @@ See the implementation in [Node.js](/architecture-scenarios/application/spa-api/
 
 ### Secure the Endpoints
 
-When an API receives a request with a bearer access token as part of the header, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request must be rejected with a `Missing or invalid token` error message to the calling app.
+When an API receives a request with a bearer Access Token as part of the header, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request must be rejected with a `Missing or invalid token` error message to the calling app.
 
 The validations that the API should perform are:
 
@@ -43,7 +43,7 @@ The validations that the API should perform are:
 
 Part of the validation process is to also check the Client permissions (scopes), but we will address this separately in the next paragraph of this document.
 
-For more information on validating access tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For more information on validating Access Tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#2-secure-the-api-endpoints)

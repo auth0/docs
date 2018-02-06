@@ -35,7 +35,7 @@ All endpoints in this explorer, start with `https://{extension_url}`. This is th
 
 When you [enabled API access for your tenant](/extensions/authorization-extension/v2#enable-api-access), an API was created at your [dashboard](${manage_url}), which you can use to access the Authorization Extension API.
 
-To do so you will have to configure a non interactive client which will have access to this API and which you will use to get an [access token](/tokens/access-token).
+To do so you will have to configure a non interactive client which will have access to this API and which you will use to get an [Access Token](/tokens/access-token).
 
 Follow these steps to setup your client (you will have to do this only once):
 

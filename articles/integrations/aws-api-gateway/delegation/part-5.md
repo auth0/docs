@@ -121,7 +121,7 @@ Take a look at the logic in `index.js`. You will see logic around line 60 that v
 
 The final step is to pass the JWT to the method used by the browser client.
 
-The standard method comes with an `Authorization` header as a *bearer* token, and you can use this method by turning off IAM authorization and relying solely on the OpenID token for authorization (you will also need to map the Authorization header into the event data passed to the AWS Lambda function).
+The standard method comes with an `Authorization` header as a *bearer* token, and you can use this method by turning off IAM authorization and relying solely on the OpenID Token for authorization (you will also need to map the Authorization header into the event data passed to the AWS Lambda function).
 
 If, however, you are using IAM, then the AWS API Gateway uses the `Authorization` header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. To do this, you can either:
 

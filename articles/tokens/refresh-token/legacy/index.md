@@ -10,7 +10,7 @@ This document covers an outdated version of the Auth0 authentication pipeline an
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
 
-Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
+Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
@@ -97,7 +97,7 @@ Since refresh tokens never expire, it is important to be able to revoke them.
 
 ### Revoke a Refresh Token using the Management API
 
-To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```text
 GET https://${account.namespace}/api/v2/device-credentials?
@@ -121,7 +121,7 @@ Response body:
 ]
 ```
 
-To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
+To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an Access Token containing `delete:device_credentials` scope and the value of `id` obtained above:
 
 ```text
 DELETE https://${account.namespace}/api/v2/device-credentials/{id}

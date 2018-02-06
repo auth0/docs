@@ -64,7 +64,7 @@ curl --request GET \
   "link": "#get-user-info"
 }) %>
 
-Given the Auth0 [access token](/tokens/access-token) obtained during login, this endpoint returns a user's profile.
+Given the Auth0 [Access Token](/tokens/access-token) obtained during login, this endpoint returns a user's profile.
 
 This endpoint will work only if `openid` was granted as a scope for the `access_token`.
 

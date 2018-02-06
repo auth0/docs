@@ -206,7 +206,7 @@ This will add one custom namespaced claim at the `access_token`.
 ```js
 function(user, context, callback) {
 
-  // add custom claims to access token
+  // add custom claims to Access Token
   context.accessToken['http://foo/bar'] = 'value';
 
   callback(null, user, context);

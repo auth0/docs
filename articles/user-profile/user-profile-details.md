@@ -49,7 +49,7 @@ Use a consistent datatype each time you create or update a given metadata field.
 
 Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.
 
 ## Storing Custom Profile Data
 
@@ -88,7 +88,7 @@ The claims within a JWT generally contain a subset of the information available 
 There are three other types of tokens that can be returned during authentication:
 
 * an Auth0 `access_token`;
-* a 3rd party provider access token;
+* a 3rd party provider Access Token;
 * a `refresh_token`.
 
 For more information on tokens and claims see the [Token Overview](/tokens).

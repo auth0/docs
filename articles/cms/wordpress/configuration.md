@@ -261,10 +261,10 @@ This action accepts five parameters:
 
 1. `$id_token` (string): The user's JWT.
 
-1. `$access_token` (string): The user's access token.
+1. `$access_token` (string): The user's Access Token.
 
   ::: note
-  An access token is not provided when using __Implicit Flow__.
+  An Access Token is not provided when using __Implicit Flow__.
   :::
 
 To hook to this action, include the following code:

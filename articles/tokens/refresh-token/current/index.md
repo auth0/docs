@@ -4,9 +4,9 @@ toc: true
 ---
 # Refresh Token
 
-A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
+A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/access-token) or [ID Token](/tokens/id-token).
 
-Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
+Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
@@ -51,7 +51,7 @@ https://${account.namespace}/authorize?
     state={OPAQUE_VALUE}
 ```
 
-Once the user authenticates successfully, the client will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an access token using the `/oauth/token` endpoint.
+Once the user authenticates successfully, the client will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an Access Token using the `/oauth/token` endpoint.
 
 ```har
 {
@@ -67,7 +67,7 @@ Once the user authenticates successfully, the client will be redirected to the `
 }
 ```
 
-The response should contain an access token and a refresh token.
+The response should contain an Access Token and a refresh token.
 
 ```text
 {
@@ -254,5 +254,5 @@ For more information on using refresh tokens with our mobile SDKs refer to:
 
 ::: next-steps
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a refresh token with an access token](/tokens/access-token#lifetime)
+* [Using a refresh token with an Access Token](/tokens/access-token#lifetime)
 :::

@@ -32,7 +32,7 @@ You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Cl
 ```
 
 ::: note
-See [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for instructions on obtaining the access token required to call the Management API.
+See [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
 :::
 
 ### Confidential Clients
@@ -46,7 +46,7 @@ The following application types use confidential clients:
 
 All of these grants require clients to authenticate by specifying their client ID and secret when calling the token endpoint.
 
-Since confidential clients are capable of holding secrets, you can choose to have ID tokens issued to them that have been signed in one of two ways:
+Since confidential clients are capable of holding secrets, you can choose to have ID Tokens issued to them that have been signed in one of two ways:
 
 * Symmetrically using their client secret (`HS256`)
 * Asymmetrically using a private key (`RS256`)
@@ -58,7 +58,7 @@ Public clients **cannot** hold credentials securely. The following application t
 * Native desktop or mobile applications using the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
 * JavaScript-based client-side web applications (such as single-page apps) using the [Implicit](/api-auth/grant/implicit) grant
 
-Since public clients are unable to hold secrets, [ID tokens](/tokens/id-token) issued to them must be:
+Since public clients are unable to hold secrets, [ID Tokens](/tokens/id-token) issued to them must be:
 
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token

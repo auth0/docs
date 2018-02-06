@@ -3,7 +3,7 @@ description: How to connect provider hosted apps to SharePoint Online.
 ---
 # Connecting Provider Hosted Apps to SharePoint Online
 
-Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to call SharePoint APIs.
+Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an Access Token you can the use to call SharePoint APIs.
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
@@ -71,7 +71,7 @@ You will need:
 * `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (such as when pressing the 'Try' button on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
 
 
-Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the access token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
+Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the Access Token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
 
 ![](/media/articles/integrations/sharepoint-apps/8Xp6x.png)
 

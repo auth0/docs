@@ -44,7 +44,7 @@ The API will print the JSON, so we can verify the contents and echo back a messa
 In order to secure your endpoints you need to have your API configured in the Auth0 Dashboard. For information on how to do that refer to the [Configure the API](#configure-the-api) paragraph of this document.
 :::
 
-The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return an HTTP Status 401 (Unauthorized) to the calling process.
+The first step towards securing our API endpoint is to get an Access Token as part of the Header and validate it. If it's not valid then we should return an HTTP Status 401 (Unauthorized) to the calling process.
 
 ::: note
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#2-secure-the-api-endpoint)
@@ -52,7 +52,7 @@ The first step towards securing our API endpoint is to get an access token as pa
 
 #### Get an Access Token
 
-To get an access token without using our Client sample implementation, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
+To get an Access Token without using our Client sample implementation, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
 ```json
 {
@@ -69,9 +69,9 @@ To get an access token without using our Client sample implementation, perform a
 
 ## Check the Client permissions
 
-Now we have secured our API's endpoint with an access token but we still haven't ensured that the process calling the API has indeed the rights to post a new timesheet entry.
+Now we have secured our API's endpoint with an Access Token but we still haven't ensured that the process calling the API has indeed the rights to post a new timesheet entry.
 
-As discussed earlier in this doc, each access token may include a list of the permissions that have been granted to the client. These permissions are defined using the scope request parameter. For more information on how to configure this refer to the [Configure the Scopes](#configure-the-scopes) paragraph.
+As discussed earlier in this doc, each Access Token may include a list of the permissions that have been granted to the client. These permissions are defined using the scope request parameter. For more information on how to configure this refer to the [Configure the Scopes](#configure-the-scopes) paragraph.
 
 For our endpoint we will require the scope `batch:upload`.
 
@@ -89,7 +89,7 @@ In this section we will see how we can implement a Non Interactive Client for ou
 
 ### Get an Access Token
 
-We will start by invoking the Auth0 `/oauth/token` API endpoint in order to get an access token.
+We will start by invoking the Auth0 `/oauth/token` API endpoint in order to get an Access Token.
 
 In order to do so we will need the following configuration values:
 
@@ -120,11 +120,11 @@ For more information on this refer to: [API Authorization: Asking for Access Tok
 
 ## Invoke the API
 
-Now that we have an access token, which includes the valid scopes, we can invoke our API.
+Now that we have an Access Token, which includes the valid scopes, we can invoke our API.
 
 In order to do so we will:
 - Build a hard-coded timesheet entry in JSON format.
-- Add the access token as an `Authorization` header to our request.
+- Add the Access Token as an `Authorization` header to our request.
 - Make the HTTP POST request.
 - Parse the response and print it in the terminal (optional).
 

@@ -91,7 +91,7 @@ export default Service.extend({
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
+      // Set the time that the Access Token will expire at
       let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
@@ -100,7 +100,7 @@ export default Service.extend({
   },
 
   logout() {
-    // Clear access token and ID token from local storage
+    // Clear Access Token and ID Token from local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
@@ -108,7 +108,7 @@ export default Service.extend({
 
   isNotExpired() {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     let expiresAt = this.getSession().expires_at;
     return new Date().getTime() < expiresAt;
   }

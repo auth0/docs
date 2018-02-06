@@ -1,6 +1,6 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic access token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
 budicon: 448
 ---
 
@@ -86,7 +86,7 @@ In the `setSession` method, add the function right after setting the `access_tok
 // src/app/auth/auth.service.ts
 
 private setSession(authResult): void {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
 
   localStorage.setItem('access_token', authResult.accessToken);

@@ -55,7 +55,7 @@ According to GDPR, you should be able to show that the user has consented to the
 With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipilate this information using our Management API.
 
 :::note
-To access the Management API you will need an access token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
+To access the Management API you will need an Access Token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
 :::
 
 The Management API offers several offers several options when it comes to user search (search by email, ID, or other fields) and endpoints to update `user_metadata` or batch export users.

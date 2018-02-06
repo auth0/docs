@@ -53,7 +53,7 @@ Use this endpoint to retrieve all users.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:users</span>
 
@@ -121,7 +121,7 @@ Use this endpoint to get a single user based on its unique identifier.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:users</span>
 
@@ -171,7 +171,7 @@ Use this endpoint to get the groups of a single user, based on its unique identi
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:users</span>
 
@@ -221,7 +221,7 @@ Use this endpoint to add one or more users in a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -272,7 +272,7 @@ Use this endpoint to calculate the group memberships for a user (including neste
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -324,7 +324,7 @@ Use this endpoint to get the roles of a single user, based on its unique identif
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:users</span>
 
@@ -374,7 +374,7 @@ Use this endpoint to assign a role to a user.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:users</span>
 
@@ -425,7 +425,7 @@ Use this endpoint to remove one or more user from a role.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:roles</span>
 
@@ -478,7 +478,7 @@ Use this endpoint to calculate the roles assigned to the user (including through
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:roles</span>
 
@@ -537,7 +537,7 @@ Use this endpoint to execute the authorization policy for a user in the context 
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:users</span>
 

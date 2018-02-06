@@ -1,21 +1,21 @@
 ---
-description: How to obtain Identity Provider access tokens.
+description: How to obtain Identity Provider Access Tokens.
 ---
 # Identity Provider Access Tokens
 
 ## Overview
 
-Third-party access tokens are issued by Identity Providers (including Social providers like Facebook and Google) when a user authenticates with that provider. These access tokens can be used to call the API of the third-party provider that issued them.
+Third-party Access Tokens are issued by Identity Providers (including Social providers like Facebook and Google) when a user authenticates with that provider. These Access Tokens can be used to call the API of the third-party provider that issued them.
 
-## How to obtain Identity Provider access tokens
+## How to obtain Identity Provider Access Tokens
 
-Identity Provider (IdP) access tokens can be obtained after the user has authenticated with the IdP by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope.  The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
+Identity Provider (IdP) Access Tokens can be obtained after the user has authenticated with the IdP by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope.  The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
 
-For a step-by-step guide on obtaining IdP access tokens, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
+For a step-by-step guide on obtaining IdP Access Tokens, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 
-## How to control contents of IdP access tokens
+## How to control contents of IdP Access Tokens
 
-The contents of third-party access tokens will vary by the issuing IdP.
+The contents of third-party Access Tokens will vary by the issuing IdP.
 
 ## Validity
 
@@ -23,7 +23,7 @@ Since these tokens are created and managed by a third-party (such as Facebook, G
 
 ## Renewing the token
 
-There is no standard way to renew IdP access tokens through Auth0. If available, the mechanism for renewing IdP access tokens will vary for each provider.
+There is no standard way to renew IdP Access Tokens through Auth0. If available, the mechanism for renewing IdP Access Tokens will vary for each provider.
 
 For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. Currently this is supported for the following Identity Providers:
 
@@ -33,15 +33,15 @@ For certain Identity Providers, Auth0 will store a `refresh_token` which you can
 * SharePoint
 * Azure AD
 
-As for access tokens, the Identity Provider (IdP) `refresh_token` can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope. The `refresh_token` will be available in the `identities` array, under the element for the particular connection.
+As for Access Tokens, the Identity Provider (IdP) `refresh_token` can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope. The `refresh_token` will be available in the `identities` array, under the element for the particular connection.
 
 ## Termination of tokens
 
-The ability to terminate IdP access tokens is up to each provider.
+The ability to terminate IdP Access Tokens is up to each provider.
 
 ## Uses
 
-The IdP access token is used to call the API offered by the provider that issued the token. For example, an access token issued after authentication to Facebook could be used to call the Facebook Graph API.
+The IdP Access Token is used to call the API offered by the provider that issued the token. For example, an Access Token issued after authentication to Facebook could be used to call the Facebook Graph API.
 
 For more information see:
 
@@ -53,4 +53,4 @@ For more information see:
 
 ### Validation
 
-In general, IdP access tokens are passed to the issuing provider, and the issuing provider is responsible for validation of the token.
+In general, IdP Access Tokens are passed to the issuing provider, and the issuing provider is responsible for validation of the token.

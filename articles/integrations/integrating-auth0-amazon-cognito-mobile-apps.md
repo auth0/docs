@@ -79,7 +79,7 @@ You can use [Auth0 Lock](https://github.com/auth0/lock) to log the user in. You 
 
 Once the user is successfully logged in with Auth0, the next step is to send their credentials to Amazon Cognito [see the Cognito docs](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html) to see how to implement this with depending on the platform.
 
-Cognito takes the ID token that you obtain from the OIDC identity provider and uses it to manufacture unique Cognito IDs for each person who uses your app. When the user is logged in to Cognito through Auth0 you can store information in Cognito that only this user will be able to access. 
+Cognito takes the ID Token that you obtain from the OIDC identity provider and uses it to manufacture unique Cognito IDs for each person who uses your app. When the user is logged in to Cognito through Auth0 you can store information in Cognito that only this user will be able to access. 
 
 For example (with Swift):
 
