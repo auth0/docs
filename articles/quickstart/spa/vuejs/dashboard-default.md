@@ -28,10 +28,10 @@ http://localhost:8080/callback
 If you are creating a mixin, move the below to the data() function, instead of created()
 ```
 this.auth0 = new auth0.WebAuth({
-      domain: 'USER.auth0.com',
-      clientID: 'CLIENTID',
+      domain: '${account.namespace}',
+      clientID: '${account.clientId}',
       redirectUri: 'http://localhost:3000/callback',
-      audience: 'https://USER.auth0.com/userinfo',
+      audience: 'https://${account.namespace}/userinfo',
       responseType: 'token id_token',
       scope: 'openid'
     })
