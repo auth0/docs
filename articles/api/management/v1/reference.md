@@ -13,7 +13,7 @@ https://${account.namespace}/api
 ```
 
 ### Authentication
-Each API request must include an access token, either inside the query string:
+Each API request must include an Access Token, either inside the query string:
 
 ```text
 https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}

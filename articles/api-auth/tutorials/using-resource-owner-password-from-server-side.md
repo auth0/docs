@@ -8,7 +8,7 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
-Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an access token. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
+Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an Access Token. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Before you continue, make sure to have [brute force protection](/anomaly-detecti
 
 3. Your server submits the credentials to Auth0 using the [Resource Owner Password Grant](/api-auth/grant/password) flow.
 
-4. Auth0 validates the credentials and returns an access token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection) and perform appropriate actions if an anomaly is detected.
+4. Auth0 validates the credentials and returns an Access Token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection) and perform appropriate actions if an anomaly is detected.
 
 ## Brute-force protection and server-side APIs
 

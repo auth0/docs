@@ -80,9 +80,9 @@ When the user logs in, the credentials object is encrypted and stored securely i
 
 To automatically renew the user's credentials, use the [credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift#L98) method in the credentials manager. 
 
-The credentials manager retrieves stored credentials from the keychain and checks if the access token is still valid:
+The credentials manager retrieves stored credentials from the keychain and checks if the Access Token is still valid:
 * If the current credentials are still valid, the credentials manager returns them
-* If the access token has expired, the credentials manager renews them using the refresh token and returns them
+* If the Access Token has expired, the credentials manager renews them using the refresh token and returns them
 
 Add the following:
 

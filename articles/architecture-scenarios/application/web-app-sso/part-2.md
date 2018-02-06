@@ -35,7 +35,7 @@ When you click __Create__ you will be navigated to the [Quick Start view](${mana
 
 The other available views are:
 - [Settings](${manage_url}/#/clients/${account.clientId}/settings): Here you can view and update the settings of your client. This is the page you will use to retrieve information like _Domain_, _Client ID_, and _Client Secret_. In this page you will also have to [set the __Callback URL__ for your client](#configure-callback-urls).
-- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are plugins associated with a client in Auth0. Usually, they are third party APIs used by the client that Auth0 generates access tokens for (for example Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so forth). We will not use any Addons in this scenario.
+- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are plugins associated with a client in Auth0. Usually, they are third party APIs used by the client that Auth0 generates Access Tokens for (for example Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so forth). We will not use any Addons in this scenario.
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. We will use this view shortly to enable specific connections for our client.
 
 ### Configure Callback URLs

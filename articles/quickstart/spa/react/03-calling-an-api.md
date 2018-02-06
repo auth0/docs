@@ -41,7 +41,7 @@ auth0 = new auth0.WebAuth({
 <%= include('../_includes/_calling_api_access_token') %>
 
 ::: note
-The example below shows how to add the user's access token as the `Authorization` header to HTTP calls using [**axios**](https://github.com/mzabriskie/axios). 
+The example below shows how to add the user's Access Token as the `Authorization` header to HTTP calls using [**axios**](https://github.com/mzabriskie/axios). 
 You can use any HTTP client you want.
 :::
 

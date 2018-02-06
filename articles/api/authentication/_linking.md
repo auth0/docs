@@ -37,7 +37,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 | `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`<br/><span class="label label-danger">Required</span>   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's access token |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
 
 
 ### Remarks
@@ -109,7 +109,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `access token` |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `Access Token` |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 

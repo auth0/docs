@@ -173,7 +173,7 @@ Add the following methods to the `views.py` file to extract the granted scopes f
 # auth0authorization/views.py
 
 def get_token_auth_header(request):
-    """Obtains the access token from the Authorization Header
+    """Obtains the Access Token from the Authorization Header
     """
     auth = request.META.get("HTTP_AUTHORIZATION", None)
     parts = auth.split()
@@ -182,7 +182,7 @@ def get_token_auth_header(request):
     return token
 
 def requires_scope(required_scope):
-    """Determines if the required scope is present in the access token
+    """Determines if the required scope is present in the Access Token
     Args:
         required_scope (str): The scope required to access the resource
     """
@@ -208,7 +208,7 @@ Use the decorator in the methods that require specific scopes granted. The metho
 @api_view(['GET'])
 @requires_scope('read:messages')
 def private_scoped(request):
-    return HttpResponse("All good. You're authenticated and the access token has the appropriate scope")
+    return HttpResponse("All good. You're authenticated and the Access Token has the appropriate scope")
 ```
 
 ## Add URL Mappings

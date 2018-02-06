@@ -57,7 +57,7 @@ We implemented the OAuth 2.0 Client Credentials grant which allows clients to au
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID tokens issued to your users after they authenticate in your applications. From now on, you should only use access tokens when calling APIs. ID tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 ::: note
   For more information, refer to <a href="/api-auth/tutorials/adoption/api-tokens">Calling your APIs with Auth0 tokens</a>.
@@ -67,7 +67,7 @@ Historically, protecting resources on your API has been accomplished using ID to
 
 Historically, you were able to define and request arbitrary application-specific claims. From now on, your client can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
 
-In order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
+In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
 To customize the tokens, use Hooks for Client Credentials, and Rules for the rest of the grants:
 - __Client Credentials__: [Customize Tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
@@ -127,7 +127,7 @@ Some changes were introduced in the implementation of Authorization Code grant:
 
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
-- The returned access token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - A refresh token will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -140,11 +140,11 @@ Some changes were introduced in the implementation of Implicit grant:
 
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
-- The `response_type` request parameter indicates whether we want to receive both an access token and ID token. If using `response_type=id_token`, we will return only an ID token.
+- The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
 - Refresh tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
-- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID token, the client must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
-- The returned access token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- ID tokens will be signed asymmetrically using `RS256`.
+- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the client must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
+- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- ID Tokens will be signed asymmetrically using `RS256`.
 
 ::: note
   For more information, refer to <a href="/api-auth/tutorials/adoption/implicit">Implicit grant</a>.
@@ -158,8 +158,8 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
-- The returned access token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- The ID token will be forcibly signed using `RS256` if requested by a [public client](/clients/client-types#public-clients).
+- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The ID Token will be forcibly signed using `RS256` if requested by a [public client](/clients/client-types#public-clients).
 - A refresh token will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -169,11 +169,11 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 ### Delegation
 
 [Delegation](/api/authentication#delegation) is used for many operations:
-- Exchanging an ID token issued to one client for a new one issued to a different client
-- Using a refresh token to obtain a fresh ID token
-- Exchanging an ID token for a third-party API token, such as Firebase or AWS.
+- Exchanging an ID Token issued to one client for a new one issued to a different client
+- Using a refresh token to obtain a fresh ID Token
+- Exchanging an ID Token for a third-party API token, such as Firebase or AWS.
 
-Given that [ID tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [refresh tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
+Given that [ID Tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [refresh tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
 
 At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens. In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens. This will be deprecated in future releases.
 
@@ -187,7 +187,7 @@ Native applications need to use centralized login (with Auth0-hosted login page)
 
 - [/tokeninfo](/api/authentication#get-token-info): With the new implementation, this endpoint is disabled.
 
-- [/userinfo](/api/authentication#get-user-info): Responses will conform to the OIDC specification, similar to the contents of ID tokens.
+- [/userinfo](/api/authentication#get-user-info): Responses will conform to the OIDC specification, similar to the contents of ID Tokens.
 
 - [/oauth/access_token](/api/authentication#social-with-provider-s-access-token): The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint, used on native social authentication on mobile devices (for example, use the Facebook SDK and then this endpoint to create the user in Auth0), is now disabled. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) since last year.
 
@@ -281,7 +281,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>/userinfo endpoint</strong></th>
       <td>Supported</td>
-      <td>Supported. Responses will <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">conform to the OIDC specification</a>, similar to <a href="/api-auth/tutorials/adoption/scope-custom-claims">the contents of ID tokens</a>.</td>
+      <td>Supported. Responses will <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">conform to the OIDC specification</a>, similar to <a href="/api-auth/tutorials/adoption/scope-custom-claims">the contents of ID Tokens</a>.</td>
     </tr>
     <tr>
       <th><strong>Refresh Tokens with Implicit Grant</strong></th>
@@ -317,6 +317,6 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 ::: next-steps
 * [API Authorization Index](/api-auth)
-* [Why you should use access tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should use Access Tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)
 :::

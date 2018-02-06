@@ -14,7 +14,7 @@ This article describes the claims included in the normalized user profile, as cr
 Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
 ::: note
-The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
+The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID Tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
 :::
 
 ## Normalized User Profile Schema

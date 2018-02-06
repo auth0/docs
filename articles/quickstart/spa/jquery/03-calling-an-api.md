@@ -39,13 +39,13 @@ var webAuth = new auth0.WebAuth({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-To attach the user's access token to HTTP calls as an `Authorization` header, add the header as an option to your requests.
+To attach the user's Access Token to HTTP calls as an `Authorization` header, add the header as an option to your requests.
 
 ::: note
 We recommend you implement a custom function that adds the header automatically. 
 :::
 
-Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's access token in local storage. To secure the request, attach the access token as the `Authorization` header.
+Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's Access Token in local storage. To secure the request, attach the Access Token as the `Authorization` header.
 
 ```js
 // app.js

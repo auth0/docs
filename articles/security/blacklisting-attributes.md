@@ -13,7 +13,7 @@ To blacklist attributes make a `PATCH` call to the [Update Connection](/api/mana
 
 ### Step 1. Get a token
 
-First, you need a valid access token in order to access that endpoint. The token must include the `update:connections` scope. 
+First, you need a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. 
 
 You can either get one manually from the Dashboard, or automate the process (for example, by building a simple command line tool that generates tokens). For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
@@ -47,7 +47,7 @@ Here is a sample HTTP request that blacklists two attributes: `ethnicity` and `g
 Where:
 
 - `YOUR_CONNECTION_ID` is the Id of the connection for which these attributes will be blacklisted
-- `YOUR_TOKEN` is the access token you got in the previous step
+- `YOUR_TOKEN` is the Access Token you got in the previous step
 - The `options.non_persistent_attrs` object holds an array of the attributes that will be blacklisted
 
 ## Limitations

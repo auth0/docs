@@ -7,7 +7,7 @@ beta: true
 
 # Extensibility Point: Credentials Exchange
 
-The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [access tokens](/tokens/access-token) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code) during runtime.
+The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [Access Tokens](/tokens/access-token) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code) during runtime.
 
 ::: note
 Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
@@ -84,7 +84,7 @@ The default response object every time you run this Hook is as follows:
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
@@ -105,14 +105,14 @@ Once you've modified the sample code with the specific scopes of additional clai
 
 ## Example: Add Scope to the Access Token
 
-This example shows you how to use the Hook to add an additional scope to the scopes already existing on the access token.
+This example shows you how to use the Hook to add an additional scope to the scopes already existing on the Access Token.
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {
     // Scopes to be added
     var access_token = {};
 
-    // Get the scope that's currently on the access token
+    // Get the scope that's currently on the Access Token
     // and add it to the object we're working with
     access_token.scope = scope;
 
@@ -138,7 +138,7 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 
 ## Example: Add a Claim to the Access Token
 
-This example show you have to add a namespaced claim and its value to the access token.
+This example show you have to add a namespaced claim and its value to the Access Token.
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {

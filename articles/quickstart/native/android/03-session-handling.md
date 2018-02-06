@@ -20,8 +20,8 @@ This tutorial shows you how to let users log in and maintain an active session w
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
-* `accessToken`: Access token used by the Auth0 API. To learn more, see the [access token documentation](/tokens/access-token).
-* `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID token documentation](/tokens/id-token).
+* `accessToken`: Access Token used by the Auth0 API. To learn more, see the [Access Token documentation](/tokens/access-token).
+* `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
 * `refreshToken`: Refresh token that can be used to request new tokens without signing in again. To learn more, see the [refresh token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
@@ -86,7 +86,7 @@ User credentials are stored in [Private mode](https://developer.android.com/refe
 
 ## Check for Tokens when the Application Starts
 
-To save your users the effort of logging in every time they open your app, use their access tokens. You can check for the access token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
+To save your users the effort of logging in every time they open your app, use their Access Tokens. You can check for the Access Token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
 
 
 ```java
@@ -102,9 +102,9 @@ if (accessToken == null) {
 
 ## Validate the Existing Token
 
-If the access token exists, the next step is to check if it is valid. 
+If the Access Token exists, the next step is to check if it is valid. 
 You can choose between two options: 
-* Save the time when the user receives a new pair of credentials. When you need to use the access token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
+* Save the time when the user receives a new pair of credentials. When you need to use the Access Token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
 * Call the Auth0 Authentication API and check the response.
 
 ::: note 
@@ -132,7 +132,7 @@ aClient.userInfo(accessToken)
 
 You need to decide how to deal with an invalid token. Typically, you can choose between two options: 
 * Ask the user to re-enter their credentials.
-* Use a refresh token to get a new valid access token.
+* Use a refresh token to get a new valid Access Token.
 
 ::: note
 This tutorial shows how to use a refresh token. If you want users to re-enter their credentials, clear the stored data and prompt the login screen.

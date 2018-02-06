@@ -118,7 +118,7 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a [bearer access token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
+From the above we can see that our `access_token` is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
 
 ### 2. Use the Token
 
@@ -156,7 +156,7 @@ That's it! You are done!
 
 ### Sample Implementation: Python
 
-This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
+This python script gets a Management API v2 Access Token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
 - `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
@@ -175,7 +175,7 @@ def main():
   CLIENT_SECRET = "${account.clientSecret}"
   GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
 
-  # Get an access token from Auth0
+  # Get an Access Token from Auth0
   base_url = "https://{domain}".format(domain=DOMAIN)
   data = urllib.urlencode([('client_id', CLIENT_ID),
                           ('client_secret', CLIENT_SECRET),

@@ -304,9 +304,9 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 
 | **Item** | **Description** |
 | --- | --- |
-| `accessToken` | An access token for the API, specified by the `audience` |
+| `accessToken` | An Access Token for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
-| `idToken` |  An id token JWT containing user profile information |
+| `idToken` |  An ID Token JWT containing user profile information |
 
 ```js
 webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {

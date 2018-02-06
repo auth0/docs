@@ -88,13 +88,13 @@ Add these two scopes to your API and **Save** your changes.
 
 ## Grant Access to the Auth0 API
 
-You are now ready to provide access to your APIs by granting access tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
+You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
 
 :::panel Authorization Flows
 
 The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
 
-* If you have a **Non Interactive Client**, you can authorize it to request access tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
+* If you have a **Non Interactive Client**, you can authorize it to request Access Tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
 * If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).

@@ -13,7 +13,7 @@ toc: true
 ---
 # Connect your App to Google
 
-This article describes how to add login with Google functionality to your app. It also discusses how you can get an access token in order to access the Google API.
+This article describes how to add login with Google functionality to your app. It also discusses how you can get an Access Token in order to access the Google API.
 
 First you need to connect your Auth0 client to Google. This is summarized in the following steps:
 
@@ -112,7 +112,7 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
 ## Optional: Get a Refresh Token
 
-You can also get a [refresh token](/tokens/refresh-token) from Google in order to refresh your access token, once it expires.
+You can also get a [refresh token](/tokens/refresh-token) from Google in order to refresh your Access Token, once it expires.
 
 You can do this by setting the `access_type=offline` parameter when you call the [Auth0 `/authorize` endpoint](/api/authentication#social). 
 

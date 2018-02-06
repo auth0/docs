@@ -31,7 +31,7 @@ When you use the [Authentication API](/api/authentication), you can use the [Sig
 For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 :::note
-You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID token](/rules#copy-user-metadata-to-id-token).
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID Token](/rules#copy-user-metadata-to-id-token).
 :::
 
 You can use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.

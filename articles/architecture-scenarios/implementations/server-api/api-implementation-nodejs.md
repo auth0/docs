@@ -111,7 +111,7 @@ In order to validate our token we will use the `jwt` function, provided by the [
 1. `express-jwt` will the continue its own logic to validate the signature of the token, the expiration, `audience` and the `issuer`.
 
 The steps we will follow in our code are:
-- Create the middleware function to validate the access token.
+- Create the middleware function to validate the Access Token.
 - Enable the use of the middleware in our routes.
 
 This is also a good time for you to implement the logic to save the timesheet entries to a local database, or whatever other storage mechanism you may prefer. This is our sample implementation (some code is omitted for brevity):
@@ -150,10 +150,10 @@ app.post('/timesheets/upload', checkJwt, function(req, res){
 // launch the API Server at localhost:8080 - code omitted
 ```
 
-If we launch our server now and do an HTTP POST to `localhost:8080/timesheets/upload` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an access token in our request).
+If we launch our server now and do an HTTP POST to `localhost:8080/timesheets/upload` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an Access Token in our request).
 
 In order to test the working scenario as well we need to:
-- Get an access token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
+- Get an Access Token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
 ## 3. Check the Client permissions

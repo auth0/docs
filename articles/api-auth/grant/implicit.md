@@ -55,6 +55,6 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 * [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)
 * [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
 :::

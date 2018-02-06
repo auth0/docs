@@ -6,10 +6,10 @@ toc: true
 
 ## Overview
 
-The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
+The ID Token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
 ::: warning
-Υou __must__ [verify the ID token's signature](#verify-the-signature) before storing and using it.
+Υou __must__ [verify the ID Token's signature](#verify-the-signature) before storing and using it.
 :::
 
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
@@ -28,11 +28,11 @@ The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.i
 
 - The signature is used by the recipient to verify that the sender of the JWT is who it says and to ensure that the message wasn't changed along the way.
 
-## Get an ID token
+## Get an ID Token
 
 The `id_token` can be returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, the [Authentication API](/api/authentication), or the libraries for other languages. You can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
 
-## Validate an ID token
+## Validate an ID Token
 
 In order to validate an `id_token`, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
 
@@ -63,7 +63,7 @@ Once the application verifies the token's signature, the next step is to validat
 
 - **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Client.
 
-## Control the contents of an ID token
+## Control the contents of an ID Token
 
 In order to retrieve an `id_token` the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
 
@@ -95,7 +95,7 @@ The `id_token` will contain only the claims specified as the value of the `scope
 
 ### Add Custom Claims
 
-You can add custom claims to your ID token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
+You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
 
 The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 

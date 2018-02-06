@@ -49,7 +49,7 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 ::: next-steps
 - [How to implement an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

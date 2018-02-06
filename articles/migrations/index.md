@@ -92,7 +92,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of [id tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [id tokens](/tokens/access-token), and this is available now. Applications must be updated by June 1, 2018, when the ability to use id tokens will become unavailable. Migration guides will be available by February 2018.
+We are deprecating the usage of [id tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [id tokens](/tokens/access-token), and this is available now. Applications must be updated by June 1, 2018, when the ability to use ID Tokens will become unavailable. Migration guides will be available by February 2018.
 
 #### Am I affected by the change?
 
@@ -110,7 +110,7 @@ The [userinfo](/api/authentication#get-user-info) endpoint is being updated to r
 
 #### Am I affected by the change?
 
-If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint or receiving id tokens, you are affected by this change and need to update your implementation so that it expects normalized OIDC conformant user profile attributes.
+If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint or receiving ID Tokens, you are affected by this change and need to update your implementation so that it expects normalized OIDC conformant user profile attributes.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -215,11 +215,11 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [access token](/tokens/access-token) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [Access Token](/tokens/access-token) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
 
 #### Am I affected by the change?
 
-If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an access token in your [authorize](/api/authentication#authorization-code-grant) calls.
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an Access Token in your [authorize](/api/authentication#authorization-code-grant) calls.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -275,25 +275,25 @@ If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint 
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
 :::
 
-### Identity Provider access tokens removed from user profile and id_token
+### Identity Provider Access Tokens removed from user profile and id_token
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
 | Medium | 2016-07-11 | 2016-08-18 |
 
-The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included in the user profile `identities` array.
+The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
 
-Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
+Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
 ::: note
-You will still have access to the Identity Provider access token in the `user` argument in Auth0 [rules](/rules).
+You will still have access to the Identity Provider Access Token in the `user` argument in Auth0 [rules](/rules).
 :::
 
 #### Am I affected by the change?
 
-You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
+You are affected by the change only if you are using the Identity Provider Access Token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
-For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
+For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
 ::: note
 If your tenant was created after the change, this update will be applied automatically.

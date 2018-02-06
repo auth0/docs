@@ -587,7 +587,7 @@ And if you don't want that redirect to occur (for example, you have a Single Pag
 
 ### Response configuration
 
-By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an access token. The access token can be obtained directly if you provide the `responseType: 'token'` option. In this case the access token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
+By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an Access Token. The Access Token can be obtained directly if you provide the `responseType: 'token'` option. In this case the Access Token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
 
 ```js
 var auth0 = new Auth0({
@@ -667,7 +667,7 @@ If you just want to get a new token for an addon that you've activated, you can 
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The id_token you have now
   api: 'firebase', // This defaults to the first active addon if any or you can specify this
   "scope": "openid profile"         // default: openid
 };
@@ -681,7 +681,7 @@ If you want to get the token for another API or App:
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The id_token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
   targetClientId: 'The other client id'
 };

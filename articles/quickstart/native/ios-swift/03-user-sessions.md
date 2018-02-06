@@ -33,7 +33,7 @@ You can also use `SimpleKeychain` directly, without the added benefits and conve
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
-To get a [refresh token](/refresh-token) during authentication, use the `offline_access` scope. You can use the refresh token to request a new access token when the previous one expires. 
+To get a [refresh token](/refresh-token) during authentication, use the `offline_access` scope. You can use the refresh token to request a new Access Token when the previous one expires. 
 
 First, import the `Auth0` module to the file where you want to present the hosted login page (HLP):
 
@@ -111,7 +111,7 @@ credentialsManager.clear()
 
 ## Get the User Profile
 
-To get the user's profile, you need a valid access token. You can find the token in the `credentials` object returned by the credentials manager.
+To get the user's profile, you need a valid Access Token. You can find the token in the `credentials` object returned by the credentials manager.
 
 ```swift
 // SessionManager.swift

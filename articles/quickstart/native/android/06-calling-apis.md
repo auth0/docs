@@ -35,7 +35,7 @@ Before you continue with this tutorial, make sure that you have completed the pr
 
 ## Get the User's Access Token
 
-To retrieve an access token that is authorized to access your API, you need to specify the API Identifier you created in the Auth0 dashboard before. At the top of the class add the constants for accessing the API: API_URL and API_IDENTIFIER
+To retrieve an Access Token that is authorized to access your API, you need to specify the API Identifier you created in the Auth0 dashboard before. At the top of the class add the constants for accessing the API: API_URL and API_IDENTIFIER
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -74,13 +74,13 @@ For instructions on how to authenticate a user, see the [Login](/quickstart/nati
 
 ## Attach the Token
 
-To give the authenticated user access to secured resources in your API, include the user's access token in the requests you send to the API.
+To give the authenticated user access to secured resources in your API, include the user's Access Token in the requests you send to the API.
 
 ::: note
 In this example, we use the [OkHttp](https://github.com/square/okhttp) library.
 :::
 
-Create an instance of the `OkHttpClient` client and a new `Request`. Use the provided builder to customize the Http method, the URL and the headers in the request. Set the **Authorization** header with the token type and the user's access token.
+Create an instance of the `OkHttpClient` client and a new `Request`. Use the provided builder to customize the Http method, the URL and the headers in the request. Set the **Authorization** header with the token type and the user's Access Token.
 
 ::: note
 Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
@@ -122,4 +122,4 @@ client.newCall(request).enqueue(new Callback() {
 });
 ```
 
-You need to configure your backend application to protect your API endpoints with the key for your Auth0 client, API identifier and API scopes. In this example, you can use the user's access token issued by Auth0 to call your own APIs.
+You need to configure your backend application to protect your API endpoints with the key for your Auth0 client, API identifier and API scopes. In this example, you can use the user's Access Token issued by Auth0 to call your own APIs.

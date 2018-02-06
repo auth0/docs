@@ -269,7 +269,7 @@ public class LoginActivity extends Activity {
 
 To store the credentials received after login, we’ll use the `CredentialsManager` from the Auth0.Android library and [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) for storage.
 
-Before initializing the `WebAuthProvider` in the `login()` method, we can create the `CredentialsManager`. Passing an `AuthenticationAPIClient` to the `CredentialsManager` enables it to refresh the access tokens if they are expired.
+Before initializing the `WebAuthProvider` in the `login()` method, we can create the `CredentialsManager`. Passing an `AuthenticationAPIClient` to the `CredentialsManager` enables it to refresh the Access Tokens if they are expired.
 
 ```java
 private void login() {

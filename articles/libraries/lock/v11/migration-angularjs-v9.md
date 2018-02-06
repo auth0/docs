@@ -154,7 +154,7 @@ If you are using an authentication service, you will need to make a few minor ch
     }
 
     function _setSession(authResult) {
-      // Set the time that the access token will expire
+      // Set the time that the Access Token will expire
       var expiresAt = JSON.stringify(
         authResult.expiresIn * 1000 + new Date().getTime()
       );
@@ -166,7 +166,7 @@ If you are using an authentication service, you will need to make a few minor ch
 
     function isAuthenticated() {
       // Check whether the current time is
-      // past the access token's expiry time
+      // past the Access Token's expiry time
       var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
         return new Date().getTime() < expiresAt;
     }

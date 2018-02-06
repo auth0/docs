@@ -41,7 +41,7 @@ function getProfile() {
     var accessToken = localStorage.getItem('access_token');
 
     if (!accessToken) {
-      console.log('Access token must exist to fetch profile');
+      console.log('Access Token must exist to fetch profile');
     }
 
     webAuth.client.userInfo(accessToken, function(err, profile) {

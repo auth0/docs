@@ -9,7 +9,7 @@ toc: true
 ---
 # Connect your app to Instagram
 
-This article describes how to add login with Instagram to your app. It also discusses how you can get an access token in order to access the Instagram API.
+This article describes how to add login with Instagram to your app. It also discusses how you can get an Access Token in order to access the Instagram API.
 
 First you need to connect your Auth0 client to Instagram. This is summarized in the following steps:
 
@@ -100,11 +100,11 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
 ## 8. Access Instagram API
 
-Once you successfully authenticate a user, Instagram includes an [access token](/tokens/access-token) in the user profile it returns to Auth0. 
+Once you successfully authenticate a user, Instagram includes an [Access Token](/tokens/access-token) in the user profile it returns to Auth0. 
 
 You can then use this token to call their API.
 
-In order to get a Instagram access token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the access token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
+In order to get a Instagram Access Token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the Access Token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
 
 Once you have the token you can call the API, following Instagram's documentation.
 

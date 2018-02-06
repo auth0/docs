@@ -152,7 +152,7 @@ The destination URL must be on the`Allowed Logout URLs` list. Read more about re
 
 To allow users to link accounts from different providers, read the [Linking User Accounts](/link-accounts) article.
 
-To link accounts, you need the logged-in user's access token. You can get it from:
+To link accounts, you need the logged-in user's Access Token. You can get it from:
 
 ```
 ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
@@ -160,7 +160,7 @@ ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 
 ### Flow the user's identity to a WCF service
 
-If you want to flow the logged-in user's identity to a WCF service or an API, use the `responseType: 'token'` parameter on the login widget constructor. When the parameter is sent, Auth0 generates an ID token. You can send the ID token to your service or use it to generate an `ActAs` token. The ID token is a [JSON Web Token](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06).
+If you want to flow the logged-in user's identity to a WCF service or an API, use the `responseType: 'token'` parameter on the login widget constructor. When the parameter is sent, Auth0 generates an ID Token. You can send the ID Token to your service or use it to generate an `ActAs` token. The ID Token is a [JSON Web Token](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06).
 
 ### Manage the dev, test and production environments
 

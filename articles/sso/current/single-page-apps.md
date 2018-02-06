@@ -86,7 +86,7 @@ Regardless of which outcome occurs, the sample app's [`postMessage()` function](
 
 Users of the `Auth0.js` library have access to [the `checkSession()` method](/libraries/auth0js#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
-This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's access token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
+This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's Access Token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
 ```js
 auth0.checkSession({
@@ -99,7 +99,7 @@ auth0.checkSession({
 
 ## Run the Sample Application
 
-When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
+When you run the sample app for the first time, you will not have a valid Access Token. As such, the SSO login process errors when attempting silent authentication.
 
 ![Prompt to begin silent authentication](/media/articles/sso/v2/spa/begin-silent-auth.png)
 
@@ -138,7 +138,7 @@ $(function () {
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
-  // Use the access token to make API calls
+  // Use the Access Token to make API calls
   // ...
 });
 ```
@@ -153,7 +153,7 @@ At this point, the app silently authenticates you, gets the new token, and updat
 
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
-If your access tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
+If your Access Tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
 
 ## Single Logout
 

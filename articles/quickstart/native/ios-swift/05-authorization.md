@@ -55,7 +55,7 @@ The rule is checked every time a user attempts to authenticate.
 * If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
 * If the email contains anything else, the user gets the regular user role.
 
-The claim is saved in the ID token under the name `https://access.control/roles`. 
+The claim is saved in the ID Token under the name `https://access.control/roles`. 
 
 ::: note
 Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).
@@ -63,7 +63,7 @@ Depending on your needs, you can define roles other than admin and user. Read ab
 
 ## Test the Rule in Your Project
 
-The claim with the roles you set is stored in the user's ID token. It is a [JSON Web Token (JWT)](/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library. 
+The claim with the roles you set is stored in the user's ID Token. It is a [JSON Web Token (JWT)](/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library. 
 
 ```swift
 import JWTDecode

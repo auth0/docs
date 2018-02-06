@@ -50,7 +50,7 @@ userProfile;
 getAccessToken() {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
-      throw new Error('No access token found');
+      throw new Error('No Access Token found');
     }
     return accessToken;
   }

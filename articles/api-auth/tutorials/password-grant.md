@@ -140,6 +140,6 @@ When using this flow from server-side applications, some anomaly detection featu
 ::: next-steps
 * [Call APIs from Highly Trusted Clients](/api-auth/grant/password)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)
 :::

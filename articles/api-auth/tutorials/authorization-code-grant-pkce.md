@@ -250,7 +250,7 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 ## Keep reading
 
 ::: next-steps
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)

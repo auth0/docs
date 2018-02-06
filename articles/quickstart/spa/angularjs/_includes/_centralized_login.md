@@ -123,9 +123,9 @@ Add more methods to the `authService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js
-* `setSession`: sets the user's access token and ID token, and the access token's expiry time 
+* `setSession`: sets the user's Access Token and ID Token, and the Access Token's expiry time 
 * `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
 
 ```js
 // app/auth/auth.service.js
@@ -158,7 +158,7 @@ The example below shows the following methods:
     }
 
     function setSession(authResult) {
-      // Set the time that the access token will expire at
+      // Set the time that the Access Token will expire at
       let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
@@ -174,7 +174,7 @@ The example below shows the following methods:
     
     function isAuthenticated() {
       // Check whether the current time is past the 
-      // access token's expiry time
+      // Access Token's expiry time
       let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
       return new Date().getTime() < expiresAt;
     }

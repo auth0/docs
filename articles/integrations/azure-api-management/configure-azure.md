@@ -97,9 +97,9 @@ Set the following parameters:
 | Authorization code grant types | The grant type used for authorization. Select `authorization code` |
 | Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/api-auth/tutorials/authorization-code-grant#1-get-the-user-s-authorization) |
 | Authorization request method | The HTTP method used by Azure to make the authorization request. By default, this is `GET` |
-| Token endpoint URL | The endpoint used to exchange authorization grants for access tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
+| Token endpoint URL | The endpoint used to exchange authorization grants for Access Tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
 | Client authentication methods | Method used to authenticate the client; Auth0's is `BASIC` |
-| Access token sending method | The location of the access token in the sending method (typically the **Authorization header**) |
+| Access Token sending method | The location of the Access Token in the sending method (typically the **Authorization header**) |
 | Default scope | Specify a default scope (if necessary) |
 
 Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Client we previously registered](/integrations/azure-api-management/configure-auth0#step-1-create-an-api-and-non-interactive-client). You can find both values in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
@@ -164,7 +164,7 @@ At this point, you'll see the Auth0 login widget in a popup window (if you don't
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/dev-portal-auth.png)
 
-If you were able to successfully sign in, you'll see a message appear with the expiration date of the access token you need to call the API.
+If you were able to successfully sign in, you'll see a message appear with the expiration date of the Access Token you need to call the API.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/dev-portal-token.png)
 

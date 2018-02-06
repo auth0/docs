@@ -105,7 +105,7 @@ You will need to store the above credentials in local storage for use in calling
 
 ### Get the User Profile
 
-To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/id-token#verify-the-signature) and [validating the claims](/tokens/id-token#validate-the-claims) of the token. After validating the ID token, you can access its payload containing the user information:
+To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/id-token#verify-the-signature) and [validating the claims](/tokens/id-token#validate-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
 
 ```json
 {
