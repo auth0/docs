@@ -10,7 +10,7 @@ There's a lot of confusion between **OpenID Connect** and **OAuth 2.0**, especia
 
 This article includes:
 
-* A high level overview of each protocol;
+* A high-level overview of each protocol;
 * Information about the tokens issued by each protocol;
 * Suggestions on when you should use which protocol
 
@@ -31,9 +31,9 @@ OpenID Connect builds on OAuth 2.0. It enables you, as the user, to verify your 
 
 ### An example of how OpenID Connect and OAuth 2.0 are used
 
-For example, let's say that you use a to-do application that allows you to log in using your Google credentials. You are asked to provide permission for the to-do app to read and write to your Google Calendar. Then, with this app, you can push to-do items, such as calendar entries, to you Google Calendar.
+For example, let's say that you use a to-do application that allows you to log in using your Google credentials. You are asked to provide permission for the to-do app to read and write to your Google Calendar. Then, with this app, you can push to-do items, such as calendar entries, to your Google Calendar.
 
-The portion of the login process where you "prove" your identity is implemented using OpenID Connect, while the portion of the login process where you authorize the to-do application to modify your Google Calendar by adding entries is implemented using OAuth 2.0. 
+The portion of the login process where you "prove" your identity is implemented using OpenID Connect, while the part of the login process where you authorize the to-do application to modify your Google Calendar by adding entries is implemented using OAuth 2.0. 
 
 ### The role of tokens
 
@@ -41,7 +41,7 @@ You may have noticed that we've used the phrase **without sharing your credentia
 
 Essentially, the two protocols operate by sharing **tokens**. Tokens are items that possess sufficient information about what you can do or who you are while not being overtly explicit and identifying.
 
-OpenID Connect issues what's called an **id token**, while OAuth 2.0 issues an **access token**.
+OpenID Connect issues what's called an **ID token**, while OAuth 2.0 issues an **access token**.
 
 ## How to use tokens
 
