@@ -28,7 +28,7 @@ OpenID Connect builds on OAuth 2.0. It enables you, as the user, to **verify you
 
 ### An example of how OpenID Connect and OAuth 2.0 are used
 
-For example, let's say that you use a to-do application that allows you to log in using your Google credentials. You are asked to provide permission for the to-do app to read and write to your Google Calendar. Then, with this app, you can push to-do items, such as calendar entries, to your Google Calendar.
+Let's say that you use a to-do application that allows you to log in using your Google credentials. You are asked to provide permission for the to-do app to read and write to your Google Calendar. Then, with this app, you can push to-do items, such as calendar entries, to your Google Calendar.
 
 The portion of the login process where you "prove" your identity is implemented using OpenID Connect, while the part of the login process where you authorize the to-do application to modify your Google Calendar by adding entries is implemented using OAuth 2.0. 
 
