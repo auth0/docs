@@ -166,7 +166,14 @@ var passwordlessOptions = {
 ```js
 var passwordlessOptions = {
   allowedConnections: ['email'],
-  passwordlessMethod: 'code'
+  passwordlessMethod: 'code',
+  auth: {
+    redirectUrl: 'http://localhost:3000/callback',   
+    responseType = 'token id_token'
+    params: {
+      scope: 'openid email'               
+    }          
+  }
 }
 
 var lockPasswordless = new Auth0LockPasswordless(
