@@ -24,3 +24,20 @@ http://localhost:8080/callback
 <%= include('../_includes/_install_auth0js') %>
 
 <%= include('_includes/_centralized_login') %>
+
+If you are creating a mixin, move the below to the data() function, instead of created()
+```
+this.auth0 = new auth0.WebAuth({
+      domain: 'USER.auth0.com',
+      clientID: 'CLIENTID',
+      redirectUri: 'http://localhost:3000/callback',
+      audience: 'https://USER.auth0.com/userinfo',
+      responseType: 'token id_token',
+      scope: 'openid'
+    })
+    // console.log(this.auth0)
+    this.authNotifier = new EventEmitter()
+    this.authNotifier.on('authChange', authState => {
+      this.authed = authState.authenticated
+    })
+```
