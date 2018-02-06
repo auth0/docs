@@ -1,11 +1,11 @@
-### Default Values
+### Default values
 
 Lock 11 will default the [scope](/scopes) parameter to `'openid profile email'`. This is to make the **Last time you logged in with** window work correctly.
 
-If you don't specify that scope when initializing Lock, and you are running your website from `http://localhost` or `http://127.0.0.1`, you will get the following error in the browser console:
+If you are running your website from `http://localhost` or `http://127.0.0.1` and you do not specify the `openid profile email` scope when initializing Lock, you may get the following error in the browser console:
 
 ```text
 Consent required. When using `getSSOData`, the user has to be authenticated with the following scope: `openid profile email`
 ```
 
-That will not happen when you run your application in production or if you specify the required [scope](/scopes). You can read more about this in the [User consent and third-party clients document](/api-auth/user-consent#skipping-consent-for-first-party-clients).
+This will not happen when you run your application in production, or if you specify the required [scope](/scopes). You can read more about this scenario in the documentation on [skipping consent for first-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients).

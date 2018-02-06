@@ -5,31 +5,15 @@ description: How to migrate to Lock v11
 ---
 # Migrating to Lock v11
 
-[Lock v11](/libraries/lock) is designed for [embedded login scenarios](/guides/login/centralized-vs-embedded). It operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
-
-::: warning
-If you are using Lock to implement login embedded in your applications, we recommend [moving to a centralized login approach](/guides/login/migration-embedded-centralized), as it is the [most secure, powerful and flexible approach for authentication](/guides/login/centralized-vs-embedded).
-:::
+[Lock v11](/libraries/lock) operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
 
 ## Should I migrate to v11?
 
-Lock can be used to implement authentication in two ways:
-
-- In your application, to implement embedded login.
-- In the [Hosted Login Page](/hosted-pages/login), where you can use the configure Lock to behave in the way you need. 
-
-Migration to v11 will depend on how you are using Lock:
-
-| **Scenario** | **Migration to v11** | 
-| --- | --- | 
-| In your application, to implement embedded login | Required |
-| In a customized Hosted Login Page | Recommended |
-
-Even if previous versions of Lock will still work when used in the customized Hosted Login Page, it is a good practice to always migrate to the latest version of Lock.
+Everyone should migrate to v11. All previous versions are deprecated as of April 1, 2018, and will at some point cease to work after this date. For clients who use Lock within an Auth0 login page, this migration is recommended; for client applications with Lock embedded within them, this migration is mandatory.
 
 ## Migration instructions
 
-The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through them before upgrading.
+The documents below describe all the changes that you should be aware of when migrating from different versions of Lock. Make sure you go through the relevant guide(s) before upgrading.
 
 [Migrating from the lock-passwordless widget](/libraries/lock/v11/migration-lock-passwordless)
 

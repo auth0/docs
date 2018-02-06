@@ -44,16 +44,13 @@ This table is a summary of the endpoint migrations for the first part of 2018. S
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-04-01 |
 
-We’re continually improving the security of our service. As part of this, we are deprecating a set of APIs (/usernamepassword/login, /ssodata, [tokeninfo](/api/authentication/reference#get-token-info), [/delegation](/api/authentication#delegation)) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
+We are continually improving the security of our service. As part of this, we are deprecating a set of APIs (/usernamepassword/login, /ssodata, [tokeninfo](/api/authentication/reference#get-token-info), [/delegation](/api/authentication#delegation)) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. You should update your applications by **April 1, 2018**.
 
-We are offering two options for this update:
-
-1. We are moving towards a centralized login experience and are recommending this option moving forward. There are many benefits of using a centralized login experience, [read more about how Centralized Login works](/hosted-pages/login). Moving to the centralized login experience is straightforward and will simplify your code base. Read [this guide comparing centralized and embedded login](/guides/login/centralized-vs-embedded) to learn more about the differences between the two. If you choose to use centralized login, you will continue to use Lock 10 or Auth0.js v8 inside your Auth0 login page, as the new versions are designed for embedded scenarios.
-1. If you decide you need to continue using embedded login, here are the migration guides for [Auth0.js](/libraries/auth0js/v9/migration-guide) and [Lock](/libraries/lock/v11/migration-guide).
+Here are the migration guides for [Auth0.js](/libraries/auth0js/v9/migration-guide) and for [Lock](/libraries/lock/v11/migration-guide).
 
 #### Am I affected by the change?
 
-If you are currently implementing embedded login in your application with Lock v9 or v10, or Auth0.js v7 or v8, you will be affected by these changes.
+If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you will be affected by these changes. We **recommend** that applications using [universal login](/hosted-pages/login) update, as customized login pages may or may not need to be updated. However, those who are using Lock or Auth0.js embedded within their applications, however, are **required** to update, and applications which still use deprecated versions may cease to work at some point after the deadline.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 

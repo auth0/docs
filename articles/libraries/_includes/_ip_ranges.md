@@ -1,4 +1,4 @@
-### Single Sign On Using IP Ranges
+### Single sign on using IP ranges
 
 In earlier versions of Lock, you could configure an IP range in an Active Directory/LDAP connection. You could then use that range to allow integrated Windows Authentication if the user's IP was within the range. When this was true, Lock would display a button enabling SSO for that user as shown below.
 
