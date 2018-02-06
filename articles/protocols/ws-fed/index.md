@@ -9,15 +9,11 @@ WS-Federation (which is short for Web Services Federation) is a protocol that ca
 
 By registering your application as a [client](/client) in Auth0, it will automatically be assigned a WS-Fed endpoint of the form:
 
-::: note
-You can find all available options for configuring WS-Federation under the [advanced settings](${manage_url}/#/clients/${account.clientId}/settings) area for your client.
-:::
-
-All registered apps in Auth0 get a WS-Fed endpoint of the form:
-
 ```text
 https://${account.namespace}/wsfed/${account.clientId}
 ```
+
+You can find all available options for configuring WS-Federation under the [advanced settings](${manage_url}/#/clients/${account.clientId}/settings) area for your client.
 
 ![WS-Fed Endpoints](/media/articles/protocols/ws-fed-endpoints.png)
 
