@@ -8,7 +8,7 @@ description: Explains the differences between Access Token and ID Token and why 
 
 There's a lot of confusion between **OpenID Connect** and **OAuth 2.0**, especially when it comes to determining which option is the best for a particular use case. As such, many developers publish insecure applications that compromise their users' data.
 
-This article includes:
+To help you make an informed decision on which protocol best fits your use case, this article includes:
 
 * A high-level overview of each protocol;
 * Information about the tokens issued by each protocol;
