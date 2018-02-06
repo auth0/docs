@@ -173,19 +173,21 @@ Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#log
 
 ## SAML Logout
 
-To logout users from an external SAML identity provider, you must configure a [SAML logout URL](/saml-sp-generic#1-obtain-information-from-idp) in the SAML connection settings.
+SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have a client with the SAML2 Web App addon).
 
-If you don't configure a logout URL, Auth0 will use the __SAML login URL__.
+### Logout for Auth0 as SAML Service Provider
 
-To log out a user from both Auth0 and their SAML identity provider, they must be redirected to the [logout endpoint](/api/authentication?javascript#logout) with a URL that includes the `federated` querystring parameter as [described above](#log-out-a-user).
+To logout users from an external SAML identity provider, you must configure a [SAML logout URL](/saml-sp-generic#1-obtain-information-from-idp) in the SAML connection settings. If you don't configure a logout URL, Auth0 will use the __SAML login URL__.
 
-The external SAML identity provider will need to know where to send SAML logout responses. The __SingleLogout service URL__ that will consume this response is the following:
+Auth0 will initiate a logout by sending a SAML logout request to the external identity provider if the `federated` query string parameter is included when redirecting the user to the [logout endpoint](/api/authentication?javascript#logout) as [described above](#log-out-a-user).
+
+The external SAML identity provider will need to know where to send SAML logout requests (if initiating the logout) and responses. The __SingleLogout service URL__ that will consume this SAML messages is the following:
 
 ```text
-https://${account.namespace}/v2/logout
+https://${account.namespace}/logout
 ```
 
-When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings.
+When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings with the above URL.
 
 * The first is the **SAML Request Binding** (also known as the **Protocol Binding**), which is used for the transaction from Auth0 to the IdP. If the IdP provides a choice, select `HTTP-Redirect`.
 * The second is the **SAML Response Binding**, which is used for transactions from the IdP to Auth0. It indicates to Auth0 what protocol the IdP will use to respond. If the IdP provides a choice, indicate that `HTTP-POST ` should be used for Authentication Assertions.
