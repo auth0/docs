@@ -19,7 +19,6 @@ We'll wrap things up with a discussion of why you should always secure an API wi
 ## Two complementary specifications
 
 ::: note
-**TL;DR**
 OpenID Connect tells you who somebody is. OAuth 2.0 tells you what somebody is allowed to do.
 :::
 
