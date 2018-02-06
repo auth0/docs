@@ -23,11 +23,9 @@ We'll wrap things up with a discussion of why you should always secure an API wi
 OpenID Connect tells you who somebody is. OAuth 2.0 tells you what somebody is allowed to do.
 :::
 
-OAuth 2.0 is used to __grant authorization__. It allows you to authorize Web App A access to your information from Web App B without requiring you to share your credentials.
+OAuth 2.0 is used to __grant authorization__. It allows you to authorize Web App A access to your information from Web App B without requiring you to share your credentials. OAuth 2.0 was built with _only_ authorization in mind and doesn't include any authentication mechanisms. In other words, OAuth 2.0 doesn't give the Authorization Server any way of verifying who the user is.
 
-OAuth 2.0 was built with _only_ authorization in mind and doesn't include any authentication mechanisms. In other words, OAuth 2.0 doesn't give the Authorization Server any way of verifying who the user is.
-
-OpenID Connect builds on OAuth 2.0. It enables you, as the user, to verify your identity and to give some basic profile information without sharing your credentials.
+OpenID Connect builds on OAuth 2.0. It enables you, as the user, to **verify your identity** and to give some basic profile information without sharing your credentials.
 
 ### An example of how OpenID Connect and OAuth 2.0 are used
 
