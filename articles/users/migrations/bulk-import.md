@@ -69,7 +69,7 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 * `_id`
 
 ::: note
-The `app_metadata` store information, that can impact how an application functions or what the user can access (for example, a user's support plan or roles and access groups). For more information, refer to [User Metadata](/metadata).
+The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or roles and access groups). For more information, refer to [User Metadata](/metadata).
 :::
 
 ### File example
@@ -132,7 +132,7 @@ Once the job finishes, whether it failed or was successful, the owner of the Aut
 
 ### Query for Job Status
 
-You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is a error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). 
+You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is an error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). 
 
 Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
