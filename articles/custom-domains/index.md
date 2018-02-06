@@ -192,6 +192,19 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
 
 ## Troubleshooting
 
+If you're seeing errors, refer to the following troubleshooting steps.
+
 ### Custom Domain is still pending verification
 
-Make sure that the CNAME record is properly configured in your domain management service. You can confirm this by using a tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx), [Google](https://dns.google.com), or the `dig` command in your terminal. Please take into consideration that it can take up to 48 hours for the DNS to be propagated.
+If you continue to see this error in the Dashboard, make sure that the CNAME record is properly configured in your domain management service.
+
+You can confirm the configuration of your CNAME record using:
+
+* A tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx) or [Google](https://dns.google.com)
+* The `dig` command in your terminal
+
+Please remember that it can take up to 48 hours for the DNS to be propagated.
+
+### CNAME flattening
+
+Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
