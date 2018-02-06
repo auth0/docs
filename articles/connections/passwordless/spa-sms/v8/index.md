@@ -21,20 +21,13 @@ description: Learn how to authenticate users with a one-time-code using SMS in a
 You can then trigger the login widget with the following code:
 
 ```html
-<script src="${lock_url}"></script>
+<script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
-  function login() {
-    // Open the lock in Email Code mode with the ability to handle
-    // the authentication in page
-      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-        autoclose: true,
-        allowedConnections: ['sms']        
-        }
-      });
-
-      lock.on('authenticated', function(authResult) {
-          localStorage.setItem('id_token', authResult.idToken);
-      });
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Magic Link mode
+    lock.magiclink();
   }
 </script>
 <a href="javascript:login()">Login</a>

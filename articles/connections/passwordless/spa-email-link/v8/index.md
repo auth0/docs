@@ -20,18 +20,15 @@ title: Using Passwordless Authentication with a Magic Link via email on SPA
 Then you can trigger the passwordless authentication using a magic link with the following code:
 
 ```html
-<script src="${lock_url}"></script>
+<script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
   function login(){
-     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
-      passwordlessMethod: "link",              // Sets Lock to use magic link
-      auth: {
-        redirectUrl: '${account.callback}'        
-      });
-
-    lock.show();
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Magic Link mode
+    lock.magiclink();
+  }
 </script>
-
 <a href="javascript:login()">Login</a>
 ```
 
