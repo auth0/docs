@@ -176,6 +176,8 @@ var lockPasswordless = new Auth0LockPasswordless(
 );
 ```
 
+<%= include('../../_includes/_embedded_sso') %>
+
 ## Browser Compatibility
 
 Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.

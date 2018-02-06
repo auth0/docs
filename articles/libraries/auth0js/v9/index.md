@@ -221,6 +221,8 @@ var url = webAuth.client.buildAuthorizeUrl({
 If you don't specify a `state` parameter, auth0.js will automatically add one. This parameter helps prevent CSRF attacks.
 :::
 
+<%= include('../../_includes/_embedded_sso') %>
+
 ## Passwordless Login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
