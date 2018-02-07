@@ -5,7 +5,7 @@ title: Passwordless Authentication in Native Applications with Universal Login
 
 [Universal Login](/hosted-pages/login) is the only recommended way to set up passwordless authentication in your native application. We recommend using the Auth0 login page for the best experience, security and the fullest array of features.
 
-Once you are done with this guide, the process should be that a user runs across a need to authenticate in your application and the Auth0 SDK redirects them to the login page on the web. At that point, Lock Passwordless will ask them for a phone number or email, whichever type you chose, which they will give, and the prompt will change to ask them for a code which they will receive by the designated metho. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
+Once you are done with this guide, the process should be that a user runs across a need to authenticate in your application and the Auth0 SDK redirects them to the login page on the web. At that point, Lock Passwordless will ask them for a phone number or email, whichever type you chose, which they will give, and the prompt will change to ask them for a code which they will receive by the designated method. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
 
 Implementing passwordless in the login page involves just a few steps.
 
