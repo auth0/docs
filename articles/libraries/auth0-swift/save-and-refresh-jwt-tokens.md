@@ -5,7 +5,7 @@ description: Keeping your user logged in with Auth0.swift
 
 # Auth0.swift Saving and Renewing Tokens
 
-When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new user token, without asking for credentials again.
+When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new user token, without asking for credentials again.
 
 ## Credentials Manager
 

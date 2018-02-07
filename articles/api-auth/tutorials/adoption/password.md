@@ -32,7 +32,7 @@ Content-Type: application/json
   "device": "my-device-name"
 }</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -82,7 +82,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="response-oidc" class="tab-pane">
@@ -100,7 +100,7 @@ Pragma: no-cache
     <ul>
         <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
         <li>The ID Token will be forcibly signed using RS256 if requested by a <a href="/clients/client-types#public-clients">public client</a>.</li>
-        <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
+        <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
     </div>
   </div>

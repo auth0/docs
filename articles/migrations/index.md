@@ -239,7 +239,7 @@ You could be impacted if you are currently using these exchanges and have Rules 
 
 You can add logic to your rules to alter their behavior for these exchanges by checking the `context.protocol` property:
 - `oauth2-password` indicates the password (and password-realm) exchange
-- `oauth2-refresh-token` indicates the refresh token exchange
+- `oauth2-refresh-token` indicates the Refresh Token exchange
 
 If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 

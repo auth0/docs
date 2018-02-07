@@ -28,7 +28,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com/callback
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -100,7 +100,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="exchange-oidc" class="tab-pane">
@@ -117,7 +117,7 @@ Pragma: no-cache
 }</code></pre>
         <ul>
             <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
-            <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
+            <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
         </ul>
     </div>
   </div>

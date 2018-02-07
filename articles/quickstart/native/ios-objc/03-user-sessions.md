@@ -132,21 +132,21 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain clearAll];
 ```
 
-The rest of this tutorial shows you how to use a refresh token to obtain a new Access Token. 
+The rest of this tutorial shows you how to use a Refresh Token to obtain a new Access Token. 
 
-The refresh token is a token string stored in the `Credentials` object after a successful login. The refresh token doesn't expire. 
+The Refresh Token is a token string stored in the `Credentials` object after a successful login. The Refresh Token doesn't expire. 
 
 ::: note
-Even though the refresh token cannot expire, it can be revoked. For more information, read the [refresh token documentation](/refresh-token) before you proceed with this tutorial.
+Even though the Refresh Token cannot expire, it can be revoked. For more information, read the [Refresh Token documentation](/refresh-token) before you proceed with this tutorial.
 :::
 
-### Store the refresh token
+### Store the Refresh Token
 
 ::: note 
-If you do not send `offline_access` as a scope during authentication, the refresh token will be `nil`.
+If you do not send `offline_access` as a scope during authentication, the Refresh Token will be `nil`.
 :::
 
-To get a new Access Token, you need to first save the refresh token after the user logs in. Go to the section where you're saving the Access Token and update it as follows: 
+To get a new Access Token, you need to first save the Refresh Token after the user logs in. Go to the section where you're saving the Access Token and update it as follows: 
 
 ```objc
 // HomeViewController.m
@@ -169,9 +169,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
    }];
 ```
 
-### Use the refresh token to obtain a new Access Token
+### Use the Refresh Token to obtain a new Access Token
 
-Now, you can use the saved refresh token to obtain a new Access Token:
+Now, you can use the saved Refresh Token to obtain a new Access Token:
 
 ```objc
 // HomeViewController.m

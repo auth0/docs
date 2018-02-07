@@ -691,7 +691,7 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 });
 ```
 
-### Refresh token
+### Refresh Token
 
 If you want to refresh your existing (not expired) token, you can just do the following:
 
