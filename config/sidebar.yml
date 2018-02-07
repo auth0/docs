@@ -490,6 +490,13 @@ articles:
       - title: "Overview"
         url: "/addons"
 
+  - title: "Auth0 Migrations"
+    url: "/migrations"
+    children:
+
+      - title: "Past Migrations"
+        url: "/migrations/past-migrations"
+        
   - title: "Support"
     url: "/support"
     children:
