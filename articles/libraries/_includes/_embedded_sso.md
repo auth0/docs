@@ -1,3 +1,3 @@
 ### SSO with embedded authentication
 
-Single sign-on is able to be achieved with embedded login scenarios, but only in some cases, and with limitations. For this reason, Auth0's recommendation is that any client applications which require SSO, especially between multiple domains or with third-party applications, should use [universal login](/hosted-pages/login) rather than embedded login.
+Embedded login scenarios are not able to reliably provide SSO, because of a variety of factors (such as types of clients, differing browsers, differing domains, and others). For this reason, Auth0's recommendation is that any client applications which **require** SSO should use [universal login](/hosted-pages/login) rather than embedded login.
