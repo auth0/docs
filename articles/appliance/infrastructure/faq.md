@@ -34,3 +34,33 @@ For Auth0 PSaaS Appliance updates, we can provide you with specific addresses th
 ## Can I use Lock with my PSaaS Appliance implementation?
 
 Yes, you can use Lock with your PSaaS Appliance implementation. However, if you choose to operate the PSaaS Appliance in an Internet-restricted environment, you will *not* be able to use Lock, since you won't be able to access the CDN that hosts Lock.
+
+## How is the Auth0 software installed? 
+
+The PSaaS Appliance is a managed service that is deployed as [virtual machine images or templates](/appliance/infrastructure/virtual-machines) and runs on your network, so there is no traditional software installation involved.
+
+Deployment of each PSaaS Appliance node is a manual process that must be performed by Auth0 Managed Service Engineers.
+
+## Can the PSaaS Appliance deployment be automated through Chef scripts?
+
+Deployment of each PSaaS Appliance node is a manual process that must be performed by Auth0 Managed Service Engineers. 
+
+While the images could be deployed via automation, configuration of the Appliance requires the services of an Auth0 Managed Service Engineer.
+
+## Can we deploy the PSaaS Appliance using Docker?
+
+No, the Auth0 services cannot be deployed using Docker containers.
+
+## Does the PSaaS Appliance environment autoscale (that is, does it automatically spin up new nodes or remove nodes as load and demand requires)?
+
+While the PSaaS Appliance can scale out its service layer, it is not currently designed to automatically scale up (or down) from the number of initial nodes deployed. 
+
+Auth0 will work with you during the Sales/Onboarding process to ensure you are deploying the appropriate PSaaS Appliance architecture for your use case.
+
+Our Professional Services team offers [Performance and Scalability](https://auth0.com/docs/services/performance-scalability) engagements to performance test and subsequently tune the PSaaS Appliance to your specific requirements.
+
+## We occasionally tear-down and rebuild environments, and we maintain our data by backing it up first. Is this a problem?
+
+The Auth0 Appliance is not designed to be torn down and rebuilt easily, and such actions always requires Auth0 involvement. We therefore ask that you not tear down the environment on purpose.
+
+To assist in the rebuilding of the environment, we would need to have an active Professional Services engagement in place with you, unless there has been a disaster situation.
