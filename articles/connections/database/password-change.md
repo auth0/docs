@@ -10,7 +10,7 @@ This information applies to those using **Change Password flow v2**. If you are 
 
 To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
+We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
 :::
 
 You can change your users' passwords using one of the following methods.
@@ -98,7 +98,7 @@ They would then enter their email address:
 :::panel-warning Notice
 If you are using Lock version 8, the user will be asked, immediately after clicking the **Don't remember your password?** link on the Lock screen, to provide their email address and their new password. The user would then confirm this action via email.
 
-However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later to utilize a more secure flow. To learn more about migrating Lock, see [Vulnerable Password Flow](/migrations#vulnerable-password-flow).
+However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later to utilize a more secure flow. To learn more about migrating Lock, see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow).
 :::
 
 The user will then receive an email containing a link to reset the password:
