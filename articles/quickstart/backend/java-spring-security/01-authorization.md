@@ -87,15 +87,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## Configure the Protected Endpoints
 
-The example below shows how to implement API methods.
+The example below shows how to implement secure API methods.
 
 In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
 
-The routes shown below are available for the following requests:
-
-- `GET /api/public`: available for non-authenticated requests
-- `GET /api/private`: available for authenticated requests containing an access token with no additional scopes
-- `GET /api/private-scoped`: available for authenticated requests containing an access token with the `read:messages` scope granted
+<%= include('../_includes/_api_endpoints') %>
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
