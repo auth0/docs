@@ -67,11 +67,11 @@
     - title: "Architecture Scenarios"
       url: /architecture-scenarios
       
-    - title: "Tokens"
+    - title: "Tokens used by Auth0"
       url: "/tokens"
 
-    - title: "JWT"
-      url: "/jwt"
+    - title: "Migration Guides"
+      url: "/migrations"
 
 
 - id: "apis"
