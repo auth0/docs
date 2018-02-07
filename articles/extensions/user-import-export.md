@@ -12,7 +12,7 @@ The User Import / Export extension is available in the PSaaS Appliance beginning
 The **User Import / Export Extension** allows you to:
 
 * Bulk import your existing database users into Auth0
-* Search for and export some (or all) of you Auth0 database users
+* Search for and export some (or all) of your Auth0 database users
 
 You must be a Dashboard Admin to use this extension.
 
