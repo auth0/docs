@@ -51,7 +51,7 @@ When you create a client in the [Dashboard](${manage_url}/#/clients), the first 
 
 Each client is assigned a **Client ID** upon creation. This is an alphanumeric string and it's the unique identifier for your client (such as `q8fij2iug0CmgPLfTfG1tZGdTQyGaTUA`). It cannot be modified and you will be using it in your application's code when you call Auth0 APIs.
 
-Another important piece of information is the **Client Secret**. Think of it as your client's password which **must be kept confidential at all times**. If anyone gains access your Client Secret they can impersonate your application and access protected resources.
+Another important piece of information is the **Client Secret**. Think of it as your client's password which **must be kept confidential at all times**. If anyone gains access to your Client Secret they can impersonate your application and access protected resources.
 
 In our example, `ExampleCo` has two apps: a web app (running on a server) and a mobile app. Hence, they would create two clients: one of type `Regular Web Applications`, and one of type `Native`.
 
