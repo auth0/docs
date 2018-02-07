@@ -92,7 +92,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of [id tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [id tokens](/tokens/access-token), and this is available now. Applications must be updated by June 1, 2018, when the ability to use ID Tokens will become unavailable. Migration guides will be available by February 2018.
+We are deprecating the usage of [ID Tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [Management APIv2 Tokens](/api/management/v2/tokens). This is available now. Applications must be updated by June 1, 2018, when the ability to use ID Tokens will become unavailable. Migration guides will be available by February 2018.
 
 #### Am I affected by the change?
 
