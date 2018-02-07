@@ -37,7 +37,7 @@ Yes, you can use Lock with your PSaaS Appliance implementation. However, if you 
 
 #### How is the Auth0 software installed? 
 
-The PSaaS Appliance is a managed service that is deployed as [virtual machine images or templates](/appliance/infrastructure/virtual-machines) and runs on your network, so there is no traditional software installation involved.
+The PSaaS Appliance is a managed service that is deployed as [virtual machines](/appliance/infrastructure/virtual-machines) and runs on your network, so there is no traditional software installation involved.
 
 Deployment of each PSaaS Appliance node is a manual process that must be performed by Auth0 Managed Service Engineers.
 
