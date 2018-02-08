@@ -28,4 +28,5 @@ For more information on the Login by Auth0 WordPress Plugin, follow these links.
 * [Configuration](/cms/wordpress/configuration)
 * [JWT Authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshoot](/cms/wordpress/troubleshoot)
+* [Extending](/cms/wordpress/extending)
 :::
