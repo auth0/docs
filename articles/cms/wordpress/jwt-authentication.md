@@ -53,3 +53,15 @@ Vydcvl6gpWNeUE
 
 - [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
 - [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
+
+## Keep Reading
+
+For more information on the Login by Auth0 WordPress Plugin, follow these links.
+
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Installation](/cms/wordpress/installation)
+* [Configuration](/cms/wordpress/configuration)
+* [Troubleshoot](/cms/wordpress/troubleshoot)
+* [Extending](/cms/wordpress/extending)
+:::

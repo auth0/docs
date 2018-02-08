@@ -63,4 +63,5 @@ The login flow is as follows:
 - [Configuration](/cms/wordpress/configuration)
 - [JWT Authentication](/cms/wordpress/jwt-authentication)
 - [Troubleshoot](/cms/wordpress/troubleshoot)
+* [Extension](/cms/wordpress/extension)
 :::

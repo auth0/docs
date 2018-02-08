@@ -65,4 +65,5 @@ Now you're ready to [Configure](/cms/wordpress/configuration)!
 * [How does it work?](/cms/wordpress/how-does-it-work)
 * [JWT Authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshoot](/cms/wordpress/troubleshoot)
+* [Extension](/cms/wordpress/extension)
 :::
