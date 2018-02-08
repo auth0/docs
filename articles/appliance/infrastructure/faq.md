@@ -59,8 +59,22 @@ Auth0 will work with you during the Sales/Onboarding process to ensure you are d
 
 Our Professional Services team offers [Performance and Scalability](https://auth0.com/docs/services/performance-scalability) engagements to performance test and subsequently tune the PSaaS Appliance to your specific requirements.
 
+#### How does Auth0 access customer-hosted PSaaS Appliance VMs?
+
+Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS Appliance instances to configure, perform updates, perform maintenance, or troubleshoot. The remote access options are:
+
+1. Jumphost + Firewall Whitelist
+2. Two Jumphosts
+3. VPN
+
+We do not support other methods, such as VDI or Screen Sharing mechanisms.
+
 #### We occasionally tear-down and rebuild environments, and we maintain our data by backing it up first. Is this a problem?
 
 The Auth0 Appliance is not designed to be torn down and rebuilt easily, and such actions always requires Auth0 involvement. We therefore ask that you not tear down the environment on purpose.
 
 To assist in the rebuilding of the environment, we would need to have an active Professional Services engagement in place with you, unless there has been a disaster situation.
+
+#### What are the legal terms of the Private SaaS Appliance?
+
+You can read the PSaaS Appliance terms [here](https://auth0.com/legal/baseline/PSaaS).
