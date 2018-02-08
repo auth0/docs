@@ -133,18 +133,18 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 
 Once expired, an Access Token can no longer be used to access an API. In order to obtain access again, a new Access Token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial Access Token.
 
-In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [refresh token](/tokens/refresh-token).
+In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [Refresh Token](/tokens/refresh-token).
 
-A refresh token is issued from the OAuth 2.0 endpoints along with the Access Token. When the Access Token expires, the refresh token can be used to obtain a fresh Access Token with the same permissions, without further involvement from a user. 
+A Refresh Token is issued from the OAuth 2.0 endpoints along with the Access Token. When the Access Token expires, the Refresh Token can be used to obtain a fresh Access Token with the same permissions, without further involvement from a user. 
 
 Note that offline access is enabled as a policy of the API the Access Token grants access to. This is a setting that can be altered in the [Dashboard](${manage_url}/#/apis) under the APIs section.
 
 ![Offline Access - API](/media/articles/tokens/tokens-offlineaccess-api.png)
 
-If the API does not permit offline access, a refresh token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new Access Token.
+If the API does not permit offline access, a Refresh Token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new Access Token.
 
 ::: note
-For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
+For more information on Refresh Tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
 :::
 
 ## Revoke Access Token

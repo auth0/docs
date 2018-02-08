@@ -21,7 +21,7 @@ Before you continue with this tutorial, make sure that you have integrated the A
 
 ## Credentials Manager
 
-This guide shows you how to use the credentials manager to store and refresh tokens. 
+This guide shows you how to use the credentials manager to store and Refresh Tokens. 
 
 [Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. 
 
@@ -33,7 +33,7 @@ You can also use `SimpleKeychain` directly, without the added benefits and conve
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
-To get a [refresh token](/refresh-token) during authentication, use the `offline_access` scope. You can use the refresh token to request a new Access Token when the previous one expires. 
+To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires. 
 
 First, import the `Auth0` module to the file where you want to present the hosted login page (HLP):
 
@@ -97,7 +97,7 @@ credentialsManager.credentials { error, credentials in
 } 
 ```
 
-If the credentials have expired, the credentials manager will automatically renew them for you with the refresh token.
+If the credentials have expired, the credentials manager will automatically renew them for you with the Refresh Token.
 
 ## Clear the Keychain When the User Logs Out
 

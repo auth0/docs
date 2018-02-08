@@ -21,7 +21,7 @@ budicon: 345
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project. 
 * You are familiar with presenting the login screen. To learn more, see the [Login](/quickstart/native/ios-swift/00-login) tutorial.
-* You know how to renew a user's credentials with a refresh token. To learn more, see the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial.
+* You know how to renew a user's credentials with a Refresh Token. To learn more, see the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial.
 
 ## Apply Touch ID Authentication
 
@@ -82,7 +82,7 @@ To automatically renew the user's credentials, use the [credentials](https://git
 
 The credentials manager retrieves stored credentials from the keychain and checks if the Access Token is still valid:
 * If the current credentials are still valid, the credentials manager returns them
-* If the Access Token has expired, the credentials manager renews them using the refresh token and returns them
+* If the Access Token has expired, the credentials manager renews them using the Refresh Token and returns them
 
 Add the following:
 

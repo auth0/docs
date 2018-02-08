@@ -58,9 +58,9 @@ Since refersh tokens never expire, you need to have a way to invalidate them in 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The client should match the one the refresh token was issued for. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The client should match the one the Refresh Token was issued for. |
 | `client_secret` | Your application's Client Secret. Required for [confidential clients](/clients/client-types#confidential-clients). |
-| `token` <br/><span class="label label-danger">Required</span> | The refresh token you want to revoke. |
+| `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
 ### Remarks
 

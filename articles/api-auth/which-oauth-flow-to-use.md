@@ -30,7 +30,7 @@ If this case matches your needs, then for more information on how this flow work
 
 ## Is the Client a web app executing on the server?
 
-If the Client is a regular web app executing on a server then the **Authorization Code Grant** is the flow you should use. Using this the Client can retrieve an Access Token and, optionally, a refresh token. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Client, without going through the user's web browser and risk exposure.
+If the Client is a regular web app executing on a server then the **Authorization Code Grant** is the flow you should use. Using this the Client can retrieve an Access Token and, optionally, a Refresh Token. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Client, without going through the user's web browser and risk exposure.
 
 If this case matches your needs, then for more information on how this flow works and how to implement it refer to: [Authorization Code Grant](/api-auth/grant/authorization-code).
 
@@ -40,12 +40,12 @@ This decision point may result to suggesting the **Resource Owner Password Crede
 
 ## Is the Client a native app or a SPA?
 
-If the Client is a Single Page Application (meaning an application running in a browser using a scripting language such as Javascript) then the [Implicit Grant](/api-auth/grant/implicit) should be used. In this case, instead of getting an authorization code that needs to be exchanged for an Access Token, the Client retrieves directly an Access Token. On the plus side, this is more efficient since it reduces the number of round trips required to get an Access Token. However, a security consideration is that the Access Token is exposed on the client side. Also, it should be noted that **Implicit Grant** does not return a refresh token because the browser cannot keep it private (read the __SPAs and Refresh Tokens__ panel for a workaround).
+If the Client is a Single Page Application (meaning an application running in a browser using a scripting language such as Javascript) then the [Implicit Grant](/api-auth/grant/implicit) should be used. In this case, instead of getting an authorization code that needs to be exchanged for an Access Token, the Client retrieves directly an Access Token. On the plus side, this is more efficient since it reduces the number of round trips required to get an Access Token. However, a security consideration is that the Access Token is exposed on the client side. Also, it should be noted that **Implicit Grant** does not return a Refresh Token because the browser cannot keep it private (read the __SPAs and Refresh Tokens__ panel for a workaround).
 
 For more information on how this flow works and how to implement it, refer to [Implicit Grant](/api-auth/grant/implicit).
 
 ::: panel SPAs and Refresh Tokens
-While SPAs cannot use refresh tokens, they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke the `/authorize` endpoint. This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition to that if you call `/authorize` from a hidden iframe and extract the new Access Token from the parent frame, then the user will not see the redirects happening.
+While SPAs cannot use Refresh Tokens, they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke the `/authorize` endpoint. This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition to that if you call `/authorize` from a hidden iframe and extract the new Access Token from the parent frame, then the user will not see the redirects happening.
 :::
 
 If the Client is a native app then the [Authorization Code Grant using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce) should be used. What this grant adds to Authorization Code Grant, is the concept of `code_verifier`. When at first the client asks for an **Authorization Code** it generates a `code_verifier` and its transformed value called `code_challenge`. The `code_challenge` is sent along with the request. A `code_challenge_method` is also sent. Afterwards, when the client wants to exchange the Authorization Code for an Access Token, it also sends along the `code_verifier`. The Authorization Server transforms this and if it matches the originally sent `code challenge` it returns an Access Token.

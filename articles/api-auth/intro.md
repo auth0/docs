@@ -128,7 +128,7 @@ Some changes were introduced in the implementation of Authorization Code grant:
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- A refresh token will be returned only if the `offline_access` scope was granted.
+- A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
   For more information, refer to <a href="/api-auth/tutorials/adoption/authorization-code">Authorization Code grant</a>.
@@ -141,7 +141,7 @@ Some changes were introduced in the implementation of Implicit grant:
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
-- Refresh tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
+- Refresh Tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
 - The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the client must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - ID Tokens will be signed asymmetrically using `RS256`.
@@ -160,7 +160,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - The ID Token will be forcibly signed using `RS256` if requested by a [public client](/clients/client-types#public-clients).
-- A refresh token will be returned only if the `offline_access` scope was granted.
+- A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
   For more information, refer to <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a>.
@@ -170,10 +170,10 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 
 [Delegation](/api/authentication#delegation) is used for many operations:
 - Exchanging an ID Token issued to one client for a new one issued to a different client
-- Using a refresh token to obtain a fresh ID Token
+- Using a Refresh Token to obtain a fresh ID Token
 - Exchanging an ID Token for a third-party API token, such as Firebase or AWS.
 
-Given that [ID Tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [refresh tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
+Given that [ID Tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [Refresh Tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
 
 At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens. In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens. This will be deprecated in future releases.
 
@@ -300,7 +300,7 @@ To use the `audience` param instead, configure your app to send it when initiati
       <td>Will be rejected.</td>
     </tr>
     <tr>
-      <th><strong><code>device</code> parameter (used to obtain refresh tokens)</strong></th>
+      <th><strong><code>device</code> parameter (used to obtain Refresh Tokens)</strong></th>
       <td>Supported</td>
       <td>Not supported. <a href="/api/authentication#resource-owner-password">/oauth/token</a>
 should be used instead with <code>"grant_type": "refresh_token"</code></td>

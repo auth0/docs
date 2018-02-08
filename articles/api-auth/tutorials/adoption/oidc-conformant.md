@@ -15,7 +15,7 @@ The objective of this flag is to disable as many legacy features as possible, so
 Enabling this flag on a client will have the following effects:
 
 * The following features are deprecated in favor of [silent authentication](/api-auth/tutorials/adoption/implicit):
-    - Refresh tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
+    - Refresh Tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
     - /ssodata endpoint and `getSSOData()` method from Lock/auth0.js
 * [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on) can only be performed from Auth0-hosted login pages.
 * Using `response_type=token` will only return an Access Token, not an ID Token. Use `response_type=id_token` or `response_type=token id_token` instead.
@@ -23,8 +23,8 @@ Enabling this flag on a client will have the following effects:
 * The /tokeninfo endpoint is disabled.
 * Responses from /userinfo will [conform to the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), similar to the [contents of ID Tokens](/api-auth/tutorials/adoption/scope-custom-claims)
 * Implicit grant authentication requests made without a [`nonce` parameter](/api-auth/tutorials/nonce) will be rejected.
-* [Refresh tokens must be used at the token endpoint]() instead of /delegation.
-* The `device` parameter, originally used to obtain refresh tokens, is now considered invalid.
+* [Refresh Tokens must be used at the token endpoint]() instead of /delegation.
+* The `device` parameter, originally used to obtain Refresh Tokens, is now considered invalid.
 * The legacy [resource owner endpoint](/api/authentication#database-ad-ldap-active-) is disabled.
     - Passwordless authentication for embedded login is implemented at this endpoint, so it will be disabled as well. 
 * The [/oauth/access_token endpoint](/api/authentication#post-oauth-access_token), used for social authentication from native mobile applications, is disabled.

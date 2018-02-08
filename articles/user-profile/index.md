@@ -57,7 +57,7 @@ The Details tab contains three sections that provide a high-level overview of th
 
 The Devices tab lists the devices with which the user has requested authentication. Requesting authorization on a device links the device to the user's account.
 
-Login details for the user are associated with the refresh token assigned to that device. To revoke the refresh token, click **Unlink** next to the device.
+Login details for the user are associated with the Refresh Token assigned to that device. To revoke the Refresh Token, click **Unlink** next to the device.
 
 #### User Details: History
 

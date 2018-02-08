@@ -1,26 +1,26 @@
 ---
-description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
+description: A Refresh Token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
 ---
 
 # Refresh Token
 
 ::: version-warning
-This document covers an outdated version of the Auth0 authentication pipeline and the way refresh tokens are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This document covers an outdated version of the Auth0 authentication pipeline and the way Refresh Tokens are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
 
 Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
 
-If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
+If you are new to Refresh Tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
-Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API. They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
+Refresh Tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API. They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
 
-Refresh tokens are subject to strict storage requirements to ensure that they are not leaked.
+Refresh Tokens are subject to strict storage requirements to ensure that they are not leaked.
 
 ## Obtain a Refresh Token
 
-To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
+To obtain a Refresh Token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example:
 
@@ -49,10 +49,10 @@ GET https://YOUR_CALLBACK_URL#
     &refresh_token=Cqp...Mwe
 ```
 
-The refresh token is returned as part of the URL, in the form of an opaque string.
+The Refresh Token is returned as part of the URL, in the form of an opaque string.
 
 ::: panel-warning Security Warning
-Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
 ::: note
@@ -93,11 +93,11 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire, it is important to be able to revoke them.
+Since Refresh Tokens never expire, it is important to be able to revoke them.
 
 ### Revoke a Refresh Token using the Management API
 
-To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+To revoke a Refresh Token using the Auth0 Management API, you need the `id` of the Refresh Token you wish to revoke. To obtain a list of existing Refresh Tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```text
 GET https://${account.namespace}/api/v2/device-credentials?
@@ -121,7 +121,7 @@ Response body:
 ]
 ```
 
-To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an Access Token containing `delete:device_credentials` scope and the value of `id` obtained above:
+To revoke a __Refresh Token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an Access Token containing `delete:device_credentials` scope and the value of `id` obtained above:
 
 ```text
 DELETE https://${account.namespace}/api/v2/device-credentials/{id}
@@ -136,9 +136,9 @@ The response will be a **204**: The credential no longer exists.
 
 ### Revoke a Refresh Token in the Dashboard
 
-To see if a user has existing devices with associated refresh tokens, go to the [Users section](${manage_url}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
+To see if a user has existing devices with associated Refresh Tokens, go to the [Users section](${manage_url}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
 
-Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
+Select the **Devices** tab. This page lists all device names and the number of Refresh Tokens associated with each. To revoke a Refresh Token, click the **X** to the right of the device name.
 
 ![Revoke a Refresh Token in the Dashboard](/media/articles/tokens/legacy/dashboard-revoke-refresh-token.png)
 
