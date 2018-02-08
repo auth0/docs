@@ -21,13 +21,22 @@ This document contains spellings and definitions as they are to be used in the A
 
 Represents a user, their credentials, and (optionally) a profile and other attributes
 
-### Tenant
-
-A logical isolation unit of the products we offer. e.g. a tenant of Auth0 would be `foo.auth0.com` vs. another tenant `bar.auth0.com`.
 
 ### Subscription
 
 Defines custom terms; this is a contract or service plan e.g. trial, free, developer or developer-pro
+
+### Tenant
+
+A logical isolation unit of the products we offer. e.g. a tenant of Auth0 would be `foo.auth0.com` vs. another tenant `bar.auth0.com`.
+
+### Tokens
+
+When writing about tokens, capitalize specific token names as follows:
+
+* ID Token
+* Access Token
+* Refresh Token
 
 #### Within Appliance subscriptions
 
