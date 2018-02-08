@@ -80,7 +80,7 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     </div>
     <div id="npm-after" class="tab-pane">
     <pre class="hljs js"><code>
-    import Auth0LockPasswordless from 'auth0-lock/passwordless';
+    import {Auth0LockPasswordless} from 'auth0-lock';
     var options = {
       closable: false
     };
