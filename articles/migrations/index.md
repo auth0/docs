@@ -35,7 +35,7 @@ This table is a summary of the endpoint migrations for the first part of 2018. S
 | --- | --- | --- | --- | --- |
 | /usernamepassword/login | /co/authenticate | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
 | /ssoData | /authorize?prompt=none | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
-| [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | 2018-06-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
+| [/tokeninfo](/api/authentication/reference#get-token-info) | [/userinfo](/api/authentication#get-user-info) | 2018-06-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
 | [/delegation](/api/authentication#delegation) | TBD | 2018-06-01 | [More Info](#introducing-api-authorization-with-third-party-vendor-apis) |
 | [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | 2018-07-01 | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 | [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
@@ -107,17 +107,19 @@ We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials whe
 
 These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now. 
 
-To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/`, and the **scope** parameter to the scopes required by each endpoint. For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scopes required by each endpoint. 
+
+For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
 :::panel-warning Account Linking exception
-There are two ways of invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint (follow the link for details). The use case where we send the **user_id** to link with, as part of the payload **will not available for Access Tokens issued to end users**. This use case requires a Dashboard Admin token. The other use case, where the second identity is established by attaching an ID Token, can be used with a valid Access Token, as described above.
+There are two ways of invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint (follow the link for details). The use case where we send the **user_id** to link with, as part of the payload, **will not be available for Access Tokens issued to end users**. This use case requires a Dashboard Admin token. The other use case, where the second identity is established by attaching an ID Token, can be used with a valid Access Token, as described above.
 :::
 
 Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by February 2018.
 
 #### Am I affected by the change?
 
-If you are currently using [id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
+If you are currently using [ID Tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
