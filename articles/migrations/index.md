@@ -88,13 +88,31 @@ If you are currently using [/delegation](/api/authentication#delegation) to prov
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### Deprecating the Usage of ID Tokens on the Auth0 Management API
+### Deprecating the usage of ID Tokens on the Auth0 Management API
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of [ID Tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [Management APIv2 Tokens](/api/management/v2/tokens). This is available now. Applications must be updated by June 1, 2018, when the ability to use ID Tokens will become unavailable. Migration guides will be available by February 2018.
+We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials when calling the [Management API](/api/management/v2#!/Users/post_identities). This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. In more detail, the affected endpoints are:
+- [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id)
+- [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments)
+- [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id)
+- [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider)
+- [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials)
+- [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
+- [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) (used for [Account Linking](/link-accounts), see warning panel below)
+- [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id)
+
+These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now. 
+
+To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/`, and the **scope** parameter to the scopes required by each endpoint. For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+
+:::panel-warning Account Linking exception
+There are two ways of invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint (follow the link for details). The use case where we send the **user_id** to link with, as part of the payload **will not available for Access Tokens issued to end users**. This use case requires a Dashboard Admin token. The other use case, where the second identity is established by attaching an ID Token, can be used with a valid Access Token, as described above.
+:::
+
+Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by February 2018.
 
 #### Am I affected by the change?
 
