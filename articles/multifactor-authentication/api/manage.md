@@ -1,7 +1,13 @@
 ---
 title: Manage the Authenticators for Multifactor Authentication
 description: How to manage your MFA authenticators
+beta: true
 ---
+
+::: warning
+This article includes documentation on features that are still under development. These features are available to customers with early access.
+:::
+
 # Manage the Authenticators
 
 Auth0 provides several API endpoints to help you manage the authenticators you're using with a particular tenant for multifactor authentication (MFA).

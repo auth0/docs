@@ -1,7 +1,13 @@
 ---
 title: Associate a New Authenticator for Use with Multifactor Authentication
 description: How to associate a new authenticator for use with MFA using the new MFA API endpoints
+beta: true
 ---
+
+::: warning
+This article includes documentation on features that are still under development. These features are available to customers with early access.
+:::
+
 # Associate a New Authenticator for Use with Multifactor Authentication
 
 Auth0 allows you to configure your tenant so that your end users can self-associate a new authenticator for use in multifactor authentication.
