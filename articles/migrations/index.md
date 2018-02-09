@@ -104,6 +104,7 @@ We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials whe
 - [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) (used for [Account Linking](/link-accounts), see warning panel below)
 - [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id)
 
+
 These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now. 
 
 To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/`, and the **scope** parameter to the scopes required by each endpoint. For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).

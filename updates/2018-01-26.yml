@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Configure SparkPost for Sending Email"
+    tags:
+      - email
+      - providers
+      - sparkpost
+    description: |
+      Updated the [email providers document](https://auth0.com/docs/email/providers) to describe how to use SparkPost.
+      
