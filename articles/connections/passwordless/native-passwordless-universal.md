@@ -5,13 +5,18 @@ title: Passwordless Authentication in Native Applications with Universal Login
 
 [Universal Login](/hosted-pages/login) is the only recommended way to set up passwordless authentication in your native application. We recommend using the Auth0 login page for the best experience, security and the fullest array of features.
 
-Once you are done with this guide, the process should be that a user runs across a need to authenticate in your application and the Auth0 SDK redirects them to the login page on the web. At that point, Lock Passwordless will ask them for a phone number or email, whichever type you chose, which they will give, and the prompt will change to ask them for a code which they will receive by the designated method. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
+Once you are done with this guide, authentication should occur in this fashion:
+
+1. A user clicks to login and the Auth0 SDK redirects them to the login page on the web.
+1. At this point, Lock Passwordless will ask them for a phone number or email, whichever type you chose
+1. The prompt will change to ask them for a code which they will receive by the designated method.
+1. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
 
 Implementing passwordless in the login page involves just a few steps.
 
 ## 1. Set up your connection
 
-To set up the passwordless connection, go to your [Dashboard](${manage_url}/#/connections/passwordless) under **Connections > Passwordless** and turn on either Email or SMS. Also, ensure that you enable the connection for the client you are using. From the connection's settings, you can click the **Apps** tab to toggle on clients that you want to be able to use this connection.
+To set up the passwordless connection, go to your [Dashboard](${manage_url}/#/connections/passwordless) under **Connections > Passwordless** and turn on either Email or SMS. Then, go to the **Apps** tab and enable the connection for the clients that will be using it.
 
 ## 2. Configure your login page
 
