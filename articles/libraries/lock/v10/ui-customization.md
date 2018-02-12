@@ -4,6 +4,8 @@ description: Customizing the appearance of your Lock widget can be important for
 ---
 # Lock: UI Customization
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 You can customize the appearance of your Lock widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
 
 ## JavaScript Options

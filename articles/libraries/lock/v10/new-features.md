@@ -4,6 +4,8 @@ description: Describes the new features with Lock V10.
 ---
 # New Features in Lock 10
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 ## Custom Sign Up Fields
 
 You can add input fields to the sign up form with the new option `additionalSignUpFields`.

@@ -61,6 +61,8 @@ If the code is correct, the user will be authenticated. This will call the callb
 
 ### Use your own UI
 
+<%= include('../../../../_includes/_version_warning_auth0js') %>
+
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 
 <%= include('../../_init-auth0js', {withCallbackURL:false} ) %>

@@ -51,6 +51,8 @@ If the code is correct, the user will be authenticated. This will trigger the `a
 
 ### Use your own UI
 
+<%= include('../../../../_includes/_version_warning_auth0js') %>
+
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',

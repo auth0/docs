@@ -6,7 +6,7 @@ toc: true
 ---
 # Lock 9: API Reference
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ## Methods
 

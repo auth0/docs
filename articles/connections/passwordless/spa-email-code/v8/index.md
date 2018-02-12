@@ -56,6 +56,8 @@ Once the user enters the code received by email, Lock will trigger the `authenti
 
 ### Use your own UI
 
+<%= include('../../../../_includes/_version_warning_auth0js') %>
+
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',

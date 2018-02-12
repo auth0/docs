@@ -4,7 +4,7 @@ description: Customizing error messages with Lock V9
 ---
 # Lock: Customizing Error Messages
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 You can customize the error messages that will be displayed on certain situations by providing a [dict option](/libraries/lock/v9/customization#dict-object) at the [customization options](/libraries/lock/v9/customization). A full listing of available `dict` fields to customize can be found in the GitHub repository's [English Dictionary file for Lock 9](https://github.com/auth0/lock/blob/v9/i18n/en.json). Below is an example of some customized error messages:
 

@@ -62,6 +62,8 @@ You can follow any of the [Single Page App Quickstarts](/quickstart/spa) to see 
 
 ### Use your own UI
 
+<%= include('../../../../_includes/_version_warning_auth0js') %>
+
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',

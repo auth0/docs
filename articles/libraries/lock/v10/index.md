@@ -7,6 +7,8 @@ img: media/articles/libraries/lock-web.png
 ---
 # Lock 10 for Web
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 Lock is an embeddable login form, [configurable to your needs][lock-configuration] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: note
@@ -126,8 +128,6 @@ Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **I
 ## More Examples
 
 The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
-
-<%= include('../../../_includes/_lock-sdk') %>
 
 ## Next Steps
 

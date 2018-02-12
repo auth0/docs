@@ -5,6 +5,8 @@ toc: true
 ---
 # Lock: Authentication Modes
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 Lock can function in two different modes. The default mode is **redirect mode**. In this mode, your user is redirected to be authenticated, and then is returned to the application. In the second mode, **popup mode**, a popup window allows the user to authenticate with the identity provider without leaving the application.
 
 ## Redirect Mode
