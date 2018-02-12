@@ -47,4 +47,10 @@ You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanc
 
 ## Troubleshooting
 
-If Lock takes a lot of time to display the login options, it could be because the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property is not correctly set. Please set it and try again.
+If Lock takes a lot of time to display the login options, it could be because the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property is not correctly set.
+
+To verify that this is a problem check your logs at [Dadhboard > Logs](${manage_url}/#/logs). If you see an entry with the following error description, set the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property and try again.
+
+```text
+The specified redirect_uri 'https://YOUR_APP_URL' does not have a registered domain.
+```
