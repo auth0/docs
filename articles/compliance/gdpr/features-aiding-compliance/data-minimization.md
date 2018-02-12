@@ -20,9 +20,33 @@ To limit the amount of personal information in the Auth0 user profile, you can:
 
 ## Encrypt user profile information
 
-You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality.
+You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields. When you have sensitive information to set for a user, call the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-To decrypt your data, you can use the Decrypt sensitive data from the user profile built-in [rules](/rules) template.
+For example, to save the encrypted `passportNumber` in the user's profile, send this request:
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_ACCESS_TOKEN"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"user_metadata\": {\"passportNumber\": \"B9MuhaDoreVr69MDqx3p8A==\"}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
 
 ## Use account linking
 
