@@ -1,11 +1,10 @@
-To run the example:
+To run it from the command line:
 
 ```bash
-npm install
-npm start
+./gradlew clean appRun
 ```
 
-To run the docker image:
+To run it from the docker image:
 
 ```bash
 # In Linux / OSX

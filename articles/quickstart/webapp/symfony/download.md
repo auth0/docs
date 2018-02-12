@@ -1,11 +1,9 @@
-To run the example:
+To run it from the command line:
 
 ```bash
-npm install
-npm start
+composer install
+php app/console server:run 3000
 ```
-
-To run the docker image:
 
 ```bash
 # In Linux / OSX

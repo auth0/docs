@@ -1,8 +1,8 @@
 To run the example:
 
 ```bash
-npm install
-npm start
+dotnet restore
+dotnet run
 ```
 
 To run the docker image:
