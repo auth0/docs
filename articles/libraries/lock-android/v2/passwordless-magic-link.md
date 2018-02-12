@@ -5,9 +5,7 @@ description: Passwordless with Magic Link with Lock Android
 ---
 # Lock Android: Passwordless with Magic Link
 
-::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
-:::
+<%= include('../../../_includes/_native_passwordless_warning') %>
 
 In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any manual input involved.
 
