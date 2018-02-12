@@ -32,7 +32,3 @@ At this point, you have created a new, disabled Hook using the `pre-user-registr
 If you need to delete an existing Hook, you can do so using the following command:
 
 `auth0 rm my-extension-1 -p auth0-default`
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/cli"]
-}) %>
