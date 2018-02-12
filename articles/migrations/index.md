@@ -111,8 +111,8 @@ To get a valid Access Token for these endpoints during authorization, you have t
 
 For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
-:::panel-warning Account Linking exception
-There are two ways of invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint (follow the link for details). The use case where we send the **user_id** to link with, as part of the payload, **will not be available for Access Tokens issued to end users**. This use case requires a Dashboard Admin token. The other use case, where the second identity is established by attaching an ID Token, can be used with a valid Access Token, as described above.
+:::panel-warning Account Linking available only for admins
+You can link two accounts by invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint. This **will not be available for Access Tokens issued to end users**, but only to administrators of your tenant.
 :::
 
 Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by February 2018.
