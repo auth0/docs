@@ -3,7 +3,7 @@ title: GDPR Compliance: How Auth0 Can Help
 description: This article discusses the Auth0 features that can help customers comply with GDPR requirements
 toc: true
 ---
-# GDPR Compliance: How Auth0 Can Help
+# How Auth0 Can Help With GDPR Compliance
 
 In this article, you will find a list of GDPR regulations and how Auth0 can help you comply with them.
 

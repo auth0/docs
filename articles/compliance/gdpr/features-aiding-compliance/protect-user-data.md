@@ -3,7 +3,7 @@ title: GDPR Compliance: Protect and secure user data
 description: This article discusses how customers can use Auth0 to better protect and secure their user's personal data
 toc: true
 ---
-# GDPR Compliance: Protect and secure user data
+# GDPR: Protect and secure user data
 
 As per article 32 of GDPR, you must implement appropriate security measures in order to ensure a level of security appropriate to the risk, including (but not limited to):
 

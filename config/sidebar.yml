@@ -575,11 +575,11 @@ articles:
           hidden: true
           url: "/compliance/gdpr/definitions"
 
-        - title: "GDPR Summary"
+        - title: "Summary"
           hidden: true
           url: "/compliance/gdpr/gdpr-summary"
 
-        - title: "Roles and Responsibilities under GDPR"
+        - title: "Roles and Responsibilities"
           hidden: true
           url: "/compliance/gdpr/roles-responsibilities"
 
@@ -587,7 +587,7 @@ articles:
           hidden: true
           url: "/compliance/gdpr/data-processing"
 
-        - title: "How Auth0 can help with GDPR"
+        - title: "How Auth0 can help"
           hidden: true
           url: "/compliance/gdpr/features-aiding-compliance"
           children:
@@ -595,9 +595,9 @@ articles:
             hidden: true
             url: "/compliance/gdpr/features-aiding-compliance/user-consent"
             children:
-              - title: "Track Consent with Lock for DB Connections"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
+            - title: "Track Consent with Lock"
+              hidden: true
+              url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
 
           - title: "Access, correct, and erase data"
             hidden: true
@@ -615,7 +615,7 @@ articles:
             hidden: true
             url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
               
-        - title: "Security Advice for Customers"
+        - title: "Security Advice"
           hidden: true
           url: "/compliance/gdpr/security-advice-for-customers"
 

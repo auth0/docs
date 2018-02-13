@@ -3,7 +3,7 @@ title: GDPR Compliance: Data Portability
 description: This article discusses how customers can export user data in order to comply with data portability GDPR requirements
 toc: true
 ---
-# GDPR Compliance: Data Portability
+# GDPR: Data Portability
 
 According to Article 20 of GDPR, users have the right to receive the personal data concerning them in a structured, commonly used and machine-readable format.
 

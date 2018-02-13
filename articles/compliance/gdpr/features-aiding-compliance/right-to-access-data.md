@@ -3,7 +3,7 @@ title: GDPR Compliance: Right to access, correct, and erase data
 description: This article discusses which Auth0 features can help customers comply with the GDPR requirements on the user's right to access, correct, and erase their personal data
 toc: true
 ---
-# GDPR Compliance: Right to access, correct, and erase data
+# GDPR: Right to access, correct, and erase data
 
 As per articles 15, 16, 17, and 19 of GDPR, users have the right to get a copy of their personal data you are processing, ask for rectifications if they are inaccurate, and ask you to delete their personal data. 
 

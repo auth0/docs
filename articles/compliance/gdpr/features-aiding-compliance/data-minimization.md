@@ -3,7 +3,7 @@ title: GDPR Compliance: Data Minimization
 description: This article discusses how customers can minimize the personal data they collect for processing and ensure their security
 toc: true
 ---
-# GDPR Compliance: Data Minimization
+# GDPR: Data Minimization
 
 According to Article 5 of GDPR, the personal data you collect must be limited to what is necessary for processing and must be kept only as long as needed. Appropriate security must be ensured during data processing, including protection against unauthorised or unlawful processing and against accidental loss, destruction, or damage.
 
