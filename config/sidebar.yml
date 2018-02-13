@@ -564,45 +564,59 @@ articles:
         url: "/services/jumpstart"
 
   - title: "Compliance"
+    hidden: true
     url: "/compliance"
     children:
       - title: "GDPR"
+        hidden: true
         url: "/compliance/gdpr"
         children:
         - title: "Definitions"
+          hidden: true
           url: "/compliance/gdpr/definitions"
 
         - title: "GDPR Summary"
+          hidden: true
           url: "/compliance/gdpr/gdpr-summary"
 
         - title: "Roles and Responsibilities under GDPR"
+          hidden: true
           url: "/compliance/gdpr/roles-responsibilities"
 
         - title: "Auth0 Data Processing"
+          hidden: true
           url: "/compliance/gdpr/data-processing"
 
         - title: "How Auth0 features can help with GDPR compliance"
+          hidden: true
           url: "/compliance/gdpr/features-aiding-compliance"
           children:
             - title: "Conditions for Consent"
+              hidden: true
               url: "/compliance/gdpr/features-aiding-compliance/user-consent"
               children:
                 - title: "Track Consent with Lock for DB Connections"
+                  hidden: true
                   url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
 
             - title: "Right to access, correct, and erase data"
+              hidden: true
               url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
 
             - title: "Data Minimization"
+              hidden: true
               url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
 
             - title: "Data Portability"
+              hidden: true
               url: "/compliance/gdpr/features-aiding-compliance/data-portability"
 
             - title: "Protect and secure user data"
+              hidden: true
               url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
               
         - title: "Security Advice for Customers"
+          hidden: true
           url: "/compliance/gdpr/security-advice-for-customers"
 
 apis:
