@@ -116,11 +116,17 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
  Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
 
-## 6. Copy the Client ID and Client Secret to Auth0
+## 6. Create Connections
 
-Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
+Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. 
 
-![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/azure-ad-6-1.png)
+![Add connection](/media/articles/connections/enterprise/azure-active-directory/enterprise-connections.png)
+
+Select **Microsoft Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
+
+You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
+
+![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/create-azure-ad-connection.png)
 
 For the **Client ID**, this value is stored as the **Application ID** in Azure AD.
 
@@ -128,19 +134,7 @@ For the **Client ID**, this value is stored as the **Application ID** in Azure A
 
 For the **Client Secret** use the value that was shown for the key when you created it in the previous step.
 
-![Create Azure AD Connection](/media/articles/connections/enterprise/azure-active-directory/add-azure-connection.png)
-
-Click **SAVE** when you have finished.
-
-## 7. Create Connections
-
-After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to [Connections->Enterprise](${manage_url}/#/connections/enterprise) and click on the **CREATE NEW** button next to **Microsoft Azure AD**.
-
-![Add connection](/media/articles/connections/enterprise/azure-active-directory/add-new-connection.png)
-
 Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** put any email domain that corresponds to the connection.
-
-![Connection settings](/media/articles/connections/enterprise/azure-active-directory/connection-settings.png)
 
 **Multi-tenant applications**: if you are creating [multi-tenant applications](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory) where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
 
