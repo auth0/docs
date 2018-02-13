@@ -47,9 +47,19 @@ In this application, you'll need to configure the following permissions to other
 
 ## 3. Configure the connection in Auth0
 
-After creating both applications in Azure Active Directory, the Auth0 connection can be configured. The `App ID Uri` must be set to the Uri which was configured previously in the *Web Application and/or Web API* and the `Client ID` must be set to the `Client ID` of the *Native Client Application*. In this setup, the `Client Secret` does not matter and can be set to any value.
+After creating both applications in Azure Active Directory, you can configure the Auth0 connection.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-create-native-connection.png)
+Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. 
+
+![Add connection](/media/articles/connections/enterprise/azure-active-directory/enterprise-connections.png)
+
+Select **Microsoft Azure AD**. You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
+
+![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/create-azure-ad-connection.png)
+
+::: note
+The `App ID Uri` must be set to the Uri which was configured previously in the *Web Application and/or Web API* and the `Client ID` must be set to the `Client ID` of the *Native Client Application*. In this setup, the `Client Secret` does not matter and can be set to any value.
+:::
 
 ## 4. Test the connection
 

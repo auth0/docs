@@ -122,9 +122,7 @@ Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > E
 
 ![Add connection](/media/articles/connections/enterprise/azure-active-directory/enterprise-connections.png)
 
-Select **Microsoft Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
-
-You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
+Select **Microsoft Azure AD**. You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
 
 ![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/create-azure-ad-connection.png)
 
