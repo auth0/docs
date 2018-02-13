@@ -21,6 +21,10 @@ Before you design your solution using `user_metadata` make sure you have reviewe
 
 If you use Lock and authenticate users with a database connection, add an extra field to the signup screen using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). This extra field will be automatically added to the `user_metadata`.
 
+:::note
+For a tutorial on how to use the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-) to capture consent metadata, see [Track Consent with Lock for DB Connections](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db).
+:::
+
 Alternatively, you can use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-).
 
 ### Lock with social login
@@ -356,7 +360,7 @@ Give a name to your rule and save your changes.
 - Configure into the app the area where customers will withdraw consent
 :::
 
-<%= include('../_stepnav', {
+<%= include('../../_stepnav', {
  prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
  navHeader: "Auth0 Features and GDPR Compliance"
 }) %>
