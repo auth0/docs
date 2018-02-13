@@ -3,7 +3,7 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 ---
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
-<%= include('../../_older-version-alert' %>
+<%= include('../../../../_includes/_version_warning_auth0js' %>
 
 <%= include('../../_introduction-sms', { isMobile: false }) %>
 
@@ -55,8 +55,6 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 :::
 
 ### Use your own UI
-
-<%= include('../../../../_includes/_version_warning_auth0js') %>
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 

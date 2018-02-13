@@ -1,7 +1,9 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
 ---
-# Authenticate users with a Magic Link via e-mail on SPA
+# Authenticate users with a Magic Link via Email on SPA
+
+<%= include('../../../../_includes/_version_warning_auth0js' %>
 
 <%= include('../../_introduction-email-magic-link') %>
 
@@ -61,8 +63,6 @@ You can follow any of the [Single Page App Quickstarts](/quickstart/spa) to see 
 :::
 
 ### Use your own UI
-
-<%= include('../../../../_includes/_version_warning_auth0js') %>
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',

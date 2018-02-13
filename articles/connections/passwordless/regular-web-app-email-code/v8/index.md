@@ -3,6 +3,8 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 ---
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
+<%= include('../../../../_includes/_version_warning_auth0js' %>
+
 <%= include('../../_introduction-email', { isMobile: false }) %>
 
 ## Setup
@@ -51,8 +53,6 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 :::
 
 ### Use your own UI
-
-<%= include('../../../../_includes/_version_warning_auth0js') %>
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',

@@ -4,6 +4,8 @@ description: Learn how to authenticate users with a one-time-code using SMS in a
 ---
 # Using Passwordless Authentication in SPA with SMS
 
+<%= include('../../../../_includes/_version_warning_auth0js' %>
+
 <%= include('../../_introduction-sms', { isMobile: true }) %>
 
 ## Setup
@@ -50,8 +52,6 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the Access Token will be available. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
-
-<%= include('../../../../_includes/_version_warning_auth0js') %>
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',

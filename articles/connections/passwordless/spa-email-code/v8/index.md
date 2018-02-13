@@ -4,6 +4,8 @@ description: Learn how to authenticate users with a one-time-code using email in
 ---
 # Using Passwordless Authentication in SPA with Email
 
+<%= include('../../../../_includes/_version_warning_auth0js' %>
+
 <%= include('../../_introduction-email', { isMobile: false }) %>
 
 ## Setup
@@ -55,8 +57,6 @@ Lock will ask for the code that has been emailed to the provided address. The co
 Once the user enters the code received by email, Lock will trigger the `authenticated` event where the access_token will be available.
 
 ### Use your own UI
-
-<%= include('../../../../_includes/_version_warning_auth0js') %>
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
