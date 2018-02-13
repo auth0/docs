@@ -595,6 +595,7 @@ articles:
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/user-consent"
                 children:
+
                   - title: "Track Consent with Lock"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
