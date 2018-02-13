@@ -118,8 +118,3 @@ You should minimize any sensitive information contained in URLs that might be ca
 - Configure enterprise identity providers to control what data is returned to Auth0
 - Specify what data you want to collect from the social provider and negotiate any particular terms around social login with the social provider around use of the data they will get around your users’ login
 :::
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

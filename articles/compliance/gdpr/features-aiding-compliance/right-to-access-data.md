@@ -95,8 +95,3 @@ You can search for users using the following:
 :::panel What else do I have to do?
 You are responsible for ensuring customer is erased or data is updated in any other databases that Auth0 is not connected to.
 :::
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

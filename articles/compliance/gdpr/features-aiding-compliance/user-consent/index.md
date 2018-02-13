@@ -359,8 +359,3 @@ Give a name to your rule and save your changes.
 - Ensure the consent withdrawal piece is granular enough
 - Configure into the app the area where customers will withdraw consent
 :::
-
-<%= include('../../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

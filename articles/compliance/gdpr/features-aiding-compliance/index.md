@@ -46,8 +46,3 @@ According to Article 32 of GDPR, you must implement appropriate measures to ensu
 There are several Auth0 features than can help you meet this requirement, like user profile encryption, brute-force protection, breached password detection, step-up authentication, and more. 
 
 For details, see [Protect and secure user data](/compliance/gdpr/features-aiding-compliance/protect-user-data).
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr"],
- navHeader: "GDPR Home"
-}) %>
