@@ -563,6 +563,39 @@ articles:
       - title: "Jumpstart"
         url: "/services/jumpstart"
 
+  - title: "Compliance"
+    url: "/compliance"
+    children:
+      - title: "GDPR"
+        url: "/compliance/gdpr"
+        children:
+        - title: "Definitions"
+          url: "/compliance/gdpr/definitions"
+        - title: "GDPR Summary"
+          url: "/compliance/gdpr/gdpr-summary"
+        - title: "Roles and Responsibilities under GDPR"
+          url: "/compliance/gdpr/roles-responsibilities"
+        - title: "Auth0 Data Processing"
+          url: "/compliance/gdpr/data-processing"
+        - title: "How Auth0 features can help with GDPR compliance"
+          url: "/compliance/gdpr/features-aiding-compliance"
+          children:
+            - title: "Conditions for Consent"
+              url: "/compliance/gdpr/features-aiding-compliance/user-consent"
+              children:
+                - title: "Track Consent with Lock for DB Connections"
+                  url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
+            - title: "Right to access, correct, and erase data"
+              url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
+            - title: "Data Minimization"
+              url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
+            - title: "Data Portability"
+              url: "/compliance/gdpr/features-aiding-compliance/data-portability"
+            - title: "Protect and secure user data"
+              url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
+        - title: "Security Advice for Customers"
+          url: "/compliance/gdpr/security-advice-for-customers"
+
 apis:
 
   - title: "Overview"
