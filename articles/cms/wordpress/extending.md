@@ -78,7 +78,7 @@ Filters in WordPress also run custom code at specific points during processing b
 
 This filter is called after the plugin finds the related user to login (based on the auth0 `user_id`) and is used to override the default behaviour with custom matching rules (for example, always match by email).
 
-If the filter returns null, it will lookup by email as described in the [How does it work?](https://auth0.com/docs/cms/wordpress/how-does-it-work) document.
+If the filter returns null, it will lookup by email as described in the [How does it work?](/cms/wordpress/how-does-it-work) document.
 
 **Example:**
 
@@ -98,9 +98,7 @@ add_filter( 'auth0_get_wp_user', 'auth0_theme_hook_auth0_get_wp_user', 1, 2 );
 
 ### `auth0_verify_email_page`
 
-This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a logging-in user needs to verify 
-their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified 
-before being displayed (see the `_default_wp_die_handler()` definition in core for more information). 
+This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a user who is logging in needs to verify their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified before being displayed (see the `_default_wp_die_handler()` definition in core for more information). 
 
 **Example:**
 
