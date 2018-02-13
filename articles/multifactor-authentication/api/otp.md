@@ -24,7 +24,7 @@ You will use the MFA token instead of the standard access token to request assoc
 
 Now that you have the appropriate access token, you can send the appropriate `POST` request to the `/mfa/associate` endpoint to request Association of your authenticator.
 
-To associate an authenticator where the challenge type is an SMS message containing a code that the user is then required to provide, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
+To associate an authenticator where the challenge type is an OTP code the user is required to provide, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
@@ -52,7 +52,7 @@ If successful, you'll receive a response similar to the following:
 }
 ```
 
-In the next step, you'll need the one-time password (`otp`), which can be obtained by using the `barcode_uri` to generate a QR code that can be scanned by the OTP generator of your choice (such as Guardian). You might also consider displaying the `secret` in plain text so that your users can copy and paste it directly into the OTP generator (this is especially helpful for your users who are on a mobile device).
+In the next step, you'll need the one-time password (`otp`), which can be obtained by using the `barcode_uri` to generate a QR code that can be scanned by the OTP generator of your choice (such as Guardian). You might also consider displaying the `secret` in plain text so that your users can copy and paste it directly into the OTP generator (this is especially helpful for users on desktop applications).
 
 ### Recovery Codes
 

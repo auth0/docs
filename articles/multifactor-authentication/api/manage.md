@@ -33,14 +33,15 @@ You should receive information about the authenticator type(s) in the response:
 [
   {
     "authenticator_type": "recovery-code",
-    "id": "recovery-code|dev_IsBj5j3H12VAdOIj"
+    "id": "recovery-code|dev_IsBj5j3H12VAdOIj",
+    "active": true
   },
   {
     "authenticator_type": "otp",
     "id": "totp|dev_nELLU4PFUiTW6iWs"
   },
   {
-    "authenticator_type": "oob",
+    "authenticator_type": "oob_channel",
     "channel_type": "sms",
     "id": "sms|dev_sEe99pcpN0xp0yOO",
     "name": "+1123XXXXX"
@@ -50,7 +51,7 @@ You should receive information about the authenticator type(s) in the response:
 
 ## Delete Authenticators
 
-To delete an authenticator you've associated, you can send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace the `AUTHENTICATOR_ID` placeholder value with the ID of the authenticator you want deleted.
+To delete an authenticator you've associated, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with your authenticator ID).
 
 ```har
 {
@@ -63,4 +64,4 @@ To delete an authenticator you've associated, you can send a delete request to t
 }
 ```
 
-You will not receive a response, so you can check to see if your authenticator was deleted by calling the [List Authenticators endpoint](#list-authenticators).
+If the authenticator was deleted, a 204 response is returned.

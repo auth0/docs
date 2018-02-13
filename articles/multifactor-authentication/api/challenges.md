@@ -4,7 +4,7 @@ description: How to associate a new authenticator for use with MFA using the new
 ---
 # Multifactor Authentication Challenges
 
-You can, at any point, trigger MFA challenges for authenticators that you've enrolled by calling the `/mfa/challenges` endpoint.
+You can trigger MFA challenges for enrolled authenticators by calling the `/mfa/challenge` endpoint.
 
 ## OTP Challenges
 

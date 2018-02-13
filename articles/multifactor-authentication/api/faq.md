@@ -13,13 +13,13 @@ You can self-associate authenticators if you don't have any active authenticator
 
 ## With push notifications, why do I get two authenticators instead of one?
 
-Push notifications come with two authenticators. One triggers the push notification, while the other is used for automatic follow-up. This lets you authenticate if you do not receive the push notification.
+Push notifications have two authenticators. One to trigger the push notification and the other for a time-based one-time password (TOTP). The TOTP authenticator lets you authenticate if you are offline or can't receive the push notification.
 
 ## Why can I associate more than one authenticator with a particular end user?
 
 Associating multiple authenticators with a user can provide flexibility for the user.
 
-For example, a user may enable push notifications on their mobile device and SMS codes on another device. If the user is unable to use one of the devices, they can use the other (and not have to rely on the recovery code).
+For example, a user may enable push notifications on their phone and TOTP codes on their computer. If the user is unable to use one of the devices, they can use the other (and not have to rely on the recovery code).
 
 ## When should I use self-association during authorization vs. association outside the authorization process?
 
