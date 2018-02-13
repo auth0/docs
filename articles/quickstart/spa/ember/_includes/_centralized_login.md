@@ -47,7 +47,7 @@ export default Service.extend({
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
 ```js
-// app.js
+// app/services/auth.js
 
 import Ember from 'ember';
 import config from 'auth0-ember-samples/config/environment';
