@@ -38,13 +38,15 @@ You should receive information about the authenticator type(s) in the response:
   },
   {
     "authenticator_type": "otp",
-    "id": "totp|dev_nELLU4PFUiTW6iWs"
+    "id": "totp|dev_nELLU4PFUiTW6iWs",
+    "active": true,
   },
   {
-    "authenticator_type": "oob_channel",
-    "channel_type": "sms",
+    "authenticator_type": "oob",
+    "oob_channel": "sms",
     "id": "sms|dev_sEe99pcpN0xp0yOO",
-    "name": "+1123XXXXX"
+    "name": "+1123XXXXX",
+    "active": true
   }
 ]
 ```
