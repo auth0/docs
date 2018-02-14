@@ -181,7 +181,7 @@ request(options, function (error, response, body) {
 });
 ```
 
-#### Challenge Request
+### Challenge Request
 
 ```javascript
 function mfaChallenge(mfa_token) {
