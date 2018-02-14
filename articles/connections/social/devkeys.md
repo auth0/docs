@@ -2,7 +2,7 @@
 description: Caveats you need to be aware of when using Auth0 Dev Keys for social providers.
 ---
 
-# Test Social Connections with Auth0 Developer Keys 
+# Test Social Connections with Auth0 Developer Keys
 
 When using any of the available [Social Identity Providers](/identityproviders#social), you need to register your application with the relevant Identity Provider in order to obtain a Client ID and Client Secret.
 
@@ -22,11 +22,13 @@ The exact terminology of a Client ID / Client Secret may differ between various 
 
 They Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
 
+1. You cannot use developer keys with [custom domains](/custom-domains).
+
 1. When using the Auth0 developer keys, the consent screen for the various Identity Providers will display Auth0's logo and information to your users. When you register your own application you have the opportunity to use your own logo and other application information.
 
-    ![](/media/articles/connections/social/devkeys/consent-screen.png)
+    ![Consent Screen](/media/articles/connections/social/devkeys/consent-screen.png)
 
-2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, i.e.  `https://${account.namespace}/login/callback`.
+2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, for example `https://${account.namespace}/login/callback`.
 
     This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your client to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
 

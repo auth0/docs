@@ -66,7 +66,7 @@ webAuth.login({
   password: 'the-password'
 });
 ```
-## Using Auth0.js to Log-in Users in 'popup` mode
+## Using Auth0.js to log in users in 'popup mode'
 
 ### Using Auth0.js v7
 
@@ -123,7 +123,7 @@ webAuth.popup.loginWithCredentials({
 });
 ```
 
-## Using Auth0.js to Log-in Users Using Passwordless
+## Using Auth0.js to log in users using passwordless
 
 ### Using Auth0.js v7
 
@@ -222,11 +222,9 @@ webAuth.passwordlessLogin({
 ```
 
 <%= include('../../_includes/_configure_embedded_login', { library : 'Auth0.js v9'}) %>
-<%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>
 <%= include('../../_includes/_legacy_flows') %>
 
 ## Behavioral Changes
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

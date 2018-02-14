@@ -3,4 +3,4 @@ Your users authenticate at the Auth0 hosted login page. They are then redirected
 * `id_token`
 * `expires_in`
 
-You can get the tokens from the URL using the `parseHash` method in the auth0.js library. You can save the values in local storage with the `setSession` method. The `setSession` method uses the `expires_in` value from the URL hash fragment to calculate when the user's access token expires.
+You can get the tokens from the URL using the `parseHash` method in the auth0.js library. You can save the values in local storage with the `setSession` method. The `setSession` method uses the `expires_in` value from the URL hash fragment to calculate when the user's Access Token expires.

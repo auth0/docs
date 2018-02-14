@@ -77,7 +77,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **mapUnknownClaimsAsIs** (bool): if `passthroughClaimsWithNoMapping` is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix `http://schema.auth0.com`. If true it will passthrough the claim as-is. Default is false.
 
-* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, etc.) and the access_token if available. Default is true.
+* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the access_token if available. Default is true.
 
 * **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
 

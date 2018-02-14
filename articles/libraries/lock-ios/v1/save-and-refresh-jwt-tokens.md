@@ -8,7 +8,7 @@ description: Keeping your user logged in
 
 <%= include('../_includes/_lock-version-1') %>
 
-When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
+When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
 credentials again.
 
 ::: note

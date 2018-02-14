@@ -40,16 +40,16 @@ In addition, please be aware that using Rules and/or the Management Dashboard ma
 :::
 
 ::: warning
-Please note that an authenticated user can modify data in their profile's `user_metadata`, but they can't modify anything in their `app_metadata`.
+Please note that an authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
 :::
 
 ::: note
 Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
 :::
 
-Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (e.g. Facebook, Twitter, Google, SAML, your own provider, etc.). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
+Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.
 
 ## Storing Custom Profile Data
 
@@ -88,7 +88,7 @@ The claims within a JWT generally contain a subset of the information available 
 There are three other types of tokens that can be returned during authentication:
 
 * an Auth0 `access_token`;
-* a 3rd party provider access token;
+* a 3rd party provider Access Token;
 * a `refresh_token`.
 
 For more information on tokens and claims see the [Token Overview](/tokens).
@@ -201,7 +201,7 @@ If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application
 
 ## User Profile with Account Linking
 
-Users may log into an application initially via one Connection (e.g. a database). They may then log in via another Connection (e.g. Facebook). In this case, the `user_id` for the second authentication will be different from that for the first authentication. Auth0 provides a mechanism to link the two accounts. If this is done, the `identities` array portion of the User Profile will have multiple elements, one for each provider for which account linking has been done.
+Users may log into an application initially via one Connection (such as a database). They may then log in via another Connection (such as Facebook). In this case, the `user_id` for the second authentication will be different from that for the first authentication. Auth0 provides a mechanism to link the two accounts. If this is done, the `identities` array portion of the User Profile will have multiple elements, one for each provider for which account linking has been done.
 
 Note that the User Profile attributes from the multiple providers are not merged. The core User Profile attributes will be sourced from the first provider used.
 

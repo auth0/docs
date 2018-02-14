@@ -32,7 +32,7 @@ See the [User profile cache](#user-profile-cache) section below for a brief over
 
 If you have [enabled user migration](/connections/database/migrating), and a user has already been migrated to the Auth0 database, then Auth0 will not query your database again for the user profile. And therefore all changes made in the custom database for that user will never reflect in Auth0.
 
-Once a user has been migrated, you will also be able to update fields such as `email` and `email_verified` via the Management API. However, normal rules for updating other user fields will still apply as described in the [Normalized User Profile](/user-profile/normalized) (e.g. you will still not be able to update fields such as `nickname`, `picture` etc.).
+Once a user has been migrated, you will also be able to update fields such as `email` and `email_verified` via the Management API. However, normal rules for updating other user fields will still apply as described in the [Normalized User Profile](/user-profile/normalized) (for example, you will still not be able to update fields such as `nickname`, `picture` and so on).
 
 ## User profile cache
 

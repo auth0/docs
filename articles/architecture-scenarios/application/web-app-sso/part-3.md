@@ -55,7 +55,7 @@ The login flow is as follows:
 
 1. __Initiate OIDC Authentication Flow__: The user's browser will send a request to Auth0 to initiate the OIDC flow.
 1. __Set SSO Cookie__: Auth0 will set a cookie to store the user's information.
-1. __Code exchange and return ID Token__: Auth0 will make a request back to the web server and return the code. The web server will exchange the code for an ID token.
+1. __Code exchange and return ID Token__: Auth0 will make a request back to the web server and return the code. The web server will exchange the code for an ID Token.
 1. __Set auth cookie and send response__: The web server will send a response back to the browser and set the application authentication cookie to store the user's session information.
 1. __Auth cookie sent with every subsequent request__: The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
 
@@ -105,7 +105,7 @@ There are various ways in which you can retrieve and set the user authorization 
 Since in our case the company has already Active Directory set up, we will enforce access control using the Authorization Extension in combination with Active Directory groups.
 
 ::: panel Authorization Extension
-At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
+At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (such as whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
 :::
 
 All users will implicitly be regular users, but timesheet administrators will be assigned to an `Admin` group which will allow them to approve timesheets. The Authorization Extension allows for mapping groups to existing group membership.
@@ -147,7 +147,7 @@ For more information refer to the [Authorization Extension documentation](/exten
 
 ### Enforce permissions in your application
 
-When you installed the Authorization Extension, it also created an Auth0 rule which will add an `authorization` claim with all the authorization related settings for a particular user. The groups for a user will be added as a sub-claim of the `authorization` claim called `groups` and all the groups a user belongs to will be added as an array to this claim. This is an example of what JSON payload of a ID token may look like with the groups listed:
+When you installed the Authorization Extension, it also created an Auth0 rule which will add an `authorization` claim with all the authorization related settings for a particular user. The groups for a user will be added as a sub-claim of the `authorization` claim called `groups` and all the groups a user belongs to will be added as an array to this claim. This is an example of what JSON payload of a ID Token may look like with the groups listed:
 
 ```json
 {

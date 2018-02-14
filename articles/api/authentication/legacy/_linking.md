@@ -13,7 +13,7 @@ GET https://${account.namespace}/authorize?
   access_token=LOGGED_IN_USER_ACCESS_TOKEN
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "GET",
   "path": "/authorize",
@@ -21,7 +21,7 @@ GET https://${account.namespace}/authorize?
 }) %>
 
 ::: warning
-This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
+This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
 :::
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
@@ -37,7 +37,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 | `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`<br/><span class="label label-danger">Required</span>   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's access token |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
 
 
 ### Remarks
@@ -91,7 +91,7 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/login/unlink",
@@ -109,13 +109,13 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `access token` |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `Access Token` |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information

@@ -34,7 +34,7 @@ classes: topic-page
     <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/data-processing">Auth0 Data Processing</a>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/features-aiding-compliance">Auth0 Features Aiding Customer Compliance</a>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/features-aiding-compliance">How Auth0 features can help with GDPR compliance</a>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr/security-advice-for-customers">Security Advice for Customers</a>

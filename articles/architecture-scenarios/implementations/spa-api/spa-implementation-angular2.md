@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
     // If there is a value on the scope param from the authResult,
@@ -107,7 +107,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
@@ -193,7 +193,7 @@ export class AuthService {
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
-      throw new Error('Access token must exist to fetch profile');
+      throw new Error('Access Token must exist to fetch profile');
     }
 
     const self = this;
@@ -266,7 +266,7 @@ Here is the code we wroter earlier for the `setSession` function that does that 
 
 ```js
 private setSession(authResult): void {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
   // If there is a value on the `scope` param from the authResult,

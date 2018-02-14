@@ -14,5 +14,6 @@ description: Definitions used for Auth0's documentation on GDPR
 | Auth0 Subprocessors | Third party systems to which Auth0 provides personal data |
 
 <%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr"]
+ prev: ["Go back", "/compliance/gdpr"],
+ navHeader: "GDPR Home"
 }) %>

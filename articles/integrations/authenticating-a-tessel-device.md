@@ -116,7 +116,7 @@ Noteworthy highlights of the code:
 1. This is 99% compatible with node (the only device specific module.is `tessel` that we only use to make sure all SSL calls happen with adequate time references.
 1. The `request` function, is a simple wrapper on `http` module functions. The `request` module doesn't currently work in Tessel.
 
-The `Resource Owner` endpoint requires credentials (e.g. username/password), so the backend user store connected to Auth0 needs to support this (like a Database connection or Active Directory).
+The `Resource Owner` endpoint requires credentials (such as username/password), so the backend user store connected to Auth0 needs to support this (like a Database connection or Active Directory).
 
 ## Tessel Setup
 
@@ -128,5 +128,5 @@ The `Resource Owner` endpoint requires credentials (e.g. username/password), so 
 Tessel is awesome. We see a lot of potential. This sample shows how easy it is to connect it with Auth0.
 
 ::: warning
-Always send credentials (e.g. `username`/`password`) over secured networks.
+Always send credentials (such as `username`/`password`) over secured networks.
 :::

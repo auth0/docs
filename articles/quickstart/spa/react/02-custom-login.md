@@ -124,7 +124,7 @@ The auth0.js methods for making authentication requests come from the `WebAuth` 
 
 The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `redirect.loginWithCredentials` method, and for `signup`, they are passed to `redirect.signupAndLogin`.
 
-These methods are redirect-based and the authentication result is handled by the `parseHash` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
+These methods are redirect-based and the authentication result is handled by the `parseHash` method. This method looks for an Access Token and ID Token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```javascript
 // src/utils/AuthService.js
@@ -204,7 +204,7 @@ export default class AuthService extends EventEmitter {
   }
 
   setToken(accessToken, idToken) {
-    // Saves user access token and ID token into local storage
+    // Saves user Access Token and ID Token into local storage
     localStorage.setItem('access_token', accessToken)
     localStorage.setItem('id_token', idToken)
   }
@@ -240,8 +240,8 @@ The service has several other utility methods that are necessary to complete aut
 
 * The `parseHash` method is necessary to get the authentication result from the URL in redirect-based authentication transactions.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
-* The `setToken` method takes an authentication result object and sets the access token and ID token values into local storage
-* The `loggedIn` method uses the `isTokenExpired` utility from a `jwtHelper` file to check whether the user's ID token is expired. This is done to determine whether the user should be able to access the `Home` route.
+* The `setToken` method takes an authentication result object and sets the Access Token and ID Token values into local storage
+* The `loggedIn` method uses the `isTokenExpired` utility from a `jwtHelper` file to check whether the user's ID Token is expired. This is done to determine whether the user should be able to access the `Home` route.
 
 
 ## Check the Authentication Hash and Protect Private Routes

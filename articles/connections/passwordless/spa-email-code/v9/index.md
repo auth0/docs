@@ -21,20 +21,24 @@ description: Learn how to authenticate users with a one-time-code using email in
 Then you can trigger the login with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open the lock in Email Code mode with the ability to handle
-    // the authentication in page
-    lock.emailcode( function (err, profile, id_token, state) {
-      if (!err) {
-        // Save the JWT token.
-        localStorage.setItem('userToken', id_token);
-        //use profile
-      }
-    });
+   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+    passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'token id_token'
+    }
+  });
+
+  lock.on('authenticated', function(authResult) {
+      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('access_token', authResult.accessToken);
+  });
+
+  function login() {
+      lock.show();
   }
 </script>
 <a href="javascript:login()">Login</a>

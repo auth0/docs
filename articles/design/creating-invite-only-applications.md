@@ -58,7 +58,7 @@ Once you've created the user in Auth0, you'll send the appropriate `POST` call f
 
 Be sure to update the following placeholder values:
 
-* `MGMT_API_ACCESS_TOKEN`: replace with your [API access token](/api/management/v2/tokens)
+* `MGMT_API_ACCESS_TOKEN`: replace with your [API Access Token](/api/management/v2/tokens)
 * `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
 * `USER_ID`: replace with the Auth0 user ID for the end user
 ```har
@@ -86,7 +86,7 @@ Be sure to update the following placeholder values:
 
 Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
 
-Be sure to replace the placeholder values for your [API access token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
+Be sure to replace the placeholder values for your [API Access Token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
 
 ```har
 {

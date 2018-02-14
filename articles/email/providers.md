@@ -11,10 +11,11 @@ Auth0 currently supports the following providers:
 * [Amazon SES](#configure-amazon-ses-for-sending-email)
 * [Mandrill](#configure-mandrill-for-sending-email)
 * [SendGrid](#configure-sendgrid-for-sending-email)
+* [SparkPost](#configure-sparkpost-for-sending-email)
 * [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
 ::: note
-You can only configure one email provider (Amazon SES, Sendgrid, etc.) which will be used for all emails.
+You can only configure one email provider (Amazon SES, Sendgrid, and so on.) which will be used for all emails.
 :::
 
 ## Configure Amazon SES for Sending Email
@@ -132,6 +133,26 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ![](/media/articles/email/providers/email-sendgrid-monitoring.png)
 
+## Configure SparkPost for Sending Email
+
+1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or login. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
+
+    ![](/media/articles/email/providers/sparkpost-api-key-creation.png)
+
+2. Go to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SparkPost** logo.
+
+3. Enter your previously obtained SparkPost `API Key`:
+
+    ![](/media/articles/email/providers/sparkpost-set-key.png)
+
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Note that SparkPost only allows sending emails from verified domains. To verify a custom domain go to the [Sending Domains page](https://app.sparkpost.com/account/sending-domains) and add your custom domain. Alternatively, you can send test emails from the `sparpostbox.com` domain, but this is limited to only five test emails. See the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain) for details.
+
+If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
+
+The [Message Events](https://app.sparkpost.com/reports/message-events) page in SparkPost will now display all emails which have been sent to your users, including the delivery status of each message.
+
+![](/media/articles/email/providers/sparkpost-message-events.png)
+
 ## Configure a Custom SMTP Server for Sending Email
 
 You can use your own SMTP server to send email. There are three requirements for the SMTP server:
@@ -152,7 +173,7 @@ To be able to use your own SMTP server:
 5. Click **Save**.
 
 ::: note
-Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
+Common ports include 25 and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
 :::
 
 Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.

@@ -40,6 +40,9 @@ description: Learn about working with users in Auth0
       <li>
         <i class="icon icon-budicon-695"></i><a href="/user-profile/progressive-profiling">Progressive Profiling</a>
       </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/security/blacklisting-attributes">Blacklist User Attributes</a>
+      </li>
     </ul>
   </li>
   <li>

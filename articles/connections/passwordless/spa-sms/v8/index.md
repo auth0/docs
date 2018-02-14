@@ -26,17 +26,8 @@ You can then trigger the login widget with the following code:
   function login(){
     // Initialize Passwordless Lock instance
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open the lock in Email Code mode with the ability to handle
-    // the authentication in page
-    var appearanceOpts = {
-      autoclose: true
-    };
-    // Open the lock in SMS mode with the ability to handle the authentication in page
-    lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
-      if (!error) {
-        //usually save profile and id_token
-      }
-    });
+    // Open the lock in Email Magic Link mode
+    lock.magiclink();
   }
 </script>
 <a href="javascript:login()">Login</a>
@@ -56,7 +47,7 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
+If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the Access Token will be available. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 
@@ -107,7 +98,7 @@ function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'sms',
     phoneNumber: phone,
     verificationCode: code
@@ -120,7 +111,7 @@ function login(){
 };
 ```
 
-The `passwordlessVerify` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
+The `passwordlessLogin` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
 
 ```js
 $(document).ready(function() {

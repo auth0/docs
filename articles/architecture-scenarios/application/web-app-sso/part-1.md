@@ -46,7 +46,7 @@ The flow goes as follows:
 1. Auth0 authenticates the user (via the user-agent). The first time the user goes through this flow a consent page will be shown where the permissions that will be given to the Client are listed (for example, post messages, list contacts). The user logs in to the service (unless they are already logged in) and authorizes the application access.
 1. Assuming the user grants access, Auth0 redirects the __user-agent__ back to the __Client__, along with an _authorization code_ in the querystring.
 1. The Client sends the _authorization code_ to Auth0, along with the client credentials (`client_id` and `client_secret`), and asks for a token.
-1. Auth0 authenticates the __Client__ (using the `client_id` and `client_secret`) and validates the _authorization code_. If valid, Auth0 responds back with an __ID token__.
+1. Auth0 authenticates the __Client__ (using the `client_id` and `client_secret`) and validates the _authorization code_. If valid, Auth0 responds back with an __ID Token__.
 
 ![Diagram of the Authorization Code Flow](/media/articles/architecture-scenarios/web-app-sso/authz-code-flow.png)
 
@@ -54,7 +54,7 @@ The flow goes as follows:
 Another option is to use the __OAuth 2.0 Form Post Response Mode__ with `response_type=id_token&response_mode=form_post`. Due to the `response_type=id_token` request parameter, the response contains the `id_token` directly, instead of the authorization code, while the `response_mode=form_post` encodes the `id_token` with the rest of the Authorization Response parameters as HTML form values that are auto-submitted in the User Agent. This way you can have an optimized authentication flow (no need to exchange the code for an `id_token`), however you have to make sure that it is supported by the technology you are using to implement your app (ASP .NET Core middleware does support it). For more details refer to the [OAuth 2.0 Form Post Response Mode specification](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html).
 :::
 
-The __ID token__ (usually referred to as `id_token`) is a __JSON Web Token (JWT)__ that contains identity data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
+The __ID Token__ (usually referred to as `id_token`) is a __JSON Web Token (JWT)__ that contains identity data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
 
 ::: panel More on tokens
 Tokens are alphanumeric strings used in token-based authentication. They allow users to authenticate with a username and password once and get a token in return which they can use from that point on. They have a limited lifetime duration.
@@ -67,9 +67,9 @@ The ID Token, which is a JWT, conforms to an industry standard (IETF [RFC 7519](
 - The signature is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 :::
 
-### How to validate an ID token
+### How to validate an ID Token
 
-The validation of an ID token requires several steps:
+The validation of an ID Token requires several steps:
 1. If the ID Token is encrypted, decrypt it using the keys and algorithms that the Client specified.
 1. The Issuer Identifier for the OpenID Provider must match the value of the `iss` (issuer) claim.
 1. The `aud` (audience) claim should contain the Client's `client_id` value. The ID Token must be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences not trusted by the Client.
@@ -85,7 +85,7 @@ The validation of an ID token requires several steps:
 1. If the `auth_time` claim was requested, either through a specific request for this claim or by using the `max_age` parameter, the Client should check the `auth_time` claim value and request re-authentication if it determines too much time has elapsed since the last End-User authentication.
 
 ::: note
-If you store ID tokens on your server, you must do so securely.
+If you store ID Tokens on your server, you must do so securely.
 :::
 
 <%= include('./_stepnav', {

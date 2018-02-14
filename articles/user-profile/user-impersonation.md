@@ -60,7 +60,7 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 ## Sample Implementation
 
-Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`. You will need to locate the `user_id` of the user you wish to impersonate, either via the Dashboard or the Management API. Next, you will need to obtain an authorization code via the impersonation endpoint. Finally, you will need to exchange your code for a valid access token, and your impersonation process will be complete. You can walk through the steps below which use the example `app1` and `app2`.
+Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`. You will need to locate the `user_id` of the user you wish to impersonate, either via the Dashboard or the Management API. Next, you will need to obtain an authorization code via the impersonation endpoint. Finally, you will need to exchange your code for a valid Access Token, and your impersonation process will be complete. You can walk through the steps below which use the example `app1` and `app2`.
 
 ### 1. Find the User Id
 
@@ -100,7 +100,7 @@ You can now send a request to the [impersonation endpoint](/api/authentication/r
 
 The data part of the request should include the following:
 
-- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
+- `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (for example, Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
 
 - `impersonator_id`: the `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`.
 

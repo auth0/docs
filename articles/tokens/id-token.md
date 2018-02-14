@@ -6,10 +6,10 @@ toc: true
 
 ## Overview
 
-The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
+The ID Token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
 ::: warning
-Υou __must__ [verify the ID token's signature](#verify-the-signature) before storing and using it.
+Υou __must__ [verify the ID Token's signature](#verify-the-signature) before storing and using it.
 :::
 
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
@@ -28,11 +28,11 @@ The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.i
 
 - The signature is used by the recipient to verify that the sender of the JWT is who it says and to ensure that the message wasn't changed along the way.
 
-## Get an ID token
+## Get an ID Token
 
 The `id_token` can be returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, the [Authentication API](/api/authentication), or the libraries for other languages. You can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
 
-## Validate an ID token
+## Validate an ID Token
 
 In order to validate an `id_token`, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
 
@@ -63,7 +63,7 @@ Once the application verifies the token's signature, the next step is to validat
 
 - **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Client.
 
-## Control the contents of an ID token
+## Control the contents of an ID Token
 
 In order to retrieve an `id_token` the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
 
@@ -72,7 +72,7 @@ The attributes included in the issued `id_token` are controlled by the use of a 
 - If `scope` is set to `openid email`, then the `id_token` will contain additionally the `email` and `email_verified` claims.
 - If `scope` is set to `openid profile`, then the `id_token` will contain all default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 
-If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
+If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v11/configuration#auth-object-) as follows:
 
 ```js
 var options = {
@@ -95,7 +95,7 @@ The `id_token` will contain only the claims specified as the value of the `scope
 
 ### Add Custom Claims
 
-You can add custom claims to your ID token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
+You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
 
 The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 
@@ -116,7 +116,7 @@ The payload's claims can include some or all of the following:
 | name | The name of the user which is returned from the Identity Provider. |
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
-| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)|(unique id in the provider)`, e.g. `github|1234567890`. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)|(unique id in the provider)`, such as `github|1234567890`. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |

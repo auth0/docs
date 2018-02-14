@@ -11,9 +11,7 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 
  - Depending on if the [2nd Level Brute Force Protection](/anomaly-detection#2nd-level-brute-force-protection) shield is enabled, users may also be blocked they attempt 100 failed login attempts from a single IP address using different usernames and incorrect passwords in 24 hours. This shield also blocks 50 sign up attempts per minute from the same IP address.
 
- - A user cannot login more than 10 times-per-minute as the same user from the same location, regardless of having the correct credentials. This limit does not apply if the frequent requests are from different users.
-
- - For the users of a free account, there is a limit of two logins per second per IP address.
+ - A user cannot login more than 5 times per minute as the same user from the same location, regardless of having the correct credentials. This limit does not apply if the frequent requests are from different users.
 
 ## Unblocking a User
 

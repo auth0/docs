@@ -74,7 +74,7 @@ The JWT specification defines seven claims that can be included in a token. Thes
 * exp
 * nbf
 * iat
-* jtw
+* jti
 
 For your specific use case, you might then use what are called **public claim names**. Examples of these include:
 

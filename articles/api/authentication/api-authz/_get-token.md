@@ -2,9 +2,9 @@
 
 Use this endpoint to:
 - Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
-- Refresh your access token, using a refresh token you got during authorization.
+- Refresh your Access Token, using a Refresh Token you got during authorization.
 
-Note that the only OAuth 2.0 flows that can retrieve a refresh token are:
+Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 - [Authorization Code](/api-auth/grant/authorization-code)
 - [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
 - [Resource Owner Password](/api-auth/grant/password)
@@ -678,7 +678,7 @@ Content-Type: application/json
   "link": "#resource-owner-password-and-mfa"
 }) %>
 
-To verify MFA using an OOB challenge (e.g. Push / SMS) your app must make a request to `/oauth/token`
+To verify MFA using an OOB challenge (either Push / SMS) your app must make a request to `/oauth/token`
 with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
 The response to this request depends on the status of the underlying challenge verification:
@@ -839,7 +839,7 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an access token, using the refresh token you got during authorization.
+Use this endpoint to refresh an Access Token, using the Refresh Token you got during authorization.
 
 
 ### Request Parameters
@@ -849,7 +849,7 @@ Use this endpoint to refresh an access token, using the refresh token you got du
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token to use. |
+| `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
 
 
 ### Test this endpoint
@@ -860,7 +860,7 @@ Use this endpoint to refresh an access token, using the refresh token you got du
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the refresh token you have. Click **OAuth2 Refresh Token Exchange**.
+1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the Refresh Token you have. Click **OAuth2 Refresh Token Exchange**.
 
 
 ### More Information

@@ -59,7 +59,7 @@ To test the complete setup, you can use the [Resource Owner endpoint](/api/authe
 
 ## Group Memberships and Advanced Profile Information
 
-In this native flow Auth0 will receive an access token from Azure AD which has been issued for your **Web Application and/or Web API**. Because of that features like loading group memberships and advanced profile information will no longer work. This is because the access token received by Azure AD can no longer be used to query the Azure AD Graph API for this additional information.
+In this native flow Auth0 will receive an Access Token from Azure AD which has been issued for your **Web Application and/or Web API**. Because of that features like loading group memberships and advanced profile information will no longer work. This is because the Access Token received by Azure AD can no longer be used to query the Azure AD Graph API for this additional information.
 
 If you depend on group memberships and advanced profile information you can however change your configure. First you will need to configure the **Native** application with additional read permissions for Azure AD:
 

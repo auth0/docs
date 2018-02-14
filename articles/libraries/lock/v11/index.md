@@ -9,10 +9,6 @@ img: media/articles/libraries/lock-web.png
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
-::: panel Hosted Login Page
-Lock v11 is a version of Lock tailored for embedded login in your applications. If you use Auth0's [Hosted Login Page](/hosted-pages/login), do not upgrade to Lock v11. Instead, keep using the latest version of Lock 10. The Hosted Login Page remains the simplest and most secure method by which to authenticate users for your applications. Lock v11 is designed to make cross-origin authentication work smoothly for when you cannot use the Hosted Login Page and need to embed a login in your application.
-:::
-
 ## Lock Installation
 
 You can install Lock v11 via several methods. Select any of the following installation sources that best suit your environment and application.
@@ -69,7 +65,7 @@ Make sure you read about the [limitations of cross-origin authentication](/cross
 
 ### 1. Initializing Lock
 
-First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (i.e. `jeffstest.auth0.com`).
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
 
 ```js
 // Initializing our Auth0Lock
@@ -123,6 +119,72 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
+## Passwordless
+
+::: note
+Lock's Passwordless Mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
+:::
+
+You can use Lock's Passwordless Mode to allow users to authenticate using just an email or mobile number. They will receive the code and then return to input it, or click the link, and they can be authenticated without remembering a password.
+
+In Lock v11, in order to implement Passwordless Mode, you initialize Lock in a slightly different manner, with `Auth0LockPasswordless` rather than with `Auth0Lock`:
+
+```js
+var lockPasswordless = new Auth0LockPasswordless(
+ '${account.clientId}',
+ '${account.namespace}'
+);
+```
+
+### Passwordless options
+
+Additionally, Lock's Passwordless Mode has a couple of configuration options that are unique to it.
+
+In order to indicate which connection type you would like, you initialize Lock with the `allowedConnections` option with either `email` or `sms` as the value:
+
+```js
+var passwordlessOptions = {
+  allowedConnections: ['sms']
+}
+```
+
+::: note
+Remember to enable the passwordless connection of your choice in the [Dashboard](${manage_url}) under **Connections -> Passwordless**, and then to enable it for your client, that way when Lock tries to use it, it is already set up and linked to the client.
+:::
+
+If you choose to use `email`, you have one more option to select - whether you wish your users to receive a code to input, or a "magic link" to use. This is done via the `passwordlessMethod` option, which takes values of `code` or `link`.
+
+```js
+var passwordlessOptions = {
+  allowedConnections: ['email'],
+  passwordlessMethod: 'code'
+}
+```
+
+### Passwordless example
+
+```js
+var passwordlessOptions = {
+  allowedConnections: ['email'],
+  passwordlessMethod: 'code',
+  auth: {
+    redirectUrl: 'http://localhost:3000/callback',   
+    responseType = 'token id_token'
+    params: {
+      scope: 'openid email'               
+    }          
+  }
+}
+
+var lockPasswordless = new Auth0LockPasswordless(
+ '${account.clientId}',
+ '${account.namespace}',
+ passwordlessOptions
+);
+```
+
+<%= include('../../_includes/_embedded_sso') %>
+
 ## Browser Compatibility
 
 Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
@@ -135,7 +197,7 @@ The below widget displays brief examples of implementing Auth0 in several ways: 
 
 ## Next Steps
 
-This document has shown how to use Lock 10 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+This document has shown how to use Lock 11 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
 
 ::: next-steps
 * [Lock v11 API Reference](/libraries/lock/v11/api)

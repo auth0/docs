@@ -21,7 +21,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
 ## Before You Start
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API clients, you need a valid access token and ID token.
+Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API clients, you need a valid Access Token and ID Token.
 :::
 
 Before launching the login process, you need to make sure you get a valid profile from the authorization server. To do that, ask for the `openid profile email` scope. Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email")`.
@@ -55,7 +55,7 @@ Do not hardcode the Auth0 `domain` and `clientId` values. We recommend you add t
 :::
 
 To get the user's information:
-1. Use the user's access token to call the `userInfo` method in the `AuthenticationAPIClient` client instance.
+1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` client instance.
 You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes/current) you requested, the profile contains different information. 
 2. To get the user's full profile, use the [Management API](/api/management/v2#!/Users).
 
@@ -128,7 +128,7 @@ You can handle additional information within any of the following maps:
 
 #### A. User metadata
 
-The `userMetadata` map contains user profile fields that can be added from the client-side (e.g. when a user edits their profile). You can access this information in the following way:
+The `userMetadata` map contains user profile fields that can be added from the client-side (such as when a user edits their profile). You can access this information in the following way:
 
 ```java
 String country = (String) profile.getUserMetadata().get("country");

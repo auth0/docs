@@ -533,10 +533,6 @@ module.exports = [
     to: '/tutorials/get-user-information-with-unbounce-landing-pages'
   },
   {
-    from: '/scenarios/zendesk-sso',
-    to: '/tutorials/single-sign-on-with-zendesk-using-jwt'
-  },
-  {
     from: '/scenarios',
     to: '/tutorials'
   },
@@ -1119,22 +1115,6 @@ module.exports = [
     to: '/api-auth/tutorials/implicit-grant'
   },
   {
-    from: '/connections/passwordless/spa-sms',
-    to: '/connections/passwordless/spa-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/spa-email-code',
-    to: '/connections/passwordless/spa-email-code/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-sms',
-    to: '/connections/passwordless/regular-web-app-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-email-code',
-    to: '/connections/passwordless/regular-web-app-email-code/v8'
-  },
-  {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
   },
@@ -1312,11 +1292,11 @@ module.exports = [
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js/v8'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js/v7'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: '/connections/database/mysql',
@@ -1445,10 +1425,6 @@ module.exports = [
   {
     from: '/tutorials/how-auth0-versions-software',
     to: '/support/how-auth0-versions-software',
-  },
-  {
-    from: '/tutorials/single-sign-on-with-zendesk-using-jwt',
-    to: '/sso/single-sign-on-with-zendesk-using-jwt',
   },
   {
     from: '/tutorials/authenticating-a-tessel-device',

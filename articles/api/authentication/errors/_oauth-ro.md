@@ -12,11 +12,11 @@
   <tbody>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "missing device parameter"}</code></br>You need to provide a device name for the caller device (like a browser, app, etc)</td>
+      <td><code>{"error": "invalid_request", "error_description": "missing device parameter"}</code></br>You need to provide a device name for the caller device (like a browser, app, and so on)</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT id token</td>
+      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT ID Token</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>

@@ -19,6 +19,8 @@ When you first create your application Auth0 provides a built-in email provider 
 
 * Your ability to send email from your tenant may be reduced (or even temporarily blocked) if your emails result in high bounce rates.
 
+![Test Email](/media/articles/email/index/email-notification.png)
+
 To remove these restrictions in your testing or to setup your production level emails, you have to set up your own email provider:
 
 * [Use your own SMTP Email Provider](/email/providers)

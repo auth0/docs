@@ -94,7 +94,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
@@ -257,9 +257,9 @@ webAuth.passwordlessStart({
 );
 ```
 
-### Verify passwordless
+### Passwordless Login
 
-If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -268,14 +268,14 @@ If sending a code, you will then need to prompt the user to enter that code. You
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
+As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to complete the passwordless login.
 
 ::: note
-In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
+In order to use `passwordlessLogin`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
 ```js
-webAuth.passwordlessVerify({
+webAuth.passwordlessLogin({
     connection: 'email',
     email: 'foo@bar.com',
     verificationCode: '389945'
@@ -305,9 +305,9 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 
 | **Item** | **Description** |
 | --- | --- |
-| `accessToken` | An access token for the API, specified by the `audience` |
+| `accessToken` | An Access Token for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
-| `idToken` |  An id token JWT containing user profile information |
+| `idToken` |  An ID Token JWT containing user profile information |
 
 ```js
 webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {

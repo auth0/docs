@@ -58,13 +58,13 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
         // passwordConfirmationMatchError: "Please ensure the password and the confirmation are the same.",
         // passwordStrength: {
         //   containsAtLeast: "Contain at least %d of the following %d types of characters:",
-        //   identicalChars: "No more than %d identical characters in a row (e.g., \"%s\" not allowed)",
+        //   identicalChars: "No more than %d identical characters in a row (such as, \"%s\" not allowed)",
         //   nonEmpty: "Non-empty password required",
-        //   numbers: "Numbers (i.e. 0-9)",
+        //   numbers: "Numbers (such as 0-9)",
         //   lengthAtLeast: "At least %d characters in length",
         //   lowerCase: "Lower case letters (a-z)",
         //   shouldContain: "Should contain:",
-        //   specialCharacters: "Special characters (e.g. !@#$%^&*)",
+        //   specialCharacters: "Special characters (such as !@#$%^&*)",
         //   upperCase: "Upper case letters (A-Z)"
         // },
         // successMessage: "Your password has been reset successfully.",

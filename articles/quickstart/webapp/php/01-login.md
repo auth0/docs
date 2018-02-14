@@ -116,7 +116,7 @@ Some of the user profile properties depend on the social provider you use.
 
 ### Optional: Configure session data
 
-By default, the SDK stores user information in the PHP session and discards the access and ID tokens. 
+By default, the SDK stores user information in the PHP session and discards the access and ID Tokens. 
 
 To keep the tokens, to the SDK configuration, pass the following:
 * `'persist_access_token' => true`

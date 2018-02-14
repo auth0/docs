@@ -48,9 +48,9 @@ Add more functions to the `app.js` file to handle authentication in the app.
 
 The example below shows the following functions:
 * `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time 
 * `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
 
 ```js
 // app.js
@@ -93,7 +93,7 @@ window.addEventListener('load', function() {
   }
 
   function setSession(authResult) {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     var expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
@@ -112,7 +112,7 @@ window.addEventListener('load', function() {
 
   function isAuthenticated() {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }

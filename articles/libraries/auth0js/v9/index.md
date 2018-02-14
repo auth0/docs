@@ -95,11 +95,13 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the client. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 | `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
+| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
 
 ::: note
 Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
@@ -219,6 +221,8 @@ var url = webAuth.client.buildAuthorizeUrl({
 If you don't specify a `state` parameter, auth0.js will automatically add one. This parameter helps prevent CSRF attacks.
 :::
 
+<%= include('../../_includes/_embedded_sso') %>
+
 ## Passwordless Login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
@@ -260,7 +264,7 @@ webAuth.passwordlessStart({
 
 ### Verify passwordless
 
-If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -272,11 +276,11 @@ If sending a code, you will then need to prompt the user to enter that code. You
 As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: note
-In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
+In order to use `passwordlessLogin`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
 ```js
-webAuth.passwordlessVerify({
+webAuth.passwordlessLogin({
     connection: 'email',
     email: 'foo@bar.com',
     verificationCode: '389945'
@@ -302,9 +306,9 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 
 | **Item** | **Description** |
 | --- | --- |
-| `accessToken` | An access token for the API, specified by the `audience` |
+| `accessToken` | An Access Token for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
-| `idToken` |  An id token JWT containing user profile information |
+| `idToken` |  An ID Token JWT containing user profile information |
 
 ```js
 webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {

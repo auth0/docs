@@ -4,7 +4,7 @@ description: Project to help customers address specific requirements related to 
 
 # Advisory Sessions: Scenario guidance
 
-An offering to help customers address specific requirements related to a current project that is expected to use Auth0. This service is applicable in all phases of a product lifecycle, delivered remotely in a variety of ways (e.g. technology briefings, Q&A sessions, etc).
+An offering to help customers address specific requirements related to a current project that is expected to use Auth0. This service is applicable in all phases of a product lifecycle, delivered remotely in a variety of ways (such as technology briefings, Q&A sessions, and so on).
 
 ## Estimated effort
 

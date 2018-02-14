@@ -54,6 +54,6 @@ Now you are ready to translate to your desired language.
 Some terms use parameters and it's important to note their placement in your translation.  In particular multiple parameter terms such as:
 
 ```text
-// No more than %@{count} identical characters in a row (e.g., \"%@{identical sample}\" not allowed)
-"com.auth0.lock.error.password.no_more_identical" = "No more than %1$d identical characters in a row (e.g., \"%2$@\" not allowed)";
+// No more than %@{count} identical characters in a row (such as, \"%@{identical sample}\" not allowed)
+"com.auth0.lock.error.password.no_more_identical" = "No more than %1$d identical characters in a row (such as, \"%2$@\" not allowed)";
 ```

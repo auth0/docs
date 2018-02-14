@@ -6,67 +6,63 @@ description: Explains how to install the Auth0 WordPress plugin.
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
 
 ::: note
-In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+In order to install or customize plugins, you must use a self-hosted WordPress.org site. Using a WordPress.com site does not allow installing plugins. [More information on the differences here](https://en.support.wordpress.com/com-vs-org/).
 :::
 
-There are two ways to install the Login by Auth0 WordPress plugin:
+Plugins can be added to your WordPress site automatically or manually. Both processes are covered [here in the WordPress Codex](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
 
-- Installing via the [WordPress Store](#installing-via-the-wordpress-store)
-- Uploading the [`wp-auth0` folder](#manually-uploading-the-plugin-file) to the `/wp-content/plugins` directory
+As soon as the plugin is activated, you are redirected to the start of the Setup Wizard.
 
-## Installing via the WordPress Store
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-step-1.png)
 
-While logged in as an administrator of your WordPress installation, go to the **Plugins** menu item.
+If you don't already have an Auth0 account, click the **[Sign Up For Free](https://auth0.com/signup).** button and create one before proceeding. 
 
-![WordPress Dashboard](/media/articles/cms/wordpress/plugins.png)
+## Social Login
 
-Click **Add New**.
+Click **Social** to start the basic Auth0 setup. 
 
-![Where to Add New Plugins in WordPress](/media/articles/cms/wordpress/add-new.png)
+### Automatic
 
-Search for the **Login By Auth0** plugin, and click **Install Now**.
+Public servers that allow incoming connections from Auth0 will begin the Automatic setup process. Authorize the WordPress site for your tenant and everything will be setup automatically, including user migration. 
 
-![Install the plugin](/media/articles/cms/wordpress/install-plugin.png)
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/auth0-authorize-app.png)
 
-Once the installation completes, click **Activate Plugin**.
+### Manual
 
-At this point, your installation is complete, and you can now [configure the plugin](/cms/wordpress/configuration).
+This process is used for servers without incoming connections from Auth0, such as a local development machine or a server with access blocked by a firewall or other protection. 
 
-## Manually Uploading the Plugin File
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-social-modal.png)
 
-Download the plugin zip file from the [WordPress Plugins site](https://wordpress.org/plugins/auth0/).
+In the modal that appears, enter the domain name for your tenant and a valid, manually-generated Access Token. [Follow the instructions here](/api/management/v2/tokens#get-a-token-manually) - "Get a token manually" section - to create the token and find your domain.  
 
-While logged in as an administrator of your WordPress installation, go to the **Plugins** menu item.
+If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. If not, to go **Auth0 > Settings > Basic**, delete your Client ID and domain, then click **Setup Wizard** in the admin menu to start again. Check the Auth0 Error Log in wp-admin for more information about what went wrong and [post in our Community](https://community.auth0.com/topics/wordpress) if you need support. 
 
-![Navigating to the Plugins Menu in WordPress](/media/articles/cms/wordpress/plugins.png)
+Click **Next** to continue the setup process by migrating your administrator account.
 
-Click **Add New**.
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-migrate-admin.png)
 
-![Where to Add New Plugins](/media/articles/cms/wordpress/add-new.png)
+This step connects your WordPress user with an Auth0 user that authorizes you to log in. You can choose the same password as your admin account or different but make sure it conforms to the ["Fair" password policy described here](/connections/database/password-strength#password-policies) (the default for this plugin).
 
-Click on **Upload Plugin**.
+## Setup complete
 
-![How to Manually Upload Plugins](/media/articles/cms/wordpress/upload-and-install.png)
+When you see the "Done" screen, Auth0 is setup and ready to accept logins and, if configured, signups!
 
-Select the zip file you just downloaded.
+![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/setup-wizard-complete.png)
 
-![Selecting the Plugin File to Upload Manually](/media/articles/cms/wordpress/select-upload.png)
+This is a good time to confirm that the basics are working for your site before changing any of the default settings:
 
-Click on **Install Now**.
+1. Log out of WordPress and confirm that the Auth0 form now appears at `/wp-login.php`.
+1. Log in with the Auth0 user created above.
+1. Log out and try creating an account with a different email address (if you have "Anyone can register" turned on in your General WordPress settings).
+1. Try logging in using a social connection (if you've turned those on).
 
-![Installing the Chosen File](/media/articles/cms/wordpress/install-now.png)
+Now you're ready to [Configure](/cms/wordpress/configuration)!
 
-Once the installation completes, click **Activate Plugin**.
-
-![Activating an Installed Plugin](/media/articles/cms/wordpress/activate-upload.png)
-
-At this point, your installation is complete, and you can now [configure the plugin](/cms/wordpress/configuration).
-
-## More on the Login by Auth0 WordPress Plugin
+## Read Next
 
 ::: next-steps
-* [How does it work?](/cms/wordpress/how-does-it-work)
 * [Configuration](/cms/wordpress/configuration)
+* [How does it work?](/cms/wordpress/how-does-it-work)
 * [JWT Authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshoot](/cms/wordpress/troubleshoot)
 :::

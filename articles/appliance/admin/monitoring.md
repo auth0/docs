@@ -5,7 +5,7 @@ description: How to monitor the PSaaS Appliance
 
 # PSaaS Appliance Administration: Monitoring
 
-While your existing monitoring platform may already collect data (such as metrics on CPU, disk size, etc.) at the virtual machine level, it may exclude information regarding the nodes in the cluster.
+While your existing monitoring platform may already collect data (such as metrics on CPU, disk size, and so on.) at the virtual machine level, it may exclude information regarding the nodes in the cluster.
 
 Because of this, Auth0 provides [tools for monitoring your individual cluster nodes](/appliance/monitoring).
 

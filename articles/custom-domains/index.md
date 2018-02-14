@@ -29,9 +29,9 @@ Currently, the following Auth0 features and flows support the use of custom doma
 
 
 ::: panel Token Issuance
-Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an access token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**.
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an Access Token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**.
 
-If you obtain an access token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
+If you obtain an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
 :::
 
 ## Certificate Management
@@ -164,7 +164,7 @@ You cannot use [Auth0 developer keys](https://auth0.com/docs/connections/social/
 
 #### APIs
 
-If you are using Auth0 with a custom domain to issue access tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
+If you are using Auth0 with a custom domain to issue Access Tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
 
 ```js
 app.use(jwt({ 
@@ -190,3 +190,21 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
   
   We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
 
+## Troubleshooting
+
+If you're seeing errors, refer to the following troubleshooting steps.
+
+### Custom Domain is still pending verification
+
+If you continue to see this error in the Dashboard, make sure that the CNAME record is properly configured in your domain management service.
+
+You can confirm the configuration of your CNAME record using:
+
+* A tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx) or [Google](https://dns.google.com)
+* The `dig` command in your terminal
+
+Please remember that it can take up to 48 hours for the DNS to be propagated.
+
+### CNAME flattening
+
+Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.

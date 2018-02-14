@@ -62,7 +62,7 @@ You can filter, add or remove anything from the profile returned from the provid
 
 ## Log in using the custom connection
 
-You can use any of the Auth0 standard mechanisms (e.g. direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/libraries/auth0js), etc.) to login a user with the your custom connection.
+You can use any of the Auth0 standard mechanisms (such as direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and so on.) to login a user with the your custom connection.
 
 A direct link would look like:
 

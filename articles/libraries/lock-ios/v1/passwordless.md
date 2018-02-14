@@ -27,7 +27,7 @@ controller.auth0APIToken = ^{
     return @"Copy API v2 token here";
 };
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -39,7 +39,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 let lock = ... // Fetch Lock from where its stored
 let controller: A0SMSLockViewController = lock.newSMSViewController()
 controller.onAuthenticationBlock = { (profile, token) in
-   // Do something with token & profile. e.g.: save them.
+   // Do something with token & profile (such as save them).
    // Lock will not save the Token and the profile for you.
    // And dismiss the UIViewController.
    self.dismiss(animated: true, completion: nil)
@@ -79,7 +79,7 @@ Lock provides passwordless authentication with Touch ID for your Auth0 DB connec
   let lock = A0Lock.shared()
   let controller: A0TouchIDLockViewController = lock.newTouchIDViewController()
   controller.onAuthenticationBlock = { (profile, token) in
-      // Do something with token & profile. e.g.: save them.
+      // Do something with token & profile (such as save them).
       // Lock will not save the Token and the profile for you.
       // And dismiss the UIViewController.
       self.dismiss(animated: true, completion: nil)

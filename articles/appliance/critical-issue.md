@@ -35,7 +35,7 @@ As a secondary point of escalation, PSaaS Appliance customers can also send an e
 1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
 2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
 3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your PSaaS Appliance installation.**
-4. In **Environment** indicate the specific installation having the problem (i.e. Production, QA).
+4. In **Environment** indicate the specific installation having the problem (such as Production, QA).
 5. For **What can we help you with?** select `Auth0 Service Issue`.
 6. For **Severity** select `Urgent`
   ::: note
@@ -57,5 +57,5 @@ When an issue has been logged correctly:
 
 * it will be acknowledged immediately by email and assigned a ticket ID number. Additional information may be requested.
 * A responding Auth0 support staff member may contact you via email and/or direct you to join a private Slack channel and/or a Zoom web conference to facilitate faster communications.  However, it’s important to remember you should not initiate requests for help via a Slack channel - only via the methods outlined above. Slack channels may not be actively monitored.
-* In addition to communications over a web conference or Slack, to preserve a record of an issue, any critical information, such as log files, symptoms, etc should be sent as updates to the ticket via support center.  Any conclusions or next steps should be added to the ticket as well.
+* In addition to communications over a web conference or Slack, to preserve a record of an issue, any critical information, such as log files, symptoms, and so on should be sent as updates to the ticket via support center.  Any conclusions or next steps should be added to the ticket as well.
 * Upon resolution of the issue, an Auth0 support staff member will ask the customer for confirmation the issue has been resolved to their satisfaction and the ticket will be closed only when customer has responded and confirmed issue is resolved.

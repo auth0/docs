@@ -25,12 +25,12 @@ Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
 - The tenant name cannot be changed after creation.
-- You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (i.e. Development, Staging, Production).
+- You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
 
 ## Domain
 
-As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API (e.g. to authenticate a user). The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
+As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API (for example, to authenticate a user). The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
 
 In our example, `Example-Co` picked the name `example-co`; hence their domain is `example-co.auth0.com`.
 
@@ -49,9 +49,9 @@ When you create a client in the [Dashboard](${manage_url}/#/clients), the first 
 
 ![Client Types](/media/articles/getting-started/client-types.png)
 
-Each client is assigned a **Client ID** upon creation. This is an alphanumeric string and it's the unique identifier for your client (e.g. `q8fij2iug0CmgPLfTfG1tZGdTQyGaTUA`). It cannot be modified and you will be using it in your application's code when you call Auth0 APIs.
+Each client is assigned a **Client ID** upon creation. This is an alphanumeric string and it's the unique identifier for your client (such as `q8fij2iug0CmgPLfTfG1tZGdTQyGaTUA`). It cannot be modified and you will be using it in your application's code when you call Auth0 APIs.
 
-Another important piece of information is the **Client Secret**. Think of it as your client's password which **must be kept confidential at all times**. If anyone gains access your Client Secret they can impersonate your application and access protected resources.
+Another important piece of information is the **Client Secret**. Think of it as your client's password which **must be kept confidential at all times**. If anyone gains access to your Client Secret they can impersonate your application and access protected resources.
 
 In our example, `ExampleCo` has two apps: a web app (running on a server) and a mobile app. Hence, they would create two clients: one of type `Regular Web Applications`, and one of type `Native`.
 
@@ -63,7 +63,7 @@ We won't get into details on how to create a client, since this article is meant
 
 Now that you have set up your **Clients**, you are ready to configure how your users will login. 
 
-Auth0 sits between your app and the identity provider that authenticates your users (e.g. Google or Facebook). Through this level of abstraction, Auth0 keeps your app isolated from any changes of the provider's implementation.
+Auth0 sits between your app and the identity provider that authenticates your users (such as Google or Facebook). Through this level of abstraction, Auth0 keeps your app isolated from any changes of the provider's implementation.
 
 This relationship between Auth0 and the identity provider is referred to as a **Connection**.
 
