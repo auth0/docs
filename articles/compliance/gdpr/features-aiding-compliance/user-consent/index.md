@@ -22,10 +22,14 @@ Before you design your solution using `user_metadata` make sure you have reviewe
 If you use Lock and authenticate users with a database connection, add an extra field to the signup screen using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). This extra field will be automatically added to the `user_metadata`.
 
 :::note
-For a tutorial on how to use the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-) to capture consent metadata, see [Track Consent with Lock for DB Connections](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db).
+For a tutorial on how to use the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-) to capture consent metadata, see the [Track Consent with Lock for DB Connections](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db), and follow the first implementation option.
 :::
 
-Alternatively, you can use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-).
+Alternatively, you can use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using a [rule](/rules) that will run upon first login.
+
+:::note
+For a tutorial on how to use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-) to capture consent metadata, see the [Track Consent with Lock for DB Connections](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db), and follow the second implementation option.
+:::
 
 ### Lock with social login
 
