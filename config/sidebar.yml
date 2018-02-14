@@ -593,7 +593,7 @@ articles:
             children:
               - title: "Conditions for Consent"
                 hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/user-consent/index"
+                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
                 children:
                   - title: "Track Consent with Lock"
                     hidden: true
