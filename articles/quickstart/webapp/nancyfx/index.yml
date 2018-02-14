@@ -1,5 +1,6 @@
 title: NancyFX
-community: true
+author:
+ community: true
 image: /media/platforms/nancyfx.png
 tags:
   - quickstart

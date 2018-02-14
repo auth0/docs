@@ -1,5 +1,6 @@
 title: Play 2 Scala
-community: true
+author:
+ community: true
 image: /media/platforms/play.png
 tags:
   - quickstart

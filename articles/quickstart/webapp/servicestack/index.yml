@@ -1,5 +1,6 @@
 title: ServiceStack
-community: true
+author:
+ community: true
 image: /media/platforms/service-stack.png
 tags:
   - quickstart

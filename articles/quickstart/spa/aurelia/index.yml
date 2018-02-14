@@ -26,6 +26,4 @@ github:
   branch: master
 requirements:
   - Aurelia 1.1
-author:
-  community: true
   

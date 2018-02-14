@@ -22,5 +22,3 @@ github:
   branch: master
 requirements:
   - Ember 2.x
-author:
-  community: true

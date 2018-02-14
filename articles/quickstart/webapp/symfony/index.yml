@@ -1,5 +1,6 @@
 title: PHP (Symfony)
-community: true
+author:
+ community: true
 image: /media/platforms/php.png
 tags:
   - quickstart

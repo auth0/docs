@@ -25,5 +25,3 @@ github:
   branch: master
 requirements:
   - Socket.IO 1.7.3
-author:
-  community: true
