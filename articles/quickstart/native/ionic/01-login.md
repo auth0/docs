@@ -52,8 +52,6 @@ angular.module('yourApp', ['ionic'])
 
 To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app in the configuration block.
 
-${snippet(meta.snippets.use)}
-
 ## Add Login and Logout Controls
 
 Add controls to your app to allow users to log in and log out. The controls should call the `login` and `logout` methods from the `Auth` service. Start by injecting the `Auth` service in a controller.
