@@ -188,6 +188,12 @@ If you are implementing this from a regular web app, hosting your own form, then
   - **Key**: `CONSENT_FORM_URL`
   - **Value**: `https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form`
 
+You are done with the configuration part, let's test!
+
+:::note
+To learn more about redirect rules, see [Redirect Users from Rules](/rules/redirect).
+:::
+
 ## Test the configuration
 
 1. Go to the folder where you downloaded the application and run it.
