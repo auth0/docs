@@ -7,17 +7,17 @@ crews: crew-2
 
 Many SaaS apps allow self-service provisioning, where users can register themselves and begin using the app. Other types of apps, however, do not allow such signups. Instead, the customer (typically an organization of some type) pay upfront for a number of users, and only the end user with the appropriate credentials may sign up and access the app. In such cases, you can use an invite-only workflow for authorization purposes.
 
-## Example Scenario: Analystick
+## Example Scenario: ExampleCo
 
-In this tutorial, we will work through a sample setup for the fictional company, Analystick. 
+In this tutorial, we will work through a sample setup for the fictional company, ExampleCo. 
 
-Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send Analystick lists of users whom they want to access the application.
+ExampleCo is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send ExampleCo lists of users whom they want to access the application.
 
 You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
 The invite-only authorization flow includes the following steps:
 
-1. Creating new users in Analystick and bulk importing the same users into Auth0
+1. Creating new users in ExampleCo and bulk importing the same users into Auth0
 1. Triggering the email verification process via Auth0
 1. Triggering the password reset process via Auth0
 
@@ -50,7 +50,7 @@ Since this client needs to access the [Management API](/api/v2), you'll need to 
 
 ### Import Users
 
-Every user that exists in Analystick should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
+Every user that exists in ExampleCo should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
 
 ### Email Verification
 
