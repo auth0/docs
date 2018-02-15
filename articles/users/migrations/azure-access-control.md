@@ -15,7 +15,7 @@ In this article, you'll learn how to migrate from Azure Access Control (ACS) to 
 ## Before you start
 
 * WS-Federation identity provider connections in Auth0 return tokens in SAML2 format. If your ACS configuration uses WS-Federation protocol with JWT tokens, you'll need to update your applications when migrating to Auth0.
-* Auth0 offers both [cloud and on-premises deployments](https://auth0.com/docs/getting-started/deployment-models).
+* Auth0 offers both [cloud and on-premises deployments](/getting-started/deployment-models).
 * Review the [Getting Started](/getting-started) documentation for an overview of Auth0.
 
 ## Set up your account
@@ -24,7 +24,7 @@ Start by [signing up for Auth0](https://auth0.com/signup). After creating your a
 
 ## Create a client
 
-In order for an application to use Auth0 it must be registered as a [client](https://auth0.com/docs/clients). Create new client for your application on the [Dashboard](https://manage.auth0.com/#/clients).
+In order for an application to use Auth0 it must be registered as a [client](https://auth0.com/docs/clients). Create a new client for your application on the [Dashboard](https://manage.auth0.com/#/clients).
 
 ![Create Client window](/media/articles/applications/create-client-popup.png)
 
