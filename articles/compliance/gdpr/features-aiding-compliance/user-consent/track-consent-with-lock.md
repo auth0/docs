@@ -1,5 +1,5 @@
 ---
-title: Track Consent with Lock for DB Connections
+title: Track Consent with Lock
 description: This tutorial describes how you can customize Lock to capture consent information
 toc: true
 ---
@@ -222,14 +222,15 @@ To learn more about redirect rules, see [Redirect Users from Rules](/rules/redir
     ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 
     :::panel User did not consent
-    If you do not check the **I agree** flag before clicking **Submit**, then you will see a popup error `Unauthorized. Check the console for details.`. If you check the console you will see this JSON: 
+    If you do not check the **I agree** flag before clicking **Submit**, then you will see a popup error `Unauthorized. Check the console for details.`. At the console you will see this JSON: 
     ```text
     {
       error: "unauthorized", 
       errorDescription: "User did not consent!", 
-      state: "q0GjMwzZN_q5r8XPHvfakkMYcYM2q1N3"}
+      state: "q0GjMwzZN_q5r8XPHvfakkMYcYM2q1N3"
+    }
     ```
-    Note, that the user is created but they won't be able to log in, they will be prompted again to provide consent. 
+    Note, that the user is created but they won't be able to log in. If they try to, they will be prompted again to provide consent.
     :::
 
 1. Go to [Dashboard > Users](${manage_url}/#/users) and search for the new user.
