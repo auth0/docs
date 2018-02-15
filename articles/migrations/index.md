@@ -21,24 +21,13 @@ During the grace period, customers are informed via dashboard notifications and 
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
+---
+
 ## Active Migrations
 
 Current migrations are listed below, newest first. 
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
-
-### Summary of Endpoint Migrations
-
-This table is a summary of the endpoint migrations for the first part of 2018. See the entries below the table for more detailed explanations.
-
-| Endpoint | Replacement | Mandatory Opt-In | More Info |
-| --- | --- | --- | --- | --- |
-| /usernamepassword/login | /co/authenticate | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
-| /ssoData | /authorize?prompt=none | 2018-04-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
-| [/tokeninfo](/api/authentication/reference#get-token-info) | [userinfo](/api/authentication#get-user-info) | 2018-06-01 | [More Info](#introducing-lock-v11-and-auth0-js-v9) |
-| [/delegation](/api/authentication#delegation) | TBD | 2018-06-01 | [More Info](#introducing-api-authorization-with-third-party-vendor-apis) |
-| [/oauth/ro](/api/authentication#resource-owner) | [/oauth/token](/api/authentication#authorization-code) | 2018-07-01 | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
-| [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) | TBD | TBD | [More Info](#introducing-resource-owner-support-for-oauth-token-endpoint) |
 
 ### Introducing Lock v11 and Auth0.js v9
 
@@ -56,35 +45,41 @@ If you are currently implementing login in your application with Lock v8, v9, or
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### Introducing Resource Owner Support for oauth/token Endpoint
+---
+
+## 2018 Upcoming Endpoint Migrations
+
+::: note
+Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed proprietary endpoints. We will also publish guidance on the most effective ways to transition your applications to standards-based protocols. In the event that we need to make security enhancements to any of these legacy endpoints, we will promptly announce timeframes and guidelines for any required changes.
+:::
+
+### Resource Owner Support for oauth/token Endpoint
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-07-01 |
+| Low | TBD | TBD |
 
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
 
-We will now deprecate the current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints.
-
-Applications must be updated before July 1, 2018, when [/oauth/ro](/api/authentication#resource-owner) will become unavailable. The migration guide will be available in Q1 2018.
+The current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints will be deprecated at some point in the future.
 
 #### Am I affected by the change?
 
-If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will need to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead.
+If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will need to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead once migration guides are available.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### Introducing API Authorization with Third-Party Vendor APIs
+### API Authorization with Third-Party Vendor APIs
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | Q1 2018 |  2018-06-01 |
+| Low | TBD | TBD |
 
-The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It now works the same as any custom API, providing better consistency. This new architecture will be available in Q1 2018 and at that point the [/delegation](/api/authentication#delegation) endpoint will be deprecated. All clients must be updated prior to June 1, 2018. The migration guide will be available in Q1 2018.
+The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It will work the same as any custom API, providing better consistency. This new architecture will be available in 2018 and once it becomes available, the [/delegation](/api/authentication#delegation) endpoint will be officially deprecated.
 
 #### Am I affected by the change?
 
-If you are currently using [/delegation](/api/authentication#delegation) to provide third party authorization, your application will need to be updated.
+If you are currently using [/delegation](/api/authentication#delegation) to provide third party authorization, your application will need to be updated once migration guides are available.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -92,13 +87,13 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-06-01 |
+| Low | TBD | TBD |
 
-We are deprecating the usage of [ID Tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [Management APIv2 Tokens](/api/management/v2/tokens). This is available now. Applications must be updated by June 1, 2018, when the ability to use ID Tokens will become unavailable. Migration guides will be available by February 2018.
+We are deprecating the usage of [ID Tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [Management APIv2 Tokens](/api/management/v2/tokens). This is available now. Migration guides will be available in 2018.
 
 #### Am I affected by the change?
 
-If you are currently using [id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated.
+If you are currently using [id tokens](/tokens/id-token) to access any part of the Management API, your application will need to be updated once migration guides are available.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -106,12 +101,12 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-07-01 |
+| Low | TBD | TBD |
 
-The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)). Applications must be updated to use the new user profile before July 1, 2018. Migration guide will be available in late Q1 2018.
+The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)).
 
 #### Am I affected by the change?
 
-If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint or receiving ID Tokens, you are affected by this change and need to update your implementation so that it expects normalized OIDC conformant user profile attributes.
+If you are currently using the [userinfo](/api/authentication#get-user-info) endpoint or receiving ID Tokens, you are affected by this change and need to update your implementation so that it expects normalized OIDC conformant user profile attributes once migration guides are available.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
