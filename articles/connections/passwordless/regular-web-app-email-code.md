@@ -3,34 +3,39 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 ---
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
-<%= include('../../../../_includes/_version_warning_auth0js' %>
-
-<%= include('../../_introduction-email', { isMobile: false }) %>
+<%= include('_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('../../_setup-email') %>
+<%= include('_setup-email') %>
 
-<%= include('../../_setup-callback', {spa:false} )%>
+<%= include('_setup-callback', {spa:false} )%>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_init-passwordless-lock') %>
+<%= include('_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open Lock in Email Code mode
-    lock.emailcode( {callbackURL: '${account.callback}'} );
+  function login() {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+      allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+      passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+      auth: {
+        redirectUrl: '${account.callback}',
+        responseType: 'code'
+      }
+    });
+
+    lock.show();
   }
 </script>
+
 <a href="javascript:login()">Login</a>
 ```
 
@@ -54,7 +59,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -62,7 +67,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
+<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 
@@ -92,7 +97,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessLogin({
+  webAuth.passwordlessVerify({
     connection: 'email',
     email: email,
     verificationCode: code

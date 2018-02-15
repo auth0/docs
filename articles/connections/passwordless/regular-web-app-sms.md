@@ -3,37 +3,39 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 ---
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
-<%= include('../../../../_includes/_version_warning_auth0js' %>
-
-<%= include('../../_introduction-sms', { isMobile: false }) %>
+<%= include('_introduction-sms', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('../../_setup-sms-twilio') %>
+<%= include('_setup-sms-twilio') %>
 
-<%= include('../../_setup-callback', {spa:false} ) %>
+<%= include('_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_init-passwordless-lock') %>
+<%= include('_init-passwordless-lock') %>
 
 Then you can trigger the login widget with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open Lock in SMS mode
-    lock.sms( {callbackURL: '${account.callback}'} );
-  }
+  function login() {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+        allowedConnections: ['sms'],             // Should match the SMS connection name  
+        auth: {
+          redirectUrl: '${account.callback}',
+          responseType: 'code'
+        }
+      }
+ 
+    lock.show();
+  };
 </script>
 <a href="javascript:login()">Login</a>
 ```
-
 
 This will open a dialog that asks the user for their phone number.
 
@@ -41,9 +43,7 @@ This will open a dialog that asks the user for their phone number.
 
 Then Auth0 will use Twilio to send an SMS to the user containing the one-time code:
 
-```html
 <div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
-```
 
 Lock will ask for the code that has been sent to the provided number via SMS. The code can then be used as a one-time password to log in:
 
@@ -57,7 +57,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -65,7 +65,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
+<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 
 You must provide a way for the user to enter a phone number to which the SMS will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.phone-number`):
 
@@ -95,7 +95,7 @@ function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessLogin({
+  webAuth.passwordlessVerify({
     connection: 'sms',
     phoneNumber: phone,
     verificationCode: code

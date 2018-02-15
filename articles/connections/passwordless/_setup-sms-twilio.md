@@ -1,8 +1,8 @@
-#### 1. Open an account with Twilio
+#### Open an account with Twilio
 
 You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
 
-#### 2. Configure the connection
+#### Configure the connection
 
 In the Dashboard under [Connections > Passwordless](${manage_url}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
 
@@ -57,6 +57,6 @@ The following paramaters are available when defining the template:
 | `application.name` | the name of the application name where the user is signing up |
 | `request_language` | the requested language for the message content |
 
-#### 3. Enable your apps
+#### Enable your apps
 
 Go to the **Apps** tab of the SMS settings and enable the apps for which you would like to use Passwordless SMS.
