@@ -23,7 +23,7 @@ The invite-only authorization flow includes the following steps:
 
 ### Setup your Client
 
-You can store all Analystick end users in a single database, since everyone will provide their unique corporate email addresses.
+You can store all ExampleCo end users in a single database, since everyone will provide their unique corporate email addresses.
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
