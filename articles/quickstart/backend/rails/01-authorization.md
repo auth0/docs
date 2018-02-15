@@ -84,6 +84,8 @@ Create a Concern called `Secured` which looks for the `access_token` in the `Aut
 # frozen_string_literal: true
 module Secured
   extend ActiveSupport::Concern
+  # include the JsonWebToken class
+  require_relative '../../../lib/json_web_token'
 
   included do
     before_action :authenticate_request!
