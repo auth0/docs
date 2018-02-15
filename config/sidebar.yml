@@ -597,7 +597,7 @@ articles:
                 children:
                   - title: "Track Consent with Lock"
                     hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock-db"
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
 
               - title: "Access, correct, and erase data"
                 hidden: true
