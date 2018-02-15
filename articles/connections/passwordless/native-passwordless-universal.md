@@ -12,11 +12,11 @@ Once you are done with this guide, authentication should occur in this fashion:
 1. The prompt will change to ask them for a code which they will receive by the designated method.
 1. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
 
-Implementing passwordless in the login page involves just a few steps.
+Implementing passwordless in the login page involves the following steps:
 
 ## 1. Set up your connection
 
-To set up the passwordless connection, go to your [Dashboard](${manage_url}/#/connections/passwordless) under **Connections > Passwordless** and turn on either Email or SMS. Then, go to the **Apps** tab and enable the connection for the clients that will be using it.
+To set up the passwordless connection, go to [Dashboard > Connections > Passwordless](${manage_url}/#/connections/passwordless) and turn on either Email or SMS. Then, go to the **Apps** tab and enable the connection for the clients that will be using it.
 
 ## 2. Configure your login page
 
@@ -24,8 +24,11 @@ Next, configure your login page. Head over to the [Hosted Pages](${manage_url}/#
 
 ## 3. Implement Auth0 in your application
 
-All that remains is to set up your application to call the login page. An easy to follow guide for this process already exists for both Swift and Android. Using Auth0's quickstart guides, follow the **Login** step through. It will guide you on how to call the login page from your application. The process for invoking universal login from a native app is the same whether `lock-passwordless` will be used inside the login page or not.
+All that remains is to set up your application to call the login page. An easy to follow guide for this process already exists for both Swift and Android. Choose a quickstart below, and follow only the **Login** step. It will guide you on how to call the login page from your application.
 
-[iOS (Swift) Quickstart](/quickstart/native/ios-swift/00-login)
+* [iOS (Swift) Quickstart](/quickstart/native/ios-swift/00-login)
+* [Android Quickstart](/quickstart/native/android/00-login)
 
-[Android Quickstart](/quickstart/native/android/00-login)
+::: note
+The process for invoking universal login from a native app is the same whether `lock-passwordless` will be used inside the login page or not.
+:::
