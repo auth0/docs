@@ -21,7 +21,7 @@ There are different scenarios in which you might want to integrate with Microsof
 
 * You want to let users into your application from an Azure AD you or your organization controls (such as employees in your company).
 
-* You want to let users coming from other companies' Azure ADs into your application. You may set up those external directories manually as different connections, or [create a multi-tenant application that accepts new directories dynamically](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory).
+* You want to let users coming from other companies' Azure ADs into your application. You may want to set up those external directories as different connections.
 
 If you plan on allowing users to log in using a Microsoft Azure Active Directory account, either from your company or from external directories, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free.
 
@@ -134,7 +134,9 @@ For the **Client Secret** use the value that was shown for the key when you crea
 
 Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** put any email domain that corresponds to the connection.
 
-**Multi-tenant applications**: if you are creating [multi-tenant applications](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory) where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
+![Connection settings](/media/articles/connections/enterprise/azure-active-directory/connection-settings.png)
+
+**Multi-tenant applications**: if you are creating multi-tenant applications where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
 
 Then choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0.
 
