@@ -40,7 +40,7 @@ All implementations will have the same final result, a `consentGiven` property s
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also enable social connections at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will enable Google login for the purposes of this tutorial).
+1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
 
 1. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
 
