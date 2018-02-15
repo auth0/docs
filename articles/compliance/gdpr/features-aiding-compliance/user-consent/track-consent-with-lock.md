@@ -136,7 +136,7 @@ This works only for database connections (if you use social logins, see the next
 
 If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). We will use that same rule to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
 
-For simplicity, we will use this [sample consent form](https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form). This is a form we have hosted for you using a [webtask](https://webtask.io/), but later on we will see how to host your own version of this form (with your own URL). You can find the webtask's code at [Auth0 Redirect Rules repo](https://github.com/auth0/rules/blob/2392ea11601ec0b220e4b3c3a2408cd3a1f50233/redirect-rules/simple/webtask.js).
+For simplicity, we will use this [sample consent form](https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form). This is a form we have hosted for you using a [webtask](https://webtask.io/), but later on we will see how to host your own version of this form (with your own URL). You can find the webtask's code at [Auth0 Redirect Rules repo](https://github.com/auth0/rules/blob/master/redirect-rules/simple/webtask.js).
 
 :::note
 If you are implementing this from a regular web app, hosting your own form, then you can also save the consent information at the `user_metadata` using the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
@@ -188,11 +188,19 @@ If you are implementing this from a regular web app, hosting your own form, then
   - **Key**: `CONSENT_FORM_URL`
   - **Value**: `https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form`
 
-You are done with the configuration part, let's test!
+    :::note
+    If you want to work with your own implementation of the consent form webtask, you can host your own version of the webtask.js script. For instructions see [Consent Form Setup](https://github.com/auth0/rules/tree/master/redirect-rules/simple#consent-form-setup).
+    :::
+
+:::warning
+If you plan on using this approach in a production environment, make sure to review [Trusted Callback URL's](https://github.com/auth0/rules/tree/master/redirect-rules/simple#trusted-callback-urls) and [Data Integrity](https://github.com/auth0/rules/tree/master/redirect-rules/simple#data-integrity) (both sections address some security concerns).
+:::
 
 :::note
 To learn more about redirect rules, see [Redirect Users from Rules](/rules/redirect).
 :::
+
+We are done with the configuration part, let's test!
 
 ## Test the configuration
 
