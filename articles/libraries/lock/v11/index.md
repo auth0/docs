@@ -169,7 +169,7 @@ var passwordlessOptions = {
   passwordlessMethod: 'code',
   auth: {
     redirectUrl: 'http://localhost:3000/callback',   
-    responseType = 'token id_token'
+    responseType = 'token id_token',
     params: {
       scope: 'openid email'               
     }          
