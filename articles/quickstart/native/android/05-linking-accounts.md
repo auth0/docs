@@ -54,7 +54,7 @@ Note that the Management API audience value ends in `/` in constrast to the User
 
 Your users may want to link their other accounts to the account they are logged in to.
 
-To achieve this, you need to store the user ID for the logged user in the Intent, along with the id token and access token provided by the LoginActivity at launch, which are already available in the intent extras. 
+To achieve this, you need to store the user ID for the logged user in the Intent, along with the ID Token and Access Token provided by the LoginActivity at launch, which are already available in the intent extras. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

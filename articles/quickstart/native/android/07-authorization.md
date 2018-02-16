@@ -60,7 +60,7 @@ The rule can be customized to grant the user different roles other than the ones
 
 Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login) tutorial), save them to access them at any time.
 
-The claims added to the Id Token via a Rule are included in the userinfo endpoint response. Use the Access Token to call this endpoint and obtain the user roles.
+The claims added to the ID Token via a Rule are included in the userinfo endpoint response. Use the Access Token to call this endpoint and obtain the user roles.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

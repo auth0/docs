@@ -21,7 +21,7 @@ This tutorial shows you how to let users log in and maintain an active session w
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
 * `accessToken`: Access Token used by the Auth0 API. To learn more, see the [Access Token documentation](/tokens/access-token).
-* `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
+* `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
 * `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
@@ -52,11 +52,11 @@ WebAuthProvider.init(auth0)
 
 ## Check for Tokens when the Application Starts
 
-::: panel Learn about refresh tokens
+::: panel Learn about Refresh Tokens
 Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
 It is important that you remember the following:
-* Refresh tokens must be securely saved.
-* Even though refresh tokens cannot expire, they can be revoked.
+* Refresh Tokens must be securely saved.
+* Even though Refresh Tokens cannot expire, they can be revoked.
 * New tokens will have the same scope as was originally requested during the first authentication.
 :::
 
