@@ -106,7 +106,7 @@ For an example of how to add a custom claim, refer to [Add Custom Claims](/scope
 ### ID Token Payload
 
 ::: note
-The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
+The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quickly decode a JWT to see the information it contains.
 :::
 
 The payload's claims can include some or all of the following:
