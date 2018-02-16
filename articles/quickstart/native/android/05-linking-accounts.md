@@ -31,7 +31,7 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 Your users may want to link their other accounts to the account they are logged in to. 
 
-To achieve this, you need to store the user id for the logged user in the Intent so they can be accessed in other activities.
+To achieve this, you need to store the user ID for the logged user in the Intent so it can be accessed in other activities.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -69,7 +69,7 @@ public void onAuthentication(Credentials credentials) {
 
 ## Link the Accounts
 
-Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID tokens for the two accounts: 
+Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID Tokens for the two accounts: 
 * The saved account the user initially logged in to
 * The second account received in the last login response
 
@@ -118,14 +118,14 @@ usersClient.getProfile(userInfo.getId())
 For more information, check the [UserIdentity.java class documentation](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java).
 :::
 
-### Unlink the Accounts
+## Unlink the Accounts
 
 To unlink the accounts, you need to specify the following: 
 * user ID for the main account
 * user ID for the linked acocunt
 * the provider name
 
-To instantiate the `UsersAPIClient` client, use the ID token for the main account.
+To instantiate the `UsersAPIClient` client, use the ID Token for the main account.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

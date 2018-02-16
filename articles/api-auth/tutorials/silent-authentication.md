@@ -45,7 +45,7 @@ Any applicable [rules](/rules) will be executed as part of the silent authentica
 
 If the user was already logged in via SSO, Auth0 will respond exactly as if the user had authenticated manually through the SSO login page.
 
-For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID token and optionally an access token:
+For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID Token and optionally an Access Token:
 
 ```text
 GET ${account.callback}
@@ -79,18 +79,18 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 
 ## Renew expired tokens
 
-Access tokens are opaque to clients. This means that clients are unable to inspect the contents of access tokens to determine their expiration date.
+Access Tokens are opaque to clients. This means that clients are unable to inspect the contents of Access Tokens to determine their expiration date.
 
-There are two options to determine when an access token expires:
+There are two options to determine when an Access Token expires:
 
 1. Read the `expires_in` response parameter returned by Auth0
-2. Ignore expiration dates altogether. Instead, try to renew the access token if your API rejects a request from the client (e.g. with a 401).
+2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the client (such as with a 401).
 
 In the case of the [Implicit Grant](/api-auth/grant/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. For the [Authorization Code Grant](/api-auth/grant/code), it is returned to the backend server when performing the authorization code exchange.
 
-The `expires_in` parameter indicates how many seconds the access token will be valid for, and can be used to anticipate expiration of the access token.
+The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 
-When the access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
+When the Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 In the case of single-page applications, the [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
 

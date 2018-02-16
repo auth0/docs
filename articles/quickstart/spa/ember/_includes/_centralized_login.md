@@ -23,7 +23,7 @@ export default Service.extend({
     return new auth0.WebAuth({
       domain: '${account.namespace}',
       clientID: '${account.clientId}',
-      redirectUri: 'http://localhost:4200',
+      redirectUri: 'http://localhost:3000',
       audience: 'https://${account.namespace}/userinfo',
       responseType: 'token id_token',
       scope: 'openid'
@@ -47,7 +47,7 @@ export default Service.extend({
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
 ```js
-// app.js
+// app/services/auth.js
 
 import Ember from 'ember';
 import config from 'auth0-ember-samples/config/environment';
@@ -91,7 +91,7 @@ export default Service.extend({
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
+      // Set the time that the Access Token will expire at
       let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
@@ -100,7 +100,7 @@ export default Service.extend({
   },
 
   logout() {
-    // Clear access token and ID token from local storage
+    // Clear Access Token and ID Token from local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
@@ -108,7 +108,7 @@ export default Service.extend({
 
   isNotExpired() {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     let expiresAt = this.getSession().expires_at;
     return new Date().getTime() < expiresAt;
   }

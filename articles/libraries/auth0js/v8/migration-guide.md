@@ -139,7 +139,7 @@ webAuth.client.login({
 
 ### Passwordless Login
 
-Passwordless authentication is no longer available using the v7 methods. Now, passwordless is a simpler process, begun by calling `passwordlessStart` and completed by calling `passwordlessVerify`. See the v8 [documentation on Passwordless Authentication](/libraries/auth0js#passwordless-login) for more details!
+Passwordless authentication is no longer available using the v7 methods. Now, passwordless is a simpler process, begun by calling `passwordlessStart` and completed by calling `passwordlessLogin`. See the v8 [documentation on Passwordless Authentication](/libraries/auth0js#passwordless-login) for more details!
 
 ```js
 webAuth.passwordlessStart({
@@ -153,7 +153,7 @@ webAuth.passwordlessStart({
 ```
 
 ```js
-webAuth.passwordlessVerify({
+webAuth.passwordlessLogin({
     connection: 'Username-Password-Authentication',
     email: 'foo@bar.com',
     verificationCode: '389945'
@@ -163,11 +163,15 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## The parseHash Method
+## Id Token Validation
 
-The `parseHash` method now validates the id_token. In order for this to work properly, the token should be signed using RS256, and will fail if the token is signed using HS256.
+When the `id_token` signature method is HS256, auth0.js cannot validate the token, as it does not have the secret key. To populate the `idTokenPayload` property in the `parseHash` callback, it will call the [/userinfo](/api/authentication#get-user-info) endpoint to retrieve user information.
 
-This can be avoided by either switching how your id_tokens are signed, or by manually parsing hashes, rather than using the `parseHash` method.
+If the `id_token` is signed with RS256, auth0.js will validate the token, decode it, and populate the `idTokenPayload` with the decoded data.
+
+:::note
+We recommend that you use RS256 for signing tokens in Single Page Applications.
+:::
 
 ### Switching from HS256 to RS256
 
@@ -186,15 +190,11 @@ To switch from HS256 to RS256 for a specific client, follow these instructions:
 
 Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
 
-### Manually Parsing Hashes
-
-If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [what parseHash is doing](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js) to help you get started replicating that.
-
 ## Refreshing Tokens
 
 When a token is nearing expiration, or is expired, you may wish to simply renew the token rather than requiring a new transaction.
 
-In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and `refreshToken()` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-checksession-to-acquire-new-tokens), refreshing tokens is done via the `checkSession()` method. If a user is already authenticated, `checkSession()` can be used to acquire a new token for that user.
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and `refreshToken()` methods were used to Refresh Tokens. In [auth0.js v8](/libraries/auth0js#using-checksession-to-acquire-new-tokens), refreshing tokens is done via the `checkSession()` method. If a user is already authenticated, `checkSession()` can be used to acquire a new token for that user.
 
 ## Delegation
 

@@ -16,15 +16,15 @@ budicon: 280
   ]
 }) %>
 
-The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`.
+The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`.
 
-This means that inside any of the actions in your controllers you can simply use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of a particular claim.
+This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 
-The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
+The seed project contains a controller action and view that display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
-## Storing the Tokens
+## Store the Tokens
 
-Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `access_token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property to `true` when calling `AddOpenIdConnect`. This will save the tokens to the `AuthenticationProperties`:
+You may want to Access Tokens received from Auth0. For example, you can use the Access Token to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
 
 ```csharp
 // Startup.cs
@@ -56,7 +56,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To subsequently retrieve any of the tokens you can call `GetTokenAsync`:
+To retrieve the tokens, you can call `GetTokenAsync`:
 
 ```csharp
 // Inside one of your controller actions

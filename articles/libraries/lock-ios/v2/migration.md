@@ -5,7 +5,6 @@ url: /libraries/lock-ios/v2/migration
 title: Migrating from v1 to v2 of Lock for iOS
 description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
 ---
-
 # Migrating from Lock iOS v1 to v2
 
 Lock 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
@@ -46,9 +45,9 @@ In Lock v1 you'd add the following:
 
 ```swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-	A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
-	//Your code
-	return true
+  A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
+  //Your code
+  return true
 }
 ```
 
@@ -113,7 +112,7 @@ In v1 to show Lock from a `UIViewController` you'd add the following code:
 let lock = A0Lock.shared()
 let controller = lock.newLockViewController()
 controller.onAuthenticationBlock = {(profile, token) in
-  // Do something with token & profile. e.g.: save them.
+  // Do something with token & profile, such as save them.
   // Lock will not save the Token and the profile for you.
   // And dismiss the UIViewController.
   self.dismissViewController(animated: true, completion: nil)
@@ -163,14 +162,14 @@ The callback `onSignUp` is only called when the "login after signup" is disabled
 
 In v1 to show Lock Passwordless from a `UIViewController` you'd need to use either:
 
-**Email**
+Email:
 
 ```swift
 let lock = A0Lock.shared()
 let controller: A0EmailLockViewController = lock.newEmailViewController()
 controller.useMagicLink = true
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile, such as save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     self.dismiss(animated: true, completion: nil)
@@ -178,14 +177,14 @@ controller.onAuthenticationBlock = { (profile, token) in
 lock.presentEmailController(controller, from: self)
 ```
 
-**SMS**
+or SMS:
 
 ```swift
 let lock = A0Lock.shared()
 let controller: A0SMSLockViewController = lock.newSMSViewController()
 controller.useMagicLink = true
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile, such as save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     self.dismiss(animated: true, completion: nil)
@@ -205,7 +204,8 @@ Lock
 ```
 
 **Notes:**
-- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.  
+
+- Passwordless can only be used with a single connection and will prioritize the use of email connections over SMS.
 - The `audience` option is not available in Passwordless.
 
 #### Configuration options
@@ -228,7 +228,6 @@ Lock
   }
   // continue configuring and then present Lock
 ```
-
 
 #### UI customizations
 
@@ -271,21 +270,8 @@ Auth0
 }
 ```
 
-#### Delegation
+### Delegation
 
-Delegation is no available through Lock, but Lock v1 users who still need delegation can implement it via the the [Auth0.Swift library](/libraries/auth0-swift). The following is an example of delegation using Auth0.Swift:
-
-```swift
-Auth0.authentication()
-  .delegation(withParameters: ["id_token" : "<AUTH0 ID TOKEN>", "api_type": "firebase"])
-  .start() { result in
-    switch result {
-    case .success(let payload):
-      // payload will have your firebase token
-    case .failure(let error):
-      // Handle Error
-    }
-  }
-```
+Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017, but delegation is deprecated and not recommended for most use cases. See the [migrations notice](/migrations#introducing-api-authorization-with-third-party-vendor-apis) for more details.
 
 <%= include('../_includes/_roadmap') %>

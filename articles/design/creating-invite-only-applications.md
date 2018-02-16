@@ -7,23 +7,23 @@ crews: crew-2
 
 Many SaaS apps allow self-service provisioning, where users can register themselves and begin using the app. Other types of apps, however, do not allow such signups. Instead, the customer (typically an organization of some type) pay upfront for a number of users, and only the end user with the appropriate credentials may sign up and access the app. In such cases, you can use an invite-only workflow for authorization purposes.
 
-## Example Scenario: Analystick
+## Example Scenario: ExampleCo
 
-In this tutorial, we will work through a sample setup for the fictional company, Analystick. 
+In this tutorial, we will work through a sample setup for the fictional company, ExampleCo. 
 
-Analystick is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send Analystick lists of users whom they want to access the application.
+ExampleCo is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send ExampleCo lists of users whom they want to access the application.
 
 You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
 The invite-only authorization flow includes the following steps:
 
-1. Creating new users in Analystick and bulk importing the same users into Auth0
+1. Creating new users in ExampleCo and bulk importing the same users into Auth0
 1. Triggering the email verification process via Auth0
 1. Triggering the password reset process via Auth0
 
 ### Setup your Client
 
-You can store all Analystick end users in a single database, since everyone will provide their unique corporate email addresses.
+You can store all ExampleCo end users in a single database, since everyone will provide their unique corporate email addresses.
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
@@ -50,15 +50,15 @@ Since this client needs to access the [Management API](/api/v2), you'll need to 
 
 ### Import Users
 
-Every user that exists in Analystick should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
+Every user that exists in ExampleCo should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
 
 ### Email Verification
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+Once you've created the user in Auth0, you'll send the appropriate `POST` call from your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
 
 Be sure to update the following placeholder values:
 
-* `MGMT_API_ACCESS_TOKEN`: replace with your [API access token](/api/management/v2/tokens)
+* `MGMT_API_ACCESS_TOKEN`: replace with your [API Access Token](/api/management/v2/tokens)
 * `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
 * `USER_ID`: replace with the Auth0 user ID for the end user
 ```har
@@ -84,9 +84,9 @@ Be sure to update the following placeholder values:
 
 ### Password Reset
 
-Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app shoule make a `POST` request to Auth0's Management API.
+Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
 
-Be sure to replace the placeholder values for your [API access token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
+Be sure to replace the placeholder values for your [API Access Token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
 
 ```har
 {

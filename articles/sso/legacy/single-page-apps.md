@@ -8,7 +8,7 @@ toc: true
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-To log a user in silently (i.e. without displaying the Lock screen) the following conditions need to be met:
+To log a user in silently (that is, without displaying the Lock screen) the following conditions need to be met:
 
 1. The Client needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients)
 2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
@@ -68,7 +68,7 @@ auth0.getSSOData(function (err, ssoData) {
       state: getQueryParameter('targetUrl')
     });
   } else {
-    // Display regular login option, e.g. a Login button which will invoke Lock
+    // Display regular login option, such as a Login button which will invoke Lock
   }
 });
 ```
@@ -164,7 +164,7 @@ To do that, you have to check every X amount of time whether the SSO session is 
 
 ```js
 setInterval(function() {
-  // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
+  // if the token is not in local storage, there is nothing to check (that is, the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
 
   auth0.getSSOData(function (err, data) {

@@ -338,10 +338,10 @@ Authorization: Bearer {token}
 
 <div class="row api-explorer-row api-delete">
   <div class="span8 col-sm-8 api-method"><span class="verb delete">DELETE</span> /api/users/{user_id}/refresh_tokens/{refresh_token}</div>
-  <div class="span4 col-sm-4 api-description" style="text-align:right">Revokes a refresh token</div>
+  <div class="span4 col-sm-4 api-description" style="text-align:right">Revokes a Refresh Token</div>
 </div>
 
-Revokes a user's refresh token
+Revokes a user's Refresh Token
 
 ```text
 DELETE /api/users/{user_id}/refresh_tokens/{refresh_token}
@@ -412,7 +412,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 {
   "name":     ""
-  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0|etc",
+  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0",
   "options":   {
     "tenant_domain":
     "domain_aliases":

@@ -31,7 +31,7 @@ https://${account.namespace}/authorize?
   response_type=YOUR_RESPONSE_TYPE&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
@@ -58,7 +58,7 @@ Where:
 For example:
 
 ```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=${account.callback}">
+<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=${account.callback}&nonce=12345789">
   Sign In
 </a>
 ```
@@ -88,7 +88,7 @@ $(function () {
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
-  // Use the access token to make API calls
+  // Use the Access Token to make API calls
   // ...
 });
 ```
@@ -98,7 +98,7 @@ $(function () {
 Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ``` js
-// Use the access token to make API calls
+// Use the Access Token to make API calls
 $('#get-appointments').click(function(e) {
   e.preventDefault();
 
@@ -133,7 +133,7 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 ::: next-steps
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

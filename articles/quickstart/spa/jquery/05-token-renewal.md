@@ -1,6 +1,6 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic access token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
 budicon: 448
 ---
 
@@ -15,24 +15,15 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '5000' }) %>
-
 ## Add Token Renewal
 
-To the `app.js` file, add a function that calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
-
-The function loads your silent callback page in an invisible `iframe`. Then, the function makes a call to Auth0 and gives back the result.
+To the `app.js` file, add a function that calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
 // app.js
 
 function renewToken() {
-  webAuth.renewAuth(
-    {
-      audience: '{YOUR_API_IDENTIFIER}',
-      redirectUri: 'http://localhost:3001/silent',
-      usePostMessage: true
-    },
+  webAuth.checkSession({},
     function(err, result) {
       if (err) {
         console.log(err);
@@ -52,7 +43,7 @@ You can define any timing mechanism you want. You can choose any library that ha
 
 To the `app.js` file, add a variable called `tokenRenewalTimeout`. The variable refers to the `setTimeout` call used to schedule the renewal. Next, add a function called `scheduleRenewal` to set up the time when authentication is silently renewed.
 
-The function subtracts the current time from the access token's expiry time and calculates delay. 
+The function subtracts the current time from the Access Token's expiry time and calculates delay. 
 
 The `setTimeout` call uses the calculated delay and makes a call to `renewToken`. 
 
@@ -81,7 +72,7 @@ You can now include a call to the `scheduleRenewal` function in the `setSession`
 
 // ...
 function setSession(authResult) {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   var expiresAt = JSON.stringify(
     authResult.expiresIn * 1000 + new Date().getTime()
   );

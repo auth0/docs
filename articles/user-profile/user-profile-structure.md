@@ -19,13 +19,13 @@ The User Details page will show `pending` when a user is first created until the
 
 * `email` (unique): the user's email address
 
-* `email_verified`: the `yes/no` value indicating if the user has verified their email address;
+* `email_verified`: the `true/false` value indicating if the user has verified their email address;
 
 * `identities`: the array of objects with information about the user's identities:
 
     * `connection`: the name of the connection used to authenticate the user;
     * `isSocial`: the `true/false` value indicating if the connection is a social one or not;
-    * `provider`: the entity that is authenticating the user (e.g. Facebook, Twitter, etc.);
+    * `provider`: the entity that is authenticating the user (such as Facebook, Twitter, and so on);
     * `user_id`: the user's unique identifier for this connection/provider.
 
 
@@ -51,7 +51,7 @@ The User Details page will show `pending` when a user is first created until the
 
 * `user_id` (unique): the user's unique identifier;
 
-* `user_metadata`: the custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (e.g. work and home addresses);
+* `user_metadata`: the custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses);
 
 * `username` (unique): the user's username.
 

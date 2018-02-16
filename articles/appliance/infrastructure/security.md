@@ -9,7 +9,7 @@ description: PSaaS Appliance infrastructure information about security
 
  ## SSL Certificates
 
- Each PSaaS Appliance (e.g. your production cluster PSaaS Appliance instance(s) and your development/test node PSaaS Appliance instance) requires a unique SSL certificate to be created and installed. If you'd like [additional DNS zones](/webtask/dedicated-domains), you'll need an additional certificate for *each* DNS zone you create.
+You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/appliance/webtask/dedicated-domains). 
 
  ::: note
    If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
@@ -61,7 +61,7 @@ You must configure an SMTP server in order for the PSaaS Appliance to send email
 
 **AWS SES Users**: If your domain is not validated, you will not be able to send email with AWS SES.
 
-Optionally, you may use a Transactional Email Provider (e.g. SendGrid, Amazon SES, Mandrill).
+Optionally, you may use a Transactional Email Provider (such as SendGrid, Amazon SES, Mandrill).
 
 The PSaaS Appliance supports STARTTLS, but it is not required.
 
@@ -76,7 +76,3 @@ Auth0's remote access method for initial configuration requires SSH access via J
 ### Updates, Maintenance, and Troubleshooting
 
 Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN. This connection may be enabled for and disabled after the agreed-upon time frames for work.
-
-### Around-the-Clock Accessibility for Custom SLAs
-
-Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the PSaaS Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. 

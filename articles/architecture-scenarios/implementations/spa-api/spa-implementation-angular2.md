@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
     // If there is a value on the scope param from the authResult,
@@ -107,7 +107,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
@@ -193,7 +193,7 @@ export class AuthService {
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
-      throw new Error('Access token must exist to fetch profile');
+      throw new Error('Access Token must exist to fetch profile');
     }
 
     const self = this;
@@ -266,7 +266,7 @@ Here is the code we wroter earlier for the `setSession` function that does that 
 
 ```js
 private setSession(authResult): void {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
   // If there is a value on the `scope` param from the authResult,
@@ -448,67 +448,12 @@ export class TimesheetsService {
 
 ## 6. Renew the Access Token
 
-Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using Node.js and express is given here.
-
-Create a simple server with express:
-
-```js
-const express = require('express');
-const app = express();
-const cors = require('cors');
-const staticFile = require('connect-static-file');
-
-app.use(cors());
-app.use('/silent', staticFile('<%= "${__dirname}" %>/silent.html'));
-
-app.listen(3001);
-console.log('Listening on http://localhost:3001');
-```
-
-And add a file called `silent.html`:
-
-```html
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <script src="${auth0js_urlv8}"></script>
-  <script>
-    var AUTH0_CLIENT_ID = '${account.clientId}';
-    var AUTH0_DOMAIN = '${account.namespace}';
-
-    if (!AUTH0_CLIENT_ID || !AUTH0_DOMAIN) {
-      alert('Make sure to set the AUTH0_CLIENT_ID and AUTH0_DOMAIN variables in silent.html.');
-    }
-
-    var webAuth = new auth0.WebAuth({
-      domain: AUTH0_DOMAIN,
-      clientID: AUTH0_CLIENT_ID,
-      scope: 'openid profile',
-      responseType: 'token id_token',
-      redirectUri: 'http://localhost:4200'
-    });
-  </script>
-  <script>
-    webAuth.parseHash(window.location.hash, function (err, response) {
-      parent.postMessage(err || response, 'http://localhost:4200');
-    });
-  </script>
-</head>
-<body></body>
-</html>
-```
-
-In this example, the server is running at `localhost:3001`.The `silent.html` file makes reference to `localhost:4200` which is the address for the Angular SPA.
-
-Next we’ll need to update the Angular SPA. Add a method to the `AuthService` which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Renewing the user's `access_token` requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
 public renewToken() {
-  this.auth0.renewAuth({
-    audience: AUTH_CONFIG.apiUrl,
-    redirectUri: AUTH_CONFIG.silentCallbackURL,
-    usePostMessage: true
+  this.auth0.checkSession({
+    audience: AUTH_CONFIG.apiUrl
   }, (err, result) => {
     if (!err) {
       this.setSession(result);
@@ -516,8 +461,6 @@ public renewToken() {
   });
 }
 ```
-
-This will load the silent callback page added earlier in an invisible iframe, make a call to Auth0, and give back the result.
 
 In the `AuthService` class, add a method called `scheduleRenewal` to set up a time at which authentication should be silently renewed. In the sample below this is set up to happen 30 seconds before the actual token expires. Also add a method called `unscheduleRenewal` which will unsubscribe from the Observable.
 

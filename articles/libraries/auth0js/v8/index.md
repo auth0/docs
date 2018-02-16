@@ -8,7 +8,7 @@ description: How to install, initialize and use auth0.js v8
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 ::: note
-Check out the [Auth0.js repository](https://github.com/auth0/auth0.js) on GitHub.
+Check out the [Auth0.js repository](https://github.com/auth0/auth0.js/tree/v8) on GitHub.
 :::
 
 ## Ready-to-go example
@@ -94,11 +94,11 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
-| `leeway` | optional | (Integer) Add leeway for clock skew to JWT expiration times. |
+| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
 
 ::: note
 Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
@@ -129,6 +129,8 @@ Hosted login with popup:
 ```js
 webAuth.popup.authorize({
   //Any additional options can go here
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
@@ -137,6 +139,8 @@ And for social login with popup using `authorize`:
 ```js
 webAuth.popup.authorize({
   connection: 'twitter'
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
@@ -155,7 +159,7 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
 However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
@@ -174,27 +178,22 @@ webAuth.popup.loginWithCredentials({
 });
 ```
 
-### webAuth.client.login()
+### webAuth.login()
 
-The `client.login` method allows for non-redirect auth using database connections, using `/oauth/token`.
+The `login` method allows for [cross-origin auth](/cross-origin-authentication) using database connections, using `/co/authenticate`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `username` | required | (String) The username to present for authentication |
-| `password` | required | (String) The password to present for authentication |
+| `username` | optional | (String) The username to present for authentication. **Either** `username` or `email` must be present. |
+| `email` | optional | (String) The email to present for authentication. **Either** `username` or `email` must be present.|
+| `password` | required | (String) The password to present for authentication. |
 | `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `audience` | optional | (String)  The default audience to be used for requesting API access. |
 
 ```js
-webAuth.client.login({
+webAuth.login({
   realm: 'tests',
   username: 'testuser',
   password: 'testpass',
-  scope: 'openid profile',
-  audience: 'urn:test'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
 });
 ```
 
@@ -258,9 +257,9 @@ webAuth.passwordlessStart({
 );
 ```
 
-### Verify passwordless
+### Passwordless Login
 
-If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -269,14 +268,14 @@ If sending a code, you will then need to prompt the user to enter that code. You
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
+As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to complete the passwordless login.
 
 ::: note
-In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
+In order to use `passwordlessLogin`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
 ```js
-webAuth.passwordlessVerify({
+webAuth.passwordlessLogin({
     connection: 'email',
     email: 'foo@bar.com',
     verificationCode: '389945'
@@ -306,9 +305,9 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 
 | **Item** | **Description** |
 | --- | --- |
-| `accessToken` | An access token for the API, specified by the `audience` |
+| `accessToken` | An Access Token for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
-| `idToken` |  An id token JWT containing user profile information |
+| `idToken` |  An ID Token JWT containing user profile information |
 
 ```js
 webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
@@ -429,13 +428,12 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who has a current session in Auth0 server for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
 
 ```js
 webAuth.checkSession({
   audience: 'https://example.com/api/v2',
-  scope: 'read:something write:otherthing',
-  redirectUri: 'https://example.com/auth/silent-callback'
+  scope: 'read:something write:otherthing'
 }, function (err, authResult) {
   // err if automatic parseHash fails
   ...
@@ -473,12 +471,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## Cross-Origin Authentication
 
-Using auth0.js within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded auth0.js via cross-origin authentication, you must do the following:
-
-* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
-
-    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
+Using auth0.js within your application (rather than using the [Hosted Login Page](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your client to make it work.
 
 ## User management
 

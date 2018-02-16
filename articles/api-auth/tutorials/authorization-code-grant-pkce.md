@@ -55,7 +55,7 @@ String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP |
 _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
 let verifier = Data(bytes: buffer).base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "/", with: "\_")
     .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
@@ -99,7 +99,9 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 md.update(bytes, 0, bytes.length);
 byte[] digest = md.digest();
-String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+//Use Apache "Commons Codec" dependency. Import the Base64 class
+//import org.apache.commons.codec.binary.Base64;
+String challenge = Base64.encodeBase64URLSafeString(digest);</code></pre>
     </div>
     <div id="challenge-swift" class="tab-pane">
       <pre>
@@ -112,7 +114,7 @@ data.withUnsafeBytes {
 let hash = Data(bytes: buffer)
 let challenge = hash.base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "/", with: "\_")
     .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
@@ -151,7 +153,7 @@ Where:
 
 * `audience`: The unique identifier of the API the native app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
+* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
@@ -248,7 +250,7 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 ## Keep reading
 
 ::: next-steps
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)

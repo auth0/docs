@@ -35,14 +35,10 @@ Install via [bower](http://bower.io):
 bower install auth0-lock
 ```
 
-Include via our CDN (Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
+Include via our CDN (with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
 
 ```html
-<!-- Latest minor release -->
-<script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
-
-<!-- Latest patch release (recommended for production) -->
-<script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
+<script src="${lock_urlv10}"></script>
 ```
 
 ::: note
@@ -65,17 +61,17 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### 1. Initializing Lock
 
-First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (i.e. `jeffstest.auth0.com`).
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example, `yourname.auth0.com`).
 
 ```js
-// Initializing our Auth0Lock
+// Initializing Auth0Lock
 var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
 Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
 
@@ -121,13 +117,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock via cross-origin authentication, you must do the following:
-
-* Set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to true
-* Set the [audience](/libraries/lock/v10/configuration#audience-string-) option
-* In the client settings area of the [Dashboard]($manage_url}), in the **Advanced Settings** menu, under the **OAuth** tab, turn on the **OIDC Conformant** and **Cross Origin Authentication** settings.
-
-    ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
+Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 

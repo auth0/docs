@@ -20,7 +20,7 @@ budicon: 500
 
 <%= include('../../../../_includes/_api_auth_intro') %>
 
-This tutorial shows you how to use access tokens from Auth0 to secure your ASP.NET Core Web API.
+This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
 
 ## Before You Start
 
@@ -28,7 +28,7 @@ If you want to follow along with this tutorial, you can download the [seed proje
 
 To see what the project looks like after each of the steps, check the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart).
 
-<%= include('../../_includes/_api_create_new') %>
+<%= include('../../_includes/_api_create_new_2') %>
 
 Update the `appsettings.json` file in your project with the correct domain and API identifier for your API. See the example below:
 
@@ -61,7 +61,7 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 <%= include('../../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
-The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the access token's signature.
+The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 
 In your application, register the authentication services:
 
@@ -114,32 +114,31 @@ The JWT middleware integrates with the standard ASP.NET Core [Authentication](ht
 To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
 
 ```csharp
-// Controllers/PingController.cs
+// Controllers/ApiController.cs
 
 [Route("api")]
-public class PingController : Controller
+public class ApiController : Controller
 {
-    [Authorize]
     [HttpGet]
-    [Route("ping/secure")]
-    public string PingSecured()
+    [Route("private")]
+    [Authorize]
+    public IActionResult Private()
     {
-        return "All good. You only get this message if you are authenticated.";
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated to see this."
+        });
     }
 }
 ```
 
 ## Configure the Scopes
 
-The JWT middleware shown above verifies if the user's access token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
+The JWT middleware shown above verifies if the user's Access Token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
 <%= include('../../_includes/_api_scopes_access_resources') %>
 
-::: note
-This example uses the `read:messages` and `create:messages` scopes.
-:::
-
-To make sure that an access token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
+To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
 Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.
 
@@ -160,7 +159,7 @@ public class HasScopeRequirement : IAuthorizationRequirement
 ```
 
 ```csharp
-// HasScopeHandler
+// HasScopeHandler.cs
 
 public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
 {
@@ -207,7 +206,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddAuthorization(options =>
     {
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
-        options.AddPolicy("create:messages", policy => policy.Requirements.Add(new HasScopeRequirement("create:messages", domain)));
     });
 
     // register the scope authorization handler
@@ -215,26 +213,23 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To make a call to an API endpoint, make sure that a scope is present. To do that, add the `Authorize` attribute to an action. Then, in the `policy` parameter, add the policy name for the scope. 
+To secure the API endpoint, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
 
 ```csharp
-// Controllers/MessagesController.cs
+// Controllers/ApiController.cs
 
-[Route("api/messages")]
-public class MessagesController : Controller
+[Route("api")]
+public class ApiController : Controller
 {
-    [Authorize("read:messages")]
     [HttpGet]
-    public IActionResult GetAll()
+    [Route("private-scoped")]
+    [Authorize("read:messages")]
+    public IActionResult Scoped()
     {
-        // Return the list of messages
-    }
-
-    [Authorize("create:messages")]
-    [HttpPost]
-    public IActionResult Create([FromBody] Message message)
-    {
-        // Create a new message
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
+        });
     }
 }
 ```

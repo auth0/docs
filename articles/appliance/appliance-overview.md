@@ -19,7 +19,7 @@ Please contact us for additional information if you are interested in using clou
 
 If you opt to use a dedicated cloud environment hosted by Auth0, Auth0 is responsible for installation, maintenance, patching and updates.
 
-If you choose to deploy to your own cloud environment or data center, you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (such as the load balancer, internet access, etc.), and other required dependencies (such as the SMTP, NTP, etc.).
+If you choose to deploy to your own cloud environment or data center, you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (such as the load balancer, internet access, and so on), and other required dependencies (such as the SMTP, NTP, and so on).
 
 ## Deployment
 

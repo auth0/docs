@@ -1,8 +1,8 @@
 ---
 section: libraries
 description: How to customize the user sign-up form with additional fields using Lock or the Auth0 API.
+toc: true
 ---
-
 # Custom Signup
 
 In some cases, you may want to customize the user sign up form with more fields other than email and password.
@@ -13,17 +13,17 @@ Auth0 offers a [hosted login page](/hosted-pages/login) option that you can use 
 
 ## Using Lock
 
-Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-).
+Lock supports [custom fields signup](/libraries/lock/customization#additionalsignupfields-array-).
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
 Lock's `additionalSignupFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
 
-### Redirect Rules
+### Redirect to another page
 
-One way to use social IDP signups with Lock and collect custom fields is to use [redirect rules](/rules/redirect) to redirect the user to another page (Ideally, a [webtask](https://webtask.io/docs) or a custom page hosted by you) where you ask for extra information,  and then redirect back to finish the authentication transaction.
+One way to use social provider signups with Lock and collect custom fields is to use [redirect rules](/rules/redirect) to redirect the user to another page where you ask for extra information, and then redirect back to finish the authentication transaction.
 
-### Progressive Profiling
+### Progressive profiling
 
 Another way to collect custom field data when signing users up with social providers is via progressive profiling. Progressive profiling is a way by which you can slowly build up user profiles over time. You collect the bare minimum details upon signup, but when a user later interacts with your app, you collect a small amount of data (perhaps one question) each time until their profile is complete. This allows for collecting the desired information, but with less friction at signup, since the goal of using a social IDP for signup is, at least in part, making it more effortless and streamlined for the user.
 
@@ -80,7 +80,7 @@ Send a POST request to the [/dbconnections/signup](/api/authentication/reference
 }
 ```
 
-## Custom Fields Limitations
+## Custom fields limitations
 
 When your users sign up, the custom fields are sent as part of `user_metadata`. The limitations of this field are:
 

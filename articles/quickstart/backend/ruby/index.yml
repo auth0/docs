@@ -14,3 +14,4 @@ snippets:
   use: server-apis/ruby/use
 articles:
   - 01-authorization
+  - 02-using

@@ -89,7 +89,7 @@ Here is a sample request on the delegation endpoint:
 | - | - |
 | `client_id` | The ID of your Auth0 client |
 | `grant_type` | Set as `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| `id_token` | The existing ID token for the user requesting access |
+| `id_token` | The existing ID Token for the user requesting access |
 | `target` | The target client's ID |
 | `api_type` | The API the user wants to call (this must be `aws`) |
 
@@ -173,7 +173,7 @@ Additionally, AWS requires two additional parameters: **role** and **principal**
 Here is an example of client-side code used to obtain the token:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv7}"></script>
 <script type="text/javascript">
 
   var auth0 = new Auth0({

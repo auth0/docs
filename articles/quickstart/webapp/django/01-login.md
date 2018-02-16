@@ -12,15 +12,16 @@ You can get started by either downloading the complete project or if you would l
   repo: 'auth0-django-web-app',
   path: '01-Login',
   requirements: [
-    'Python 2.7, 3.0 and up',
-    'Django 1.11 and up',
+    'python 2.7, 3.0 and up',
+    'django 1.11 and up',
     'social-auth-app-django 1.2.0 and up',
     'python-jose 1.3.2 and up',
-    'Six 1.10.0 and up'
+    'six 1.10.0 and up',
+    'python-dotenv 0.6.5 and up'
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:8000/complete/auth0' }) %>
+<%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 
 This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
 
@@ -31,8 +32,8 @@ Add the following dependencies to your `requirements.txt`:
 ```text
 django
 social-auth-app-django
-python-jose
-six
+python-dotenv
+requests
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
@@ -64,7 +65,7 @@ Add one entry for `social_django` and for your application into the `INSTALLED_A
 
 INSTALLED_APPS = [
     'social_django',
-    '<your application name>'  # e.g. 'webappexample'
+    '<your application name>'  # such as 'webappexample'
 ]
 ```
 
@@ -77,7 +78,7 @@ Add your Auth0 domain, the Client Id and the Client Secret. You can get this inf
 SOCIAL_AUTH_TRAILING_SLASH = False                    # Remove end slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
 SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
-SOCIAL_AUTH_AUTH0_SECRET = '${account.clientSecret}'
+SOCIAL_AUTH_AUTH0_SECRET = 'YOUR_CLIENT_SECRET'
 ```
 
 Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes/current) for more information.
@@ -108,8 +109,7 @@ Create a file to implement the custom `Auth0` authentication backend.
 ```python
 # auth0login/auth0backend.py
 
-from six.moves.urllib import request
-from jose import jwt
+import requests
 from social_core.backends.oauth import BaseOAuth2
 
 
@@ -135,19 +135,15 @@ class Auth0(BaseOAuth2):
         return details['user_id']
     
     def get_user_details(self, response):
-        # Obtain JWT and the JWKS keys to validate the signature
-        idToken = response.get('id_token')
-        jwks = request.urlopen("https://" + self.setting('DOMAIN') + "/.well-known/jwks.json")
-        issuer = "https://" + self.setting('DOMAIN') + "/"
-        audience = self.setting('KEY') #CLIENT_ID
+        url = 'https://' + self.setting('DOMAIN') + '/userinfo'
+        headers = {'authorization': 'Bearer ' + response['access_token']}
+        resp = requests.get(url, headers=headers)
+        userinfo = resp.json()
 
-        # Decode the jwt to get the user information
-        payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
-        
-        return {'username': payload['nickname'],
-                'first_name': payload['name'],
-                'picture': payload['picture'],
-                'user_id': payload['sub']}
+        return {'username': userinfo['nickname'],
+                'first_name': userinfo['name'],
+                'picture': userinfo['picture'],
+                'user_id': userinfo['sub']}
 ```
 
 ::: note

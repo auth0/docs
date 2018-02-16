@@ -3,13 +3,12 @@ title: Authentication for Mobile & Desktop Apps
 description: Explains how to authenticate users in a mobile or desktop application.
 toc: true
 ---
-
 # Authentication for Mobile & Desktop Apps
 
 You can authenticate users of your mobile/desktop applications by:
 
 * Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
-* Using one of the [Auth0 SDKs](/libraries/auth0js), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
+* Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
 This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
@@ -115,7 +114,7 @@ Note the authorization code included at the end of the included URL.
 
 ### Step 3: Obtain an ID Token
 
-Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
+Using the authorization code obtained in step 2, you can obtain the ID Token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
 
 ```har
 {
@@ -126,7 +125,7 @@ Using the authorization code obtained in step 2, you can obtain the ID token by 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\", }"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\" }"
   }
 }
 ```
@@ -149,9 +148,9 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
-## The `id_token`
+## The ID Token
 
-Once you've decoded the Id Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
+Once you've decoded the ID Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
 
 ```json
 {
@@ -196,7 +195,7 @@ https://${account.namespace}/authorize?
 
 After the user submits the request, the app receives an `TTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
-Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
+Using the authorization code, you can obtain the ID Token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
 ```har
 {
@@ -266,7 +265,7 @@ https://${account.namespace}/authorize?
 
 After the user submits the request, the app receives an `HTTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
-Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
+Using the authorization code, you can obtain the ID Token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
 ```har
 {

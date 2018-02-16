@@ -38,7 +38,7 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
-For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#restrictions).
+For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#metadata-restrictions).
 
 #### Example: `app_metadata` for a Mobile Music Application
 

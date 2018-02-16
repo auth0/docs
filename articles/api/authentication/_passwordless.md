@@ -32,8 +32,8 @@ curl --request POST \
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize client
   var webAuth = new auth0.WebAuth({
@@ -143,8 +143,8 @@ curl --request POST \
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize client
   var webAuth = new auth0.WebAuth({
@@ -153,7 +153,7 @@ curl --request POST \
   });
 
   // Verify code sent via email
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
       connection: 'email',
       email: 'USER_EMAIL',
       verificationCode: 'VERIFICATION_CODE_SENT'
@@ -163,7 +163,7 @@ curl --request POST \
   );
 
   // Verify code sent within link using email
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
       connection: 'email',
       email: 'USER_EMAIL',
       verificationCode: 'VERIFICATION_CODE_SENT_WITHIN_LINK'
@@ -173,7 +173,7 @@ curl --request POST \
   );
 
   // Verify code sent via SMS
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
       connection: 'sms',
       phoneNumber: 'USER_PHONE_NUMBER',
       verificationCode: 'VERIFICATION_CODE_SENT'

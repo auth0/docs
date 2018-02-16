@@ -13,7 +13,7 @@ For each extensibility point, you may have either no associated Hooks enabled or
 
 By default, the Auth0 CLI creates new Hooks in a disabled state.
 
-### Enable Your Hook
+## Enable Your Hook
 
 The following command enables your Hook:
 
@@ -21,8 +21,12 @@ The following command enables your Hook:
 
 By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with the same extensibility point.
 
-### Disable Your Hook
+## Disable Your Hook
 
 The following command disables your Hook:
 
   `auth0 disable my-extension-1 -p auth0-default`
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/cli"]
+}) %>

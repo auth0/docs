@@ -137,11 +137,51 @@ public class HelloService : Service
 Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 :::
 
-${include('../_includes/_auth0_authorize')}
+## Call the Auth0 Authorization endpoint
 
-## Add UI Code to Login and Invoke the `HelloService`
+You will need to redirect the user to the Auth0 Authorization endpoint in order to log in to the application. We will use the [Auth0.NET SDK](https://github.com/auth0/auth0.net) to construct the redirect URL. First, install the `Auth0.AuthenticationApi` NuGet package:
 
-Open `default.htm` and add the following statement in the `jQuery.ready` body:
+```text
+Install-Package Auth0.AuthenticationApi
+```
+
+Then, add an `AccountController` class to your MVC application with a `Login` action. This action will construct the authorization URL, and then redirect the user to that URL.
+
+```cs
+public class AccountController : Controller
+{
+    public ActionResult Login()
+    {
+        string clientId = WebConfigurationManager.AppSettings["oauth.auth0.AppId"];
+        string domain = WebConfigurationManager.AppSettings["oauth.auth0.OAuthServerUrl"].Substring(8);
+
+        var redirectUri = new UriBuilder(this.Request.Url.Scheme, this.Request.Url.Host, this.Request.Url.IsDefaultPort ? -1 : this.Request.Url.Port, "api/auth/auth0");
+
+        var client = new AuthenticationApiClient(new Uri($"https://{domain}"));
+        var authorizeUrlBuilder = client.BuildAuthorizationUrl()
+            .WithClient(clientId)
+            .WithRedirectUrl(redirectUri.ToString())
+            .WithResponseType(AuthorizationResponseType.Code)
+            .WithScope("openid profile")
+            .WithAudience($"https://{domain}/userinfo");
+
+
+        return Redirect(authorizeUrlBuilder.Build().ToString());
+    }
+}
+```
+
+## Add UI Code to Log In and display user info
+
+Open `default.htm` and add a login button which will redirect the user to the `/Account/Login` route:
+
+```html
+<div>
+    <a class="btn" href="/Account/Login">Log In</a>
+</div>
+```
+
+Also add the following statement in the `jQuery.ready` body which will call the `/api/hello` endpoint which will return the logged in user's information:
 
 ```js
 // get user info from hello endpoint
@@ -160,4 +200,4 @@ Add a section to display the `UserInfo`:
 
 ## Run the app
 
-After successful authentication, the `UserProfile` will be displayed on the page.
+You can now run the application, and click on the **Log In** button. After successful authentication, the user profile will be displayed on the page.

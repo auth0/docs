@@ -16,3 +16,4 @@ snippets:
   use: server-apis/rails/use
 articles:
   - 01-authorization
+  - 02-using

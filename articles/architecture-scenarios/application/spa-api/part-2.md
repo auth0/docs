@@ -137,7 +137,7 @@ In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule create
 
 ![Rules](/media/articles/architecture-scenarios/spa-api/rules-1.png)
 
-Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, e.g. **Access Token Scopes**, and then specify the following code for the Rule:
+Click on the **Create Rule** button and select the **Empty Rule** template. You can give the Rule a name, such as **Access Token Scopes**, and then specify the following code for the Rule:
 
 ```js
 function (user, context, callback) {
@@ -157,7 +157,7 @@ function (user, context, callback) {
 }
 ```
 
-The code above will ensure that all access tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
+The code above will ensure that all Access Tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
 
 Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 

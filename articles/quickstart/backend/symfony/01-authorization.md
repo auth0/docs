@@ -102,15 +102,33 @@ ${snippet(meta.snippets.use)}
 class SecuredController extends Controller
 {
     /**
-     * @Route("/api/private", name="privatepingpage")
+     * @Route("/api/public", name="public")
      */
-    public function privateIndexAction()
+    // This route doesn't need authentication
+    public function publicAction()
+    {
+        return new JsonResponse(array(
+          'message' => "Hello from a public endpoint! You don't need to be authenticated to see this."
+        ));
+    }
+    /**
+     * @Route("/api/private", name="private")
+     */
+    public function privateAction()
+    {
+        return new JsonResponse(array(
+          'message' => "Hello from a private endpoint! You need to be authenticated to see this."
+        ));
+    }
+    /**
+     * @Route("/api/private-scoped", name="privatescoped")
+     */
+    public function privateScopedAction()
     {
         return new JsonResponse(array(
           'message' => "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
         ));
     }
-
 }
 ```
 
@@ -121,6 +139,3 @@ Scopes provide a way for you to define which resources should be accessible by t
 To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
-
-<%= include('../_includes/_call_api') %>
-

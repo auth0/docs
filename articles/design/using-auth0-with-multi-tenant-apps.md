@@ -3,7 +3,6 @@ description: This articles describes ways to implement and use Auth0 with multi-
 crews: crew-2
 toc: true
 ---
-
 # Using Auth0 with Multi-Tenant Applications
 
 Multi-tenancy refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple groups of users.
@@ -40,11 +39,4 @@ While using multiple [Connections](/identityproviders) introduces additional lay
 
 ::: note
 For additional assistance on how you can customize Auth0, please contact [Sales](https://auth0.com/?contact=true) to discuss possible architecture scenarios.
-:::
-
-## Keep Reading
-
-::: next-steps
-* [Build Multi-tenant SaaS Apps with Azure Active Directory](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory)
-* [Sample: Multi-Tenant Support for a jQuery SPA with a Node.js API](https://github.com/auth0/auth0-multitenant-spa-api-sample)
 :::

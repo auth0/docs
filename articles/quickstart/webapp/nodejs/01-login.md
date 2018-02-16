@@ -10,7 +10,7 @@ budicon: 448
   path: '01-Login',
   requirements: [
     'NodeJS 4.3 or higher',
-    'Express 4.11'
+    'Express 4.16'
   ]
 }) %>
 

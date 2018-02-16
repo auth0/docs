@@ -13,6 +13,6 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Aurelia', callback: 'http://localhost:8080/callback' }) %>
+<%= include('../_includes/_getting_started', { library: 'Aurelia', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('_includes/_centralized_login') %>

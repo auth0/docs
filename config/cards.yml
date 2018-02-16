@@ -12,14 +12,14 @@
   url: "/getting-started"
   articles:
 
-    - title: "Auth0 Overview"
-      url: "/getting-started/overview"
+    - title: Auth0 Overview
+      url: /getting-started/overview
 
-    - title: "The Basics"
-      url: "/getting-started/the-basics"
+    - title: The Basics
+      url: /getting-started/the-basics
 
-    - title: Developer Videos
-      url: /videos
+    - title: Dashboard Overview
+      url: /getting-started/dashboard-overview
 
 - id: "ui-components"
   title: "UI Components"
@@ -30,13 +30,13 @@
   articles:
 
     - title: "Lock for Web"
-      url: "/libraries/lock"
+      url: "/libraries/lock/v11"
 
     - title: "Lock for iOS"
-      url: "/libraries/lock-ios"
+      url: "/libraries/lock-ios/v2"
 
     - title: "Lock for Android"
-      url: "/libraries/lock-android"
+      url: "/libraries/lock-android/v2"
 
 - id: "authentication-flows"
   title: "Authentication Flows"
@@ -67,11 +67,11 @@
     - title: "Architecture Scenarios"
       url: /architecture-scenarios
       
-    - title: "Tokens"
+    - title: "Tokens used by Auth0"
       url: "/tokens"
 
-    - title: "JWT"
-      url: "/jwt"
+    - title: "Migration Guides"
+      url: "/migrations"
 
 
 - id: "apis"

@@ -168,7 +168,7 @@ Before you can test your Auth0-ADFS integration, you'll need to make sure that y
 1. [Create a user](/tutorials/creating-users-in-the-management-portal) for your newly-created Connection.
 2. [Enable your Connection](/clients/connections) for at least one Client.
 
-To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the **plus** sign to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.
+To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.
 
 ## Troubleshooting
 

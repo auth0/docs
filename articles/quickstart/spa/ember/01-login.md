@@ -10,6 +10,6 @@ budicon: 448
   path: '01-Login'
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Ember', callback: 'http://localhost:4200' }) %>
+<%= include('../_includes/_getting_started', { library: 'Ember', callback: 'http://localhost:3000' }) %>
 
 <%= include('_includes/_centralized_login') %>

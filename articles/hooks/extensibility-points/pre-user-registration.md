@@ -57,7 +57,7 @@ module.exports = function (user, context, cb) {
 
 The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
 
-#### Response
+### Response
 
 The default response object every time the Hook runs is as follows:
 
@@ -76,13 +76,13 @@ If you specify `app_metadata` and `user_metadata` in the response object, Auth0 
 Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
-### Testing Your Hook
+## Testing Your Hook
 
 ::: note
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
@@ -146,3 +146,7 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 ::: note
 The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
 :::
+
+<%= include('./_stepnav', {
+ prev: ["Go back", "/hooks/extensibility-points"]
+}) %>

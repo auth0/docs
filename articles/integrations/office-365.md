@@ -2,7 +2,6 @@
 description: Overview of Microsoft Office 365 Integration with Auth0.
 toc: true
 ---
-
 # Office 365 Integration
 
 Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add Single Sign On (SSO) to Office 365 using Auth0.
@@ -13,11 +12,11 @@ Your users will be able to log in using their existing Active Directory credenti
 
 This would typically require you to setup [an advanced ADFS infrastructure](https://msdn.microsoft.com/en-us/library/azure/dn151324.aspx) with Federation Servers in the corporate network and Web Application Proxies exposed in the DMZ. But with Auth0 as an identity provider for Office 365 all of this is handled by the [AD Connector](/connector/overview) which doesn't require you to expose any of your servers to the outside world.
 
-In addition to that users can also setup SSO with custom apps or integrations like Salesforce, Dropbox, SharePoint Server, ...
+In addition to that users can also setup SSO with custom apps or integrations like Salesforce, Dropbox, and SharePoint Server.
 
 ## High-level Overview
 
-Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (Lync Online, Exchange Online, ...).
+Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (such as Lync Online, Exchange Online).
 
 ![Office 365 Users](/media/articles/integrations/office-365/office-365-users-overview.png)
 
@@ -25,16 +24,16 @@ Office 365 uses Azure AD as an identity store which supports different account m
 
 1. **Cloud Identity**: Users are created in the cloud (Office 365/Azure AD) with no relation to an on-premises directory. Authentication happens with Azure AD.
 2. **Synchronized Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. This means the user management can happen on-premises but authentication will always happen in the cloud using Azure AD.
-3. **Federated Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. In this case Azure AD will act as the user store, but authentication will happen with a SAML 2.0 identity provider configured by the customer. This can be an ADFS server, Shibboleth, ... or in our case Auth0. With this third model you can add SSO support to Office 365.
+3. **Federated Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. In this case Azure AD will act as the user store, but authentication will happen with a SAML 2.0 identity provider configured by the customer. This can be an ADFS server, Shibboleth, or in our case, Auth0. With this third model you can add SSO support to Office 365.
 
-This means that even if you use Auth0 for SSO support in Office 365, you will always need to synchronize your on-premises users to Office 365/Azure AD because it will be used as a user store (for user information, assigning licenses to those users, ...).
+This means that even if you use Auth0 for SSO support in Office 365, you will always need to synchronize your on-premises users to Office 365/Azure AD because it will be used as a user store (for user information, assigning licenses to those users, and so on.).
 
 ![Office 365 High-level Overview](/media/articles/integrations/office-365/office-365-high-level-overview.png)
 
 When authentication is handed over to Auth0 it will use the AD Connector to authenticate the user. The link between the Auth0 user and the user in Azure AD is made using the `User Principal Name`. When Jack is synchronized to Azure AD his UPN will be `jack@fabrikamcorp.be` and when Jack authenticates using Auth0 the same UPN will be included in the SAML assertion to identify the authenticated user to the user stored in Azure AD.
 
 ::: note
-If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/integrations/office-365-custom-provisioning)
+If you're interested in providing SSO to Office 365 using other connections (like Database Connections or traditional AD) you can [write a rule with custom provisioning logic](/integrations/office-365-custom-provisioning)
 :::
 
 ## Configure Synchronization With Office 365 / Azure AD
@@ -100,7 +99,7 @@ To skip the Auth0 page with the **windows authentication** button you can append
 
 ### Without Kerberos
 
-When authentication with Kerberos is not possible (eg: not enabled for the connection, not a domain-joined machine, not in the corporate network, ...) the users will see the username/password login page instead.
+When authentication with Kerberos is not possible (eg: not enabled for the connection, not a domain-joined machine, not in the corporate network, and so on.) the users will see the username/password login page instead.
 
 ![Login Page](/media/articles/integrations/office-365/office-365-login-page.png)
 

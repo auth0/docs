@@ -1,12 +1,13 @@
 ---
-description: This page has help and troubleshooting with using the connector.
+title: Troubleshooting the Active Directory/LDAP Connector
+description: Common issues and troubleshooting information for the Active Directory/LDAP Connector.
+toc: true
 ---
-
-# Troubleshooting
+# Troubleshooting the Active Directory/LDAP Connector
 
 We do our best to support many scenarios and different configurations.
 
-Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (e.g. network, proxies, OS versions, etc).
+Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (such as network, proxies, OS versions, and so on).
 
 If you are experiencing problems with the connector, please [open a support ticket](${env.DOMAIN_URL_SUPPORT}) with the following information:
 
@@ -125,7 +126,7 @@ The Connector uses two levels of configurable caching:
 The server caches the _"last successfully authenticated user profile"_, including the username and password (hash). It is enabled by default, and can be disabled.
 
 ::: note
-The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (e.g. a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
+The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (such as a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
 :::
 
 The Connector caches only *groups* a user might be a member of. Its lifetime is controlled with the `GROUPS_CACHE_SECONDS` configuration variable. If not present, the value is 600 seconds.
@@ -137,3 +138,9 @@ Groups are cached, because by default, the Connector retrieves all group members
 These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often.
 
 In some AD/LDAP installations, user attributes synchronization takes few minutes too.
+
+### Connector restarts after "auth0: Connection closed." message in the log
+
+To avoid the requirement of an open inbound port in your servers, the Connector creates a websocket connection to an available node in Auth0's server cluster and keeps it open to listen to incoming messages from Auth0. 
+
+Approximately once a day (though this frequency might vary under certain circumstances) each server node will terminate the connection to allow internal deployment processes to occurr. The Connector will detect the closed connection and terminate the process, allowing the service stack to restart the process, create a new connection to an available node and resume operations. To avoid any downtime, make sure you enable [the cache for the connection](/connector/overview#cache).

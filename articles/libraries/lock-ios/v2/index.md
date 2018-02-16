@@ -7,7 +7,7 @@ mobileimg: media/articles/libraries/lock-ios.png
 ---
 # Lock v2 for iOS
 
-This reference guide will show you how to implement the Lock user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh access tokens, get user profile info, and more, check out the [Auth0.Swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift QuickStart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
+This reference guide will show you how to implement the Lock user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh Access Tokens, get user profile info, and more, check out the [Auth0.Swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift QuickStart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
 
 ::: note
 Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
@@ -83,7 +83,7 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .classic()
-    // withConnections, withOptions, withStyle, etc
+    // withConnections, withOptions, withStyle, and so on
     .withOptions {
       $0.oidcConformant = true
       $0.scope = "openid profile"

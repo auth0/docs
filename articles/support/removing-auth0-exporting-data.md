@@ -26,7 +26,7 @@ If you choose not to use Auth0 but keep using the same OAuth client IDs and secr
 
 ## Custom code
 
-All of Auth0's custom code features (rules, custom database scripts, custom OAuth connections, etc.) run on [Webtask](https://webtask.io/), which is a Node.js sandbox service.
+All of Auth0's custom code features (rules, custom database scripts, custom OAuth connections, and so on) run on [Webtask](https://webtask.io/), which is a Node.js sandbox service.
 In the vast majority of cases, Webtask code is also valid Node.js code or can be adapted with minimal effort.
 All libraries available on Webtask are also available on npm for use with standard Node.js code.
 

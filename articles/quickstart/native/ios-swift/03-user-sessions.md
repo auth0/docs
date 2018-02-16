@@ -15,26 +15,27 @@ budicon: 280
   ]
 }) %>
 
+## Before You Start
 
-## Before Starting
-
-This tutorial assumes you're using the Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Guide](/quickstart/native/ios-swift/00-login).**
+Before you continue with this tutorial, make sure that you have integrated the Auth0 library into your project. If you have not, follow the [Login](/quickstart/native/ios-swift/00-login) tutorial.
 
 ## Credentials Manager
 
-You will be using the credential's manager to store and refresh tokens in this guide.
+This guide shows you how to use the credentials manager to store and Refresh Tokens. 
 
 [Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. 
 
 ::: note
-Alternatively you can use `SimpleKeychain` directly, without the added benefits and convenience of the Credentials Manager. Please see [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain)
+You can also use `SimpleKeychain` directly, without the added benefits and convenience of the credentials manager. To learn more, read about [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain). 
 :::
 
-## On Login: Store the user's credentials
+## Save the User's Credentials When They Log in
 
-You will store user's credentials **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched. You will be using the `offline_access` scope to ensure that a [refresh token](/refresh-token) is returned during authentication. The `refreshToken` can be used to request a new `accessToken` if the current `accessToken` one has expired. 
+When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
-First, import the `Auth0` module in the file where you want to present the hosted login page (HLP):
+To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires. 
+
+First, import the `Auth0` module to the file where you want to present the hosted login page (HLP):
 
 ${snippet(meta.snippets.setup)}
 
@@ -42,8 +43,8 @@ Next, present the hosted login page:
 
 ```swift
 // HomeViewController.swift
-
-// Create an instance of the Credentials Manager for storing credentials
+Credentials manager
+// Create an instance of the credentials manager for storing credentials
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
 
 Auth0
@@ -63,15 +64,15 @@ Auth0
 }
 ```
 
-## On Startup: Check Credentials
+## Check for Credentials When the User Opens Your Application
 
-You need to check for the existence of valid credentials to see if you can automatically log the user in and redirect the user straight into the app's main flow, skipping any additional login steps.
+When the user opens your application, check for valid credentials. If they exist, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
 ::: note
-It's recommended that you download the sample project from this tutorial and take a look at its implementation, focusing on the `SessionManager` class, which is in charge of dealing with the management of the user's credentials and profile.
+We recommend that you download the sample project from this tutorial and take a look at its implementation. Focus on the `CredentialsManager` class, which manages session handling, obtains user credentials and saves them.
 :::
 
-First, you can check if the credentials manager has valid credentials:
+First, you check if the credentials manager has valid credentials:
 
 ```swift
 // SessionManager.swift
@@ -96,11 +97,11 @@ credentialsManager.credentials { error, credentials in
 } 
 ```
 
-If they have expired the credentials manager will automatically renew them for you using the refresh token.
+If the credentials have expired, the credentials manager will automatically renew them for you with the Refresh Token.
 
-## On Logout: Clear the Keychain
+## Clear the Keychain When the User Logs Out
 
-Whenever you need to log the user out, you should remove the credentials from the keychain:
+When you need to log the user out, remove their credentials from the keychain:
 
 ```swift
 // SessionManager.swift
@@ -108,12 +109,9 @@ Whenever you need to log the user out, you should remove the credentials from th
 credentialsManager.clear()
 ```
 
-That's it. You've already dealt with the basic concepts of session handling in your app.
+## Get the User Profile
 
-## Fetch the User Profile
-
-The first step is to fetch the user profile. To do so, you need a valid `accessToken` first, which you 
-can find in the credentials object returned by the credentials manager.
+To get the user's profile, you need a valid Access Token. You can find the token in the `credentials` object returned by the credentials manager.
 
 ```swift
 // SessionManager.swift
@@ -137,11 +135,11 @@ Auth0
     }
 ```
 
-## Show User Profile's Data
+## Show the User Profile Information
 
-#### Default info
+### Default information
 
-Showing the information contained in the user profile is pretty simple. You only have to access its properties, for instance:
+To show the information contained in the user profile, access its properties, for example:
 
 ```swift
 // ProfileViewController.swift
@@ -152,16 +150,16 @@ if let name = profile.name, let pictureURL = profile.picture {
 ```
 
 ::: note
-Check out the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
+Read the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
 :::
 
-#### Additional info
+### Additional information
 
-Besides the defaults, you can request more information than returned in the basic profile. Before you do this let's add some `userMetadata` to the profile.
+You can request more information than returned in the basic profile. To do this, add `userMetadata` to the profile.
 
 ## Update the User Profile
 
-You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
+You store additional user information in the user metadata. Perform a `patch`:
 
 ```swift
 let idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
@@ -179,11 +177,13 @@ Auth0
 }
 ```
 
-## Retrieving User Metadata
+## Retrieve User Metadata
 
-The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one you're going to work with in this tutorial.
+The `user_metadata` dictionary contains fields related to the user profile. These fields can be added from client-side (for example, when the user edits their profile). 
 
-You can specify the `fields` to be retrieved, or use an empty array `[]` to pull back the complete user profile.  Let's grab the `user_metadata`:
+You can specify the fields you want to retrieve, or use an empty array `[]` to pull back the complete user profile. 
+
+Retrieve the `user_metadata` dictionary:
 
 ```swift
 Auth0
@@ -200,7 +200,7 @@ Auth0
 }
 ```
 
-You can then access the user's metadata:
+Access the user's metadata. You can choose the key names and types for the `user_metadata` dictionary.
 
 ```swift
 let firstName = userMetadata["first_name"] as? String
@@ -208,7 +208,3 @@ let lastName = userMetadata["last_name"] as? String
 let country = userMetadata["country"] as? String
 let isActive = userMetadata["active"] as? Bool
 ```
-
-::: note
-The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
-:::

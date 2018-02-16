@@ -505,10 +505,6 @@ module.exports = [
     to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
-  },
-  {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
   },
@@ -531,10 +527,6 @@ module.exports = [
   {
     from: ['/scenarios-unbounce', '/scenarios/unbounce'],
     to: '/tutorials/get-user-information-with-unbounce-landing-pages'
-  },
-  {
-    from: '/scenarios/zendesk-sso',
-    to: '/tutorials/single-sign-on-with-zendesk-using-jwt'
   },
   {
     from: '/scenarios',
@@ -707,38 +699,18 @@ module.exports = [
     to: '/sso'
   },
   {
-    from: '/libraries/lock/i18n',
-    to: '/libraries/lock/v10/i18n',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/migration-guide',
-    to: '/libraries/lock/v10/migration-guide',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/sending-authentication-parameters',
-    to: '/libraries/lock/v10/sending-authentication-parameters',
-    status: 302
-  },
-  {
     from: '/libraries/lock/v10/installation',
-    to: '/libraries/lock#lock-10-installation',
+    to: '/libraries/lock',
     status: 302
   },
   {
     from: '/libraries/lock/customization',
-    to: '/libraries/lock/v10/configuration',
+    to: '/libraries/lock/v11/configuration',
     status: 302
   },
   {
     from: '/libraries/lock/display-modes',
-    to: '/libraries/lock/v10/customization#container-string-',
-    status: 302
-  },
-  {
-    from: '/libraries/lock/ui-customization',
-    to: '/libraries/lock/v10/ui-customization',
+    to: '/libraries/lock/v11/customization#container-string-',
     status: 302
   },
   {
@@ -810,7 +782,7 @@ module.exports = [
     to: '/tutorials/creating-users-in-the-management-portal'
   },
   {
-    from: ['/custom-signup', '/libraries/lock/v10/custom-signup'],
+    from: ['/custom-signup', '/libraries/lock/v10/custom-signup', '/libraries/lock/v11/custom-signup'],
     to: '/libraries/custom-signup'
   },
   {
@@ -855,7 +827,7 @@ module.exports = [
   },
   {
     from: '/hrd',
-    to: '/libraries/lock/v10/selecting-the-connection-for-multiple-logins'
+    to: '/libraries/lock/v11/selecting-the-connection-for-multiple-logins'
   },
   {
     from: '/blacklist-attributes',
@@ -1135,36 +1107,8 @@ module.exports = [
     to: '/api-auth/tutorials/client-credentials'
   },
   {
-    from: '/libraries/auth0js',
-    to: '/libraries/auth0js/v8'
-  },
-  {
-    from: '/libraries/lock',
-    to: '/libraries/lock/v10'
-  },
-  {
-    from: '/libraries/lock-ios',
-    to: '/libraries/lock-ios/v2'
-  },
-  {
     from: '/protocols/oauth2/oauth-implicit-protocol',
     to: '/api-auth/tutorials/implicit-grant'
-  },
-  {
-    from: '/connections/passwordless/spa-sms',
-    to: '/connections/passwordless/spa-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/spa-email-code',
-    to: '/connections/passwordless/spa-email-code/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-sms',
-    to: '/connections/passwordless/regular-web-app-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-email-code',
-    to: '/connections/passwordless/regular-web-app-email-code/v8'
   },
   {
     from: '/quickstart/native/ios',
@@ -1344,11 +1288,11 @@ module.exports = [
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js/v8'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js/v7'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: '/connections/database/mysql',
@@ -1363,8 +1307,12 @@ module.exports = [
     to: '/metadata#using-lock-to-manage-metadata'
   },
   {
-    from: '/libraries/lock/v10/customization',
+    from: ['/libraries/lock/v10/customization'],
     to: '/libraries/lock/v10/configuration',
+  },
+  {
+    from: ['/libraries/lock/v11/customization'],
+    to: '/libraries/lock/v11/configuration',
   },
   {
     from: '/libraries/lock/v9/customization',
@@ -1373,6 +1321,10 @@ module.exports = [
   {
     from: '/libraries/lock/v10/popup-mode',
     to: '/libraries/lock/v10/authentication-modes',
+  },
+  {
+    from: '/libraries/lock/v11/popup-mode',
+    to: '/libraries/lock/v11/authentication-modes',
   },
   {
     from: '/libraries/lock/v9/display-modes',
@@ -1471,20 +1423,12 @@ module.exports = [
     to: '/support/how-auth0-versions-software',
   },
   {
-    from: '/tutorials/single-sign-on-with-zendesk-using-jwt',
-    to: '/sso/single-sign-on-with-zendesk-using-jwt',
-  },
-  {
     from: '/tutorials/authenticating-a-tessel-device',
     to: '/integrations/authenticating-a-tessel-device',
   },
   {
     from: '/tutorials/authenticating-devices-using-mqtt',
     to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',
@@ -1657,5 +1601,21 @@ module.exports = [
   {
     from: '/connections/database/migrating-okta',
     to: '/users/migrations/okta'
+  },
+  {
+    from: `/metadata/management-api`,
+    to: `/metadata/apis`
+  },
+  {
+    from: `/connections/grean/bankid-no`,
+    to: `/connections/criipto/bankid-no`
+  },
+  {
+    from: `/connections/grean/bankid-se`,
+    to: `/connections/criipto/bankid-se`
+  },
+  {
+    from: `/connections/grean/nemid`,
+    to: `/connections/criipto/nemid`
   }
 ];

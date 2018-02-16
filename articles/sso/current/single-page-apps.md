@@ -84,20 +84,14 @@ Regardless of which outcome occurs, the sample app's [`postMessage()` function](
 
 ### Silent Authentication using Auth0.js
 
-Users of the `Auth0.js` library have access to [the `checkSession()` method](/libraries/auth0js/v8#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
+Users of the `Auth0.js` library have access to [the `checkSession()` method](/libraries/auth0js#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
-This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's access token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
+This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's Access Token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
 ```js
 auth0.checkSession({
   audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order',
-  redirectUri: 'https://example.com/auth/silent-callback',
-
-  // this will use postMessage to comunicate between the silent callback
-  // and the SPA. When false the SDK will attempt to parse the url hash
-  // should ignore the url hash and no extra behaviour is needed.
-  usePostMessage: true
+  scope: 'read:order write:order'
   }, function (err, authResult) {
     // Renewed tokens or error
 });
@@ -105,7 +99,7 @@ auth0.checkSession({
 
 ## Run the Sample Application
 
-When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
+When you run the sample app for the first time, you will not have a valid Access Token. As such, the SSO login process errors when attempting silent authentication.
 
 ![Prompt to begin silent authentication](/media/articles/sso/v2/spa/begin-silent-auth.png)
 
@@ -144,7 +138,7 @@ $(function () {
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
-  // Use the access token to make API calls
+  // Use the Access Token to make API calls
   // ...
 });
 ```
@@ -159,7 +153,7 @@ At this point, the app silently authenticates you, gets the new token, and updat
 
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
-If your access tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
+If your Access Tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
 
 ## Single Logout
 
@@ -168,19 +162,19 @@ If the user logs out of `app1.com`, then you'll want the user's tokens cleaned u
 To implement [Single Log Out](/logout), you need to check periodically to see if Auth0 has expired the SSO session. If so, remove the token from the application's local storage to ensure that the local session clears.
 
 ```js
+// check every 15 minutes if the SSO session is still active
+
 setInterval(function() {
-  // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
+  // if the token is not in local storage, there is nothing to check (that is, the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
 
-  auth0.getSSOData(function (err, data) {
-    // if there is still a session, do nothing
-    if (err || (data && data.sso)) return;
-
-    // if we get here, it means there is no session on Auth0,
-    // then remove the token and redirect to #login
-    localStorage.removeItem('userToken');
-    window.location.href = '#login'
-
+  auth0.checkSession(function (err, data) {
+    if (err) { 
+      // if we get here, it means there is no session on Auth0,
+      // then remove the token and redirect to #login
+      localStorage.removeItem('userToken');
+      window.location.href = '#login';
+    }
   });
-}, 5000)
+}, 900000)
 ```

@@ -40,12 +40,15 @@ Create a class called `JsonWebToken` which decodes and verifies the incoming `ac
 # lib/json_web_token.rb
 
 # frozen_string_literal: true
+require 'net/http'
+require 'uri'
+
 class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
-               iss: Rails.application.secrets.auth0_domain,
+               iss: 'https://${account.namespace}/',
                verify_iss: true,
                aud: Rails.application.secrets.auth0_api_audience,
                verify_aud: true) do |header|
@@ -54,7 +57,7 @@ class JsonWebToken
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("#{Rails.application.secrets.auth0_domain}.well-known/jwks.json")
+    jwks_raw = Net::HTTP.get URI("https://${account.namespace}/.well-known/jwks.json")
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
@@ -111,14 +114,26 @@ end
 With the `Secured` Concern in place, you can now apply it to whichever endpoints you wish to protect. Applying the Concern means that a valid `access_token` **must** be present in the request before the resource can be released.
 
 ```rb
-# app/controllers/secured_ping_controller.rb
+# app/controllers/public_controller.rb
 
 # frozen_string_literal: true
-class SecuredPingController < ActionController::API
+class PublicController < ActionController::API
+  # This route doesn't need authentication
+  def public
+    render json: { message: 'Hello from a public endpoint! You don't need to be authenticated to see this.' }
+  end
+end
+```
+
+```rb
+# app/controllers/private_controller.rb
+
+# frozen_string_literal: true
+class PrivateController < ActionController::API
   include Secured
 
-  def ping
-    render json: "All good. You only get this message if you're authenticated."
+  def private
+    render json: 'Hello from a private endpoint! You need to be authenticated to see this.'
   end
 end
 ```
@@ -135,14 +150,29 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 To look for a particular `scope` in an `access_token`, provide an array of required scopes and check if they are present in the payload of the token.
 
-In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
+In this example the `SCOPES` array for the given key `/private-scoped` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
+
+```rb
+# app/controllers/private_controller.rb
+
+# frozen_string_literal: true
+class PrivateController < ActionController::API
+  include Secured
+
+  # ...
+
+  def private_scoped
+    render json: { message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.' }
+  end
+end
+```
 
 ```rb
 # app/controllers/concerns/secured.rb
 
   SCOPES = {
-    '/restricted_resource' => ['read:messages'],
-    '/another_resource'    => ['some:scope', 'some:other_scope']
+    '/private' => nil,
+    '/private-scoped'    => ['read:messages']
   }
 
   private
@@ -156,12 +186,14 @@ In this example the `SCOPES` array for the given key `/restricted_resource` is i
   end
 
   def scope_included
-    # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
-    # the PATH_INFO, should contain at least one element
-    (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
+    if SCOPES[request.env['PATH_INFO']] == nil
+      true
+    else
+      # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
+      # the PATH_INFO, should contain at least one element
+      (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
+    end
   end
 ```
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
-
-<%= include('../_includes/_call_api') %>

@@ -62,7 +62,7 @@ Next, we need to set our dependencies. We will use the following modules:
 To install these dependencies run the following:
 
 ```bash
-npm install express cors express-jwt jwks-rsa body-parser --save
+npm install express cors express-jwt jwks-rsa body-parser express-jwt-authz --save
 ```
 
 ### Implement the Endpoints
@@ -117,7 +117,7 @@ In order to validate our token we will use the `jwt` function, provided by the [
 
 The steps we will follow in our code are:
 
-- Create the middleware function to validate the access token.
+- Create the middleware function to validate the Access Token.
 - Enable the use of the middleware in our routes.
 
 You can also write some code to actually save the timesheet to a database. This is our sample implementation (some code is omitted for brevity):
@@ -128,7 +128,7 @@ You can also write some code to actually save the timesheet to a database. This 
 // Enable CORS - code omitted
 
 // Create middleware for checking the JWT
-app.use(jwt({
+const checkJwt = jwt({
   // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
   secret: jwksRsa.expressJwtSecret({
     cache: true,
@@ -138,10 +138,10 @@ app.use(jwt({
   }),
 
   // Validate the audience and the issuer
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '{YOUR_API_IDENTIFIER}', //replace with your API's audience, available at Dashboard > APIs
   issuer: 'https://${account.namespace}/',
   algorithms: [ 'RS256' ]
-}));
+});
 
 // Enable the use of request body parsing middleware - code omitted
 
@@ -157,11 +157,11 @@ app.post('/timesheets', checkJwt, function(req, res){
 // launch the API Server at localhost:8080 - code omitted
 ```
 
-If we launch our server now and do an HTTP POST to `localhost:8080/timesheets` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an access token in our request).
+If we launch our server now and do an HTTP POST to `localhost:8080/timesheets` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an Access Token in our request).
 
 In order to test the working scenario as well we need to:
 
-- Get an access token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
+- Get an Access Token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
 ## 3. Check the Client permissions
@@ -174,10 +174,15 @@ In order to do this we will make use of the `express-jwt-authz` Node.js package,
 npm install express-jwt-authz --save
 ```
 
-Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint. This is our sample implementation (some code is omitted for brevity):
+Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint.
+
+The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/jwt) and ensures it bears the correct permissions to call the desired endoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
+
+This is our sample implementation (some code is omitted for brevity):
 
 ```js
-// set dependencies - code omitted
+// set dependencies - existing code omitted
+const jwtAuthz = require('express-jwt-authz');
 
 // Enable CORS - code omitted
 
@@ -208,7 +213,7 @@ In the case of the timesheets application however, we want to use the email addr
 
 The first thing we need to do is to write a rule which will add the email address of the user to the `access_token`. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
 
-You can give the rule a descriptive name, for example `Add email to access token`, and then use the following code for the rule:
+You can give the rule a descriptive name, for example `Add email to Access Token`, and then use the following code for the rule:
 
 ```js
 function (user, context, callback) {

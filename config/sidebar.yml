@@ -14,34 +14,16 @@ articles:
       
       - title: The Basics
         url: /getting-started/the-basics
+      
+      - title: Dashboard Overview
+        url: /getting-started/dashboard-overview
 
       - title: Deployment Models
         url: /getting-started/deployment-models
-      
-      # - title: The Dashboard
-      #   url: /getting-started/the-dashboard
-      
-      # - title: The Implementation Process
-      #   url: /getting-started/the-implementation-process
-      
-      # - title: Hello World
-      #   url: /getting-started/hello-world
-
-      # - title: The Authentication Flow
-      #   url: /getting-started/the-authentication-flow
-        
-      # - title: FAQ
-      #   url: /getting-started/faq
-      
-      # - title: What's Next?
-      #   url: /getting-started/whats-next
 
       - title: Videos
         url: /videos
         children:
-
-        - title: Developer Overview
-          url: /videos/developer-overview
 
         - title: Rules
           url: /videos/rules
@@ -55,15 +37,63 @@ articles:
     children:
       - title: SSO for Regular Web Apps
         url: /architecture-scenarios/application/web-app-sso
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/web-app-sso/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/web-app-sso/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/web-app-sso/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/web-app-sso/part-4
 
       - title: Server Client + API
         url: /architecture-scenarios/application/server-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/server-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/server-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/server-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/server-api/part-4
 
       - title: SPA + API
         url: /architecture-scenarios/application/spa-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/spa-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/spa-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/spa-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/spa-api/part-4
 
       - title: Mobile + API
         url: /architecture-scenarios/application/mobile-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/application/mobile-api/part-1
+           
+           - title: Configuration
+             url: /architecture-scenarios/application/mobile-api/part-2
+           
+           - title: Implementation
+             url: /architecture-scenarios/application/mobile-api/part-3
+           
+           - title: Conclusion
+             url: /architecture-scenarios/application/mobile-api/part-4
 
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/application/web-saml
@@ -151,12 +181,15 @@ articles:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
 
-      - title: "Custom Database"
-        url: "/connections/database/mysql"
+      - title: "Your Database"
+        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
         children:
+
+          - title: "Native Passwordless"
+            url: "/connections/passwordless/native-passwordless-universal"
 
           - title: "Using Email"
             url: "/connections/passwordless/email"
@@ -185,7 +218,7 @@ articles:
               url: "/hosted-pages/login/lock-passwordless"
 
             - title: "Using Auth0.js"
-              url: "/hosted-pages/login/auth0js/v8"
+              url: "/hosted-pages/login/auth0js"
 
       - title: "Password Reset Page"
         url: "/hosted-pages/password-reset"
@@ -381,6 +414,16 @@ articles:
       - title: "Yubikey NEO Example"
         url: "/multifactor-authentication/yubikey"
 
+  - title: "Security"
+    url: "/security"
+    children:
+
+      - title: "Bulletins"
+        url: "/security/bulletins"
+        children:
+          - title: "CVE 2017-17068"
+            url: "/security/bulletins/cve-2017-17068"
+
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
     children:
@@ -401,6 +444,48 @@ articles:
       - title: "Google Analytics"
         url: "/analytics/integrations/google-analytics"
 
+  - title: "Integrations"
+    url: "/integrations"
+    children:
+
+      - title: "Marketing"
+        url: "/integrations/marketing"
+        children:
+
+          - title: "Adobe Campaign"
+            url: "/integrations/marketing/adobe-campaign"
+
+          - title: "Alterian"
+            url: "/integrations/marketing/alterian"
+
+          - title: "Constant Contact"
+            url: "/integrations/marketing/constant-contact"
+
+          - title: "Oracle Eloqua"
+            url: "/integrations/marketing/eloqua"
+
+          - title: "MailChimp"
+            url: "/integrations/marketing/mailchimp"
+
+          - title: "Marketo"
+            url: "/integrations/marketing/marketo"
+
+          - title: "Sailthru"
+            url: "/integrations/marketing/sailthru"
+
+          - title: "Salesforce"
+            url: "/integrations/marketing/salesforce"
+
+          - title: "Salesforce Marketing Cloud"
+            url: "/integrations/marketing/salesforce-marketing-cloud"
+
+          - title: "Watson Campaign Automation"
+            url: "/integrations/marketing/watson-campaign-automation"
+
+      - title: "Single Sign On"
+        url: "/sso/current/integrations"
+
+
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
@@ -408,6 +493,13 @@ articles:
       - title: "Overview"
         url: "/addons"
 
+  - title: "Auth0 Migrations"
+    url: "/migrations"
+    children:
+
+      - title: "Past Migrations"
+        url: "/migrations/past-migrations"
+        
   - title: "Support"
     url: "/support"
     children:
@@ -523,35 +615,35 @@ libraries:
     url: "/libraries"
 
   - title: "Lock for Web"
-    url: "/libraries/lock/v10"
+    url: "/libraries/lock/v11"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock/v10"
+        url: "/libraries/lock/v11"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/configuration"
+        url: "/libraries/lock/v11/configuration"
 
       - title: "API Reference"
-        url: "/libraries/lock/v10/api"
+        url: "/libraries/lock/v11/api"
 
       - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"
+        url: "/libraries/lock/v11/ui-customization"
 
       - title: "Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"
+        url: "/libraries/lock/v11/migration-guide"
 
       - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"
+        url: "/libraries/lock/v11/i18n"
 
       - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"
+        url: "/libraries/lock/v11/customizing-error-messages"
 
       - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"
+        url: "/libraries/lock/v11/auth0js"
 
       - title: "Authentication Modes"
-        url: "/libraries/lock/v10/authentication-modes"
+        url: "/libraries/lock/v11/authentication-modes"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios/v2"
@@ -613,17 +705,14 @@ libraries:
     url: "/libraries/when-to-use-lock"
 
   - title: "Auth0 SDK for Web"
-    url: "/libraries/auth0js"
+    url: "/libraries/auth0js/v9"
     children:
 
-      - title: "Auth0.js v8"
-        url: "/libraries/auth0js/v8"
+      - title: "Auth0.js"
+        url: "/libraries/auth0js/v9"
 
-      - title: "Migration Guide v8"
-        url: "/libraries/auth0js/v8/migration-guide"
-
-      - title: "Auth0.js v7"
-        url: "/libraries/auth0js/v7"
+      - title: "Migration Guide"
+        url: "/libraries/auth0js/v9/migration-guide"
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
@@ -631,6 +720,15 @@ libraries:
 
       - title: "Overview"
         url: "/libraries/auth0-swift"
+
+      - title: "Database Authentication"
+        url: "/libraries/auth0-swift/database-authentication"
+
+      - title: "User Management"
+        url: "/libraries/auth0-swift/user-management"
+
+      - title: "Passwordless Authentication"
+        url: "/libraries/auth0-swift/passwordless"
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
@@ -644,6 +742,18 @@ libraries:
 
       - title: "Overview"
         url: "/libraries/auth0-android"
+
+      - title: "Configuration"
+        url: "/libraries/auth0-android/configuration"
+
+      - title: "Database Authentication"
+        url: "/libraries/auth0-android/database-authentication"
+
+      - title: "User Management"
+        url: "/libraries/auth0-android/user-management"
+
+      - title: "Passwordless"
+        url: "/libraries/auth0-android/passwordless"
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"

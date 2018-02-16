@@ -21,7 +21,7 @@ description: This tutorial will show you how to use the Auth0 to add authenticat
 
 ## Add the Dependencies
 
-Add **express-jwt**, **express-jwt-authz**, **falcor-express**, and **falcor-router** to your project. 
+Add **express-jwt**, **express-jwt-authz**, **falcor-express**, **falcor-router**, and **falcor-http-datasource** to your project.
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -33,48 +33,90 @@ Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 a
 
 ${snippet(meta.snippets.setup)}
 
+## Configure the Scopes
+
+<%= include('../_includes/_api_scopes_access_resources') %>
+
 ## Secure your API
+
+To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` express-jwt middleware.
+
+```js
+// server.js
+
+// This endpoints doesn't need authentication
+app.use('/api/public/model.json', falcorExpress.dataSourceRoute(function(req, res) {
+  return new Router([
+    {
+      route: 'public.message',
+      get: function(pathSet) {
+        return { path:['public', 'message'], value: 'Hello from a public endpoint! You don\'t need to be authenticated to see this.' };
+      }
+    }
+  ]);
+}));
+
+app.use('/api/private/model.json', checkJwt, falcorExpress.dataSourceRoute(function(req, res) {
+  return new Router([
+    {
+      route: "private.message",
+      get: function(pathSet) {
+        return { path:['private', 'message'], value: 'Hello from a private endpoint! You need to be authenticated to see this.' };
+      }
+    }
+  ]);
+}));
+```
+
+```js
+// api.js
+
+// This endpoints doesn't need authentication
+app.get('/api/public', async function(req, res) {
+  const model = new falcor.Model(
+    {
+      source: new HttpDataSource('http://localhost:3000/api/public/model.json')
+    });
+
+  const message = await model.getValue(['public', 'message']);
+
+  res.json({ message: message });
+});
+
+app.get('/api/private', checkJwt, async function(req, res) {
+  const token = req.headers.authorization.split(" ")[1];
+  const model = new falcor.Model(
+    {
+      source: new HttpDataSource(
+        'http://localhost:3000/api/private/model.json',
+        {
+          headers: { 'Authorization': 'Bearer ' + token }
+        })
+    });
+
+  const message = await model.getValue(['private', 'message']);
+
+  res.json({ message: message });
+});
+```
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, base URL for Falcor's model should be set to http://localhost:3000.
+:::
 
 Individual routes can be configured to look for a particular `scope` by setting up another middleware with the **express-jwt-authz** package. To do so, provide an array of required scopes and apply the middleware to any routes you wish to add authorization to.
 
 ${snippet(meta.snippets.use)}
 
-## Send Authorization Header from the Front End
-
-When you send a request to the Falcor model, you need to include the user's `access_token` as an `Authorization` header.
-
-```js
-const token = localStorage.getItem('access_token');
-
-const model = new falcor.Model({
-  source: new falcor.HttpDataSource('/api/model.json', {
-    // Send the token as an Authorization header
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  })
-});
-
-```
-
-Don't forget to include [falcor.browser](https://github.com/Netflix/falcor#retrieving-data-from-the-virtual-json-resource) to your front end:
-
-```html
-<!-- Do _not_  rely on this URL in production. Use only during development.  -->
-<script src="https://netflix.github.io/falcor/build/falcor.browser.js"></script>
-<!-- For production use. -->
-<!-- <script src="https://cdn.jsdelivr.net/falcor/{VERSION}/falcor.browser.min.js"></script> -->
-```
-
 ## Optional steps
 
 ### Configuring CORS
 
-If you want to configure CORS, add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3000`):
+If you want to configure CORS, add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3010`):
 
 ```js
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3010");
   res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", "true");
   next();

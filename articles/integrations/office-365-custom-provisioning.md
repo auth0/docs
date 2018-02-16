@@ -21,7 +21,7 @@ Custom provisioning uses the Azure AD Graph API to provision new users in Azure 
 3. Select **App registrations** in the new menu.
 4. Click on **New application registration**.
 5. Fill the form:
-    1. Input a name for the application (e.g. `Auth0 Provisioning`)
+    1. Input a name for the application (such as `Auth0 Provisioning`)
     2. Select **Web app / API** as the **Application type**.
     3. Insert a sign-on URL. Any valid url as this won't be really used.
 5. The recently created app will appear in the **App registrations** list. Select it.
@@ -39,7 +39,7 @@ The following rule shows the provisioning process:
 
  1. If the user comes from the AD connection, skip the provisioning process (because this will be handled by DirSync)
  2. If the user was already provisioned in Azure AD, just continue with the login transaction.
- 3. Get an access token of the Graph API using the Azure AD Client ID and Key
+ 3. Get an Access Token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
  5. Assign a license to the user.
  6. Continue with the login transaction.

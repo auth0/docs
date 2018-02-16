@@ -21,5 +21,5 @@ Once you install auth0.js, add it to your build system or bring it in to your pr
 If you do not want to use a package manager, you can retrieve auth0.js from Auth0's CDN.
 
 ```html
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 ```

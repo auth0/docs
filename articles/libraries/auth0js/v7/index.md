@@ -7,7 +7,7 @@ description: How to install, initialize and use auth0.js v7
 # Auth0.js v7 Reference
 
 ::: version-warning
-This document covers an outdated version of auth0.js. We recommend you to <a href="/libraries/auth0js">upgrade to v8</a>.
+This document covers an outdated version of auth0.js. We recommend you to <a href="/libraries/auth0js">upgrade to v9</a>.
 :::
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
@@ -50,7 +50,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="https://cdn.auth0.com/w2/auth0-7.6.1.min.js"></script>
+<script src="${auth0js_urlv7}"></script>
 ```
 
 If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
@@ -64,7 +64,7 @@ The following examples use jQuery, but auth0.js is not tied to jQuery and any li
 Construct a new instance of the Auth0 client as follows:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv7}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
@@ -583,11 +583,11 @@ function(err) {
 
 If the login succeeds, Auth0 will redirect to your `callbackURL`, and if it fails, control will be given to the `callback`.
 
-And if you don't want that redirect to occur (i.e. you have a Single Page App), you can use a `callback` argument that takes the additional parameters (like what's shown in [Popup Mode](#popup-mode)), and control will go to your callback function with a failed or successful login.
+And if you don't want that redirect to occur (for example, you have a Single Page App), you can use a `callback` argument that takes the additional parameters (like what's shown in [Popup Mode](#popup-mode)), and control will go to your callback function with a failed or successful login.
 
 ### Response configuration
 
-By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an access token. The access token can be obtained directly if you provide the `responseType: 'token'` option. In this case the access token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
+By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an Access Token. The Access Token can be obtained directly if you provide the `responseType: 'token'` option. In this case the Access Token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
 
 ```js
 var auth0 = new Auth0({
@@ -667,7 +667,7 @@ If you just want to get a new token for an addon that you've activated, you can 
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The id_token you have now
   api: 'firebase', // This defaults to the first active addon if any or you can specify this
   "scope": "openid profile"         // default: openid
 };
@@ -681,7 +681,7 @@ If you want to get the token for another API or App:
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The id_token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
   targetClientId: 'The other client id'
 };
@@ -691,7 +691,7 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 });
 ```
 
-### Refresh token
+### Refresh Token
 
 If you want to refresh your existing (not expired) token, you can just do the following:
 

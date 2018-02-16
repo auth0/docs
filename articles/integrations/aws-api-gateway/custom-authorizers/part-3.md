@@ -2,7 +2,6 @@
 description: Step 3 of Amazon API Gateway Tutorial
 toc: true
 ---
-
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 
 In [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1), we showed you how to configure Auth0 for use with API Gateway, and in [part 2](/integrations/aws-api-gateway/custom-authorizers/part-2) of this tutorial, we showed you how to import, test, and deploy an API using Amazon Web Services' (AWS) API Gateway. In this tutorial, we will show you how to secure this API so that only those with the appropriate authorization may access the back-end behind the API.
@@ -26,9 +25,9 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 
 | **Parameter** | **Value** |
 | - | - |
-| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}` |
+| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration. See [Client Settings](/clients/client-settings) for information on finding your Client ID |
+| **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
 As an example, the text of your .env file should look something like this when complete:
 
@@ -40,9 +39,11 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 4. Test the custom authorizer locally.
 
-a. First, obtain a valid JWT access token. There are [multiple methods by which you can obtain an access token](https://auth0.com/docs/api-auth/which-oauth-flow-to-use), and the method you choose depends on your client's type, trust level, or overall end-user experience.
+a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your client's type, trust level, or overall end-user experience. 
 
-b. Once you've obtained a token, create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
+You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+
+b. Create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 
 To get the `methodArn`:
 
@@ -110,7 +111,7 @@ The IAM role has the required permissions to call Lambda functions; before we ca
 
     ```json
     {
-    "Version": "2017-08-07",
+    "Version": "2012-10-17",
     "Statement": [
         {
         "Effect": "Allow",
@@ -170,7 +171,7 @@ b. Then, create the following three **Environment variables**. Note that this in
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The ID of the Auth0 client you're using with this integration |
+| **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
 c. In the **Lambda function handler and role** section, set the following values:
 

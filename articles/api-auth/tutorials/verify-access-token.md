@@ -1,12 +1,12 @@
 ---
-description: How an API can verify a bearer JWT access token
+description: How an API can verify a bearer JWT Access Token
 toc: true
 ---
 # Verify Access Tokens for Custom APIs
 
 <%= include('../../_includes/_pipeline2') %>
 
-When a custom API receives a request with a bearer [access token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an access token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request **must** be rejected.
+When a custom API receives a request with a bearer [Access Token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request **must** be rejected.
 
 This document lists all the validations that your API should perform:
 
@@ -61,11 +61,14 @@ Alternatively, you can use one of the libraries listed in the _Libraries for Tok
 
 Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `algorithms` argument, that contains a list of strings with the names of the allowed algorithms.
 
-## Verify the Signature
+## Verify the signature
 
-The API needs to verify the signature. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
+The API needs to verify the signature of each token. 
+
+This is necessary to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 Remember that the signature is created using the header and the payload of the JWT, a secret and the hashing algorithm being used (as specified in the header: HMAC, SHA256 or RSA). The way to verify it, depends on the hashing algorithm:
+
 - For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
 - For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
@@ -73,9 +76,19 @@ The most secure practice, and our recommendation, is to use `RS256`.
 
 ### How can I verify the signature?
 
-To verify a token's signature, you can use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/).
+To verify a token's signature, you can use one of the libraries available in [JWT.io](https://jwt.io/#libraries-io).
 
-Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `secretOrPublicKey` argument, that should be populated with a string or buffer containing either the secret (for `HS256`), or the PEM encoded public key (for `RS256`). If the verification fails you will get a `invalid signature` error.
+Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method supports a `secretOrPublicKey` argument. This should be populated with a string or buffer containing either the secret (for `HS256`), or the PEM encoded public key (for `RS256`). 
+
+::: panel Where can I find my public key?
+Go to [Dashboard > Clients](${manage_url}/#/clients). Open the **Settings** of your client, scroll down and open **Advanced Settings**. Open the **Certificates** tab and you will find the Public Key in the **Signing Certificate** field.
+
+If you want to verify the signature of a token from one of your applications, we recommend getting it by parsing your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`. 
+
+For more info on **RS256** and **JWKS** see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/).
+:::
+
+If the verification fails you will get a `invalid signature` error.
 
 ## Validate the Claims
 
@@ -129,7 +142,7 @@ This document is part the [Server + API Architecture Scenario](/architecture-sce
 - [RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
 - [JSON Web Tokens (JWT) in Auth0](/jwt)
 - [APIs in Auth0](/apis)
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Tokens used by Auth0](/tokens)
 - [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
 - [How to implement API authentication and authorization scenarios](/api-auth)

@@ -90,7 +90,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'email',
     email: email,
     verificationCode: code

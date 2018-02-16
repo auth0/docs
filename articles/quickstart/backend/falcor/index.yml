@@ -14,3 +14,4 @@ snippets:
   use: server-apis/falcor/use
 articles:
   - 01-authentication
+  - 02-using

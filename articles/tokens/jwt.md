@@ -63,17 +63,28 @@ Then, this JSON is **Base64Url** encoded to form the first part of the JWT.
 ### Payload
 
 The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional metadata.
-There are three types of claims: *reserved*, *public*, and *private* claims.
 
-- **Reserved claims**: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: **iss** (issuer), **exp** (expiration time), **sub** (subject), **aud** (audience), and others.
+When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), there are some rules you should be aware of when it comes to naming (especially if you are using self-defined custom claims).
 
-::: note
-Notice that the claim names are only three characters long as JWT is meant to be compact.
-:::
+The JWT specification defines seven claims that can be included in a token. These are **registered claim names**, and they are:
 
-- **Public claims**: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
+* iss
+* sub
+* aud
+* exp
+* nbf
+* iat
+* jti
 
-- **Private claims**: These are the custom claims created to share information between parties that agree on using them.
+For your specific use case, you might then use what are called **public claim names**. Examples of these include:
+
+* auth_time
+* acr
+* nonce
+
+Finally, there are **private claim names**, which you can use to convey identity-related information, such as name or department.
+
+Because public and private claims are not registered, take care to avoid name collisions. If a collision does occur, it can be difficult to tease apart two claims of the same name, but with differing information.
 
 An example of payload could be:
 

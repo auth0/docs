@@ -26,8 +26,8 @@ At each level, new passwords must meet the following criteria:
  * **None** (default): at least 1 character of any type.
  * **Low**: at least 6 characters.
  * **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
- * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. !@#$%^&*).
- * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. `!@#$%^&*`). Not more than 2 identical characters in a row (e.g. `111` is not allowed).
+ * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
+ * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
 
 
 ## Change Your Policy
@@ -80,8 +80,8 @@ This is a sample `description` error report from a `good` policy with `hello` as
         "items":[
           {"message":"lower case letters (a-z)","verified":true},
           {"message":"upper case letters (A-Z)","verified":false},
-          {"message":"numbers (i.e. 0-9)","verified":false},
-          {"message":"special characters (e.g. !@#$%^&*)","verified":false}
+          {"message":"numbers (such as 0-9)","verified":false},
+          {"message":"special characters (such as !@#$%^&*)","verified":false}
         ],"verified":false}
       ],"
       verified":false
@@ -98,8 +98,8 @@ This is a sample `description` error report from a `good` policy with `hello1234
         "items":[
           {"message":"lower case letters (a-z)","verified":true},
           {"message":"upper case letters (A-Z)","verified":false},
-          {"message":"numbers (i.e. 0-9)","verified":true},
-          {"message":"special characters (e.g. !@#$%^&*)","verified":false}
+          {"message":"numbers (such as 0-9)","verified":true},
+          {"message":"special characters (such as !@#$%^&*)","verified":false}
         ],"verified":false}
       ],"
       verified":false

@@ -1,6 +1,6 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic access token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
 budicon: 448
 ---
 
@@ -15,24 +15,15 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_preamble') %>
 
-<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '4200' }) %>
-
-
 ## Add Token Renewal
 
-To the `AuthService` service, Add a method which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
-
-The method loads your silent callback page in an invisible `iframe`. Then, the method makes a call to Auth0 and gives back the result. 
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```typescript
 // src/app/auth/auth.service.ts
 
 public renewToken() {
-  this.auth0.renewAuth({
-    audience: '${apiIdentifier}',
-    redirectUri: 'http://localhost:3001/silent',
-    usePostMessage: true
-  }, (err, result) => {
+  this.auth0.checkSession({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -48,36 +39,42 @@ Define the `refreshSubscription` class property, which will hold a reference to 
 
 ```ts
 // src/app/auth/auth.service.ts
+export class AuthService {
 
-// ...
-public scheduleRenewal() {
-  if(!this.isAuthenticated()) return;
-  this.unscheduleRenewal();
+  // ..
+  // define the refreshSubscription property
+  refreshSubscription: any;
 
-  const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+  // ...
+  public scheduleRenewal() {
+     if(!this.isAuthenticated()) return;
+     this.unscheduleRenewal();
 
-  const source = Observable.of(expiresAt).flatMap(
-    expiresAt => {
+     const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
 
-      const now = Date.now();
+     const source = Observable.of(expiresAt).flatMap(
+        expiresAt => {
 
-      // Use the delay in a timer to
-      // run the refresh at the proper time
-      return Observable.timer(Math.max(1, expiresAt - now));
+        const now = Date.now();
+
+        // Use the delay in a timer to
+        // run the refresh at the proper time
+        return Observable.timer(Math.max(1, expiresAt - now));
     });
 
-  // Once the delay time from above is
-  // reached, get a new JWT and schedule
-  // additional refreshes
-  this.refreshSubscription = source.subscribe(() => {
-    this.renewToken();
-    this.scheduleRenewal();
-  });
-}
+    // Once the delay time from above is
+    // reached, get a new JWT and schedule
+    // additional refreshes
+    this.refreshSubscription = source.subscribe(() => {
+       this.renewToken();
+       this.scheduleRenewal();
+     });
+  }
 
-public unscheduleRenewal() {
-  if(!this.refreshSubscription) return;
-  this.refreshSubscription.unsubscribe();
+  public unscheduleRenewal() {
+     if(!this.refreshSubscription) return;
+     this.refreshSubscription.unsubscribe();
+  }
 }
 ```
 
@@ -89,7 +86,7 @@ In the `setSession` method, add the function right after setting the `access_tok
 // src/app/auth/auth.service.ts
 
 private setSession(authResult): void {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
 
   localStorage.setItem('access_token', authResult.accessToken);

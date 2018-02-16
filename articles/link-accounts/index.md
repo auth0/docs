@@ -145,12 +145,12 @@ Note that:
 * The `user_id` and all other main profile properties continue to be those of the primary identity
 * The secondary account is now embedded in the `identities` array of the primary profile
 * The attributes of the secondary account are placed inside the `profileData` field of the corresponding identity inside the array
-* The `user_metadata` and `app_metadata` of the primary account have not unchanged
+* The `user_metadata` and `app_metadata` of the primary account have not changed
 * The `user_metadata` and `app_metadata` of the secondary account are discarded
 * There is no automatic merging of user profiles with associated identities
 * The secondary account is removed from the users list
 
-#### Merging Metadata
+### Merging Metadata
 
 [Metadata](/metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](/api/v2#!/Users/patch_users_by_id).
 

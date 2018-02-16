@@ -31,58 +31,35 @@ Click **Next Step**. Verify your settings and click **Create** if everything is 
 
 To use the provider, you must create an IAM role using the provider in the role's trust policy. 
 
-In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Click **Create New Role**.
+In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Click **Create role**.
 
-![](/media/articles/integrations/aws/iam-new-role.png)
+![](/media/articles/tutorials/aws/roles1.png)
 
-On the **Select role type** page, select **Role for identity provider access**. 
+You'll be redirected to the **Trust** page. Indicate **Saml 2.0 federation** under **Select type of trusted entity**. 
 
-![](/media/articles/integrations/aws/select-role-type.png)
+![](/media/articles/tutorials/aws/roles3.png)
 
-Click **Select** for the **Grant Web Single Sign-On (WebSSO) access to SAML providers** option. Set the following values:
+Provide the following values:
 
 | Parameter | Value |
 | - | - |
-| SAML Provider | Select the provider you created in the previous step |
+| SAML Provider | The name for your new role |
 | Attribute | `SAML:iss` |
 | Value | `urn:${account.namespace}` |
 
-![](/media/articles/tutorials/aws/establish-trust.png)
+![](/media/articles/tutorials/aws/roles4.png)
 
-Click **Next Step** to proceed.
+Click **Next: Permissions** to proceed.
 
-On the Verify Role Trust page, accept the **Policy Document** as provided and click **Next Step**. 
+You will need to attach permissions policies to your new role. You'll attach a custom policy. To create one, click **Create Policy**.
 
-![](/media/articles/tutorials/aws/verify-role-trust.png)
+![](/media/articles/tutorials/aws/roles5.png)
 
-When asked to **Attach Policy**, either select a pre-defined policy or [define a custom policy](#create-a-custom-policy). These define the permissions that users granted this role will have with AWS. Click **Next Step**
+In the **Create policy** editor that launches, switch over to the **JSON** tab. 
 
-Finally, set the role name and review your settings. Provide values for the following parameters:
+![](/media/articles/tutorials/aws/roles6.png)
 
-| Parameter | Definition | 
-| - | - |
-| Role name | A descriptive name for your role |
-| Role description | A description of what your role is used for |
-
-Review the **Trusted entities** and **Policies** information, then click **Create Role**.
-
-![](/media/articles/integrations/aws/iam-review-role.png)
-
-At this point, you'll have created the necessary role to associate with your provider.
-
-## Create a Custom Policy
-
-In this example, you will create a policy that grants full access to the S3 resource `YOUR_BUCKET/<%= '${saml:sub}' %>`. AWS evaluates this policy at run-time and replaces the placeholder with the `user_id` of the user that's logged in.
-
-In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Select the role you just created to open up it's summary page.
-
-On the **Permissions** tab click the carrot to expand the **Inline Policies** area.
-
-![](/media/articles/tutorials/aws/role-summary.png)
-
-Click the provided link to create an inline policy.
-
-You'll be creating a **Custom Policy**. Provide a **Policy Name** and populate the **Policy Document** field with the following:
+Provide a custom policy. 
 
 ```text
 {
@@ -99,11 +76,33 @@ You'll be creating a **Custom Policy**. Provide a **Policy Name** and populate t
 }
 ```
 
-Click **Validate Policy** to check your syntax.
+This defines the permissions that users granted this role will have with AWS. Click **Review policy**.
 
-![](/media/articles/tutorials/aws/review-validate-policy.png)
+![](/media/articles/tutorials/aws/roles7.png)
 
-Click **Apply Policy** to proceed.
+Review the policy that you've created. Be sure to provide a **Name** for your policy and (optionally) a **Description**.
+
+Click **Create policy** when done.
+
+![](/media/articles/tutorials/aws/roles8.png)
+
+If successful, you'll see the following message confirming the creation of your new policy.
+
+![](/media/articles/tutorials/aws/roles9.png)
+
+Returning to the role creation wizard (you should be on step **2 - Permissions**), find the new policy you just create and click its checkbox to attach the policy to your role. We recommend using the **Customer managed** filter to find your policy.
+
+Click **Next: Review** to proceed.
+
+![](/media/articles/tutorials/aws/roles11.png)
+
+Review the information about your role, provide a **Role name** and (optionally) a **Role description**. You'll see the policy you attached as well. If everything looks correct, click **Create role** to proceed.
+
+![](/media/articles/tutorials/aws/roles12.png)
+
+Once created, you can find your roles located on the primary **Roles** page.
+
+![](/media/articles/tutorials/aws/roles13.png)
 
 ## Copy the ARN Values
 

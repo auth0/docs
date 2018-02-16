@@ -88,7 +88,7 @@ Handle URL received from AppDelegate when application is called from a third par
 - (void)registerAuthenticators:(NSArray *)authenticators;
 ```
 
-Register IdP authenticators that will be used for Social & Enterprise connections. By default all Social & Enterprise authentications are performed by using the web flow with Safari but you can plug your own authenticator for a connection. e.g.: you can register `A0FacebookAuthenticator` in order to login with FB native SDK.
+Register IdP authenticators that will be used for Social & Enterprise connections. By default all Social & Enterprise authentications are performed by using the web flow with Safari but you can plug your own authenticator for a connection (for example, you can register `A0FacebookAuthenticator` in order to login with FB native SDK).
 
 ```objc
 [lock registerAuthenticators:@[facebook, twitter]];

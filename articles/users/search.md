@@ -12,11 +12,12 @@ Auth0 provides multiple endpoints you can use to retrieve users. Each one offers
 Currently, Auth0 offers three different ways by which you can search for users:
 
 * [Users](#users)
+* [Users by ID](#users-by-id)
 * [Users by Email](#users-by-email)
 * [User Export](#user-export)
 
 ::: note
-The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [access token](/api/management/v2/tokens) and provide it in the header of your call (simply replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (simply replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
 :::
 
 ### Definitions
@@ -26,6 +27,25 @@ In this document, we use the terms **eventually consistent** and **immediately c
 * **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
 
 * **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
+
+## General Principles
+
+When running user searches:
+
+* Use an immediately consistent endpoint during authentication processes
+* Use exact match searches (with the `raw` subfield) whenever possible
+* Use a well-known schema for metadata:
+  * Use consistent data types for properties
+  * Avoid dynamic property names
+  * Avoid large schema sizes and deep structures
+  * Avoid storing data you do not need for authentication and authorization purposes
+
+To optimize the performance of your user searches, we don't recommend:
+
+* Existence queries (for example, "give me all users with a property regardless of its value")
+* Full text search or partial searches
+* Polling the search APIs
+* Using large metadata field (try to keep metadata fields to 2 KB or less)
 
 ## Users
 
@@ -48,10 +68,9 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 }
 ```
 
-
 **Sample Response**
 
-Successful calls to the endpoint returns a JSON object similar to the following:
+Successful calls to the endpoint return a JSON object similar to the following:
 
 ```json
 [
@@ -94,10 +113,69 @@ This endpoint is **eventually consistent**, and as such, we recommend that you u
 
 We do **not** recommend that you use this endpoint for:
 
-* Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) for such actions
+* Operations that require immediate consistency - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * User exports - please use the [User Export endpoint](#user-export) for such actions
-* Operations that require user search as part of the Authentication Pipeline - please use the [Users by Email endpoint](#users-by-email) for such actions
+* Operations that require user search as part of authentication processes - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) for such actions
+
+## Users by ID
+
+The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
+
+*Required Scopes*: `read:users`
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/users/USER_ID",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+	}]
+}
+```
+
+**Sample Response**
+
+```json
+{
+  "email": "john.doe@gmail.com",
+  "email_verified": false,
+  "username": "johndoe",
+  "phone_number": "+199999999999999",
+  "phone_verified": false,
+  "user_id": "usr_5457edea1b8f33391a000004",
+  "created_at": "",
+  "updated_at": "",
+  "identities": [
+    {
+      "connection": "Initial-Connection",
+      "user_id": "5457edea1b8f22891a000004",
+      "provider": "auth0",
+      "isSocial": false
+    }
+  ],
+  "app_metadata": {},
+  "user_metadata": {},
+  "picture": "",
+  "name": "",
+  "nickname": "",
+  "multifactor": [
+    ""
+  ],
+  "last_ip": "",
+  "last_login": "",
+  "logins_count": 0,
+  "blocked": false,
+  "given_name": "",
+  "family_name": ""
+}
+```
+
+This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
+
+* User searches run during the authentication process 
+* User searches run as part of the account linking process.
 
 ## Users by Email
 
@@ -157,13 +235,8 @@ The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/
 
 The Users by Email endpoint is immediately consistent, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication/authorization process 
+* User searches run during the authentication process 
 * User searches run as part of the account linking process.
-
-We do **not** recommend using the Users by Email endpoint for:
-
-* Searches involving user attributes
-* Searches returning multiple users
 
 ## User Export
 
@@ -187,11 +260,15 @@ When you create your job, you'll need to provide:
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}],
+	},
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"connection_id\": \"con_0000000000000001\", \"format\": \"csv\", \"limit\": 5, \"fields\": [[{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]]}" 
+		"text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}" 
     },
 	"headersSize": -1,
 	"bodySize": -1,
@@ -229,7 +306,84 @@ When you create your job, you'll need to provide:
 }
 ```
 
-Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). You'll need to provide the ID of the job (which you received in the response when creating the job) -- if you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
+### Export metadata
+
+If you export user data in CSV and want to include metadata information, you must specify each metadata field that you want exported. 
+
+For example, for metadata structured like this:
+
+```json
+{
+  "consent": {
+      "given": true,
+      "date": "01/23/2018",
+      "text_details": "some-url"
+  }
+}
+```
+
+The export request (for all three fields) will looks like this:
+
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/jobs/users-exports",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent.given\"}, {\"name\": \"user_metadata.consent.date\"}, {\"name\": \"user_metadata.consent.text_details\"}]}" 
+    },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+If you export the data in JSON, you need only provide the root property; you do not need to name each individual inner property since they will be included automatically.
+
+In this case, for the same example we used before, the request will look like this:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/jobs/users-exports",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent\"}]}" 
+    },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+### Get the results
+
+Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). 
+
+You'll need to provide the ID of the job (which you received in the response when creating the job). If you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
 
 *Require Scopes*: `create:users`, `read:users`, `create:passwords_checking_job`
 
@@ -275,13 +429,13 @@ Once you've created your job to export your users, you can check on its status u
 }
 ```
 
-You can access your export using the URL provided as the value for the `location` parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
+You can access your export using the URL provided as the value for the **location** parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
 
 ::: note
 The download link is valid for 60 seconds. If this time period has expired, you'll need to initiate a new job.
 :::
 
-![](/media/articles/users/data.png)
+![Exported user data](/media/articles/users/data.png)
 
 ## Summary
 
@@ -292,7 +446,7 @@ When retrieving users in Auth0, there are three different API endpoints you can 
 | Back of the office processes, such as changing a user's display name | [Users](#users) |
 | Searches involving user attributes | [Users](#users) |
 | Searches returning multiple users | [Users](#users) |
-| Operations requiring immediate consistency | [Users by Email](#users-by-email) |
-| Actions requiring user search as part of the Authentication Pipeline | [Users by Email](#users-by-email) |
+| Operations requiring immediate consistency | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
+| Actions requiring user search as part of authentication processes | [Users by ID](#users-by-id) or [Users by Email](#users-by-email) |
 | Searching for users for account linking by email | [Users by Email](#users-by-email) |
 | User exports | [User Export](#user-export) |

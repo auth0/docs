@@ -1,0 +1,22 @@
+# Remember to add snippets back to .md
+title: Ionic 2+
+logo_name: ionic
+alias:
+  - ionic2
+  - ionic3
+language:
+  - Typescript
+framework:
+  - Ionic3
+  - Angular4
+  - Cordova
+hybrid: true
+image: /media/platforms/ionic.jpeg
+tags:
+  - quickstart
+snippets:
+  use: native-platforms/ionic2/use
+seo_alias: ionic2
+default_article: 01-login
+articles:
+  - 01-login

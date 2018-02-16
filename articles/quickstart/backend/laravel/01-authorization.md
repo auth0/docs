@@ -118,7 +118,7 @@ Protecting individual API endpoints can be done by applying the `auth:api` middl
 // routes/api.php
 
 Route::get('/private', function (Request $request) {
-    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid Access Token to see this."]);
 })->middleware('auth:api');
 ```
 
@@ -138,7 +138,7 @@ Next send a request to your protected endpoint which includes an `access_token`.
 
 ```bash
 curl --request GET \
-  --url http://localhost:8000/api/private \
+  --url http://localhost:3010/api/private \
   --header 'authorization: Bearer <ACCESS TOKEN>'
 ```
 

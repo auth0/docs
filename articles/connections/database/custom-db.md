@@ -1,52 +1,79 @@
 ---
-title: Authenticate Users using a Custom Database
+title: Authenticate Users Using Your Database
 connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
-description: How to authenticate users with username and password using a Custom Database.
+description: Learn how to authenticate users using your database as an identity provider.
 crews: crew-2
 toc: true
 ---
 
-# Authenticate Users using a Custom Database
+# Authenticate Users Using Your Database
 
-Applications often rely on user databases for authentication. Auth0 enables you to connect to these repositories and use them as identity providers while preserving user credentials and providing additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
+If you have your own user database, you can use that database as an identity provider in Auth0 to authenticate users. To set up and use your database for authentication you'll need to:
 
-This tutorial will guide you through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+* Create a [database connection](/connections/database) on the [Auth0 dashboard](${manage_url}).
+* Ensure your database has fields to populate user profiles such as: `id`, `nickname`, `email`, and `password`. See [Auth0 Normalized User Profile](/user-profile/normalized) for details on Auth0's user profile schema and expected fields.
+* Provide database action scripts to configure the database as an identity provider.
+
+In this tutorial you'll learn how to connect your user database to Auth0 and configure it as an identity provider.
+
+## Before You Begin
+
+Here are some things to know before you start this process.
+
+* Database action scripts are written in Javascript and run in a [Webtask](https://webtask.io/) environment. In the environment you can use the full JavaScript language and [these Node.js libraries](https://tehsis.github.io/webtaskio-canirequire/).
+* Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+* You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
+* The [Update Users Using Your Database](/user-profile/customdb) article has information on updating user profile fields.
+
+## Create the database connection
+
+To create the database connection for your database, follow these steps.
+
+1. Navigate to [Connections > Database](${manage_url}/#/connections/database) on the Auth0 dashboard.
+2. Click the **+ Create DB Connection** button.
+3. Provide a name for the database and configure the available options.
+
+![Database connections](/media/articles/connections/database/database-connections.png)
+
+3. Navigate to the **Custom Database** tab.
+4. Toggle on the **Use my own database** switch.
+
+![Custom database tab](/media/articles/connections/database/custom-database.png)
+
+## Create database action scripts
+
+Create scripts in the **Database Action Scripts** section to configure how authentication works when using your database.
+
+A Login script is required. Additional scripts for user functionality, such as password resets, are optional. You can write your own scripts or select a template from the **Templates** dropdown and adjust it to your requirements.
+
+The available actions are:
+
+Name | Description | Parameters
+-------|-------------|-----------
+Login (Required) | Executes each time a user attempts to log in. | `email`, `password`
+Create | Executes when a user signs up. | `user.email`, `user.password`
+Verify | Executes after a user follows the verification link. | `email`
+Change Password | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
+Get User | Retrieves a user profile from your database without authenticating the user. | `email`
+Delete | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 
 ::: note
-Please also read the section on [Updating Users using a Custom Database](/user-profile/customdb), as it contains important information about how to update fields of the User Profile.
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure that you have implemented both.
 :::
 
-## 1. Create a database connection
+### Create the Login script
 
-Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created.
-
-![](/media/articles/connections/database/database-connections.png)
-
-## 2. Customize the database connection
-
-Click **Custom Database** and turn on the **Use my own database** switch.
-
-![](/media/articles/connections/database/custom-database.png)
-
-## 3. Provide action scripts
-
-You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
+The Login script will run each time a user attempts to log in. You can write your own Login script or select a template from the **Templates** dropdown.
 
 ::: note
-When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure that you have implemented both. Refer to the [Dashboard](${manage_url}) for sample scripts.
+If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
 :::
 
-These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+![Database action script templates](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
-This article shows how to implement the login script for **MySQL**. If you want a sample script for another action (sign-up, password reset, etc) or another database, use the dropdown options at the [Dashboard](${manage_url}).
-
-In the **Templates** drop-down, select **MySQL**:
-
-![](/media/articles/connections/database/mysql/db-connection-login-script.png)
-
-You will see the following sample code in the Connection editor:
+For example, the MySQL Login template:
 
 ```js
 function login(email, password, callback) {
@@ -83,39 +110,25 @@ function login(email, password, callback) {
 
   });
 }
+
 ```
 
-This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
+The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns.
 
-You can also [cache connections](/rules#cache-expensive-resources) such that it will survive individual execution.
+## Add configuration parameters
 
-::: note
-If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
-:::
+You can store parameters, like the credentials required to connect to your database, in the Settings section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
 
-::: note
-You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
-:::
+You can access parameter values using the `configuration` object in your database action scripts, for example: `configuration.MYSQL_PASSWORD`.
 
-### Database Field Requirements
+![Custom database settings](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
-Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`.
-
-For more information on Auth0 user profile schema and the fields that are expected, as well as additional ones that are available, take a look at the [Auth0 Normalized User Profile](/user-profile/normalized) documentation.
-
-
-## 4. Add configuration parameters
-
-You can securely store the credentials needed to connect to your database in the **Settings** section at the bottom of the page.
-
-![](/media/articles/connections/database/mysql/db-connection-configurate.png)
-
-In the connection script, refer to these parameters as: `configuration.PARAMETER_NAME`. For example, you could enter:
+Use the added parameters in your scripts to configure the connection. For example, in the MySQL Login template:
 
 ```js
 function login (username, password, callback) {
   var connection = mysql({
-    host     : 'localhost',
+    host     : configuration.MYSQL_HOST,
     user     : 'me',
     password : configuration.MYSQL_PASSWORD,
     database : 'mydb'
@@ -123,7 +136,13 @@ function login (username, password, callback) {
 }
 ```
 
-## 5. Error handling
+## Error Handling
+
+There are three different errors you can return from a database connection:
+
+* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
+* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
+* `new Error(<message>)`: simple errors (no error code).
 
 To return an error, call the callback with an error as the first parameter:
 
@@ -131,35 +150,28 @@ To return an error, call the callback with an error as the first parameter:
 callback(error);
 ```
 
-There are three different errors you can return from a DB Connection:
-
-* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
-* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
-* `new Error(<message>)`: simple errors (no error code).
-
 For example:
 
 ```js
 callback(new ValidationError('email-too-long', 'Email is too long.'));
 ```
 
-## 6. Debug and troubleshoot
+## Troubleshoot
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
-![](/media/articles/connections/database/mysql/db-connection-try-ok.png)
+![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
 
-If you add a `console.log` statement to the script you will be able to see the output here.
+If you do not get the expected result or receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
 
-
-## The script container
-
-The script runs in a JavaScript sandbox where you can use the full power of the JavaScript language and selected Node.js libraries. [You can `require` any library listed here](https://tehsis.github.io/webtaskio-canirequire/).
+::: note
+The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) can be used to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
+:::
 
 ## Auth0 Login widget
 
-After you have enabled the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
+If you use [Lock](libraries#lock), enabling the database connection lets users enter their username and password on the Auth0 Login widget. Once entered, this data is passed to your scripts.
 
-![](/media/articles/connections/database/mysql/db-connection-widget.png)
+![Auth0 login widget](/media/articles/connections/database/mysql/db-connection-widget.png)
 
 <%= include('../_quickstart-links.md') %>

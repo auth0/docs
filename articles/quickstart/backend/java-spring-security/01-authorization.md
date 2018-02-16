@@ -9,7 +9,7 @@ budicon: 500
   repo: 'auth0-spring-security-api-sample',
   path: '01-Authorization',
   requirements: [
-    'Java 7 or above',
+    'Java 8 or above',
     'Maven 3.0.x or above'
   ]
 }) %>
@@ -100,10 +100,10 @@ In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()
 The routes shown below are available for the following requests: 
 
 - `GET /login`: available for non-authenticated requests
-- `GET /photos`: available for authenticated requests containing an access token with the `read:photos` scope granted
-- `POST /photos`: available for authenticated requests containing an access token with the `create:photos` scope granted
-- `PUT /photos`: available for authenticated requests containing an access token with the `update:photos` scope granted
-- `DELETE /photos`: available for authenticated requests containing an access token with the `delete:photos` scope granted
+- `GET /photos`: available for authenticated requests containing an Access Token with the `read:photos` scope granted
+- `POST /photos`: available for authenticated requests containing an Access Token with the `create:photos` scope granted
+- `PUT /photos`: available for authenticated requests containing an Access Token with the `update:photos` scope granted
+- `DELETE /photos`: available for authenticated requests containing an Access Token with the `delete:photos` scope granted
 - Any other route that doesn't match the above requires the user to be authenticated with no additional scopes
 
 ```java
@@ -198,19 +198,19 @@ public class PhotosController {
 
 To build and run the seed project, use the command: `mvn spring-boot:run`.
 
-To test a non-secure endpoint, send a `GET` request to `http://localhost:3001/login`.
+To test a non-secure endpoint, send a `GET` request to `http://localhost:3010/login`.
 
 ```bash
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "http://localhost:3001/login"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "http://localhost:3010/login"
 ```
 
 You should get the message:
 `All good. You DO NOT need to be authenticated to call /login`.
 
-To test secure endpoints, send a `GET` request to `http://localhost:3001/photos`. In this case, you must add a valid access token as an `Authorization` header to your request.
+To test secure endpoints, send a `GET` request to `http://localhost:3010/photos`. In this case, you must add a valid Access Token as an `Authorization` header to your request.
 
 ```bash
-curl -X GET -H "Authorization: Bearer {YOUR_ACCESS_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3001/photos"
+curl -X GET -H "Authorization: Bearer {YOUR_ACCESS_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3010/photos"
 ```
 
 You should get the message: `All good. You can see this because you are Authenticated with a Token granted the 'read:photos' scope`.
@@ -229,20 +229,20 @@ If the token is not specified, you will get the following JSON as a response:
 }
 ```
 
-To obtain an access token, call the `/oauth/token` endpoint of the Auth0 [Authentication API](/api/authentication/reference#resource-owner-password) with Curl:
+To obtain an Access Token, call the `/oauth/token` endpoint of the Auth0 [Authentication API](/api/authentication/reference#resource-owner-password) with Curl:
 
 ```text
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"${apiIdentifier}", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"${apiIdentifier}", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": 'YOUR_CLIENT_SECRET'
  }'
 ```
 
 ::: note
-In the example above, the `delete:photos` scope is not requested, so if you try to call `DELETE /photos` with an access token, the request will fail.
+In the example above, the `delete:photos` scope is not requested, so if you try to call `DELETE /photos` with an Access Token, the request will fail.
 :::
 
 The domain, client ID and client secret values must match your Auth0 client. Check the values in the [dashboard](${manage_url}/#/clients). Use the username and password of the user you want to authenticate with. Request the API audience with the API identifier and customize the scope to your needs. 
 
-Pass the access token  in the `Authorization` header as a `Bearer` token.
+Pass the Access Token  in the `Authorization` header as a `Bearer` token.

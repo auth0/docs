@@ -11,12 +11,12 @@ GET https://${account.namespace}/authorize?
   connection=CONNECTION&
   redirect_uri=${account.callback}&
   state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize client
   var webAuth = new auth0.WebAuth({
@@ -63,7 +63,7 @@ Social connections only support browser-based (passive) authentication because m
 | `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `additional-parameter` | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
+| `ADDITIONAL_PARAMETERS` | Append any additional parameter to the end of your request, and it will be sent to the provider. For example, `access_type=offline` (for Google Refresh Tokens) , `display=popup` (for Windows Live popup mode). |
 
 ### Test with Authentication API Debugger
 
@@ -89,7 +89,7 @@ Social connections only support browser-based (passive) authentication because m
 - [Supported Social Identity Providers](/identityproviders#social)
 - [Custom Social Connections](/connections/social/oauth2)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
-- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
+- [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 
 ## Database/AD/LDAP (Passive)
@@ -106,8 +106,8 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize Client
   var webAuth = new auth0.WebAuth({
@@ -172,7 +172,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
-- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
+- [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 ## Enterprise (SAML and Others)
 
@@ -188,8 +188,8 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize client
   var webAuth = new auth0.WebAuth({
@@ -214,6 +214,10 @@ GET https://${account.namespace}/authorize?
   });
 </script>
 ```
+
+::: note
+Note that in order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. Check the  [Cross-Origin Authentication](/cross-origin-authentication) to understand the limitations of this approach.
+:::
 
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
@@ -260,4 +264,4 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - [SAML](/protocols/saml)
 - [Obtain a ClientId and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
-- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
+- [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)

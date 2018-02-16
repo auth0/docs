@@ -1,18 +1,12 @@
 ---
-description: Details generating and using an Auth0 Management APIv2 token.
+description: Details on how to generate and use a token for the Auth0 Management APIv2
 section: apis
 crews: crew-2
 toc: true
 ---
 # The Auth0 Management APIv2 Token
 
-::: note
-  We recently changed the way you get Management APIv2 tokens. To read what we changed, why we did that, and how you can work around these changes refer to <a href="/api/management/v2/tokens-flows">Changes in Auth0 Management APIv2 Tokens</a>.
-:::
-
-## Overview
-
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as Auth0 Management APIv2 Token. This token is a [JWT](/jwt), contains specific granted permissions (known as __scopes__), and is signed with a client API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a client API key and secret for the entire tenant.
 
 There are two ways to get a Management APIv2 Token:
 - [get one manually using the Dashboard](#get-a-token-manually), or
@@ -23,7 +17,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 ::: warning
-  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either <a href="#2-get-the-token">change the validity period of the token</a>, or <a href="#automate-the-process">automate the process</a>.
+Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process).
 :::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
@@ -32,9 +26,9 @@ Let's see how you can get a token manually. Note, that the first step of the pro
 
 First, you need to create and authorize a Non Interactive Client. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
-  ::: panel What is a Non Interactive Client?
-  A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
-  :::
+::: panel What is a Non Interactive Client?
+A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+:::
 
 To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
@@ -124,7 +118,7 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a [bearer access token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
+From the above we can see that our `access_token` is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
 
 ### 2. Use the Token
 
@@ -162,7 +156,7 @@ That's it! You are done!
 
 ### Sample Implementation: Python
 
-This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
+This python script gets a Management API v2 Access Token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
 - `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
@@ -181,7 +175,7 @@ def main():
   CLIENT_SECRET = "${account.clientSecret}"
   GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
 
-  # Get an access token from Auth0
+  # Get an Access Token from Auth0
   base_url = "https://{domain}".format(domain=DOMAIN)
   data = urllib.urlencode([('client_id', CLIENT_ID),
                           ('client_secret', CLIENT_SECRET),
@@ -230,13 +224,11 @@ __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, but you can achieve a similar effect by deleting the client grant. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
-
-__I need to invalidate all my tokens. How can I do that?__</br>
-All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
+You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period. 
+Note that deleting the client grant will prevent *new tokens* from being issued to the client. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
 
 __My Client Secret was compromised! What should I do?__</br>
-You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Since your tenant's Management APIv2 tokens are signed using the Client Secret, all your tokens will be invalidated and you will have to issue new ones.
+You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Note that previously issued tokens will continue to be valid until their expiration time.
 
 __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
@@ -244,9 +236,9 @@ Within the Users API some endpoints have scopes related to the current user (lik
 ## Keep reading
 
 ::: next-steps
+* [Changes in Auth0 Management APIv2 Tokens](/api/management/v2/tokens-flows)
 * [Calling APIs from a Service](/api-auth/grant/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 * [Information on the query string syntax](/api/management/v2/query-string-syntax)
 * [Search for Users](/api/management/v2/user-search)
-* [Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
 :::

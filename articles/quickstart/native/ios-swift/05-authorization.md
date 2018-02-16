@@ -15,11 +15,19 @@ budicon: 500
   ]
 }) %>
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
+Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
 
-## Create A Rule To Assign Roles
+If an identity provider does not supply this information, you can create a rule for assigning roles to users. 
 
-First, you need to create a rule that assigns your users either an `admin` role, or a simple `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace the default script with the contents of the following snippet:
+## Create a Rule to Assign Roles
+
+Create a rule that assigns the following access roles to your user: 
+* An admin role
+* A regular user role
+
+To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section, select the **Set roles to a user** template. 
+
+Edit the following line from the default script to match the conditions that fit your needs:
 
 ```js
 function (user, context, callback) {
@@ -42,15 +50,20 @@ function (user, context, callback) {
 }
 ```
 
-The rule will run every time a user attempts to authenticate. If the user has a valid `email` and the email's domain is `admin.com`, the user will be granted the `user` and `admin` roles. On any other case, the user will be granted a simple `user` role. This new claim is saved in the *id_token* under the `https://access.control/roles` name, which you will have to check on your app.
+The rule is checked every time a user attempts to authenticate. 
+
+* If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
+* If the email contains anything else, the user gets the regular user role.
+
+The claim is saved in the ID Token under the name `https://access.control/roles`. 
 
 ::: note
-Feel free to customize the conditions and the roles to grant on each of them. You can define as many roles as your project requires, beyond `admin` and `user`. There are some restrictions on the naming of the claims detailed in the [rules documentation](/rules#hello-world).
+Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).
 :::
 
-## Test the Rule
+## Test the Rule in Your Project
 
-The id_token is a [JWT](/jwt) that holds several claims, like the one with the roles you set previously. By using a JWT decoding library (like [this one](https://github.com/auth0/JWTDecode.swift)) you will be able to obtain the roles and perform access control.
+The claim with the roles you set is stored in the user's ID Token. It is a [JSON Web Token (JWT)](/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library. 
 
 ```swift
 import JWTDecode
@@ -72,6 +85,8 @@ if roles.contains("admin") {
 }
 ```
 
-## Restrict Content Based On Access Level
+## Restrict Content Based on Access Level
 
-At this point, you are able to distinguish the users roles in your app and authorize or deny (depending on the user) access to a certain feature. In the sample project those users with the `admin` role will be able to access the Admin Panel.
+Now you can recognize the users with different roles in your app. You can use this information to give and restrict access to selected features in your app to users with different roles.
+
+In the sample project, the user with the admin role can access the admin panel. 

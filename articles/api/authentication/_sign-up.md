@@ -18,12 +18,12 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 'a111' }"}'
+  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   // Initialize client
   var webAuth = new auth0.WebAuth({
@@ -49,7 +49,8 @@ curl --request POST \
 {
   "_id": "58457fe6b27...",
   "email_verified": false,
-  "email": "test.account@signup.com"
+  "email": "test.account@signup.com",
+  "user_metadata":{"plan":"silver","team_id":"a111"}
 }
 ```
 

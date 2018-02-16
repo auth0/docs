@@ -4,8 +4,8 @@ A Callback URL is a URL that Auth0 invokes after the authentication process. Aut
 
 If you are following this guide directly, set the following for your Callback and Logout URLs:
 
-- Allowed Callback URLs: `http://localhost:8080/callback`
-- Allowed Logout URLs: `http://localhost:8080/logout`
+- Allowed Callback URLs: `http://localhost:3000/callback`
+- Allowed Logout URLs: `http://localhost:3000/logout`
 
 
 ## Setup Dependencies

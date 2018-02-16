@@ -16,15 +16,15 @@ budicon: 292
   ]
 }) %>
 
-## Getting the Profile
+## Get the Profile
 
-As mentioned in the previous step, the OIDC middleware will automatically extract the user's information from the ID Token and add it as claims to the `ClaimsIdentity`.
+The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.
 
-The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
+The seed project contains a controller action and view which display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
-You may also want to create a nicer looking user profile page which will display a user's name, email address and profile image.
+You can create a custom user profile page for displaying a user's name, email address and profile image.
 
-First create view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
+Create a view model containing the basic user profile information:
 
 ```csharp
 // ViewModels/UserProfileViewModel.cs
@@ -39,7 +39,7 @@ public class UserProfileViewModel
 }
 ```
 
-Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
+Add a new `Profile` action to the `AccountController` and extract the relevant claims. Add the claims to a new instance of `UserProfileViewModel` passed to the view. Add the `[Authorize]` attribute to the action so only authenticated users can access the action:
 
 ```csharp
 // Controllers/AccountController.cs
@@ -56,11 +56,11 @@ public IActionResult Profile()
 }
 ```
 
-The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the `id_token`, but this does not get automatically matched the the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
+The `User.Identity.Name` property looks for a claim of a type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID Token, but this does not get automatically matched to the  `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` type. This means that `User.Identity.Name` will return null.
 
-There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC authentication handler registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the `id_token` whenever you access the name of the user using the `User.Identity.Name` property.
+You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID Token when you access the name of the user with the `User.Identity.Name` property.
 
-You will also need to update the list of scopes to ensure that your request the `profile` scope. This will ensure the user's profile information is returned as claims in the `id_token`.
+You must update the list of scopes to request the `profile` scope. The user's profile information is returned as claims in the ID Token.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Next create a view. For the view, display a user profile card at the top with the user's name, email address and profile image.
+Next create a view. For the view, display user's profile card at the top with the user's name, email address and profile image.
 
 ```html
 <!-- Views/Account/Profile.cshtml -->
@@ -128,13 +128,13 @@ Next create a view. For the view, display a user profile card at the top with th
 </div>
 ```
 
-Now when you log in and then go to the URL `/Account/Profile` you will see all the user's profile displayed.
+Now when you log in and go to the URL `/Account/Profile`, you will see the user's profile with the information.
 
-## Displaying the User's Name in the Navigation Bar
+## Display the User's Name in the Navigation Bar
 
-You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that you can navigate them to their Profile page.
+You can put a link in the top navigation bar to display the user's name. When the user clicks on their name, you can navigate them to their profile page.
 
-Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `Profile` action in the `AccountController`:
+Go to the `Views/Shared/_Layout.cshtml` file and update the `Navbar` section to display the user's name and link to the `Profile` action in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -152,6 +152,6 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
 </ul>
 ```
 
-Now, after the user has signed it you will be able to see the user's name in the top right corner of the Navbar:
+Now, after the user has logged in, the user's name is displayed in the top-right corner of the navigation bar:
 
 ![](/media/articles/server-platforms/aspnet-core/navbar-userprofile.png)
