@@ -21,7 +21,7 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "code": "AUTHORIZATION_CODE",
-  "redirect_uri": ${account.callback}
+  "redirect_uri": "${account.callback}"
 }
 ```
 
