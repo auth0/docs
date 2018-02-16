@@ -6,10 +6,6 @@ description:  Using Google Authenticator with Auth0 for administrators
 
 <%= include('./_deprecation-notice.md') %>
 
-::: note
-This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
-:::
-
 ## Enabling Google Authenticator for MFA
 
 To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.

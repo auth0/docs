@@ -10,10 +10,6 @@ url: /multifactor-authentication/google-authenticator
 
 Google Authenticator is a mobile application made by Google that implements two-step verification.  Authenticator provides a six to eight digit one-time password which users must provide in addition to their username and password to log into an application.
 
-::: note
-This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
-:::
-
 **Click the link below that most fits your role to learn more:**
 
 [Google Authenticator for Administrators](/multifactor-authentication/google-auth/admin-guide) - this page explains how to enable/disable using Google Authenticator, how to reset accounts, supported devices and customization.
