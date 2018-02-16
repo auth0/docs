@@ -4,9 +4,7 @@ description:  Using Google Authenticator with Auth0 for developers
 
 # Google Authenticator for Developers
 
-::: warning
-The Google Authenticator provider is deprecated. You should use [Guardian](/multifactor-authentication/guardian) instead, which supports TOTP (*including Google Authenticator*), SMS, and push authentication using the [Guardian App](/multifactor-authentication/guardian/user-guide). We will send a deprecation notification and  an upgrade path for existing users in the future.
-:::
+<%= include('./_deprecation-notice.md') %>
 
 ::: note
 This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)

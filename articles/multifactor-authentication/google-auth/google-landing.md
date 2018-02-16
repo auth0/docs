@@ -6,9 +6,7 @@ url: /multifactor-authentication/google-authenticator
 
 # Google Authenticator
 
-::: warning
-The Google Authenticator provider is deprecated. You should use [Guardian](/multifactor-authentication/guardian) instead, which supports TOTP (*including Google Authenticator*), SMS, and push authentication using the [Guardian App](/multifactor-authentication/guardian/user-guide). We will send a deprecation notification and  an upgrade path for existing users in the future.
-:::
+<%= include('./_deprecation-notice.md') %>
 
 Google Authenticator is a mobile application made by Google that implements two-step verification.  Authenticator provides a six to eight digit one-time password which users must provide in addition to their username and password to log into an application.
 
