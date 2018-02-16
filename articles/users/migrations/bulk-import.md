@@ -112,7 +112,7 @@ Your request should contain the following parameters:
 | `connection_id` | The id of the connection to which the above users will be inserted. You can retrieve this information, using the [GET /api/v2/connections](/api/management/v2#!/Connections/get_connections) endpoint.|
 | `upsert` | A boolean value, `false` by default. If it is false, users will only be inserted. If there are already user(s) with the same emails as one or more of those being inserted, they will fail. If this value is set to `true` and the user being imported already exists, the user will be updated with the new information. |
 | `external_id` | This is an optional user defined string that can be used for correlating multiple jobs, and is returned as part of the job status response. |
-| `send_completion_email` | A boolean value which when set to `true`, sends a completion email to all tenant owners when the job is finished. |
+| `send_completion_email` | A boolean value which when set to `true`, sends a completion email to all tenant owners when the job is finished. The default is `true`, so you must explicitly set this parameter to `false` if you do *not* want emails sent. |
 
 If it works, you will get a response similar to the following one:
 

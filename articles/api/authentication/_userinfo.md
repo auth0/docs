@@ -12,8 +12,8 @@ Authorization: 'Bearer {ACCESS_TOKEN}'
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/userinfo' \
-  --header 'authorization: Bearer {ACCESS_TOKEN}' \
-  --header 'content-type: application/json'
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Content-Type: application/json'
 ```
 
 ```javascript
@@ -46,7 +46,6 @@ curl --request GET \
 {
   "email_verified": false,
   "email": "test.account@userinfo.com",
-  "clientID": "q2hnj2iu...",
   "updated_at": "2016-12-05T15:15:40.545Z",
   "name": "test.account@userinfo.com",
   "picture": "https://s.gravatar.com/avatar/dummy.png",

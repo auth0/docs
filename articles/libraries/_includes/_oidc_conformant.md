@@ -1,3 +1,5 @@
 ### Remove the oidcConformant parameter
 
-The `oidcConformant` flag was used in Lock to disable legacy endpoints. Lock 11 never uses these legacy endpoints, so the flag is unnecessary. If specified, it will simply be ignored.
+When the `oidcConformant` flag was set to true, Lock 10 used [Cross Origin Authentication](/cross-origin-authentication), and did not use the '/usernamepassword/login' and '/ssodata' endpoints.
+
+Given Lock 11 always always uses Cross Origin Authentication and does not use the '/ssodata' endpoint, this flag is not longer needed. If specified, it will be ignored.
