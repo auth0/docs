@@ -21,8 +21,6 @@ During the grace period, customers are informed via dashboard notifications and 
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
----
-
 ## Active Migrations
 
 Current migrations are listed below, newest first. 
@@ -45,13 +43,11 @@ If you are currently implementing login in your application with Lock v8, v9, or
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
----
+## Upcoming Endpoint Migrations
 
-## 2018 Upcoming Endpoint Migrations
+Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed endpoints and features. 
 
-::: note
-Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed proprietary endpoints. We will also publish guidance on the most effective ways to transition your applications to standards-based protocols. In the event that we need to make security enhancements to any of these legacy endpoints, we will promptly announce timeframes and guidelines for any required changes.
-:::
+We will publish guidance for each of the below scenarios on how to transition your applications to standards-based protocols. If we need to make security enhancements to any of these legacy endpoints which would require more urgency, we will promptly announce timeframes and guidelines for any required changes.
 
 ### Resource Owner Support for oauth/token Endpoint
 
@@ -61,7 +57,7 @@ Based on customer feedback, we have adjusted our plans and will continue to main
 
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
 
-The current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints will be deprecated at some point in the future.
+The current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints will be deprecated in 2018.
 
 #### Am I affected by the change?
 
