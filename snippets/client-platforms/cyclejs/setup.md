@@ -1,4 +1,6 @@
 ```js
+// app/index.js
+
 import {makeAuth0Driver, protect} from "cyclejs-auth0";
 
 function main(sources) {
