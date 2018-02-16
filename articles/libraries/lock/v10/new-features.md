@@ -1,12 +1,14 @@
 ---
 section: libraries
-description: Describes the new features with Lock V10.
+title: New Features in Lock 10
+description: Describes the new features introduced at Lock v10
+toc: true
 ---
 # New Features in Lock 10
 
 <%= include('../../../_includes/_version_warning_lock') %>
 
-## Custom Sign Up Fields
+## Custom sign up fields
 
 You can add input fields to the sign up form with the new option `additionalSignUpFields`.
 
@@ -82,7 +84,7 @@ var lock = new Auth0Lock(
 });
 ```
 
-## Custom Avatar Provider
+## Custom avatar provider
 
 By default, [Gravatar](http://gravatar.com/) is used to fetch the user avatar and display name, but you can obtain them from anywhere with the `avatar` option.
 
@@ -124,7 +126,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Prefilled Fields
+## Prefilled fields
 
 It is now possible to fill the user's email and/or username input if you know them beforehand with the `prefill` option.
 
@@ -141,7 +143,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Authentication Options
+## Authentication options
 
 Authentication options have been grouped in their own namespace.
 
@@ -161,7 +163,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Initial Screen
+## Initial screen
 
 You may now choose the screen that will be first displayed when Lock is shown with the `initialScreen` option. The following are valid values:
 
@@ -179,7 +181,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Theme Options
+## Theme options
 
 Theme options have been grouped in their own namespace.
 
@@ -196,7 +198,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Sign Up Terms Agreement
+## Sign up Terms and Conditions
 
 You can ask the user to accept the terms and conditions by clicking a checkbox input before signing up with the `mustAcceptTerms` option.
 
