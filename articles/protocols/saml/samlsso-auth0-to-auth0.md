@@ -216,7 +216,7 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
-* In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings etc.
+* In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings and so on.
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
 

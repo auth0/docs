@@ -18,7 +18,7 @@ Custom Domains is a beta feature available only for paying public-cloud tenants 
 
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
 
-## Features Supporting Use of Custom Domains
+## Features supporting use of custom domains
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
@@ -26,15 +26,17 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Guardian (Version 1.3.3 or later)
 * Emails (the links included in the emails will use your custom domain)
 * Database and Social connections
+* Lock 11 with Cross Origin Authentication
 
-
-::: panel Token Issuance
-Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an access token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**.
-
-If you obtain an access token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
+:::warning
+Features not in the list are **not supported** by Auth0 with custom domains.
 :::
 
-## Certificate Management
+::: panel Token issuance
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an Access Token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**. If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
+:::
+
+## Certificate management
 
 Auth0 offers two certificate management options.
 
@@ -42,7 +44,7 @@ Auth0 offers two certificate management options.
 
 * **Self-Managed Certificates**: [Self-managed certificates](/custom-domains/self-managed-certificates) are available for enterprise customers only. Choosing this option means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0.
 
-## How to Configure Custom Domains
+## How to configure custom domains
 
 Setting up your custom domain using Auth0-managed certificates requires you to do the following steps:
 
@@ -50,7 +52,7 @@ Setting up your custom domain using Auth0-managed certificates requires you to d
 1. Verify ownership
 1. Complete feature-specific setup
 
-### Step 1: Provide Your Domain Name to Auth0
+### Step 1: Provide your domain name to Auth0
 
 Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). Click over to the **Custom Domains** tab.
 
@@ -58,7 +60,7 @@ Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). Cli
 
 Enter your custom domain in the provided box and select **Auth0-managed certificates**. Click **Add Domain**.
 
-### Step 2: Verify Ownership
+### Step 2: Verify ownership
 
 Before you can use this domain, you'll need to verify that you own your domain. To do this, you need to add the CNAME verification record listed in the Dashboard to your domain's DNS record.
 
@@ -95,7 +97,7 @@ This means the verification process is complete and within 1 to 2 minutes, your 
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
 
-### Step 3: Complete Feature-Specific Setup
+### Step 3: Complete feature-specific setup
 
 There are additional steps you must complete depending on which Auth0 features you are using.
 
@@ -103,7 +105,7 @@ There are additional steps you must complete depending on which Auth0 features y
 If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at **tenant.auth0.com** will no longer be valid once you start using your custom domain, so users will have to login again.
 :::
 
-#### Configure the Hosted Login Page
+#### Configure the hosted login page
 
 If you're using the **default** Hosted Login Page without customization, you will not need to make any changes. Your custom domain will work right out of the box.
 
@@ -148,13 +150,13 @@ webAuth = new auth0.WebAuth({
 });
 ```
 
-#### Auth0 Emails
+#### Auth0 emails
 
 If you would like your custom domain used with your Auth0 emails, you'll need to enable this feature in the [Dashboard](${manage_url}/#/tenant). You can do this by clicking the toggle associated with the **Use Custom Domain in Emails**. When the toggle is green, this feature is enabled.
 
 ![](/media/articles/custom-domains/cd_email_toggle.png)
 
-#### Social Identity Provider Configuration
+#### Social identity provider configuration
 
 If you want to use social identity providers with your custom domain, you must update the allowed callback URLs to include your custom domain (such as **https://login.northwind.com/login/callback**).
 
@@ -164,7 +166,7 @@ You cannot use [Auth0 developer keys](https://auth0.com/docs/connections/social/
 
 #### APIs
 
-If you are using Auth0 with a custom domain to issue access tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
+If you are using Auth0 with a custom domain to issue Access Tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
 
 ```js
 app.use(jwt({ 
@@ -190,3 +192,21 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
   
   We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
 
+## Troubleshooting
+
+If you're seeing errors, refer to the following troubleshooting steps.
+
+### Custom domain is still pending verification
+
+If you continue to see this error in the Dashboard, make sure that the CNAME record is properly configured in your domain management service.
+
+You can confirm the configuration of your CNAME record using:
+
+* A tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx) or [Google](https://dns.google.com)
+* The `dig` command in your terminal
+
+Please remember that it can take up to 48 hours for the DNS to be propagated.
+
+### CNAME flattening
+
+Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.

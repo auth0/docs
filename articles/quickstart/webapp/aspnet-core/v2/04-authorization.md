@@ -16,7 +16,7 @@ budicon: 546
   ]
 }) %>
 
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application. 
 
 ::: note
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
@@ -67,7 +67,7 @@ For more information on custom claims, read [User profile claims and scope](/api
 
 ## Restrict Access Based on User Roles
 
-Configure the OIDC authentication handler registration inside your ASP.NET application to inform it which claim in the ID token contains the role information. Specify the `RoleClaimType` inside `TokenValidationParameters`. The value you specify must match the namespace you used in your rule.
+Configure the OIDC authentication handler registration inside your ASP.NET application to inform it which claim in the ID Token contains the role information. Specify the `RoleClaimType` inside `TokenValidationParameters`. The value you specify must match the namespace you used in your rule.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

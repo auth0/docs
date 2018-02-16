@@ -22,7 +22,7 @@ If you have a suite of mobile applications (such as Google Drive, Google Docs/Sh
 If your suite uses a wholly native experience, your users have to enter their credentials for each of your apps. However, if you use a browser-based UX, you can implement SSO to reduce the number of times the user has to log in.
 
 ::: note
-You can implement SSO with native apps by storing refresh tokens on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
+You can implement SSO with native apps by storing Refresh Tokens on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
 :::
 
 ## SSO across devices/desktops/laptops
@@ -33,7 +33,7 @@ While SmartLock is not yet universal, using browser-based login flows allows you
 
 ## Phishing and security issues
 
-With a native login flow, there's no way to avoid an unauthorized party from decompiling or intercepting traffic to/from your app to obtain the Client ID and authentication URL. Using these pieces of information, the unauthorized party can then create a rogue app, upload it to an app store, and use it to phish users for the username/passwords and access tokens.
+With a native login flow, there's no way to avoid an unauthorized party from decompiling or intercepting traffic to/from your app to obtain the Client ID and authentication URL. Using these pieces of information, the unauthorized party can then create a rogue app, upload it to an app store, and use it to phish users for the username/passwords and Access Tokens.
 
 Using a browser-based flow protects you from this, since the callback URL is linked to the app through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/clients/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
 
@@ -41,7 +41,7 @@ Using a browser-based flow protects you from this, since the callback URL is lin
 
 Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multifactor authentication and anomaly detection).
 
-By default, [Lock](/libraries/lock) provides the UX, but you can customize it completely by providing your own UX written in HTML/CSS and integrating it with [auth0.js](libraries/auth0js/v8)
+By default, [Lock](/libraries/lock) provides the UX, but you can customize it completely by providing your own UX written in HTML/CSS and integrating it with [auth0.js](libraries/auth0js)
 
 ## Automatic improvements
 

@@ -52,7 +52,7 @@ const jwtAuthz = require('express-jwt-authz');
 const jwksRsa = require('jwks-rsa');
 
 // Authentication middleware. When used, the
-// access token must exist and be verified against
+// Access Token must exist and be verified against
 // the Auth0 JSON Web Key Set
 const checkJwt = jwt({
   // Dynamically provide a signing key
@@ -74,7 +74,7 @@ const checkJwt = jwt({
 
 ## Configure the Scopes
 
-The `checkJwt` middleware shown above checks if the user's access token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
+The `checkJwt` middleware shown above checks if the user's Access Token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
@@ -116,4 +116,4 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
 });
 ```
 
-In this configuration, only the access tokens with the `read:messages` scope can access the endpoint.
+In this configuration, only the Access Tokens with the `read:messages` scope can access the endpoint.

@@ -14,7 +14,7 @@ Now that you have your API running, you need to add security. In this step, you 
 
 * Secure the update API to limit access to authenticated users with a specific AWS IAM role;
 * Configure Auth0 delegation to use AWS IAM federation capabilities;
-* Obtain an AWS access token that uses the AWS IAM role.
+* Obtain an AWS Access Token that uses the AWS IAM role.
 
 Once your API is secure, you'll build a serverless, single page application (SPA). The SPA will rely on federating identity to determine which users are allowed access. By combining AWS IAM Integration for AWS Gateway API, AWS IAM Identity Federation for SAML, and Auth0 Delegation for AWS, you can enable users from many different sources, including Social Providers or enterprise connections, to access your APIs. The following diagram illustrates a sample flow using a SAML-based Identity Provider and Auth0 SAML Federation and Delegation for AWS.
 

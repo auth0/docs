@@ -505,10 +505,6 @@ module.exports = [
     to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
-  },
-  {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
   },
@@ -1115,22 +1111,6 @@ module.exports = [
     to: '/api-auth/tutorials/implicit-grant'
   },
   {
-    from: '/connections/passwordless/spa-sms',
-    to: '/connections/passwordless/spa-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/spa-email-code',
-    to: '/connections/passwordless/spa-email-code/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-sms',
-    to: '/connections/passwordless/regular-web-app-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-email-code',
-    to: '/connections/passwordless/regular-web-app-email-code/v8'
-  },
-  {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
   },
@@ -1308,11 +1288,11 @@ module.exports = [
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js/v8'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js/v7'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: '/connections/database/mysql',
@@ -1449,10 +1429,6 @@ module.exports = [
   {
     from: '/tutorials/authenticating-devices-using-mqtt',
     to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',

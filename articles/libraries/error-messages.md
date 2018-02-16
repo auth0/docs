@@ -16,7 +16,6 @@ In the case of a failed signup, the most common errors are:
 | **username_exists** | The username you are attempting to sign up with is already in use |
 | **unauthorized** | If you cannot sign up for this application. May have to do with the violation of a specific rule |
 | **invalid_password** | If the password used doesn't comply with the password policy for the connection |
-| **password_leaked** | If the password has been leaked and a different one needs to be used |
 | **password_dictionary_error** | The chosen password is too common |
 | **password_no_user_info_error** | The chosen password is based on user information |
 | **password_strength_error** | The chosen [password is too weak](/connections/database/password-strength) |
@@ -29,6 +28,7 @@ In the case of a failed login, the most common errors are:
 |-|-|
 | **unauthorized** | The user you are attempting to sign in with is blocked |
 | **too_many_attempts** | The account is blocked due to too many attempts to sign in |
+| **password_leaked** | If the password has been leaked and a different one needs to be used |
 | **mfa_required** | The user must provide the [multifactor authentication](/multifactor-authentication) code to authenticate |
 | **mfa_registration_required** | The administrator has required [multifactor authentication](/multifactor-authentication), but the user has not enrolled |
 | **mfa_invalid_code** | The [multifactor authentication](/multifactor-authentication) code provided by the user is invalid/expired |

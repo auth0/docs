@@ -28,3 +28,27 @@ const authenticate = jwt({
   algorithms: ['RS256']
 });
 ```
+
+```js
+// api.js
+
+const express = require('express');
+const app = express();
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+const falcor = require('falcor');
+const HttpDataSource = require('falcor-http-datasource');
+
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+  }),
+
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+  algorithms: ['RS256']
+});
+```

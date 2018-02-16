@@ -37,8 +37,8 @@ A modern Java Spring library that allows you to use Auth0 with Java Spring for s
 - [Documentation](/server-platforms/java-spring-mvc)
 - [Library](https://github.com/auth0/auth0-spring-mvc)
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample): Simple sample project that demonstrates using Auth0 with Java Spring to create a Secured MVC Web Application.
-- [Sample Project demonstrating Lock, auth0.js, Social Connection Login, Database Connection and Account Linking](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates Social Login, Database Connection Login and [account linking](/link-accounts). In this app, you can choose to login either with a Social Login or a Database Connection. If you login using Social Login and have not already linked you DB Connection then you are requested to do so. You can find details on how to setup and use this sample application at the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link).
-- [Sample Project demonstrating Passwordless Authentication, Multifactor Authentication opt-in & account linking](https://github.com/auth0-samples/auth0-spring-boot-web-jsp-passwordless): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates using Auth0 (including Lock Passwordless and Auth0.js) with Java Spring to create a Secured MVC Web Application using [Passwordless Authentication](/connections/passwordless), [Multifactor Authentication](/multifactor-authentication) Opt-in & [account linking](/link-accounts). You can find details on how to setup and use this sample application at the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-boot-web-jsp-passwordless).
+- [Sample Project demonstrating Lock, auth0.js, Social Connection Login, Database Connection and Account Linking](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates Social Login, Database Connection Login and [account linking](/link-accounts). In this app, you can choose to login either with a Social Login or a Database Connection. If you login using Social Login and have not already linked you DB Connection then you are requested to do so. You can find details on how to setup and use this sample application in the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link).
+- [Sample Project demonstrating Passwordless Authentication, Multifactor Authentication opt-in & account linking](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates using Auth0 (including Lock Passwordless and Auth0.js) with Java Spring to create a Secured MVC Web Application using [Passwordless Authentication](/connections/passwordless), [Multifactor Authentication](/multifactor-authentication) Opt-in & [account linking](/link-accounts). You can find details on how to setup and use this sample application in the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample.
 
 ## Java Spring Security MVC
 
@@ -79,7 +79,7 @@ We have created a [sample application](https://github.com/auth0-samples/auth0-sp
 This sample application shows you how to:
 - Configure and run Java based Spring API server with Auth0 and Spring Security.
 - Use 100% Java Configuration (Annotations).
-- Secure one or more URL endpoints with Role / Authority based permissions (ROLE_USER, ROLE_ADMIN, etc).
+- Secure one or more URL endpoints with Role / Authority based permissions (ROLE_USER, ROLE_ADMIN, and so on).
 - Secure Java Services using method level security annotations for role based access control.
 
 You can find more details on how to setup and use this sample application [here](https://github.com/auth0-samples/auth0-spring-security-api-resource-server-sample).
@@ -88,4 +88,4 @@ You can find more details on how to setup and use this sample application [here]
 
 - [auth0-java](https://github.com/auth0/auth0-java): This is a Client library to make calls to our Authentication and Management APIs.
 
-- [java-jwt](https://github.com/auth0/java-jwt): This library is used for performing JWT Token related actions (JWT creation, verification, etc.)
+- [java-jwt](https://github.com/auth0/java-jwt): This library is used for performing JWT Token related actions (JWT creation, verification, and so on)

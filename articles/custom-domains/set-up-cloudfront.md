@@ -22,19 +22,10 @@ Under **Origin Settings**, here are the values you'll need to change:
 
 | Parameter | Value |
 | - | - |
-| Origin Domain Name | Provide the fully-qualified URL using the following format: `custom_domain_id.edge.tenants.auth0.com`. Be sure to use the `Origin Domain Name` value obtained from the Auth0 Dashboard during the Custom Domains setup process. |
+| Origin Domain Name | Set this to the **Origin Domain Name** value obtained from the Auth0 Dashboard during the Custom Domains setup process |
 | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
-| Origin Protocol Policy | Set to **HTTPS Only** |
+| Origin Protocol Policy | Set to `HTTPS Only` |
 | Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
-
-::: warning
-If your Auth0 tenants are **not** in a US region, you'll need to use the following as your **Origin Domain Name**:
-
-* EU: custom_domain_id.edge.tenants.eu.auth0.com
-* AU: custom_domain_id.edge.tenants.au.auth0.com
-
-Be sure to use the `Origin Domain Name` value obtained from the Auth0 Dashboard during the Custom Domains setup process.
-:::
 
 ![](/media/articles/custom-domains/aws/create-distribution.png)
 

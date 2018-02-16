@@ -65,7 +65,7 @@ Add one entry for `social_django` and for your application into the `INSTALLED_A
 
 INSTALLED_APPS = [
     'social_django',
-    '<your application name>'  # e.g. 'webappexample'
+    '<your application name>'  # such as 'webappexample'
 ]
 ```
 

@@ -16,7 +16,7 @@ In this part of the AWS API Gateway tutorial, we will show you how to import and
 * Deploy an API for use with any front-end clients
 * Test an API deployment
 
-In later parts of this tutorial, we will show how to secure the endpoints of this API using custom authorizers that accept Auth0 access tokens, as well as how we can integrate this API with our front-end JavaScript client.
+In later parts of this tutorial, we will show how to secure the endpoints of this API using custom authorizers that accept Auth0 Access Tokens, as well as how we can integrate this API with our front-end JavaScript client.
 
 ## Import and Configure the Pets API
 

@@ -5,7 +5,7 @@ description: Server-side SSO with regular web applications.
 
 # Server-side SSO (Regular Web Apps)
 
-To log a user in silently (i.e. without displaying the Lock screen) the following conditions need to be met:
+To log a user in silently (that is, without displaying the Lock screen) the following conditions need to be met:
 
 1. The Client needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients)
 2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.

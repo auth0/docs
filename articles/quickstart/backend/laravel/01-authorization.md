@@ -118,7 +118,7 @@ Protecting individual API endpoints can be done by applying the `auth:api` middl
 // routes/api.php
 
 Route::get('/private', function (Request $request) {
-    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid Access Token to see this."]);
 })->middleware('auth:api');
 ```
 

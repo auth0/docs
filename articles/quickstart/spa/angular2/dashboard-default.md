@@ -19,7 +19,7 @@ description: This tutorial demonstrates how to add user login to your applicatio
 If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to
 
 ```bash
-http://localhost:4200/callback
+http://localhost:3000/callback
 ```
 
 <%= include('../_includes/_install_auth0js') %>

@@ -68,7 +68,7 @@ Each domain name will end in `auth0.com`.
 
 The Management Dashboard, Webtask, and App Tenant(s) **must** be a part of the same parent domain (such as `yourdomain.auth0.com`).
 
-The hostname (e.g. **manage-project**.yourdomain.auth0.com) must be at least three characters long and must **not** contain any underscores(_).
+The hostname (such as **manage-project**.yourdomain.auth0.com) must be at least three characters long and must **not** contain any underscores(_).
 
 The word `login` is reserved and **cannot** be used.
 

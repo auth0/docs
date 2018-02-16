@@ -31,13 +31,13 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
 
-     ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. **Client Type** must be set to **Regular Web Application**
 
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's login URL and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-    ![Client allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
+    ![Client - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -53,10 +53,14 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Turn off **OIDC Conformant**.
 
+    ![Client - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+
+1. Click the **Grant Types** tab and select **Implicit,** **Authorization Code,** **Refresh Token,** and **Client Credentials**.
+
+    ![Client - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
+
 1. Click **Save Changes** if anything was modified.
     
-    ![Client Advanced Settings](/media/articles/cms/wordpress/client-advanced-settings.png)
-
 ### Connection setup
 
 Next, we'll need a Connection to store our users. 
@@ -175,6 +179,10 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 * **Lock Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-).
 
+* **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
+
+* **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', and so on) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
+
 ### Advanced
 
 * **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). 
@@ -229,6 +237,8 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 * **Auth0 server domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information.
 
+* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
+
 * **Anonymous data:** The plugin tracks anonymous usage data by default. Click to disable.
 
 ### Dashboard
@@ -251,10 +261,10 @@ This action accepts five parameters:
 
 1. `$id_token` (string): The user's JWT.
 
-1. `$access_token` (string): The user's access token.
+1. `$access_token` (string): The user's Access Token.
 
   ::: note
-  An access token is not provided when using __Implicit Flow__.
+  An Access Token is not provided when using __Implicit Flow__.
   :::
 
 To hook to this action, include the following code:

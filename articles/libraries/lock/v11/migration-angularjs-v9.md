@@ -10,7 +10,7 @@ This guide will help you migrating your Angular 1.x application from Lock 9 to L
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 
-## 2. Adding Angular Lock Library
+## Add the angular-lock library
 
 Most Angular 1.x apps used the [auth0-angular](https://www.npmjs.com/package/auth0-angular) which is currently deprecated. This guide will use [auth0-lock](https://www.npmjs.com/package/auth0-lock) 3.0 to simplify using Lock v11.
 
@@ -28,7 +28,7 @@ Then include it in your `index.html` file:
 <script src="node_modules/angular-lock/dist/angular-lock.min.js"></script>
 ```
 
-## 3. Updating App File
+## Update the app.js file
 
 In your `app.js` file:
 
@@ -105,9 +105,9 @@ In your `app.js` file:
 }());
 ```
 
-## 4. Updating Authentication Service
+## Update the authentication service
 
-If you are using an authentication service, you will need to make a few minor changes there as well. Lock v11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, etc. You can read more at the [Lock v11 documentation](/libraries/lock/v11).
+If you are using an authentication service, you will need to make a few minor changes there as well. Lock v11 provides events so you can execute functionality when the user is authenticated, when there is an authentication error, and so on. You can read more at the [Lock v11 documentation](/libraries/lock/v11).
 
 ```js
 // auth.service.js
@@ -154,7 +154,7 @@ If you are using an authentication service, you will need to make a few minor ch
     }
 
     function _setSession(authResult) {
-      // Set the time that the access token will expire
+      // Set the time that the Access Token will expire
       var expiresAt = JSON.stringify(
         authResult.expiresIn * 1000 + new Date().getTime()
       );
@@ -166,7 +166,7 @@ If you are using an authentication service, you will need to make a few minor ch
 
     function isAuthenticated() {
       // Check whether the current time is
-      // past the access token's expiry time
+      // past the Access Token's expiry time
       var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
         return new Date().getTime() < expiresAt;
     }
@@ -190,7 +190,6 @@ If you are not using a service, you can implement the `handleAuthentication()` m
 
 ## Behavioral Changes in Lock v11
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_popup_mode') %>
 <%= include('../../_includes/_last_logged_in_window') %>
 <%= include('../../_includes/_ip_ranges') %>

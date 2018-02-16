@@ -1,6 +1,6 @@
 ## Calling the API from your application
 
-You can call the API from your client application by passing an access token in the `Authorization` header of your HTTP request as a Bearer token. 
+You can call the API from your client application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token. 
 
 ```har
 {
@@ -17,11 +17,11 @@ The exact implementation will be dependent on the type of application you are de
 * [Single Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
 
-## Obtaining an access token for testing
+## Obtaining an Access Token for testing
 
-If you want to test your API outside your application, for example from the command line or a tool like Postman, you can obtain an access token using the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
+If you want to test your API outside your application, for example from the command line or a tool like Postman, you can obtain an Access Token using the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
 
-You can also obtain an access token using [cUrl](https://curl.haxx.se/) by using the [Client Credentials](/api/authentication#client-credentials) or [Resource Owner Password](api/authentication#resource-owner-password) authorization flows.
+You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using the [Client Credentials](/api/authentication#client-credentials) or [Resource Owner Password](api/authentication#resource-owner-password) authorization flows.
 
 **1. Using Client Credentials**
 
@@ -45,11 +45,11 @@ curl --request POST \
 
 ## Test Your API with cURL
 
-You can test your API using [cURL](https://curl.haxx.se/) using an access token you obtained before.
+You can test your API using [cURL](https://curl.haxx.se/) using an Access Token you obtained before.
 
 **1. Calling the secure endpoint**
 
-You can make a request to the `/api/private` endpoint without passing any access token:
+You can make a request to the `/api/private` endpoint without passing any Access Token:
 
 ```text
 curl -i http://localhost:3010/api/private
@@ -59,7 +59,7 @@ The API will return a 401 HTTP (Unauthorized) status code:
 
 ![Response for unauthorized API request](/media/articles/server-apis/using/private-unauthorized.png)
 
-Once again, make the same request but this time pass along the access token as a Bearer token in the **Authorization** header of the request:
+Once again, make the same request but this time pass along the Access Token as a Bearer token in the **Authorization** header of the request:
 
 ```text
 curl -i http://localhost:3010/api/private \
@@ -72,7 +72,7 @@ This time the API will return a successful response:
 
 **2. Testing the scoped endpoint**
 
-To test the endpoint that require a scope, pass the access token containing the correct scope as a Bearer token in the Authorization header:
+To test the endpoint that require a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
 ```text
 curl -i http://localhost:3010/api/private-scoped \

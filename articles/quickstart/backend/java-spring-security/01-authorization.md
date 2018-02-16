@@ -125,7 +125,7 @@ Create a new class called `APIController` to handle each request to the endpoint
 Next, in the `AppConfig.java` file, configure which endpoints are secure and which are not.
 
 ```java
-// src/main/java/com/auth0/example/PhotosController.java
+// src/main/java/com/auth0/example/APIController.java
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;

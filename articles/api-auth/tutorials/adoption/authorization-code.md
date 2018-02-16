@@ -28,7 +28,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com/callback
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -99,8 +99,8 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned access token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="exchange-oidc" class="tab-pane">
@@ -116,14 +116,14 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
         <ul>
-            <li>The returned access token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque access token.</li>
-            <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
+            <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
         </ul>
     </div>
   </div>
 </div>
 
-## ID token structure
+## ID Token structure
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -163,7 +163,7 @@ Pragma: no-cache
   </div>
 </div>
 
-## Access token structure (optional)
+## Access Token structure (optional)
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -176,7 +176,7 @@ Pragma: no-cache
     <div id="accesstoken-legacy" class="tab-pane active">
       <pre class="text hljs"><code>SlAV32hkKG</code></pre>
       <ul>
-        <li>The returned access token is opaque and only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>The returned Access Token is opaque and only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
       </ul>
     </div>
     <div id="accesstoken-oidc" class="tab-pane">
@@ -193,7 +193,7 @@ Pragma: no-cache
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned access token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque access token.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
         </ul>
     </div>
   </div>

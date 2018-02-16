@@ -152,7 +152,7 @@ The `LoginActivity` will handle user authorization and be the initial screen use
 - __scheme__: `demo`
 - __audience__: `https://api.exampleco.com/timesheets` (the Node.JS API)
 - __response_type__: `code`
-- __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a refresh token.
+- __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a Refresh Token.
 
 ```java
 private void login() {
@@ -269,7 +269,7 @@ public class LoginActivity extends Activity {
 
 To store the credentials received after login, we’ll use the `CredentialsManager` from the Auth0.Android library and [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) for storage.
 
-Before initializing the `WebAuthProvider` in the `login()` method, we can create the `CredentialsManager`. Passing an `AuthenticationAPIClient` to the `CredentialsManager` enables it to refresh the access tokens if they are expired.
+Before initializing the `WebAuthProvider` in the `login()` method, we can create the `CredentialsManager`. Passing an `AuthenticationAPIClient` to the `CredentialsManager` enables it to refresh the Access Tokens if they are expired.
 
 ```java
 private void login() {

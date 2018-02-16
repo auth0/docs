@@ -172,7 +172,7 @@ To get the information associated with a given user's `access_token`, you can ca
 
 ```java
 authentication
-  .userInfo("access token")
+  .userInfo("Access Token")
   .start(new BaseCallback<UserProfile, AuthenticationException>() {
       @Override
       public void onSuccess(UserProfile information) {

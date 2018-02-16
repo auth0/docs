@@ -35,7 +35,7 @@ A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. 
 
 In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://rs256.test.api**.
 
-So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, e.g.:
+So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
 
 ```csharp
 var keyResolver = new OpenIdConnectSigningKeyResolver("https://jerrie.auth0.com/");

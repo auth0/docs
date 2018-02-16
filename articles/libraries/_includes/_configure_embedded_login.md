@@ -1,4 +1,4 @@
-### Configure Your Auth0 Client for Embedded Login
+### Configure your Auth0 client for embedded login
 
 When implementing embedded login, ${library} will use cross-origin calls inside hidden iframes to perform authentication. To make sure this can be done securely, Auth0 needs to know the domains where you will be hosting your applications.
 

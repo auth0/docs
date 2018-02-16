@@ -40,9 +40,3 @@ While using multiple [Connections](/identityproviders) introduces additional lay
 ::: note
 For additional assistance on how you can customize Auth0, please contact [Sales](https://auth0.com/?contact=true) to discuss possible architecture scenarios.
 :::
-
-## Keep Reading
-
-::: next-steps
-* [Build Multi-tenant SaaS Apps with Azure Active Directory](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory)
-:::

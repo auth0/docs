@@ -20,9 +20,9 @@ This tutorial shows you how to let users log in and maintain an active session w
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
-* `accessToken`: Access token used by the Auth0 API. To learn more, see the [access token documentation](/tokens/access-token).
-* `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID token documentation](/tokens/id-token).
-* `refreshToken`: Refresh token that can be used to request new tokens without signing in again. To learn more, see the [refresh token documentation](/tokens/refresh-token/current).
+* `accessToken`: Access Token used by the Auth0 API. To learn more, see the [Access Token documentation](/tokens/access-token).
+* `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
+* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
 * `expiresAt`: The date when the tokens expire.
@@ -36,7 +36,7 @@ Tokens are objects used to prove your identity against the Auth0 APIs. Read more
 Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) tutorial.
 :::
 
-Before you launch the login process, make sure you get a valid refresh token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
+Before you launch the login process, make sure you get a valid Refresh Token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -86,7 +86,7 @@ User credentials are stored in [Private mode](https://developer.android.com/refe
 
 ## Check for Tokens when the Application Starts
 
-To save your users the effort of logging in every time they open your app, use their access tokens. You can check for the access token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
+To save your users the effort of logging in every time they open your app, use their Access Tokens. You can check for the Access Token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
 
 
 ```java
@@ -102,9 +102,9 @@ if (accessToken == null) {
 
 ## Validate the Existing Token
 
-If the access token exists, the next step is to check if it is valid. 
+If the Access Token exists, the next step is to check if it is valid. 
 You can choose between two options: 
-* Save the time when the user receives a new pair of credentials. When you need to use the access token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
+* Save the time when the user receives a new pair of credentials. When you need to use the Access Token, check how many seconds have passed since the user got the token. When the number exceeds the number specified in the `expiresIn` value, the token is no longer valid. 
 * Call the Auth0 Authentication API and check the response.
 
 ::: note 
@@ -132,19 +132,19 @@ aClient.userInfo(accessToken)
 
 You need to decide how to deal with an invalid token. Typically, you can choose between two options: 
 * Ask the user to re-enter their credentials.
-* Use a refresh token to get a new valid access token.
+* Use a Refresh Token to get a new valid Access Token.
 
 ::: note
-This tutorial shows how to use a refresh token. If you want users to re-enter their credentials, clear the stored data and prompt the login screen.
+This tutorial shows how to use a Refresh Token. If you want users to re-enter their credentials, clear the stored data and prompt the login screen.
 :::
 
 ## Refresh the User's Session
 
-::: panel Learn about refresh tokens
-Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
+::: panel Learn about Refresh Tokens
+Before you go further with this tutorial, read the [Refresh Token documentation](/refresh-token).
 It is important that you remember the following:
-* Refresh tokens must be securely saved.
-* Even though refresh tokens cannot expire, they can be revoked. 
+* Refresh Tokens must be securely saved.
+* Even though Refresh Tokens cannot expire, they can be revoked. 
 * New tokens will never have a different scope than the scope you requested during the first login.
 :::
 
@@ -156,7 +156,7 @@ Create an `AuthenticationAPIClient` instance:
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
-Use the refresh token to get new credentials:
+Use the Refresh Token to get new credentials:
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java

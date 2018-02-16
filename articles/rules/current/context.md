@@ -10,8 +10,8 @@ The following properties are available for the `context` object:
 * `clientID`: the client id of the application the user is logging in to.
 * `clientName`: the name of the application (as defined on the dashboard).
 * `clientMetadata`: is an object, whose keys and values are strings, for holding other client properties.
-* `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
-* `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
+* `connection`: the name of the connection used to authenticate the user (such as: `twitter` or `some-google-apps-domain`)
+* `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), and so on.
 * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
 * `protocol`: the authentication protocol. Possible values:
   - `oidc-basic-profile`: most used, web based login
@@ -19,7 +19,7 @@ The following properties are available for the `context` object:
   - `oauth2-resource-owner`: user/password login typically used on database connections
   - `oauth2-resource-owner-jwt-bearer`: login using a bearer JWT signed with user's private key
   - `oauth2-password`: login using the password exchange
-  - `oauth2-refresh-token`: refreshing a token using the refresh token exchange
+  - `oauth2-refresh-token`: refreshing a token using the Refresh Token exchange
   - `samlp`: SAML protocol used on SaaS apps
   - `wsfed`: WS-Federation used on Microsoft products like Office365
   - `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365

@@ -16,7 +16,7 @@ In addition to that users can also setup SSO with custom apps or integrations li
 
 ## High-level Overview
 
-Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (i.e. Lync Online, Exchange Online).
+Office 365 is a service that consists of a number of products and services. Users are added to an Office 365 subscription after which licenses can be assigned to them (such as Lync Online, Exchange Online).
 
 ![Office 365 Users](/media/articles/integrations/office-365/office-365-users-overview.png)
 
@@ -26,7 +26,7 @@ Office 365 uses Azure AD as an identity store which supports different account m
 2. **Synchronized Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. This means the user management can happen on-premises but authentication will always happen in the cloud using Azure AD.
 3. **Federated Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. In this case Azure AD will act as the user store, but authentication will happen with a SAML 2.0 identity provider configured by the customer. This can be an ADFS server, Shibboleth, or in our case, Auth0. With this third model you can add SSO support to Office 365.
 
-This means that even if you use Auth0 for SSO support in Office 365, you will always need to synchronize your on-premises users to Office 365/Azure AD because it will be used as a user store (for user information, assigning licenses to those users, etc).
+This means that even if you use Auth0 for SSO support in Office 365, you will always need to synchronize your on-premises users to Office 365/Azure AD because it will be used as a user store (for user information, assigning licenses to those users, and so on.).
 
 ![Office 365 High-level Overview](/media/articles/integrations/office-365/office-365-high-level-overview.png)
 
@@ -99,7 +99,7 @@ To skip the Auth0 page with the **windows authentication** button you can append
 
 ### Without Kerberos
 
-When authentication with Kerberos is not possible (eg: not enabled for the connection, not a domain-joined machine, not in the corporate network, etc) the users will see the username/password login page instead.
+When authentication with Kerberos is not possible (eg: not enabled for the connection, not a domain-joined machine, not in the corporate network, and so on.) the users will see the username/password login page instead.
 
 ![Login Page](/media/articles/integrations/office-365/office-365-login-page.png)
 

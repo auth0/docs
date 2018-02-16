@@ -29,7 +29,7 @@ The Auth0 Postman collections make use of environment variables to customize the
 
 You will need to create an environment and configure the following variables:
 
-* `auth0_domain`: Should contain the domain for your Auth0 tenant, e.g. **jerrie.auth0.com**.
+* `auth0_domain`: Should contain the domain for your Auth0 tenant, such as **jerrie.auth0.com**.
 * `auth0_token`: Should contain the token needed when making calls to the Management API, and is therefore only required when using the Management API collection. More information on how to generate a token can be found at [The Auth0 Management APIv2 Token](https://auth0.com/docs/api/management/v2/tokens) 
 
 In the screenshot below you can see a Postman environment configured with both the `auth0_domain` and `auth0_token` variables defined:

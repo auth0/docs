@@ -13,7 +13,7 @@ toc: true
 ---
 # Connect your App to Google
 
-This article describes how to add login with Google functionality to your app. It also discusses how you can get an access token in order to access the Google API.
+This article describes how to add login with Google functionality to your app. It also discusses how you can get an Access Token in order to access the Google API.
 
 First you need to connect your Auth0 client to Google. This is summarized in the following steps:
 
@@ -112,19 +112,19 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
 ## Optional: Get a Refresh Token
 
-You can also get a [refresh token](/tokens/refresh-token) from Google in order to refresh your access token, once it expires.
+You can also get a [Refresh Token](/tokens/refresh-token) from Google in order to refresh your Access Token, once it expires.
 
 You can do this by setting the `access_type=offline` parameter when you call the [Auth0 `/authorize` endpoint](/api/authentication#social). 
 
 If you use [Lock](/libraries/lock) you can set this parameter in the [params object](/libraries/lock/configuration#params-object-).
 
-Note that you can only get a refresh token, if you are using one of the following OAuth 2.0 flows:
+Note that you can only get a Refresh Token, if you are using one of the following OAuth 2.0 flows:
 * [Authorization Code](/api-auth/grant/authorization-code)
 * [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
 * [Resource Owner Password](/api-auth/grant/password)
 
 :::note
-A Single Page Application (normally implementing the [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a refresh token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
+A Single Page Application (normally implementing the [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a Refresh Token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
 :::
 
 <%= include('../_quickstart-links.md') %>

@@ -43,12 +43,12 @@ If you have complex requirements needing deeper consulting and advice from our e
 
 [Common Architecture and Scenarios](/architecture-scenarios) - Quick guidance on common Business Scenarios and Application Configurations and the things you need to know to get started.
 
-[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including Refresh Tokens, 2FA, implementing SSO and migrating existing user data.
 
 ### Step 3. Management Dashboard Guidance
 **When?**  You can access self service resources immediately.  A live session is generally booked soon after the Technical Discovery & Guidance session.
 
-**What?** The goal of this light technical session is to familiarize your team with the Auth0 Management Dashboard to understand both some of the administrative elements (e.g. setting up new Dashboard Admin users) as well as functional elements.
+**What?** The goal of this light technical session is to familiarize your team with the Auth0 Management Dashboard to understand both some of the administrative elements (such as setting up new Dashboard Admin users) as well as functional elements.
 
 [Comprehensive Dashboard Walkthrough](https://youtu.be/hkMHBXRImPk?t=8m9s) - This 40 minute video walks you through many elements of the Auth0 Dashboard in a practical manner.
 
@@ -64,7 +64,7 @@ If you have complex requirements needing deeper consulting and advice from our e
 
 **What?** In this technical session, our Customer Success Engineers will review your implementation and integration to ensure best practices are applied.  This often includes reviewing rules you’ve written, how you’re calling our APIs and answering any questions you may have.
 
-[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including Refresh Tokens, 2FA, implementing SSO and migrating existing user data.
 
 Pre-Production Checklist:  This list will walk through basic checks to make in Auth0 to ensure a smooth production launch (Coming soon).
 

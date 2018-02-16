@@ -17,7 +17,7 @@ You will need the following:
 
 ## 1. Create your Resource Server
 
-Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier.
+Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue Access Tokens for, identified by a friendly name and a URN identifier.
 
 The following restrictions apply to the identifier:
 - It must be a valid URN.
@@ -112,6 +112,6 @@ Sample response:
 
 ## 3. That's it!
 
-Now that all the elements are in place, you can request access tokens for your API from Auth0.
+Now that all the elements are in place, you can request Access Tokens for your API from Auth0.
 
 For details on how to do so, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials).

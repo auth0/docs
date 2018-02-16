@@ -5,7 +5,7 @@ description: How to link accounts using the Authentication API (Deprecated)
 # Link Accounts using Authentication API (Deprecated)
 
 ::: warning
-This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
+This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
 :::
 
 ## Link through Auth0 Login Widget
@@ -13,19 +13,21 @@ This method of linking accounts using the linking endpoint of the [Authenticatio
 ```js
 <script src="${lock_url}"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    callbackURL: '${account.callback}',
+    languageDictionary: {
+      title: 'Link with another account'
+    },
+    auth: { 
+      params: {
+        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...' 
+      }
+    }
+  });
 
   function signin () {
     lock.show({
-      callbackURL:  '${account.callback}',
-      dict: {
-        signin: {
-          title: 'Link with another account'
-        }
-      },
-      authParams: {
-        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...'
-      }
+     
     })
   }
 </script>

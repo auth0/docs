@@ -15,7 +15,7 @@ This guide details all the upcoming changes, **some of which will be breaking**,
 
 This guide is meant for developers and IT admins who manage Auth0 integrations in their applications. If you are not familiar with how OAuth works at a basic level, [we suggest reading our protocol overview](/protocols/oauth2).
 
-If you are integrating Auth0 as a [SAML or WS-Federation **identity provider**](/saml-idp-generic) to your application (i.e. not through OIDC/OAuth), then you do not need to make any changes.
+If you are integrating Auth0 as a [SAML or WS-Federation **identity provider**](/saml-idp-generic) to your application (that is, not through OIDC/OAuth), then you do not need to make any changes.
 
 To make this guide accessible to everyone, any authentication flows will be described only through HTTP requests instead of in the context of any particular language or library's implementation. This is the similar to the descriptions and examples provided by the [official OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html).
 

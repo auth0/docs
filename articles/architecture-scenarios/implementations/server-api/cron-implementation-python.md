@@ -30,7 +30,7 @@ def main():
   api_url = "http://localhost:8080/timesheets/upload"
   grant_type = "client_credentials" # OAuth 2.0 flow to use
 
-  # Get an access token from Auth0
+  # Get an Access Token from Auth0
   base_url = "https://{domain}".format(domain=domain)
   data = urllib.urlencode({'client_id': client_id,
                             'client_secret': client_secret,
@@ -67,7 +67,7 @@ def main():
 
   # Configuration Values - code omitted
 
-  # Get an access token from Auth0 - code omitted
+  # Get an Access Token from Auth0 - code omitted
 
   #Post new timesheet to API
   timesheet = {'user_id': '007',

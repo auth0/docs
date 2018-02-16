@@ -52,7 +52,7 @@ The default rules for assigning access roles are:
 * If the email contains anything else, the user gets the regular user role.
 
 ::: note
-The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the id token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
+The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
 :::
 
 
@@ -60,7 +60,7 @@ The rule can be customized to grant the user different roles other than the ones
 
 Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login) tutorial), save them to access them at any time.
 
-The id token is a [JSON Web Token](/jwt) that holds several claims, like the one with the roles set on this tutorial. Use a *JWT decoding library* like [this one](https://github.com/auth0/JWTDecode.Android) to obtain the roles and perform the access control.
+The ID Token is a [JSON Web Token](/jwt) that holds several claims, like the one with the roles set on this tutorial. Use a *JWT decoding library* like [this one](https://github.com/auth0/JWTDecode.Android) to obtain the roles and perform the access control.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

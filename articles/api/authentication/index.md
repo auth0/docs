@@ -40,10 +40,6 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_linking') %>
-</div>
-
-<div class="api-section" data-section="none">
   <%= include('./_impersonation') %>
 </div>
 
@@ -68,6 +64,9 @@ fullWidth: true
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
+</div>
+<div class="api-section" data-section="none">
+  <%= include('./legacy/_linking') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>

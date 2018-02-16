@@ -60,7 +60,7 @@ public class AppConfig {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here, such as requesting a different scope or using a different signature verification algorithm.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -148,7 +148,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean bootRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 

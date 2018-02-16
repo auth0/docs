@@ -29,8 +29,6 @@ https://${account.namespace}/mobile, file:///
 
 Add **Auth0Lock** to your `index.html` file and set the viewport.
 
-${snippet(meta.snippets.dependencies)}
-
 ::: note
 Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
 :::

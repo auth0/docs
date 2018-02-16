@@ -52,7 +52,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will trigger the `authenticated` event where the access_token will be available.
 
 ### Use your own UI
 
@@ -103,7 +103,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'email',
     email: email,
     verificationCode: code
@@ -116,7 +116,7 @@ function login(){
 };
 ```
 
-The `passwordlessVerify` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
+The `passwordlessLogin` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
 
 ```js
 $(document).ready(function() {
