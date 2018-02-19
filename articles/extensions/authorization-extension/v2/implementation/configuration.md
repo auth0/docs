@@ -68,7 +68,3 @@ You can open it up to see the exact rules configuration.
 * [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
 * [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
 :::
-
-<%= include('./_stepnav', {
- prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"]
-}) %>

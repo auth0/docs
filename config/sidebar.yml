@@ -381,6 +381,19 @@ articles:
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+        children:
+
+          - title: "Install the Authorization Extension"
+            url: "/extensions/authorization-extension/v2/implementation/installation"
+            hidden: true
+          
+          - title: "Setup the Authorization Extension"
+            url: "/extensions/authorization-extension/v2/implementation/setup"
+            hidden: true
+
+          - title: "Configure the Authorization Extension"
+            url: "/extensions/authorization-extension/v2/implementation/configuration"
+            hidden: true
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
