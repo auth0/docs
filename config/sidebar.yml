@@ -275,20 +275,20 @@ articles:
         children:
 
           - title: "Create/Delete Hooks Using the CLI"
-          url: "/hooks/cli/create-delete"
-          hidden: true
+            url: "/hooks/cli/create-delete"
+            hidden: true
 
           - title: "Edit Hooks Using the CLI"
-          url: "/hooks/cli/edit"
-          hidden: true
+            url: "/hooks/cli/edit"
+            hidden: true
 
           - title: "Enable/Disable Hooks Using the CLI"
-          url: "/hooks/cli/enable-disable"
-          hidden: true
+            url: "/hooks/cli/enable-disable"
+            hidden: true
 
           - title: "Hooks Logs Using the CLI"
-          url: "/hooks/cli/logs"
-          hidden: true
+            url: "/hooks/cli/logs"
+            hidden: true
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
