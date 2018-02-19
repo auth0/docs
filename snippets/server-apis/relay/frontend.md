@@ -1,4 +1,7 @@
 ```js
+
+// server.js
+
 const token = localStorage.getItem('access_token');
 
 Relay.injectNetworkLayer(

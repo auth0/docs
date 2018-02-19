@@ -31,7 +31,7 @@ https://${account.namespace}/authorize?
   response_type=YOUR_RESPONSE_TYPE&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
