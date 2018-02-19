@@ -24,7 +24,7 @@ Start by [signing up for Auth0](https://auth0.com/signup). After creating your a
 
 ## Create a client
 
-In order for an application to use Auth0 it must be registered as a [client](https://auth0.com/docs/clients). Create a new client for your application on the [Dashboard](https://manage.auth0.com/#/clients).
+In order for an application to use Auth0 it must be registered as a [client](/docs/clients). Create a new client for your application on the [Dashboard](https://manage.auth0.com/#/clients).
 
 ![Create Client window](/media/articles/applications/create-client-popup.png)
 
