@@ -35,7 +35,7 @@ When your users log in successfully, save their credentials. You can then log th
 
 To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires. 
 
-First, import the `Auth0` module to the file from which you wish to present the login page:
+First, import the `Auth0` module to the file that will present the login page:
 
 ${snippet(meta.snippets.setup)}
 

@@ -18,6 +18,6 @@ When you're done making changes to the code, click **Save** to persist the chang
 ## Next Steps
 
 ::: next-steps
-* [Read more About Lock](/libraries/lock)
-* [Get Started on Your Own Login Page](${manage_url}/#/login_page)
+* [Read more about Lock](/libraries/lock)
+* [Get started on your own login page](${manage_url}/#/login_page)
 :::
