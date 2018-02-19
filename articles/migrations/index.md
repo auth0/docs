@@ -51,10 +51,6 @@ We will publish guidance for each of the below scenarios on how to transition yo
 
 ### Resource Owner Support for oauth/token Endpoint
 
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | TBD | TBD |
-
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
 
 The current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints will be deprecated in 2018.
@@ -67,10 +63,6 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ### API Authorization with Third-Party Vendor APIs
 
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | TBD | TBD |
-
 The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It will work the same as any custom API, providing better consistency. This new architecture will be available in 2018 and once it becomes available, the [/delegation](/api/authentication#delegation) endpoint will be officially deprecated.
 
 #### Am I affected by the change?
@@ -81,10 +73,6 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ### Deprecating the Usage of ID Tokens on the Auth0 Management API
 
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | TBD | TBD |
-
 We are deprecating the usage of [ID Tokens](/tokens/id-token) when calling [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials). We have moved to regular [Management APIv2 Tokens](/api/management/v2/tokens). This is available now. Migration guides will be available in 2018.
 
 #### Am I affected by the change?
@@ -94,10 +82,6 @@ If you are currently using [id tokens](/tokens/id-token) to access any part of t
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ### Improved OpenID Connect Interoperability in Auth0
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | TBD | TBD |
 
 The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)).
 
