@@ -269,6 +269,19 @@ articles:
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
+        children:
+
+          - title: "Extensibility Point: Credentials Exchange"
+            url: "/hooks/extensibility-points/credentials-exchange"
+            hidden: true
+
+          - title: "Extensibility Point: Pre-User Registration"
+            url: "/hooks/extensibility-points/pre-user-registration"
+            hidden: true
+
+          - title: "Extensibility Point: Post-User Registration"
+            url: "/hooks/extensibility-points/post-user-registration"
+            hidden: true
 
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
@@ -292,6 +305,19 @@ articles:
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
+        children:
+
+          - title: "Create or Delete Hooks Using the Dashboard"
+            url: "/hooks/dashboard/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks Using the Dashboard"
+            url: "/hooks/dashboard/edit"
+            hidden: true
+
+          - title: "Enable or Disable Hooks Using the Dashboard"
+            url: "/hooks/dashboard/enable-disable"
+            hidden: true
 
   - title: "Email"
     url: "/email"
