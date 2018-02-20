@@ -4,6 +4,9 @@ description: This tutorial demonstrates how to add authorization and access cont
 budicon: 546
 github:
   path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
 ---
 <%= include('../_includes/_authz_preamble') %>
 
