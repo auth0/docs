@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: This tutorial demonstrates how to add authentication to Ruby on Rails API
+description: This tutorial demonstrates how to add authorization to Ruby on Rails API.
 github:
   path: 01-Authentication-RS256
 ---

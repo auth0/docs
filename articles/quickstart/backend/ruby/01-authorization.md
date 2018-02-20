@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to Ruby API
+description: This tutorial demonstrates how to add authentication and authorization to Ruby API.
 github:
   path: 01-Authorization-RS256
 ---

@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to your application with Auth0
+description: This tutorial demonstrates how to add user login to your application with Auth0.
 ---
 
 <%= include('../../../_includes/_package', {

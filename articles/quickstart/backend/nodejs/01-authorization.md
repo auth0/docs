@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to an Express.js API
+description: This tutorial demonstrates how to add authentication and authorization to an Express.js API.
 github:
   path: 01-Authorization-RS256
 ---

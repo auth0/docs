@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Ruby on Rails Login with Auth0
+description: This tutorial demonstrates add authentication and authorization to your Ruby on Rails app.
 budicon: 448
 github:
   path: 01-Login

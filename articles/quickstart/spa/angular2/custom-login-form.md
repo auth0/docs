@@ -1,6 +1,6 @@
 ---
 title: Custom Login Form
-description: This tutorial demonstrates how to add a custom login form to an Angular 2+ application with Auth0
+description: This tutorial demonstrates how to add a custom login form to an Angular 2+ application with Auth0.
 budicon: 448
 github:
   branch: embedded-login

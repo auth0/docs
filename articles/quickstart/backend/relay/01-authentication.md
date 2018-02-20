@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: This tutorial will show you how to use Auth0 to add authentication to your Relay API.
+description: This tutorial will show you how to use Auth0 to add authorization to your Relay API.
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

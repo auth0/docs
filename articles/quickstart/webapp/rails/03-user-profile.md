@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: Access the user profile information using OmniAuth-Auth0 strategy.
+description: This tutorial demonstrates shows how to access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
 github:
   path: 03-User-Profile

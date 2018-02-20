@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to a Symfony API
+description: This tutorial demonstrates how to add authentication and authorization to a Symfony API.
 github:
     path: 01-Authorization-RS256
 ---

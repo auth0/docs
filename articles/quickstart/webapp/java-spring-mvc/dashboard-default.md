@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your Java Spring web app
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your Java Spring web app.
 github:
   path: 01-Login
 ---

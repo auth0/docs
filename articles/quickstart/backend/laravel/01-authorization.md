@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
+description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0.
 github:
    path: 01-Authorization-RS256
 ---

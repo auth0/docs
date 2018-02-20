@@ -1,6 +1,6 @@
 ---
 title: Embedded Login
-description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
+description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0.
 budicon: 448
 github: 
   branch: embedded-login

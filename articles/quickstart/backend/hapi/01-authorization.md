@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to a Hapi.js API
+description: This tutorial demonstrates how to add authorization to a Hapi.js API.
 github:
   path: 01-Authenticate-RS256
 ---

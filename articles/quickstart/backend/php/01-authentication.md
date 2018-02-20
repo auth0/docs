@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: This tutorial demonstrates how to add authentication and authorization to a PHP API
+description: This tutorial demonstrates how to add authentication and authorization to a PHP API.
 github:
   path: 01-Authenticate-RS256
 ---
