@@ -21,7 +21,7 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "code": "AUTHORIZATION_CODE",
-  "redirect_uri": "${account.callback}"
+  "redirect_uri": ${account.callback}
 }
 ```
 
@@ -213,10 +213,10 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
-  "audience": "API_IDENTIFIER",
-  "grant_type": "client_credentials",
-  "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}"
+  audience: "API_IDENTIFIER",
+  grant_type: "client_credentials",
+  client_id: "${account.clientId}",
+  client_secret: "${account.clientSecret}"
 }
 ```
 
@@ -507,12 +507,15 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
+| `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
+| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on __List MFA Authenticators__ below. |
 
 #### Remarks
 
 - If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this step an go directly to __Verify MFA using OTP__ below.
-- This mechanism does not support enrollment, the end-user must be enrolled with the preferred method before being able to execute this flow. Otherwise, you will get a `unsupported_challenge_type` error.
 - Auth0 will choose the challenge type based on the types the end user is enrolled with and the ones that the app supports. If your app does not support any of the challenge types the user has enrolled with, an `unsupported_challenge_type` error will be returned.
+- This mechanism does *not* support enrollment; the end-user must be enrolled with the preferred method before being able to execute this flow. If this is *not* the case, you will get a `unsupported_challenge_type` error.
+- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check __Associate a MFA authenticator__ below to see how to proceed.
 
 #### More Information
 
@@ -776,6 +779,254 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user. |
 
+### Associate a MFA Authenticator
+
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/mfa/associate
+Content-Type: application/json
+Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
+{
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "authenticator_types": ["oob"],
+  "oob_channels": "sms",
+  "phone_number": "+1 555 123456"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/mfa/associate' \
+  --header 'authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}' \
+  --header 'content-type: application/json' \
+  --data '{"client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "authenticator_types":["oob"], "oob_channels":"sms", "phone_number": "+1 555 123456"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/mfa/associate',
+  headers: {
+    'authorization': 'Bearer ${token}',
+    'content-type': 'application/json'
+  },
+  body:
+   { client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}',
+     authenticator_types: ["oob"],
+     oob_channels: "sms",
+     phone_number: "+1 555 123456" },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE FOR OOB (SMS channel):
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "oob_code": "Fe26.2**da6....",
+  "binding_method":"prompt",
+  "authenticator_type":"oob",
+  "oob_channel":"sms",
+  "recovery_codes":["ABCDEFGDRFK75ABYR7PH8TJA"],
+}
+```
+
+> RESPONSE SAMPLE FOR OOB (Auth0 channel):
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "oob_code": "Fe26.2**da6....",
+  "barcode_uri":"otpauth://...",
+  "authenticator_type":"oob",
+  "oob_channel":"auth0",
+  "recovery_codes":["ABCDEFGDRFK75ABYR7PH8TJA"],
+}
+```
+
+> RESPONSE SAMPLE FOR OTP:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "secret": "ABCDEFGMK5CE6WTZKRTTQRKUJVFXOVRF",
+  "barcode_uri":"otpauth://...",
+  "authenticator_type":"otp",
+  "recovery_codes":["ABCDEFGDRFK75ABYR7PH8TJA"],
+}
+```
+
+#### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
+| `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"` or `"sms"`. Required if `authenticator_types` include `oob`. |
+| `phone_number` | The phone number to use for SMS. Required if `oob_channel` includes `sms`. |
+
+#### Remarks
+
+- As long as there are no active authenticators, you can associate an new one using the MFA token. If there are already active authenticators, you need to use an access token with the `enroll` scope to associate new authenticators.
+- Once associated, you must verify the authenticator before Auth0 marks it as active. You can use the returned values in place of the ones returned from the `/mfa/challenge` endpoint to continue with the verification flow.
+- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes to pass MFA as shown on __Verify MFA using a recovery code__ above.
+
+#### More Information
+
+- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/index)
+
+### List MFA Authenticators
+
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://${account.namespace}/mfa/authenticators
+Content-Type: application/json
+Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
+```
+
+```shell
+curl --request GET \
+  --url 'https://${account.namespace}/mfa/authenticators' \
+  --header 'authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}' \
+  --header 'content-type: application/json'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://${account.namespace}/mfa/authenticators',
+  headers: {
+    'authorization': 'Bearer ${token}',
+    'content-type': 'application/json'
+  },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+[
+  {
+    "id":"recovery-code|dev_DsvzGfZw2Fg5N3rI",
+    "authenticator_type":"recovery-code",
+    "active":true
+  },
+  {
+    "id":"sms|dev_gB342kcL2K22S4yB",
+    "authenticator_type":"oob",
+    "oob_channel":"sms",
+    "name":"+X XXXX1234",
+    "active":true
+  },
+  {
+    "id":"sms|dev_gB342kcL2K22S4yB",
+    "authenticator_type":"oob",
+    "oob_channel":"sms",
+    "name":"+X XXXX1234",
+    "active":false
+  },
+  {
+    "id":"push|dev_433sJ7Mcwj9P794y",
+    "authenticator_type":"oob",
+    "oob_channel":"auth0",
+    "name":"John's Device",
+    "active":true
+  },
+    {
+    "id":"totp|dev_LJaKaN5O3tjRFOw2",
+    "authenticator_type":"otp",
+    "active":true
+  }
+]
+```
+
+#### Remarks
+
+- You need either an **MFA token** or an **access token with scope `read:authenticators`** to call this endpoint.
+
+#### More Information
+
+- [Manage the Authenticators](/multifactor-authentication/api/manage.md)
+
+### Delete a MFA Authenticator
+
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://${account.namespace}/mfa/authenticators/${AUTHENTICATOR_ID}
+Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://${account.namespace}/mfa/authenticators/${AUTHENTICATOR_ID}' \
+  --header 'authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}' \
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'DELETE',
+  url: 'https://${account.namespace}/mfa/authenticators/${authenticatorId}',
+  headers: {
+    'authorization': 'Bearer ${token}',
+    'content-type': 'application/json'
+  },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+```JSON
+HTTP/1.1 204 OK
+```
+
+#### Remarks
+
+- You can get the authenticator ID by listing the authenticators as shown on __List MFA Authenticators__.
+- You need an access token with scope `remove:authenticators` to call this endpoint.
+
+#### More Information
+
+- [Manage the Authenticators](/multifactor-authentication/api/manage.md)
+
 ## Refresh Token
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -839,14 +1090,14 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an Access Token, using the Refresh Token you got during authorization.
+Use this endpoint to refresh an Access Token using the Refresh Token you got during authorization.
 
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token, use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
