@@ -778,3 +778,56 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user.
+
+### Associate a MFA Authenticator
+
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/mfa/associate
+Content-Type: application/json
+Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
+{
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "authenticator_types": ["oob"],
+  "oob_channels": "sms",
+  "phone_number": "+1 555 123456"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/mfa/associate' \
+  --header 'authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}' \
+  --header 'content-type: application/json' \
+  --data '{"client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "authenticator_types":["oob"], "oob_channels":"sms", "phone_number": "+1 555 123456"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/mfa/associate',
+  headers: {
+    'authorization': 'Bearer ${token}',
+    'content-type': 'application/json'
+  },
+  body:
+   { client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}',
+     authenticator_types: ["oob"],
+     oob_channels: "sms",
+     phone_number: "+1 555 123456" },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
