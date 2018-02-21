@@ -1,7 +1,11 @@
 To run it from the command line:
 
 ```bash
-./gradlew clean appRun
+# In Linux / OSX
+./gradlew clean bootRun
+
+# In Windows
+gradlew clean bootRun
 ```
 
 To run it from the docker image:
