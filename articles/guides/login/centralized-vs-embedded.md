@@ -13,9 +13,7 @@ With universal login, when the users try to log in they are redirected to a cent
 
 On the other hand, an embedded login flow does not redirect the user somewhere central. The login widget is served from the same page without redirecting the user to another domain. The credentials are then sent to the authentication provider for authentication. In a web app this is a **cross-origin** request.
 
-::: zoomable
-![Universal vs Embedded login flow](/media/articles/guides/login/centralized-embedded-flow.svg)
-:::
+<img src="/media/articles/guides/login/centralized-embedded-flow.svg" alt="Universal vs Embedded login flow" zoomable>
 
 In this article, we will evaluate the pros and cons of these two options and see how you can use Auth0 to implement them.
 

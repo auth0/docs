@@ -215,15 +215,14 @@ Change `<% example %>` to `${ "<% example %>" }`.
 
 ### Image zooming
 
-You can enable zooming for large images using the `zoomable` container:
+You can enable zooming adding the `zoomable` attribute to any image (you will need to use html):
 
-```
-::: zoomable
-![Client Credentials Grant Flow](/media/articles/architecture-scenarios/server-api/client-credentials-grant.png)
-:::
+
+```html
+<img src="/media/articles/architecture-scenarios/server-api/client-credentials-grant.png" alt="Client Credentials Grant Flow" zoomable>
 ```
 
-It's recommended to add this only for large images (like diagrams) and use it for images with .svg format.
+It's recommended to add this only for large images (like diagrams) and use it with .svg images.
 
 ### Screenshots
 
