@@ -3,7 +3,7 @@ title: Google Apps SAML Configuration
 description: Google Apps SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {
