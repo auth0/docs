@@ -785,7 +785,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-#### Examples
+<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/mfa/associate
