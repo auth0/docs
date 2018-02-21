@@ -815,7 +815,7 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/mfa/associate',
   headers: {
-    'authorization': 'Bearer ${token}',
+    'authorization': 'Bearer TOKEN',
     'content-type': 'application/json'
   },
   body:
@@ -918,7 +918,7 @@ var request = require("request");
 var options = { method: 'GET',
   url: 'https://${account.namespace}/mfa/authenticators',
   headers: {
-    'authorization': 'Bearer ${token}',
+    'authorization': 'Bearer TOKEN',
     'content-type': 'application/json'
   },
   json: true };
@@ -1002,7 +1002,7 @@ var request = require("request");
 var options = { method: 'DELETE',
   url: 'https://${account.namespace}/mfa/authenticators/${authenticatorId}',
   headers: {
-    'authorization': 'Bearer ${token}',
+    'authorization': 'Bearer TOKEN',
     'content-type': 'application/json'
   },
   json: true };
