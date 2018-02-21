@@ -790,7 +790,7 @@ This endpoint is still under development. It is available to customers with earl
 ```http
 POST https://${account.namespace}/mfa/associate
 Content-Type: application/json
-Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
+Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
 {
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
