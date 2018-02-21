@@ -799,35 +799,3 @@ Authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}
   "phone_number": "+1 555 123456"
 }
 ```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/mfa/associate' \
-  --header 'authorization: Bearer ${ACCESS_TOKEN or MFA_TOKEN}' \
-  --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "authenticator_types":["oob"], "oob_channels":"sms", "phone_number": "+1 555 123456"}'
-```
-
-```javascript
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://${account.namespace}/mfa/associate',
-  headers: {
-    'authorization': 'Bearer ${token}',
-    'content-type': 'application/json'
-  },
-  body:
-   { client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
-     authenticator_types: ["oob"],
-     oob_channels: "sms",
-     phone_number: "+1 555 123456" },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
