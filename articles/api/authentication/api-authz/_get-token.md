@@ -507,14 +507,14 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
-| `oob_channel` | **(early access only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application accepts all supported OOB channels. |
-| `authenticator_id` | **(early access only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on __List MFA Authenticators__ below. |
+| `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
+| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on __List MFA Authenticators__ below. |
 
 #### Remarks
 
 - If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this step an go directly to __Verify MFA using OTP__ below.
 - Auth0 will choose the challenge type based on the types the end user is enrolled with and the ones that the app supports. If your app does not support any of the challenge types the user has enrolled with, an `unsupported_challenge_type` error will be returned.
-- This mechanism does not support enrollment, the end-user must be enrolled with the preferred method before being able to execute this flow. Otherwise, you will get a `unsupported_challenge_type` error.
+- This mechanism does *not* support enrollment; the end-user must be enrolled with the preferred method before being able to execute this flow. If this is *not* the case, you will get a `unsupported_challenge_type` error.
 - **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check __Associate a MFA authenticator__ below to see how to proceed.
 
 #### More Information
@@ -832,7 +832,7 @@ request(options, function (error, response, body) {
 });
 ```
 
-> RESPONSE SAMPLE FOR OOB (sms channel):
+> RESPONSE SAMPLE FOR OOB (SMS channel):
 ```JSON
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -845,7 +845,7 @@ Content-Type: application/json
 }
 ```
 
-> RESPONSE SAMPLE FOR OOB (auth0 channel):
+> RESPONSE SAMPLE FOR OOB (Auth0 channel):
 ```JSON
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -875,18 +875,16 @@ Content-Type: application/json
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. An array with values `"otp"`, or `"oob"`. |
-| `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"`, or `"sms"`. Required if `authenticator_types` include `oob`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
+| `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"` or `"sms"`. Required if `authenticator_types` include `oob`. |
 | `phone_number` | The phone number to use for SMS. Required if `oob_channel` includes `sms`. |
 
 #### Remarks
 
-- As long as there are no active authenticators, you can associate an new one using the MFA token. After that, you need to
-use an access token with the `enroll` scope to associate new authenticators.
-- Once associated, you must verify the authenticator before it is marked as active. You can use the returned values in place of the ones returned from the `/mfa/challenge` endpoint to continue with the verification flow.
-- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes
-to pass MFA as shown on __Verify MFA using a recovery code__ above.
+- As long as there are no active authenticators, you can associate an new one using the MFA token. If there are already active authenticators, you need to use an access token with the `enroll` scope to associate new authenticators.
+- Once associated, you must verify the authenticator before Auth0 marks it as active. You can use the returned values in place of the ones returned from the `/mfa/challenge` endpoint to continue with the verification flow.
+- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes to pass MFA as shown on __Verify MFA using a recovery code__ above.
 
 #### More Information
 
@@ -972,7 +970,7 @@ Content-Type: application/json
 
 #### Remarks
 
-- You need either an MFA token, or an access token with scope `read:authenticators` to call this endpoint.
+- You need either an **MFA token** or an **access token with scope `read:authenticators`** to call this endpoint.
 
 #### More Information
 
@@ -1022,7 +1020,7 @@ HTTP/1.1 204 OK
 
 #### Remarks
 
-- You can get the authenticator ID by listing the authenticators, as shown on __List MFA Authenticators__.
+- You can get the authenticator ID by listing the authenticators as shown on __List MFA Authenticators__.
 - You need an access token with scope `remove:authenticators` to call this endpoint.
 
 #### More Information
@@ -1092,14 +1090,14 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an Access Token, using the Refresh Token you got during authorization.
+Use this endpoint to refresh an Access Token using the Refresh Token you got during authorization.
 
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token, use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
