@@ -2,8 +2,9 @@
 section: libraries
 description: When should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
 ---
-
 # Lock vs. a Custom UI
+
+<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
 
 When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and prevents the dangers of cross-origin authentication. The Hosted Login Page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs. 
 
