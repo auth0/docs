@@ -986,13 +986,13 @@ This endpoint is still under development. It is available to customers with earl
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-DELETE https://${account.namespace}/mfa/authenticators/${AUTHENTICATOR_ID}
+DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
 Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
 ```
 
 ```shell
 curl --request DELETE \
-  --url 'https://${account.namespace}/mfa/authenticators/${AUTHENTICATOR_ID}' \
+  --url 'https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID' \
   --header 'authorization: Bearer ACCESS_TOKEN or MFA_TOKEN' \
 ```
 
