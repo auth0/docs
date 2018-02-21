@@ -1000,7 +1000,7 @@ curl --request DELETE \
 var request = require("request");
 
 var options = { method: 'DELETE',
-  url: 'https://${account.namespace}/mfa/authenticators/${authenticatorId}',
+  url: 'https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID',
   headers: {
     'authorization': 'Bearer TOKEN',
     'content-type': 'application/json'
