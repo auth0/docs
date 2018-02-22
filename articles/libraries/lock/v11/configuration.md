@@ -355,7 +355,7 @@ If the label is set to true, which is the default, the label's text can be custo
 
 #### logo {String}
 
-The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
+The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {
