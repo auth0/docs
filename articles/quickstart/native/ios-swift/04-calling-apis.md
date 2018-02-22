@@ -38,10 +38,10 @@ Present the Hosted Login Page:
 ::: note
 Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
 :::
-let APIIdentifier = "API_IDENTIFIER" // Replace with the API Identifier value you created
 
 ```swift
 // HomeViewController.swift
+let APIIdentifier = "API_IDENTIFIER" // Replace with the API Identifier value you created
 
 Auth0
     .webAuth()
