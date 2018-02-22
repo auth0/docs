@@ -33,7 +33,11 @@ For Auth0 PSaaS Appliance updates, we can provide you with specific addresses th
 
 #### Can I use Lock with my PSaaS Appliance implementation?
 
-Yes, you can use Lock with your PSaaS Appliance implementation. However, if you choose to operate the PSaaS Appliance in an Internet-restricted environment, you will *not* be able to use Lock, since you won't be able to access the CDN that hosts Lock.
+Yes, you can use Lock with your PSaaS Appliance implementation.
+
+However, if you choose to operate your applications connected to the PSaaS Appliance in an Internet-restricted environment, you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
+
+If you choose this option, you are responsible for ensuring that your copy of the Lock source code stays up-to-date.
 
 #### How is the Auth0 software installed? 
 
