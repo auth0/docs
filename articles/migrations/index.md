@@ -101,6 +101,7 @@ Note that the following scopes are also required by some endpoints:
 - `read:current_user` (required by: [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id), [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments))
 - `update:current_user_identities` (required by: [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities), [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id))
 - `update:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
+- `create:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
 - `delete:current_user_metadata` (required by: [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider))
 
 For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the scopes: `read:users`, `read:user_idp_tokens`, and `read:current_user`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
