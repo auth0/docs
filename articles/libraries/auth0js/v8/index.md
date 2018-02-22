@@ -91,7 +91,7 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize()` method can be used for logging in users via the [Hosted Login Page](/hosted-pages/login), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
+The `authorize()` method can be used for logging in users via [universal login](/hosted-pages/login), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ webAuth.redirect.loginWithCredentials({
 
 The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
-However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
+However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the universal login page, and is the only way to have SSO cookies set for your users who login using universal login.
 
 ### webAuth.popup.loginWithCredentials()
 
@@ -473,7 +473,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## Cross-Origin Authentication
 
-Using auth0.js within your application (rather than using the [Hosted Login Page](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your client to make it work.
+Using auth0.js within your application (rather than using [universal login](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your client to make it work.
 
 ## User management
 

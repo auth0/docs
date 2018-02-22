@@ -82,7 +82,7 @@ There are multiple ways of designing a customized login screen which are not cov
 
 ### Using a Social connection
 
-You'll use the `WebAuthProvider#init` method. If no connection name is given, the Hosted Login Page will be shown and the user may choose any of the connections enabled for your client. By calling `withConnection` you can force the user to use a specific connection. Let's do that for `Twitter`. Make sure to use a connection that is enabled in your client!
+You'll use the `WebAuthProvider#init` method. If no connection name is given, the login page will be shown and the user may choose any of the connections enabled for your client. By calling `withConnection` you can force the user to use a specific connection. Let's do that for `Twitter`. Make sure to use a connection that is enabled in your client!
 
 ```java
 private void login() {

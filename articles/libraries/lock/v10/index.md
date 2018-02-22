@@ -15,10 +15,6 @@ Lock is an embeddable login form, [configurable to your needs][lock-configuratio
 Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
 :::
 
-::: note
-Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method to authenticate users for your applications.
-:::
-
 ## Lock 10 Installation
 
 You can install Lock 10 via several methods. Select any of the following installation sources that best suit your environment and application.
@@ -119,7 +115,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
+Embedding Lock within your application, rather than using [universal login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 

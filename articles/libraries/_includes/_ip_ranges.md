@@ -4,4 +4,4 @@ In earlier versions of Lock, you could configure an IP range in an Active Direct
 
 ![SSO With Lock 10 and Windows IP Ranges](/media/articles/libraries/lock/lock-11-windows-authentication.png)
 
-This functionality has been removed from Lock 11. There is no IP detection and the user will get redirected to the Active Directory login page where they will have to type in their credentials. It will still be available when using centralized login.
+This functionality has been removed from Lock 11. There is no IP detection and the user will get redirected to the Active Directory login page where they will have to type in their credentials. It will still be available when using universal login.

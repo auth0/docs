@@ -133,13 +133,13 @@ ${snippet(meta.snippets.use)}
 This example uses Bootstrap styles. You can use any style library you want, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Add a Callback Component
 
-When you use the Auth0 hosted login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
+When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
 
 ::: note
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
@@ -178,7 +178,7 @@ After authentication, your users are taken to the `/callback` route. They see th
 
 ## Process the Authentication Result
 
-When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
+When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
 
 Call the `handleAuthentication` method after you render the `Callback` route. The method processes the authentication hash fragment when the `Callback` component initializes.
 

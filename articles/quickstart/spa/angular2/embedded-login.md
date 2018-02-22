@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-As an alternative to Auth0's centralized login page, the Lock widget can be embedded directly in your application.
+As an alternative to Auth0's universal login page, the Lock widget can be embedded directly in your application.
 
 <%= include('../_includes/_install_lock') %>
 

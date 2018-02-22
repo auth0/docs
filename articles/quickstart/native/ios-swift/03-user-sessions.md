@@ -35,11 +35,11 @@ When your users log in successfully, save their credentials. You can then log th
 
 To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires. 
 
-First, import the `Auth0` module to the file where you want to present the hosted login page (HLP):
+First, import the `Auth0` module to the file that will present the login page:
 
 ${snippet(meta.snippets.setup)}
 
-Next, present the hosted login page:
+Next, present the login page:
 
 ```swift
 // HomeViewController.swift
@@ -57,7 +57,7 @@ Auth0
             // Handle the error
             print("Error: \(error)")
         case .success(let credentials):
-            // Auth0 will automatically dismiss the hosted login page
+            // Auth0 will automatically dismiss the login page
             // Store the credentials
             credentialsManager.store(credentials: credentials)
         }
@@ -78,7 +78,7 @@ First, you check if the credentials manager has valid credentials:
 // SessionManager.swift
 
 guard credentialsManager.hasValid() else {
-    // No valid credentials exist, present the hosted login page
+    // No valid credentials exist, present the login page
 }
 ```
 

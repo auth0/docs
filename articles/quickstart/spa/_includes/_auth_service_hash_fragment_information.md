@@ -1,4 +1,4 @@
-Your users authenticate at the Auth0 hosted login page. They are then redirected back to your application. Their redirect URLs contain hash fragments with each user's authentication information:
+Your users authenticate via universal login, at the login page. They are then redirected back to your application. Their redirect URLs contain hash fragments with each user's authentication information:
 * `access_token`
 * `id_token`
 * `expires_in`

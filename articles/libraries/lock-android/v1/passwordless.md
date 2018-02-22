@@ -7,8 +7,6 @@ description: Guide on implementing Passwordless authentication with Lock for And
 
 <%= include('../_includes/_lock-version') %>
 
-<%= include('../../../_includes/_native_passwordless_warning') %>
-
 Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
 ::: note
