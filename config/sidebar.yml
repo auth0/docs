@@ -366,6 +366,10 @@ articles:
           - title: "Stormpath"
             url: "/users/migrations/stormpath"
 
+          - title: "Azure Access Control"
+            url: "/users/migrations/azure-access-control"
+            hidden: true
+
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
     children:
