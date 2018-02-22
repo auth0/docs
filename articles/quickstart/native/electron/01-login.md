@@ -29,6 +29,14 @@ https://${account.namespace}/mobile, file:///
 
 Add **Auth0Lock** to your `index.html` file and set the viewport.
 
+```html
+<!-- Auth0 Lock script -->
+<script src="${lock_url}"></script>
+
+<!-- Setting the right viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+```
+
 ::: note
 Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
 :::
