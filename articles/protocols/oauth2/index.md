@@ -169,6 +169,7 @@ In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Ow
 ## Keep reading
 
 ::: next-steps
- * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
- * [More docs on API Authorization](/api-auth)
- :::
+* [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+* [More docs on API Authorization](/api-auth)
+* [Read about the state parameter and how it can help you mitigate CSRF attacks](/protocols/oauth2/oauth-state)
+:::
