@@ -1,7 +1,9 @@
 ---
 toc: true
-description: Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform.
+title: Auth0 Migrations
+description: List of all the changes made on Auth0 platform that might affect customers.
 ---
+
 # Migrations
 
 Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform, primarily for security reasons. If a vulnerability or other problem in the platform is not up to our high standards of security, we work to correct the issue.
@@ -10,7 +12,7 @@ Sometimes a correction will cause a breaking change to customer's applications. 
 
 For changes that do not require immediate changes, we often allow a grace period to allow you time to update your applications.
 
-## Migration Process
+## Migration process
 
 The migration process is outlined below:
 
@@ -21,7 +23,7 @@ During the grace period, customers are informed via dashboard notifications and 
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-## Active Migrations
+## Active migrations
 
 Current migrations are listed below, newest first. 
 
@@ -43,13 +45,13 @@ If you are currently implementing login in your application with Lock v8, v9, or
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-## Upcoming Endpoint Migrations
+## Upcoming migrations
 
 Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed endpoints and features. 
 
 We will publish guidance for each of the below scenarios on how to transition your applications to standards-based protocols. If we need to make security enhancements to any of these legacy endpoints which would require more urgency, we will promptly announce timeframes and guidelines for any required changes.
 
-### Resource Owner Support for oauth/token Endpoint
+### Resource Owner support for oauth/token endpoint
 
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
 
@@ -61,7 +63,7 @@ If you are currently implementing the [/oauth/ro](/api/authentication#resource-o
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### API Authorization with Third-Party Vendor APIs
+### API authorization with third-party vendor APIs
 
 The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It will work the same as any custom API, providing better consistency. This new architecture will be available in 2018 and once it becomes available, the [/delegation](/api/authentication#delegation) endpoint will be officially deprecated.
 
@@ -106,7 +108,7 @@ If you are currently using [ID Tokens](/tokens/id-token) to access any part of t
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### Improved OpenID Connect Interoperability in Auth0
+### Improved OpenID Connect interoperability in Auth0
 
 The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)).
 
