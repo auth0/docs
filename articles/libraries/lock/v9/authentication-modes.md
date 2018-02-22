@@ -5,7 +5,7 @@ toc: true
 ---
 # Lock: Authentication Modes
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 After Auth0 Lock is opened, you can choose any of the Identity Providers (IdP) that Auth0 has, to Login. Depending on how the IdP Web/App is opened, a different authentication mode is used.
 

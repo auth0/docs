@@ -3,30 +3,35 @@ title: Using Passwordless Authentication with a magic link via email on Regular 
 ---
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 
-<%= include('../../_introduction-email-magic-link') %>
+<%= include('_introduction-email-magic-link') %>
 
 ## Setup
 
-<%= include('../../_setup-email') %>
+<%= include('_setup-email') %>
 
-<%= include('../../_setup-callback', {spa:false} ) %>
+<%= include('_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_init-passwordless-lock') %>
+<%= include('_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the authentication on the server-side:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open Lock in SMS mode
-    lock.magiclink( {callbackURL: '${account.callback}'} );
+  function login() {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+      passwordlessMethod: "link",              // Sets Lock to use magic link
+      auth: {
+        redirectUrl: '${account.callback}',
+        responseType: 'code'
+      }
+    });
+    
+    lock.show();
   }
 </script>
 <a href="javascript:login()">Login</a>
@@ -44,7 +49,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -52,7 +57,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
+<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 
 You must provide a way for the user to enter an email to which the magic link will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 

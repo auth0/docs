@@ -4,30 +4,40 @@ description: Learn how to authenticate users with a one-time-code using SMS in a
 ---
 # Using Passwordless Authentication in SPA with SMS
 
-<%= include('../../_introduction-sms', { isMobile: true }) %>
+<%= include('_introduction-sms', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('../../_setup-sms-twilio') %>
+<%= include('_setup-sms-twilio') %>
 
-<%= include('../../_setup-cors') %>
+<%= include('_setup-cors') %>
 
 ## Implementation
 
-### Use Lock (the Auth0 UI widget)
+### Use Lock 
 
-<%= include('../../_init-passwordless-lock') %>
+<%= include('_init-passwordless-lock') %>
 
 You can then trigger the login widget with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open the lock in Email Magic Link mode
-    lock.magiclink();
+   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    allowedConnections: ['sms'],       
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'token id_token'
+    }
+  });
+
+  lock.on('authenticated', function(authResult) {
+     localStorage.setItem('id_token', authResult.idToken);
+     localStorage.setItem('access_token', authResult.accessToken);
+  });
+
+  function login() {
+    lock.show(); 
   }
 </script>
 <a href="javascript:login()">Login</a>
@@ -39,19 +49,17 @@ This will open a dialog that asks the user for their phone number.
 
 Then Auth0 will use Twilio to send to the user an SMS containing the one-time code:
 
-```html
 <div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
-```
 
 Lock will ask for the code that has been sent via SMS to the provided number. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the Access Token will be available. Then the user will be allowed to continue to the authenticated part of the application.
+If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the ID Token and Access Token will be available. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''
@@ -59,14 +67,14 @@ If the code is correct, the user will be authenticated. This will trigger the `a
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-First, initialize Auth0.js. Be sure to provide a `redirectUri` and to set the `responseType: 'token'`. 
+First, initialize Auth0.js. Be sure to provide a `redirectUri` and to set the `responseType: 'token id_token'`. 
 
 ```js
 var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: 'http://example.com',
-  responseType: 'token'
+  responseType: 'token id_token'
 });
 ```
 
@@ -139,9 +147,5 @@ $(document).ready(function() {
   }
 });
 ```
-
-::: note
-The `parseHash` method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
-:::
 
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

@@ -4,37 +4,41 @@ description: Learn how to authenticate users with a one-time-code using email in
 ---
 # Using Passwordless Authentication in SPA with Email
 
-<%= include('../../_introduction-email', { isMobile: false }) %>
+<%= include('_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('../../_setup-email') %>
+<%= include('_setup-email') %>
 
-<%= include('../../_setup-cors') %>
+<%= include('_setup-cors') %>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_init-passwordless-lock') %>
+<%= include('_init-passwordless-lock') %>
 
 Then you can trigger the login with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open the lock in Email Code mode with the ability to handle
-    // the authentication in page
-    lock.emailcode( function (err, profile, id_token, state) {
-      if (!err) {
-        // Save the JWT token.
-        localStorage.setItem('userToken', id_token);
-        //use profile
-      }
-    });
+   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+    passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'token id_token'
+    }
+  });
+
+  lock.on('authenticated', function(authResult) {
+      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('access_token', authResult.accessToken);
+  });
+
+  function login() {
+      lock.show();
   }
 </script>
 <a href="javascript:login()">Login</a>
@@ -52,11 +56,11 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will trigger the `authenticated` event where the access_token will be available.
+Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''
@@ -64,16 +68,9 @@ Once the user enters the code received by email, Lock will trigger the `authenti
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript SDK](/libraries/auth0js).
 
-First, initialize Auth0.js. Be sure to provide a `redirectUri` and to set the `responseType: 'token'`. 
+<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 
-```js
-var webAuth = new auth0.WebAuth({
-  clientID: '${account.clientId}',
-  domain: '${account.namespace}',
-  redirectUri: 'http://example.com',
-  responseType: 'token'
-});
-```
+Be sure to provide a `redirectUri` and to set the `responseType: 'token'`. 
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 
@@ -103,7 +100,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessLogin({
+  webAuth.passwordlessVerify({
     connection: 'email',
     email: email,
     verificationCode: code
@@ -116,7 +113,7 @@ function login(){
 };
 ```
 
-The `passwordlessLogin` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
+The `passwordlessVerify` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
 
 ```js
 $(document).ready(function() {
@@ -144,9 +141,5 @@ $(document).ready(function() {
   }
 });
 ```
-
-::: note
-The `parseHash` method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
-:::
 
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

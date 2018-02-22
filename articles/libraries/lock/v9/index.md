@@ -6,7 +6,7 @@ toc: true
 ---
 # Lock 9 for Web
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 
