@@ -486,6 +486,34 @@ articles:
         url: "/sso/current/integrations"
 
 
+  - title: "Protocols"
+    url: "/protocols"
+    children:
+
+      - title: "OAuth 2.0"
+        url: "/protocols/oauth2"
+        children:
+
+        - title: "The State Parameter"
+          url: "/protocols/oauth2/oauth-state"
+          hidden: true
+          
+        - title: "Web App Integration"
+          url: "/protocols/oauth2/oauth-web-protocol"
+          hidden: true
+          
+      - title: "OpenID Connect"
+        url: "/protocols/oidc"
+
+      - title: "SAML"
+        url: "/protocols/saml"
+
+      - title: "WS-Fed"
+        url: "/protocols/ws-fed"
+        
+      - title: "LDAP"
+        url: "/protocols/ldap"
+        
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
