@@ -7,7 +7,7 @@ Using Lock Passwordless in a universal login page is the easiest and most secure
 
 ## Lock Passwordless Template
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of Lock Passwordless in the login page. 
+You can start out with a basic template that will provide you with a working, ready-to-use example of Lock with Passwordless Mode in the login page. 
 
 In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
 
@@ -22,6 +22,6 @@ Choose `Lock Passwordless` to get started.
 Are you looking for more information about Lock? Or are you ready to get started with your own login page?
 
 ::: next-steps
-* [Read more About Lock](/libraries/lock/v10)
-* [Get Started on Your Own Login Page](${manage_url}/#/login_page)
+* [Read more about Lock](/libraries/lock)
+* [Get started on your own login page](${manage_url}/#/login_page)
 :::

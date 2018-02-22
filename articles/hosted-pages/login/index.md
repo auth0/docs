@@ -8,7 +8,7 @@ crews: crew-2
 
 ## About Universal Login
 
-Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock/v10) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js/v8) for authentication.
+Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
 If you cannot use universal login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
 
@@ -70,12 +70,12 @@ In the [Dashboard](${manage_url}), you can enable a custom login page by navigat
 In order to get started customizing the login page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
 - [Lock](/hosted-pages/login/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
-- [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same style of interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
+- [Lock (Passwordless Mode)](/hosted-pages/login/lock-passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
 - [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
 
 ### 3. Customization
 
-You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the login page to your own specifications.
+You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications.
 
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the login page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
 
