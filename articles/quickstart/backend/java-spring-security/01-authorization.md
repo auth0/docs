@@ -142,7 +142,7 @@ public class APIController {
     @ResponseBody
     public String publicEndpoint() {
         return new JSONObject()
-                .put("message", "All good. You DO NOT need to be authenticated to call /api/public.")
+                .put("message", "Hello from a public endpoint! You don\'t need to be authenticated to see this.")
                 .toString();
     }
 
@@ -150,7 +150,7 @@ public class APIController {
     @ResponseBody
     public String privateEndpoint() {
         return new JSONObject()
-                .put("message", "All good. You can see this because you are Authenticated.")
+                .put("message", "Hello from a private endpoint! You need to be authenticated to see this.")
                 .toString();
     }
 
@@ -158,7 +158,7 @@ public class APIController {
     @ResponseBody
     public String privateScopedEndpoint() {
         return new JSONObject()
-                .put("message", "All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope")
+                .put("message", "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
                 .toString();
     }
 
