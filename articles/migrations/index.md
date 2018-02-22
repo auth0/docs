@@ -1,7 +1,7 @@
 ---
 toc: true
 title: Auth0 Migrations
-description: List of all the changes made on Auth0 platform that might affect customers.
+description: List of all the changes made on Auth0 platform that might affect customers
 ---
 
 # Migrations
@@ -79,7 +79,10 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials when calling the [Management API](/api/management/v2#!/Users/post_identities). This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. In more detail, the affected endpoints are:
+We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials when calling the [Management API](/api/management/v2#!/Users/post_identities). This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
+
+The affected endpoints are:
+
 - [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id)
 - [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments)
 - [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id)
@@ -89,18 +92,24 @@ We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials whe
 - [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) (used for [Account Linking](/link-accounts), see warning panel below)
 - [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id)
 
+These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now.
 
-These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now. 
+To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scopes required by each endpoint.
 
-To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scopes required by each endpoint. 
+Note that the following scopes are also required by some endpoints:
 
-For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires two scopes: `read:users` and `read:user_idp_tokens`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+- `read:current_user` (required by: [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id), [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments))
+- `update:current_user_identities` (required by: [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities), [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id))
+- `update:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
+- `delete:current_user_metadata` (required by: [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider))
+
+For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the scopes: `read:users`, `read:user_idp_tokens`, and `read:current_user`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
 :::panel-warning Account Linking available only for admins
 You can link two accounts by invoking the [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) endpoint. This **will not be available for Access Tokens issued to end users**, but only to administrators of your tenant.
 :::
 
-Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by February 2018.
+Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by the end of February 2018.
 
 #### Am I affected by the change?
 
