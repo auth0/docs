@@ -266,9 +266,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 
 ## SDKs and Libraries
 
-::: note
-See the [Libraries](/libraries) page for more information about supported versions of Auth0's SDKs and the Lock widget.
-:::
+<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
 
 ### Auth0 Lock Widgets
 

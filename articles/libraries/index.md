@@ -13,6 +13,8 @@ description: Overview of the Auth0 Libraries and SDKs
 </p>
 </div>
 
+<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
+
 ## How Should You Implement Auth0?
 
 When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The Hosted Login Page uses by default the Lock Widget to authenticate users, but there is also a template for Lock Passwordless and a template for a custom UI built with the Auth0.js SDK available. 

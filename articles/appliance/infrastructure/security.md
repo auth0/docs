@@ -51,9 +51,9 @@ If you are behind a transparent proxy, you will need to:
 * obtain certificate(s) for your proxy created by a public certificate authority.
 * add an exception so that the PSaaS Appliance instance(s) may get through the proxy unauthenticated.
 
-## HTTPS
+## HTTPS or TLS
 
-Please ensure that your network is configured such that the PSaaS Appliance exposes HTTPS to end users only.
+Users must connect to the PSaaS Appliance using secure protocols (HTTPS or TLS). Depending on your network design, you could terminate the Secure Channel at the load balancer or at the PSaaS Appliance. In both cases your SSL/TLS certificate must be locally installed on the PSaaS Appliance.
 
 ## SMTP
 

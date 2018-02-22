@@ -5,6 +5,8 @@ description: Lock 10 has many configurable options that allow you to change the 
 ---
 # Lock: Configuration Options
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
@@ -356,7 +358,7 @@ If the label is set to true, which is the default, the label's text can be custo
 
 #### logo {String}
 
-The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
+The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {

@@ -59,8 +59,6 @@ export class MyApp {
 
 To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app in the configuration block.
 
-${snippet(meta.snippets.use)}
-
 ## Add a Login Control
 
 Add a control to your app to allow users to log in. The control should call the `login` method from the `AuthService`. Start by injecting the `AuthService` in a component.
