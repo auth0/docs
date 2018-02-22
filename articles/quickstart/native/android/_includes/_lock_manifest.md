@@ -37,7 +37,7 @@ Declare the `LockActivity` in your project's `AndroidManifest.xml`:
 
 It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
-The next step is to whitelist the **Callback URL** of your client. Edit the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and add an URL that looks like this:
+The next step is to whitelist the **Callback URL** of your client. Edit the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and add a URL that looks like this:
 
 ```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
