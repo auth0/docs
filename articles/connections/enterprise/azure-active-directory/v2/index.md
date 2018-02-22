@@ -142,7 +142,7 @@ Then choose the protocol. **Open ID Connect** is the default, and should be sele
 
 Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-), as explained in [Native Azure AD applications with Auth0](/connections/enterprise/azure-active-directory-native).
 
-Click the **SAVE** button. Auth0 will provide you with an URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
+Click the **SAVE** button. Auth0 will provide you with a URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
 
