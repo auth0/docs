@@ -201,13 +201,13 @@ webAuth.login({
 
 ### buildAuthorizeUrl(options)
 
-The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
+The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based authentication.
 
 ```js
 // Calculate URL to redirect to
 var url = webAuth.client.buildAuthorizeUrl({
-  clientID: '${account.clientId}', // string
-  responseType: 'token', // code or token
+  clientID: '${account.clientId}',
+  responseType: 'token id_token', 
   redirectUri: '${account.callback}',
   state: 'YOUR_STATE'
 });
@@ -217,7 +217,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling webAuth.authorize(). [This document](/protocols/oauth2/oauth-state) describes how to do use it correctly.
 :::
 
 ## Passwordless Login
@@ -231,7 +231,7 @@ var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: 'http://example.com',
-  responseType: 'token'
+  responseType: 'token id_token'
 });
 ```
 
@@ -479,16 +479,48 @@ Using auth0.js within your application (rather than using [universal login](/hos
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the `id_token` for the **primary identity**. 
+To get started, you first need gitto obtain a an `access_token` that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the `access_token` as part of the authentication flow.
 
-::: note
-In the case of linking users, the **primary identity** is the user profile with the data that you intend to **keep** upon linking (the other identities will lose their data), the one to which you plan to link the other identities.
-:::
+```js
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: 'http://example.com',
+  audience: `https://${account.namespace}/api/v2/˜`,
+  scope: 'read:current_user'
+  responseType: 'token id_token'
+});
+```
+
+or by using `checkSession()`:
+
+```
+ webAuth.checkSession(
+      {
+        audience: `https://${account.namespace}/api/v2/˜`,
+        scope: 'read:current_user'
+      }, function(err, result) { 
+         // use result.accessToken
+      }
+    );
+```
+
+You also need to ask for the specific scopes you need. You can ask for the following scopes:
+
+* `read:current_user`
+* `update:current_user_identities`
+* `create:current_user_metadata`
+* `update:current_user_metadata`
+* `delete:current_user_metadata`
+* `create:current_user_device_credentials`
+* `delete:current_user_device_credentials`
+
+Once you have the `access_token`, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the `access_token`.
 
 ```js
 var auth0Manage = new auth0.Management({
   domain: '${account.namespace}',
-  token: 'ID_TOKEN'
+  token: 'ACCESS_TOKEN'
 });
 ```
 
@@ -517,6 +549,8 @@ The `linkUser` method accepts two parameters, the primary `userId` and the secon
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
+
+After linking the accounts, the second account will not exist as a separate entry in the user database, it can only be accessed as part of the primary one.
 
 ::: note
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
