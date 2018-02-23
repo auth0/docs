@@ -103,6 +103,8 @@ Note that the following scopes are also required by some endpoints:
 - `update:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
 - `create:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
 - `delete:current_user_metadata` (required by: [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider))
+- `create:current_user_device_credentials` (required by: [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials))
+- `delete:current_user_device_credentials` (required by: [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id))
 
 For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the scopes: `read:users`, `read:user_idp_tokens`, and `read:current_user`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
