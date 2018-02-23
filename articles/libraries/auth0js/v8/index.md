@@ -479,7 +479,7 @@ Using auth0.js within your application (rather than using [universal login](/hos
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, you first need gitto obtain a an `access_token` that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the `access_token` as part of the authentication flow.
+To get started, you first need to obtain a an `access_token` that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the `access_token` as part of the authentication flow.
 
 ```js
 var webAuth = new auth0.WebAuth({
