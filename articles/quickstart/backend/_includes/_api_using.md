@@ -58,9 +58,7 @@ When using the Client Credentials flow, you will need to register a [Non Interac
 }
 ```
 
-## Test Your API with cURL
-
-You can test your API using [cURL](https://curl.haxx.se/) using an Access Token you obtained before.
+## Test Your API 
 
 **1. Calling the secure endpoint**
 
