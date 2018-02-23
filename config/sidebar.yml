@@ -271,15 +271,15 @@ articles:
         url: "/hooks/extensibility-points"
         children:
 
-          - title: "Extensibility Point: Credentials Exchange"
+          - title: "Credentials Exchange"
             url: "/hooks/extensibility-points/credentials-exchange"
             hidden: true
 
-          - title: "Extensibility Point: Pre-User Registration"
+          - title: "Pre-User Registration"
             url: "/hooks/extensibility-points/pre-user-registration"
             hidden: true
 
-          - title: "Extensibility Point: Post-User Registration"
+          - title: "Post-User Registration"
             url: "/hooks/extensibility-points/post-user-registration"
             hidden: true
 
@@ -287,19 +287,19 @@ articles:
         url: "/hooks/cli"
         children:
 
-          - title: "Create/Delete Hooks Using the CLI"
+          - title: "Create/Delete Hooks"
             url: "/hooks/cli/create-delete"
             hidden: true
 
-          - title: "Edit Hooks Using the CLI"
+          - title: "Edit Hooks"
             url: "/hooks/cli/edit"
             hidden: true
 
-          - title: "Enable/Disable Hooks Using the CLI"
+          - title: "Enable/Disable Hooks"
             url: "/hooks/cli/enable-disable"
             hidden: true
 
-          - title: "Hooks Logs Using the CLI"
+          - title: "Hooks Logs"
             url: "/hooks/cli/logs"
             hidden: true
 
@@ -307,15 +307,15 @@ articles:
         url: "/hooks/dashboard"
         children:
 
-          - title: "Create or Delete Hooks Using the Dashboard"
+          - title: "Create or Delete Hooks"
             url: "/hooks/dashboard/create-delete"
             hidden: true
 
-          - title: "Edit Hooks Using the Dashboard"
+          - title: "Edit Hooks"
             url: "/hooks/dashboard/edit"
             hidden: true
 
-          - title: "Enable or Disable Hooks Using the Dashboard"
+          - title: "Enable or Disable Hooks"
             url: "/hooks/dashboard/enable-disable"
             hidden: true
 
@@ -383,15 +383,15 @@ articles:
         url: "/extensions/authorization-extension/v2"
         children:
 
-          - title: "Install the Authorization Extension"
+          - title: "Installation"
             url: "/extensions/authorization-extension/v2/implementation/installation"
             hidden: true
           
-          - title: "Setup the Authorization Extension"
+          - title: "Setup"
             url: "/extensions/authorization-extension/v2/implementation/setup"
             hidden: true
 
-          - title: "Configure the Authorization Extension"
+          - title: "Configuration"
             url: "/extensions/authorization-extension/v2/implementation/configuration"
             hidden: true
 
