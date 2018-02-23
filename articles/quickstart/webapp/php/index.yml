@@ -1,5 +1,9 @@
 title: PHP
 image: /media/platforms/php.png
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 tags:
   - quickstart
 snippets:

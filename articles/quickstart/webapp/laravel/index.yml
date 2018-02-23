@@ -2,6 +2,10 @@ title: PHP (Laravel)
 image: /media/platforms/php.png
 tags:
   - quickstart
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 snippets:
   dependencies: server-platforms/laravel/dependencies
   setup: server-platforms/laravel/setup

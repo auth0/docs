@@ -1,5 +1,9 @@
 title: Spring Security Java API
 third_party: false
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 alias:
   - spring security
   - spring
