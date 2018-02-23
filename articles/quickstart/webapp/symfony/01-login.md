@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'PHP 5.6, 7.0',
-    'Symfony 3.*'
+    'Symfony 3.3'
   ]
 }) %>
 
@@ -26,7 +26,11 @@ Add HWIOAuthBundle to `composer.json`.
 
 ${snippet(meta.snippets.dependencies)}
 
-and run `composer update`
+and run `composer update`.
+
+::: note
+This sample is using [`curl-client`](htthttps://github.com/php-http/curl-clienthttps://github.com/php-http/curl-clienthttps://github.com/php-http/curl-clientps://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
+:::
 
 ::: note
 This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
@@ -104,8 +108,11 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
     {
         parent::configureOptions($resolver);
 
-        $dotenv = new Dotenv(__DIR__ . '/../..');
-        $dotenv->load();
+        $dotenv = new Dotenv();
+
+        if (!getenv('AUTH0_DOMAIN')) {
+            $dotenv->load(__DIR__ . '/../../.env');
+        }
 
         $resolver->setDefaults(array(
             'authorization_url' => '{base_url}/authorize',
