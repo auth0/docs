@@ -29,7 +29,7 @@ ${snippet(meta.snippets.dependencies)}
 and run `composer update`.
 
 ::: note
-This sample is using [`curl-client`](htthttps://github.com/php-http/curl-clienthttps://github.com/php-http/curl-clienthttps://github.com/php-http/curl-clientps://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
+This sample is using [`curl-client`](https://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
 :::
 
 ::: note
