@@ -25,34 +25,50 @@ You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using
 
 **1. Using Client Credentials**
 
-```text
-curl --request POST \
-  --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
-  --data '{ "client_id":"YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "audience": "YOUR_API_AUDIENCE", "grant_type": "client_credentials" }'
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+  }
+}
 ```
 
 When using the Client Credentials flow, you will need to register a [Non Interactive Client](/clients). You should then subsequently use the **Client ID** and **Client Secret** of this Non Interactive Client when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
 
 **2. Using Resource Owner Password**
 
-```text
-curl --request POST \
-  --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
-  --data '{ "client_id":"${account.clientId}", "client_secret": "${account.clientSecret}", "audience": "YOUR_API_AUDIENCE", "grant_type": "password", "username": "USERNAME", "password": "PASSWORD", "scope": "SCOPE" }'
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"YOUR_API_IDENTIFIER\", \"scope\": \"read:messages\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
+  }
+}
 ```
 
-## Test Your API with cURL
-
-You can test your API using [cURL](https://curl.haxx.se/) using an Access Token you obtained before.
+## Test Your API 
 
 **1. Calling the secure endpoint**
 
 You can make a request to the `/api/private` endpoint without passing any Access Token:
 
-```text
-curl -i http://localhost:3010/api/private
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private"
+}
 ```
 
 The API will return a 401 HTTP (Unauthorized) status code:
@@ -61,9 +77,14 @@ The API will return a 401 HTTP (Unauthorized) status code:
 
 Once again, make the same request but this time pass along the Access Token as a Bearer token in the **Authorization** header of the request:
 
-```text
-curl -i http://localhost:3010/api/private \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
+  ]
+}
 ```
 
 This time the API will return a successful response:
@@ -74,9 +95,14 @@ This time the API will return a successful response:
 
 To test the endpoint that require a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
-```text
-curl -i http://localhost:3010/api/private-scoped \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private-scoped",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
+  ]
+}
 ```
 
 If the required scope is present, the API call is successful:
