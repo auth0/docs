@@ -24,7 +24,7 @@ Because cross-origin authentication is achieved using third-party cookies, disab
 There are two approaches you can follow to remediate the issue:
 
 - Enable [Custom Domains](/custom-domains) and host your web application in a domain that has the same top level domain as the Auth0 custom domain. This way the cookies are no longer third-party and are not blocked by browsers.
-- Provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
+- Provide a [Cross-Origin fallback page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
 
 These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
 
