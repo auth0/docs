@@ -10,7 +10,7 @@ next_steps:
     - text: Learn about anomaly detection
       icon: 345
       href: "/anomaly-detection"
-   - text: Learn about options for storing tokens
+    - text: Learn about options for storing tokens
       icon: 345
       href: "/security/store-tokens"
     - text: Learn about the user profile structure

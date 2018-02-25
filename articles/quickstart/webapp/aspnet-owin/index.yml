@@ -56,6 +56,6 @@ next_steps:
     - text: Learn about scopes
       icon: 345
       href: "/scopes"
-  - text: Learn about rules
+    - text: Learn about rules
       icon: 345
       href: "/rules"
