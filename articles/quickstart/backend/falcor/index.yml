@@ -15,7 +15,7 @@ snippets:
   setup: server-apis/falcor/setup
   use: server-apis/falcor/use
 articles:
-  - 01-authentication
+  - 01-authorization
   - 02-using
 show_steps: false
 github:

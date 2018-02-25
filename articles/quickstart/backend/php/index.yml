@@ -16,7 +16,7 @@ snippets:
   setup: server-apis/php/setup
   use: server-apis/php/use
 articles:
-  - 01-authentication
+  - 01-authorization
   - 02-using
 show_steps: false
 github:

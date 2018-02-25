@@ -24,5 +24,39 @@ requirements:
   - .NET Core 2.0
   - ASP.NET Core 2.0
   - Microsoft Visual Studio 2017 Update 3 or .NET core command line tools
-
-
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 350
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about options for storing tokens
+      icon: 345
+      href: "/security/store-tokens"
+- path: 03-user-profile.md
+  list:
+  - text: Learn about the user profile structure
+    icon: 350
+    href: "/user-profile/normalized/oidc"
+  - text: Learn about scopes
+    icon: 345
+    href: "/scopes"
+  - text: In-depth details about user profile
+    icon: 345
+    href: "/user-profile/user-profile-details"
+- path: 04-authorization.md
+  list:
+  - text: Learn about scopes
+    icon: 345
+    href: "/scopes"
+- text: Learn about rules
+    icon: 345
+    href: "/rules"
+sample_download_required_data:
+  - client

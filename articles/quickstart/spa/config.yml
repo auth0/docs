@@ -7,12 +7,12 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
     - text: Learn about options for storing tokens
       icon: 345
       href: "/security/store-tokens"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
   - path: 02-user-profile
     list:
     - text: Learn about the user profile structure
@@ -37,6 +37,9 @@ next_steps:
     - text: Learn about scopes
       icon: 345
       href: "/scopes"
+    - text: Introduction to API authorization
+      icon: 345
+      href: "/api-auth"
   - path: 05-token-renewal
     list:
     - text: Learn about token renewal

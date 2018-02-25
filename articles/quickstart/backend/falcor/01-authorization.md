@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: This tutorial will show you how to use the Auth0 to add authentication to your Falcor API.
+description: This tutorial will show you how to use the Auth0 to add authorization to your Falcor API.
 github:
   path: 01-Authorization-RS256
 ---

@@ -15,4 +15,4 @@ snippets:
   use: server-apis/relay/use
   frontend: server-apis/relay/frontend
 articles:
-  - 01-authentication
+  - 01-authorization

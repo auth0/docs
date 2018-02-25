@@ -27,3 +27,29 @@ github:
 requirements:
   - Ruby 2.3.1
   - Rails 5.0.0
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 350
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about options for storing tokens
+      icon: 345
+      href: "/security/store-tokens"
+  - path: 03-user-profile.md
+    list:
+    - text: Learn about the user profile structure
+      icon: 350
+      href: "/user-profile/normalized/oidc"
+    - text: Learn about scopes
+      icon: 345
+      href: "/scopes"
+    - text: In-depth details about user profile
+      icon: 345
+      href: "/user-profile/user-profile-details"
