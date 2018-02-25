@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'jQuery', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Add a new file and name it `app.js`. You can use the file to create and manage an instance of the `auth0.WebAuth` object and hold logic to hide and display DOM elements.
 

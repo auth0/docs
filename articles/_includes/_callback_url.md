@@ -1,4 +1,4 @@
-## Configure Callback URLs
+### Configure Callback URLs
 
 A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. 
 

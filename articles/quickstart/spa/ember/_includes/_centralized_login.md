@@ -1,6 +1,6 @@
-<%= include('../../_includes/_login_preamble', { library: 'Ember' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Ember' } )%>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `auth` and the filename will be `auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -220,7 +220,3 @@ Add a template for this route.
 ```
 
 Notice that there is also a `Log Out` control in this route which has an `action` of `logout`. This will call the `logout` method on the `auth` service allowing the user to log out.
-
-## Embedded Login
-
-Auth0's universal login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).

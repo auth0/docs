@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
 
@@ -123,7 +123,7 @@ import createHistory from 'history/createBrowserHistory'
 export default createHistory()
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
@@ -137,7 +137,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
 

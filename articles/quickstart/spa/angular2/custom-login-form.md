@@ -77,7 +77,7 @@ Create a template with a `form` which allows users to pass in their email and pa
 </form>
 ```
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 All authentication transactions should be handled from an injectable service. The service requires methods named `login`, `signup`, and `loginWithGoogle` which all make calls to the appropriate auth0.js methods to handle those actions. These methods are called from the `login` template above.
 

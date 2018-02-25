@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'JavaScript', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-javascript-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Add a new file called `app.js`. In the file, you can create and manage an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
 
@@ -132,7 +132,7 @@ window.addEventListener('load', function() {
 });
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 

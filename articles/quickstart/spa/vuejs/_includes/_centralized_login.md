@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `AuthService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -126,7 +126,7 @@ The service now includes several other methods for handling authentication.
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
