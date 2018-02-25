@@ -6,7 +6,7 @@ budicon: 448
 github:
   path: 00-Starter-Seed
 ---
-<%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
+<%= include('../_includes/_getting_started', { library: 'Scala', callback: 'http://localhost:3000/callback' }) %>
 
 ## Add the Auth0 Callback Handler
 

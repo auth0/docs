@@ -1,13 +1,3 @@
-## Configure Callback URLs
-
-A Callback URL is a URL that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly which could be harmful. For security reasons, you will need to add your application's callback URL in the **Allowed Callback URLs** box in your app's [Application Settings](${manage_url}/#/applications/${account.clientId}/settings). This will allow Auth0 to recognize the URLs as valid. The same principle applies to **Logout URLs**. They must be whitelisted in the Auth0 Dashboard.
-
-If you are following this guide directly, set the following for your Callback and Logout URLs:
-
-- Allowed Callback URLs: `http://localhost:3000/callback`
-- Allowed Logout URLs: `http://localhost:3000/logout`
-
-
 ## Setup Dependencies
 
 You'll need to configure **Spring Boot** in your project first. You can generate the base project in [this](https://start.spring.io/) link, choosing `Web` in the dependencies and clicking the button "Generate Project". The downloaded project has the Spring Boot dependencies and plugin applied. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.

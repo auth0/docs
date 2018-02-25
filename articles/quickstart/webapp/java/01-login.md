@@ -4,9 +4,7 @@ description: This tutorial demonstrates how to use the Auth0 Java SDK to add aut
 github:
   path: 01-Login
 ---
-This integration guide will walk you through setting up and managing authentication and authorization in your Java apps using Auth0.
-
-<%= include('../../../_includes/_new_app') %>
+<%= include('../_includes/_getting_started', { library: 'Java Servlet', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('_includes/_setup') %>
 

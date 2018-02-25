@@ -6,11 +6,11 @@ budicon: 448
 github:
     path: 01-Login
 ---
-You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
-
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
-## Add the Dependencies
+## Configure the application to use Auth0 for Authentication
+
+### Add the Dependencies
 
 This example uses [Flask](http://flask.pocoo.org) and the [Authlib](https://github.com/lepture/authlib) OAuth library.
 
@@ -66,7 +66,7 @@ auth0 = oauth.register(
 )
 ```
 
-## Add the Auth0 Callback Handler
+### Add the Callback Handler
 
 This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
 
@@ -163,7 +163,7 @@ def requires_auth(f):
   return decorated
 ```
 
-## Showing the User Profile
+## Show the User Profile
 
 Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session.
 

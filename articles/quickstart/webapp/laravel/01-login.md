@@ -6,6 +6,7 @@ budicon: 448
 github:
     path: 00-Starter-Seed
 ---
+<%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/callback' }) %>
 
 ## Install and Configure Laravel 5.5
 
@@ -21,7 +22,9 @@ If you are installing Auth0 to an existing app, you can skip this section. Other
     
 By the end of those 2 sections, you should have a Laravel application up and running locally or on a test server.
 
-## Install Auth0 Login and Dependencies
+## Integrate Auth0 in your application
+
+### Install the Auth0 plugin and its dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -75,7 +78,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-## Configure It
+### Configure It
 
 To configure the plugin, you must publish the plugin configuration and complete the file `config/laravel-auth0.php` using  information from your Auth0 account and details of your implementation.
 
@@ -187,7 +190,7 @@ Route::get('/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
 Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
 ```
 
-## Defining a User and a User Provider
+## Integrate with Laravel authentication system
 
 The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
@@ -384,6 +387,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records. 
+### Use the Laravel authentication system
 
 ## Extra: More About the QuickStart Project
 

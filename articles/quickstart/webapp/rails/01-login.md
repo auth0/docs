@@ -5,23 +5,8 @@ budicon: 448
 github:
   path: 01-Login
 ---
-The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [universal login page](/hosted-pages/login).
 
-## Create an Application
-
-Create a new application in your [Auth0 dashboard](${manage_url}) and retrieve the __Domain__, __Client ID__ and __Client Secret__ for the app. The downloadable samples throughout the quickstart steps will be configured with the credentials for your default application.
-
-![App Dashboard](/media/articles/server-platforms/rails/app_dashboard.png)
-
-<%= include('../../../_includes/_callback_url') %>
-
-${include('../_callbackRegularWebApp')}
-
-In this case, the callbackURL should look something like:
-
-```bash
-https://example.com/auth/oauth2/callback
-```
+<%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/oauth2/callback' }) %>
 
 ## Install the Dependencies
 
@@ -178,7 +163,7 @@ OmniAuth.config.on_failure = Proc.new { |env|
 }
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 ### ActionDispatch::Cookies::CookieOverflow
 

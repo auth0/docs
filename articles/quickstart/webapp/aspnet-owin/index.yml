@@ -17,7 +17,7 @@ articles:
   - 02-storing-tokens
   - 03-user-profile
   - 04-authorization
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnet-owin-mvc-samples

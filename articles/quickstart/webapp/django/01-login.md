@@ -6,13 +6,13 @@ budicon: 448
 github:
   path: 01-Login
 ---
-You can get started by either downloading the complete project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
-
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 
 This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
 
-## Install the Dependencies
+## Create a Django Application configured to use Auth0
+
+### Install the Dependencies
 
 Add the following dependencies to your `requirements.txt`:
 
@@ -29,7 +29,7 @@ Once the dependencies are listed in requirements.txt, run the following command:
 pip install -r requirements.txt
 ```
 
-## Create a Django Project
+### Create a Django Project
 
 This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
@@ -41,7 +41,7 @@ $ cd webappexample
 $ python manage.py startapp auth0login
 ```
 
-## Django Settings
+### Django Settings
 
 The `settings.py` file contains the configuration of your Django project. 
 
@@ -79,7 +79,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 ]
 ```
 
-## Initialize the Database
+### Initialize the Database
 
 The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in `INSTALLED_APPS`:
 
@@ -87,7 +87,7 @@ The `social_django` application defined in `INSTALLED_APPS` requires a database.
 $ python manage.py migrate
 ```
 
-## Create the Auth0 Authentication Backend
+### Create the Auth0 Authentication Backend
 
 The `social_django` application is now configured. The next step is to create an authentication backend that bridges `social_django` with Auth0.
 
@@ -158,7 +158,7 @@ LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 ```
 
-## Trigger Login with Social-Django
+## Trigger Authentication
 
 Add a handler for the `index` view in your `views.py` to render the `index.html`
 

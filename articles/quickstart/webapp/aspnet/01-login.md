@@ -6,7 +6,11 @@ budicon: 448
 github:
   path: Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample
 ---
-## Install the Auth0-ASPNET NuGet Package
+<%= include('../_includes/_getting_started', { library: 'ASP.NET', callback: 'http://localhost:PORT/LoginCallback.ashx' }) %>
+
+## Integrate Auth0 in your Application
+
+### Install the Auth0-ASPNET NuGet Package
 
 Install the Auth0-ASPNET package. In the NuGet Package Manager, click **Tools** > **Library package manager** > **Package Manager Console**. In the console, run the command: 
 
@@ -16,21 +20,13 @@ ${snippet(meta.snippets.dependencies)}
 This package adds the `LoginCallback.ashx` file to your project to process the login. 
 :::
 
-## Configure Callback URLs
-
-After authenticating the user on Auth0, send a POST request to the `/LoginCallback.ashx` URL on your website, for example `http://localhost:PORT/LoginCallback.ashx`. 
-
-For security, register this URL in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
-
-![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
-
-## Fill Web.Config With Your Auth0 Settings
+### Fill Web.Config With Your Auth0 Settings
 
 The NuGet package creates three settings on `<appSettings>`. Replace them with the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-## Authenticate the User
+## Trigger Authentication
 
 To authenticate the user, redirect them to Auth0's `/authorize` endpoint:
 

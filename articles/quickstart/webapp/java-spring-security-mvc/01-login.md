@@ -5,9 +5,7 @@ budicon: 448
 github:
   path: 01-Login
 ---
-This integration guide will walk you through setting up and managing authentication and authorization in your Java Spring Security MVC apps using Auth0.
-
-<%= include('../../../_includes/_new_app') %>
+<%= include('../_includes/_getting_started', { library: 'Java Spring Security', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('_includes/_setup') %>
 

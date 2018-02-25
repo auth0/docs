@@ -8,7 +8,9 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 
-## Using HWIOAuthBundle for Authentication
+## Integrate Auth0 in your Application
+
+### Using HWIOAuthBundle for Authentication
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate the Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
@@ -22,11 +24,11 @@ and run `composer update`.
 This sample is using [`curl-client`](https://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
 :::
 
-## Enable the Bundle
+### Enable the Bundle
 
 ${snippet(meta.snippets.setup)}
 
-## Configure the Routes
+### Configure the Routes
 
 Add the following routes at the beginning of `app/config/routing.yml`
 
@@ -46,7 +48,7 @@ auth0_logout:
     path: /auth0/logout
 ```
 
-## Create an Auth0 Resource Owner
+### Create an Auth0 Resource Owner
 
 You need to create an Auth0 resource owner to enable HWIOAuthBundle to connect to Auth0.
 
@@ -140,12 +142,12 @@ hwi_oauth:
             scope: "openid profile"
 ```
 
-## User Provider
+### User Provider
 
 You can create a user provider that implements `OAuthAwareUserProviderInterface` and set it up in the next step, or you
 can use one of the predefined services that `HWIOAuthBundle` provides.
 
-## Configure the OAuth Firewall
+### Configure the OAuth Firewall
 
 This is where you set the filters to select which pages require authentication or authorization. You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
@@ -182,7 +184,7 @@ security:
 
 Notice that we need to identify the user provided selected in the step before both in the providers and in the firewall.
 
-## Triggering Login and accessing user information
+## Trigger Authentication
 
 Set the following in `app/resources/views/index.html.twig`
 
@@ -199,4 +201,3 @@ Set the following in `app/resources/views/index.html.twig`
     <a href="/connect/auth0"><button>Login</button></a>
 {% endif %}
 ```
-
