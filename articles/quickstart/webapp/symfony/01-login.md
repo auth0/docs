@@ -32,10 +32,6 @@ and run `composer update`.
 This sample is using [`curl-client`](https://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
 :::
 
-::: note
-This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
-:::
-
 ## Enable the Bundle
 
 ${snippet(meta.snippets.setup)}
@@ -214,8 +210,3 @@ Set the following in `app/resources/views/index.html.twig`
 {% endif %}
 ```
 
-### Troubleshooting
-
-#### SSL certificate problem: self signed certificate in certificate chain
-
-If there is an issue with CAs database on your computer, you may need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem). To use it on Windows for example, place it in `c:\cacert.pem` and point to it in `php.ini` with `openssl.cafile=c:/cacert.pem`.
