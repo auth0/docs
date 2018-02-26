@@ -1,17 +1,21 @@
 ---
 title: Calling your APIs with Auth0 tokens
-description:
+description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
 ---
-# Calling your APIs with Auth0 tokens
+# Call your APIs with Auth0 tokens
 
 <%= include('./_about.md') %>
 
+With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means when using Auth0 tokens with your APIs.
+
+## Pipeline Changes
+
 One fundamental change that we're implementing in the OIDC-conformant pipeline is that **ID Tokens should never be used as API tokens**.
 
-Instead, client applications and APIs (resource services) should be defined as separate Auth0 entites. This allows you to obtain Access Tokens for your own APIs.
+Instead, client applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain Access Tokens for your APIs.
 
-You get simpler API integration, since your APIs are no longer tied to the client applications that make calls to it. You're also enabling [machine-to-machine integration scenarios]((/api-auth/grant/client-credentials)), since clients
-can authenticate as themselves](/api-auth/grant/client-credentials (that is, they are not acting on behalf on any user) to programmatically and securely obtain an API token.
+You get simpler API integration since your APIs are no longer tied to the client applications that make calls to it. You're also enabling [machine-to-machine integration scenarios](/api-auth/grant/client-credentials), since clients
+can authenticate as themselves](/api-auth/grant/client-credentials (that is, they are not acting on behalf of any user) to programmatically and securely obtain an API token.
 
 For example, [the Auth0 Management API is already defined as a resource server on your
 Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize clients seeking access to obtain API tokens with specific scopes in a secure way.
@@ -43,7 +47,7 @@ The sample above shows the contents of an ID Token. ID Tokens are meant only for
 
 Note that the audience value (located in the **aud** claim) of the token is set to the client's identifier. This means that only this specific client should consume the token.
 
-You can think of the ID Token as a performance optimization that allows clients to obtain user profile information without making additional requests after the completion fo the authentication process. ID Tokens should never be used to obtain direct access to resources or to make authorization decisions.
+You can think of the ID Token as a performance optimization that allows clients to obtain user profile information without making additional requests after the completion of the authentication process. ID Tokens should never be used to obtain direct access to resources or to make authorization decisions.
 
 **The Access Token**
 
@@ -70,30 +74,26 @@ The token does not contain any information about the user except for the user ID
 
 In many cases, you may find it useful to retrieve additional user information. You can do this by calling the [/userinfo API endpoint](/api/authentication#get-user-info) with the Access Token. Be sure that the API for which the Access Token is issued uses the **RS256** signing algorithm.
 
+## Scopes
 
+With the OIDC-conformant pipeline, the **scope** parameter [behaves differently](/api-auth/tutorials/adoption/scope-custom-claims) from the **scope** parameter associated with the legacy pipeline.
 
-[Note that the `scope` parameter has a different behavior than in the legacy pipeline](/api-auth/tutorials/adoption/scope-custom-claims).
-It determines the permissions that an authorized client should have for
-a given resource server (OAuth authorization), as well as which standard
-profile claims should be included in the ID Token (OIDC authentication),
-given that the user consents to providing that information to the
-client.
+The scope parameter in the OIDC-conformant pipeline determines:
 
-If you have multiple client applications calling one API under a single
-client ID, these should be broken up into individual clients and a
-resource server to represent the API that these applications depend on.
+* The permissions that an authorized client should have for a given resource server
+* Which standard profile claims should be included in the ID token (if the user consents to provide this information to the client)
 
-If you use [delegation to exchange tokens obtained by one client into
-tokens for a different client](/tokens/delegation), this should be
-replaced by multiple clients authenticating to the same resource server.
+If you have multiple client apps calling an API under a single client ID, you should represent each client app with a single Auth0 client, each of which can interact with the resource server representing the API on which these apps depend.
 
-If your applications do not depend on external APIs and just need to
-authenticate users, it is not necessary to define any resource server as
-long as ID Tokens are only processed by clients and not sent to external
-services.
+Similarly, if you use [delegation to exchange tokens obtained by one client for tokens for a different client](/tokens/delegation), you should also be using a multi-client solution, each authenticating to the same resource server.
+
+If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID tokens are:
+
+* Processed only by the client
+* Not sent to any external services
 
 ::: note
-  For more information on API authentication and authorization refer to <a href="/api-auth">API Authorization</a>.
+For more information on API authentication and authorization refer to <a href="/api-auth">API Authorization</a>.
 :::
 
 ## Further reading
