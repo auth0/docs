@@ -125,7 +125,7 @@ JWT_AUTH = {
 
 You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
 
-Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/2.0/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
+Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/1.11/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
 
 ```python
 # apiexample/settings.py
@@ -178,12 +178,12 @@ from django.http import JsonResponse
 from jose import jwt
 
 def public(request):
-    return JsonResponse({'message': 'All good. You don\'t need to be authenticated to call this'})
+    return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
 
 
 @api_view(['GET'])
 def private(request):
-    return JsonResponse({'message': 'All good. You only get this message if you\'re authenticated'})
+    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
 ```
 
 ## Configure the Scopes
@@ -239,7 +239,7 @@ Use the decorator in the methods that require specific scopes granted. The metho
 @api_view(['GET'])
 @requires_scope('read:messages')
 def private_scoped(request):
-    return JsonResponse("All good. You're authenticated and the Access Token has the appropriate scope")
+    return JsonResponse("Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
 ```
 
 ## Add URL Mappings
