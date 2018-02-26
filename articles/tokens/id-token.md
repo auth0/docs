@@ -83,8 +83,8 @@ var options = {
 };
 
 var lock = new Auth0Lock(
-  ${account.clientId},
-  ${account.namespace},
+  '${account.clientId}',
+  '${account.namespace}',
   options
 );
 
