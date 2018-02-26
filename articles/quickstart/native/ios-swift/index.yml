@@ -77,7 +77,7 @@ next_steps:
   - path: 00-login
     list:
     - text: Configure other identity providers
-      icon: 350
+      icon: 345
       href: "/identityproviders"
     - text: Enable multifactor authentication
       icon: 345
@@ -88,10 +88,10 @@ next_steps:
   - path: 03-user-sessions.md
     list:
     - text: Learn about refresh tokens
-      icon: 350
+      icon: 345
       href: "/tokens/refresh-tokens"
     - text: Learn about the user profile structure
-      icon: 350
+      icon: 345
       href: "/user-profile/normalized/oidc"
     - text: Learn about scopes
       icon: 345
@@ -102,7 +102,7 @@ next_steps:
   - path: 04-calling-apis.md
     list:
     - text: Learn about custom APIs
-      icon: 350
+      icon: 345
       href: "/api"
     - text: Introduction to API authorization
       icon: 345

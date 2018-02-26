@@ -193,3 +193,23 @@ Add a link to allow users to Log Out.
     <a class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
 </div>
 ```
+
+## Logout
+
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
+
+```python
+# /server.py
+
+@app.route('/logout')
+def logout():
+    # Clear session stored data
+    session.clear()
+    # Redirect user to logout endpoint
+    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
+    return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
+```
+
+::: note
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
+:::
