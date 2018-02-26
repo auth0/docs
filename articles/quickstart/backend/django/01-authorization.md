@@ -7,8 +7,6 @@ github:
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-This guide demonstrates how to add authorization to your Python API using [Django REST Framework](http://www.django-rest-framework.org/).
-
 <%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>

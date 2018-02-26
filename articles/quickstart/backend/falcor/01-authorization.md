@@ -19,7 +19,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description') %>
 
 Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 account.
 

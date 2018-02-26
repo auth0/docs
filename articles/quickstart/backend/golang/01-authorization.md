@@ -24,7 +24,7 @@ go get "github.com/codegangsta/negroni"
 go get "github.com/gorilla/mux"
 ```
 
-## Configuration
+### Configuration
 
 Setup **go-jwt-middleware** middleware to verify `access_token` from incoming requests.
 
@@ -94,7 +94,7 @@ func main() {
 }
 ```
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description') %>
 
 Create the function to get the remote JWKS for your Auth0 account and return the certificate with the public key in PEM format.
 

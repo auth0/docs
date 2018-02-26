@@ -61,7 +61,7 @@ def handle_auth_error(ex):
 
 ## Create the JWT Validation Decorator
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description') %>
 
 Add a decorator which verifies the `access_token` against your JWKS.
 
