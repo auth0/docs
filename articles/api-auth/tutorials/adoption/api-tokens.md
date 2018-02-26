@@ -6,11 +6,11 @@ description: The OIDC-conformant pipeline and how this affects your use of Auth0
 
 <%= include('./_about.md') %>
 
-With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means when using Auth0 tokens with your APIs.
+With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
 
-## Pipeline Changes
+## OIDC-conformant pipeline and tokens
 
-One fundamental change that we're implementing in the OIDC-conformant pipeline is that **ID Tokens should never be used as API tokens**.
+In the OIDC-conformant pipeline, **ID Tokens should never be used as API tokens**.
 
 Instead, client applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain Access Tokens for your APIs.
 
@@ -20,7 +20,7 @@ can authenticate as themselves](/api-auth/grant/client-credentials (that is, the
 For example, [the Auth0 Management API is already defined as a resource server on your
 Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize clients seeking access to obtain API tokens with specific scopes in a secure way.
 
-## Access vs. ID Tokens
+### Access vs. ID Tokens
 
 One way to understand how Access and ID Tokens differ in their behavior is to look at the contents of the tokens themselves.
 
