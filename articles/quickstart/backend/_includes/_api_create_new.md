@@ -5,4 +5,9 @@ In the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard, click **Crea
 
 ![Create API](/media/articles/api-auth/create-api.png)
 
+<% if (typeof sampleLink == 'string') { %>
 <%= include('../_includes/_api_jwks_description', { sampleLink: sampleLink }) %>
+<% } else { %>
+<%= include('../_includes/_api_jwks_description') %>
+<% }  %>
+
