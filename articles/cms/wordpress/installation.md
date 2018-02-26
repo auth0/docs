@@ -58,12 +58,14 @@ This is a good time to confirm that the basics are working for your site before 
 
 Now you're ready to [Configure](/cms/wordpress/configuration)!
 
-## Read Next
+## Keep Reading
+
+More information on the Login by Auth0 WordPress plugin:
 
 ::: next-steps
-* [Configuration](/cms/wordpress/configuration)
 * [How does it work?](/cms/wordpress/how-does-it-work)
-* [JWT Authentication](/cms/wordpress/jwt-authentication)
-* [Troubleshoot](/cms/wordpress/troubleshoot)
-* [Extension](/cms/wordpress/extension)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [JWT API authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::

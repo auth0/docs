@@ -56,12 +56,12 @@ Vydcvl6gpWNeUE
 
 ## Keep Reading
 
-For more information on the Login by Auth0 WordPress Plugin, follow these links.
+More information on the Login by Auth0 WordPress plugin:
 
 ::: next-steps
 * [How does it work?](/cms/wordpress/how-does-it-work)
-* [Installation](/cms/wordpress/installation)
-* [Configuration](/cms/wordpress/configuration)
-* [Troubleshoot](/cms/wordpress/troubleshoot)
-* [Extending](/cms/wordpress/extending)
+* [Install the plugin](/cms/wordpress/installation)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::

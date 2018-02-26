@@ -20,13 +20,12 @@ Login features are implemented through a new Login Widget (powered by Auth0) tha
 
 ## Keep Reading
 
-For more information on the Login by Auth0 WordPress Plugin, follow these links.
+More information on the Login by Auth0 WordPress plugin:
 
 ::: next-steps
 * [How does it work?](/cms/wordpress/how-does-it-work)
-* [Installation](/cms/wordpress/installation)
-* [Configuration](/cms/wordpress/configuration)
-* [JWT Authentication](/cms/wordpress/jwt-authentication)
-* [Troubleshoot](/cms/wordpress/troubleshoot)
-* [Extending](/cms/wordpress/extending)
+* [Install the plugin](/cms/wordpress/installation)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::

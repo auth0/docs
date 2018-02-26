@@ -288,14 +288,14 @@ add_action( 'auth0_user_login', 'auth0UserLoginAction', 0, 5 );
 
 Click [here](https://developer.wordpress.org/reference/functions/add_action/) to learn more about the `add_action` function.
 
-## Keep reading 
+## Keep Reading
 
-For more information on the Login by Auth0 WordPress Plugin, follow these links.
+More information on the Login by Auth0 WordPress plugin:
 
 ::: next-steps
 * [How does it work?](/cms/wordpress/how-does-it-work)
-* [Installation](/cms/wordpress/installation)
-* [JWT Authentication](/cms/wordpress/jwt-authentication)
-* [Troubleshoot](/cms/wordpress/troubleshoot)
-* [Extension](/cms/wordpress/extension)
+* [Install the plugin](/cms/wordpress/installation)
+* [JWT API authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::
