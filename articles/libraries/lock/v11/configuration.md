@@ -825,7 +825,7 @@ var options = {
 
 ### defaultEnterpriseConnection {String}
 
-Specifies the enterprise connection which allows to login using an username and a password that will be used when there is more than one available or there is a database connection. If a `defaultDatabaseConnection` is provided the database connection will be used and this option will be ignored.
+Specifies the enterprise connection which allows to login using a username and a password that will be used when there is more than one available or there is a database connection. If a `defaultDatabaseConnection` is provided the database connection will be used and this option will be ignored.
 
 ```js
 var options = {
