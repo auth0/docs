@@ -6,6 +6,7 @@ description: This tutorial demonstrates how to add automatic Access Token renewa
 description: This tutorial demonstrates how to add automatic access token renewal to an application with Auth0.
 >>>>>>> Added a final period for QS `descriptions`
 budicon: 448
+show_steps: false
 github:
   path: 05-Token-Renewal
 ---
