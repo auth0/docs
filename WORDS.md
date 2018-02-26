@@ -12,6 +12,7 @@ This document contains spellings and definitions as they are to be used in the A
 - **i.e.**: I.e. means `in other words`. Use `that is,` instead.
 - **e.g.**: E.g. means `for example`. Use `for example,` instead.
 - **etc.**: Use it when the space is too limited for the alternative. Otherwise use `and so on`.
+- **a** vs **an**: Where the 'u' sounds like 'you' we use 'a' (for example, a university vs an umbrella)
 
 ## Dashboard-Related Terminology
 
