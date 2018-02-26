@@ -7,7 +7,7 @@ github:
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-<%= include('../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
