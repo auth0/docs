@@ -4,7 +4,6 @@ name: Introduction to the quickstart guide and configuring the environment
 description: Introduction to the quickstart guide and configuring the environment.
 budicon: 715
 ---
-This quickstart guide walks you through integrating Auth0 into your ASP.NET Core MVC application.
 
 ## Seed Project
 

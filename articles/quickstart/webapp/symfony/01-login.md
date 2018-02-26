@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 
-## Integrate Auth0 in your Application
+## Configure your application to use Auth0 
 
 ### Using HWIOAuthBundle for Authentication
 

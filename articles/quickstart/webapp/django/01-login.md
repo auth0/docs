@@ -182,7 +182,7 @@ Add a link to `/login/auth0` in the `index.html` template.
 </div>
 ```
 
-## Access User Information
+## Display User Information
 
 After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file.
 

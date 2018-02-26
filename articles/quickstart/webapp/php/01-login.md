@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 
-## Integrate Auth0 in your application
+## Configure your application to use Auth0 
 
 ### Add the Dependencies
 
@@ -78,7 +78,7 @@ The user's information is stored in the session. Each time you call `getUser()`,
 The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [ Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
 :::
 
-## Access User Information
+## Display User Information
 
 You can access user information with the `getUser` method from Auth0.
 

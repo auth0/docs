@@ -7,7 +7,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
 
-## Integrate Auth0 in your application
+## Configure your application to use Auth0 
 
 ### Add Dependencies
 
@@ -199,7 +199,7 @@ Add a link to `/login` route in the `index.html` template.
 </div>
 ```
 
-## Access User Information
+## Display User Information
 
 You can access the user information via the `profile` you stored in the session previously.
 

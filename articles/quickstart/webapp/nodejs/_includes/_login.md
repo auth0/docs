@@ -1,4 +1,4 @@
-## Integrate Auth0 in your application
+## Configure your application to use Auth0 
 
 Install the necessary middleware.
 

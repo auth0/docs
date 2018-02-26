@@ -8,7 +8,9 @@ github:
 
 <%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/oauth2/callback' }) %>
 
-## Install the Dependencies
+## Configure your application to use Auth0 
+
+### Install the Dependencies
 
 To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
 
@@ -18,7 +20,7 @@ If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Initialize Omniauth Auth0
+### Initialize Omniauth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
@@ -28,7 +30,7 @@ ${snippet(meta.snippets.setup)}
 This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
 :::
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 Use the following command to create the controller that will handle the Auth0 callback:
 
@@ -64,7 +66,7 @@ get "/auth/oauth2/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-## Trigger Login with Omniauth
+## Trigger Authentication
 
 Create a file called `session_helper.rb`:
 
@@ -111,7 +113,7 @@ Create a file called `show.html.erb` to add the template for `show` action. Add 
 </section>
 ```
 
-## Check the User's Authentication Status
+### Check the User's Authentication Status
 
 You can use a controller `concern` to control access to routes that require the user to be authenticated.
 
@@ -150,7 +152,7 @@ class DashboardController < ApplicationController
 end
 ```
 
-## Display Error Descriptions
+### Display Error Descriptions
 
 Configure the application to display errors by adding the following to `config/environments/production.rb`:
 

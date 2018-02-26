@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure the application to use Auth0 for Authentication
+## Configure your application to use Auth0 
 
 ### Add the Dependencies
 

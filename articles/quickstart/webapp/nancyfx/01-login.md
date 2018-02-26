@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3000/callback' }) %>
 
-## Integrate Auth0 in your application
+## Configure your application to use Auth0 
 
 ### Install the Dependencies
 

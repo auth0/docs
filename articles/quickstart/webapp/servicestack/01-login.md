@@ -31,7 +31,7 @@ public class HomeController : Controller
 }
 ```
 
-## Integrate Auth0 in your application
+## Configure your application to use Auth0 
 
 We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications.
 
@@ -151,7 +151,7 @@ public class AccountController : Controller
 }
 ```
 
-## Access User Information
+## Display User Information
 
 Open `default.htm` and add a login button which will redirect the user to the `/Account/Login` route:
 
