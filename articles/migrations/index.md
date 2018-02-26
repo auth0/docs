@@ -94,19 +94,21 @@ The affected endpoints are:
 
 These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now.
 
-To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scopes required by each endpoint.
+To get a valid Access Token for these endpoints during authorization, you have to set the **audience** parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scopes required by each endpoint, according to the following table.
 
-Note that the following scopes are also required by some endpoints:
+| **Scope** | **Endpoints** |
+|-|-|
+| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) </br> [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) |
+| `update:current_user_identities` | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) </br> [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) |
+| `update:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
+| `create:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
+| `delete:current_user_metadata` | [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) |
+| `create:current_user_device_credentials` | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) |
+| `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
-- `read:current_user` (required by: [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id), [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments))
-- `update:current_user_identities` (required by: [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities), [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id))
-- `update:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
-- `create:current_user_metadata` (required by: [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id))
-- `delete:current_user_metadata` (required by: [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider))
-- `create:current_user_device_credentials` (required by: [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials))
-- `delete:current_user_device_credentials` (required by: [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id))
+For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the `read:current_user` scope which will allow to the end-user to retrieve the details of the currently logged in user (the one that the token was issued for).
 
-For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the scopes: `read:users`, `read:user_idp_tokens`, and `read:current_user`. For detailed steps and code samples, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+For detailed steps and code samples on how to get a token, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
 Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by the end of February 2018.
 
