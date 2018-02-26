@@ -89,6 +89,8 @@ After ExampleCo signs up for an Auth0 account (and creates a tenant), it needs t
 
 ## Where to go from here
 
+If you wish to learn more about the next steps in setting up Auth0, read more:
+
 - **Hook Auth0 up to your app**: Assuming that your app has a login and a logout button, you need to add some code in order to invoke Auth0 APIs each time one of these buttons is clicked. For details you can refer to one of our [quickstarts](/quickstarts). Alternatively, you can directly call our API to [log in](/api/authentication#login) or [log out](/api/authentication#logout) a user, or implement one of Auth0's [libraries and SDKs](/libraries).
 
 - **Migrate your users to Auth0**: If you already have a user store, you need to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to your own user database](/connections/database/custom-db) and access it via Auth0.
