@@ -79,9 +79,9 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-06-01 |
 
-We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials when calling the [Management API](/api/management/v2#!/Users/post_identities). This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
+For some use cases you could use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
 
-The affected endpoints are the following.
+This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. The affected endpoints are the following.
 
 | **Endpoint** | **Use Case** |
 |-|-|
