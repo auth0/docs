@@ -19,5 +19,6 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
+| February 26, 2018 | [CVE 2018-7307](/security/bulletins/cve-2018-7307) | Security vulnerability for auth0.js < 9.3 | [Auth0.js](/libraries/auth0js) |
 | December 22, 2017 | [CVE 2017-16897](/security/bulletins/cve-2017-16897) | Security update for **passport-wsfed-saml2** Passport strategy library | **passport-wsfed-saml2** Passport strategy library |
 | December 4, 2017 | [CVE 2017-17068](/security/bulletins/cve-2017-17068) | Security update for auth0.js popup callback vulnerability | [Auth0.js](/libraries/auth0js) |
