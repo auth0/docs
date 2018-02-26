@@ -16,3 +16,4 @@ snippets:
   frontend: server-apis/relay/frontend
 articles:
   - 01-authorization
+show_steps: true

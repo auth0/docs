@@ -16,7 +16,7 @@ articles:
   - 02-using
 seo_alias: django
 default_article: 01-authorization
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-django-api
