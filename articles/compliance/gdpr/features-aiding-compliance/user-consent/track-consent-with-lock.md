@@ -56,7 +56,7 @@ This works both for database connections and social logins.
 
 1. Go to [Dashboard > Hosted Pages](${manage_url}/#/login_page). At the **Login** tab enable the toggle. 
 
-1. At the **Default Templates** dropdown make sure that `Lock` is picked. The code is propulated for you.
+1. At the **Default Templates** dropdown make sure that `Lock` is picked. The code is prepopulated for you.
 
 1. To add a field for the `consentGiven` metadata, use the [mustAcceptTerms](/libraries/lock/configuration#mustacceptterms-boolean-) option. To include links to your Terms & Conditions and/or privacy policy pages, use the [languageDictionary](/libraries/lock/configuration#languagedictionary-object-) option. The example below, displays next to the flag the text `I agree to the terms of service and privacy policy` (including links to both pages).
 
@@ -108,7 +108,7 @@ This works only for database connections (if you use social logins, see the next
 
 1. Go to [Dashboard > Hosted Pages](${manage_url}/#/login_page). At the **Login** tab enable the toggle.
 
-1. At the **Default Templates** dropdown make sure that `Lock` is picked. The code is propulated for you.
+1. At the **Default Templates** dropdown make sure that `Lock` is picked. The code is prepopulated for you.
 
 1. To add a field for the `consentGiven` metadata, use the [additionalSignUpFields](/libraries/lock/configuration#additionalsignupfields-array-) option. The example below, sets the type to `checkbox` (so we have a flag), the label to `I consent to data processing`, and the default value to checked.
 
