@@ -401,6 +401,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
+| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
@@ -415,7 +416,8 @@ Signups should be for database connections. Here is an example of the `signup` m
         webAuth.signup({
             connection: 'Username-Password-Authentication',
             email: $('.signup-email').val(),
-            password: $('.signup-password').val()
+            password: $('.signup-password').val(),
+            user_metadata: { plan: 'silver', team_id: 'a111' }
         }, function (err) {
             if (err) return alert('Something went wrong: ' + err.message);
             return alert('success signup without login!')
