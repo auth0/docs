@@ -89,3 +89,10 @@ Installing this extension creates an `auth0-authz` client for your account. **Do
 When you click the link to open the extension for the first time, you will be asked to provide permission for the extension to access your Auth0 account. If you do, you will be redirected to the Authorization Dashboard.
 
 ![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
+
+## Keep Reading
+
+::: next-steps
+* [Configure the Authorization Extension](/extensions/authorization-extension/v2/implementation/configuration)
+* [Set Up the Authorization Extension](/extensions/authorization-extension/v2/implementation/setup)
+:::

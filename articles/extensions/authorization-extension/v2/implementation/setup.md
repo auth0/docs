@@ -140,3 +140,9 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 ![Create Permission](/media/articles/extensions/authorization/create-permission.png)
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
+
+## Keep Reading
+
+::: next-steps
+* [Configure the Authorization Extension](/extensions/authorization-extension/v2/implementation/configuration)
+:::

@@ -394,6 +394,22 @@ articles:
           - title: "Configuration"
             url: "/extensions/authorization-extension/v2/implementation/configuration"
             hidden: true
+          
+          - title: "API Access"
+            url: "/extensions/authorization-extension/v2/api-access"
+            hidden: true
+
+          - title: "Rules"
+            url: "/extensions/authorization-extension/v2/rules"
+            hidden: true
+
+          - title: "Troubleshooting"
+            url: "/extensions/authorization-extension/v2/troubleshooting"
+            hidden: true
+
+          - title: "Import / Export Data"
+            url: "/extensions/authorization-extension/v2/import-export-data"
+            hidden: true
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
