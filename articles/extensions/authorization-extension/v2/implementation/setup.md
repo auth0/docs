@@ -141,7 +141,8 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
 
-<%= include('./_stepnav', {
- prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"],
- next: ["Setup the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]
-}) %>
+## Keep Reading
+
+::: next-steps
+* [Configure the Authorization Extension](/extensions/authorization-extension/v2/implementation/configuration)
+:::

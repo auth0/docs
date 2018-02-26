@@ -54,8 +54,3 @@ The identity industry standards that we use here in Auth0 are:
 - [Learn the basics and familiarize yourself with the identity terminology](/getting-started/the-basics)
 - [Read about the four different deployment models that Auth0 offers](/getting-started/deployment-models)
 :::
-
-<%= include('./_stepnav', {
- next: ["Learn the Basics", "/getting-started/the-basics"],
- prev: ["Getting Started", "/getting-started"]
-}) %>

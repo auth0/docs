@@ -13,7 +13,3 @@ The Auth0 Management Dashboard provides a visual interface for working with Hook
 * [Create/Delete New Hooks](/hooks/dashboard/create-delete)
 * [Enable/Disable Existing Hooks](/hooks/dashboard/enable-disable)
 * [Edit Existing Hooks](/hooks/dashboard/edit)
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/hooks"]
-}) %>

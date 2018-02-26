@@ -269,12 +269,55 @@ articles:
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
+        children:
+
+          - title: "Credentials Exchange"
+            url: "/hooks/extensibility-points/credentials-exchange"
+            hidden: true
+
+          - title: "Pre-User Registration"
+            url: "/hooks/extensibility-points/pre-user-registration"
+            hidden: true
+
+          - title: "Post-User Registration"
+            url: "/hooks/extensibility-points/post-user-registration"
+            hidden: true
 
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
+        children:
+
+          - title: "Create/Delete Hooks"
+            url: "/hooks/cli/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/cli/edit"
+            hidden: true
+
+          - title: "Enable/Disable Hooks"
+            url: "/hooks/cli/enable-disable"
+            hidden: true
+
+          - title: "Hooks Logs"
+            url: "/hooks/cli/logs"
+            hidden: true
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
+        children:
+
+          - title: "Create or Delete Hooks"
+            url: "/hooks/dashboard/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/dashboard/edit"
+            hidden: true
+
+          - title: "Enable or Disable Hooks"
+            url: "/hooks/dashboard/enable-disable"
+            hidden: true
 
   - title: "Email"
     url: "/email"
@@ -338,6 +381,35 @@ articles:
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+        children:
+
+          - title: "Installation"
+            url: "/extensions/authorization-extension/v2/implementation/installation"
+            hidden: true
+          
+          - title: "Setup"
+            url: "/extensions/authorization-extension/v2/implementation/setup"
+            hidden: true
+
+          - title: "Configuration"
+            url: "/extensions/authorization-extension/v2/implementation/configuration"
+            hidden: true
+          
+          - title: "API Access"
+            url: "/extensions/authorization-extension/v2/api-access"
+            hidden: true
+
+          - title: "Rules"
+            url: "/extensions/authorization-extension/v2/rules"
+            hidden: true
+
+          - title: "Troubleshooting"
+            url: "/extensions/authorization-extension/v2/troubleshooting"
+            hidden: true
+
+          - title: "Import / Export Data"
+            url: "/extensions/authorization-extension/v2/import-export-data"
+            hidden: true
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
