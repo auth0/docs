@@ -1,4 +1,4 @@
-By default, your API uses RS256 as the algorithm for signing tokens. Since RS256 uses a private/public keypair, it verifies the tokens against the public key for your Auth0 account. You can access this public key [here](https://${account.namespace}/.well-known/jwks.json).
+By default, your API uses RS256 as the algorithm for signing tokens. Since RS256 uses a private/public keypair, it verifies the tokens against the public key for your Auth0 account. The public key is in the [JSON Web Key Set (JWKS)](/jwks) format, and can be accessed [here](https://${account.namespace}/.well-known/jwks.json).
 
 <% if (typeof sampleLink == 'string') { %>
 ::: note

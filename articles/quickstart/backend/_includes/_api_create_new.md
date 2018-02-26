@@ -1,4 +1,4 @@
-## Configure Auth0
+## Configure Auth0 APIs
 ### Create an API
 
 <<<<<<< HEAD
@@ -14,5 +14,5 @@ In the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard, click **Crea
 <% } else { %>
 <%= include('../_includes/_api_jwks_description') %>
 <% }  %>
-### Configure the Scopes
+### Define Scopes
 <%= include('../_includes/_api_scopes_access_resources') %>
