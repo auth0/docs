@@ -9,10 +9,6 @@ In this tutorial we will see how you can use Auth0.js or the Auth0 APIs to ask f
 
 ## Overview
 
-We will configure a simple JavaScript Single Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
-
-For the sake of simplicity, instead of building and hosting an app, we will use [Auth0's Hosted Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded).
-
 We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:
 
 ```text
@@ -22,18 +18,21 @@ We will capture consent information, under various scenarios, and save this at t
 ```
 
 We will see four different implementations for this:
-- one that displays a flag, works for database connections, and uses [Auth0.js](/libraries/auth0js) to create the user
-- one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user
-- one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information
-- one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed
+
+- one that displays a flag, works for database connections, and uses [Auth0.js](/libraries/auth0js) to create the user (used by Single Page Applications)
+- one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
+- one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
+- one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed (used either by SPAs or Regular Web Apps)
 
 All implementations will have the same final result, a `consentGiven` property saved at the [user's metadata](/metadata).
 
-## Configure the application
+## Option 1: Use Auth0.js
 
-1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new [client](/clients). Choose `Single Web Page Applications` as type.
+In this section, we will use a simple Single Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Hosted Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
-1. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
+This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
+
+1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new [client](/clients). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 
     :::note
     This field holds the set of URLs to which Auth0 is allowed to redirect the users after they authenticate. Our sample app will run at `http://localhost:3000` hence we set this value.
@@ -41,17 +40,121 @@ All implementations will have the same final result, a `consentGiven` property s
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
+1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
 
-1. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
+1. Download the [JavaScript SPA Sample](/quickstart/spa/vanillajs).
 
-## Option 1: Use Auth0.js
-
-In this section, we will customize the login widget to add a flag which users can use to provide consent information.
-
-This works **only** for database connections.
+1. [Set the Client ID and Domain](https://github.com/auth0-samples/auth0-javascript-samples/tree/master/01-Login#set-the-client-id-and-domain) values.
 
 1. Go to [Dashboard > Hosted Pages](${manage_url}/#/login_page). At the **Login** tab enable the toggle. 
 
 1. At the **Default Templates** dropdown make sure that `Custom Login Form` is picked. The code is prepopulated for you.
 
+1. Set the value of the `databaseConnection` variable to the name of the database connection your app is using. 
+
+    ```js
+    //code reducted for simplicity
+	var databaseConnection = 'test-db';
+	//code reducted for simplicity
+	```
+
+1. To add a field for the `consentGiven` metadata, add a checkbox at the form. For our example, we will configure the checkbox as checked by default and disabled so the user cannot uncheck it. You can adjust this according to your business needs.
+
+    ```js
+    //code reducted for simplicity
+    <div class="form-group">
+      <label for="name">I consent with data processing</label>
+      <input
+        type="checkbox"
+        id="userConsent"
+        checked disabled>
+    </div>
+    //code reducted for simplicity
+    ```
+
+1. Edit the `signup()` function to set the metadata. Note that we set the value of the metadata to a string with the value `true` and not to a boolean value. This is due to a restriction of the [Authentication API Signup endpoint](/api/authentication#signup) which only accepts strings as values, not booleans.
+
+    ```js
+    //code reducted for simplicity
+    webAuth.redirect.signupAndLogin({
+      connection: databaseConnection,
+      email: email,
+      password: password,
+      user_metadata: { consentGiven: 'true' }
+    }, function(err) {
+      if (err) displayError(err);
+    });
+    //code reducted for simplicity
+    ```
+
+1. To see what the login widget will look like, click the **Preview** tab.
+
+    ![Preview custom form with Auth0.js](/media/articles/compliance/auth0js-db-consent-flag.png)
+
+## Option 2: Call the API (Database)
+
+If you are serving your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
+
+For the same scenario we have been discussing so far, you can use the following snippet to create the user and set the metadata.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/dbconnections/signup",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"YOUR_USER_EMAIL\",\"password\": \"YOUR_USER_PASSWORD\",\"user_metadata\": {\"consentGiven\": \"true\"}}"
+  }
+}
+```
+
+Note that we set the value of the metadata to a string with the value `true` and not to a boolean value due to the API restriction that accepts strings as values, not booleans.
+
+If setting boolean values is a requirement for you, you can use the Management API instead. In this scenario you signup your user as usual, and then you call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id) to set the required metadata after the user has been created. For details on how to do that keep reading, the next paragraph uses that endpoint.
+
+## Option 3: Call the API (Social)
+
+Displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps).
+
+Before you call the Management API you need to get a valid token. For details on how to do that see [The Auth0 Management APIv2 Token](/api/management/v2#!/Users/patch_users_by_id).
+
+Once you have a valid token, use the following snippet to update the user's metadata.
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/users/{USER_ID}",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer YOUR_ACCESS_TOKEN"
+	},
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"user_metadata\": {\"consentGiven\":true}}" 
+    },
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+Note that in order to make this call you need to know the unique `user_id`. If all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search#users-by-email).
+
+## Option 4: Redirect to another page
+
+If you want to display more information to your user, then upon signup you can redirect to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). That same rule can be used to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
+
+<%= include('./_redirect.md') %>
+
+That's it, you are done!
