@@ -81,16 +81,18 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 We are deprecating the usage of [ID Tokens](/tokens/id-token) as credentials when calling the [Management API](/api/management/v2#!/Users/post_identities). This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
 
-The affected endpoints are:
+The affected endpoints are the following.
 
-- [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id)
-- [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments)
-- [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id)
-- [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider)
-- [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials)
-- [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
-- [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) (used for [Account Linking](/link-accounts))
-- [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) (used for [Account Linking](/link-accounts))
+| **Endpoint** | **Use Case** |
+|-|-|
+| [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) | Retrieve a user's information |
+| [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | Retrieve all [Guardian](/multifactor-authentication/guardian) MFA enrollments for a user |
+| [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) | Update a user's information |
+| [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) | Delete the [multifactor](/multifactor-authentication) provider settings for a user |
+| [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) | Create a public key for a device |
+| [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) | Delete a device credential |
+| [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
+| [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
 These endpoints will now accept regular [Access Tokens](/access-token). This functionality is available now.
 
@@ -106,7 +108,7 @@ To get a valid Access Token for these endpoints during authorization, you have t
 | `create:current_user_device_credentials` | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) |
 | `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
-For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the `read:current_user` scope which will allow to the end-user to retrieve the details of the currently logged in user (the one that the token was issued for).
+For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id) requires the `read:current_user` scope which will allow the end-user to retrieve the details of the currently logged in user (the one that the token was issued for).
 
 For detailed steps and code samples on how to get a token, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
