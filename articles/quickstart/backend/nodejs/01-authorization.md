@@ -12,7 +12,6 @@ github:
 <%= include('../_includes/_api_auth_preamble') %>
 
 This guide shows you how to validate the token using the jwt-express middleware and how to check for appropriate scopes with the express-jwt-authz middleware. If the token is not valid or does not have the required scopes, the user gets a 401 Authorization error when they try to access the endpoints.
-
 ### Install the Dependencies
 
 To verify incoming JWTs, you can use the [express-jwt](https://github.com/auth0/express-jwt) package.
@@ -26,7 +25,6 @@ Install these libraries with npm.
 ```bash
 npm install --save express-jwt jwks-rsa express-jwt-authz
 ```
-
 ### Configure the Middleware
 
 <%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-express-api-samples/tree/master/02-Authorization-HS256' }) %>
@@ -64,7 +62,6 @@ const checkJwt = jwt({
 ```
 
 The `checkJwt` middleware shown above checks if the user's access token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
-
 ## Protect Individual Endpoints
 
 To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` express-jwt middleware.
