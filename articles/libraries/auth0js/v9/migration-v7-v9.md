@@ -122,6 +122,70 @@ webAuth.popup.loginWithCredentials({
   password: 'the-password'
 });
 ```
+## Using Auth0.js to signup users
+
+### Using Auth0.js v7
+
+```js
+var auth0 = new Auth0({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  responseType: 'token'
+});
+
+// signup only
+auth0.signup({
+  connection: 'my-db-connection',
+  username: 'the-username',
+  password: 'the-password',
+  auto_login: false
+}, function (err) {
+  if (err) return alert('Something went wrong: ' + err.message);
+  alert('success signup without login!')
+});
+
+// signup and login
+auth0.signup({
+  connection: 'my-db-connection',
+  username: 'the-username',
+  password: 'the-password',
+  auto_login: true
+}, function (err) {
+  if (err) alert('Something went wrong: ' + err.message);
+});
+```
+
+## Using Auth0.js v9
+
+```js 
+var webAuth = new auth0.WebAuth({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  responseType: 'token'
+});
+
+// signup only
+
+webAuth.signup({
+  connection: 'my-db-connection',
+  email: 'the-email',
+  password: 'the-password',
+  user_metadata: { plan: 'silver', team_id: 'a111' }
+}, function (err) {
+  if (err) return alert('Something went wrong: ' + err.message);
+  alert('success signup without login!')
+});
+
+// signup and login
+webAuth.redirect.signupAndLogin({
+  connection: 'my-db-connection',
+  email: 'the-email',
+  password: 'the-password',
+  user_metadata: { plan: 'silver', team_id: 'a111' }
+}, function(err) {
+  if (err) alert('Something went wrong: ' + err.message);
+});
+```
 
 ## Using Auth0.js to log in users using passwordless
 
