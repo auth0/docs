@@ -1,6 +1,6 @@
 ---
-description: Single Sign On (SSO) with Auth0.
-toc: false
+title: Single Sign On (SSO) with Auth0
+description: Single Sign On (SSO) with Auth0
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 # Single Sign On (SSO) with Auth0
