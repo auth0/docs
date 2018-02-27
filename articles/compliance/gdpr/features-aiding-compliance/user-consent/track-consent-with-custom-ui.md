@@ -1,11 +1,11 @@
 ---
 title: Track consent with custom UI
-description: This tutorial describes how you can use either Auth0.js or the Auth0 APIs to capture consent information when you use your own custom UI for logins
+description: This tutorial describes how you can use either auth0.js or the Auth0 APIs to capture consent information when you use your own custom UI for logins
 toc: true
 ---
 # Track Consent with Custom UI
 
-In this tutorial we will see how you can use Auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
+In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
 
 ## Overview
 
@@ -19,14 +19,14 @@ We will capture consent information, under various scenarios, and save this at t
 
 We will see four different implementations for this:
 
-- one that displays a flag, works for database connections, and uses [Auth0.js](/libraries/auth0js) to create the user (used by Single Page Applications)
-- one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
-- one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
-- one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed (used either by SPAs or Regular Web Apps)
+1. one that displays a flag, works for database connections, and uses the [auth0.js](/libraries/auth0js) library to create the user (used by Single Page Applications)
+1. one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
+1. one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
+1. one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed (used either by SPAs or Regular Web Apps)
 
 All implementations will have the same final result, a `consentGiven` property saved at the [user's metadata](/metadata).
 
-## Option 1: Use Auth0.js
+## Option 1: Use auth0.js
 
 In this section, we will use a simple Single Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
@@ -89,11 +89,11 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 1. To see what the login widget will look like, click the **Preview** tab.
 
-    ![Preview custom form with Auth0.js](/media/articles/compliance/auth0js-db-consent-flag.png)
+    ![Preview custom form with auth0.js](/media/articles/compliance/auth0js-db-consent-flag.png)
 
 1. To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
 
-## Option 2: Call the API (Database)
+## Option 2: Use the API (Database)
 
 If you serve your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
 
@@ -118,9 +118,9 @@ Note that we set the value of the metadata to a string with the value `true` and
 
 If setting boolean values is a requirement for you, you can use the Management API instead. In this scenario you sign up your user as usual, and then you call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id) to set the required metadata after the user has been created. For details on how to do that keep reading, the next paragraph uses that endpoint.
 
-## Option 3: Call the API (Social)
+## Option 3: Use the API (Social)
 
-If you use social connection, then you cannot use the Authentication API to create the user at Auth0, since that endpoint works only for database connections.
+If you use social connections, then you cannot use the Authentication API to create the user at Auth0, since that endpoint works only for database connections.
 
 What you have to do instead is let your user sign up with the social provider (which will create a user record at Auth0) and then use the [Management API](/api/management/v2) to update the user's information.
 
