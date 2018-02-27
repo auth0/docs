@@ -5,13 +5,7 @@ title: Authorization Extension
 description: Control user authorization behavior during runtime with the Authorization Extension
 ---
 
-<div class="topic-page-header">
-  <div data-name="example" class="topic-page-badge"></div>
-  <h1>Authorization Extension</h1>
-  <p>
-    How to configure user authorization in your application using the Authorization Extension.
-  </p>
-</div>
+# Authorization Extension
 
 The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
 
