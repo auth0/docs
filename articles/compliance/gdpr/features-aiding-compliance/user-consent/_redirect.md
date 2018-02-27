@@ -50,14 +50,11 @@ If you are implementing this from a regular web app, hosting your own form, then
   - **Key**: `CONSENT_FORM_URL`
   - **Value**: `https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form`
 
-    :::note
-    If you want to work with your own implementation of the consent form webtask, you can host your own version of the webtask.js script. For instructions see [Consent Form Setup](https://github.com/auth0/rules/tree/master/redirect-rules/simple#consent-form-setup).
-    :::
+
+If you want to work with your own implementation of the consent form webtask, you can host your own version of the webtask.js script. For instructions see [Consent Form Setup](https://github.com/auth0/rules/tree/master/redirect-rules/simple#consent-form-setup).
+
+To learn more about redirect rules, see [Redirect Users from Rules](/rules/redirect).
 
 :::warning
 If you plan on using this approach in a production environment, make sure to review [Trusted Callback URL's](https://github.com/auth0/rules/tree/master/redirect-rules/simple#trusted-callback-urls) and [Data Integrity](https://github.com/auth0/rules/tree/master/redirect-rules/simple#data-integrity) (both sections address some security concerns).
-:::
-
-:::note
-To learn more about redirect rules, see [Redirect Users from Rules](/rules/redirect).
 :::
