@@ -28,7 +28,7 @@ All implementations will have the same final result, a `consentGiven` property s
 
 ## Option 1: Use Auth0.js
 
-In this section, we will use a simple Single Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Hosted Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
+In this section, we will use a simple Single Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
@@ -91,11 +91,13 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
     ![Preview custom form with Auth0.js](/media/articles/compliance/auth0js-db-consent-flag.png)
 
+1. To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
+
 ## Option 2: Call the API (Database)
 
-If you are serving your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
+If you serve your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
 
-For the same scenario we have been discussing so far, you can use the following snippet to create the user and set the metadata.
+For the same scenario we have been discussing so far, once you sign up a new user, you can use the following snippet to create the user at Auth0 and set the metadata.
 
 ```har
 {
@@ -114,13 +116,19 @@ For the same scenario we have been discussing so far, you can use the following 
 
 Note that we set the value of the metadata to a string with the value `true` and not to a boolean value due to the API restriction that accepts strings as values, not booleans.
 
-If setting boolean values is a requirement for you, you can use the Management API instead. In this scenario you signup your user as usual, and then you call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id) to set the required metadata after the user has been created. For details on how to do that keep reading, the next paragraph uses that endpoint.
+If setting boolean values is a requirement for you, you can use the Management API instead. In this scenario you sign up your user as usual, and then you call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id) to set the required metadata after the user has been created. For details on how to do that keep reading, the next paragraph uses that endpoint.
 
 ## Option 3: Call the API (Social)
 
-Displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps).
+If you use social connection, then you cannot use the Authentication API to create the user at Auth0, since that endpoint works only for database connections.
 
-Before you call the Management API you need to get a valid token. For details on how to do that see [The Auth0 Management APIv2 Token](/api/management/v2#!/Users/patch_users_by_id).
+What you have to do instead is let your user sign up with the social provider (which will create a user record at Auth0) and then use the [Management API](/api/management/v2) to update the user's information.
+
+Before you call the Management API you need to get a valid token. For details on how to do that see [The Auth0 Management APIv2 Token](/api/management/v2/tokens#1-get-a-token).
+
+:::panel Get a token from an SPA
+The linked article uses the [Client Credentials OAuth 2.0 grant](/api-auth/grant/client-credentials) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Implicit Grant](/api-auth/grant/implicit). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
+:::
 
 Once you have a valid token, use the following snippet to update the user's metadata.
 
@@ -149,12 +157,16 @@ Once you have a valid token, use the following snippet to update the user's meta
 }
 ```
 
-Note that in order to make this call you need to know the unique `user_id`. If all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search#users-by-email).
+Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search#users-by-email).
 
 ## Option 4: Redirect to another page
 
 If you want to display more information to your user, then upon signup you can redirect to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). That same rule can be used to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
 
 <%= include('./_redirect.md') %>
+
+1. To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. You will be navigated to the consent form. Check the **I agree** flag and click **Submit**. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
+
+    ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 
 That's it, you are done!
