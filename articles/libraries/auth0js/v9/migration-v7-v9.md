@@ -28,7 +28,7 @@ var auth0 = new Auth0({
 // With universal login
 auth0.login({});
 
-// With a social connection
+// With a social or enterprise connection
 auth0.login({
   connection: 'twitter'
 });
@@ -53,7 +53,7 @@ var webAuth = new auth0.WebAuth({
 // with universal login
 webAuth.authorize({});
 
-// with a social connection
+// with a social or enterprise connection
 webAuth.authorize({
   connection: 'twitter'
 });
@@ -82,7 +82,7 @@ auth0.login({
   popup: true
 });
 
-//with a social connection
+//with a social or enterprise connection
 auth0.login({
   popup: true,
   connection: 'twitter'
@@ -109,7 +109,7 @@ var webAuth = new auth0.WebAuth({
 // with universal login
 webAuth.popup.authorize({});
 
-// with a social connection
+// with a social or enterprise connection
 webAuth.popup.authorize({
   connection: 'twitter'
 });
