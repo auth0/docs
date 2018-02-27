@@ -1,16 +1,9 @@
 ---
-description: You can add step-up authentication to your app with Auth0's extensible multifactor authentication support.
+title: Step-Up Authentication with Custom Multifactor Authentication Rules
+description: Learn how you can add step-up authentication to your app with Auth0's extensible multifactor authentication support
 ---
 
-# Step-Up Authentication with Custom Multifactor Authentication Rules
-
-::: panel Notice
-Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA.
-
-[Click here for details.](/tutorials/step-up-authentication) 
-:::
-
-## What is Step-Up Authentication?
+# Step-Up Authentication with Custom MFA Rules
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
@@ -20,7 +13,11 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 ![](/media/articles/step-up-authentication/flow.png)
 
-## Custom Multifactor Authentication Rule
+::: note
+Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA. For details see [Step-up Authentication](/tutorials/step-up-authentication).
+:::
+
+## Custom Multifactor Authentication rule
 
 The following [rule](/rules) modifies the outgoing token by adding an `authentication_level` parameter. A regular login will be marked as `normal`.
 
@@ -60,7 +57,7 @@ function (user, context, callback) {
 In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
 :::
 
-## Application Logic
+## Application logic
 
 You will need to add logic to your app to check the user's login authentication level when they request access to sensitive resources.
 
@@ -96,7 +93,7 @@ router.get('/employees', requireMultiFactor, function(req, res) {
 Enable the **Use Auth0 instead of the IdP to do Single Sign On** option in the settings page of your client in Auth0, or specify a connection name when triggering step-up authentication, to make sure users are not forced to authenticate when already logged in. By enabling the SSO setting or specifying a connection name, your app will trigger an SSO login which will only prompt the user for multifactor authentication.
 :::
 
-## Sample Application
+## Sample application
 
 In the [Fabrikam Intranet sample](https://github.com/auth0/step-up-authentication-sample), a user that tries to access the Customers section will be required to authenticate:
 
