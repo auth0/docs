@@ -5,10 +5,12 @@ description: Guidelines for testing your Auth0 implementation prior to deploymen
 
 # Testing Your Auth0 Implementation
 
-We recommend that you run unit and integration tests for your Auth0 implementation prior to go-live. For your tests, we recommend that you mock the Auth0 APIs. We do not allow the Auth0 APIs to be used for testing purposes, and such actions may lead to your account being rate limited (especially if you're creating and deleting test users at a high rate during a short period of time).
+You should run unit and integration tests before implementing Auth0 on a live application or service.
+
+Performing tests against Auth0 APIs may lead to your account being rate limited, so we recommend creating mock Auth0 APIs during testing. There are numerous API mocking tools available, such as [MockServer](http://www.mock-server.com/) or [JSON Server](https://github.com/typicode/json-server), that enable you to quickly create fake APIs for testing. Depending on your development environment, your test tools may also provide mock API functionality.
 
 ::: note
-Only Enterprise customers may [request load testing against Auth0](/policies/load-testing).
+Enterprise customers may [request load testing against Auth0](/policies/load-testing).
 :::
 
 ## Performance Testing
