@@ -559,8 +559,72 @@ articles:
             url: "/integrations/marketing/watson-campaign-automation"
 
       - title: "Single Sign On"
-        url: "/sso/current/integrations"
+        url: "/integrations/sso"
+        children:
 
+          - title: "Active Directory Rights Management Service"
+            url: "/integrations/sso/ad-rms"
+            hidden: true
+
+          - title: "Box"
+            url: "/integrations/sso/box"
+            hidden: true
+
+          - title: "CloudBees"
+            url: "/integrations/sso/cloudbees"
+            hidden: true
+
+          - title: "Concur"
+            url: "/integrations/sso/concur"
+            hidden: true
+
+          - title: "Disqus"
+            url: "/integrations/sso/disqus"
+            hidden: true
+
+          - title: "Microsoft Dynamics Customer Relationship Management"
+            url: "/integrations/sso/dynamics-crm"
+            hidden: true
+
+          - title: "EchoSign"
+            url: "/integrations/sso/echosign"
+            hidden: true
+
+          - title: "Egnyte"
+            url: "/integrations/sso/egnyte"
+            hidden: true
+
+          - title: "New Relic"
+            url: "/integrations/sso/new-relic"
+            hidden: true
+
+          - title: "Microsoft Office 365"
+            url: "/integrations/sso/office-365"
+            hidden: true
+
+          - title: "Salesforce"
+            url: "/integrations/sso/salesforce"
+            hidden: true
+
+          - title: "Microsoft SharePoint"
+            url: "/integrations/sso/sharepoint"
+            hidden: true
+
+          - title: "Slack"
+            url: "/integrations/sso/slack"
+            hidden: true
+
+          - title: "SpringCM"
+            url: "/integrations/sso/springcm"
+            hidden: true
+
+          - title: "Zendesk"
+            url: "/integrations/sso/zendesk"
+            hidden: true
+
+          - title: "Zoom"
+            url: "/integrations/sso/zoom"
+            hidden: true
 
   - title: "Protocols"
     url: "/protocols"
