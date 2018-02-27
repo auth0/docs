@@ -29,15 +29,17 @@ If you are using social logins, adding custom fields is not an option, but you c
 For a tutorial on how to implement any of these scenarios, see the [Track Consent with Lock](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock).
 :::
 
-### Custom UI with database connection
+### Use your custom UI
 
-If you use a custom signup form with a database connection, you have to add an extra field to the signup screen in order to capture the user's consent. Afterwards, call the [Authentication API's Signup endpoint](/api/authentication#signup) in order to create the user in Auth0. At this point, you can set the consent information as part of the `user_metadata`. For a sample request, refer to [Custom Signup > Send the Form Data](/libraries/custom-signup#2-send-the-form-data).
+If you use a custom signup form with a database connection, you have to add an extra field to the signup screen in order to capture the user's consent. Afterwards, call the [Authentication API's Signup endpoint](/api/authentication#signup) in order to create the user in Auth0. At this point, you can set the consent information as part of the `user_metadata`.
 
-Alternatively, if you use Auth0.js, you can use [the signup method](/libraries/auth0js#sign-up) in order to create the user in Auth0 and set the consent info as part of the `user_metadata`.
+Alternatively, if you use Auth0.js from an SPA, you can use [the signup method](/libraries/auth0js#sign-up) in order to create the user in Auth0 and set the consent info as part of the `user_metadata`.
 
-### Custom UI with social login
+If you use a custom signup form with social providers, you cannot set the user's consent information upon signup but you can update it as soon as the user is created. Save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-If you use a custom signup form with social providers, you have to add an extra field to the signup screen in order to capture the user's consent. Save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+:::note
+For a tutorial on how to implement any of these scenarios, see the [Track Consent with Custom UI](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui).
+:::
 
 ### Re-consent and user migration
 
