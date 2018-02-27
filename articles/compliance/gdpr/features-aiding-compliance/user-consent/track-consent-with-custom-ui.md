@@ -165,8 +165,8 @@ If you want to display more information to your user, then upon signup you can r
 
 <%= include('./_redirect.md') %>
 
-1. To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. You will be navigated to the consent form. Check the **I agree** flag and click **Submit**. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
+To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. You will be navigated to the consent form. Check the **I agree** flag and click **Submit**. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
 
-    ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
+![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 
 That's it, you are done!
