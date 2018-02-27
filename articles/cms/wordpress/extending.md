@@ -12,7 +12,7 @@ WordPress plugins can be extended to fit your specific requirements by using act
 
 Actions in WordPress run custom code at specific points during processing. [Learn more about actions here](https://developer.wordpress.org/plugins/hooks/actions/). 
 
-`auth0_before_login`
+### auth0_before_login
 
 This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully but before they have been logged into WordPress. It can be used to stop the login process if needed using `wp_die()` or throwing an exception.
 
@@ -28,7 +28,7 @@ function a0_docs_ex_auth0_before_login ( $user ) {
 add_action( 'auth0_before_login', 'a0_docs_ex_auth0_before_login' );
 ``` 
 
-`auth0_user_login` 
+### auth0_user_login 
 
 This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully and logged into 
 WordPress. It can be used to set specific meta values, send notifications, or ping other services. 
@@ -49,7 +49,7 @@ function a0_docs_ex_auth0_user_login ( $user_id, $userinfo, $is_new, $id_token, 
 add_action( 'auth0_user_login', 'a0_docs_ex_auth0_user_login', 10, 5 );
 ``` 
 
-`wpa0_user_created` 
+### wpa0_user_created 
 
 This action runs in `WP_Auth0_Users` just after a WordPress user is successfully created. It can be used to change 
 user values, set additional user metas, or trigger other new user actions. 
@@ -75,7 +75,7 @@ add_action( 'wpa0_user_created', 'a0_docs_ex_wpa0_user_created', 10, 5 );
 
 Filters in WordPress also run custom code at specific points during processing but always return a modified value of the same type that was passed in. [Learn more about filters here](https://developer.wordpress.org/plugins/hooks/filters/). 
 
-`auth0_get_wp_user`
+### auth0_get_wp_user
 
 This filter is called after the plugin finds the related user to login (based on the auth0 `user_id`) and is used to override the default behaviour with custom matching rules (for example, always match by email).
 
@@ -97,7 +97,7 @@ function auth0_theme_hook_auth0_get_wp_user( $user, $userinfo ) {
 add_filter( 'auth0_get_wp_user', 'auth0_theme_hook_auth0_get_wp_user', 1, 2 );
 ```
 
-`auth0_verify_email_page`
+### auth0_verify_email_page
 
 This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a user who is logging in needs to verify their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified before being displayed (see the `_default_wp_die_handler()` definition in core for more information). 
 
@@ -118,7 +118,7 @@ function a0_docs_ex_auth0_verify_email_page ( $html, $userinfo, $id_token ) {
 add_filter( 'auth0_verify_email_page', 'a0_docs_ex_auth0_verify_email_page', 10, 3 );
 ```
 
-`auth0_get_auto_login_connection`
+### auth0_get_auto_login_connection
 
 This filter is used in `WP_Auth0_LoginManager` to modify what connection is used for the auto-login process. The 
 setting in wp-admin is pulled and then passed through this filter. 
@@ -138,7 +138,7 @@ function a0_docs_ex_auth0_get_auto_login_connection( $connection ) {
 add_filter( 'auth0_get_auto_login_connection', 'a0_docs_ex_auth0_get_auto_login_connection');
 ```
 
-`wp_auth0_get_option`
+### wp_auth0_get_option
 
 This filter is used by option-getting functions and methods to modify the output value.  
 
@@ -158,7 +158,7 @@ function a0_docs_ex_wp_auth0_get_option( $value, $key ) {
 add_filter( 'wp_auth0_get_option', 'a0_docs_ex_wp_auth0_get_option', 10, 2 );
 ```
 
-`auth0_migration_ws_authenticated`
+### auth0_migration_ws_authenticated
 
 This filter is used in `WP_Auth0_Routes` to alter the WP_User object that is JSON-encoded and returned to Auth0 
 during a user migration. 
@@ -178,7 +178,7 @@ function a0_docs_ex_auth0_migration_ws_authenticated( $user ) {
 add_filter( 'auth0_migration_ws_authenticated', 'a0_docs_ex_auth0_migration_ws_authenticated' );
 ```
 
-`wpa0_should_create_user`
+### wpa0_should_create_user
 
 This filter is used in `WP_Auth0_Users` when deciding whether a user should be created. The initial value passed in 
 is `TRUE`. If `FALSE` is returned for any reason, registration will be rejected and the registering user will see an 
@@ -200,7 +200,7 @@ function a0_docs_ex_wpa0_should_create_user( $should_create, $userinfo ) {
 add_filter( 'wpa0_should_create_user', 'a0_docs_ex_wpa0_should_create_user' );
 ```
 
-`auth0_login_css`
+### auth0_login_css
 
 This filter is used to modify the CSS on the login page, including the login widget itself. This filter runs before 
 CSS is retrieved from the wp-admin settings page.
