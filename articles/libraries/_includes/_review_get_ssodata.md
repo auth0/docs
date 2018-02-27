@@ -6,7 +6,11 @@ The function will not work as expected when you use it in Web Applications that 
 
 If you want to avoid showing the Lock dialog when there is an existing session in the server, you can use the [checkSession()](/libraries/auth0js#using-checksession-to-acquire-new-tokens) function in Auth0.js.
 
-We recommend that you do not use `getSSOData()` and use [checkSession()](/libraries/auth0js#using-checksession-to-acquire-new-tokens) instead. Note that in order for `checkSession()` to work properly, it  requires that you set the **Allowed Web Origins** field in the dashboard.
+We recommend that you do not use `getSSOData()` and use [checkSession()](/libraries/auth0js#using-checksession-to-acquire-new-tokens) instead. Note that in order for `checkSession()` to work properly, it requires that you set the **Allowed Web Origins** field in the dashboard.
+
+::: note
+Note that `checkSession()` triggers any [rules](/rules) you may have set up, whereas `getSSOData()` does not. It is possible that this could cause unintended behavior depending on what rules you have set up (if any) so you should check on your rules in the [Dashboard](${manage_url}/#/rules) prior to switching methods.
+:::
 
 If you are going to keep using `getSSOData()`, take into account the changes in the return values described in the table below. In most applications, the only value that was actually used was the `sso` property, which still has the same semantics. 
 
