@@ -889,7 +889,7 @@ Content-Type: application/json
 
 #### More Information
 
-- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/index)
+- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/)
 
 ### List MFA Authenticators
 
@@ -975,7 +975,7 @@ Content-Type: application/json
 
 #### More Information
 
-- [Manage the Authenticators](/multifactor-authentication/api/manage.md)
+- [Manage the Authenticators](/multifactor-authentication/api/manage)
 
 ### Delete a MFA Authenticator
 
@@ -1026,7 +1026,7 @@ HTTP/1.1 204 OK
 
 #### More Information
 
-- [Manage the Authenticators](/multifactor-authentication/api/manage.md)
+- [Manage the Authenticators](/multifactor-authentication/api/manage)
 
 ## Refresh Token
 
