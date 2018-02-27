@@ -122,7 +122,7 @@ webAuth.popup.loginWithCredentials({
   password: 'the-password'
 });
 ```
-## Using Auth0.js to signup users
+## Using Auth0.js to sign up users
 
 ### Using Auth0.js v7
 
@@ -155,7 +155,7 @@ auth0.signup({
 });
 ```
 
-## Using Auth0.js v9
+### Using Auth0.js v9
 
 ```js 
 var webAuth = new auth0.WebAuth({
