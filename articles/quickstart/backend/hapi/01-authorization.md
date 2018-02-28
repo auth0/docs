@@ -6,13 +6,13 @@ github:
 ---
 <%= include('../../../_includes/_api_auth_intro') %>
 
-<%= include('../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-hapi-api-samples/tree/master/02-Authenticate-HS256'}) %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done using the **hapi-auth-jwt2** plugin and can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
 
-## Install the Dependencies
+### Install the Dependencies
 
 The **hapi-auth-jwt2** plugin can be used to verify incoming JWTs. The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. Install these libraries with npm.
 
@@ -20,9 +20,7 @@ The **hapi-auth-jwt2** plugin can be used to verify incoming JWTs. The **jwks-rs
 npm install --save hapi-auth-jwt2 jwks-rsa
 ```
 
-## Configure hapi-auth-jwt2
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-hapi-api-samples/tree/master/02-Authenticate-HS256'}) %>
+### Configure hapi-auth-jwt2
 
 Set up the **hapi-auth-jwt2** plugin to fetch this public key through the **jwks-rsa** library.
 

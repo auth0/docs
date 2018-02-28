@@ -11,7 +11,7 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+### Install the Dependencies
 
  Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
@@ -24,7 +24,7 @@ pyjwt
 python-dotenv
 ```
 
-## Create a Django Project
+### Create a Django Project
 
 This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
@@ -36,7 +36,7 @@ $ cd apiexample
 $ python manage.py startapp auth0authorization
 ```
 
-## Django Settings
+### Configure Django
 
 The `settings.py` file contains the configuration of the Django project.
 
@@ -107,7 +107,7 @@ JWT_AUTH = {
 }
 ```
 
-## Add a Django Remote User
+### Add a Django Remote User
 
 You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
 
@@ -172,7 +172,7 @@ def private(request):
     return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
 ```
 
-## Configure the Scopes
+## Protect endpoints with specific scopes
 
 To configure scopes, click the Scopes section of the [Dashboard's APIs section](${manage_url}/#/apis) and configure the scopes you need.
 
@@ -228,7 +228,7 @@ def private_scoped(request):
     return JsonResponse("Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
 ```
 
-## Add URL Mappings
+### Add URL Mappings
 
 In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
 

@@ -17,7 +17,7 @@ If you want to follow along with this tutorial, you can download the [seed proje
 
 To see what the project looks like after each of the steps, check the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart).
 
-<%= include('../_includes/_api_create_new_2') %>
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 Update the `appsettings.json` file in your project with the correct domain and API identifier for your API. See the example below:
 
@@ -47,8 +47,6 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
 ## Configure the Middleware
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 

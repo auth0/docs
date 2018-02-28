@@ -11,7 +11,7 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+### Install the Dependencies
 
 This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to your `requirements.txt`:
 
@@ -25,9 +25,9 @@ flask-cors
 six
 ```
 
-## Create the Flask APP
+### Create the Flask APP
 
-Create a `server.py` file and initializate the Flask App. Set the domain, audience and the error handling.
+Create a `server.py` file and initialize the Flask App. Set the domain, audience and the error handling.
 
 ```python
 # /server.py
@@ -59,9 +59,7 @@ def handle_auth_error(ex):
     return response
 ```
 
-## Create the JWT Validation Decorator
-
-<%= include('../_includes/_api_jwks_description') %>
+### Create the JWT Validation Decorator
 
 Add a decorator which verifies the `access_token` against your JWKS.
 
@@ -146,7 +144,7 @@ def requires_auth(f):
     return decorated
 ```
 
-## Use this Decorator in your Methods
+### Use this Decorator in your Methods
 
 You can now use the decorator in any routes that require authentication.
 

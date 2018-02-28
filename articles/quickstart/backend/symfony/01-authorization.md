@@ -11,7 +11,7 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+### Install the Dependencies
 
 Protecting a Symfony API with Auth0 requires the **jwt-auth-bundle** package. Install it using **composer**.
 
@@ -25,7 +25,7 @@ ${snippet(meta.snippets.dependencies)}
 `v3.x.x` of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
 :::
 
-## Add the Bundle to AppKernel.php
+### Add the Bundle to AppKernel.php
 
 ```php
 // app/AppKernel.php
@@ -46,13 +46,13 @@ class AppKernel extends Kernel
     }
 ```
 
-## Add Configuration Values
+### Add Configuration Values
 
 Add your Auth0 domain and API audience to the `config.yml` file located in `app/config`.
 
 ${snippet(meta.snippets.setup)}
 
-## Set Up the User and UserProvider
+### Set Up the User and UserProvider
 
 Create your `User` and `UserProvider`.
 
@@ -75,7 +75,7 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-## Set Up the SecurityProvider
+### Set Up the SecurityProvider
 
 Modify the `security.yml` file located in `app/config` such that it contains the following:
 
@@ -85,7 +85,7 @@ Modify the `security.yml` file located in `app/config` such that it contains the
 
 ${snippet(meta.snippets.use)}
 
-## Set Up a Protected Route
+### Protect individual endpoint
 
 ```php
 // src/AppBundle/Controller/SecuredController.php
@@ -124,7 +124,7 @@ class SecuredController extends Controller
 }
 ```
 
-## Configuring Scopes
+## Protect endpoints with specific scopes
 
 Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**. The route defined above expects a scope of `read:messages` to be present in the payload of the `access_token`.
 

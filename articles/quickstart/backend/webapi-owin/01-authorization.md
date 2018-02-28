@@ -16,13 +16,11 @@ Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is 
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET (OWIN) Web API.
 
-## Seed and Samples
+### Seed and Samples
 
 If you would like to follow along with this Quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples/tree/master/Quickstart/00-Starter-Seed). The seed project is just a basic ASP.NET Web API with a simple controller and some of the NuGet packages which will be needed included. It has also defined some of the required Auth0-related settings in the `appSettings` key of the `Web.config`.
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples). You can find the final result for each step in the relevant folder inside the repository.
-
-<%= include('../_includes/_api_create_new_2') %>
 
 Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, such as
 
@@ -39,7 +37,7 @@ Also update the `web.config` file in your project with the correct **Domain** an
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET (OWIN) JWT middleware. 
 
-## Install Dependencies
+### Install Dependencies
 
 To use Auth0 Access Tokens with ASP.NET Core you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package. Also install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package which will assist you in verifying the token signature.
 
@@ -48,9 +46,7 @@ Install-Package Microsoft.Owin.Security.Jwt
 Install-Package Auth0.OpenIdConnectSigningKeyResolver
 ```
 
-## Configuration
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples/tree/master/Samples/hs256' }) %>
+### Configuration
 
 The `Auth0.OpenIdConnectSigningKeyResolver` package which you installed will automatically download the JSON Web Key Set which was used to sign the RS256 tokens by interrogating the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
 
@@ -88,6 +84,8 @@ public void Configuration(IAppBuilder app)
 Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
+## Protect individual endpoints
+
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
 ```csharp
@@ -109,11 +107,9 @@ public class ApiController : ApiController
 }
 ```
 
-## Configuring Scopes
+## Protect endpoints with specific scopes
 
 The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
-
-<%= include('../_includes/_api_scopes_access_resources') %>
 
 Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
@@ -176,9 +172,3 @@ public class ApiController : ApiController
     }
 }
 ```
-
-## Further Reading
-
-* To learn how you can call your API from applications, please refer to the [Using your API section](/quickstart/backend/webapi-owin/02-using).
-
-* If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/webapi-owin/03-troubleshooting).
