@@ -2,22 +2,22 @@
 description: This page explains the scenarios of how Auth0 integrates with WordPress.
 ---
 
-# How Auth0 Integrates with WordPress
+# Auth0-WordPress Integration
 
-There are several business flows that can occur when integrating Auth0 with your WordPress site.
+## Login Scenarios
 
 ![](/media/articles/cms/wordpress/plugin-auth-page.png)
 
-## Scenario 1: A user that doesn't exist in WordPress, but exists in Auth0, attempts to log in.
+### Scenario 1: Login attempt by user who exists in Auth0 but not in WordPress 
+#### Solution : Auth0 creates a new user profile on WordPress and logs the user in.
+#### How it works - 
+1. The user tries to access your WordPress site's login page.
+2. The user enters their login credentials.
+3. On successful login, the Auth0-WordPress plugin receives the user's Auth0 profile.
+5. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`.
 
-1. The user access your WordPress site's login page.
-2. The user provides their credentials.
-3. Auth0 attempts to authenticate the user.
-4. The Auth0-WordPress plugin receives the user's Auth0 profile.
-5. The Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`.
-
-  * If there **is** a user whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin checks to see if there is a user with the same `email`.
-  * If there **is not** a user whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin creates a new user profile and logs the user in.
+  * Condition 1 : A WordPress user **exists** whose credentials match an Auth0 `user_id`. Next it checks if the `email` address of the user matches. (What happens if the email address does not match ? Does the user get notified that the user id is taken ?)
+  * Condition 2 : A WordPress user **does not exist** whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin creates a new user profile and logs the user in.
 
 
 ## Scenario 2: A user that exists in WordPress **and** in Auth0 attempts to log in.
