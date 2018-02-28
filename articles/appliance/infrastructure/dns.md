@@ -142,6 +142,14 @@ The following are reserved tenant names and **may not** be used for the **app** 
     </tr>
 </table>
 
+::: warning
+Please note that the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) from **auth0** to the supplied name *must be greater than two*.
+
+This means that tenant names like **auth** or **authy** (and other similar names) cannot be used.
+
+To see if your tenant name meets this requirement, you can validate your selections using a [Levenshtein Distance calculator](http://www.unit-conversion.info/texttools/levenshtein-distance/).
+:::
+
 The Management Dashboard, Configuration Tenant, and App Tenant(s) must all be a part of the same parent domain (such as yourdomain.com).
 
 Three- or four-part domain names are supported (such as manage.project.yourdomain.com).
