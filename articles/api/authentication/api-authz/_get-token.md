@@ -889,7 +889,7 @@ Content-Type: application/json
 
 #### More Information
 
-- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/)
+- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api)
 
 ### List MFA Authenticators
 
