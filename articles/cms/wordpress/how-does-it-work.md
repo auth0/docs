@@ -43,7 +43,7 @@ Assumption : The user exists in your WordPress database and Auth0 **prior** to i
 3. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`.
 4. The Auth0-WordPress plugin finds the user in the WordPress database using their Auth0 user_id, so it logs the user in.
 
-### Scenario: Data Migration
+### Case 4: Data Migration
 
 If you enable [data migration](/connections/database/migrating), the Auth0-WordPress plugin will expose two secure endpoints that allow Auth0 to authenticate the users. These endpoints are secured with a secret token and only available to IP addresses associated with Auth0. You can change this in the Auth0 Dashboard's Client [Advanced Settings](${manage_url}/#/clients) page.
 
