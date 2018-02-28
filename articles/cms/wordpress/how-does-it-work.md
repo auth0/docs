@@ -16,8 +16,8 @@ description: This page explains the scenarios of how Auth0 integrates with WordP
 3. On successful login, the Auth0-WordPress plugin receives the user's Auth0 profile.
 3. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`. There are two possibilities here -
 
-  * WordPress user **exists** whose credentials match an Auth0 `user_id`. Next it checks if the `email` address of the user matches. (What happens if the email address does not match ? Does the user get notified that the user id is taken ?)
-  * WordPress user **does not exist** whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin creates a new user profile and logs the user in.
+   * WordPress user **exists** whose credentials match an Auth0 `user_id`. Next it checks if the `email` address of the user matches. (What happens if the email address does not match ? Does the user get notified that the user id is taken ?)
+   * WordPress user **does not exist** whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin creates a new user profile and logs the user in.
 
 
 ###  Case 2: Login attempt by user who exists in Auth0 **and** WordPress.
