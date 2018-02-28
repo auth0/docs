@@ -1,4 +1,6 @@
-## Configure your application to use Auth0 
+## Integrate Auth0 in your application
+
+### Setup Dependencies
 
 To integrate your Java application with Auth0, add the following dependencies:
 
