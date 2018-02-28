@@ -16,7 +16,8 @@ description: This page explains the scenarios of how Auth0 integrates with WordP
 3. On successful login, the Auth0-WordPress plugin receives the user's Auth0 profile.
 3. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`. There are two possibilities here -
 
-   * WordPress user **exists** whose credentials match an Auth0 `user_id`. Next it checks if the `email` address of the user matches. >(What happens if the email address does not match ? Does the user get notified that the user id is taken ?)
+   * WordPress user **exists** whose credentials match an Auth0 `user_id`. Next it checks if the `email` address of the user matches.  
+   >(What happens if the email address does not match ? Does the user get notified that the user id is taken ?)
    * WordPress user **does not exist** whose credentials match an Auth0 `user_id`, the Auth0-WordPress plugin creates a new user profile and logs the user in.
 
 
@@ -29,7 +30,7 @@ Assumption : The user exists in your WordPress database and Auth0 **prior** to i
 2. Auth0 attempts to authenticate the user.
 3. On successful login, the Auth0-WordPress plugin receives the user's Auth0 profile.
 3. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`. There are two possiblities here -
-   * WordPress user **exists** whose credentials match an Auth0 `user_id`. (Does the plugin allow login ? Does it check email address too?)
+   * WordPress user **exists** whose credentials match an Auth0 `user_id`. 
    * WordPress user **does not exist** whose credentials match Auth0 `user_id` field. In this case it will check if there is a user with matching email address. If a email match is found, the Auth0-WordPress plugin identifies a user with the provided `email`. Next it checks to see if the email is verified by Auto0 user. 
      * If the user has **verified** their email, the Auth0-WordPress plugin will update the WordPress user's `user_id` and log the user in.
      * If the user has **not verified** their email, the Auth0-WordPress plugin will end the authentication process, indicating that the user needs to verify their email prior to proceeding.
