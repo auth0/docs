@@ -31,8 +31,8 @@ In this scenario, the assumption is that the user exists in your WordPress datab
 3. Next the Auth0-WordPress plugin checks to see if there is a user in the WordPress database with credentials that match their Auth0 `user_id`. There are two possiblities here -
    * WordPress user **exists** whose credentials match an Auth0 `user_id`. (Does the plugin allow login ? Does it check email address too?)
    * WordPress user **does not exist** whose credentials match Auth0 `user_id` field. In this case it will check if there is a user with matching email address. If a email match is found, the Auth0-WordPress plugin identifies a user with the provided `email` and then checks to see if the Auto0 user has verified their email. 
-     ** If the user has **verified** their email, the Auth0-WordPress plugin will update the WordPress user's `user_id` and log the user in.
-     ** If the user has **not** verified their email, the Auth0-WordPress plugin will end the authentication process, indicating that the user needs to verify their email prior to proceeding.
+     * If the user has **verified** their email, the Auth0-WordPress plugin will update the WordPress user's `user_id` and log the user in.
+     * If the user has **not** verified their email, the Auth0-WordPress plugin will end the authentication process, indicating that the user needs to verify their email prior to proceeding.
 
 ## Scenario 3: A newly-created WordPress user that exists in Auth0 attempts to log in.
 
