@@ -137,7 +137,7 @@ The following are reserved tenant names and **may not** be used for the **app** 
         <td>help</td>
         <td>support</td>
         <td>int</td>
-        <td></td>
+        <td>auth</td>
         <td></td>
     </tr>
 </table>
