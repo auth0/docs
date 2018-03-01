@@ -1,6 +1,7 @@
 ---
 section: libraries
 toc: true
+title: Auth0.js v9 Reference
 description: How to install, initialize and use auth0.js v9
 ---
 # Auth0.js v9 Reference
@@ -290,7 +291,7 @@ webAuth.passwordlessLogin({
 );
 ```
 
-## Extract the authResult and Gget user info
+## Extract the authResult and get user info
 
 After authentication occurs, you can use the `parseHash` method to parse a URL hash fragment when the user is redirected back to your application in order to extract the result of an Auth0 authentication response. You may choose to handle this in a callback page that will then redirect to your main application, or in-page, as the situation dictates.
 
