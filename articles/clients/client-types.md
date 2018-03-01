@@ -1,5 +1,7 @@
 ---
-title: Public and confidential, first vs. third-party clients
+title: Client Types
+description: Read about the the different client types: public vs confidential, and first vs third-party
+toc: true
 ---
 # Client Types
 
@@ -7,16 +9,16 @@ title: Public and confidential, first vs. third-party clients
 
 When working with Auth0 clients, which are used to represent your applications, there are several terms you should know in terms of how clients are classified:
 
-* Confidential vs. public
-* First vs. third-party
+* [Confidential vs public](#confidential-vs-public-clients)
+* [First vs third-party](#first-vs-third-party-clients)
 
-## Confidential vs. Public Clients
+## Confidential vs public clients
 
 The OAuth 2.0 specification [defines two types of clients](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential.
 
 When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 will ask you what type of application you want the client to represent and use that information to determine the client type.
 
-### Checking Your Client Type
+### Check your client type
 
 You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
 
@@ -35,7 +37,7 @@ You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Cl
 See [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
 :::
 
-### Confidential Clients
+### Confidential clients
 
 Confidential clients are able to hold credentials (such as a client ID and secret) in a secure way without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
 
@@ -51,7 +53,7 @@ Since confidential clients are capable of holding secrets, you can choose to hav
 * Symmetrically using their client secret (`HS256`)
 * Asymmetrically using a private key (`RS256`)
 
-### Public Clients
+### Public clients
 
 Public clients **cannot** hold credentials securely. The following application types use public clients:
 
@@ -63,17 +65,17 @@ Since public clients are unable to hold secrets, [ID Tokens](/tokens/id-token) i
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token
 
-## First vs. Third-Party Clients
+## First vs third-party clients
 
 First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain.
 
-### First-Party Client
+### First-party client
 
 First-party clients are those controlled by the same organization or person who owns the Auth0 domain. For example, if you wanted to access the Contoso API, you'd use a first-party client to log into `contoso.com`.
 
 All clients created via the [Dashboard](${manage_url}/#/clients) are first-party by default.
 
-### Third-Party Client
+### Third-party client
 
 Third-party clients are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party clients enable external parties or partners to access protected resources behind your API securely. For example, if you were to create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you would use a third-party client. 
 
