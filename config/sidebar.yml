@@ -497,8 +497,28 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "CVE 2018-7307"
+            url: "/security/bulletins/cve-2018-7307"
+            hidden: true
+            
+          - title: "CVE 2017-16897"
+            url: "/security/bulletins/cve-2017-16897"
+            hidden: true
+            
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
+            hidden: true
+      - title: "Where to Store Tokens"
+        url: "/security/store-tokens"
+        hidden: true
+      
+      - title: "Common Threats"
+        url: "/security/common-threats"
+        hidden: true
+      
+      - title: "Blacklist User Attributes"
+        url: "/security/blacklisting-attributes"
+        hidden: true
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
