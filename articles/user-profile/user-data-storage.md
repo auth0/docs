@@ -182,7 +182,7 @@ To save the changes to the database, the application makes a call to the [Get a 
 
 This is followed by a call to the [Update a User](/api/management/v2#!/Users/patch_users_by_id) endpoint to update the `user_metadata` field:
 
-'''har
+```har
 {
   "method": "PATCH",
   "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
@@ -204,7 +204,7 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
   "bodySize": -1,
   "comment": ""
 }
-'''
+```
 
 ## Why shouldn't I put all my Client's data in the Auth0 data store?
 
