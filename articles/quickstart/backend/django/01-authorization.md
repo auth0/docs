@@ -80,11 +80,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json).
-
-Obtain the public key from your [JWKS](/jwks). Then set the settings for [REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/).
-
-Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default those values will be retrieved from the `.env` file.
+Download the JWKS for your Auth0 domain and create a public key variable with it:
 
 ```python
 # apiexample/settings.py
@@ -95,6 +91,14 @@ cert = '-----BEGIN CERTIFICATE-----\n' + jwks['keys'][0]['x5c'][0] + '\n-----END
 
 certificate = load_pem_x509_certificate(str.encode(cert), default_backend())
 publickey = certificate.public_key()
+```
+
+Configure the [Django REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/) by setting the JWT_AUTH variable. 
+
+Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default those values will be retrieved from the `.env` file.
+
+```python
+# apiexample/settings.py
 
 JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER':
