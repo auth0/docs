@@ -8,7 +8,7 @@ toc: true
 This tutorial covers implementing Single Sign On (SSO) with Auth0.
 
 ::: note
-For information on SSO Integrations, check out the [Single Sign On Integrations](/sso/integrations) page.
+For information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
 :::
 
 ## 1. Configure the Connection

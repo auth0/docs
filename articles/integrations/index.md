@@ -66,58 +66,58 @@ description: Learn how to integrate Auth0 with other applications and services.
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-334"></i><a href="/sso/current/integrations">Single Sign On Integrations</a>
+    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign On Integrations</a>
     <p>
         Learn how to set up Single Sign On between Auth0 and various services.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/ad-rms">Active Directory RMS</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/ad-rms">Active Directory RMS</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/box">Box</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/box">Box</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/cloudbees">CloudBees</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cloudbees">CloudBees</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/disqus">Disqus</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/disqus">Disqus</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/dropbox">Dropbox</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dropbox">Dropbox</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/dynamics-crm">Microsoft Dynamics CRM</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dynamics-crm">Microsoft Dynamics CRM</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/echosign">Adobe EchoSign</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/echosign">Adobe EchoSign</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/egnyte">Egnyte</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egnyte">Egnyte</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/new-relic">New Relic</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/new-relic">New Relic</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/office-365">Office 365</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/salesforce">SalesForce</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">SalesForce</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/sharepoint">SharePoint</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sharepoint">SharePoint</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/slack">Slack</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/slack">Slack</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/springcm">SpringCM</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/springcm">SpringCM</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/zendesk">Zendesk</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zendesk">Zendesk</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/sso/current/integrations/zoom">Zoom</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zoom">Zoom</a>
       </li>
     </ul>
   </li>
