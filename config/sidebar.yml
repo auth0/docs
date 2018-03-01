@@ -562,7 +562,7 @@ articles:
         url: "/integrations/sso"
         children:
 
-          - title: "Active Directory Rights Management Service"
+          - title: "Active Directory RMS"
             url: "/integrations/sso/ad-rms"
             hidden: true
 
@@ -582,7 +582,11 @@ articles:
             url: "/integrations/sso/disqus"
             hidden: true
 
-          - title: "Microsoft Dynamics Customer Relationship Management"
+          - title: "Dropbox"
+            url: "/integrations/sso/dropbox"
+            hidden: true
+
+          - title: "Microsoft Dynamics CRM"
             url: "/integrations/sso/dynamics-crm"
             hidden: true
 
