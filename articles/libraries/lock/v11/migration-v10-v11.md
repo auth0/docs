@@ -26,3 +26,4 @@ This guide includes all the information you need to update your Lock v10 applica
 <%= include('../../_includes/_ip_ranges') %>
 <%= include('../../_includes/_default_values_lock') %>
 <%= include('../../_includes/_embedded_sso') %>
+<%= include('../../_includes/_error_responses') %>
