@@ -38,6 +38,5 @@ The result is a new Access Token which includes the high-value scope. The client
 
 ::: next-steps
 * [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token)
-* [Implement Step-Up Authentication with Custom MFA Rules](/multifactor-authentication/custom-mfa-rules)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
 :::
