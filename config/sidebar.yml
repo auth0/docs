@@ -692,9 +692,33 @@ articles:
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
-
-      - title: "Overview"
-        url: "/addons"
+      - title: "Amazon Web Services"
+        url: "/addons/aws"
+        hidden: true
+            
+      - title: "Azure Blob Storage"
+        url: "/addons/azure-blob-storage"
+        hidden: true
+            
+      - title: "Azure Mobile Services"
+        url: "/addons/azure-mobile-services"
+        hidden: true
+            
+      - title: "Azure Service Bus"
+        url: "/addons/azure-sb"
+        hidden: true
+            
+      - title: "Salesforce (Sandbox)"
+        url: "/addons/salesforce-sandbox"
+        hidden: true
+            
+      - title: "Salesforce"
+        url: "/addons/salesforce"
+        hidden: true
+            
+      - title: "SAP OData"
+        url: "/addons/sap-odata"
+        hidden: true
 
   - title: "Auth0 Migrations"
     url: "/migrations"
