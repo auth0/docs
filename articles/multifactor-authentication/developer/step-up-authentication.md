@@ -1,4 +1,5 @@
 ---
+title: Step-up Authentication
 description: Describes using acr_values and acr claims to perform step-up authentication with Auth0
 ---
 # Step-up Authentication
@@ -36,7 +37,7 @@ The result is a new Access Token which includes the high-value scope. The client
 ## Keep reading
 
 ::: next-steps
-* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/custom)
+* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token)
 * [Implement Step-Up Authentication with Custom MFA Rules](/multifactor-authentication/custom-mfa-rules)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
 :::
