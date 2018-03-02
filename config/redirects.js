@@ -78,10 +78,6 @@ module.exports = [
     to: '/quickstart/spa/emberjs'
   },
   {
-    from: '/firebaseapi-tutorial',
-    to: '/clients/addons'
-  },
-  {
     from: '/ionic-tutorial',
     to: '/quickstart/native/ionic'
   },
@@ -164,18 +160,6 @@ module.exports = [
   {
     from: '/phonegap-tutorial',
     to: '/quickstart/native/phonegap'
-  },
-  {
-    from: '/salesforcesandboxapi-tutorial',
-    to: '/clients/addons'
-  },
-  {
-    from: '/salesforceapi-tutorial',
-    to: '/clients/addons'
-  },
-  {
-    from: '/sapapi-tutorial',
-    to: '/clients/addons'
   },
   {
     from: '/servicestack-tutorial',
