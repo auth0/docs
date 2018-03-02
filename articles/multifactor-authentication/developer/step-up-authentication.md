@@ -36,7 +36,7 @@ The result is a new Access Token which includes the high-value scope. The client
 ## Keep reading
 
 ::: next-steps
-* [Configure Custom MFA](/multifactor-authentication/custom)
-* [An implementation of JSON Web Tokens with Node.js](https://github.com/auth0/node-jsonwebtoken)
+* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/custom)
+* [Implement Step-Up Authentication with Custom MFA Rules](/multifactor-authentication/custom-mfa-rules)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
 :::
