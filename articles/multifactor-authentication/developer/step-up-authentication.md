@@ -14,7 +14,7 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 ## Step-up Authentication for APIs
 
-You can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules).
+When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules).
 
 ::: note
 An Access Token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes your Access Token includes. The rules are JavaScript functions you can use to run custom logic when a user authenticates.
@@ -32,7 +32,7 @@ The Access Token that the user currently has does not include this scope and the
 
 The solution is that the client performs another authentication call, but this time it requests the required scope. The browser redirects to Auth0 and a rule is used to challenge the user to authenticate with MFA since a high-value scope was requested.
 
-The result is a new Access Token which includes the high-value scope. The client will discard the token (that is, not store it in local storage like the original token) thereby treating it like a single-use token.
+Once the user successfully authenticates with MFA, a new Access Token which includes the high-value scope is generated and sent. The client will pass the Access Token to the API which will discard it after verification, thereby treating it like a single-use token.
 
 ## Step-up Authentication for Web Apps
 
