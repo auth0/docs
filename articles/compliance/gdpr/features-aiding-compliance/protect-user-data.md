@@ -66,9 +66,11 @@ For information on how to use them see [Password Strength](/connections/database
 
 ## Step-up authentication
 
-With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [multifactor authentication](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then authenticating with one more factor (for example, a code sent via SMS) is required.
+With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [Multifactor Authentication (MFA)](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then they must authenticate with one more factor (for example, a code sent via SMS).
 
-For implementation details, and a sample application that shows how to implement step-up with Auth0, see [Step-up Authentication with custom Multifactor Authentications Rules](/multifactor-authentication/custom-mfa-rules).
+You can check if a user has logged in with MFA by reviewing the contents of their ID Token. You can then configure your application to deny access to sensitive resources if the ID Token indicates that the user did not log in with MFA.
+
+For details see [Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token).
 
 ## Availability and resilience
 
