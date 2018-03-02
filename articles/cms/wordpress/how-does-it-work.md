@@ -56,11 +56,14 @@ The login flow is as follows:
 3. The Auth0-WordPress plugin find a user in your WordPress database with the provided username/email, so it verifies the password.
 4. Auth0 creates the user in your Auth0 account, authenticates the user, and logs them in.
 
-## More on the Login by Auth0 WordPress Plugin
+## Keep Reading
 
-:::next-steps
-- [Installation](/cms/wordpress/installation)
-- [Configuration](/cms/wordpress/configuration)
-- [JWT Authentication](/cms/wordpress/jwt-authentication)
-- [Troubleshoot](/cms/wordpress/troubleshoot)
+More information on the Login by Auth0 WordPress plugin:
+
+::: next-steps
+* [Install the plugin](/cms/wordpress/installation)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [JWT API authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::

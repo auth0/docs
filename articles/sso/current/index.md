@@ -1,6 +1,6 @@
 ---
-description: Single Sign On (SSO) with Auth0.
-toc: false
+title: Single Sign On (SSO) with Auth0
+description: Single Sign On (SSO) with Auth0
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 # Single Sign On (SSO) with Auth0
@@ -16,6 +16,5 @@ Single Sign On (SSO) occurs when a user logs in to one application and is then s
 <%= include('./_in-this-section', { links: [
   'sso/current/introduction',
   'sso/current/setup',
-  'sso/current/single-page-apps',
-  'sso/current/integrations'
+  'sso/current/single-page-apps'
 ] }) %>

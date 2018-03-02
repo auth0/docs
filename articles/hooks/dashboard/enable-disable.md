@@ -36,7 +36,3 @@ You will now see a green dot next to the name of the Hook, indicating that it's 
 4. Confirm your selection by clicking **YES, DISABLE HOOK**.
 
   ![Confirm Hook to Disable](/media/articles/hooks/disable-hook.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/dashboard"]
-}) %>

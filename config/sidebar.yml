@@ -269,12 +269,55 @@ articles:
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
+        children:
+
+          - title: "Credentials Exchange"
+            url: "/hooks/extensibility-points/credentials-exchange"
+            hidden: true
+
+          - title: "Pre-User Registration"
+            url: "/hooks/extensibility-points/pre-user-registration"
+            hidden: true
+
+          - title: "Post-User Registration"
+            url: "/hooks/extensibility-points/post-user-registration"
+            hidden: true
 
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
+        children:
+
+          - title: "Create/Delete Hooks"
+            url: "/hooks/cli/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/cli/edit"
+            hidden: true
+
+          - title: "Enable/Disable Hooks"
+            url: "/hooks/cli/enable-disable"
+            hidden: true
+
+          - title: "Hooks Logs"
+            url: "/hooks/cli/logs"
+            hidden: true
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
+        children:
+
+          - title: "Create or Delete Hooks"
+            url: "/hooks/dashboard/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/dashboard/edit"
+            hidden: true
+
+          - title: "Enable or Disable Hooks"
+            url: "/hooks/dashboard/enable-disable"
+            hidden: true
 
   - title: "Email"
     url: "/email"
@@ -338,6 +381,35 @@ articles:
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+        children:
+
+          - title: "Installation"
+            url: "/extensions/authorization-extension/v2/implementation/installation"
+            hidden: true
+          
+          - title: "Setup"
+            url: "/extensions/authorization-extension/v2/implementation/setup"
+            hidden: true
+
+          - title: "Configuration"
+            url: "/extensions/authorization-extension/v2/implementation/configuration"
+            hidden: true
+          
+          - title: "API Access"
+            url: "/extensions/authorization-extension/v2/api-access"
+            hidden: true
+
+          - title: "Rules"
+            url: "/extensions/authorization-extension/v2/rules"
+            hidden: true
+
+          - title: "Troubleshooting"
+            url: "/extensions/authorization-extension/v2/troubleshooting"
+            hidden: true
+
+          - title: "Import / Export Data"
+            url: "/extensions/authorization-extension/v2/import-export-data"
+            hidden: true
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
@@ -425,8 +497,28 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "CVE 2018-7307"
+            url: "/security/bulletins/cve-2018-7307"
+            hidden: true
+            
+          - title: "CVE 2017-16897"
+            url: "/security/bulletins/cve-2017-16897"
+            hidden: true
+            
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
+            hidden: true
+      - title: "Where to Store Tokens"
+        url: "/security/store-tokens"
+        hidden: true
+      
+      - title: "Common Threats"
+        url: "/security/common-threats"
+        hidden: true
+      
+      - title: "Blacklist User Attributes"
+        url: "/security/blacklisting-attributes"
+        hidden: true
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
@@ -487,8 +579,76 @@ articles:
             url: "/integrations/marketing/watson-campaign-automation"
 
       - title: "Single Sign On"
-        url: "/sso/current/integrations"
+        url: "/integrations/sso"
+        children:
 
+          - title: "Active Directory RMS"
+            url: "/integrations/sso/ad-rms"
+            hidden: true
+
+          - title: "Box"
+            url: "/integrations/sso/box"
+            hidden: true
+
+          - title: "CloudBees"
+            url: "/integrations/sso/cloudbees"
+            hidden: true
+
+          - title: "Concur"
+            url: "/integrations/sso/concur"
+            hidden: true
+
+          - title: "Disqus"
+            url: "/integrations/sso/disqus"
+            hidden: true
+
+          - title: "Dropbox"
+            url: "/integrations/sso/dropbox"
+            hidden: true
+
+          - title: "Microsoft Dynamics CRM"
+            url: "/integrations/sso/dynamics-crm"
+            hidden: true
+
+          - title: "EchoSign"
+            url: "/integrations/sso/echosign"
+            hidden: true
+
+          - title: "Egnyte"
+            url: "/integrations/sso/egnyte"
+            hidden: true
+
+          - title: "New Relic"
+            url: "/integrations/sso/new-relic"
+            hidden: true
+
+          - title: "Microsoft Office 365"
+            url: "/integrations/sso/office-365"
+            hidden: true
+
+          - title: "Salesforce"
+            url: "/integrations/sso/salesforce"
+            hidden: true
+
+          - title: "Microsoft SharePoint"
+            url: "/integrations/sso/sharepoint"
+            hidden: true
+
+          - title: "Slack"
+            url: "/integrations/sso/slack"
+            hidden: true
+
+          - title: "SpringCM"
+            url: "/integrations/sso/springcm"
+            hidden: true
+
+          - title: "Zendesk"
+            url: "/integrations/sso/zendesk"
+            hidden: true
+
+          - title: "Zoom"
+            url: "/integrations/sso/zoom"
+            hidden: true
 
   - title: "Protocols"
     url: "/protocols"

@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial dmonstrates how to use Auth0 to add authorization to your Django REST Framework API.
+description: This tutorial demonstrates how to use Auth0 to add authorization to your Django REST Framework API.
 ---
 
 <%= include('../../../_includes/_package', {
@@ -34,7 +34,8 @@ django
 djangorestframework
 djangorestframework-jwt
 cryptography
-python-jose
+pyjwt
+python-dotenv
 ```
 
 ## Create a Django Project
@@ -120,20 +121,48 @@ JWT_AUTH = {
 }
 ```
 
-## Add a Django User
+## Add a Django Remote User
 
 You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
+
+Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/1.11/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
+
+```python
+# apiexample/settings.py
+
+MIDDLEWARE = [
+    # ...
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
+]
+```
+
+Add `ModelBackend` and `RemoteUserBackend` to the Authentication Backends.
+
+```python
+# apiexample/settings.py
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
+]
+```
 
 Create `user.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username.
 
 ```python
 # auth0authorization/user.py
 
+from django.contrib.auth import authenticate
+
+
 def jwt_get_username_from_payload_handler(payload):
-    return payload.get('sub')
+    username = payload.get('sub').replace('|', '.')
+    authenticate(remote_user=username)
+    return username
 ```
 
-Then create a user in Django authentication system. Please check the Django documentation [Django documentation](https://docs.djangoproject.com/en/1.11/topics/auth/default/#creating-users) for more information.
+Then create a remote user in Django authentication system. Please check the [Django documentation](https://docs.djangoproject.com/en/2.0/howto/auth-remote-user/) for more information.
 
 ## Protect Individual Endpoints
 
@@ -145,16 +174,16 @@ In the file `views.py` add `public` and `private` endpoints. Add the `@api_view`
 from functools import wraps
 
 from rest_framework.decorators import api_view
-from django.http import HttpResponse
+from django.http import JsonResponse
 from jose import jwt
 
 def public(request):
-    return HttpResponse("All good. You don't need to be authenticated to call this")
+    return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
 
 
 @api_view(['GET'])
 def private(request):
-    return HttpResponse("All good. You only get this message if you're authenticated")
+    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
 ```
 
 ## Configure the Scopes
@@ -195,7 +224,9 @@ def requires_scope(required_scope):
             for token_scope in token_scopes:
                 if token_scope == required_scope:
                     return f(*args, **kwargs)
-            return HttpResponse("You don't have access to this resource")
+            response = JsonResponse({'message': 'You don\'t have access to this resource'})
+            response.status_code = 403
+            return response
         return decorated
     return require_scope
 ```
@@ -208,15 +239,14 @@ Use the decorator in the methods that require specific scopes granted. The metho
 @api_view(['GET'])
 @requires_scope('read:messages')
 def private_scoped(request):
-    return HttpResponse("All good. You're authenticated and the Access Token has the appropriate scope")
+    return JsonResponse("Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
 ```
 
 ## Add URL Mappings
 
 In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
 
-Django has a [URL dispatcher](
-https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
+Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
 
 Create the file `urls.py` in your application folder. Add the URL patterns.
 
@@ -228,9 +258,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^api/public/', views.public),
-    url(r'^api/private/', views.private),
-    url(r'^api/private-scoped/', views.private_scoped),
+    url(r'^api/public$', views.public),
+    url(r'^api/private$', views.private),
+    url(r'^api/private-scoped$', views.private_scoped),
 ]
 ```
 

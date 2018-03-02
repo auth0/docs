@@ -25,7 +25,9 @@ If you choose to deploy to your own cloud environment or data center, you supply
 
 You may deploy the PSaaS Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the PSaaS Appliance deployment models. The following table shows the configuration options:
 
-<img src="/media/articles/appliance/Appliance-HA-Options.svg" alt="PSaaS Appliance HA Options" data-zoomable>
+::: zoomable
+![PSaaS Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
+:::
 
 <!-- markdownlint-disable MD033 -->
 <table class="table">
@@ -86,7 +88,9 @@ The typical update cycle is once per month. You can control and which version is
 
 The diagram below details a few of these dependencies:
 
-<img src="/media/articles/appliance/overview.svg" alt="Appliance Overview" data-zoomable>
+::: zoomable
+![Appliance Overview](/media/articles/appliance/overview.svg)
+:::
 
 ## Monitoring and Support
 

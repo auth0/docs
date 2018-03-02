@@ -25,7 +25,7 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 
 | **Parameter** | **Value** |
 | - | - |
-| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/` |
+| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/`. Be sure to include the trailing slash.|
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
 | **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
