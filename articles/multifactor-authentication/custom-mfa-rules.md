@@ -6,7 +6,7 @@ description: Learn how you can add step-up authentication to your app with Auth0
 # Step-Up Authentication with Custom MFA Rules
 
 ::: note
-Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA. For details see [Determine if a user has performed multifactor authentication](/multifactor-authentication/developer/mfa-from-id-token).
+Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA. For details see [Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token).
 :::
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
