@@ -493,11 +493,11 @@ articles:
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
-          - title: "Step-up Authentication with ID Tokens"
+          - title: "Step-up with ID Tokens"
             url: "/multifactor-authentication/developer/mfa-from-id-token"
             hidden: true
           
-          - title: "Step-Up Authentication with Custom MFA Rules"
+          - title: "Step-Up with Custom MFA Rules"
             url: "/multifactor-authentication/custom-mfa-rules"
             hidden: true
 
