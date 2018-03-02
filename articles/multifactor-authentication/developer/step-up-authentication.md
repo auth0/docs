@@ -12,9 +12,9 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 ![Step-up flow](/media/articles/mfa/step-up-flow.png)
 
-## Step-up Authentication with Auth0
+## Step-up Authentication for APIs
 
-The recommended way to implement step-up authentication with Auth0 is using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules).
+You can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules).
 
 ::: note
 An Access Token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes your Access Token includes. The rules are JavaScript functions you can use to run custom logic when a user authenticates.
@@ -34,9 +34,15 @@ The solution is that the client performs another authentication call, but this t
 
 The result is a new Access Token which includes the high-value scope. The client will discard the token (that is, not store it in local storage like the original token) thereby treating it like a single-use token.
 
+## Step-up Authentication for Web Apps
+
+If it is a web app that verifies the authentication level, and not an API, then you do not have an Access Token. In this case you can check if a user has logged in with MFA by reviewing the contents of their [ID Token](/tokens/id-token). You can then configure your application to deny access to pages with sensitive information if the ID Token indicates that the user did not log in with MFA.
+
+For details see [Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token).
+
 ## Keep reading
 
 ::: next-steps
-* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
+* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token)
 :::
