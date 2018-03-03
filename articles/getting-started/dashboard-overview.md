@@ -9,11 +9,11 @@ The [Dashboard](${manage_url}) is where you manage all aspects of your Auth0 acc
 
 ![Auth0 Dashboard Homepage](/media/articles/getting-started/auth0-dashboard.png)
 
-It consists of several sections which you can navigate using the sidebar menu on your left.
+It consists of several sections which you can navigate using the left sidebar menu.
 
 ## Configure your implementation
 
-The matrix that follows offers a brief overview of the different dashboard screens and what you can do on each.
+The following matrix offers a brief overview of the different dashboard screens.
 
 <table class="table">
     <thead>
@@ -88,11 +88,11 @@ The matrix that follows offers a brief overview of the different dashboard scree
 
 ## Manage your account
 
-On the top right you can see your tenant's name and icon, and a little arrow. This arrow displays a drop-down menu that you can use to configure different aspects of your account:
+On the top right, is your tenant's name and icon, and a little arrow. This arrow displays a drop-down menu that you can use to configure different aspects of your account:
 
-- **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create a client for `tenant-A`, you will not see it listed for `tenant-B`. If you have more than one tenant, you will find this switching option handy. 
+- **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create a client for `tenant-A`, you will not see it listed for `tenant-B`. 
 - **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/dashboard-tenant-settings).
-- **Invite users to this tenant**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
+- **Invite users to this tenant**: Use this option to add another person as admin to your tenant configuration. For more info, see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
 - **Create tenant**: Use this to [create a new tenant](/getting-started/the-basics#account-and-tenants).
 - **View profile**: Use this to view information about your [account profile](${manage_url}/#/profile).
 - **Subscription overview**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
