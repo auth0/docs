@@ -11,9 +11,11 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-### Install the Dependencies
+## Validate Access Tokens
 
-Protecting your Laravel API requires a middleware which will check for and verify an `access_token` in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
+### Install dependencies
+
+Protecting your Laravel API requires a middleware which will check for and verify an `access_token` in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -23,7 +25,7 @@ Install `laravel-auth0` using **Composer**.
 
 ${snippet(meta.snippets.dependencies)}
 
-### Enable the Provider
+### Enable the provider
 
 The `laravel-auth0` package comes with a provider called `LoginServiceProvider`. Add this to the list of application `providers`.
 
@@ -60,7 +62,7 @@ public function register()
 }
 ```
 
-### Configure the Plugin
+### Configure the plugin
 
 The **laravel-auth0** plugin comes with a configuration file that can be generated using `artisan`. Generate the file and complete the details found within.
 
@@ -100,7 +102,9 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 ],
 ```
 
-## Protect Individual Endpoints
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 Define a middleware to check and verify `access_token` in the `Authorization` header of an incoming HTTP request.
 
@@ -312,7 +316,7 @@ This route is now only accessible if an `access_token` with a scope of `read:mes
 
 ## Optional Steps
 
-### Extend the `Auth0UserRepository` Class
+### Extend the `Auth0UserRepository` class
 
 There may be situations where you need to customize the `Auth0UserRepository` class. For example, you may want to use the default `User` model and store the user profile in your database. If you need a more advanced custom solution such as this, you can extend the `Auth0UserRepository` class with your own custom class.
 

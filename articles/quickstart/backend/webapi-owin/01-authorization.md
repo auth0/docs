@@ -14,15 +14,13 @@ Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is 
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET (OWIN) Web API.
+<%= include('../../_includes/_api_create_new') %>
 
-### Seed and Samples
+<%= include('../_includes/_api_auth_preamble') %>
 
-If you would like to follow along with this Quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples/tree/master/Quickstart/00-Starter-Seed). The seed project is just a basic ASP.NET Web API with a simple controller and some of the NuGet packages which will be needed included. It has also defined some of the required Auth0-related settings in the `appSettings` key of the `Web.config`.
+## Configure the Sample Project
 
-The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples). You can find the final result for each step in the relevant folder inside the repository.
-
-Also update the `web.config` file in your project with the correct **Domain** and **API Identifier** for your API, such as
+The sample code has an `appsettings` section in `Web.config` which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
 ```xml
 // web.config
@@ -33,11 +31,9 @@ Also update the `web.config` file in your project with the correct **Domain** an
 </appSettings>
 ```
 
-<%= include('../_includes/_api_auth_preamble') %>
+## Validate Access Tokens
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET (OWIN) JWT middleware. 
-
-### Install Dependencies
+### Install dependencies
 
 To use Auth0 Access Tokens with ASP.NET Core you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package. Also install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package which will assist you in verifying the token signature.
 
@@ -84,30 +80,7 @@ public void Configuration(IAppBuilder app)
 Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
-## Protect individual endpoints
-
-The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
-
-```csharp
-// Controllers/ApiController.cs
-
-[RoutePrefix("api")]
-public class ApiController : ApiController
-{
-    [HttpGet]
-    [Route("private")]
-    [Authorize]
-    public IHttpActionResult Private()
-    {
-        return Json(new
-        {
-            Message = "Hello from a private endpoint! You need to be authenticated to see this."
-        });
-    }
-}
-```
-
-## Protect endpoints with specific scopes
+### Validate scopes
 
 The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
@@ -152,7 +125,32 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
 }
 ```
 
-To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute, and pass the name of the required `scope` in the `scope` parameter:
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
+
+The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint.
+
+```csharp
+// Controllers/ApiController.cs
+
+[RoutePrefix("api")]
+public class ApiController : ApiController
+{
+    [HttpGet]
+    [Route("private")]
+    [Authorize]
+    public IHttpActionResult Private()
+    {
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated to see this."
+        });
+    }
+}
+```
+
+To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute, and pass the name of the required `scope` in the `scope` parameter.
 
 ```csharp
 // Controllers/ApiController.cs

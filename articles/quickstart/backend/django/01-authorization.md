@@ -11,7 +11,9 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-### Install the Dependencies
+## Setup the Django Application
+
+### Install dependencies
 
  Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
@@ -24,7 +26,7 @@ pyjwt
 python-dotenv
 ```
 
-### Create a Django Project
+### Create a Django project
 
 This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
@@ -36,7 +38,49 @@ $ cd apiexample
 $ python manage.py startapp auth0authorization
 ```
 
-### Configure Django
+### Add a Django remote user
+
+You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
+
+Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/1.11/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
+
+```python
+# apiexample/settings.py
+
+MIDDLEWARE = [
+    # ...
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
+]
+```
+
+Add `ModelBackend` and `RemoteUserBackend` to the Authentication Backends.
+
+```python
+# apiexample/settings.py
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
+]
+```
+
+Create `user.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username.
+
+```python
+# auth0authorization/user.py
+
+from django.contrib.auth import authenticate
+
+def jwt_get_username_from_payload_handler(payload):
+    username = payload.get('sub').replace('|', '.')
+    authenticate(remote_user=username)
+    return username
+```
+
+Then create a remote user in Django authentication system. Please check the [Django documentation](https://docs.djangoproject.com/en/2.0/howto/auth-remote-user/) for more information.
+
+## Validate Access Tokens
 
 The `settings.py` file contains the configuration of the Django project.
 
@@ -80,7 +124,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-Download the JWKS for your Auth0 domain and create a public key variable with it:
+Add code to download the JWKS for your Auth0 domain and create a public key variable with it:
 
 ```python
 # apiexample/settings.py
@@ -111,82 +155,9 @@ JWT_AUTH = {
 }
 ```
 
-### Add a Django Remote User
+### Validate scopes
 
-You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
-
-Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/1.11/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
-
-```python
-# apiexample/settings.py
-
-MIDDLEWARE = [
-    # ...
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.RemoteUserMiddleware',
-]
-```
-
-Add `ModelBackend` and `RemoteUserBackend` to the Authentication Backends.
-
-```python
-# apiexample/settings.py
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'django.contrib.auth.backends.RemoteUserBackend',
-]
-```
-
-Create `user.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username.
-
-```python
-# auth0authorization/user.py
-
-from django.contrib.auth import authenticate
-
-
-def jwt_get_username_from_payload_handler(payload):
-    username = payload.get('sub').replace('|', '.')
-    authenticate(remote_user=username)
-    return username
-```
-
-Then create a remote user in Django authentication system. Please check the [Django documentation](https://docs.djangoproject.com/en/2.0/howto/auth-remote-user/) for more information.
-
-## Protect Individual Endpoints
-
-In the file `views.py` add `public` and `private` endpoints. Add the `@api_view` decorator to the `private` endpoint to indicate that the method requires authentication.
-
-```python
-# auth0authorization/views.py
-
-from functools import wraps
-
-from rest_framework.decorators import api_view
-from django.http import JsonResponse
-from jose import jwt
-
-def public(request):
-    return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
-
-
-@api_view(['GET'])
-def private(request):
-    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
-```
-
-## Protect endpoints with specific scopes
-
-To configure scopes, click the Scopes section of the [Dashboard's APIs section](${manage_url}/#/apis) and configure the scopes you need.
-
-::: note
-This example uses the read:messages scopes.
-:::
-
-API endpoints can be configured to look for a particular `scope` in the `access_token`.
-
-Add the following methods to the `views.py` file to extract the granted scopes from the `access_token`.
+Add the following methods to the `views.py` file to create a decorator that will check the granted scopes from the `access_token`.
 
 ```python
 # auth0authorization/views.py
@@ -221,7 +192,31 @@ def requires_scope(required_scope):
     return require_scope
 ```
 
-Use the decorator in the methods that require specific scopes granted. The method below requires the `read:messages` scope granted.
+## Protect API Endpoints 
+
+<%= include('../_includes/_api_endpoints') %>
+
+In the file `views.py` add `public` and `private` endpoints. Add the `@api_view` decorator to the `private` endpoint to indicate that the method requires authentication.
+
+```python
+# auth0authorization/views.py
+
+from functools import wraps
+
+from rest_framework.decorators import api_view
+from django.http import JsonResponse
+from jose import jwt
+
+def public(request):
+    return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
+
+
+@api_view(['GET'])
+def private(request):
+    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
+```
+
+Use the `requires_scope` decorator in the methods that require specific scopes granted. The method below requires the `read:messages` scope granted.
 
 ```python
 # auth0authorization/views.py
@@ -232,7 +227,7 @@ def private_scoped(request):
     return JsonResponse("Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
 ```
 
-### Add URL Mappings
+### Add URL mappings
 
 In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
 

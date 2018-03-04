@@ -10,11 +10,13 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done using the **hapi-auth-jwt2** plugin and can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+## Validate Access Tokens
 
-### Install the Dependencies
+### Install dependencies
 
-The **hapi-auth-jwt2** plugin can be used to verify incoming JWTs. The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. Install these libraries with npm.
+This guide shows you how to validate the Access Token using the **hapi-auth-jwt2** plugin.  The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. 
+
+Install these libraries with npm.
 
 ```bash
 npm install --save hapi-auth-jwt2 jwks-rsa
@@ -86,9 +88,13 @@ const validateUser = (decoded, request, callback) => {
 
 When a valid JWT Access Token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
 
-## Protect Individual Endpoints
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`. To protect a route requiring a valid JWT you can pass `auth: 'jwt'`.
+
+<%= include('../_includes/_api_endpoints') %>
 
 ```js
 // server.js
@@ -121,8 +127,6 @@ server.route({
   }
 });
 ```
-
-<%= include('../_includes/_api_scope_description') %>
 
 Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
 

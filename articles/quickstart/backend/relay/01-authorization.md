@@ -9,26 +9,30 @@ description: This tutorial will show you how to use Auth0 to add authorization t
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Add the Dependencies
+## Validate Access Tokens
+
+### Install dependencies
 
 Add **express-jwt** and **express-graphql** as dependencies.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configuration
+### Configuration
 
 Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 account.
 
 ${snippet(meta.snippets.setup)}
 
-## Secure your API
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 In your Relay app, you serve a GraphQL object from a single endpoint, which is typically at `/graphql`. You can protect this endpoint globally with the `express-jwt` middleware.
 
 ${snippet(meta.snippets.use)}
 
-## Send an Access Token from your Front End
+### Send an Access Token from your front end
 
-When you send a request to the GraphQL endpoint, you need to include the user's `access_token` as an `Authorization` header. This can be done by tapping into Relay's network layer and extending requests to include a header.
+When you send a request to the GraphQL endpoint, you need to include the user's Access Token as an `Authorization` header. This can be done by tapping into Relay's network layer and extending requests to include a header.
 
 ${snippet(meta.snippets.frontend)}
