@@ -126,6 +126,19 @@ articles:
       - title: Grant Types
         url: /clients/client-grant-types
 
+  - title: "Authentication"
+    url: "/client-auth"
+    children:
+
+      - title: "Server-side App"
+        url: "/client-auth/current/server-side-web"
+      
+      - title: "Client-side App"
+        url: "/client-auth/current/client-side-web"
+        
+      - title: "Mobile App"
+        url: "/client-auth/current/mobile-desktop"
+        
   - title: "APIs"
     url: "/apis"
     children:
