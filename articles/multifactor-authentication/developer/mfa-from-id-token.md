@@ -39,10 +39,12 @@ In this section we will see how you can check if a user logged in with MFA in a 
 
 First, we need to authenticate a user and get an ID Token. To do that we will use the [OAuth 2.0 Authorization Code grant](/client-auth/server-side-web).
 
+Send the following `GET` request to Auth0's Authentication API when a user tries to log in:
+
 
 ```text
 https://${account.namespace}/authorize?
-  audience=${account.namespace}/userinfo&
+  audience=https://${account.namespace}/userinfo&
   scope=openid&
   response_type=code&
   client_id=${account.clientId}&
@@ -59,7 +61,7 @@ Where:
 | `response_type` | Tells Auth0 what kind of credentials to send in the response (this varies based on which [OAuth 2.0 grant](/protocols/oauth2#authorization-grant-types) you use). |
 | `client_id` | Client ID of your app. Find it in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
 | `redirect_uri` | The URI to which Auth0 will send the response after the user authenticates. Set it to the URI that you want to redirect the user after login. Whitelist this value in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
-| `state` | An authentication parameter used to help mitigate CSRF attacks. For more info see [State](/protocols/oauth2/oauth-state)|
+| `state` | An authentication parameter used to help mitigate CSRF attacks. For more info see [State](/protocols/oauth2/oauth-state). |
 
 Call this URL when a user tries to log in. For example:
 
@@ -77,7 +79,7 @@ http://localhost:3000/?code=9nmp6bZS8GqJm4IQ&state=SAME_VALUE_YOU_SENT_AT_THE_RE
 
 You need to verify that the `state` value is the same with the one you sent at the request and extract the code parameter (we will use it in the next step).
 
-### 2. Exchange the code for token
+### 2. Exchange the code for tokens
 
 Next, we will exchange the Authorization Code we just got (the value of the `code` response parameter) for our tokens.
 
@@ -112,20 +114,18 @@ The `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information abo
 
 ### 3. Validate the token
 
-Before you store and/or use an ID Token you must validate it. This process includes the following steps:
-
+Before you store and/or use an ID Token you **must** validate it. This process includes the following steps:
 - Check that the token is well formed
 - Verify the token's signature
 - Verify that the token hasn't expired
 - Verify that the token was issued by Auth0
 - Verify that your application is the intended audience for the token
 
-For details on how to do these validations, see:
-
+For details on how to do these validations, see the following docs:
 - [Validate an ID Token](/tokens/id-token#validate-an-id-token)
-- [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token): this tutorial is about how an API can verify an Access Token, but the content applies also to server-side web apps that validate ID Tokens.
+- [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token) (this tutorial is about how an API can verify an Access Token, but the content applies also to server-side web apps that validate ID Tokens)
 
-There are many libraries you can use to do these validations. For example, in the snippet below we use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) and [express-jwt](https://github.com/auth0/express-jwt) libraries, in order to make our lives a little easier.
+There are many libraries you can use to do these validations. For example, in the snippet below we use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) and [express-jwt](https://github.com/auth0/express-jwt) libraries.
 
 ```js
 // Create middleware for checking the JWT
@@ -141,10 +141,14 @@ const checkJwt = jwt({
   // Validate the audience and the issuer
   audience: 'https://${account.namespace}/userinfo',
   issuer: 'https://${account.namespace}/',
-  algorithms: ['RS256'],
-  
-  //Request the amr property
-  requestProperty: 'amr'
+  algorithms: ['RS256']
+}), function(req, res) {
+    // Check if the token contains the amr claim, and if so that it includes an mfa value
+    if (req.user.amr && req.user.amr.indexOf("mfa") > -1) {
+        console.log("User logged in with MFA");
+    } else {
+        console.log("User did not use MFA");
+    }
 });
 ```
 
