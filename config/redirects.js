@@ -1619,7 +1619,6 @@ module.exports = [
     to: `/connections/criipto/nemid`
   },
   {
-<<<<<<< HEAD
     from: '/sso/current/integrations',
     to: '/integrations/sso'
   },
