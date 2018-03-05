@@ -29,28 +29,54 @@ For more information on the signature verification and claims validation, see [I
 
 ## Example
 
-This example is built on top of the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken).
+In this section we will see how you can check if a user logged in with MFA in a Node.js web app. The code snippets use the following modules:
 
-The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does whether it contains the value `mfa`. The results are logged in the console.
+- [jwks-rsa](https://github.com/auth0/node-jwks-rsa): Library that retrieves the RSA signing keys from a [**JWKS** (JSON Web Key Set)](/jwks) endpoint. We will use this to retrieve your RSA keys from Auth0 so we can verify the signed ID Token.
+- [express-jwt](https://github.com/auth0/express-jwt): Library that validates JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier.
 
-```js
-const AUTH0_CLIENT_SECRET = '${account.clientSecret}';
-const jwt = require('jsonwebtoken')
+### 1. Authenticate the user
 
-jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(err, decoded) {
-   if (err) {
-     console.log('invalid token');
-     return;
-   }
+First, we need to authenticate a user and get an ID Token. To do that we will use the [OAuth 2.0 Authorization Code grant](/client-auth/server-side-web).
 
-   if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
-     console.log('You used mfa');
-     return;
-   }
 
-   console.log('you are not using mfa');
- });
+```text
+https://${account.namespace}/authorize?
+  audience=${account.namespace}/userinfo&
+  scope=openid&
+  response_type=code&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
+  state=CRYPTOGRAPHIC_NONCE
 ```
+
+Where:
+
+| **Parameter** | **Description** |
+|-|-|
+| `audience` | Audience(s) that the generated [Access Token](/tokens/access-token) is intended for. This example's value will generate a token that can be used to retrieve the user's profile from the [Authentication API /userinfo endpoint](/api/authentication#get-user-info). |
+| `scope` | Must contain the `openid` value in order to get an ID Token. For more info see [Scopes](/scopes). |
+| `response_type` | Tells Auth0 which [OAuth 2.0 grant](/protocols/oauth2#authorization-grant-types) to execute. |
+| `client_id` | Client ID of your app. Find it in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
+| `redirect_uri` | The URI to which Auth0 will send the response after the user authenticates. Set it to the URI that you want to redirect the user after login. Whitelist this value in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
+| `state` | An authentication parameter used to help mitigate CSRF attacks. For more info see [State](/protocols/oauth2/oauth-state)|
+
+Call this URL when a user tries to log in. For example:
+
+```html
+<a href="https://${account.namespace}/authorize?scope=openid&audience=${account.namespace}/userinfo&response_type=code&client_id=${account.clientId}&redirect_uri=${account.callback}&state=123456">
+  Log In
+</a>
+```
+
+Provided that the user authenticates successfully, the response from Auth0 will be as follows:
+
+```text
+http://localhost:3000/?code=9nmp6bZS8GqJm4IQ&state=SAME_VALUE_YOU_SENT_AT_THE_REQUEST
+```
+
+You need to verify that the `state` value is the same with the one you sent at the request and extract the code parameter (we will use it in the next step).
+
+## 2. Get an ID Token
 
 ## Keep reading
 
