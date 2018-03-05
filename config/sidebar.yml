@@ -139,7 +139,7 @@ articles:
       - title: "Mobile App"
         url: "/client-auth/current/mobile-desktop"
       
-      - title: "Authentication"
+      - title: "Legacy"
         url: "/client-auth/legacy"
         hidden: true
         children:
