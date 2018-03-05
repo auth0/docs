@@ -26,7 +26,42 @@ In order to check if a user logged in with MFA follow these steps:
     - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
     - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
 
-For more information on the signature verification and claims validation, see [ID Token](/tokens/id-token).
+In the following snippets you can see examples of how the decoded ID Token will look like (with and without the `amr` claim).
+
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#token-mfa" data-toggle="tab">ID Token with MFA</a></li>
+      <li><a href="#token-one-factor" data-toggle="tab">ID Token without MFA</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="token-mfa" class="tab-pane active">
+      <pre class="text hljs"><code>{
+  "iss": "https://my-tenant.auth0.com/",
+  "sub": "auth0|5a620d39a840170a0g43672",
+  "aud": "wury5FKLmfDL9r340UDPsX8xYMhPLwwd",
+  "iat": 1519988492,
+  "exp": 1520024492,
+  "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
+  "amr": [
+    "mfa"
+  ],
+  "nonce": "nonce123"
+}</code></pre>
+    </div>
+    <div id="token-one-factor" class="tab-pane">
+      <pre class="text hljs"><code>{
+  "iss": "https://my-tenant.auth0.com/",
+  "sub": "auth0|5a620d39a840170a0g43672",
+  "aud": "wury5FKLmfDL9r340UDPsX8xYMhPLwwd",
+  "iat": 1519988492,
+  "exp": 1520024492,
+  "nonce": "nonce123"
+}</code></pre>
+    </div>
+  </div>
+</div>
 
 ## Example
 
