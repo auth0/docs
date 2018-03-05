@@ -86,7 +86,7 @@ You will need to add the non-encoded `returnTo` URL (for these examples, it is `
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
+  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-client-level) for more information.
 
 ### Set the Allowed Logout URLs at the Tenant Level
 
