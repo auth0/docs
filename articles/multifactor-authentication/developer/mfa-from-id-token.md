@@ -22,8 +22,8 @@ In order to check if a user logged in with MFA follow these steps:
 1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 1. Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intented recipient of the token)
 1. Verify that the token contains the `amr` claim.
-  - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
-  - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
+    - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
+    - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
 
 For more information on the signature verification and claims validation, see [ID Token](/tokens/id-token).
 
