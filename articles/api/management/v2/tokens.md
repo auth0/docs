@@ -1,19 +1,3 @@
----
-description: Details on how to generate and use a token for the Auth0 Management APIv2
-section: apis
-crews: crew-2
-toc: true
----
-# The Auth0 Management APIv2 Token
-
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with an application API key and secret for the entire tenant.
-
-There are two ways to get a Management APIv2 Token:
-- [get one manually using the Dashboard](#get-a-token-manually), or
-- [automate the process](#automate-the-process) (build a simple command line tool that generates tokens).
-
-In this article we will see how you can do either.
-
 ## Get a token manually
 
 ::: warning
@@ -208,34 +192,3 @@ def main():
 if __name__ == '__main__':
   main()
 ```
-
-## Frequently Asked Questions
-
-__How long is the token valid for?__</br>
-The Management APIv2 token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
-
-__The old way of generating tokens was better, since the token never expired. Why was this changed?__</br>
-The old way of generating tokens was insecure since the tokens had an infinite lifespan. The new implementation allows tokens to be generated with specific scopes and expirations. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
-
-__Can I change my token's validity period?__</br>
-You cannot change the default validity period, which is set to 24 hours. However, if you get a token manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) you can change the expiration time for the specific token. Note though, that your applications should use short-lived tokens to minimize security risks.
-
-__Can I refresh my token?__</br>
-You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
-
-__My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period.
-Note that deleting the application grant will prevent *new tokens* from being issued to the application. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 application using the dashboard](${manage_url}/#/apis/management/authorized-applications).
-
-__My Client Secret was compromised! What should I do?__</br>
-You need to change the secret immediately. Go to your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Note that previously issued tokens will continue to be valid until their expiration time.
-
-## Keep reading
-
-::: next-steps
-* [Changes in Auth0 Management APIv2 Tokens](/api/management/v2/tokens-flows)
-* [Calling APIs from a Service](/api-auth/grant/client-credentials)
-* [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-* [Information on the query string syntax](/api/management/v2/query-string-syntax)
-* [Search for Users](/api/management/v2/user-search)
-:::
