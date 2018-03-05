@@ -58,7 +58,7 @@
 &lt;script&gt;
   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         allowedConnections: ['sms'],             // Should match the SMS connection name  
-        responseType: 'token id_token'
+        responseType: 'token id_token',
         auth: {
           redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
           params: {
