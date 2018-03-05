@@ -55,7 +55,7 @@ Where:
 |-|-|
 | `audience` | Audience(s) that the generated [Access Token](/tokens/access-token) is intended for. This example's value will generate a token that can be used to retrieve the user's profile from the [Authentication API /userinfo endpoint](/api/authentication#get-user-info). |
 | `scope` | Must contain the `openid` value in order to get an ID Token. For more info see [Scopes](/scopes). |
-| `response_type` | Tells Auth0 which [OAuth 2.0 grant](/protocols/oauth2#authorization-grant-types) to execute. |
+| `response_type` | Tells Auth0 what kind of credentials to send in the response (this varies based on which [OAuth 2.0 grant](/protocols/oauth2#authorization-grant-types) you use). |
 | `client_id` | Client ID of your app. Find it in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
 | `redirect_uri` | The URI to which Auth0 will send the response after the user authenticates. Set it to the URI that you want to redirect the user after login. Whitelist this value in [Client Settings](${account.namespace}/#/clients/${account.clientId}/settings). |
 | `state` | An authentication parameter used to help mitigate CSRF attacks. For more info see [State](/protocols/oauth2/oauth-state)|
@@ -76,7 +76,76 @@ http://localhost:3000/?code=9nmp6bZS8GqJm4IQ&state=SAME_VALUE_YOU_SENT_AT_THE_RE
 
 You need to verify that the `state` value is the same with the one you sent at the request and extract the code parameter (we will use it in the next step).
 
-## 2. Get an ID Token
+### 2. Exchange the code with tokens
+
+Next, we will exchange the Authorization Code we just got (the value of the `code` response parameter) for our tokens.
+
+Send a `POST` to the [Token URL](/api/authentication?http#authorization-code), similar to the following snippet:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+  }
+}
+```
+
+The response will be a JSON object similar to the following:
+
+```js
+{
+  "access_token": "Odp5NpPssfuWT-BBmqEnQU9RiQhkKHch",
+  "id_token": "eyJ0XAi...4faeEoQ",
+  "expires_in":86400,
+  "token_type": "Bearer"
+}
+```
+
+The `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode it in order to retrieve this info. But first you need to verify the token's authenticity and validity.
+
+### 3. Validate the token
+
+Before you store and/or use an ID Token you must validate it. This process includes the following steps:
+
+- Check that the token is well formed
+- Verify the token's signature
+- Verify that the token hasn't expired
+- Verify that the token was issued by Auth0
+- Verify that your application is the intended audience for the token
+
+For details on how to do these validations, see:
+
+- [Validate an ID Token](/tokens/id-token#validate-an-id-token)
+- [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token): this tutorial is about how an API can verify an Access Token, but the content applies also to server-side web apps that validate ID Tokens.
+
+There are many libraries you can use to do these validations. For example, in the snippet below we use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) and [express-jwt](https://github.com/auth0/express-jwt) libraries, in order to make our lives a little easier.
+
+```js
+// Create middleware for checking the JWT
+const checkJwt = jwt({
+  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer
+  audience: 'https://${account.namespace}/userinfo',
+  issuer: 'https://${account.namespace}/',
+  algorithms: ['RS256'],
+  
+  //Request the amr property
+  requestProperty: 'amr'
+});
+```
 
 ## Keep reading
 
