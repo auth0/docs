@@ -10,6 +10,10 @@ Auth0 allows you, as an administrator, to search for users using [Lucene Query S
 
 This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
+::: warning
+The user search endpoint allows you to return a maximum of **10,000** users. For additional results, please use either the [User Export Job endpoint](/api/management/v2#!/Jobs/post_users_exports) or the [User Export Extension](/extensions/user-import-export).
+:::
+
 ## Searchable Fields
 
 You can search for users using the following fields:
