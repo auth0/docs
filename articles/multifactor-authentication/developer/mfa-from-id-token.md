@@ -1,6 +1,7 @@
 ---
 title: Step-up Authentication with ID Tokens
 description: Describes how to check if a user has logged in with Multifactor Authentication by examining their ID Token
+toc: true
 ---
 # Step-up Authentication with ID Tokens
 
@@ -76,7 +77,7 @@ http://localhost:3000/?code=9nmp6bZS8GqJm4IQ&state=SAME_VALUE_YOU_SENT_AT_THE_RE
 
 You need to verify that the `state` value is the same with the one you sent at the request and extract the code parameter (we will use it in the next step).
 
-### 2. Exchange the code with tokens
+### 2. Exchange the code for token
 
 Next, we will exchange the Authorization Code we just got (the value of the `code` response parameter) for our tokens.
 
