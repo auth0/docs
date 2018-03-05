@@ -5,7 +5,7 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 ---
 # Cross-Origin Authentication
 
-For most situations, Auth0 recommends that authentication transactions be handled via [universal login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
+For most situations, Auth0 recommends that authentication transactions be handled via [universal login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
 ## What is Cross-Origin Authentication? 
 

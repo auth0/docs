@@ -10,7 +10,7 @@ When you integrate Auth0 in our applications, you have to decide whether you wil
 - With embedded login the login dialog is hosted in your application. You can use [Lock](/libraries/lock) or create your own UI and use [auth0.js](/libraries/auth0js).
 - With universal login, you redirect to an Auth0-hosted [login page](/hosted-pages/login) where the authentication flow is performed.
 
-Universal login has several advantages over embedded login. For a detailed analysis refer to [Centralized vs Embedded Login](/guides/login/centralized-vs-embedded).
+Universal login has several advantages over embedded login. For a detailed analysis refer to [Centralized vs Embedded Login](/guides/login/universal-vs-embedded).
 
 We put together a set of articles to help you migrate to universal login in different scenarios. 
 

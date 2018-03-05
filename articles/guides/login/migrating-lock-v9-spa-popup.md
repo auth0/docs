@@ -5,7 +5,7 @@ toc: true
 ---
 # Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 
-This document explains how to migrate Web Applications using [Lock](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Web Applications using [Lock](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
 When you use 'popup mode' in Lock 9 applications, the entire authentication flow happens in a web page, without any kind of redirection. That will change when you use universal login.
 

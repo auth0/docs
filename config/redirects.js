@@ -1619,6 +1619,7 @@ module.exports = [
     to: `/connections/criipto/nemid`
   },
   {
+<<<<<<< HEAD
     from: '/sso/current/integrations',
     to: '/integrations/sso'
   },
@@ -1685,5 +1686,13 @@ module.exports = [
   {
     from: '/sso/current/integrations/zoom',
     to: '/integrations/sso/zoom'
+  },
+  {
+    from: `/guides/login/centralized-vs-embedded`,
+    to: `/guides/login/universal-vs-embedded`
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
   }
 ];
