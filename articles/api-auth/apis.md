@@ -99,7 +99,9 @@ The most secure practice, and our recommendation, is to use **RS256**. Some of t
 
 - With RS256 you are sure that only the holder of the private key (Auth0) can sign tokens, while anyone can check if the token is valid using the public key.
 
-- Under HS256, If the private key is compromised you would have to re-deploy the API with the new secret. With RS256 you can request a token that is valid for multiple audiences.
+- Under HS256, if the secret key is compromised (e.g. by the client) you would have to re-deploy the API with the new secret.
+
+- With RS256 you can request a token that is valid for multiple audiences.
 
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
