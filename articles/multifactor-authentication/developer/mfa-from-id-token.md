@@ -152,6 +152,12 @@ const checkJwt = jwt({
 });
 ```
 
+The script does the following:
+1. The `express-jwt` library decodes the token and passed the request, the header and the payload to `jwksRsa.expressJwtSecret`
+1. The `jwks-rsa` library downloads all signing keys from the JWKS endpoint and sees if one of the signing keys matches the `kid` in the header of the JWT. If none of the signing keys matches the incoming `kid`, an error will be thrown. If it finds a match, it passed the right signing key to `express-jwt`
+1. `express-jwt` validates the signature of the token, the expiration, the audience, and the issuer
+1. If all validations are successful then we check the decoded payload (by default, the decoded token is attached to `req.user`) to see if it contains the `amr` claim, and if so it holds the value `mfa`
+
 ## Keep reading
 
 ::: next-steps
