@@ -138,6 +138,23 @@ articles:
         
       - title: "Mobile App"
         url: "/client-auth/current/mobile-desktop"
+      
+      - title: "Authentication"
+        url: "/client-auth/legacy"
+        hidden: true
+        children:
+          - title: "Server-side App"
+            url: "/client-auth/legacy/server-side-web"
+            hidden: true
+      
+          - title: "Client-side App"
+            url: "/client-auth/legacy/client-side-web"
+            hidden: true
+        
+          - title: "Mobile App"
+            url: "/client-auth/legacy/mobile-desktop"
+            hidden: true
+            
         
   - title: "APIs"
     url: "/apis"
