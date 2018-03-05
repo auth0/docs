@@ -127,7 +127,7 @@ articles:
         url: /clients/client-grant-types
 
   - title: "Authentication"
-    url: "/client-auth"
+    url: "/client-auth/current"
     children:
 
       - title: "Server-side App"
