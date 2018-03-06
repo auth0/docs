@@ -1407,10 +1407,6 @@ module.exports = [
     to: '/support/troubleshooting-with-har-files',
   },
   {
-    from: '/tutorials/custom-mfa-rules',
-    to: '/multifactor-authentication/custom-mfa-rules',
-  },
-  {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
   },
