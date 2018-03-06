@@ -65,10 +65,7 @@ In the following snippets you can see examples of how the decoded ID Token will 
 
 ## Example
 
-In this section we will see how you can check if a user logged in with MFA in a Node.js web app. The code snippets use the following modules:
-
-- [jwks-rsa](https://github.com/auth0/node-jwks-rsa): Library that retrieves the RSA signing keys from a [**JWKS** (JSON Web Key Set)](/jwks) endpoint. We will use this to retrieve your RSA keys from Auth0 so we can verify the signed ID Token.
-- [express-jwt](https://github.com/auth0/express-jwt): Library that validates JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier.
+In this section we will see how you can check if a user logged in with MFA in a web app.
 
 ### 1. Authenticate the user
 
@@ -160,7 +157,7 @@ For details on how to do these validations, see the following docs:
 - [Validate an ID Token](/tokens/id-token#validate-an-id-token)
 - [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token) (this tutorial is about how an API can verify an Access Token, but the content applies also to server-side web apps that validate ID Tokens)
 
-There are many libraries you can use to do these validations. For example, in the snippet below we use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) and [express-jwt](https://github.com/auth0/express-jwt) libraries.
+There are many libraries you can use to do these validations. For example, in the Node.js snippet below we use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) and [express-jwt](https://github.com/auth0/express-jwt) libraries.
 
 ```js
 // Create middleware for checking the JWT
