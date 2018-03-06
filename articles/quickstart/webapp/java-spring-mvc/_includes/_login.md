@@ -148,6 +148,8 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean bootRun
 ```
 
+If you are using a Windows environment, execute `gradlew clean appRun`
+
 After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
