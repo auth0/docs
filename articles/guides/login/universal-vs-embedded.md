@@ -74,7 +74,7 @@ Furthermore, according to the [Internet Engineering Task Force (IETF)](https://w
 ## Keep reading
 
 :::next-steps
-- [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-centralized)
+- [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal)
 - [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile)
 - [Authentication Provider Best Practices: Universal Login](https://auth0.com/blog/authentication-provider-best-practices-centralized-login/)
 - [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/)
