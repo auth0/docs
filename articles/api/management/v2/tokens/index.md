@@ -6,7 +6,7 @@ toc: true
 ---
 # The Auth0 Management APIv2 Token
 
-To call the [Management API] endpoints, you'll need what we refer to as the **Management API Token**.
+To call the [Management API](/api/management/v2) endpoints, you'll need what we refer to as the **Management API Token**.
 
 The Management API Token is a [JSON Web Token (JWT)](/jwt) that:
 
