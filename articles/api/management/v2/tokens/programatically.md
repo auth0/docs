@@ -6,17 +6,19 @@ toc: true
 ---
 # Programatically generate and use a token for the Management API
 
-[The manual process](/api/management/v2/tokens/manually) might work for you if you want to test an endpoint or invoke it sporadically. But if you need to make scheduled frequent calls then you have to build a simple CLI that will provide you with a token automatically (and thus simulate a non-expiring token).
+In this article, we will show you how you can programmatically generate tokens for use with the Management API.
+
+The [manual process](/api/management/v2/tokens/manually) for getting a token might work for you if you want to test an endpoint or invoke it sporadically. However, if you need to make scheduled/frequent calls, then you should build a simple CLI tool that provides you with a token automatically. Its behavior is functionally equivalent to having a non-expiring token.
 
 ::: panel Prerequisites
-Before you proceed with the implementation, you must have [created and authorized a Non Interactive Client](#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you mean to access.
+Before you proceed with this tutorial, you must [create and authorize a Non Interactive Client](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you need to access.
 :::
 
-### 1. Get a Token
+## 1. Get a token
 
-To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Non Interactive Client you created at [this step](#1-create-and-authorize-a-client).
+To obtain an Access Token for the Management API, make a **POST** call to the **https://${account.namespace}/oauth/token** using the credentials of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). 
 
-The payload should be in the following format:
+Your payload will look something like this:
 
 ```har
 {
@@ -32,13 +34,18 @@ The payload should be in the following format:
 }
 ```
 
-The request parameters are:
-- `grant_type`: Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`.
-- `client_id`: This is the value of the __Client ID__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
-- `client_secret`: This is the value of the __Client Secret__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
-- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
+The request parameters are as follows:
 
-The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires, the scopes granted, and the token type.
+| Parameter | Description | 
+| - | - |
+| **grant_type** | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use `client_credentials` |
+| **client_id** | This is the value of the __Client ID__ field of the Non Interactive Client you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
+| **client_secret** | This is the value of the __Client Secret__ field of the Non Interactive Client you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
+| **audience** | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it on the [Settings tab of the API](${manage_url}/#/apis) |
+
+The response will contain a [signed JWT (JSON Web Token)](/jwt). The token includes information on when it expires, the scopes granted, and the token type.
+
+For example, the following sample response indicates that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750) that will expire in 24 hours (or 86400 seconds) and authorizes the user to read and create clients.
 
 ```json
 {
@@ -49,11 +56,9 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
+## 2. Use the token
 
-### 2. Use the Token
-
-To use this token, just include it in the `Authorization` header of your request .
+To use the Access Token token, include it in the `Authorization` header of your request to the Management API.
 
 ```har
 {
@@ -66,7 +71,7 @@ To use this token, just include it in the `Authorization` header of your request
 }
 ```
 
-For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clients) use the following:
+For example, in order to call [Get all clients](/api/management/v2#!/Clients/get_clients), you would include the following header with your request:
 
 ```har
 {
@@ -80,20 +85,27 @@ For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clie
 ```
 
 ::: note
-  You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
+You can get the curl command for each endpoint from the Management API Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link in the <em>Test this endpoint</em> section.
 :::
 
 That's it! You are done!
 
-### Sample Implementation: Python
+## Sample implementation: Python
 
-This python script gets a Management API v2 Access Token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
+The following Python script:
 
-Before you run it make sure that the following variables hold valid values:
-- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
-- `DOMAIN`: The __Domain__ of the Non Interactive Client you created at [this step](#1-create-a-client).
-- `CLIENT_ID`: The __Client ID__ of the Non Interactive Client you created at [this step](#1-create-a-client).
-- `CLIENT_SECRET`: The __Client Secret__ of the Non Interactive Client you created at [this step](#1-create-a-client).
+1. Obtains a Management API Access Token
+2. Uses the newly-obtained token to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint
+3. Prints the results of its actions in the console.
+
+Before you run it make sure that the following hold valid values:
+
+| Parameter | Description |
+| - | - |
+| AUDIENCE | The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis) |
+| DOMAIN | The __Domain__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
+| CLIENT_ID | The __Client ID__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
+| CLIENT_SECRET | The __Client Secret__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
 
 ```python
 def main():
