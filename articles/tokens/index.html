@@ -3,30 +3,22 @@ url: /tokens
 section: articles
 classes: topic-page
 title: Tokens
-description: Learn about the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
+description: Learn about the types of tokens referenced in Auth0 documentation and how to use each one.
 ---
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Tokens used by Auth0</h1>
   <p>
-    Learn about the types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
+    Learn about the types of tokens referenced in Auth0 documentation and how to use each one.
   </p>
 </div>
 
-<p>
-  Auth0 uses two types of tokens:
-  <ul>
-    <li>
-      <strong>JSON Web Tokens (JWT)</strong>: Tokens that conform to the <a href="/jwt">JSON Web Token standard</a> and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
-    </li>
-    <li>
-      <strong>Opaque tokens</strong>: Tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
-    </li>
-  </ul>
+Auth0 uses two types of tokens:
+- **JSON Web Tokens (JWT)**: Tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+- **Opaque tokens</strong>**: Tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
 
-  There are five primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation.
-</p>
+There are five primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation.
 
 <ul class="topic-links">
   <li>
