@@ -477,6 +477,10 @@ The Management API provides functionality that allows you to link and unlink sep
 
 To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
+::: note
+If you use [custom domains](/custom-domains), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, for use with the Management API calls, as it only works with Auth0 domains.
+:::
+
 ```js
 var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',

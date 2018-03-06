@@ -148,6 +148,10 @@ webAuth = new auth0.WebAuth({
 });
 ```
 
+::: note
+If you use custom domains and intend to perform [management API actions with Auth0.js](/libraries/auth0js/v9#user-management), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, just for for use with the Management API calls, as it only works with Auth0 domains. 
+:::
+
 #### Auth0 emails
 
 If you would like your custom domain used with your Auth0 emails, you'll need to enable this feature in the [Dashboard](${manage_url}/#/tenant). You can do this by clicking the toggle associated with the **Use Custom Domain in Emails**. When the toggle is green, this feature is enabled.
