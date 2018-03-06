@@ -62,6 +62,15 @@ If you need to read **and** create clients, then your token should include three
 If you have multiple apps needing access to the Management API, and each app needs a different set of scopes, we recommend creating a Non Interactive Client for each app.
 :::
 
+#### How to Set Scopes
+
+To set the scopes for the Non Interactive Clients that access the Management API:
+
+1. Launch the [Auth0 Management API](${manage_url}/#/apis)
+2. Open the **Non Interactive Clients** tab
+3. Find the client you're interested in configuring, and click the drop-down arrow located to the right of its name
+4. Select the scopes desired
+
 ### 2. Get the token
 
 The Management API Token is automatically generated and displayed on [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
