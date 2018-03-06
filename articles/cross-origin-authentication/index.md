@@ -79,7 +79,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr> 
       <th><strong>OS</strong></th>
       <th><strong>Browser</strong></th>
-      <th><strong>Third-Party Cookies Disabled</strong></th> 
+      <th style="text-align:center;"><strong>Cross-Origin Authentication Supported<br> with Third-Party Cookies Disabled</strong></th> 
     </tr> 
   </thead> 
   <tbody> 
