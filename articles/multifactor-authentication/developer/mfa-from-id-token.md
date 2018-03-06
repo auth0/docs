@@ -190,6 +190,12 @@ The script does the following:
 1. `express-jwt` validates the signature of the token, the expiration, the audience, and the issuer
 1. If all validations are successful then we check the decoded payload (by default, the decoded token is attached to `req.user`) to see if it contains the `amr` claim, and if so it holds the value `mfa`
 
+### 4. Configure your app
+
+The final step is to update your app views so they either display the sensitive information or deny access based on the result you got from the `amr` validation.
+
+That's it, you are done!
+
 ## Keep reading
 
 ::: next-steps
