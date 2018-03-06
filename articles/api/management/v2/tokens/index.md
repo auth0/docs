@@ -32,7 +32,7 @@ If you get tokens manually from [the API Explorer tab of the Management API](${m
 
 Tokens generated with an infinite lifespan are inherently less secure than those that expire after a definite period of time.
 
-The existing token in use allows tokens to be generated with specific expiration times *and* scopes. This increases the security of your implementation, which is the number one priority for us.
+The existing token in use allows tokens to be generated with specific expiration times. This increases the security of your implementation, which is the number one priority for us.
 
 **Can I change the validity period for my token?**
 
@@ -56,10 +56,6 @@ Change your Client Secret immediately:
 2. Click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i> **or** use the [Rotate a Client Secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint
 
 Please note that previously issued tokens will continue to be valid until their expiration time.
-
-**What are the Current User scopes in the ID Tokens?**
-
-Within the Users API, some endpoints have scopes related to the current user (such as read:current_user or update:current_user_identities). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the ID Token that are granted automatically to the logged in user.
 
 ## Keep reading
 

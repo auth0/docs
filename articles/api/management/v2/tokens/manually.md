@@ -48,19 +48,15 @@ That's it! A new client has been created for you, and it is authorized to access
 
 ### Scopes
 
-Please note that each Non Interactive Client that accesses an API has to be granted a set of scopes. The client that we just created has been granted **all** scopes needed to call the Management API endpoints -- in other words, token users can access all endpoints.
+::: warning
+Scope Management is not available for APIs representing Auth0 Resources. This means that, by default, any user on any client can ask for any scope defined. You can implement access policies to limit this behavior via [rules](/rules).
+:::
 
-::: panel What are scopes?
 Scopes are permissions granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes.
 
 For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the read:clients and read:client_keys scopes, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the `create:clients` scope.
 
-If you need to read **and** create clients, then your token should include three scopes: read:clients, read:client_keys, and create:clients.
-:::
-
-::: note
-If you have multiple apps needing access to the Management API, and each app needs a different set of scopes, we recommend creating a Non Interactive Client for each app.
-:::
+If you need to read **and** create clients, then your token must include the following three scopes: read:clients, read:client_keys, and create:clients.
 
 ### 2. Get the token
 
