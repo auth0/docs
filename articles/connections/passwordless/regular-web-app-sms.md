@@ -29,8 +29,7 @@ Then you can trigger the login widget with the following code:
           redirectUrl: '${account.callback}',
           responseType: 'code'
         }
-      }
- 
+      });
     lock.show();
   };
 </script>
