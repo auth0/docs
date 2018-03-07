@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
 ::: note
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
@@ -15,7 +15,7 @@ Next, configure the OIDC authentication handler. Add a call to `AddOpenIdConnect
 
 Configure other parameters, such as `ClientId`, `ClientSecret` or `ResponseType`. 
 
-By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/v2/04-user-profile).
+By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/v2/04-user-profile).
 
 ::: note
 In the code sample below, only the `openid` scope is requested.
@@ -120,7 +120,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Obtain an Access Token for Calling an API
 
-If you want to call an API from your MVC application, you need to obtain an access token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
+If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
 
 In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedirectToIdentityProvider` event and add the `audience` parameter to `ProtocolMessage`.
 
@@ -151,7 +151,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-For more information on saving and storing the access token, see the [Storing Tokens](/quickstart/webapp/aspnet-core/v2/03-storing-tokens) step.
+For more information on saving and storing the Access Token, see the [Storing Tokens](/quickstart/webapp/aspnet-core/v2/03-storing-tokens) step.
 
 For general information on using APIs with web applications, see the [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code) article.
 
@@ -297,6 +297,6 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 4. Once the user has logged in, Auth0 calls back to the `/signin-auth0` endpoint in your application and passes along an authorization code.
 5. The OIDC handler intercepts requests made to the `/signin-auth0` path. 
 6. The handler looks for the authorization code, which Auth0 sent in the query string.
-7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and access tokens.
-8. The OIDC middleware extracts the user information from the claims on the ID token.
+7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and Access Tokens.
+8. The OIDC middleware extracts the user information from the claims on the ID Token.
 9. The OIDC middleware returns a successful authentication response and a cookie which indicates that the user is authenticated. The cookie contains claims with the user's information. The cookie is stored, so that the cookie middleware will automatically authenticate the user on any future requests. The OIDC middleware receives no more requests, unless it is explicitly challenged.

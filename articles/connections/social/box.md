@@ -23,7 +23,7 @@ Name your new app and click **Create Application**:
 
 ## 2. Edit your app Properties
 
-Once the app is created, click on **Edit Application** and review the form. There are a number of properties that you can change (e.g. contact information, logos, etc.):
+Once the app is created, click on **Edit Application** and review the form. There are a number of properties that you can change (such as contact information, logos, and so on):
 
 ![](/media/articles/connections/social/box/box-register-3.png)
 

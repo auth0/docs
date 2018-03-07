@@ -1,11 +1,11 @@
-The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="login page"></div>
 
 ::: note
 Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
@@ -37,11 +37,11 @@ To configure callback, you must configure your callback URL first. Read about th
 
 ## Implement Login
 
-First, import the `Auth0` module in the file where you want to present the hosted login page:
+First, import the `Auth0` module in the file where you want to present the login page:
 
 ${snippet(meta.snippets.setup)}
 
-Then, present the hosted login screen:
+Then, present the login screen:
 
 ${snippet(meta.snippets.use)}
 

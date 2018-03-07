@@ -71,6 +71,10 @@ Auth0 tracks large security breaches that are happening on major third party sit
 
 This block remains in place until the user changes their password.
 
+:::note
+Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/resources/videos/learn-about-breached-password-detection).
+:::
+
 ## Setting Your Preferences
 
 To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.

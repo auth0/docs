@@ -1,17 +1,17 @@
 ---
-title: OIDC-conformant refresh token use
+title: OIDC-conformant Refresh Token use
 ---
 
-# OIDC-conformant refresh tokens
+# OIDC-conformant Refresh Tokens
 
 <%= include('./_about.md') %>
 
-There are some changes to how refresh tokens are used in the OIDC-conformant authentication pipeline:
+There are some changes to how Refresh Tokens are used in the OIDC-conformant authentication pipeline:
 
-* Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return refresh tokens.
-  Use [silent authentication](/api-auth/tutorials/silent-authentication) (i.e. `prompt=none`) instead.
-* Refresh tokens should only be used by [confidential clients](/clients/client-types#confidential-clients). However, they can also be used by Native (public) clients to obtain refresh tokens for mobile apps. 
-* The `/delegation` endpoint is considered deprecated. To obtain new tokens from a refresh token, the `/oauth/token` endpoint should be used instead:
+* Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return Refresh Tokens.
+  Use [silent authentication](/api-auth/tutorials/silent-authentication) (such as `prompt=none`) instead.
+* Refresh Tokens should only be used by [confidential clients](/clients/client-types#confidential-clients). However, they can also be used by Native (public) clients to obtain Refresh Tokens for mobile apps. 
+* The `/delegation` endpoint is considered deprecated. To obtain new tokens from a Refresh Token, the `/oauth/token` endpoint should be used instead:
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -49,7 +49,7 @@ Content-Type: application/json
   </div>
 </div>
 
-Please note that refresh tokens must be kept confidential in transit and storage, and they should be shared only among the authorization server and the client to whom the refresh tokens were issued.
+Please note that Refresh Tokens must be kept confidential in transit and storage, and they should be shared only among the authorization server and the client to whom the Refresh Tokens were issued.
 
 ## Further reading
 

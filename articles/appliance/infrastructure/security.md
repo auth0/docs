@@ -51,9 +51,9 @@ If you are behind a transparent proxy, you will need to:
 * obtain certificate(s) for your proxy created by a public certificate authority.
 * add an exception so that the PSaaS Appliance instance(s) may get through the proxy unauthenticated.
 
-## HTTPS
+## HTTPS or TLS
 
-Please ensure that your network is configured such that the PSaaS Appliance exposes HTTPS to end users only.
+Users must connect to the PSaaS Appliance using secure protocols (HTTPS or TLS). Depending on your network design, you could terminate the Secure Channel at the load balancer or at the PSaaS Appliance. In both cases your SSL/TLS certificate must be locally installed on the PSaaS Appliance.
 
 ## SMTP
 
@@ -61,7 +61,7 @@ You must configure an SMTP server in order for the PSaaS Appliance to send email
 
 **AWS SES Users**: If your domain is not validated, you will not be able to send email with AWS SES.
 
-Optionally, you may use a Transactional Email Provider (e.g. SendGrid, Amazon SES, Mandrill).
+Optionally, you may use a Transactional Email Provider (such as SendGrid, Amazon SES, Mandrill).
 
 The PSaaS Appliance supports STARTTLS, but it is not required.
 
@@ -76,7 +76,3 @@ Auth0's remote access method for initial configuration requires SSH access via J
 ### Updates, Maintenance, and Troubleshooting
 
 Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN. This connection may be enabled for and disabled after the agreed-upon time frames for work.
-
-### Around-the-Clock Accessibility for Custom SLAs
-
-Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the PSaaS Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. 

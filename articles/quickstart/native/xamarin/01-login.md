@@ -37,7 +37,7 @@ Since callback URLs can be manipulated, you will need to add your application's 
   YOUR_ANDROID_PACKAGE_NAME://${account.namespace}/android/YOUR_ANDROID_PACKAGE_NAME/callback
   ```
 
-  where `YOUR_ANDROID_PACKAGE_NAME` is the Package Name for your application, e.g. `com.mycompany.myapplication`.
+  where `YOUR_ANDROID_PACKAGE_NAME` is the Package Name for your application, such as `com.mycompany.myapplication`.
 
 
 * For iOS, the callback URL will be in the format
@@ -46,7 +46,7 @@ Since callback URLs can be manipulated, you will need to add your application's 
   YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
   ```
 
-  where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier for your application, e.g. `com.mycompany.myapplication`.
+  where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier for your application, such as `com.mycompany.myapplication`.
 
 Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the correct URL. **Also, ensure that the Callback URL is in lowercase.**
 
@@ -98,7 +98,7 @@ public class MainActivity : Activity
 }
 ```
 
-Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, e.g. `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case.
+Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, such as `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case.
 
 Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `ProcessResponseAsync` method, passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
 

@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-As an alternative to Auth0's centralized login page, the Lock widget can be embedded directly in your application.
+As an alternative to Auth0's universal login page, the Lock widget can be embedded directly in your application.
 
 <%= include('../_includes/_install_lock') %>
 
@@ -74,7 +74,7 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
@@ -92,7 +92,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }

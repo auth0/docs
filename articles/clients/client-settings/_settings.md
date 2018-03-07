@@ -13,3 +13,5 @@
   :::
 
 - **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
+
+- **Client Logo**: The URL to a logo (recommended size: 150x150 pixels) to be displayed for the client. This will appear in several areas, including the list of clients in the Dashboard, as well as things like customized consent forms.

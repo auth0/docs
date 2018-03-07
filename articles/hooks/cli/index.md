@@ -28,7 +28,3 @@ The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is t
 * [Edit Existing Hooks](/hooks/cli/edit)
 * [Enable/Disable Existing Hooks](/hooks/cli/enable-disable)
 * [Identify and Get Log Data from Your Hooks](/hooks/cli/logs)
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/hooks"]
-}) %>

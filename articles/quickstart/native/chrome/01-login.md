@@ -271,4 +271,4 @@ Once the extension is published in the Chrome Web Store the Callback URL and the
 
 ## Further Reading
 
-With authentication implemented in your Chrome extension, you'll likely want to make secure calls to a remote API. For more information on how to set up an API in your Auth0 dashboard and how to use access tokens to make requests for protected resources, see the [API authorization docs](https://auth0.com/docs/api-auth).
+With authentication implemented in your Chrome extension, you'll likely want to make secure calls to a remote API. For more information on how to set up an API in your Auth0 dashboard and how to use Access Tokens to make requests for protected resources, see the [API authorization docs](https://auth0.com/docs/api-auth).

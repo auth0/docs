@@ -124,7 +124,7 @@ ${snippet(meta.snippets.setup)}
 
 Create a file called `login.go` in the `routes/login` folder, and add `LoginHandler` function to handle `/login` route.
 
-This function sets the configuration for [OAuth2 Go](https://godoc.org/golang.org/x/oauth2) to get the authorization url, and redirect user to Auth0's  [hosted login page](/hosted-pages/login).
+This function sets the configuration for [OAuth2 Go](https://godoc.org/golang.org/x/oauth2) to get the authorization url, and redirects the user to the [login page](/hosted-pages/login).
 
 ```go
 // routes/login/login.go

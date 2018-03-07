@@ -1,42 +1,54 @@
 ---
-description: Details on the WS-Federation protocol and how this is used by Auth0.
+description: The WS-Federation protocol and how it is used in Auth0.
 ---
 # WS-Federation
 
-WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS).
+WS-Federation (which is short for Web Services Federation) is a protocol that can be used to negotiate the issuance of a token. You can use this protocol for your client applications (such as a Windows Identity Foundation-based app) and for identity providers (such as Active Directory Federation Services or Azure AppFabric Access Control Service).
 
-## For apps
-All registered apps in Auth0 get a WS-Fed endpoint of the form:
+## For Client Applications
+
+By registering your application as a [client](/client) in Auth0, it will automatically be assigned a WS-Fed endpoint of the form:
 
 ```text
 https://${account.namespace}/wsfed/${account.clientId}
 ```
 
-The metadata endpoint that you can use to configure the __Relying Party__:
+You can find all available options for configuring WS-Federation under the [advanced settings](${manage_url}/#/clients/${account.clientId}/settings) area for your client.
+
+![WS-Fed Endpoints](/media/articles/protocols/ws-fed-endpoints.png)
+
+You will need to configure the **Relying Party**, which can be done using the following metadata endpoint:
 
 ```text
 https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
-All options for WS-Fed are available under the [advanced settings](${manage_url}/#/applications/${account.clientId}/settings) for an App.
+You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the SAML token, as well as other lower-level WS-Fed and SAML-P settings.
 
-Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](/saml-configuration).
+When redirecting your users to your WS-Fed enpoint, you can use the following (optional) parameters:
 
-The following optional parameters can be used when redirecting to the WS-Fed endpoint:
+* **wreply**: Callback URL
+* **wctx**: Your application's state
+* **whr**: The name of the connection (to skip the login page)
 
-* `wreply`: Callback URL
-* `wctx`: Your application's state
-* `whr`: The name of the connection (to skip the login page)
+Here's a sample of what your URL with the optional parameters might look like:
 
 ```text
 https://${account.namespace}/wsfed/${account.clientId}?whr=google-oauth2
 ```
 
-## For IdP
-If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
+## Identity Providers
+
+If you're using using Auth0 with an identity provider that utilizes the WD-Federation protocol (such as Active Directory Federation Services, Azure AppFabric Access Control Service, and IdentityServer), the easiest way to set up your integration is to create and use the **ADFS** connection type. When setting up an ADFS-based connection,  you can import the required parameters by providing Auth0 with the **Federation Metadata** endpoint *or* by importing uploading your Federation Metadata file.
+
+![New Connection Configuration Screen](/media/articles/protocols/create-adfs-connection.png)
+
+Click **Save** to proceed. You will then be presented with the instructions you need to finish configuring the integration.
+
+The Federation Metadata file contains information about the the identity provider's certificates. If you provide the Federation Metadata endpoint (typically of the form ending with **/FederationMetadata/2007-06/FederationMetadata.xml**), Auth0 can check daily for changes in the configuration, such as the addition of a new signing certificate that was added in preparation for a rollover.
+
+Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
 
 ::: note
-You can also upload a Federation Metadata file.
+If the Federation Metadata contains both the primary **and** secondary certificates, you can use both in Auth0.
 :::
-
-If both primary and secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.

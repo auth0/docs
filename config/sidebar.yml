@@ -126,6 +126,36 @@ articles:
       - title: Grant Types
         url: /clients/client-grant-types
 
+  - title: "Authentication"
+    url: "/client-auth/current"
+    children:
+
+      - title: "Server-side App"
+        url: "/client-auth/current/server-side-web"
+      
+      - title: "Client-side App"
+        url: "/client-auth/current/client-side-web"
+        
+      - title: "Mobile App"
+        url: "/client-auth/current/mobile-desktop"
+      
+      - title: "Legacy"
+        url: "/client-auth/legacy"
+        hidden: true
+        children:
+          - title: "Server-side App"
+            url: "/client-auth/legacy/server-side-web"
+            hidden: true
+      
+          - title: "Client-side App"
+            url: "/client-auth/legacy/client-side-web"
+            hidden: true
+        
+          - title: "Mobile App"
+            url: "/client-auth/legacy/mobile-desktop"
+            hidden: true
+            
+        
   - title: "APIs"
     url: "/apis"
     children:
@@ -188,6 +218,9 @@ articles:
         url: "/connections/passwordless"
         children:
 
+          - title: "Native Passwordless"
+            url: "/connections/passwordless/native-passwordless-universal"
+
           - title: "Using Email"
             url: "/connections/passwordless/email"
 
@@ -215,7 +248,7 @@ articles:
               url: "/hosted-pages/login/lock-passwordless"
 
             - title: "Using Auth0.js"
-              url: "/hosted-pages/login/auth0js/v8"
+              url: "/hosted-pages/login/auth0js"
 
       - title: "Password Reset Page"
         url: "/hosted-pages/password-reset"
@@ -266,12 +299,55 @@ articles:
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
+        children:
+
+          - title: "Credentials Exchange"
+            url: "/hooks/extensibility-points/credentials-exchange"
+            hidden: true
+
+          - title: "Pre-User Registration"
+            url: "/hooks/extensibility-points/pre-user-registration"
+            hidden: true
+
+          - title: "Post-User Registration"
+            url: "/hooks/extensibility-points/post-user-registration"
+            hidden: true
 
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
+        children:
+
+          - title: "Create/Delete Hooks"
+            url: "/hooks/cli/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/cli/edit"
+            hidden: true
+
+          - title: "Enable/Disable Hooks"
+            url: "/hooks/cli/enable-disable"
+            hidden: true
+
+          - title: "Hooks Logs"
+            url: "/hooks/cli/logs"
+            hidden: true
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
+        children:
+
+          - title: "Create or Delete Hooks"
+            url: "/hooks/dashboard/create-delete"
+            hidden: true
+
+          - title: "Edit Hooks"
+            url: "/hooks/dashboard/edit"
+            hidden: true
+
+          - title: "Enable or Disable Hooks"
+            url: "/hooks/dashboard/enable-disable"
+            hidden: true
 
   - title: "Email"
     url: "/email"
@@ -335,6 +411,35 @@ articles:
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+        children:
+
+          - title: "Installation"
+            url: "/extensions/authorization-extension/v2/implementation/installation"
+            hidden: true
+          
+          - title: "Setup"
+            url: "/extensions/authorization-extension/v2/implementation/setup"
+            hidden: true
+
+          - title: "Configuration"
+            url: "/extensions/authorization-extension/v2/implementation/configuration"
+            hidden: true
+          
+          - title: "API Access"
+            url: "/extensions/authorization-extension/v2/api-access"
+            hidden: true
+
+          - title: "Rules"
+            url: "/extensions/authorization-extension/v2/rules"
+            hidden: true
+
+          - title: "Troubleshooting"
+            url: "/extensions/authorization-extension/v2/troubleshooting"
+            hidden: true
+
+          - title: "Import / Export Data"
+            url: "/extensions/authorization-extension/v2/import-export-data"
+            hidden: true
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
@@ -362,6 +467,10 @@ articles:
 
           - title: "Stormpath"
             url: "/users/migrations/stormpath"
+
+          - title: "Azure Access Control"
+            url: "/users/migrations/azure-access-control"
+            hidden: true
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -410,6 +519,17 @@ articles:
 
       - title: "Yubikey NEO Example"
         url: "/multifactor-authentication/yubikey"
+        
+      - title: "Step-up Authentication"
+        url: "/multifactor-authentication/developer/step-up-authentication"
+        children:
+          - title: "Step-up with ID Tokens"
+            url: "/multifactor-authentication/developer/mfa-from-id-token"
+            hidden: true
+          
+          - title: "Step-Up with Custom MFA Rules"
+            url: "/multifactor-authentication/custom-mfa-rules"
+            hidden: true
 
   - title: "Security"
     url: "/security"
@@ -417,9 +537,29 @@ articles:
 
       - title: "Bulletins"
         url: "/security/bulletins"
-        childern:
+        children:
+          - title: "CVE 2018-7307"
+            url: "/security/bulletins/cve-2018-7307"
+            hidden: true
+            
+          - title: "CVE 2017-16897"
+            url: "/security/bulletins/cve-2017-16897"
+            hidden: true
+            
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
+            hidden: true
+      - title: "Where to Store Tokens"
+        url: "/security/store-tokens"
+        hidden: true
+      
+      - title: "Common Threats"
+        url: "/security/common-threats"
+        hidden: true
+      
+      - title: "Blacklist User Attributes"
+        url: "/security/blacklisting-attributes"
+        hidden: true
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
@@ -480,9 +620,105 @@ articles:
             url: "/integrations/marketing/watson-campaign-automation"
 
       - title: "Single Sign On"
-        url: "/sso/current/integrations"
+        url: "/integrations/sso"
+        children:
 
+          - title: "Active Directory RMS"
+            url: "/integrations/sso/ad-rms"
+            hidden: true
 
+          - title: "Box"
+            url: "/integrations/sso/box"
+            hidden: true
+
+          - title: "CloudBees"
+            url: "/integrations/sso/cloudbees"
+            hidden: true
+
+          - title: "Concur"
+            url: "/integrations/sso/concur"
+            hidden: true
+
+          - title: "Disqus"
+            url: "/integrations/sso/disqus"
+            hidden: true
+
+          - title: "Dropbox"
+            url: "/integrations/sso/dropbox"
+            hidden: true
+
+          - title: "Microsoft Dynamics CRM"
+            url: "/integrations/sso/dynamics-crm"
+            hidden: true
+
+          - title: "EchoSign"
+            url: "/integrations/sso/echosign"
+            hidden: true
+
+          - title: "Egnyte"
+            url: "/integrations/sso/egnyte"
+            hidden: true
+
+          - title: "New Relic"
+            url: "/integrations/sso/new-relic"
+            hidden: true
+
+          - title: "Microsoft Office 365"
+            url: "/integrations/sso/office-365"
+            hidden: true
+
+          - title: "Salesforce"
+            url: "/integrations/sso/salesforce"
+            hidden: true
+
+          - title: "Microsoft SharePoint"
+            url: "/integrations/sso/sharepoint"
+            hidden: true
+
+          - title: "Slack"
+            url: "/integrations/sso/slack"
+            hidden: true
+
+          - title: "SpringCM"
+            url: "/integrations/sso/springcm"
+            hidden: true
+
+          - title: "Zendesk"
+            url: "/integrations/sso/zendesk"
+            hidden: true
+
+          - title: "Zoom"
+            url: "/integrations/sso/zoom"
+            hidden: true
+
+  - title: "Protocols"
+    url: "/protocols"
+    children:
+
+      - title: "OAuth 2.0"
+        url: "/protocols/oauth2"
+        children:
+
+        - title: "The State Parameter"
+          url: "/protocols/oauth2/oauth-state"
+          hidden: true
+          
+        - title: "Web App Integration"
+          url: "/protocols/oauth2/oauth-web-protocol"
+          hidden: true
+          
+      - title: "OpenID Connect"
+        url: "/protocols/oidc"
+
+      - title: "SAML"
+        url: "/protocols/saml"
+
+      - title: "WS-Fed"
+        url: "/protocols/ws-fed"
+        
+      - title: "LDAP"
+        url: "/protocols/ldap"
+        
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
@@ -490,6 +726,13 @@ articles:
       - title: "Overview"
         url: "/addons"
 
+  - title: "Auth0 Migrations"
+    url: "/migrations"
+    children:
+
+      - title: "Past Migrations"
+        url: "/migrations/past-migrations"
+        
   - title: "Support"
     url: "/support"
     children:

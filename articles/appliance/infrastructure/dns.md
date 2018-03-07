@@ -13,7 +13,7 @@ The following document details the requirements of DNS records used for PSaaS Ap
 DNS records must be finalized for all of the tenants prior to PSaaS Appliance deployment. They cannot be changed afterwards.
 :::
 
-You’ll need one certificate per environment (e.g. if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
+You’ll need one certificate per environment (such as if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
 
 If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
 
@@ -34,7 +34,7 @@ If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated
     </tr>
     <tr>
         <th>App Tenant(s)</th>
-        <td>app1-project.yourdomain.com; <br /> app2-project.yourdomain.com <br />...etc.</td>
+        <td>app1-project.yourdomain.com; <br /> app2-project.yourdomain.com <br />...and so on</td>
     </tr>
 </table>
 
@@ -55,7 +55,7 @@ For a dev/test non-production PSaaS Appliance a common practice is to append “
     </tr>
     <tr>
         <th>App Tenant(s) (Dev)</th>
-        <td>app1-dev-project.yourdomain.com; <br /> app2-dev-project.yourdomain.com <br />...etc.</td>
+        <td>app1-dev-project.yourdomain.com; <br /> app2-dev-project.yourdomain.com <br />...and so on</td>
     </tr>
 </table>
 
@@ -86,7 +86,7 @@ For a single-node PSaaS Appliance instance, the DNS record(s) will point to the 
 
 ### Hostnames
 
-The hostname (e.g. **manage-project**.yourdomain.com) must be at least three characters long and must **not** contain any underscores(_).
+The hostname (such as **manage-project**.yourdomain.com) must be at least three characters long and must **not** contain any underscores(_).
 
 The following are reserved tenant names and **may not** be used for the **app** tenant.
 
@@ -137,14 +137,20 @@ The following are reserved tenant names and **may not** be used for the **app** 
         <td>help</td>
         <td>support</td>
         <td>int</td>
-        <td></td>
+        <td>auth</td>
         <td></td>
     </tr>
 </table>
 
-The Management Dashboard, Configuration Tenant, and App Tenant(s) must all be a part of the same parent domain (e.g. yourdomain.com).
+::: warning
+Please note that the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) from **auth0** to the supplied name *must be greater than two*. This means that tenant names like **auth** or **authy** (and other similar names) cannot be used.
 
-Three- or four-part domain names are supported (e.g. manage.project.yourdomain.com).
+To see if your tenant name meets this requirement, you can validate your selections using a [Levenshtein Distance calculator](http://www.unit-conversion.info/texttools/levenshtein-distance/).
+:::
+
+The Management Dashboard, Configuration Tenant, and App Tenant(s) must all be a part of the same parent domain (such as yourdomain.com).
+
+Three- or four-part domain names are supported (such as manage.project.yourdomain.com).
 
 ### Custom Domains
 

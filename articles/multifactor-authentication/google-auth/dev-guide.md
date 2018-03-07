@@ -4,9 +4,7 @@ description:  Using Google Authenticator with Auth0 for developers
 
 # Google Authenticator for Developers
 
-::: note
-This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
-:::
+<%= include('./_deprecation-notice.md') %>
 
 ## Enabling Google Authenticator for MFA
 

@@ -10,7 +10,7 @@ One type of threat is a Man-in-the-middle attack, sometimes called a bucket brig
 
 Usually MitM attacks involve the attacker using a WiFi router to intercept a user's communication. The user connects to the attacker's router then visits a website and logs in with their confidential credentials. The attacker saves that user's login credentials for which they can then use to impersonate the user.
 
-Some MitM attacks can also modify the data transmitted between the client and the server. Attacks can occur from new PC trial and preinstalled software, software update tools, and other software vulnerabilities. In a worst case scenario this could result in remote code execution, backdooring the system, installing malware, etc. This could also lead to the compromise of other network assets.
+Some MitM attacks can also modify the data transmitted between the client and the server. Attacks can occur from new PC trial and preinstalled software, software update tools, and other software vulnerabilities. In a worst case scenario this could result in remote code execution, backdooring the system, installing malware, and so on. This could also lead to the compromise of other network assets.
 
 ### Preventing MitM attacks
 

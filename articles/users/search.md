@@ -17,7 +17,7 @@ Currently, Auth0 offers three different ways by which you can search for users:
 * [User Export](#user-export)
 
 ::: note
-The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [access token](/api/management/v2/tokens) and provide it in the header of your call (simply replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (simply replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
 :::
 
 ### Definitions
@@ -260,11 +260,15 @@ When you create your job, you'll need to provide:
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}],
+	},
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"connection_id\": \"con_0000000000000001\", \"format\": \"csv\", \"limit\": 5, \"fields\": [[{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]]}" 
+		"text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}" 
     },
 	"headersSize": -1,
 	"bodySize": -1,
@@ -302,7 +306,84 @@ When you create your job, you'll need to provide:
 }
 ```
 
-Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). You'll need to provide the ID of the job (which you received in the response when creating the job) -- if you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
+### Export metadata
+
+If you export user data in CSV and want to include metadata information, you must specify each metadata field that you want exported. 
+
+For example, for metadata structured like this:
+
+```json
+{
+  "consent": {
+      "given": true,
+      "date": "01/23/2018",
+      "text_details": "some-url"
+  }
+}
+```
+
+The export request (for all three fields) will looks like this:
+
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/jobs/users-exports",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent.given\"}, {\"name\": \"user_metadata.consent.date\"}, {\"name\": \"user_metadata.consent.text_details\"}]}" 
+    },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+If you export the data in JSON, you need only provide the root property; you do not need to name each individual inner property since they will be included automatically.
+
+In this case, for the same example we used before, the request will look like this:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/jobs/users-exports",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+  },
+  {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent\"}]}" 
+    },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+### Get the results
+
+Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). 
+
+You'll need to provide the ID of the job (which you received in the response when creating the job). If you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
 
 *Require Scopes*: `create:users`, `read:users`, `create:passwords_checking_job`
 
@@ -348,13 +429,13 @@ Once you've created your job to export your users, you can check on its status u
 }
 ```
 
-You can access your export using the URL provided as the value for the `location` parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
+You can access your export using the URL provided as the value for the **location** parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
 
 ::: note
 The download link is valid for 60 seconds. If this time period has expired, you'll need to initiate a new job.
 :::
 
-![](/media/articles/users/data.png)
+![Exported user data](/media/articles/users/data.png)
 
 ## Summary
 

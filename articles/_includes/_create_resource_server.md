@@ -1,8 +1,8 @@
 ## Create the API
 
-Your resource server (API) needs to be configured to verify the `access_token` and any claims contained within it. When you create a resource server in your Auth0 dashboard, it utilizes the RS256 signature method by default, meaning that access tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key. You can read more about the [JSON Web Key Set (JWKS)](/jwks) standard and also view the [public key](https://${account.namespace}/.well-known/jwks.json) for your Auth0 account (https://${account.namespace}/.well-known/jwks.json).
+Your resource server (API) needs to be configured to verify the `access_token` and any claims contained within it. When you create a resource server in your Auth0 dashboard, it utilizes the RS256 signature method by default, meaning that Access Tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key. You can read more about the [JSON Web Key Set (JWKS)](/jwks) standard and also view the [public key](https://${account.namespace}/.well-known/jwks.json) for your Auth0 account (https://${account.namespace}/.well-known/jwks.json).
 
-You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. The following example will demonstrate how to create a resource server API with Node. You can find more information about resource server implementations in the [access token documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
+You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. The following example will demonstrate how to create a resource server API with Node. You can find more information about resource server implementations in the [Access Token documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
 
 The `access_token` for your API must be verified against your JSON Web Key Set (JWKS) endpoint. This can be done easily with the **jwks-rsa** library available on npm.
 

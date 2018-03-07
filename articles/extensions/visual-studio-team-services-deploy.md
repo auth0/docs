@@ -20,7 +20,7 @@ Set the following configuration variables:
 * **TFS_INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
 * **TFS_COLLECTION**: Your visualstudio collection
 * **TFS_USERNAME**: Your Visual Studio Team Services username
-* **TFS_TOKEN**: Your personal access token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
+* **TFS_TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **SLACK_INCOMING_WEBHOOK**: Webhook URL for Slack used to notify you of successful and failed deployments.
 
 Once you have provided this information, click **Install**.
@@ -33,17 +33,17 @@ Once you have provided this information, click **Install**.
 
 ![Profile drop down](/media/articles/extensions/visual-studio-ts/profile-menu.png)
 
-3. This will bring up the **Personal access tokens** page, click **Add**.
+3. This will bring up the **Personal Access Tokens** page, click **Add**.
 
-![Add personal access token](/media/articles/extensions/visual-studio-ts/add-token.png)
+![Add personal Access Token](/media/articles/extensions/visual-studio-ts/add-token.png)
 
 4. Add a description for the new token, select the desired lifetime, and the account the token will be associated with. Then choose the scopes you wish to authorize and then click **Create Token**.
 
-![Creating the access token](/media/articles/extensions/visual-studio-ts/create-token.png)
+![Creating the Access Token](/media/articles/extensions/visual-studio-ts/create-token.png)
 
 5. Once the token is created, you will need to copy right away as it is not saved. Use this value as your **TFS_TOKEN**.
 
-![Copy access token](/media/articles/extensions/visual-studio-ts/copy-token.png)
+![Copy Access Token](/media/articles/extensions/visual-studio-ts/copy-token.png)
 
 ## Authorize Access
 

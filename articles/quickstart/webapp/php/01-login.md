@@ -8,7 +8,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-php-web-app',
-  path: '00-Starter-Seed/basic-webapp',
+  path: '00-Starter-Seed',
   requirements: [
     'Apache 2.4.4',
     'PHP 5.6.14 and up',
@@ -116,7 +116,7 @@ Some of the user profile properties depend on the social provider you use.
 
 ### Optional: Configure session data
 
-By default, the SDK stores user information in the PHP session and discards the access and ID tokens. 
+By default, the SDK stores user information in the PHP session and discards the access and ID Tokens. 
 
 To keep the tokens, to the SDK configuration, pass the following:
 * `'persist_access_token' => true`

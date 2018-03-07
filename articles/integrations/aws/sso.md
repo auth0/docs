@@ -22,7 +22,7 @@ On the **Settings** tab, populate **Application Callback URL** with `https://sig
   "audience": "https://signin.aws.amazon.com/saml",
   "mappings": {
     "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
-    "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+    "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
   },
   "createUpnClaim": false,
   "passthroughClaimsWithNoMapping": false,
@@ -30,7 +30,7 @@ On the **Settings** tab, populate **Application Callback URL** with `https://sig
   "mapIdentities": false,
   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
   "nameIdentifierProbes": [
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
   ]
 }
 ```

@@ -81,7 +81,7 @@ Add a decorator which verifies the `access_token` against your JWKS.
 
 # Format error response and append status code
 def get_token_auth_header():
-    """Obtains the access token from the Authorization Header
+    """Obtains the Access Token from the Authorization Header
     """
     auth = request.headers.get("Authorization", None)
     if not auth:
@@ -109,7 +109,7 @@ def get_token_auth_header():
     return token
 
 def requires_auth(f):
-    """Determines if the access token is valid
+    """Determines if the Access Token is valid
     """
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -148,12 +148,12 @@ def requires_auth(f):
                 raise AuthError({"code": "invalid_header",
                                 "description":
                                     "Unable to parse authentication"
-                                    " token."}, 400)
+                                    " token."}, 401)
 
             _request_ctx_stack.top.current_user = payload
             return f(*args, **kwargs)
         raise AuthError({"code": "invalid_header",
-                        "description": "Unable to find appropriate key"}, 400)
+                        "description": "Unable to find appropriate key"}, 401)
     return decorated
 ```
 
@@ -171,7 +171,7 @@ Individual routes can be configured to look for a particular `scope` in the `acc
 # /server.py
 
 def requires_scope(required_scope):
-    """Determines if the required scope is present in the access token
+    """Determines if the required scope is present in the Access Token
     Args:
         required_scope (str): The scope required to access the resource
     """
@@ -195,10 +195,10 @@ Then, establish what scopes are needed in order to access the route. In this cas
 @cross_origin(headers=["Access-Control-Allow-Origin", "*"])
 @requires_auth
 def private_scoped():
-    """A valid access token and an appropriate scope are required to access this route
+    """A valid Access Token and an appropriate scope are required to access this route
     """
     if requires_scope("read:messages"):
-        response = "All good. You're authenticated and the access token has the appropriate scope."
+        response = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
         return jsonify(message=response)
     raise AuthError({
         "code": "Unauthorized",

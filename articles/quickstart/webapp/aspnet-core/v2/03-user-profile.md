@@ -18,7 +18,7 @@ budicon: 292
 
 ## Get the Profile
 
-The OIDC middleware extracts the user's information from the ID token and adds it as claims to the `ClaimsIdentity`.
+The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.
 
 The seed project contains a controller action and view which display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
@@ -56,11 +56,11 @@ public IActionResult Profile()
 }
 ```
 
-The `User.Identity.Name` property looks for a claim of a type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID token, but this does not get automatically matched to the  `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` type. This means that `User.Identity.Name` will return null.
+The `User.Identity.Name` property looks for a claim of a type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID Token, but this does not get automatically matched to the  `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` type. This means that `User.Identity.Name` will return null.
 
-You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID token when you access the name of the user with the `User.Identity.Name` property.
+You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID Token when you access the name of the user with the `User.Identity.Name` property.
 
-You must update the list of scopes to request the `profile` scope. The user's profile information is returned as claims in the ID token.
+You must update the list of scopes to request the `profile` scope. The user's profile information is returned as claims in the ID Token.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

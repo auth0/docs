@@ -7,9 +7,7 @@ description: How to implement Passwordless authentication in Lock v1
 
 <%= include('../_includes/_lock-version-1') %>
 
-::: version-warning
-This feature is disabled for new tenants as of June 8th 2017. Any tenant created after that date won't have the necessary legacy [grant types](/clients/client-grant-types) to use Touch ID. This document is offered as reference for older implementations. We recommend that you [upgrade to v2](/libraries/lock-ios/v2/migration).
-:::
+<%= include('../../../_includes/_native_passwordless_warning') %>
 
 ## Passwordless with SMS
 
@@ -27,7 +25,7 @@ controller.auth0APIToken = ^{
     return @"Copy API v2 token here";
 };
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -39,7 +37,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 let lock = ... // Fetch Lock from where its stored
 let controller: A0SMSLockViewController = lock.newSMSViewController()
 controller.onAuthenticationBlock = { (profile, token) in
-   // Do something with token & profile. e.g.: save them.
+   // Do something with token & profile (such as save them).
    // Lock will not save the Token and the profile for you.
    // And dismiss the UIViewController.
    self.dismiss(animated: true, completion: nil)
@@ -79,7 +77,7 @@ Lock provides passwordless authentication with Touch ID for your Auth0 DB connec
   let lock = A0Lock.shared()
   let controller: A0TouchIDLockViewController = lock.newTouchIDViewController()
   controller.onAuthenticationBlock = { (profile, token) in
-      // Do something with token & profile. e.g.: save them.
+      // Do something with token & profile (such as save them).
       // Lock will not save the Token and the profile for you.
       // And dismiss the UIViewController.
       self.dismiss(animated: true, completion: nil)

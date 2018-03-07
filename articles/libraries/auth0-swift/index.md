@@ -108,9 +108,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-#### Authenticate with Auth0 hosted login page
+#### Authenticate with universal login
 
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](/hosted-pages/login).
+The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
 
 ::: note
 To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Client > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
@@ -136,7 +136,7 @@ If you need help between the two types of login flows, refer to [Browser-Based v
 
 #### Authenticate with a specific Auth0 connection
 
-The `connection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the Hosted Login page, with all of the connections which are enabled for this client.
+The `connection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the login page, with all of the connections which are enabled for this client.
 
 ```swift
 Auth0

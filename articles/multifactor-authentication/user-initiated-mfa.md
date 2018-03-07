@@ -61,7 +61,7 @@ function (user, context, callback) {
 
 In this step, we'll add functionality within the user creation/login process that flags users for MFA.
 
-You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2) during the user creation process. The only scope that you need to grant to the issued token is `update:users_app_metadata`.
+You'll need to [get an Access Token](/api/management/v2/tokens) to call the [Management API](/api/management/v2) during the user creation process. The only scope that you need to grant to the issued token is `update:users_app_metadata`.
 
 Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `useMfa = true`.
 
@@ -92,7 +92,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 
 In this step, we'll initiate Guardian Enrollment for users who have been flagged for MFA. Note that you can use any MFA provider that integrates with Auth0 -- you do not necessarily have to use Guardian.
 
-You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the access token when you make the initial request in the [previous step](#flag-new-users-for-mfa) in lieu of making two separate requests, each resulting in a token with a different scope.
+You'll need to [get an Access Token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the Access Token when you make the initial request in the [previous step](#flag-new-users-for-mfa) in lieu of making two separate requests, each resulting in a token with a different scope.
 
 You can enroll a user in Guardian MFA by making the appropriate `POST` call to the [Create a Guardian Enrollment Ticket endpoint of the Management API](/api/management/v2#!/Guardian/post_ticket).
 

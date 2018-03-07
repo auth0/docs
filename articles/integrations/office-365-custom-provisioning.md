@@ -21,7 +21,7 @@ Custom provisioning uses the Azure AD Graph API to provision new users in Azure 
 3. Select **App registrations** in the new menu.
 4. Click on **New application registration**.
 5. Fill the form:
-    1. Input a name for the application (e.g. `Auth0 Provisioning`)
+    1. Input a name for the application (such as `Auth0 Provisioning`)
     2. Select **Web app / API** as the **Application type**.
     3. Insert a sign-on URL. Any valid url as this won't be really used.
 5. The recently created app will appear in the **App registrations** list. Select it.
@@ -39,7 +39,7 @@ The following rule shows the provisioning process:
 
  1. If the user comes from the AD connection, skip the provisioning process (because this will be handled by DirSync)
  2. If the user was already provisioned in Azure AD, just continue with the login transaction.
- 3. Get an access token of the Graph API using the Azure AD Client ID and Key
+ 3. Get an Access Token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
  5. Assign a license to the user.
  6. Continue with the login transaction.
@@ -267,7 +267,7 @@ https://${account.namespace}/login?client=AUTH0_OFFICE365_CLIENT_ID&protocol=wsf
 ```
 
 ::: panel AUTH0_OFFICE365_CLIENT_ID
-The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see a URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
 :::
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.

@@ -135,7 +135,7 @@ If you do not configure this Hook, the search returns **all users**.
 
 ## The Access Hook
 
-While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
+While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, or unblock a specific user.
 
 ### The Hook contract:
 

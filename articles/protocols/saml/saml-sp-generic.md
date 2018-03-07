@@ -77,7 +77,7 @@ Copy and save this entire Entity ID field from "urn" all the way to the end of t
 
 The third bullet indicates the binding that will be used to send the SAML Request from Auth0 to the Identity Provider.    If the Identity Provider provides a choice, select HTTP-Redirect as shown on your metadata screen.
 
-The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST.  e.g. the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding.  If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
+The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST, such as the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding.  If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
 
 The nameid format is the format for the attribute that will be used to identify users.
 

@@ -50,7 +50,7 @@ npm install --save angular-jwt
 yarn add angular-jwt
 ```
 
-Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's access token from local storage. The token can then be attached as an `Authorization` header. 
+Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's Access Token from local storage. The token can then be attached as an `Authorization` header. 
 
 Whitelist any domains you want to enable authenticated `$http` calls for. 
 Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
@@ -93,7 +93,7 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 
 ## Make Authenticated Calls with `$http`
 
-With `jwtInterceptor` in place, the user's access token is automatically attached to `$http` calls. 
+With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls. 
 When you make `$http` calls, your protected API resources become accessible to the user. 
 
 ```js

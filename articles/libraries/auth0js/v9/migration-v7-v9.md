@@ -25,10 +25,10 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With the hosted login page
+// With universal login
 auth0.login({});
 
-// With a social connection
+// With a social or enterprise connection
 auth0.login({
   connection: 'twitter'
 });
@@ -50,10 +50,10 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token id_token'
 });
 
-// with the hosted login page
+// with universal login
 webAuth.authorize({});
 
-// with a social connection
+// with a social or enterprise connection
 webAuth.authorize({
   connection: 'twitter'
 });
@@ -66,7 +66,7 @@ webAuth.login({
   password: 'the-password'
 });
 ```
-## Using Auth0.js to Log-in Users in 'popup` mode
+## Using Auth0.js to log in users in 'popup mode'
 
 ### Using Auth0.js v7
 
@@ -77,12 +77,12 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With the hosted login page
+// With universal login
 auth0.login({
   popup: true
 });
 
-//with a social connection
+//with a social or enterprise connection
 auth0.login({
   popup: true,
   connection: 'twitter'
@@ -106,10 +106,10 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token'
 });
 
-// with the hosted login page
+// with universal login
 webAuth.popup.authorize({});
 
-// with a social connection
+// with a social or enterprise connection
 webAuth.popup.authorize({
   connection: 'twitter'
 });
@@ -122,8 +122,72 @@ webAuth.popup.loginWithCredentials({
   password: 'the-password'
 });
 ```
+## Using Auth0.js to sign up users
 
-## Using Auth0.js to Log-in Users Using Passwordless
+### Using Auth0.js v7
+
+```js
+var auth0 = new Auth0({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  responseType: 'token'
+});
+
+// signup only
+auth0.signup({
+  connection: 'my-db-connection',
+  username: 'the-username',
+  password: 'the-password',
+  auto_login: false
+}, function (err) {
+  if (err) return alert('Something went wrong: ' + err.message);
+  alert('success signup without login!')
+});
+
+// signup and login
+auth0.signup({
+  connection: 'my-db-connection',
+  username: 'the-username',
+  password: 'the-password',
+  auto_login: true
+}, function (err) {
+  if (err) alert('Something went wrong: ' + err.message);
+});
+```
+
+### Using Auth0.js v9
+
+```js 
+var webAuth = new auth0.WebAuth({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  responseType: 'token'
+});
+
+// signup only
+
+webAuth.signup({
+  connection: 'my-db-connection',
+  email: 'the-email',
+  password: 'the-password',
+  user_metadata: { plan: 'silver', team_id: 'a111' }
+}, function (err) {
+  if (err) return alert('Something went wrong: ' + err.message);
+  alert('success signup without login!')
+});
+
+// signup and login
+webAuth.redirect.signupAndLogin({
+  connection: 'my-db-connection',
+  email: 'the-email',
+  password: 'the-password',
+  user_metadata: { plan: 'silver', team_id: 'a111' }
+}, function(err) {
+  if (err) alert('Something went wrong: ' + err.message);
+});
+```
+
+## Using Auth0.js to log in users using passwordless
 
 ### Using Auth0.js v7
 
@@ -222,11 +286,9 @@ webAuth.passwordlessLogin({
 ```
 
 <%= include('../../_includes/_configure_embedded_login', { library : 'Auth0.js v9'}) %>
-<%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_review_get_ssodata') %>
 <%= include('../../_includes/_legacy_flows') %>
 
 ## Behavioral Changes
 
-<%= include('../../_includes/_hosted_pages') %>
 <%= include('../../_includes/_default_values') %>

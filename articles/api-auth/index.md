@@ -142,7 +142,7 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/why-use-access-tokens-to-secure-apis">Why you should always use access tokens to secure an API</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/why-use-access-tokens-to-secure-apis">Why you should always use Access Tokens to secure an API</a>
     <p>
       Learn about the differences between Αccess Τoken and ID Τoken and why the later should never be used to secure an API.
     </p>

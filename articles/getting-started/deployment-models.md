@@ -7,10 +7,10 @@ toc: true
 
 Auth0 is offered in four deployment models:
 
-- As a __multi-tenant cloud service__ running on Auth0's cloud
-- As a __dedicated cloud service__ running on Auth0's cloud
-- As a __dedicated cloud service__ running on Customer's cloud infrastructure
-- As an __on-premises virtual Private SaaS (PSaaS) Appliance__ running on Customer's data centers
+- As a **multi-tenant cloud service** running on Auth0's cloud
+- As a **dedicated cloud service** running on Auth0's cloud
+- As a **dedicated cloud service** running on Customer's cloud infrastructure
+- As an **on-premises virtual Private SaaS (PSaaS) Appliance** running on Customer's data centers
 
 ::: note
 PSaaS Appliance is a managed service that you can use if your organization's requirements prevent you from using a multi-tenant cloud service. To learn more refer to [Private SaaS (PSaaS) Appliance](/appliance).
@@ -47,8 +47,8 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
+            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
+            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
         </tr>
         <tr>
             <th class="info"><strong>Deployment Configurations</strong></th>
@@ -209,8 +209,3 @@ The following tables describe operational and feature differences between these 
 <sup>**</sup>See [PSaaS Appliance Custom Domains](/appliance/custom-domains) for details. If your PSaaS Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
 <sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment. If you do so, you will **not** have access to extensions, Lock (requires access to the CDN hosting Lock), Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers), or Quickstarts (requires access to GitHub).
-
-<%= include('./_stepnav', {
- next: ["Developer Videos", "/videos"],
- prev: ["Getting Started", "/getting-started"]
-}) %>

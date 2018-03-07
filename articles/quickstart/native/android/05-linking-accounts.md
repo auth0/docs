@@ -69,7 +69,7 @@ public void onAuthentication(Credentials credentials) {
 
 ## Link the Accounts
 
-Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID tokens for the two accounts: 
+Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID Tokens for the two accounts: 
 * The saved account the user initially logged in to
 * The second account received in the last login response
 
@@ -125,7 +125,7 @@ To unlink the accounts, you need to specify the following:
 * user ID for the linked acocunt
 * the provider name
 
-To instantiate the `UsersAPIClient` client, use the ID token for the main account.
+To instantiate the `UsersAPIClient` client, use the ID Token for the main account.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java

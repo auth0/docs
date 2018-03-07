@@ -40,7 +40,7 @@ function renewToken() {
             var expiresAt = JSON.stringify(
                 authResult.expiresIn * 1000 + new Date().getTime()
             );
-            // Assumes you want to store access token, id token and expiration time in local Storage
+            // Assumes you want to store Access Token, ID Token and expiration time in local Storage
             localStorage.setItem('access_token', authResult.accessToken);
             localStorage.setItem('expires_at', expiresAt);
         }
@@ -52,7 +52,7 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [ID token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 
@@ -68,11 +68,11 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 
 If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in ID Tokens or from `/userinfo` will be OIDC conformant. If your application is using any non-standard claim from the user profile, it will break. For more information on how to deal with this issue, refer to the [User Profiles](#user-profiles) section.
 
-You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use access tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do this.
+You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use Access Tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do this.
 
 ## User Profiles 
 
-When using the legacy authentication flows, the entire user profile is returned in ID tokens and from `/userinfo`, as demonstrated below.
+When using the legacy authentication flows, the entire user profile is returned in ID Tokens and from `/userinfo`, as demonstrated below.
 
 ```json
 {
@@ -124,7 +124,7 @@ Another approach to get the full user profile is to use the [Management API](/ap
 
 In the legacy flows, the [Management API](/api/management/v2) supported authentication with an `id_token`. This approach has been deprecated, and now you need to call it with an `access_token`.
 
-To get an get an `access_token`, you need to ask Auth0 for one using the `https://${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
+To get an `access_token`, you need to ask Auth0 for one using the `https://${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
 
 ```js
 function getUserUsingManagementApi() {

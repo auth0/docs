@@ -1,7 +1,7 @@
 ```
 OIDCProviderMetadataURL https://${account.namespace}/.well-known/openid-configuration
 OIDCClientID ${account.clientId}
-OIDCClientSecret ${account.clientSecret}
+OIDCClientSecret 'YOUR_CLIENT_SECRET'
 
 OIDCScope "openid name email"
 OIDCRedirectURI https://your_apache_server/your_path/redirect_uri/

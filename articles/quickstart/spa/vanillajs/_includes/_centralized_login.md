@@ -48,9 +48,9 @@ Add more functions to the `app.js` file to handle authentication in the app.
 
 The example below shows the following functions:
 * `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time 
 * `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
 
 ```js
 // app.js
@@ -93,7 +93,7 @@ window.addEventListener('load', function() {
   }
 
   function setSession(authResult) {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     var expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
@@ -112,7 +112,7 @@ window.addEventListener('load', function() {
 
   function isAuthenticated() {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
@@ -176,13 +176,13 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, they are redirected to the login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Process the Authentication Result
 
-When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `app.js` file processes the hash. 
+When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `app.js` file processes the hash. 
 
 Call the `handleAuthentication` method in the `app.js` file. The method processes the authentication hash while your app loads. 
 

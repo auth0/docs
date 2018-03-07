@@ -1,13 +1,13 @@
 ---
-title: Migrate SPAs Using Lock 9 Popup Mode to Centralized Login
-description: Learn how to Migrate SPAs Using Lock 9 Popup Mode to Centralized Login
+title: Migrate SPAs Using Lock 9 Popup Mode to Universal Login
+description: Learn how to Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 toc: true
 ---
-# Migrate SPAs Using Lock 9 Popup Mode to Centralized Login
+# Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 
-This document explains how to migrate Web Applications using [Lock](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Web Applications using [Lock](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
-When you use 'popup mode' in Lock 9 applications, the entire authentication flow happens in a web page, without any kind of redirection. That will change when you use centralized login.
+When you use 'popup mode' in Lock 9 applications, the entire authentication flow happens in a web page, without any kind of redirection. That will change when you use universal login.
 
 1. Initialize Lock:
 
@@ -40,7 +40,7 @@ function login()
 }
 ```
 
-To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to manage the authentication flow:
+To use **universal login**, you need to use [auth0.js](/libraries/auth0js) to manage the authentication flow:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock and also including the ones you use when you call lock.show(). 
 
@@ -76,6 +76,6 @@ webAuth.parseHash(function(err, authResult) {
 
 4. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
+You can find complete examples of implementing universal login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
 <%= include('_includes/_customizing-login-page') %>

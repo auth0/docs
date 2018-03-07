@@ -68,14 +68,14 @@ HybridAuth *auth = [[HybridAuth alloc] init];
         if (error) {
             NSLog(@"Error: %@", error);
         } else if (credentials) {
-          // Do something with credentials e.g.: save them.
+          // Do something with credentials such as save them.
           // Auth0 will dismiss itself automatically by default.
         }
     });
 }];
 ```
 
-You need a valid access token. You can find the token in the `credentials` object. To save the access token, use an `A0SimpleKeychain` instance. `SimpleKeychain` can be a key-value storage.
+You need a valid Access Token. You can find the token in the `credentials` object. To save the Access Token, use an `A0SimpleKeychain` instance. `SimpleKeychain` can be a key-value storage.
 
 ```objc
 // HomeViewController.m
@@ -86,9 +86,9 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 
 ## Check for an Access Token When the User Opens Your Application
 
-When the user opens your application, check for an access token. If it exists, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
+When the user opens your application, check for an Access Token. If it exists, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
-First, retrieve the access token value from the `accessToken` key in the keychain:
+First, retrieve the Access Token value from the `accessToken` key in the keychain:
 
 ```objc
 // HomeViewController.m
@@ -103,7 +103,7 @@ if (accessToken) {
 
 ## Validate the Access Token
 
-Check if the user's access token is still valid. Use `Auth0` to fetch the user's profile:
+Check if the user's Access Token is still valid. Use `Auth0` to fetch the user's profile:
 
 ```objc
 // HomeViewController.m
@@ -120,9 +120,9 @@ Check if the user's access token is still valid. Use `Auth0` to fetch the user's
 
 ## Deal with a Non-Valid Access Token
 
-Decide how to deal with a non-valid access token. You can choose between two options:
+Decide how to deal with a non-valid Access Token. You can choose between two options:
 * Ask users to re-enter their credentials.
-* Use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid access token.
+* Use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid Access Token.
 
 If you want to ask your users to re-enter their credentials, clear all the values stored in the keychain:
 
@@ -132,21 +132,21 @@ A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 [keychain clearAll];
 ```
 
-The rest of this tutorial shows you how to use a refresh token to obtain a new access token. 
+The rest of this tutorial shows you how to use a Refresh Token to obtain a new Access Token. 
 
-The refresh token is a token string stored in the `Credentials` object after a successful login. The refresh token doesn't expire. 
+The Refresh Token is a token string stored in the `Credentials` object after a successful login. The Refresh Token doesn't expire. 
 
 ::: note
-Even though the refresh token cannot expire, it can be revoked. For more information, read the [refresh token documentation](/refresh-token) before you proceed with this tutorial.
+Even though the Refresh Token cannot expire, it can be revoked. For more information, read the [Refresh Token documentation](/refresh-token) before you proceed with this tutorial.
 :::
 
-### Store the refresh token
+### Store the Refresh Token
 
 ::: note 
-If you do not send `offline_access` as a scope during authentication, the refresh token will be `nil`.
+If you do not send `offline_access` as a scope during authentication, the Refresh Token will be `nil`.
 :::
 
-To get a new access token, you need to first save the refresh token after the user logs in. Go to the section where you're saving the access token and update it as follows: 
+To get a new Access Token, you need to first save the Refresh Token after the user logs in. Go to the section where you're saving the Access Token and update it as follows: 
 
 ```objc
 // HomeViewController.m
@@ -169,9 +169,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
    }];
 ```
 
-### Use the refresh token to obtain a new access token
+### Use the Refresh Token to obtain a new Access Token
 
-Now, you can use the saved refresh token to obtain a new access token:
+Now, you can use the saved Refresh Token to obtain a new Access Token:
 
 ```objc
 // HomeViewController.m
@@ -185,7 +185,7 @@ if (!refreshToken) {
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth renewWithRefreshToken:[keychain stringForKey:@"refresh_token"] scope:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
               if (error) {
-                  // refreshToken is no longer valid (e.g. it has been revoked)
+                  // refreshToken is no longer valid (for example, it has been revoked)
                   // Cleaning stored values since they are no longer valid
                   [keychain clearAll];
                   // At this point, you should ask the user to enter their credentials again!
@@ -193,7 +193,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
                   // Just got a new accessToken!
                   // Don't forget to store it...
                   [keychain setString:[credentials accessToken] forKey:@"access_token"];
-                  // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
+                  // At this point, you can log the user into your app, for example, by navigating to the corresponding screen
               }
       }];
 ```
@@ -217,7 +217,7 @@ We recommend that you download the sample project from this tutorial and look at
 
 ## Get the User Profile
 
-To get the user profile, you need a valid access token. 
+To get the user profile, you need a valid Access Token. 
 
 From the `Auth0` module, call the `userInfo` method that allows you to get the user profile:
 

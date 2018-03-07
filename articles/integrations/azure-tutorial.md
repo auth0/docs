@@ -23,7 +23,7 @@ Blog post explaining how to integrate with a Microsoft Azure Mobile Services bac
 
 There is one consideration that you might want to take into account when deploying to Microsoft Azure (or any other environment).
 
-We recommend creating one application per environment in Auth0 (e.g. "Dev", "Test", "QA", etc).
+We recommend creating one application per environment in Auth0 (such as "Dev", "Test", "QA", and so on).
 
 Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depening on the Build Configuration you use. For instance
 

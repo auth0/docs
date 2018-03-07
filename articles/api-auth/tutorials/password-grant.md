@@ -1,14 +1,21 @@
 ---
-description: How to execute a Resource Owner Password Grant
+title: How to implement the Resource Owner Password Grant
+description: Step-by-step guide on how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
 ---
 # How to implement the Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
-Before beginning this tutorial, please:
+In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
 
-* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+You should use this flow **only if** the following apply:
+- The client is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+
+## Before you start
+
+* Check that your client's [grant type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
 
@@ -18,7 +25,7 @@ The Password Grant relies on a connection capable of authenticating users via us
 
 1. Open the [Dashboard](${manage_url}) and browse to your [Tenant Settings](${manage_url}/#/tenant).
 1. Scroll down to the __Settings__ section and locate the __Default Directory__ setting.
-1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
+1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (such as database connections, AD, LDAP, Windows Azure AD, ADFS)
 
 ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
 
@@ -63,7 +70,7 @@ The response contains a [signed JSON Web Token](/jwt), the token's type (which i
 In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
 ::: panel Password grant and standard scopes
-If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, etc.) are included in the `access_token`.
+If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the `access_token`.
 If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
 In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
 :::
@@ -140,6 +147,6 @@ When using this flow from server-side applications, some anomaly detection featu
 ::: next-steps
 * [Call APIs from Highly Trusted Clients](/api-auth/grant/password)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)
 :::

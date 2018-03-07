@@ -16,7 +16,7 @@ To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/c
 **Query String:** Query string options help to customise the behavior when the OpenID Connect protocol is used. You can set multiple options similar to setting parameters with a [query string](https://en.wikipedia.org/wiki/Query_string). You can set:
 
 * `redirect_uri`: When the IdP-initiated login has completed the request is then redirected to the first URL listed in the **Allowed Callback URLs** for the client. However if you set a `redirect_uri` the IdP will redirect to this URL. This brings flexibility for cases like when you have set subdomain scheme with a wildcard and you only want to redirect to one specific subdomain.
-* `scope`: You could define [scopes](/scopes) for the id token sent. Note that it is possible to set multiple scopes.
+* `scope`: You could define [scopes](/scopes) for the ID Token sent. Note that it is possible to set multiple scopes.
 * `response_type`: This field is used to set the token for Implicit Grant Flow for SPA applications. You could set code for Authorization Code Grant Flow for regular web applications.
 
 Example Query String:
