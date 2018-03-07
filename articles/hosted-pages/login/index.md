@@ -16,11 +16,7 @@ If you cannot use universal login, you can embed the Lock widget or a custom log
 
 ### How Does Universal Login Work
 
-Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. It can also be accessed via a request, in the following format:
-
-```text
-https://${account.namespace}/login?client=${account.clientId}
-```
+Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
 
 Users will see the login page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
 
@@ -78,26 +74,6 @@ In order to get started customizing the login page, you'll first want to choose 
 You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications.
 
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the login page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
-
-#### Query String Parameters
-
-You can add query string parameters to the URL you are using to initiate universal login from your application, and use those items to customize the login page's behavior or appearance.
-
-For example, you can pass the parameter `title` in your request as a query parameter, and then access it in your login page's code by using `config.extraParams.title`.
-
-The `config` object contains the set of configuration values that adjusts the behavior of the login page at runtime. Set the `config` object up in the login page editor so that you can access the config parameters to use in your page:
-
-```js
-var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-```
-
-After which you can set the value of your Lock Widget's title (or use the value to alter the title of your own custom coded UI):
-
-```js
-if (config.extraParams.title) {
-  languageDictionary = { title: config.extraParams.title };
-} 
-```
 
 #### Parameters for the Authorize Endpoint
 
