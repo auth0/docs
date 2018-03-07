@@ -9,7 +9,7 @@ budicon: 546
   repo: 'auth0-angular-samples',
   path: '03-Calling-an-API',
   requirements: [
-    'Angular 2+'
+    'Angular 2 - 4.2'
   ]
 }) %>
 
