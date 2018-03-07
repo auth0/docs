@@ -18,7 +18,7 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
@@ -27,9 +27,9 @@ export class AuthService {
   auth0 = new auth0.WebAuth({
     clientID: '${account.clientId}',
     domain: '${account.namespace}',
-    responseType: 'token id_token',
+    responseType: 'token',
     audience: 'https://${account.namespace}/userinfo',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid'
   });
 
@@ -54,7 +54,7 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
-* `setSession`: stores the user's access token, ID token, and the access token's expiry time in browser storage.
+* `setSession`: stores the user's access token and the access token's expiry time in browser storage.
 * `logout`: removes the user's tokens and expiry time from browser storage.
 * `isAuthenticated`: checks whether the expiry time for the user's access token has passed.
 
@@ -68,7 +68,7 @@ export class AuthService {
   // ...
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
+      if (authResult && authResult.accessToken) {
         window.location.hash = '';
         this.setSession(authResult);
         this.router.navigate(['/home']);
@@ -83,14 +83,12 @@ export class AuthService {
     // Set the time that the access token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
   }
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
     localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // Go back to the home route
     this.router.navigate(['/']);
@@ -151,7 +149,7 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 universal login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
