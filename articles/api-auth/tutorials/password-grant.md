@@ -1,5 +1,6 @@
 ---
-description: How to execute a Resource Owner Password Grant
+title: How to implement the Resource Owner Password Grant
+description: Step-by-step guide on how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
 ---
 # How to implement the Resource Owner Password Grant
@@ -8,7 +9,9 @@ toc: true
 
 In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
 
-Note that this grant should only be used by highly trusted clients and only when redirects are not possible. If your application can support a redirect-based flow, use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+You should use this flow **only if** the following apply:
+- The client is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
 
 ## Before you start
 
