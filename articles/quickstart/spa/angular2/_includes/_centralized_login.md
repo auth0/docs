@@ -30,7 +30,7 @@ export class AuthService {
     responseType: 'token',
     audience: 'https://${account.namespace}/userinfo',
     redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   constructor(public router: Router) {}
@@ -54,11 +54,7 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
-<<<<<<< HEAD
-* `setSession`: stores the user's access token and the access token's expiry time in browser storage.
-=======
-* `setSession`: stores the user's Access Token, ID Token, and the Access Token's expiry time in browser storage.
->>>>>>> 9856eff09a023831fac3faaf96f3901da27d6299
+* `setSession`: stores the user's Access Token and the Access Token's expiry time in browser storage.
 * `logout`: removes the user's tokens and expiry time from browser storage.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
@@ -153,11 +149,7 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-<<<<<<< HEAD
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 universal login page. 
-=======
 Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the login page. 
->>>>>>> 9856eff09a023831fac3faaf96f3901da27d6299
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
