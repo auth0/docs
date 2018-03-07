@@ -73,7 +73,7 @@ function (user, context, callback) {
 
 The `CLIENTS_WITH_MFA` variable holds the Cliend IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
 
-The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `mfa` then we ask for MFA by setting the `context.multifactor` property to the appropriate values.
+The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `transfer:funds` then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case we are asking for MFA using [Guardian](/multifactor-authentication/guardian).
 
 ### 2. Configure your application
 
@@ -90,28 +90,28 @@ Next you need to configure your application to send the appropriate authenticati
     <div id="without-mfa" class="tab-pane active">
       <pre class="text hljs">
         <code>
-          https://${account.namespace}/authorize?
-            audience=https://my-banking-api
-            &scope=openid%20view:balance
-            &response_type=id_token%20token
-            &client_id=${account.clientId}
-            &redirect_uri=${account.callback}
-            &nonce=CRYPTOGRAPHIC_NONCE
-            &state=OPAQUE_VALUE
+https://${account.namespace}/authorize?
+  audience=https://my-banking-api
+  &scope=openid%20view:balance
+  &response_type=id_token%20token
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
+  &nonce=CRYPTOGRAPHIC_NONCE
+  &state=OPAQUE_VALUE
         </code>
       </pre>
     </div>
     <div id="with-mfa" class="tab-pane">
       <pre class="text hljs">
         <code>
-          https://${account.namespace}/authorize?
-            audience=https://my-banking-api
-            &scope=openid%20view:balance%20transfer:funds
-            &response_type=id_token%20token
-            &client_id=${account.clientId}
-            &redirect_uri=${account.callback}
-            &nonce=CRYPTOGRAPHIC_NONCE
-            &state=OPAQUE_VALUE
+https://${account.namespace}/authorize?
+  audience=https://my-banking-api
+  &scope=openid%20view:balance%20transfer:funds
+  &response_type=id_token%20token
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
+  &nonce=CRYPTOGRAPHIC_NONCE
+  &state=OPAQUE_VALUE
         </code>
       </pre>
     </div>
@@ -120,10 +120,10 @@ Next you need to configure your application to send the appropriate authenticati
 
 - Set `audience` to the **Identifier** of your API (find it at [API Settings](${manage_url}/#/apis/)). We set ours to `https://my-banking-api`
 - The `response_type` is set to `id_token token` so we get both an ID Token and an Access Token in the response
-- Set the `client_id` to the Client ID of your application (find it at [Client Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- Set `client_id` to the Client ID of your application (find it at [Client Settings](${manage_url}/#/clients/${account.clientId}/settings))
 - Set the `redirect_uri` to the URL of your application that Auth0 should redirect back to after authentication (find it at [Client Settings](${manage_url}/#/clients/${account.clientId}/settings))
-- Set the `nonce` to a string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`
-- Set the `state` to an opaque value that Auth0 includes when redirecting back to the client. This value must be used by the client to [prevent CSRF attacks](/protocols/oauth2/oauth-state)
+- Set `nonce` to a string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`
+- Set `state` to an opaque value that Auth0 includes when redirecting back to the client. This value must be used by the client to [prevent CSRF attacks](/protocols/oauth2/oauth-state)
 
 ### 3. Configure your API
 
