@@ -17,14 +17,14 @@ budicon: 292
 
 ## Request the Profile Scope
 
-To retrieve user information, request a scope of `openid profile email` in the instance of the `auth0.WebAuth` object. 
+To retrieve user information, request a scope of `openid profile` in the instance of the `auth0.WebAuth` object. 
 
 ```ts
 // src/app/auth/auth.service.ts
 
 auth0 = new auth0.WebAuth({
   // ...
-  scope: 'openid profile email'
+  scope: 'openid profile'
 });
 ``` 
 

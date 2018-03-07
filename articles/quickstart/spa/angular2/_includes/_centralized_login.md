@@ -27,10 +27,10 @@ export class AuthService {
   auth0 = new auth0.WebAuth({
     clientID: '${account.clientId}',
     domain: '${account.namespace}',
-    responseType: 'token',
+    responseType: 'token id_token',
     audience: 'https://${account.namespace}/userinfo',
     redirectUri: 'http://localhost:3000/callback',
-    scope: 'openid profile'
+    scope: 'openid'
   });
 
   constructor(public router: Router) {}
