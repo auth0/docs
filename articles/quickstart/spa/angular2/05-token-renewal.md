@@ -47,33 +47,37 @@ export class AuthService {
 
   // ...
   public scheduleRenewal() {
-     if(!this.isAuthenticated()) return;
-     this.unscheduleRenewal();
+    if (!this.isAuthenticated()) { return; }
+    this.unscheduleRenewal();
 
-     const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
 
-     const source = Observable.of(expiresAt).flatMap(
+    const expiresIn$ = Observable.of(expiresAt).pipe(
+      mergeMap(
         expiresAt => {
-
-        const now = Date.now();
-
-        // Use the delay in a timer to
-        // run the refresh at the proper time
-        return Observable.timer(Math.max(1, expiresAt - now));
-    });
+          const now = Date.now();
+          // Use timer to track delay until expiration
+          // to run the refresh at the proper time
+          return Observable.timer(Math.max(1, expiresAt - now));
+        }
+      )
+    );
 
     // Once the delay time from above is
     // reached, get a new JWT and schedule
     // additional refreshes
-    this.refreshSubscription = source.subscribe(() => {
-       this.renewToken();
-       this.scheduleRenewal();
-     });
+    this.refreshSub = expiresIn$.subscribe(
+      () => {
+        this.renewToken();
+        this.scheduleRenewal();
+      }
+    );
   }
 
   public unscheduleRenewal() {
-     if(!this.refreshSubscription) return;
-     this.refreshSubscription.unsubscribe();
+    if (this.refreshSub) {
+      this.refreshSub.unsubscribe();
+    }
   }
 }
 ```

@@ -33,7 +33,7 @@ The best way to manage and coordinate the tasks necessary for user authenticatio
 
 import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 import Auth0Lock from 'auth0-lock';
 
 @Injectable()
@@ -43,7 +43,7 @@ export class AuthService {
     oidcConformant: true,
     autoclose: true,
     auth: {
-      redirectUrl: 'http://localhost:4200/callback',
+      redirectUrl: 'http://localhost:3000/callback',
       responseType: 'token id_token',
       audience: `https://${account.namespace}/userinfo`,
       params: {
@@ -220,8 +220,10 @@ public handleAuthenticationWithHash(): void {
   this
     .router
     .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
+    .pipe(
+      filter(event => event.constructor.name === 'NavigationStart'),
+      filter(event => (/access_token|id_token|error/).test(event.url))
+    )
     .subscribe(() => {
       this.lock.resumeAuth(window.location.hash, (error, authResult) => {
         if (error) return console.log(error);

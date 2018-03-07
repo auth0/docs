@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 import auth0 from 'auth0-js';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class AuthService {
     domain: '${account.namespace}',
     responseType: 'token id_token',
     audience: 'https://${account.namespace}/userinfo',
-    redirectUri: 'http://localhost:4200/callback',      
+    redirectUri: 'http://localhost:3000/callback',      
     scope: 'openid'
   });
 
