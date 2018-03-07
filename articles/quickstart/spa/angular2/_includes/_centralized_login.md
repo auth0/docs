@@ -29,7 +29,7 @@ export class AuthService {
     domain: '${account.namespace}',
     responseType: 'token',
     audience: 'https://${account.namespace}/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'http://localhost:3000/callback',
     scope: 'openid profile'
   });
 
@@ -54,7 +54,7 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
-* `setSession`: stores the user's Access Token and the Access Token's expiry time in browser storage.
+* `setSession`: stores the user's Access Token, ID Token, and the Access Token's expiry time in browser storage.
 * `logout`: removes the user's tokens and expiry time from browser storage.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
@@ -68,7 +68,7 @@ export class AuthService {
   // ...
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken) {
+      if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
         this.router.navigate(['/home']);
@@ -83,12 +83,14 @@ export class AuthService {
     // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
   }
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
     localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // Go back to the home route
     this.router.navigate(['/']);

@@ -85,7 +85,7 @@ export class AuthService {
 
 This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed. 
 
-In the `setSession` method, add the function right after setting the `access_token` into local storage.
+In the `setSession` method, add the function right after setting the `access_token` and `id_token` into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -95,6 +95,7 @@ private setSession(authResult): void {
   const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
 
   localStorage.setItem('access_token', authResult.accessToken);
+  localStorage.setItem('id_token', authResult.idToken);
   localStorage.setItem('expires_at', expiresAt);
 
   this.scheduleRenewal();
@@ -124,6 +125,7 @@ Since client-side sessions should not be renewed after the user logs out, call t
 public logout(): void {
   // Remove tokens and expiry time from localStorage
   localStorage.removeItem('access_token');
+  localStorage.removeItem('id_token');
   localStorage.removeItem('expires_at');
   this.unscheduleRenewal();
   // Go back to the home route

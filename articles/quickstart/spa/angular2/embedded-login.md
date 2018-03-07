@@ -44,7 +44,7 @@ export class AuthService {
     autoclose: true,
     auth: {
       redirectUrl: 'http://localhost:4200/callback',
-      responseType: 'token',
+      responseType: 'token id_token',
       audience: `https://${account.namespace}/userinfo`,
       params: {
         scope: 'openid'
@@ -62,7 +62,7 @@ export class AuthService {
   // if using path-based routing
   public handleAuthentication(): void {
     this.lock.on('authenticated', (authResult) => {
-      if (authResult && authResult.accessToken) {
+      if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         this.router.navigate(['/']);
       }
@@ -77,12 +77,14 @@ export class AuthService {
     // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
   }
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
     localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // Go back to the home route
     this.router.navigate(['/']);
