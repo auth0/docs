@@ -36,8 +36,7 @@ auth0 = new auth0.WebAuth({
 
 <%= include('../_includes/_calling_api_use_rules') %>
 
-## Configure angular-jwt
-### Configure angular2-jwt
+## Configure angular2-jwt
 
 <%= include('../_includes/_calling_api_access_token') %>
 
