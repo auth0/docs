@@ -6,9 +6,15 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
+In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
+
+Note that this grant should only be used by highly trusted clients and only when redirects are not possible. If your application can support a redirect-based flow, use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+
+## Before you start
+
 Before beginning this tutorial, please:
 
-* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* Check that your client's [grant type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
 
