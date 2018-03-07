@@ -66,7 +66,7 @@ You can now use `HttpClient` and `HttpHeaders` to make secure calls to your API 
 
 If you have an API that sends messages from the protected `/private` endpoint, you can create an API call. Set the `headers` option to a new instance of `HttpHeaders()` to attach an `Authorization` header with a value of `Bearer` and the Access token stored in local storage.
 
-```typescript
+```ts
 // src/app/ping/ping.component.ts
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
