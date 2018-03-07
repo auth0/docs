@@ -43,7 +43,7 @@ export class AuthService {
     oidcConformant: true,
     autoclose: true,
     auth: {
-      redirectUrl: 'http://localhost:4200/callback',
+      redirectUrl: 'http://localhost:3000/callback',
       responseType: 'token id_token',
       audience: `https://${account.namespace}/userinfo`,
       params: {
