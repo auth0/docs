@@ -84,7 +84,7 @@ export class PingComponent {
     this.message = '';
     this.http
       .get(`<%= "${this.API_URL}" %>/private`, {
-        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')`)
+        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
       })
       .pipe(
         map(res => res.json()),
