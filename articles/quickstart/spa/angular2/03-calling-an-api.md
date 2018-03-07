@@ -9,7 +9,7 @@ budicon: 546
   repo: 'auth0-angular-samples',
   path: '03-Calling-an-API',
   requirements: [
-    'Angular 2+'
+    'Angular 2 - 4.2'
   ]
 }) %>
 
@@ -36,7 +36,8 @@ auth0 = new auth0.WebAuth({
 
 <%= include('../_includes/_calling_api_use_rules') %>
 
-## Configure angular2-jwt
+## Configure angular-jwt
+### Configure angular2-jwt
 
 <%= include('../_includes/_calling_api_access_token') %>
 
