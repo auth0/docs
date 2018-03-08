@@ -36,6 +36,7 @@ If a user is authenticating through a third-party client and is requesting autho
 For example:
 
 <table>
+  <tbody>
     <tr>
         <td>
 <pre><code>GET /authorize?
@@ -52,6 +53,7 @@ client_id=some_third_party_client
         <img alt="Auth0 consent dialog - Fabrikam Client for Contoso is requesting access to your account" src="/media/articles/hosted-pages/consent-dialog.png">
         </td>
     </tr>
+  </tbody>
 </table>
 
 If the user chooses to allow the application, this will create a user grant which represents this user's consent to this combination of client, resource server and scopes.
