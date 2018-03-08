@@ -208,4 +208,4 @@ The following tables describe operational and feature differences between these 
 
 <sup>**</sup>See [PSaaS Appliance Custom Domains](/appliance/custom-domains) for details. If your PSaaS Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
-<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment. If you do so, you will **not** have access to extensions, Lock (requires access to the CDN hosting Lock), Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers), or Quickstarts (requires access to GitHub).
+<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment (except during [update periods](/appliance/infrastructure/ip-domain-port-list#external-connectivity)). If you do so, you will **not** have access to extensions, Lock (requires access to the CDN hosting Lock), Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers), or Quickstarts (requires access to GitHub).
