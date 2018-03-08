@@ -5,7 +5,7 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 ---
 # Cross-Origin Authentication
 
-For most situations, Auth0 recommends that authentication transactions be handled at the [Hosted Login Page](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
+For most situations, Auth0 recommends that authentication transactions be handled via [universal login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
 ## What is Cross-Origin Authentication? 
 
@@ -22,18 +22,17 @@ Cross-origin authentication is only necessary when authenticating against a dire
 Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail. 
 
 There are two approaches you can follow to remediate the issue:
+
 - Enable [Custom Domains](/custom-domains) and host your web application in a domain that has the same top level domain as the Auth0 custom domain. This way the cookies are no longer third-party and are not blocked by browsers.
-- Provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
+- Provide a [Cross-Origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
 
-Additionally, cross-origin authentication is only enabled for [first-party clients](/clients/client-types#first-party-client).
-
-These issues are another reason why the more practical solution is to use the [Hosted Login Page](/hosted-pages/login).
+These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
 
 ## Configure Your Client for Cross-Origin Authentication
 
 Configuring your client for cross-origin authentication is a process that requires a few steps:
 
-1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards.
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
@@ -80,7 +79,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr> 
       <th><strong>OS</strong></th>
       <th><strong>Browser</strong></th>
-      <th><strong>Third-Party Cookies Disabled</strong></th> 
+      <th style="text-align:center;"><strong>Cross-Origin Authentication Supported<br> with Third-Party Cookies Disabled</strong></th> 
     </tr> 
   </thead> 
   <tbody> 

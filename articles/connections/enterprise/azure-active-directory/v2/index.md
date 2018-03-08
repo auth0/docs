@@ -21,7 +21,7 @@ There are different scenarios in which you might want to integrate with Microsof
 
 * You want to let users into your application from an Azure AD you or your organization controls (such as employees in your company).
 
-* You want to let users coming from other companies' Azure ADs into your application. You may set up those external directories manually as different connections, or [create a multi-tenant application that accepts new directories dynamically](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory).
+* You want to let users coming from other companies' Azure ADs into your application. You may want to set up those external directories as different connections.
 
 If you plan on allowing users to log in using a Microsoft Azure Active Directory account, either from your company or from external directories, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free.
 
@@ -116,11 +116,15 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
  Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
 
-## 6. Copy the Client ID and Client Secret to Auth0
+## 6. Create Connections
 
-Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
+Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. 
 
-![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/azure-ad-6-1.png)
+![Add connection](/media/articles/connections/enterprise/azure-active-directory/enterprise-connections.png)
+
+Select **Microsoft Azure AD**. You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
+
+![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/create-azure-ad-connection.png)
 
 For the **Client ID**, this value is stored as the **Application ID** in Azure AD.
 
@@ -128,27 +132,17 @@ For the **Client ID**, this value is stored as the **Application ID** in Azure A
 
 For the **Client Secret** use the value that was shown for the key when you created it in the previous step.
 
-![Create Azure AD Connection](/media/articles/connections/enterprise/azure-active-directory/add-azure-connection.png)
-
-Click **SAVE** when you have finished.
-
-## 7. Create Connections
-
-After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to [Connections->Enterprise](${manage_url}/#/connections/enterprise) and click on the **CREATE NEW** button next to **Microsoft Azure AD**.
-
-![Add connection](/media/articles/connections/enterprise/azure-active-directory/add-new-connection.png)
-
 Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** put any email domain that corresponds to the connection.
 
 ![Connection settings](/media/articles/connections/enterprise/azure-active-directory/connection-settings.png)
 
-**Multi-tenant applications**: if you are creating [multi-tenant applications](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory) where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
+**Multi-tenant applications**: if you are creating multi-tenant applications where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
 
 Then choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0.
 
 Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-), as explained in [Native Azure AD applications with Auth0](/connections/enterprise/azure-active-directory-native).
 
-Click the **SAVE** button. Auth0 will provide you with an URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
+Click the **SAVE** button. Auth0 will provide you with a URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
 

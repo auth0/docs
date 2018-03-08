@@ -1,6 +1,6 @@
 ## Add Cordova Plugins
 
-You must install the `SafariViewController` plugin from Cordova to be able to show Auth0's hosted login page. The downloadable sample project already has this plugin added, but if you are adding Auth0 to your own application, install the plugin via the command line.
+You must install the `SafariViewController` plugin from Cordova to be able to show the login page. The downloadable sample project already has this plugin added, but if you are adding Auth0 to your own application, install the plugin via the command line.
 
 ```bash
 cordova plugin add cordova-plugin-safariviewcontroller

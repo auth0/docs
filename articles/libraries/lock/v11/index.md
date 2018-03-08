@@ -7,7 +7,7 @@ img: media/articles/libraries/lock-web.png
 ---
 # Lock v11 for Web
 
-Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
+Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
 
 ## Lock Installation
 
@@ -169,7 +169,7 @@ var passwordlessOptions = {
   passwordlessMethod: 'code',
   auth: {
     redirectUrl: 'http://localhost:3000/callback',   
-    responseType = 'token id_token'
+    responseType = 'token id_token',
     params: {
       scope: 'openid email'               
     }          

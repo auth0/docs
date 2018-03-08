@@ -10,11 +10,17 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 // src/Auth/AuthService.js
 
 import auth0 from 'auth0-js'
+import { AUTH_CONFIG } from './auth0-variables'
+import EventEmitter from 'eventemitter3'
+import router from './../router'
 
 export default class AuthService {
 
   constructor () {
     this.login = this.login.bind(this)
+    this.setSession = this.setSession.bind(this)
+    this.logout = this.logout.bind(this)
+    this.isAuthenticated = this.isAuthenticated.bind(this)
   }
 
   auth0 = new auth0.WebAuth({
@@ -132,17 +138,17 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 
 The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
-When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
+When the **Log In** button is clicked, the user will be redirected to login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Add a Callback Component
 
-Using Auth0's hosted login page means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
+Using universal login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
 <%= include('../../_includes/_callback_component') %>
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
 
 Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 
@@ -165,6 +171,21 @@ Create a component named `CallbackComponent` and populate it with a loading indi
     }
   }
 </script>
+
+<style>
+  .spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+</style>
 ```
 
 ::: note

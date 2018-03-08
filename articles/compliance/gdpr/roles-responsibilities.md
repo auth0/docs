@@ -39,15 +39,13 @@ The customer is the party that's responsible for the security of their data. Aut
 
 Auth0 is responsible for:
 
-* Following the data processor's instructions as explicated in the MSA and DPA (for enterprise customers) or Terms of Service (for self-service customers)
+* Following the data processor's instructions as explicated in the Subscription Agreement (SA) and Data Processing Addendum (DPA) (for enterprise customers) or Terms of Service (for self-service customers)
 * Notifying the customer if it receives requests from the customer's end users exercising their GDPR rights as subjects for data access, erasure, and so on
 * Notifying the customer if it receives requests from EU Data Privacy Authorities (unless prohibited by law enforcement)
 * Notifying the customer if it becomes aware of a confirmed security breach
 * Notifying the customer if any of its sub-processors notify Auth0 about a confirmed data breach that impacts Auth0 customer data (unless prohibited by law enforcement)
 * Providing a privacy policy, terms of service, security statement, data protection agreement, and so on, to provide info on its policies and practices
-
 * Providing information about its data processing, so that customer has info it needs to process data lawfully
 * Defining its services and features, how data is processed, and the rights and obligations of customers
-
 * Providing the means to enable customers to retrieve, review, correct, or delete customer data via the Auth0 Dashboard and the Auth0 Management API
 * Providing a mechanism for customers to display consent terms and a consent agreement checkbox on the Lock widget. Customers can also design custom signup and login forms if more elaborate consent schemes are needed

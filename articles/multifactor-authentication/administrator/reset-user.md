@@ -9,7 +9,7 @@ To reset a user's multifactor authentication:
 
 1. Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen.
-3. Select **Reset Multifactor (Auth0)** from the dropdown.
+3. Select **Reset Multifactor Authentication** from the dropdown.
 4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 
  ![](/media/articles/mfa/reset-mfa.png)

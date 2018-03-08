@@ -43,7 +43,7 @@ It can be useful to perform a quick sanity check that you have valid credentials
 
 ```swift
 guard credentialsManager.hasValid() else {
-    // Present Hosted Login Page
+    // Present Login Page
 }
 ```
 
@@ -54,7 +54,7 @@ You can retrieve the user's credentials as follows:
 ```swift
 credentialsManager.credentials { error, credentials in
     guard error == nil, let credentials = credentials else {
-        // Handle Error, Present Hosted Login Page
+        // Handle Error, Present Login Page
     }
     // Valid credentials, you can access the token properties such as `idToken`, `accessToken`.
 }

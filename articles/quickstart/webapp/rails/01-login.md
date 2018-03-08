@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [hosted login page](/hosted-pages/login).
+The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
 
 ## Create a Client
 

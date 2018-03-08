@@ -82,3 +82,15 @@ The Auth0 plugin does not handle sessions, it uses the WordPress settings. By de
 ::: note
 This plugin leverages WordPress session handling and uses [wp_set_auth_cookie()](https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/) to create the session cookie. This setting will send `true` as a second parameter to allow the session to last longer.
 :::
+
+## Keep Reading
+
+More information on the Login by Auth0 WordPress plugin:
+
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Install the plugin](/cms/wordpress/installation)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [JWT API authentication](/cms/wordpress/jwt-authentication)
+* [Extend the plugin](/cms/wordpress/extending)
+:::

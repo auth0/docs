@@ -1,11 +1,12 @@
 ---
 section: libraries
 toc: true
+title: Auth0.js v9 Reference
 description: How to install, initialize and use auth0.js v9
 ---
 # Auth0.js v9 Reference
 
-Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps. 
+Auth0.js is a client-side library for Auth0. It is recommended for use in single page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0. 
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
 
@@ -90,7 +91,7 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize()` method can be used for logging in users via the [Hosted Login Page](/hosted-pages/login), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
+The `authorize()` method can be used for logging in users via [universal login](/hosted-pages/login), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -160,7 +161,7 @@ webAuth.redirect.loginWithCredentials({
 
 The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
 
-However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
+However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the universal login page, and is the only way to have SSO cookies set for your users who login using universal login.
 
 ### webAuth.popup.loginWithCredentials()
 
@@ -208,7 +209,7 @@ The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in ord
 // Calculate URL to redirect to
 var url = webAuth.client.buildAuthorizeUrl({
   clientID: '${account.clientId}', // string
-  responseType: 'token', // code or token
+  responseType: 'token id_token', // code
   redirectUri: '${account.callback}',
   state: 'YOUR_STATE'
 });
@@ -218,12 +219,12 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-If you don't specify a `state` parameter, auth0.js will automatically add one. This parameter helps prevent CSRF attacks.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. The [OAuth state documentation](/protocols/oauth2/oauth-state) describes how to do use it correctly.
 :::
 
 <%= include('../../_includes/_embedded_sso') %>
 
-## Passwordless Login
+## Passwordless login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
@@ -234,11 +235,11 @@ var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: 'http://example.com',
-  responseType: 'token'
+  responseType: 'token id_token'
 });
 ```
 
-### Start Passwordless
+### Start passwordless
 
 The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
@@ -290,7 +291,7 @@ webAuth.passwordlessLogin({
 );
 ```
 
-## Extract the authResult and Get User Info
+## Extract the authResult and get user info
 
 After authentication occurs, you can use the `parseHash` method to parse a URL hash fragment when the user is redirected back to your application in order to extract the result of an Auth0 authentication response. You may choose to handle this in a callback page that will then redirect to your main application, or in-page, as the situation dictates.
 
@@ -349,7 +350,7 @@ As shown above, the `client.userInfo` method can be called passing the returned 
 
 You can now do something else with this information as your application needs, such as acquire the user's entire set of profile information with the Management API, as described below.
 
-## Using `nonce`
+## Using nonces
 
 By default (and if `responseType` contains `id_token`), `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
 If you want to use a developer generated `nonce`, then you must provide it as an option to both `webAuth.authorize` and `webAuth.parseHash`.
@@ -392,7 +393,7 @@ webAuth.logout({
 });
 ```
 
-## Sign up
+## Signup
 
 To sign up a user, use the `signup` method. This method accepts an options object, which can include the following parameters.
 
@@ -401,6 +402,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
+| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
@@ -415,7 +417,8 @@ Signups should be for database connections. Here is an example of the `signup` m
         webAuth.signup({
             connection: 'Username-Password-Authentication',
             email: $('.signup-email').val(),
-            password: $('.signup-password').val()
+            password: $('.signup-password').val(),
+            user_metadata: { plan: 'silver', team_id: 'a111' }
         }, function (err) {
             if (err) return alert('Something went wrong: ' + err.message);
             return alert('success signup without login!')
@@ -426,7 +429,7 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0. 
 
 ```js
 webAuth.checkSession({}, function (err, authResult) {
@@ -434,6 +437,10 @@ webAuth.checkSession({}, function (err, authResult) {
   ...
 });
 ```
+
+::: note
+Note that `checkSession()` triggers any [rules](/rules) you may have set up, so you should check on your rules in the [Dashboard](${manage_url}/#/rules) prior to using it.
+:::
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
@@ -468,16 +475,48 @@ The user will then receive an email which will contain a link that they can foll
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the `id_token` for the **primary identity**. 
+To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
-::: note
-In the case of linking users, the **primary identity** is the user profile with the data that you intend to **keep** upon linking (the other identities will lose their data), the one to which you plan to link the other identities.
-:::
+```js
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: 'http://example.com',
+  audience: `https://${account.namespace}/api/v2/˜`,
+  scope: 'read:current_user',
+  responseType: 'token id_token'
+});
+```
+
+You can also do so by using `checkSession()`:
+
+```
+webAuth.checkSession(
+  {
+    audience: `https://${account.namespace}/api/v2/˜`,
+    scope: 'read:current_user'
+  }, function(err, result) { 
+     // use result.accessToken
+  }
+);
+```
+
+You must specify the specific scopes you need. You can ask for the following scopes:
+
+* `read:current_user`
+* `update:current_user_identities`
+* `create:current_user_metadata`
+* `update:current_user_metadata`
+* `delete:current_user_metadata`
+* `create:current_user_device_credentials`
+* `delete:current_user_device_credentials`
+
+Once you have the Access Token, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the Access Token.
 
 ```js
 var auth0Manage = new auth0.Management({
   domain: '${account.namespace}',
-  token: 'ID_TOKEN'
+  token: 'ACCESS_TOKEN'
 });
 ```
 
@@ -506,6 +545,8 @@ The `linkUser` method accepts two parameters, the primary `userId` and the secon
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
+
+After linking the accounts, the second account will no longer exist as a separate entry in the user database, and will only be accessible as part of the primary one.
 
 ::: note
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.

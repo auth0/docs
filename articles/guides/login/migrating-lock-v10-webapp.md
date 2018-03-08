@@ -1,11 +1,11 @@
 ---
-title: Moving Web Applications using Lock to Centralized Login 
-description: Learn how to migrate from Web Applications using Lock to Centralized Login
+title: Moving Web Applications using Lock to Universal Login 
+description: Learn how to migrate from Web Applications using Lock to Universal Login
 toc: true
 ---
-# Migrate Web Applications using Lock 10+ to Centralized Login
+# Migrate Web Applications using Lock 10+ to Universal Login
 
-This document explains how to migrate Web Applications using [Lock 10+](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Web Applications using [Lock 10+](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
 When you use Lock in a Web Application, your code does basically this:
 

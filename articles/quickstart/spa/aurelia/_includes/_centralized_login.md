@@ -115,17 +115,17 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 
 The `click.delegate` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
-When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
+When the **Log In** button is clicked, the user will be redirected to the login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Add a Callback Component
 
-Using Auth0's hosted login page means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
+Using universal login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
 <%= include('../../_includes/_callback_component') %>
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
 
 Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 
@@ -199,4 +199,4 @@ This example assumes you are using path-based routing with `config.options.pushS
 
 ## Embedded Login
 
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login).
+Auth0's universal login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login).

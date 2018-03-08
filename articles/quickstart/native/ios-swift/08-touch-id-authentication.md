@@ -25,7 +25,7 @@ Before you continue with this tutorial, make sure that you have completed the pr
 
 ## Apply Touch ID Authentication
 
-This tutorial shows you how to renew the user's credentials without presenting the user the hosted login page. Additionally, the guide shows you how to use Touch ID to validate the renewal. 
+This tutorial shows you how to renew the user's credentials without presenting the user with the login page. Additionally, the guide shows you how to use Touch ID to validate the renewal. 
 
 This tutorial covers how to use the [credentials manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and Touch ID.
 
@@ -49,10 +49,10 @@ self.credentialsManager = CredentialsManager(authentication: Auth0.authenticatio
 
 ## Add Login
 
-Present the hosted login page. Add the `offline_access` scope to receive a `refreshToken`.
+Present the login page. Add the `offline_access` scope to receive a `refreshToken`.
 
 ::: note
-Read more about presenting the hosted login page in the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial.
+Read more about presenting the login page in the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial.
 :::
 
 ```swift

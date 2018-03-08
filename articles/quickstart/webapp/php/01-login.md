@@ -8,7 +8,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-php-web-app',
-  path: '00-Starter-Seed/basic-webapp',
+  path: '00-Starter-Seed',
   requirements: [
     'Apache 2.4.4',
     'PHP 5.6.14 and up',

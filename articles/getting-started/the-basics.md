@@ -105,8 +105,3 @@ If you wish to learn more about the next steps in setting up Auth0, you can read
 - [Learn about our libraries](/libraries)
 - [Learn about working with users and user profiles in Auth0](/users)
 :::
-
-<%= include('./_stepnav', {
- next: ["Dashboard Overview", "/getting-started/dashboard-overview"],
- prev: ["Getting Started", "/getting-started"]
-}) %>

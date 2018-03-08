@@ -44,7 +44,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   <script>
     new Auth0ChangePassword({
       container:         "change-password-widget-container",     // required
-      email:             '{{email}}',                            // DO NOT CHANGE THIS
+      email:             "{{email}}",                            // DO NOT CHANGE THIS
       csrf_token:        '{{csrf_token}}',                       // DO NOT CHANGE THIS
       ticket:            '{{ticket}}',                           // DO NOT CHANGE THIS
       password_policy:   '{{password_policy}}',                  // DO NOT CHANGE THIS

@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'PHP 5.6, 7.0',
-    'Symfony 3.*'
+    'Symfony 3.3'
   ]
 }) %>
 
@@ -26,10 +26,10 @@ Add HWIOAuthBundle to `composer.json`.
 
 ${snippet(meta.snippets.dependencies)}
 
-and run `composer update`
+and run `composer update`.
 
 ::: note
-This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+This sample is using [`curl-client`](https://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
 :::
 
 ## Enable the Bundle
@@ -104,8 +104,11 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
     {
         parent::configureOptions($resolver);
 
-        $dotenv = new Dotenv(__DIR__ . '/../..');
-        $dotenv->load();
+        $dotenv = new Dotenv();
+
+        if (!getenv('AUTH0_DOMAIN')) {
+            $dotenv->load(__DIR__ . '/../../.env');
+        }
 
         $resolver->setDefaults(array(
             'authorization_url' => '{base_url}/authorize',
@@ -207,8 +210,3 @@ Set the following in `app/resources/views/index.html.twig`
 {% endif %}
 ```
 
-### Troubleshooting
-
-#### SSL certificate problem: self signed certificate in certificate chain
-
-If there is an issue with CAs database on your computer, you may need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem). To use it on Windows for example, place it in `c:\cacert.pem` and point to it in `php.ini` with `openssl.cafile=c:/cacert.pem`.

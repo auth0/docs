@@ -505,10 +505,6 @@ module.exports = [
     to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
-  },
-  {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
   },
@@ -1435,10 +1431,6 @@ module.exports = [
     to: '/integrations/authenticating-devices-using-mqtt',
   },
   {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
-  },
-  {
     from: '/tutorials/creating-users-in-the-management-portal',
     to: '/dashboard/creating-users-in-the-management-portal',
   },
@@ -1625,5 +1617,81 @@ module.exports = [
   {
     from: `/connections/grean/nemid`,
     to: `/connections/criipto/nemid`
+  },
+  {
+    from: '/sso/current/integrations',
+    to: '/integrations/sso'
+  },
+  {
+    from: '/sso/current/integrations/ad-rms',
+    to: '/integrations/sso/ad-rms'
+  },
+  {
+    from: '/sso/current/integrations/box',
+    to: '/integrations/sso/box'
+  },
+  {
+    from: '/sso/current/integrations/cloudbees',
+    to: '/integrations/sso/cloudbees'
+  },
+  {
+    from: '/sso/current/integrations/concur',
+    to: '/integrations/sso/concur'
+  },
+  {
+    from: '/sso/current/integrations/disqus',
+    to: '/integrations/sso/disqus'
+  },
+  {
+    from: '/sso/current/integrations/dropbox',
+    to: '/integrations/sso/dropbox'
+  },
+  {
+    from: '/sso/current/integrations/dynamics-crm',
+    to: '/integrations/sso/dynamics-crm'
+  },
+  {
+    from: '/sso/current/integrations/echosign',
+    to: '/integrations/sso/echosign'
+  },
+  {
+    from: '/sso/current/integrations/egnyte',
+    to: '/integrations/sso/egnyte'
+  },
+  {
+    from: '/sso/current/integrations/new-relic',
+    to: '/integrations/sso/new-relic'
+  },
+  {
+    from: '/sso/current/integrations/office-365',
+    to: '/integrations/sso/office-365'
+  },
+  {
+    from: '/sso/current/integrations/salesforce',
+    to: '/integrations/sso/salesforce'
+  },
+  {
+    from: '/sso/current/integrations/slack',
+    to: '/integrations/sso/slack'
+  },
+  {
+    from: '/sso/current/integrations/springcm',
+    to: '/integrations/sso/springcm'
+  },
+  {
+    from: '/sso/current/integrations/zendesk',
+    to: '/integrations/sso/zendesk'
+  },
+  {
+    from: '/sso/current/integrations/zoom',
+    to: '/integrations/sso/zoom'
+  },
+  {
+    from: `/guides/login/centralized-vs-embedded`,
+    to: `/guides/login/universal-vs-embedded`
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
   }
 ];

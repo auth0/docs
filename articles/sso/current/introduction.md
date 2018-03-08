@@ -37,9 +37,9 @@ In the case of SSO with Auth0, the **Central Service** is the Auth0 Authorizatio
 
 Let's look at an example of how the SSO flow looks when using Auth0 and the [Lock](/libraries/lock) widget and a user visits your application for the first time:
 
-1. Your application will redirect the user to the Auth0 Hosted Login page where they can log in.
+1. Your application will redirect the user to the login page where they can log in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
-1. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, and so on. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+1. Because this is the first time the user visits this login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
@@ -48,7 +48,7 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
+1. Your application will redirect the user to the login page where they can sign in.
 1. Auth0 will check to see whether there is an existing SSO cookie.
 1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know who the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
@@ -61,4 +61,4 @@ If an SSO cookie is present you can also sign the user in silently, (that is, wi
 
 ## SSO with Native Platforms
 
-Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the Hosted Login Page for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of the Hosted Login Page for authentication from their respective platforms.
+Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
