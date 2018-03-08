@@ -1,7 +1,9 @@
 ```php
 // config/app.php
-'providers' => array(
+
+'providers' => [
     // ...
-    \Auth0\Login\LoginServiceProvider::class,
-);
+     \Auth0\Login\LoginServiceProvider::class,
+
+],
 ```
