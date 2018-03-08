@@ -221,8 +221,11 @@ The following example is a Rule template for sending a Slack message when a new 
 
 ```js
 function(user, context, callback) {
-  // short-circuit if the user signed up already
-  if (context.stats.loginsCount > 1) return callback(null, user, context);
+  // short-circuit if the user signed up already, i.e. the user has logged in more
+  // than once or is using a refresh token
+  if (context.stats.loginsCount > 1 || context.protocol === 'oauth2-refresh-token') {
+    return callback(null, user, context);
+  }
 
   // get your slack's hook url from: https://slack.com/services/10525858050
   var SLACK_HOOK = configuration.SLACK_HOOK;
