@@ -1,9 +1,11 @@
 ---
-description: This articles describes ways to implement and use Auth0 with multi-tenancy.
+description: This articles discusses how you can use Auth0 with multi-tenant applications.
 crews: crew-2
 toc: true
 ---
 # Using Auth0 with Multi-Tenant Applications
+
+In this article, we will discuss (at a high-level) how Auth0 can help you manage users for your multi-tenant applications.
 
 Multi-tenancy refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple groups of users.
 
