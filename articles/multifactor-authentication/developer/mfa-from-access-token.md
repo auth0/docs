@@ -130,14 +130,14 @@ https://${account.namespace}/authorize?
 Finally, you need to make your API validate the incoming token and check the authorized permissions.
 
 For the purposes of this example we will configure two endpoints for our API:
-- one to return the balance information: `GET /balance`
-- one to transfer funds: `POST /transfer`
+- `GET /balance`: used to retrieve the current balance
+- `POST /transfer`: used to transfer funds
 
 We will be using Node.js and a number of modules:
-- [express](https://expressjs.com/): This module adds the Express web application framework
-- [jwks-rsa](https://github.com/auth0/node-jwks-rsa): This library retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header
-- [express-jwt](https://github.com/auth0/express-jwt): This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier.
-- [express-jwt-authz](https://github.com/auth0/express-jwt-authz): This library is used to check if the Access Token contains a specific scope.
+- [express](https://expressjs.com/): adds the Express web application framework
+- [jwks-rsa](https://github.com/auth0/node-jwks-rsa): retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header
+- [express-jwt](https://github.com/auth0/express-jwt): lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier
+- [express-jwt-authz](https://github.com/auth0/express-jwt-authz): checks if the Access Token contains a specific scope
 
 Start with installing the dependencies.
 
@@ -196,7 +196,7 @@ Each time the API receives a request the following will happen:
 1. `express-jwt` will the continue its own logic to validate the signature of the token, the expiration, audience and the issuer
 1. `jwtAuthz` will check if the scope that the endpoint requires is part of the Access Token
 
-That's it, you're done!
+That's it, you're done! Now your application allows access to different types of resources using a stronger mechanism to perform certain high-value transactions.
 
 ## Keep reading
 
