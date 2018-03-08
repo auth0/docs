@@ -36,9 +36,9 @@ To check the status of your tenant:
 
 1. Go to the [Users](${manage_url}/#/users) page in the Dashboard
 2. Select a user
-3. See if the **Sign in as User** button is displayed.
+3. See if the **Sign in as User** button is displayed
 
-If you can't see this button, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+If you can't see this button, [contact Support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
 
 Once you've enabled impersonation for your account, you'll need to update **webAuth.parseHash** of the [auth0.js library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableImpersonation** to true.
 
