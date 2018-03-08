@@ -127,6 +127,77 @@ https://${account.namespace}/authorize?
 
 ### 3. Configure your API
 
+Finally, you need to make your API validate the incoming token and check the authorized permissions.
+
+For the purposes of this example we will configure two endpoints for our API:
+- one to return the balance information: `GET /balance`
+- one to transfer funds: `POST /transfer`
+
+We will be using Node.js and a number of modules:
+- [express](https://expressjs.com/): This module adds the Express web application framework
+- [jwks-rsa](https://github.com/auth0/node-jwks-rsa): This library retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header
+- [express-jwt](https://github.com/auth0/express-jwt): This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier.
+- [express-jwt-authz](https://github.com/auth0/express-jwt-authz): This library is used to check if the Access Token contains a specific scope.
+
+Start with installing the dependencies.
+
+```text
+npm install express express-jwt jwks-rsa express-jwt-authz --save
+```
+
+Next define the API endpoints, create a middleware function to validate the Access Token, and secure the endpoints using that middleware. The code in your `server.js` file should look like the following sample script.
+
+```js
+// set dependencies
+const express = require('express');
+const app = express();
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+const jwtAuthz = require('express-jwt-authz');
+
+// Create middleware for checking the JWT
+const checkJwt = jwt({
+  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer
+  audience: 'https://my-banking-api', // replace with your API's audience, available at Dashboard > APIs
+  issuer: 'https://${account.namespace}/',
+  algorithms: [ 'RS256' ] // we are using RS256 to sign our tokens
+});
+
+// create retrieve balance endpoint
+app.get('/balance', checkJwt, jwtAuthz(['view:balance']), function (req, res) {
+  // code that retrieves the user's balance and sends it back to the calling app
+  res.status(201).send({message: "This is the GET /balance endpoint"});
+});
+
+
+// create transfer funds endpoint
+app.post('/transfer', checkJwt, jwtAuthz(['transfer:funds']), function (req, res) {
+  // code that transfers funds from one account to another
+  res.status(201).send({message: "This is the POST /transfer endpoint"});
+});
+
+// launch the API Server at localhost:8080
+app.listen(8080);
+console.log('Listening on http://localhost:8080');
+```
+
+Each time the API receives a request the following will happen:
+1. The endpoint will call the `checkJwt` middleware
+1. `express-jwt` will decode the token and pass the request, the header and the payload to `jwksRsa.expressJwtSecret`
+1. `jwks-rsa` will then download all signing keys from the JWKS endpoint and see if a one of the signing keys matches the `kid` in the header of the Access Token. If none of the signing keys match the incoming `kid`, an error will be thrown. If we have a match, we will pass the right signing key to `express-jwt`
+1. `express-jwt` will the continue its own logic to validate the signature of the token, the expiration, audience and the issuer
+1. `jwtAuthz` will check if the scope that the endpoint requires is part of the Access Token
+
+That's it, you're done!
+
 ## Keep reading
 
 ::: next-steps
@@ -134,4 +205,5 @@ https://${account.namespace}/authorize?
 * [Overview of rules](/rules)
 * [Overview of scopes](/scopes)
 * [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
+* [List of architecture scenarios, including different types of apps calling APIs](/architecture-scenarios#application-configurations)
 :::
