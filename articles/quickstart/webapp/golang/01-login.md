@@ -284,7 +284,7 @@ Add the function to `mux` handle `/logout` route.
 ```go
 // server.go
 
-r.HandleFunc("/login", login.LoginHandler)
+r.HandleFunc("/logout", logout.LogoutHandler)
 ```
 
 Create a file called `user.js` in the folder `public`, and add the code to remove the cookie from logged user.
