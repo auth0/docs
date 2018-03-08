@@ -799,65 +799,61 @@ articles:
       - title: "Jumpstart"
         url: "/services/jumpstart"
 
-  - title: "Compliance"
+  - title: "GDPR"
     hidden: true
-    url: "/compliance"
+    url: "/compliance/gdpr"
     children:
-      - title: "GDPR"
+      - title: "Definitions"
         hidden: true
-        url: "/compliance/gdpr"
+        url: "/compliance/gdpr/definitions"
+
+      - title: "Summary"
+        hidden: true
+        url: "/compliance/gdpr/gdpr-summary"
+
+      - title: "Roles and Responsibilities"
+        hidden: true
+        url: "/compliance/gdpr/roles-responsibilities"
+
+      - title: "Auth0 Data Processing"
+        hidden: true
+        url: "/compliance/gdpr/data-processing"
+
+      - title: "How Auth0 can help"
+        hidden: true
+        url: "/compliance/gdpr/features-aiding-compliance"
         children:
-          - title: "Definitions"
+          - title: "User Consent"
             hidden: true
-            url: "/compliance/gdpr/definitions"
-
-          - title: "Summary"
-            hidden: true
-            url: "/compliance/gdpr/gdpr-summary"
-
-          - title: "Roles and Responsibilities"
-            hidden: true
-            url: "/compliance/gdpr/roles-responsibilities"
-
-          - title: "Auth0 Data Processing"
-            hidden: true
-            url: "/compliance/gdpr/data-processing"
-
-          - title: "How Auth0 can help"
-            hidden: true
-            url: "/compliance/gdpr/features-aiding-compliance"
+            url: "/compliance/gdpr/features-aiding-compliance/user-consent"
             children:
-              - title: "User Consent"
+              - title: "Track Consent with Lock"
                 hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
-                children:
-                  - title: "Track Consent with Lock"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
-                    
-                  - title: "Track Consent with custom UI"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
+                url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
+                  
+              - title: "Track Consent with custom UI"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
 
-              - title: "Access, correct, and erase data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
-
-              - title: "Data Minimization"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
-
-              - title: "Data Portability"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-portability"
-
-              - title: "Protect and secure user data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
-              
-          - title: "Security Advice"
+          - title: "Access, correct, and erase data"
             hidden: true
-            url: "/compliance/gdpr/security-advice-for-customers"
+            url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
+
+          - title: "Data Minimization"
+            hidden: true
+            url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
+
+          - title: "Data Portability"
+            hidden: true
+            url: "/compliance/gdpr/features-aiding-compliance/data-portability"
+
+          - title: "Protect and secure user data"
+            hidden: true
+            url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
+              
+      - title: "Security Advice"
+          hidden: true
+          url: "/compliance/gdpr/security-advice-for-customers"
 
 apis:
 
