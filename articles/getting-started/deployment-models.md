@@ -167,8 +167,8 @@ The following tables describe operational and feature differences between these 
             <td>Yes</td>
         </tr>
         <tr>
-            <th class="info"><strong>Custom Domains</strong></th>
-            <td>No</td>
+            <th class="info"><strong><a href="/custom-domains">Custom Domains</a></strong></th>
+            <td>Yes</td>
             <td>Yes <sup>**</sup></td>
             <td>Yes <sup>**</sup></td>
             <td>Yes <sup>**</sup></td>
