@@ -475,8 +475,6 @@ articles:
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
     children:
-      - title: "Overview"
-        url: "/multifactor-authentication"
 
       - title: "Guardian"
         url: "/multifactor-authentication/guardian"
@@ -527,8 +525,8 @@ articles:
             url: "/multifactor-authentication/developer/mfa-from-id-token"
             hidden: true
           
-          - title: "Step-Up with Custom MFA Rules"
-            url: "/multifactor-authentication/custom-mfa-rules"
+          - title: "Step-up with Access Tokens"
+            url: "/multifactor-authentication/developer/mfa-from-access-token"
             hidden: true
 
   - title: "Security"
