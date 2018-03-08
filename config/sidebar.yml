@@ -591,13 +591,17 @@ articles:
             hidden: true
             url: "/compliance/gdpr/features-aiding-compliance"
             children:
-              - title: "Conditions for Consent"
+              - title: "User Consent"
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/user-consent"
                 children:
                   - title: "Track Consent with Lock"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
+                    
+                  - title: "Track Consent with custom UI"
+                    hidden: true
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
 
               - title: "Access, correct, and erase data"
                 hidden: true
