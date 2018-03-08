@@ -505,10 +505,6 @@ module.exports = [
     to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
-  },
-  {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
   },
@@ -1433,10 +1429,6 @@ module.exports = [
   {
     from: '/tutorials/authenticating-devices-using-mqtt',
     to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',

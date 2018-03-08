@@ -10,11 +10,17 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 // src/Auth/AuthService.js
 
 import auth0 from 'auth0-js'
+import { AUTH_CONFIG } from './auth0-variables'
+import EventEmitter from 'eventemitter3'
+import router from './../router'
 
 export default class AuthService {
 
   constructor () {
     this.login = this.login.bind(this)
+    this.setSession = this.setSession.bind(this)
+    this.logout = this.logout.bind(this)
+    this.isAuthenticated = this.isAuthenticated.bind(this)
   }
 
   auth0 = new auth0.WebAuth({
@@ -165,6 +171,21 @@ Create a component named `CallbackComponent` and populate it with a loading indi
     }
   }
 </script>
+
+<style>
+  .spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+</style>
 ```
 
 ::: note

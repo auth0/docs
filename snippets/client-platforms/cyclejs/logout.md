@@ -1,4 +1,6 @@
 ```js
+// app/index.js
+
 function main(sources) {
     const logoutAction$ = sources
         .DOM

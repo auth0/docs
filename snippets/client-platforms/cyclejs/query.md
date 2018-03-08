@@ -1,4 +1,6 @@
 ```js
+// app/index.js
+
 function Component(sources) {
     const tokens$ = sources.props.tokens$; //the token$ added by the protect function
 

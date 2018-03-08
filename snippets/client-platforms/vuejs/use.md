@@ -69,4 +69,8 @@ export default {
 <style>
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 </style>
+
+.btn-margin {
+  margin-top: 7px
+}
 ```

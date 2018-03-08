@@ -23,7 +23,8 @@ budicon: 448
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
 ```scala
-// controllers/Callback.scala
+// app/controllers/Callback.scala
+
 package controllers
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -113,7 +114,8 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
 In the `Application` controller add `login` action to log the user in.
 
 ```scala
-// controllers/Application.scala
+// app/controllers/Application.scala
+
 package controllers
 
 import javax.inject.Inject
@@ -162,7 +164,8 @@ class Application @Inject() (cache: CacheApi) extends Controller {
 In the `index` view add a link to `login` route.
 
 ```html
-<!-- views/index.scala.html -->
+<!-- app/views/index.scala.html -->
+
 <div class="login-box auth0-box before">
   <img src="https://i.cloudup.com/StzWWrY34s.png" />
   <h3>Auth0 Example</h3>
@@ -176,7 +179,8 @@ In the `index` view add a link to `login` route.
 You can access the user information from the `cache`.
 
 ```scala
-// controllers/User.scala
+// app/controllers/User.scala
+
 package controllers
 
 import javax.inject.Inject
@@ -216,7 +220,8 @@ class User @Inject() (cache: CacheApi) extends Controller {
 Display the user information in the `user` view.
 
 ```scala
-// views/user.html.scala
+// app/views/user.scala.html
+
 @(profile: JsValue)
 
 @main("Auth0 Play2 Scala Sample","home") {
@@ -232,7 +237,7 @@ To log the user out, you have to clear the data from the session, and redirect t
 Add the `logout` action in the `Application` controller.
 
 ```scala
-// controllers/Application.scala
+// app/controllers/Application.scala
 
 class Application @Inject() (cache: CacheApi) extends Controller {
   
@@ -256,7 +261,8 @@ Please take into consideration that the return to URL needs to be in the list of
 In the `user` view add a link to `logout` route.
 
 ```html
-<!-- views/user.scala.html -->
+<!-- app/views/user.scala.html -->
+
 <a href="/logout" class="btn btn-lg">Logout</a>
 ```
 
@@ -265,7 +271,8 @@ In the `user` view add a link to `logout` route.
 You can add the following `Action` to check if the user is authenticated. If not, redirect them to the login page:
 
 ```scala
-// controllers/User.scala
+// app/controllers/User.scala
+
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
     (request.session.get("idToken").flatMap { idToken =>
