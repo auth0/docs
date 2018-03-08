@@ -87,18 +87,6 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
 The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `authorize` endpoint and show the login page. 
 
-##### Login Hint
-
-For example, suppose you wanted to add a login hint to your page; it can be done simply by passing the `login_hint` parameter to your `authorize` call:
-
-```js
-webAuth.authorize({
-  login_hint: "Here is a cool login hint"
-});
-```
-
-You will then be able to access the value of `login_hint` within the login page editor by using `config.extraParams.login_hint`.
-
 ##### Callback URL
 
 Once authentication has been performed using universal login, your user will then be redirected to the default callback URL set in your [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings). You can also pass a specific `redirect_uri` option to `authorize`, and access it within the login page editor by referring to `config.callbackURL`.
