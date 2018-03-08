@@ -12,7 +12,7 @@ toc: true
 
 ### Update angular-lock
 
-AngularJS (a.k.a. Angular 1.x) applications usually use the [angular-lock package](https://www.npmjs.com/package/angular-lock). To use Auth0.js v9 you need to update to the latest version (3.x).
+AngularJS (a.k.a. Angular 1.x) applications usually use the [angular-lock package](https://www.npmjs.com/package/angular-lock). To use Lock v11 you need to update to the latest version (3.x).
 
 You can update the angular-lock library using npm or yarn.
 
