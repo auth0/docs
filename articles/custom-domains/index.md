@@ -179,20 +179,19 @@ If you are using built-in Auth0 APIs, such as the Management API, the API identi
 
 ## FAQ
 
-1. **If I use a custom domain, will I still be able to use my **tenant.auth0.com** domain to access Auth0?**
+1. **If I use a custom domain, will I still be able to use my ${account.namespace} domain to access Auth0?**
   
-  Once you enable your custom domain in Auth0, you should be able to use either the default `tenant.auth0.com` or your custom domain. There are a few exceptions:
-
-  - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `tenant.auth0.com domain`, so you have to use one or the other.
-  - If you start a session in `tenant.auth0.com`, and go to `custom-domain.com`, the user will have to login again.
+Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are however a few exceptions:
+- If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
+- If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 
 2. **What about support for other features?**
   
-  We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
+We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
 
 ## Troubleshooting
 
-If you're seeing errors, refer to the following troubleshooting steps.
+If you are seeing errors, refer to the following troubleshooting steps.
 
 ### Custom domain is still pending verification
 
@@ -208,3 +207,15 @@ Please remember that it can take up to 48 hours for the DNS to be propagated.
 ### CNAME flattening
 
 Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
+
+### Domains with existing CAA records
+
+If your domain, or the parent domain, already has a **Certification Authority Authorization** (CAA) record, then you  have to add another one for `letsencrypt.org`.
+
+The reason for that is that Auth0 uses `letsencrypt.org` to sign certificates so if it's not authorized to issue certificates for your domain, the custom domain functionality will not work for you.
+
+To add a new CAA record and whitelist `letsencrypt.org` use the following:
+
+```text
+"0 issue \"letsencrypt.org\""
+```
