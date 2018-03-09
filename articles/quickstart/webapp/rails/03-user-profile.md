@@ -53,20 +53,20 @@ Add a template which displays the user's profile data.
 ```html
 <!-- app/views/dashboard/show.html.erb -->
 <section class="jumbotron  text-center">
-  <h2><img class="jumbo-thumbnail img-circle" src="${ '<%= @user[:info][:image] %>' }"/></h2>
-  <h1>Welcome, ${ '<%= @user[:info][:name] %>' }</h1>
+  <h2><img class="jumbo-thumbnail img-circle" src="${ '&#x3C;%= @user[:info][:image] %&#x3E;' }"/></h2>
+  <h1>Welcome, ${ '&#x3C;%= @user[:info][:name] %&#x3E;' }</h1>
 </section>
 <section class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Normalized User Profile</div>
     <div class="panel-body">
-      <pre>${ '<%= JSON.pretty_generate(@user[:info]) %>' }</pre>
+      <pre>${ '&#x3C;%= JSON.pretty_generate(@user[:info]) %&#x3E;' }</pre>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">Full User Profile</div>
     <div class="panel-body">
-      <pre>${ '<%= JSON.pretty_generate(@user[:extra][:raw_info]) %>' }</pre>
+      <pre>${ '&#x3C;%= JSON.pretty_generate(@user[:extra][:raw_info]) %&#x3E;' }</pre>
     </div>
   </div>
 </section>

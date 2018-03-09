@@ -18,16 +18,16 @@ This method of linking accounts using the linking endpoint of the [Authenticatio
     languageDictionary: {
       title: 'Link with another account'
     },
-    auth: { 
+    auth: {
       params: {
-        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...' 
+        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...'
       }
     }
   });
 
   function signin () {
     lock.show({
-     
+
     })
   }
 </script>
@@ -89,7 +89,7 @@ The SDK for your platform should make the `access_token` available in simplest w
 * If you are using ASP.NET, the `access_token` is available as a claim:
 
   ```
-  ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
+  ${'&#x3C;%= ClaimsPrincipal.Current.FindFirst("access_token").Value %&#x3E;'}
   ```
 
 * If you are building your own implementation, the `access_token` will be available through the standard OAuth2 flow:
