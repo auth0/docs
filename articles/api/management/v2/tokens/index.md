@@ -1,17 +1,19 @@
 ---
-description: Details on how to generate and use a token for the Auth0 Management APIv2
+description: Details on how to generate and use an Access Token for the Management API
 section: apis
 crews: crew-2
 toc: true
 ---
-# The Auth0 Management APIv2 Token
+# Access Tokens for the Management API
 
-To call the [Management API](/api/management/v2) endpoints, you'll need what we refer to as the **Management API Token**.
+To call the [Management API](/api/management/v2) endpoints, you'll need an Access Token for the Management API. 
 
-The Management API Token is a [JSON Web Token (JWT)](/jwt) that:
+The Access Token is a [JSON Web Token (JWT)](/jwt) that:
 
 1. Contains specific permissions (called **scopes**) on what the client is or isn't allowed to do with the API
 2. Is signed with the client's API key and secret
+
+The Access Token for the Management API also has the **audience** set to **https://${account.tenant}.auth0.com/api/v2/**.
 
 ## How to get an Management API Token
 
