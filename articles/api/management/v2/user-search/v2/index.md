@@ -4,7 +4,12 @@ section: apis
 crews: crew-2
 toc: true
 ---
+
 # User Search
+
+::: version-warning
+This document covers an outdated version of user search. We recommend <a href="/api/management/v2/user-search/v3">migrating to user search v3</a>.
+:::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
