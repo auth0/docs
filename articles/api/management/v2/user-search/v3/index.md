@@ -22,7 +22,7 @@ To search for users, make a `GET` request to the [`/api/v2/users` endpoint](/api
 
 ### Example Request
 
-For example, to search for users whose email is exactly `jane@exampleco.com`:
+For example, to search for users whose email is exactly "jane@exampleco.com", use `q=email:"jane@exampleco.com"`:
 
 ```har
 {
@@ -82,7 +82,7 @@ Search using wildcards is not available on `app_metadata`/`user_metadata` fields
 
 Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`. The question mark character (`?`), is currently not supported.
 
-For example, to find all users whose names start with "john":
+For example, to find all users whose names start with "john", use `q=name:john*`:
 
 ```har
 {
@@ -110,7 +110,7 @@ For example, to find all users whose names start with "john":
 
 To find exact matches, use double quotes: `name:"jane smith"`.
 
-For example:
+For example, to find users with name start with "jane smith", use `q=name:"jane smith"`:
 
 ```har
 {
@@ -142,9 +142,9 @@ Search using ranges is not available on `app_metadata`/`user_metadata` fields.
 
 You can use ranges in your user search queries. For inclusive ranges use square brackets: `[min TO max]`, and for exclusive ranges use curly brackets: `{min TO max}`.
 
-Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
+Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`. You can also use wildcards within ranges.
 
-You can also use wildcards within ranges. For example, to find all users with more than 100 logins: `logins_count:{100 TO *]`.
+For example, to find all users with more than 100 logins, use `q=logins_count:{100 TO *]`.
 
 ```har
 {
@@ -283,7 +283,7 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 The user search engine v2 will be deprecated soon, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`). Before you start migrating, there's a few things you should know:
 
 * Search values are case insensitive in `v3`.
-* `v3` limits the number of users you can retrieve; if the number of users you're retrieving exceeds this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [contact support](https://support.auth0.com/) for further assistance.
+* `v3` limits the number of users you can retrieve (1000); if the number of users you're retrieving exceeds this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [contact support](https://support.auth0.com/) for further assistance.
 * You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](#searchable-fields).
 * User fields are not tokenized like in `v2`, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](#wildcards) and [exact matching](#exact-match).
 * Search using wildcards (`*`) is not available on `app_metadata`/`user_metadata` fields.
