@@ -12,22 +12,15 @@ In this article you'll learn about the query string syntax, how to search for us
 
 ## Before you start
 
-* If you are using our [user search engine v2](/api/management/v2/user-search/v2), check out the [section on migrating from v2 to v3](#migrate-from-search engine-v2-to-v3) below.
+* If you are using our [user search engine v2](/api/management/v2/user-search/v2), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
 * You'll need a token to make requests to the Management API. Check out [the Auth0 Management APIv2 token](/api/management/v2/tokens) for more information.
 * To perform user search requests the `read:users` [scope](/scopes/current) is required.
 
 ## Search for users
 
-To search for users, make a `GET` request to the [`/api/v2/users` endpoint](/api/management/v2#!/Users/get_users) with the following parameters:
+To search for users, make a `GET` request to the [`/api/v2/users` endpoint](/api/management/v2#!/Users/get_users). Pass your search query in query string syntax to the `q` parameter and set the `search_engine` parameter to `v3`.
 
-Parameter | Value
-----------|------
-`q` | Your query in Lucene string syntax.
-`search_engine` | `v3`
-
-::: note
-For more information on other available parameters, check out the [Management API Explorer documentation](/api/management/v2#!/Users/get_users).
-:::
+### Example Request
 
 For example, to search for users whose email is exactly `jane@exampleco.com`:
 
@@ -35,24 +28,27 @@ For example, to search for users whose email is exactly `jane@exampleco.com`:
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "email:\"jane@exampleco.com\"",
-          "comment": "Query in Lucene query string syntax"
+          "value": "email:\"jane@exampleco.com\""
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
 ```
+
+::: note
+For more information on other available parameters, check out the [Management API Explorer documentation](/api/management/v2#!/Users/get_users).
+:::
 
 ## Query string syntax
 
@@ -92,20 +88,19 @@ For example, to find all users whose names start with "john":
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "name:john*",
-          "comment": "Query in Lucene query string syntax"
+          "value": "name:john*"
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
@@ -121,20 +116,19 @@ For example:
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "name:\"jane smith\"",
-          "comment": "Query in Lucene query string syntax"
+          "value": "name:\"jane smith\""
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
@@ -156,20 +150,19 @@ You can also use wildcards within ranges. For example, to find all users with mo
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "logins_count:{100 TO *]",
-          "comment": "Query in Lucene query string syntax"
+          "value": "logins_count:{100 TO *]"
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
@@ -207,25 +200,23 @@ For example, to sort users in ascending order by the `created_at` field you can 
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "logins_count:[100 TO 200]",
-          "comment": "Query in Lucene query string syntax"
+          "value": "logins_count:[100 TO 200]"
         },
         {
           "name": "sort",
-          "value": "created_at:1",
-          "comment": "Sort users in ascending order by 'created_at' field"
+          "value": "created_at:1"
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
@@ -253,35 +244,31 @@ Parameter | Description
 {
     "method": "GET",
     "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
     "headers": [{
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }],
-    "queryString": [
+    "queryString":  [
         {
           "name": "q",
-          "value": "logins_count:[100 TO 200]",
-          "comment": "Query in Lucene query string syntax"
+          "value": "logins_count:[100 TO 200]"
         },
         {
           "name": "page",
-          "value": 2,
-          "comment": "The page number (integer)"
+          "value": "2"
         },
         {
           "name": "per_page",
-          "value": 10,
-          "comment": "Amount of users per page (integer)"
+          "value": "10"
         },
         {
           "name": "include_totals",
-          "value": true,
-          "comment": "Set to 'false' to exclude the query summary from the result"
+          "value": "true"
         },
         {
           "name": "search_engine",
-          "value": "v3",
-          "comment": "Use 'v3' if you want to try our new search engine"
+          "value": "v3"
         }
     ]
 }
@@ -307,10 +294,10 @@ The user search engine v2 will be deprecated soon, so we recommend migrating use
 Use case | v2 | v3
 ---------|----|---
 Search by date | `updated_at:>=2018-01-15` | `updated_at:[2018-01-15 TO *]`
- | `updated_at:>2018-01-15` | `updated_at:{2018-01-15 TO *]`
- | `updated_at:<=2018-01-15` | `updated_at:[* TO 2018-01-15]`
- | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
- | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
+Search by date | `updated_at:>2018-01-15` | `updated_at:{2018-01-15 TO *]`
+Search by date | `updated_at:<=2018-01-15` | `updated_at:[* TO 2018-01-15]`
+Search by date | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
+Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
 String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
 Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 
