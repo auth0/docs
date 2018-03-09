@@ -1,14 +1,14 @@
 ---
-description: How to configure WordPress as a client with Auth0.
+description: How to configure WordPress as a Client with Auth0.
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
 
 By default, new installations of Login by Auth0 run the Setup Wizard and ask for an app token and attempt to setup all necessary components within your Auth0 tenant. This includes:
 
-* Creating a new client using your site name with the correct app type and URLs 
-* Creating a database connection for this client for storing users
-* Creating a client grant for the system Auth0 Management API
+* Creating a new Client using your site name with the correct app type and URLs 
+* Creating a database Connection for this Client for storing users
+* Creating a Client grant for the system Auth0 Management API
 * Creating a new user for the WordPress administrator running the wizard
 
 Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
@@ -25,7 +25,11 @@ You'll need to be logged into your Auth0 account before starting the steps below
 
 First, we'll check for the Client created for your WordPress site. 
 
-1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard and try again.  
+1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a Client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard or create a new Client:
+    
+    1. Click **Create Client**
+    1. Enter a Name for your WordPress site Client
+    1. Click **Regular Web Applications**, then **Create** 
     
     ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
@@ -35,7 +39,7 @@ First, we'll check for the Client created for your WordPress site.
 
 1. **Client Type** must be set to **Regular Web Application**
 
-1. Scroll down to **Allowed Callback URLs** and input your WordPress site's login URL and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
+1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
     ![Client - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
@@ -43,7 +47,7 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
 
-1. Enter your WordPress site's login URL in the **Allowed Origins (CORS)** field
+1. Leave the **Allowed Origins (CORS)** field blank (it will use the **Allowed Callback URLs** values from above)
 
     ::: note
     Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
@@ -55,25 +59,12 @@ First, we'll check for the Client created for your WordPress site.
 
     ![Client - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
-1. Click the **Grant Types** tab and select **Implicit,** **Authorization Code,** **Refresh Token,** and **Client Credentials**.
+1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and 
+**Client Credentials**.
 
     ![Client - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
 1. Click **Save Changes** if anything was modified.
-    
-### Connection setup
-
-Next, we'll need a Connection to store our users. 
-
-1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a connection that has a similar name to the Client setup above. Click the name to view settings.
-
-    ![Client Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
-
-1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
-
-1. Now click the **Clients** tab and activate the Client created above
-
-    ![Client Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
 ### Authorize the Client for the Management API
 
@@ -101,9 +92,30 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 ![Client Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
+### Database Connection setup
+
+Database Connections enable the typical username and password login seen on most sites. This type of Connection is 
+not required and can be skipped if you're using passwordless or social logins only. 
+
+1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Client setup above, if you used the wizard during setup. Otherwise, you can create a new  
+Connection, use and existing Connection created previously, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
+
+    ![Client Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
+
+1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
+
+1. Now click the **Clients** tab and activate the Client created above
+
+    ![Client Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
+
+### Social Connection setup
+
+See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login 
+methods. 
+
 ### Update Auth0 settings in WordPress
 
-1. Go to back to the [Clients](${manage_url}/#/clients) page and select the client created above.
+1. Go to back to the [Clients](${manage_url}/#/clients) page and select the Client created above.
 
     ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
@@ -182,7 +194,7 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 ### Advanced
 
 * **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some 
-social connections from working properly. 
+social Connections from working properly. 
 
 * **Remember User Session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
 
@@ -210,7 +222,7 @@ social connections from working properly.
     If registrations are allowed in WordPress, new users will be created regardless of this setting.
     ::: 
 
-* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
+* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the Connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
 
 * **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
 
