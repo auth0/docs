@@ -5,8 +5,6 @@ toc: true
 
 # Introduction to Single Sign On with Auth0
 
-## What is Single Sign On?
-
 Single Sign On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using. The user signs in only one time hence the naming of the feature (Single Sign On).
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that logs in to one of Google's products are automatically logged in to their other products as well.
@@ -43,7 +41,7 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
-1. Once the user has logged in, Auth0 will set an SSO cookie
+1. Once the user has logged in, Auth0 will set an SSO cookie.
 1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
