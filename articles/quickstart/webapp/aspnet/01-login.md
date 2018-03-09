@@ -17,17 +17,17 @@ budicon: 448
 
 ## Install the Auth0-ASPNET NuGet Package
 
-Install the Auth0-ASPNET package. In the NuGet Package Manager, click **Tools** > **Library package manager** > **Package Manager Console**. In the console, run the command: 
+Install the Auth0-ASPNET package. In the NuGet Package Manager, click **Tools** > **Library package manager** > **Package Manager Console**. In the console, run the command:
 
 ${snippet(meta.snippets.dependencies)}
 
 ::: note
-This package adds the `LoginCallback.ashx` file to your project to process the login. 
+This package adds the `LoginCallback.ashx` file to your project to process the login.
 :::
 
 ## Configure Callback URLs
 
-After authenticating the user on Auth0, send a POST request to the `/LoginCallback.ashx` URL on your website, for example `http://localhost:PORT/LoginCallback.ashx`. 
+After authenticating the user on Auth0, send a POST request to the `/LoginCallback.ashx` URL on your website, for example `http://localhost:PORT/LoginCallback.ashx`.
 
 For security, register this URL in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
@@ -97,14 +97,14 @@ For more information about the user profile, read the [user profile documentatio
 
 ### Handle authorization
 
-On each request, the `LoginCallback.ashx` handler and the `Http` module generate an `IPrincipal`. Because of that, you can use the following authorization methods: 
+On each request, the `LoginCallback.ashx` handler and the `Http` module generate an `IPrincipal`. Because of that, you can use the following authorization methods:
 * The declarative `[Authorization]` protection
 * The `<location path='..'>` protection
 * Code-based checks, for example, `User.Identity.IsAuthenticated`
 
 ### Automatically redirect to the login page
 
-If the request is not authenticated, the `[Authorize]` attribute generates a 401 (Unauthorized) error. If you want to automatically redirect users to the login page, you can use the Forms Authentication module. 
+If the request is not authenticated, the `[Authorize]` attribute generates a 401 (Unauthorized) error. If you want to automatically redirect users to the login page, you can use the Forms Authentication module.
 
 In `web.config`, configure the following:
 
@@ -142,9 +142,9 @@ public RedirectResult Logout()
 }
 ```
 
-The destination URL is stored in the `returnTo` value. 
+The destination URL is stored in the `returnTo` value.
 
-::: note 
+::: note
 The destination URL must be on the`Allowed Logout URLs` list. Read more about redirecting users after they log out in the [Logout](/logout#redirecting-users-after-logout) article.
 :::
 
@@ -155,7 +155,7 @@ To allow users to link accounts from different providers, read the [Linking User
 To link accounts, you need the logged-in user's Access Token. You can get it from:
 
 ```
-${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
+${'&#x3C;%= ClaimsPrincipal.Current.FindFirst("access_token").Value %&#x3E;'}
 ```
 
 ### Flow the user's identity to a WCF service
