@@ -148,9 +148,9 @@ To protect individual routes pass the instance of `go-jwt-middleware` defined ab
 // main.go
 
 func main() {
-	// ...
+    // ...
 
-	r := mux.NewRouter()
+    r := mux.NewRouter()
 
     // This route is always accessible
     r.Handle("/api/public", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -226,7 +226,7 @@ We will use this function in the endpoint that requires the scope `read:messages
 
 func main() {
 
-	// ...
+    // ...
 
     // This route is only accessible if the user has a valid access_token with the read:messages scope
     // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
