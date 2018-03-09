@@ -135,8 +135,6 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 * **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/tokens#get-a-token-manually) with the appropriate scopes listed here.
 
-* **API token audience:** The Identifier for the API token used above; this is generated automatically and is here for informational purposes only.
-
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
 
 * **Allow signup:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
@@ -161,29 +159,50 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 ### Appearance
 
-* **Form Title:** Sets the title of the Lock widget.
-
-* **Show big social buttons:** Toggles the social buttons size between big and small.
-
 * **Icon URL:** Sets the Lock display icon.
 
-* **Enable Gravatar integration:** When user enters their email, their associated Gravatar picture is displayed in the Lock header.
+* **Form Title:** Sets the title of the Lock widget.
 
-* **Customize the Login Widget CSS:** A valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget).
+* **Big Social Buttons:** Toggles the social buttons size between big and small.
 
-* **Username style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
+* **Enable Gravatar Integration:** When user enters their email, their associated Gravatar picture is displayed in the Lock header.
 
-* **Lock primary color:** Information on this setting is [here](/libraries/lock/v11/configurationn#primarycolor-string-).
+* **Login Form CSS:** Valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget).
 
-* **Lock Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-).
+* **Login Form JS:** Valid JS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget).
 
-* **Lock Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-).
+* **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
 
-* **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
+* **Primary Color:** Information on this setting is [here](/libraries/lock/v11/configurationn#primarycolor-string-).
 
-* **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', and so on) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
+* **Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-).
+
+* **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-).
 
 ### Advanced
+
+* **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some 
+social connections from working properly. 
+
+* **Remember User Session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
+
+* **Login Redirection URL:** If set, redirects users to the specified URL after login. This does not affect logging in via the `[auth0]` shortcode. To change the redirect for the shortcode, add a `redirect_to` attribute, like so:
+    
+    `[auth0 redirect_to="http://yourdomain.com/redirect-here"]`
+
+* **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless.
+
+* **Force HTTPS callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS. 
+
+* **Lock JS CDN URL:** The URL of to the latest available Lock widget in the CDN.
+
+* **Connections to Show:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
+
+    ::: note
+    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+    :::
+
+* **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
 
 * **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). 
 
@@ -191,41 +210,15 @@ In order for your WordPress site to perform certain actions on behalf of your Au
     If registrations are allowed in WordPress, new users will be created regardless of this setting.
     ::: 
 
-* **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
-
-* **Force HTTPS callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS. 
-
-* **Widget URL:** The URL of to the latest available Lock widget in the CDN.
-
-* **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
-
-    ::: note
-    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
-    :::
-
-* **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
-
-* **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
-
-* **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
-
-* **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
-
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
 
 * **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
 
-* **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
-
-* **Login redirection URL:** If set, redirects users to the specified URL after login. This does not affect logging in via the `[auth0]` shortcode. To change the redirect for the shortcode, add a `redirect_to` attribute, like so:
-    
-    `[auth0 redirect_to="http://yourdomain.com/redirect-here"]`
-
-* **Requires verified email:** If set, requires the user to have a verified email to log in.
-
 * **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
 
-* **Enable on IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the **IP Ranges** textbox.
+* **Implicit Login Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
+
+* **Enable IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the **IP Ranges** textbox.
 
 * **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`.
 
@@ -235,58 +228,15 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 
-* **Auth0 server domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information.
-
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
 
+* **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
+
+* **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
+
+* **Auth0 server domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information.
+
 * **Anonymous data:** The plugin tracks anonymous usage data by default. Click to disable.
-
-### Dashboard
-
-Here you can customize the dashboard's display and segmentation of data.
-
-## Integrate the Plugin
-
-The plugin includes an `auth0_user_login` action to provide notification for each time a user logs in or is created in WordPress.
-
-[Learn more about WordPress actions](https://codex.wordpress.org/Plugin_API#Actions).
-
-This action accepts five parameters:
-
-1. `$user_id` (int): The id of the user logged in.
-
-1. `$user_profile` (stdClass): The Auth0 profile of the user.
-
-1. `$is_new` (boolean): If the user has created a new WordPress login, this is set to `true`, otherwise `false`. Not to be confused with Auth0 registration, this flag is `true` only if a new user is created in the WordPress database.
-
-1. `$id_token` (string): The user's JWT.
-
-1. `$access_token` (string): The user's Access Token.
-
-  ::: note
-  An Access Token is not provided when using __Implicit Flow__.
-  :::
-
-To hook to this action, include the following code:
-
-```php
-/**
- * Runs directly after successful login using Auth0
- * 
- * @param integer $user_id
- * @param stdClass $user_profile
- * @param bool $is_new
- * @param string $id_token
- * @param string $access_token
- */
-function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
-  // Code to run after a user has been logged in
-}
-
-add_action( 'auth0_user_login', 'auth0UserLoginAction', 0, 5 );
-```
-
-Click [here](https://developer.wordpress.org/reference/functions/add_action/) to learn more about the `add_action` function.
 
 ## Keep Reading
 

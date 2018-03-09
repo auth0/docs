@@ -4,9 +4,21 @@ description: This page explains common troubleshooting issues with WordPress.
 
 # WordPress Troubleshooting
 
+## I'm seeing a message "This account does not have an email associated..." that stops me from logging in.
+
+If you get this error, make sure you are requesting an email from each provider in the Auth0 Dashboard under Connections -> Social (expand each provider). Take into account that not all providers return email addresses for users (e.g. Twitter). If this happens, you can always add an Email address to any logged in user through the Auth0 Dashboard (or API). See Users -> Edit.
+
+## I'm getting a "Failed cross origin authentication" or "No verifier returned from client" error in my error logs or when logging in.
+
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Client settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](https://auth0.com/docs/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+
 ## The Auth0 settings page in WordPress displays the warning: "The current user is not authorized to manage the Auth0 account...".
 
 If you updated your plugin to version 2 or configured the plugin without following the Quick Start Guide, you may need to provide an API token that the plugin will use to update your account settings. You can [generate a new token](/api/v2) and enter it into the **App Token** field of the the **Basic** settings page of the plugin. (The required scopes for the token are listed there.) You can also ignore this warning. Some operations will not be available from the plugin (like enabling rules or SSO). You will need to make these configuration changes manually in the [Auth0 dashboard](${manage_url}/#/clients).
+
+## I have two accounts for the same user in WordPress.
+
+Under some situations, you may end up with a user with two accounts. WordPress allows you to do merge users. You just delete one of the accounts and then attribute its contents to the user you want to merge with. Go to Users, select the account you want to delete, and in the confirmation dialog select another user to transfer the content.
 
 ## My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
@@ -70,6 +82,24 @@ The current version of the plugin does not provide a way to automatically migrat
 
 - Use the [WordPress XML RPC](https://codex.wordpress.org/XML-RPC_Support) endpoint to setup the migration flow using a custom database connection as described in [Import users to Auth0](/connections/database/migrating) with [this script](https://gist.github.com/glena/b31716e3c8fe48927be2).
 
+## The form_title setting is ignored when I set up the dict setting
+
+Internally, the plugin uses the dict setting to change the Auth0 widget title. When you set up the dict field it overrides the form_title one.
+
+To change the form_title in this case, you need to add the following attribute to the dict json:
+
+      {
+        signin:{
+            title: "The desired form title"
+        }
+      }
+
+## How can I configure Lock settings that are not provided in the settings page?
+
+There is a field called "Extra settings" that allows you to add a json object with all the settings you want to 
+configure.
+
+Have in mind that all the "Extra settings" that we allow to set up in the plugin settings page will be overridden.
 
 ## Database migration does not work
 
