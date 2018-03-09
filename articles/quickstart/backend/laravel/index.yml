@@ -16,3 +16,4 @@ snippets:
   request: server-apis/php-laravel/request
 articles:
   - 01-authorization
+  - 02-using
