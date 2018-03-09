@@ -1,14 +1,15 @@
 ---
 description: How to programatically generate and use a token for the Management API
+title: Programatically Generate and Use an Access Token for the Management API
 section: apis
 crews: crew-2
 toc: true
 ---
-# Programatically generate and use a token for the Management API
+# Generate and Use an Access Token for the Management API
 
-In this article, we will show you how you can programmatically generate tokens for use with the Management API.
+The [manual process](/api/management/v2/tokens/manually) for getting a token might work for you if you want to test an endpoint or invoke it sporadically. However, if you need to make scheduled/frequent calls, then you should build an app that provides you with a token automatically. Its behavior is functionally equivalent to having a non-expiring token.
 
-The [manual process](/api/management/v2/tokens/manually) for getting a token might work for you if you want to test an endpoint or invoke it sporadically. However, if you need to make scheduled/frequent calls, then you should build a simple CLI tool that provides you with a token automatically. Its behavior is functionally equivalent to having a non-expiring token.
+In this article, we will show you how you can generate tokens for use with the Management API.
 
 ::: panel Prerequisites
 Before you proceed with this tutorial, you must [create and authorize a Non Interactive Client](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you need to access.

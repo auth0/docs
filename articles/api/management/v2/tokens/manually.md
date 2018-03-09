@@ -1,23 +1,13 @@
 ---
 description: How to manually generate and use a token for the Management API
+title: Manually Generate and Use an Access Token for the Management API
 section: apis
 crews: crew-2
 toc: true
 ---
-# Manually generate and use a token for the Management API
+# Manually Generate and Use an Access Token for the Management API
 
-In this article, we will cover how you can generate the token required to call the Management API manually. We will then cover how you can use your newly-obtained token.
-
-## Token validity
-
-By default, the Management API Token is valid for 24 hours. Once the token expires, you will need to obtain a new token.
-
-If this doesn't work for you, you can either:
-
-1. [Change the validity period of the token](#2-get-the-token)
-2. [Automate the token request process](/api/management/v2/tokens/programatically).
-
-## Generate a token for the Management API
+If you need to make a call to the Management API for quick/one-off actions, you can obtain an Access Token manually via the Dashboard.
 
 To generate a token for use with the Management API, you will need to:
 
@@ -62,7 +52,7 @@ If you need to read **and** create clients, then your token should include three
 If you have multiple apps needing access to the Management API, and each app needs a different set of scopes, we recommend creating a Non Interactive Client for each app.
 :::
 
-#### How to Set Scopes
+### How to Set Scopes
 
 To set the scopes for the Non Interactive Clients that access the Management API:
 
@@ -71,9 +61,9 @@ To set the scopes for the Non Interactive Clients that access the Management API
 3. Find the client you're interested in configuring, and click the drop-down arrow located to the right of its name
 4. Select the scopes desired
 
-### 2. Get the token
+## 2. Get the token
 
-The Management API Token is automatically generated and displayed on [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+The Access Token is automatically generated and displayed on [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 Please note that this token has, by default, an expiration time of **24 hours** (86400 seconds). To change this, you can update the __Token Expiration (Seconds)__ field before clicking __Update & Regenerate Token__.
 
@@ -81,13 +71,13 @@ Please note that this token has, by default, an expiration time of **24 hours** 
 
 Finally, click __Copy Token__ to get the updated token so that you can make authorized calls to the [Management API](/api/management/v2).
 
-### 3. Use the token
+## 3. Use the token
 
 You can use the [Management API Explorer](/api/management/v2) to manually call an endpoint.
 
 You will need:
 
-* The Management API Token you just obtained
+* The Access Token you just obtained
 * The domain for your tenant (**${account.namespace}**). You can also find this on the **Settings** page for any of your [clients](${manage_url}/#/clients/${account.clientId}/settings)
 
 Once you have this information you are ready to call the API. Follow these steps:

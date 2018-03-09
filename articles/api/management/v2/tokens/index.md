@@ -8,25 +8,29 @@ toc: true
 
 To call the [Management API](/api/management/v2) endpoints, you'll need an Access Token for the Management API. 
 
-The Access Token is a [JSON Web Token (JWT)](/jwt) that:
+The Access Token is a [JSON Web Token (JWT)](/jwt) that contains specific permissions (called **scopes**) on what the client is or isn't allowed to do with the API and is [signed using RS256](/apis#signing-algorithms). The Access Token for the Management API also has the **audience** set to **https://${account.tenant}.auth0.com/api/v2/**.
 
-1. Contains specific permissions (called **scopes**) on what the client is or isn't allowed to do with the API
-2. Is signed with the client's API key and secret
+## How to get an Access Token for the Management API
 
-The Access Token for the Management API also has the **audience** set to **https://${account.tenant}.auth0.com/api/v2/**.
+There are two ways to get an Access Token
 
-## How to get an Management API Token
+1. [Manually](/api/management/v2/tokens/manually). You can obtain tokens manually from the Dashboard for instances where you're performing quick, one-off actions (such as testing an endpoint).
+2. [Programmatically](/api/management/v2/tokens/programatically). If you need to make scheduled or frequent calls to the Management API, you can build a client that generates Access Tokens for your use. By doing this, your client's behavior is functionally equivalent to having a non-expiring token.
 
-There are two ways to get a Management API Token
+## Token validity
 
-1. [Manually](/api/management/v2/tokens/manually) using the Dashboard
-2. [Programmatically](/api/management/v2/tokens/programatically), where you build a simple command line tool that generates tokens
+By default, the Access Token is valid for 24 hours. Once the token expires, you will need to obtain a new token.
+
+If this doesn't work for you, you can either:
+
+1. [Change the validity period of the token](#2-get-the-token)
+2. [Automate the token request process](/api/management/v2/tokens/programatically). Doing this is the functional equivalent of having a non-expiring token.
 
 ## Frequently Asked Questions
 
 **How long is the token valid?**
 
-By default, the Management API Token expires **24 hours** after issue. Once the token expires, you'll need to get a new token to continue making calls to the API endpoints.
+By default, the Access Token expires **24 hours** after issue. Once the token expires, you'll need to get a new token to continue making calls to the API endpoints.
 
 If you get tokens manually from [the API Explorer tab of the Management API](${manage_url}/#/apis/management/explorer), you can extend expiration time. However, please remember that lengthy expiration times are less secure.
 
@@ -42,11 +46,11 @@ While you cannot change the default validity period (which is set to 24 hours), 
 
 **Can I refresh my token?**
 
-You cannot renew a Management API Token. You should create a [new token](#2-get-the-token) old token expires.
+You cannot renew an Access Token. You should create a [new token](#2-get-the-token) old token expires.
 
 **Can I revoke a token that has been compromised?**
 
-Unfortunately, you cannot revoke a Management API Token directly, which is why we recommend short-lived tokens.
+Unfortunately, you cannot revoke an Access Token directly, which is why we recommend short-lived tokens.
 
 Please note, however, that deleting the client grant will prevent *new tokens* from being issued to the client. You can do this via the [Management API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id) or the [Management Dashboard](${manage_url}/#/apis/management/authorized-clients).
 
@@ -59,16 +63,10 @@ Change your Client Secret immediately:
 
 Please note that previously issued tokens will continue to be valid until their expiration time.
 
-**What are the Current User scopes in the ID Tokens?**
-
-Within the Users API, some endpoints have scopes related to the current user (such as read:current_user or update:current_user_identities). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the ID Token that are granted automatically to the logged in user.
-
 ## Keep reading
 
 ::: next-steps
-* [Changes in Auth0 Management APIv2 Tokens](/api/management/v2/tokens-flows)
-* [Calling APIs from a Service](/api-auth/grant/client-credentials)
-* [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-* [Information on the query string syntax](/api/management/v2/query-string-syntax)
-* [Search for Users](/api/management/v2/user-search)
+* [Manually Obtain Access Tokens](/api/management/v2/tokens/manually)
+* [Programmatically Obtain Access Tokens](/api/management/v2/tokens/programatically)
+* [Changes in Access Tokens for the Management API](/api/management/v2/tokens-flows)
 :::
