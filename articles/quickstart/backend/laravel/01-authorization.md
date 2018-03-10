@@ -44,10 +44,10 @@ If you would like to use the `Auth0` [facade](http://laravel.com/docs/facades), 
 ```php
 // config/app.php
 
-'aliases' => array(
+ 'aliases' => [
     // ...
     'Auth0' => \Auth0\Login\Facade\Auth0::class,
-);
+],
 ```
 
 You will now be able to access user info with `Auth0::getUser()`.
