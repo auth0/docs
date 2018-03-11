@@ -32,6 +32,12 @@ Once PayPal has created your app, you will be shown the API credentials for this
 
 ![](/media/articles/connections/social/paypal/api-creds.png)
 
+::: note
+Note that you default to editing your Sandbox account. Switch to your live account by toggling to "Live" on the top right of the page.
+:::
+
+![](https://d2w9rnfcy7mm78.cloudfront.net/1871502/original_5c259228b7f3373bcf3d7c955c1d40cc.png)
+
 ## 3. Provide PayPal with Information About Your Auth0 Client
 
 Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter the following value:
@@ -43,6 +49,10 @@ Scroll down to the **Sandbox App Settings** section and **Show** the **Return UR
 If you would like to control the scope of access to customer data (such as profile information, email address, home address, and phone number) through Auth0, you need to enable access to this information by selecting the desired attributes under the **Advanced Options**, which becomes available to you if you enable the **Log In with PayPal** feature.
 
 ![](/media/articles/connections/social/paypal/log-in-with-paypal.png)
+
+For your Sandbox Account to work, you must select **Advanced Options** and check Full Name, Date of birth, Timezone, Locale, and Language because Auth0 requires this Basic Profile information.
+
+![](https://d2w9rnfcy7mm78.cloudfront.net/1871507/original_12c26dcd9414b2e3fbf0c368c7d1976d.png)
 
 Click **Save**:
 
@@ -70,7 +80,11 @@ This allows you to test your connection to see if it has been configured properl
 
 ::: note
 The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
+
+To login with your Sandbox app, configure your Sanbox Account with a password so that you can login. Under Sandbox, click Accounts, click your sandbox account email address, click Profile, click Change Password, add your password, then save.
 :::
+
+![](https://d2w9rnfcy7mm78.cloudfront.net/1871532/original_264ceb73bf45f03b37b388ff1c7d7f86.png)
 
 ## Additional Information
 
