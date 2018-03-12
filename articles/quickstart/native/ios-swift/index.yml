@@ -9,6 +9,7 @@ framework:
 author:
   name: Martin Walsh
   email: martin.walsh@auth0.com
+  community: false
 image: /media/platforms/ios.png
 tags:
   - quickstart
