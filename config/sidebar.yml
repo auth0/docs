@@ -400,6 +400,10 @@ articles:
       - title: "User Search"
         url: "/users/search"
 
+      - title: "User Search v3"
+        url: "/users/search/v3"
+        hidden: true
+
       - title: "User Metadata"
         url: "/metadata"
 
