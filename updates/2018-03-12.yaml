@@ -5,5 +5,5 @@ added:
       - search
       - user search
     description: |
-      A new page, [User Search v3](https://auth0.com/docs/cms/wordpress/extending), was added with documentation on version 3 of the user search API.
+      A new page, [User Search v3](https://auth0.com/docs/users/search/v3), was added with documentation on version 3 of the user search API.
       
