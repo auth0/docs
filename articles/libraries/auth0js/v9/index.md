@@ -372,6 +372,8 @@ webAuth.checkSession({
 
 The `webAuth.checkSession` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
 
+<%= include('../../../_includes/_co_authenticate_errors', { library : 'Auth0.js v9'}) %>
+
 ## Logout
 
 To log out a user, use the `logout` method. This method accepts an options object, which can include the following parameters.
