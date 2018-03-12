@@ -1,12 +1,12 @@
 ---
-title: User Search
+title: User Search v3
 description: Learn about Auth0's user search query string syntax and how to search for users then sort the results.
 toc: true
 ---
 
 # User Search v3
 
-Looking for someone? Auth0's [list or search users](/api/management/v2#!/Users/get_users) endpoint enables you to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html), select the fields to return, and sort the results.
+Looking for someone? With Auth0's [list or search users](/api/management/v2#!/Users/get_users) endpoint, you can search for users that match a custom query.
 
 In this article you'll learn about the query string syntax, how to search for users, and how to sort the results.
 
@@ -14,15 +14,16 @@ In this article you'll learn about the query string syntax, how to search for us
 
 * If you are using our [user search engine v2](/api/management/v2/user-search/v2), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
 * You'll need a token to make requests to the Management API. Check out [the Auth0 Management APIv2 token](/api/management/v2/tokens) for more information.
-* To perform user search requests the `read:users` [scope](/scopes/current) is required.
+* To perform user search requests the `read:users` [scope](/scopes/) is required.
+* Auth0 limits the number of users you can retrieve (1000). If you exceed this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [User Import / Export](/extensions/user-import-export) extension.
 
 ## Search for users
 
-To search for users, make a `GET` request to the [`/api/v2/users` endpoint](/api/management/v2#!/Users/get_users). Pass your search query in query string syntax to the `q` parameter and set the `search_engine` parameter to `v3`.
+To search for users, make a `GET` request to the [/api/v2/users endpoint](/api/management/v2#!/Users/get_users). Pass your search query to the `q` parameter and set the `search_engine` parameter to `v3`.
 
 ### Example Request
 
-For example, to search for users whose email is exactly "jane@exampleco.com", use `q=email:"jane@exampleco.com"`:
+For example, to search for a user whose email is exactly `jane@exampleco.com`, use `q=email:"jane@exampleco.com"`:
 
 ```har
 {
@@ -46,19 +47,17 @@ For example, to search for users whose email is exactly "jane@exampleco.com", us
 }
 ```
 
-::: note
 For more information on other available parameters, check out the [Management API Explorer documentation](/api/management/v2#!/Users/get_users).
-:::
 
 ## Query string syntax
 
-When searching for users, you can create custom queries using Lucene Query Syntax.
+When searching for users, you can create queries using [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) to refine your search.
 
 The query string is parsed into a series of terms and operators:
 
 * A term can be a single word such as `jane` or `smith`.
-* A can be a phrase surrounded by double quotes (`"jane smith"`) which will match all the words in the phrase in the same order.
-* A term without a field name will not match text in the `app_metadata`/`user_metadata` fields.
+* A term can be a phrase surrounded by double quotes (`"green apple"`), which will match all words in the phrase in the same order.
+* A term without a field name will not match text in the [user metadata](/metadata) fields.
 * Multiple terms can be grouped together with parentheses to form sub-queries.
 * Search values are case insensitive.
 * Operators (`AND`, `OR`, `NOT`) work on all normalized user fields and root metadata fields.
@@ -68,49 +67,19 @@ The query string is parsed into a series of terms and operators:
 You can search for users using the following fields:
 
 * All the [normalized user profile](/user-profile/normalized/auth0) fields.
-* `app_metadata` and `user_metadata` fields may be used with:
+* User metadata fields may be used with:
     * Booleans
     * Numeric (integer or double)
     * Text
     * Arrays. You can search for strings and numerics in metadata arrays on the root object, but not in nested fields.
 
-### Wildcards
-
-::: note
-Search using wildcards is not available on `app_metadata`/`user_metadata` fields.
-:::
-
-Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`. The question mark character (`?`), is currently not supported.
-
-For example, to find all users whose names start with "john", use `q=name:john*`:
-
-```har
-{
-    "method": "GET",
-    "url": "https://${account.namespace}/api/v2/users",
-    "httpVersion": "HTTP/1.1",
-    "headers": [{
-        "name": "Authorization",
-        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-    }],
-    "queryString":  [
-        {
-          "name": "q",
-          "value": "name:john*"
-        },
-        {
-          "name": "search_engine",
-          "value": "v3"
-        }
-    ]
-}
-```
+Range and wildcard searches are not available on [user metadata](/metadata) fields.
 
 ### Exact match
 
 To find exact matches, use double quotes: `name:"jane smith"`.
 
-For example, to find users with name start with "jane smith", use `q=name:"jane smith"`:
+For example, to find users with the name `jane smith`, use `q=name:"jane smith"`:
 
 ```har
 {
@@ -134,11 +103,37 @@ For example, to find users with name start with "jane smith", use `q=name:"jane 
 }
 ```
 
-### Ranges
+### Wildcards
 
-::: note
-Search using ranges is not available on `app_metadata`/`user_metadata` fields.
-:::
+Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`.
+
+The question mark character (`?`), is currently not supported.
+
+For example, to find all users whose names start with `john`, use `q=name:john*`:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users",
+    "httpVersion": "HTTP/1.1",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }],
+    "queryString":  [
+        {
+          "name": "q",
+          "value": "name:john*"
+        },
+        {
+          "name": "search_engine",
+          "value": "v3"
+        }
+    ]
+}
+```
+
+### Ranges
 
 You can use ranges in your user search queries. For inclusive ranges use square brackets: `[min TO max]`, and for exclusive ranges use curly brackets: `{min TO max}`.
 
@@ -222,15 +217,9 @@ For example, to sort users in ascending order by the `created_at` field you can 
 }
 ```
 
-::: note
 For more information on `sort` and other parameters, see the [Management API Explorer documentation](/api/v2#!/users/get_users).
-:::
 
 ## Page Results
-
-::: warning
-Auth0 limits the number of users you can retrieve (1000). If the number of users you're retrieving exceeds this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [contact support](https://support.auth0.com/) for further assistance.
-:::
 
 To page the user search results, use the `page`, `per_page`, and `include_totals` parameters when making your request:
 
@@ -274,20 +263,16 @@ Parameter | Description
 }
 ```
 
-::: note
 For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer documentation](/api/v2#!/users/get_users).
-:::
 
 ## Migrate from search engine v2 to v3
 
 The user search engine v2 will be deprecated soon, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`). Before you start migrating, there's a few things you should know:
 
-* Search values are case insensitive in `v3`.
-* `v3` limits the number of users you can retrieve (1000); if the number of users you're retrieving exceeds this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [contact support](https://support.auth0.com/) for further assistance.
+* Search values are case insensitive in v3.
+* v3 limits the number of users you can retrieve to 1000.
 * You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](#searchable-fields).
-* User fields are not tokenized like in `v2`, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](#wildcards) and [exact matching](#exact-match).
-* Search using wildcards (`*`) is not available on `app_metadata`/`user_metadata` fields.
-* Search using ranges is not available on `app_metadata`/`user_metadata` fields. See [ranges](#ranges).
+* User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](#wildcards) and [exact matching](#exact-match).
 
 ### Queries to migrate
 
