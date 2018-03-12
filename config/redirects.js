@@ -875,8 +875,8 @@ module.exports = [
     to: '/dev-centers/java'
   },
   {
-    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol'],
-    to: '/protocols/oauth2/oauth-web-protocol'
+    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
+    to: '/client-auth/current/server-side-web'
   },
   {
     from: '/oauth-implicit-protocol',
