@@ -703,10 +703,6 @@ articles:
           url: "/protocols/oauth2/oauth-state"
           hidden: true
           
-        - title: "Web App Integration"
-          url: "/protocols/oauth2/oauth-web-protocol"
-          hidden: true
-          
       - title: "OpenID Connect"
         url: "/protocols/oidc"
 
