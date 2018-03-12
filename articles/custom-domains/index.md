@@ -148,9 +148,7 @@ webAuth = new auth0.WebAuth({
 });
 ```
 
-::: note
-If you use custom domains and intend to perform [management API actions with Auth0.js](/libraries/auth0js/v9#user-management), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, just for for use with the Management API calls, as it only works with Auth0 domains. 
-:::
+Note that the Management API only accepts Auth0 domains. If you use a [custom domain](/custom-domains) and also intend to perform [Management API actions with Auth0.js](/libraries/auth0js/v9#user-management), you must instantiate a new copy of `webAuth` using your Auth0 domain.
 
 #### Auth0 emails
 
