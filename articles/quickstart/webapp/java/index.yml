@@ -2,6 +2,9 @@ title: Java
 image: /media/platforms/java.png
 tags:
   - quickstart
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
 alias:
   - java
 seo_alias: java

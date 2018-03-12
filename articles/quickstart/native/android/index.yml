@@ -5,6 +5,9 @@ language:
   - Java
   - C
 hybrid: false
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
 image: /media/platforms/android.png
 tags:
   - quickstart

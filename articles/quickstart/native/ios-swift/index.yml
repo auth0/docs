@@ -6,6 +6,9 @@ language:
   - Swift
 framework:
   - Swift
+author:
+  name: Martin Walsh
+  email: martin.walsh@auth0.com
 image: /media/platforms/ios.png
 tags:
   - quickstart

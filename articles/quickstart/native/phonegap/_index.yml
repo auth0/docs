@@ -1,5 +1,6 @@
 title: Phonegap
-community: true
+author:
+  community: true
 alias:
   - phonegap
 language:
