@@ -76,13 +76,13 @@ func main() {
 	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
         ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
             // Verify 'aud' claim
-            aud := os.Getenv("AUTH0_AUDIENCE")
+            aud := "${apiIdentifier}"
             checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
             if !checkAud {
                 return token, errors.New("Invalid audience.")
             }
             // Verify 'iss' claim
-            iss := "https://" + os.Getenv("AUTH0_DOMAIN") + "/"
+            iss := "https://${account.namespace}/"
             checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
             if !checkIss {
                 return token, errors.New("Invalid issuer.")
@@ -110,7 +110,7 @@ Create the function to get the remote JWKS for your Auth0 account and return the
 
 func getPemCert(token *jwt.Token) (string, error) {
 	cert := ""
-	resp, err := http.Get("https://" + os.Getenv("AUTH0_DOMAIN") + "/.well-known/jwks.json")
+	resp, err := http.Get("https://${account.namespace}/.well-known/jwks.json")
 
 	if err != nil {
 		return cert, err
