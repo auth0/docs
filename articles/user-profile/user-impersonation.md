@@ -46,9 +46,7 @@ Once you've enabled impersonation for your account, you'll need to update **webA
 var data = webAuth.parseHash(
   {
     ...
-
     __enableImpersonation: true
-    
     ...
   }
 ```
@@ -56,8 +54,12 @@ var data = webAuth.parseHash(
 If you're using lock, your update will be as follows:
 
 ```javascript
+var options = {
+    _enableImpersonation: true
+};
 
-
+// initialize Lock
+const lock = new Auth0Lock(clientid, domain, options)
 ```
 
 Note that the **enableImpersonation** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
