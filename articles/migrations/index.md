@@ -112,7 +112,7 @@ For example, the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/ge
 
 For detailed steps and code samples on how to get a token, see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
-Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by the end of February 2018.
+Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled. Migration guides will be available by the end of March 2018.
 
 #### Am I affected by the change?
 
