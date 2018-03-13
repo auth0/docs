@@ -27,3 +27,6 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 ## Behavioral Changes
 
 <%= include('../../_includes/_default_values') %>
+
+<%= include('../../_includes/_error_responses') %>
+
