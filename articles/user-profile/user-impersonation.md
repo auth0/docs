@@ -53,6 +53,15 @@ var data = webAuth.parseHash(
   }
 ```
 
+If you're using lock, your update will be as follows:
+
+```javascript
+
+
+```
+
+Note that the **enableImpersonation** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+
 ::: warning
 Enabling impersonation leaves your client vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response.
 
