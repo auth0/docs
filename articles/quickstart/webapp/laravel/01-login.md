@@ -16,7 +16,21 @@ budicon: 448
   ]
 }) %>
 
-## Install the Plugin and its Dependencies
+## Install and Configure Laravel
+
+This quickstart uses Laravel 5.5 and assumes that you have a working Laravel app. If you're installing Auth0 to an existing app, feel free to skip this section. Otherwise, walk through the Laravel guides below to get started. 
+
+1. **[Installation](https://laravel.com/docs/5.5/installation)**
+    * Use any of the install methods shown to start a new project
+    * PHP can be served any way that works for your development process (we use Homebrew-installed Apache and PHP)
+    * Walk through the "Configuration" section completely
+2. **[Configuration](https://laravel.com/docs/5.5/configuration)**
+    * Create a .env file, used later for critical and sensitive Auth0 connection values
+    * Make sure `APP_DEBUG` is set to `true`
+    
+By the end of those 2 sections, you should have a Laravel application up and running locally or on a test server.
+
+## Install Auth0 Login and Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -24,22 +38,20 @@ ${snippet(meta.snippets.dependencies)}
 **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
 :::
 
-## Enable it in Laravel
+This will install:
 
-Add the following to the list of service providers, located in `config/app.php`
+- The [Auth0 PHP SDK](https://github.com/auth0/auth0-PHP) in `vendor\auth0\auth0-php`
+- The [Auth0 Laravel plugin](https://github.com/auth0/laravel-auth0) in `vendor\auth0\login`
+
+## Enable Auth0 Login in Laravel
+
+Add the following to the list of service providers, located in `config/app.php`:
 
 ${snippet(meta.snippets.setup)}
 
-Optionally, if you want to use the [facade](http://laravel.com/docs/facades) called `Auth0` you should also add an alias in the same file
+Optionally, if you want to use an `Auth0` facade ([more information on facades](http://laravel.com/docs/5.5/facades)), add an alias in the same file:
 
-```php
-// config/app.php
-
-'aliases' => array(
-    // ...
-    'Auth0' => Auth0\Login\Facade\Auth0::class
-);
-```
+${snippet(meta.snippets.alias)}
 
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
 For this you need to add to your `AppServiceProvider` the following line:
