@@ -3,9 +3,11 @@ title: Migrating From /oauth/ro to /oauth/token
 description: Learn how to migrate your API calls and responses from /oauth/ro to /oauth/token
 toc: true
 ---
-# Migration Guide for Direct Endpoint Usage
+# Migration Guide for Resource Owner Password Credentials Exchange
 
-This migration guide is for users who call /oauth/ro directly, without the use of any Auth0 libraries or SDKs. The major Auth0 libraries such as [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) have already been updated to stop using this endpoint. If you use the `lock-passwordless` library, you can now use [Passwordless Mode](/) in Lock v11 instead.
+The Resource Owner Password Credentials exchange is used by highly-trusted clients to provide active authentication. Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0. It authenticates users with a single request, exchanging their password credentials for a token. This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
+
+Note that this guide is for users who use the resource owner password credentials exchange, and call /oauth/ro directly, without the use of any Auth0 libraries or SDKs. The major Auth0 libraries such as [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) have already been updated to stop using /oauth/ro. If you use the `lock-passwordless` library, you can now use [Passwordless Mode](/libraries/lock/v11#passwordless) in Lock v11 instead.
 
 ## Alter Your Requests
 
@@ -22,6 +24,8 @@ Previously, requests to /oauth/ro looked similar to this:
   "device": "my-device-name"
 }
 ```
+
+### Changes to Requests
 
 * The endpoint to execute token exchanges is now /oauth/token
 * [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection `realm`. The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
@@ -59,11 +63,13 @@ Responses from `oauth/ro` were similar in format to the following:
 }
 ```
 
+### Changes to Responses
+
 * The returned Access Token is valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API specified by the `audience` param uses RS256 as signing algorithm) and optionally the resource server if one was specified.
 * The ID Token will be forcibly signed using RS256 if requested by a [public client](/clients/client-types#public-clients).
 * A Refresh Token will be returned only if the `offline_access` scope was granted.
 
-And an example of the OIDC conformant response from `oauth/token`:
+Here is an example of the OIDC conformant response from `oauth/token`:
 
 ```json
 {
@@ -74,6 +80,3 @@ And an example of the OIDC conformant response from `oauth/token`:
   "id_token": "eyJ..."
 }
 ```
-
-## Alter Your ID Token Handling
-
