@@ -234,9 +234,9 @@ lock.resumeAuth(hash, function(error, authResult) {
 
 ## checkSession()
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `/authorize`. If you omit them, it will use the ones provided when initializing Auth0.
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. It takes the following parameters:
 
-- **options** {Object}: This is optional and follows the same rules Read more [here](https://auth0.com/docs/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens).
+- **options** {Object}: Optional. Accepts any valid OAuth2 parameters that would normally be sent to `/authorize`. If you omit them, it will use the ones provided when initializing Auth0.
 - **callback** {Function}: Will be invoked with the token renewal result. Has an error (if any) as the first argument and the authentication result as the second one.
 
 ```js
