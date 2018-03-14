@@ -32,7 +32,6 @@ You can also retrieve, edit, and delete user information using our API.
 
 First, pick an endpoint that matches your needs:
 
-- [Retrieve a list of users](/users/search#users)
 - [Retrieve a user using the ID as search criteria](/users/search#users-by-id)
 - [Retrieve a user using the Email as search criteria](/users/search#users-by-email)
 - [Export all users to a file using a long running job](/users/search#user-export)
