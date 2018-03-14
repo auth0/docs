@@ -22,7 +22,8 @@ budicon: 448
 Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.
 
 ```js
-// app.component.ts
+// src/app/app.component.ts
+
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -59,13 +60,104 @@ export class MyApp {
 }
 ```
 
-## Create an Authentication Service and Configure Auth0
+## Configure Auth0
 
-To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app in the configuration block.
+Create a new file called `auth.config.ts` in your `src/services` folder to provide the necessary Auth0 configuration for your Ionic app:
 
-${snippet(meta.snippets.use)}
+```js
+// src/services/auth.config.ts
 
-## Show Authentication State
+export const AUTH_CONFIG = {
+  // Needed for Auth0 (capitalization: ID):
+  clientID: '${account.clientId}',
+  // Needed for Auth0Cordova (capitalization: Id):
+  clientId: '${account.clientId}',
+  domain: '${account.namespace}',
+  callbackURL: location.href,
+  packageIdentifier: 'YOUR_PACKAGE_ID' // config.xml widget ID, e.g., com.auth0.ionic
+};
+```
+
+Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
+
+## Create an Authentication Service
+
+To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state.
+
+```js
+// src/services/auth.service.ts
+import { Injectable, NgZone } from '@angular/core';
+import { Storage } from '@ionic/storage';
+
+// Import AUTH_CONFIG, Auth0Cordova, and auth0.js
+import { AUTH_CONFIG } from './auth.config';
+import Auth0Cordova from '@auth0/cordova';
+import * as auth0 from 'auth0-js';
+
+@Injectable()
+export class AuthService {
+  Auth0 = new auth0.WebAuth(AUTH_CONFIG);
+  Client = new Auth0Cordova(AUTH_CONFIG);
+  accessToken: string;
+  user: any;
+  loggedIn: boolean;
+  loading = true;
+
+  constructor(
+    public zone: NgZone,
+    private storage: Storage
+  ) {
+    this.storage.get('profile').then(user => this.user = user);
+    this.storage.get('access_token').then(token => this.accessToken = token);
+    this.storage.get('expires_at').then(exp => {
+      this.loggedIn = Date.now() < JSON.parse(exp);
+      this.loading = false;
+    });
+  }
+
+  login() {
+    this.loading = true;
+    const options = {
+      scope: 'openid profile offline_access'
+    };
+    // Authorize login request with Auth0: open login page and get auth results
+    this.Client.authorize(options, (err, authResult) => {
+      if (err) {
+        throw err;
+      }
+      // Set access token
+      this.storage.set('access_token', authResult.accessToken);
+      this.accessToken = authResult.accessToken;
+      // Set access token expiration
+      const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      this.storage.set('expires_at', expiresAt);
+      // Set logged in
+      this.loading = false;
+      this.loggedIn = true;
+      // Fetch user's profile info
+      this.Auth0.client.userInfo(this.accessToken, (err, profile) => {
+        if (err) {
+          throw err;
+        }
+        this.storage.set('profile', profile).then(val =>
+          this.zone.run(() => this.user = profile)
+        );
+      });
+    });
+  }
+
+  logout() {
+    this.storage.remove('profile');
+    this.storage.remove('access_token');
+    this.storage.remove('expires_at');
+    this.accessToken = null;
+    this.user = null;
+    this.loggedIn = false;
+  }
+}
+```
+
+## Show Authentication State and Profile Data
 
 Add a control to your app to allow users to log in. The control should call the `login` method from the `AuthService`. Start by injecting the `AuthService` in a component.
 
@@ -93,6 +185,7 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
 
 ```html
 <!-- src/pages/home/home.html -->
+
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
@@ -128,12 +221,38 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
 </ion-content>
 ```
 
-### Troubleshooting
+## Add Platform and Run the App
 
-#### Cannot read property 'isAvailable' of undefined
+You will now need to allow Ionic / Cordova to install the necessary plugins and update your `config.xml` appropriately for the platform you wish to run on.
 
-This means that you're attempting to test this in a browser. At this time you'll need to run this either in an emulator or on a device.
+Use the following commands to add your desired platform(s) (e.g., `ios` or `android`) and run the app:
 
-#### Completely blank page when launching the app
+```bash
+# Add platform (e.g., ios or android)
+$ ionic cordova add {platform}
+# Run on desired platform (e.g., ios or android)
+$ ionic cordova run {platform} --livereload
+```
 
-This could either mean that you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet. Be sure to check the console for errors.
+This will then launch your app in the local emulation environment for the platform you chose (Xcode Simulator for iOS or the Android emulator of your choice).
+
+Don't be alarmed if you _cannot authenticate_ successfully yet at this stage! There was some configuration generated by running the app that you still need to add to your Auth0 settings.
+
+## Update Auth0 Dashboard Configuration
+
+1. After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
+2. Make note of IP address URLs from any `<allow-navigation>` tags.
+3. In your [Auth0 Dashboard](https://manage.auth0.com), go to your Ionic app client's **Settings**.
+4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 client and click the **Save Changes** button.
+
+You should now be able to log into your app!
+
+## Troubleshooting
+
+### Cannot read property 'isAvailable' of undefined
+
+This means that you're attempting to test this in a browser. At this time, you'll need to run this either in an emulator or on a device.
+
+### Completely blank page when launching the app
+
+This could either mean that you've built the seed project using a different version of Ionic, or that the device where you are testing it isn't entirely supported by Ionic 3 yet. Be sure to check the console for errors.
