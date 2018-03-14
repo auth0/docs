@@ -12,7 +12,7 @@ In this article you'll learn about the query string syntax, how to search for us
 
 ## Before you start
 
-* If you are using our [user search engine v2](/api/management/v2/user-search/v2), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
+* If you are using our [user search engine v2](/api/management/v2/user-search), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
 * You'll need a token to make requests to the Management API. Check out [the Auth0 Management APIv2 token](/api/management/v2/tokens) for more information.
 * To perform user search requests the `read:users` [scope](/scopes/) is required.
 * Auth0 limits the number of users you can retrieve (1000). If you exceed this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [User Import / Export](/extensions/user-import-export) extension.
@@ -217,7 +217,7 @@ For example, to sort users in ascending order by the `created_at` field you can 
 }
 ```
 
-For more information on `sort` and other parameters, see the [Management API Explorer documentation](/api/v2#!/users/get_users).
+For more information on `sort` and other parameters, see the [Management API Explorer documentation](/api/management/v2#!/users/get_users).
 
 ## Page Results
 
@@ -263,7 +263,7 @@ Parameter | Description
 }
 ```
 
-For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer documentation](/api/v2#!/users/get_users).
+For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer documentation](/api/management/v2#!/users/get_users).
 
 ## Migrate from search engine v2 to v3
 
