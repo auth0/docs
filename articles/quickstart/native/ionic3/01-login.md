@@ -259,4 +259,4 @@ This could either mean that you've built the seed project using a different vers
 
 ### Profile doesn't show after successful login
 
-This is not actually an issue with your code, but is an Ionic quirk. You can generally fix this by turning on live reload when you run your app in the emulator, and adding an alert in your `auth.service.ts` that simply creates a notification with the JSON stringified contents of the `authResult` in the `Client.authorize()` callback. This will generally fix the issue, and then you can remove the alert and everything should work normally.
+This is not actually an issue with your code, but is an Ionic quirk when running in an emulator (generally iOS). You can use a real device, or generally fix this by turning on live reload when you run your app in the emulator, and adding an alert in your `auth.service.ts` that simply creates a notification with the JSON stringified contents of the `authResult` in the `Client.authorize()` callback. This will generally fix the issue, and then you can remove the alert and everything should work normally.
