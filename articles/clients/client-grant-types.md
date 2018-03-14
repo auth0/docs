@@ -19,7 +19,7 @@ In this doc, we'll talk about:
 
 OAuth 2.0 is a protocol that allows you to grant limited access to your resources to another entity without exposing credentials. By using Auth0, you can support different OAuth 2.0 flows without worrying about the technical aspects/implementation.
 
-OAuth 2.0 supports several types of grants, which are methods by which you can gain access tokens (string values that represent the permissions granted). Different grant types allow different types of access, and based on the needs of your app, some grant types are more appropriate than others. Auth0 allows you to indicate which sets of permissions are appropriate based on the `grant_type` property.
+OAuth 2.0 supports several types of grants, which are methods by which you can gain Access Tokens (string values that represent the permissions granted). Different grant types allow different types of access, and based on the needs of your app, some grant types are more appropriate than others. Auth0 allows you to indicate which sets of permissions are appropriate based on the `grant_type` property.
 
 ::: note
 Not sure which non-legacy grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
@@ -44,7 +44,7 @@ The following `grant_types`, are either:
 | `authorization_code` | [Authorization Code Grant](/api-auth/grant/authorization-code) |
 | `client_credentials` | [Client Credentials Grant](/api-auth/grant/client-credentials) |
 | `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
-| `refresh_token` | [Use a refresh token](/tokens/refresh-token/current#use-a-refresh-token) |
+| `refresh_token` | [Use a Refresh Token](/tokens/refresh-token/current#use-a-refresh-token) |
 | `http://auth0.com/oauth/grant-type/password-realm` | [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support) |
 | `http://auth0.com/oauth/grant-type/mfa-oob` | [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
 | `http://auth0.com/oauth/grant-type/mfa-otp` | [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
@@ -161,12 +161,12 @@ If you're currently using a legacy grant type, refer to the chart below to see w
 |:-----|:----|
 |`http://auth0.com/oauth/legacy/grant-type/ro` | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
 | `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
-| `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` | Use the `oauth/token` endpoint to obtain refresh tokens. See [OIDC-conformant refresh tokens](/api-auth/tutorials/adoption/refresh-tokens) for more info. |
+| `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` | Use the `oauth/token` endpoint to obtain Refresh Tokens. See [OIDC-conformant Refresh Tokens](/api-auth/tutorials/adoption/refresh-tokens) for more info. |
 | `http://auth0.com/oauth/legacy/grant-type/delegation/id_token` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
 | `http://auth0.com/oauth/legacy/grant-type/access_token` | Use browser-based social authentication. |
 
 ::: note
-Those implementing Passwordless Authentication should use hosted login pages instead of the `oauth/ro` endpoint.
+Those implementing Passwordless Authentication should use [universal login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
 :::
 
 ## Enable a Legacy Grant Type

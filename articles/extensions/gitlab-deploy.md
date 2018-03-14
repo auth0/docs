@@ -18,7 +18,7 @@ Set the following configuration variables:
 * **GITLAB_REPOSITORY**: The name of your GitLab repository.
 * **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
 * **GITLAB_URL**: The url of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
-* **GITLAB_TOKEN**: The personal access token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
+* **GITLAB_TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
 * **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
 
 Once you have provided this information, click **Install**.
@@ -27,9 +27,9 @@ Once you have provided this information, click **Install**.
 
 Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.com/profile/personal_access_tokens).
 
-Create a new access token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
+Create a new Access Token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
 
-![Generate a personal access token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
+![Generate a personal Access Token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
 
 Go back to the [Extensions](${manage_url}/#/extensions) page and set this value at the **Gitlab_Token** configuration variable.
 

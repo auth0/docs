@@ -6,19 +6,21 @@ description: Describes how to call APIs from highly trusted clients using the Re
 
 <%= include('../../_includes/_pipeline2') %>
 
-Highly trusted applications can use this flow to access APIs. In this case, the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0. 
+Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
-It is imperative that the client is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead. 
+You should use this flow **only if** the following apply:
+- The client is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
 
 ::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
 ## Overview
 
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token, and optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an Access Token, and optionally a Refresh Token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
 
-This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived access token or refresh token.
+This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived Access Token or Refresh Token.
 
 ![Resource Owner Password Grant](/media/articles/api-auth/password-grant.png)
 
@@ -66,6 +68,6 @@ For details on how to implement multifactor authentication, refer to [Multifacto
 ::: next-steps
 * [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 * [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)
 :::

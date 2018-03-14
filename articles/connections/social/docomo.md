@@ -27,7 +27,7 @@ Fill out the form by providing the following information:
 --------|------------
 Service name (サービス名) | Your application's name.
 Service overview (サービス概要) | A brief description of your application.
-Access token lifetime (アクセストークン有効期間 秒) | The lifetime of your access token in seconds.
+Access Token lifetime (アクセストークン有効期間 秒) | The lifetime of your Access Token in seconds.
 Redirect URI (リダイレクトURI) | The callback url for your application (`https://${account.namespace}/login/callback`)
 Available scopes (利用可能スコープ) | The scopes for the information you are requesting for your app.
 

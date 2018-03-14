@@ -17,7 +17,7 @@ crews: crew-2
 
 Enter a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
 
-The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
+The selection of the **Signing Algorithm** will dictate how the API will validate the Access Tokens it receives:
 * HS256 (symmetric): signed using the resource server's signing secret
 * RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](/jwks) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
 
@@ -27,12 +27,12 @@ The selection of the **Signing Algorithm** will dictate how the API will validat
   There will already be an <strong>Auth0 Management API</strong> that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
 :::
 
-4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the access token. With this information, the API can enforce fine-grained authorization.
+4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the Access Token. With this information, the API can enforce fine-grained authorization.
 
   ![Define Scopes](/media/articles/api-auth/apis-scope-tab.png)
 
-5. Authorize a consumer client. Under the **Non Interactive Clients** tab, you can authorize your clients that will be the consumers of the API. This will create a `client grant` for each client and will allow you to generate access tokens for these clients to call your API. Optionally, you can select a subset of scopes to be granted to this client as part of the access token. Scopes allow the API to enforce fine-grained authorization.
+5. Authorize a consumer client. Under the **Non Interactive Clients** tab, you can authorize your clients that will be the consumers of the API. This will create a `client grant` for each client and will allow you to generate Access Tokens for these clients to call your API. Optionally, you can select a subset of scopes to be granted to this client as part of the Access Token. Scopes allow the API to enforce fine-grained authorization.
 
   ![Authorize the Client](/media/articles/api-auth/apis-authorize-client-tab.png)
 
-6. Setup your API to accept access tokens. The **Quickstart** tab provides you with code snippets for different languages and will guide you through bootstrapping your API, depending on the selected **Signing Algorithm**.
+6. Setup your API to accept Access Tokens. The **Quickstart** tab provides you with code snippets for different languages and will guide you through bootstrapping your API, depending on the selected **Signing Algorithm**.

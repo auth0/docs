@@ -1,5 +1,6 @@
 ---
 description: Auth0 normalizes common user properties in the User Profile.
+toc: true
 ---
 
 # Auth0 Normalized User Profile
@@ -13,7 +14,7 @@ This article describes the claims included in the normalized user profile, as cr
 Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
 ::: note
-The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
+The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID Tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
 :::
 
 ## Normalized User Profile Schema
@@ -75,7 +76,7 @@ Alternatively, you could store the user identifier in each table/collection that
 
 There are two recommended options to uniquely identify your users:
 
-1. By the `user_id` property. This is guaranteed to be unique per user (e.g. `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
+1. By the `user_id` property. This is guaranteed to be unique per user (such as `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
 2. By a *natural* key, like the `email` property. In this case, it is recommended that you enable email verification and only use this option with providers that require that users verify their emails.
 
 If you use [custom databases](/connections/database/mysql), you must return a unique `user_id` property. If you have multiple custom databases and expect possible collisions between ids from different connections, you should use a prefix identifying the connection. E.g:
@@ -195,6 +196,6 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 }
 ```
 
-## How to Retrieve the User Profile
+## How to retrieve the user profile
 
-You can retrieve the user profile using the [Management API's Get a User endpoint](/api/management/v2#!/Users/get_users_by_id).
+There are more than one endpoints you can use to retrieve users. You can search by Id, email, or other criteria, depending on your scenario. For more information on these endpoints and sample requests, refer to [User Search](/users/search).

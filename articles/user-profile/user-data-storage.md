@@ -1,16 +1,14 @@
 ---
 title: User Data Storage Guidance
-description: Demonstrating the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
+description: Demonstrates the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
 toc: true
 ---
 
 # User Data Storage Guidance
 
-Auth0 provides multiple places to store data used to authenticate a Client's users. This document covers best practices on how to store your data securely and efficiently. Additionally, this document uses a sample Client (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
+Auth0 provides multiple places to store data used to authenticate a Client's users. This document covers best practices on how to store your data securely and efficiently. It uses a sample Client (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
 
-:::panel Example: Mobile Music Application
-The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) for a visualization of the Client's overall structure.
-:::
+The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the client's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
 
 ## Where should I store my authentication data?
 
@@ -30,7 +28,7 @@ Any data you store in Auth0 that's *not* already a part of the user profile shou
 
 These fields contain JSON snippets and can be used during the Auth0 authentication process.
 
-### App Metadata
+### App metadata
 
 You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
 
@@ -38,9 +36,9 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
-For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#restrictions).
+For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#metadata-restrictions).
 
-#### Example: `app_metadata` for a Mobile Music Application
+#### Example: App metadata for a mobile music application
 
 The following data points from our mobile music application appropriate to store in `app_metadata`:
 
@@ -132,7 +130,7 @@ After we've implemented these two rules, the app recognizes whether the user is 
 
 ![](/media/articles/tutorials/data-scenarios/3-home.png)
 
-### User Metadata
+### User metadata
 
 The following data points from our mobile music application are appropriate to store in `user_metadata`:
 
@@ -142,7 +140,7 @@ The following data points from our mobile music application are appropriate to s
 
 Note that, unlike the data points for `app_metadata`, the user can easily and readily change those stored in `user_metadata`.
 
-#### Example: `user_metadata` for a Mobile Music Application
+#### Example: User metadata for a mobile music application
 
 We can let the user change their `displayName`, which is the name the user sees upon logging in and is displayed to other users of the app.
 
@@ -182,15 +180,15 @@ To save the changes to the database, the application makes a call to the [Get a 
 
 This is followed by a call to the [Update a User](/api/management/v2#!/Users/patch_users_by_id) endpoint to update the `user_metadata` field:
 
-'''har
+```har
 {
   "method": "PATCH",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
     "name": "Authorization",
-    "value": "Bearer ABCD"
+    "value": "Bearer YOUR_ACCESS_TOKEN"
   }, {
     "name": "Content-Type",
     "value": "application/json"
@@ -204,7 +202,9 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
   "bodySize": -1,
   "comment": ""
 }
-'''
+```
+
+You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/tokens).
 
 ## Why shouldn't I put all my Client's data in the Auth0 data store?
 

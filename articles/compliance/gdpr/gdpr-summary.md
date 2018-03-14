@@ -62,7 +62,3 @@ Auth0, as the data processor, must:
 * Fines for non-compliance are much higher and are determined using a tiered system
 * Supervisory authorities in the European Union have greater investigative powers
 * Organizations controlling data must appoint a Data Protection Officer, while organizations processing data should have a Data Privacy Office
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr"]
-}) %>

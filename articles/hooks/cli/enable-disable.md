@@ -26,7 +26,3 @@ By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with
 The following command disables your Hook:
 
   `auth0 disable my-extension-1 -p auth0-default`
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/cli"]
-}) %>

@@ -75,7 +75,7 @@ You will see the **Timesheets Import Job** client listed, and it should have acc
 
 ![Authorize Client](/media/articles/architecture-scenarios/server-api/authorize-client.png)
 
-You will also need to specify which scopes will be included in access tokens which are issued to the client when the client authorizes with Auth0.
+You will also need to specify which scopes will be included in Access Tokens which are issued to the client when the client authorizes with Auth0.
 
 Expand the settings for the client by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `batch:upload` scope as it will simply create new timesheets based on the timesheet entries in the external system.
 

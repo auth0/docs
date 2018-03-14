@@ -7,9 +7,9 @@ router.get('/callback',
     res.redirect(req.session.returnTo || '/user');
   });
 ```
-## Convert your Code to use Centralized Login
+## Convert your Code to use Universal Login
 
-In web applications, you don't need any client-side code to integrate centralized login. Your application should perform these steps:
+In web applications, you don't need any client-side code to integrate universal login. Your application should perform these steps:
 
 1. When the application needs to authenticate, navigate to a `/login` route in your website. If you were using plain HTML to code the web views, it would be:
 
@@ -35,6 +35,6 @@ After authentication is done, it will redirect to the `/callback` url as in the 
 
 3. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing centralized login in web applications for different technologies in our [Quickstarts](/quickstart/webapps).
+You can find complete examples of implementing universal login in web applications for different technologies in our [Quickstarts](/quickstart/webapps).
 
 <%= include('_customizing-login-page') %>

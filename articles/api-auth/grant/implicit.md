@@ -15,7 +15,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview
 
-The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the client app receives an [access_token](/tokens/access-token) directly, without the need for an `authorization_code`. This happens because the client app, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no refresh tokens for are returned, for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
+The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the client app receives an [access_token](/tokens/access-token) directly, without the need for an `authorization_code`. This happens because the client app, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no Refresh Tokens for are returned, for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
 
 Once the user authenticates, the client app receives the `access_token` in the hash fragment of the URI. The client app can now use this `access_token` to call the API on behalf of the user.
 
@@ -55,6 +55,6 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 * [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)
 * [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
 :::

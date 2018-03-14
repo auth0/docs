@@ -8,7 +8,7 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
-Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an access token. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
+Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an Access Token. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
 
 ## Prerequisites
 
@@ -16,19 +16,19 @@ Before you continue, make sure to have [brute force protection](/anomaly-detecti
 
 ## The flow
 
-1. Your server prompts the user for credentials (i.e. username and password). This could be achieved in many different ways, for example via a browser UI or providing an API.
+1. Your server prompts the user for credentials (such as username and password). This could be achieved in many different ways, for example via a browser UI or providing an API.
 
 2. The user enters credentials and the client-side application submits them to a backend server under your control.
 
 3. Your server submits the credentials to Auth0 using the [Resource Owner Password Grant](/api-auth/grant/password) flow.
 
-4. Auth0 validates the credentials and returns an access token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection) and perform appropriate actions if an anomaly is detected.
+4. Auth0 validates the credentials and returns an Access Token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection) and perform appropriate actions if an anomaly is detected.
 
 ## Brute-force protection and server-side APIs
 
 Brute-force protection relies on having the original user's IP. When calling the API from your server, Auth0 treats the IP of your server as the IP of the end user, and uses it as input for the anomaly-detection functionality, in particular, for brute-force protection. This situation could potentially trigger false positives into the brute-force protection shields, causing it to block users or trigger warnings for legitimate requests.
 
-To prevent this, you may send the end-user's IP address to Auth0 along with the credentials and configure the client to trust the provided IP. Because of security considerations, this configuration is only possible for Authenticated clients (i.e. those with authentication based on a client secret).
+To prevent this, you may send the end-user's IP address to Auth0 along with the credentials and configure the client to trust the provided IP. Because of security considerations, this configuration is only possible for Authenticated clients (such as those with authentication based on a client secret).
 
 ::: warning
 <strong>Warning!</strong> Authenticated clients must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.

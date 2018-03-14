@@ -23,10 +23,10 @@ Scroll to the bottom of the Settings page, and click **Save Changes**.
 
 You can rotate your client's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
 
-Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and access token, respectively.
+Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 ::: note
-To make calls to the Management API, you'll need to [obtain and provide a valid access token](/api/management/v2/tokens).
+To make calls to the Management API, you'll need to [obtain and provide a valid Access Token](/api/management/v2/tokens).
 :::
 
 ```har

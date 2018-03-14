@@ -114,7 +114,7 @@ Note the authorization code included at the end of the included URL.
 
 ### Step 3: Obtain an ID Token
 
-Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
+Using the authorization code obtained in step 2, you can obtain the ID Token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
 
 ```har
 {
@@ -195,7 +195,7 @@ https://${account.namespace}/authorize?
 
 After the user submits the request, the app receives an `TTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
-Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
+Using the authorization code, you can obtain the ID Token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
 ```har
 {
@@ -265,7 +265,7 @@ https://${account.namespace}/authorize?
 
 After the user submits the request, the app receives an `HTTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
-Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
+Using the authorization code, you can obtain the ID Token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
 ```har
 {

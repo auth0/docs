@@ -15,7 +15,7 @@ The following steps implement user-initiated account linking for a Single Page A
 
 ## 1. Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+First, the user will authenticate to the Single Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/spa-initial-login.png)
 
@@ -57,87 +57,82 @@ In the typical SPA login, the callback is handled client-side by the same page a
 
 ## 2. User initiates account linking
 
-Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, etc.). For example, in the user's settings page:
+Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, and so on). For example, in the user's settings page:
 
 ![](/media/articles/link-accounts/spa-user-settings.png)
 
 When the user clicks on any of the **Link Account** buttons, your app will trigger authentication to the account selected. After successful authentication, use the obtained JWT to link the accounts.
 
- * Handling the second authentication with Lock:
+### Handle the second authentication with Lock
 
-  ```html
-  <script src="${lock_url}"></script>
-  <script type="text/javascript">
-    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```html
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
-    function linkPasswordAccount(connection){
-      var opts = { 
-        rememberLastLogin: false,
-        dict: {
-          signin: {
-            title: 'Link another account'
-          },
-          auth: {
-            responseType: 'token id_token'
-          }
-        }
-      };
-            
-      if (connection) {
-        opts.connections = [connection];
+  function linkPasswordAccount(connection){
+    var opts = {
+      rememberLastLogin: false,
+      languageDictionary: {
+        title: 'Link with another account'
+      },
+      auth: {
+        responseType: 'token id_token'
       }
+    };
 
-      // open lock in signin mode with the customized options for linking
-      lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
-      lock.show();
+    if (connection) {
+      opts.connections = [connection];
     }
 
-    function lockAuthenticated(authResult)
-    {
-        if (isUserLoggedIn) {
-          linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
-        } else {
-          // handle authentication for the first login
-        }
-    }
+    // open lock in signin mode with the customized options for linking
+    lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
+    lock.show();
+  }
 
-    $(document).ready(function() {
-      lock.on("authenticated", lockAuthenticated); 
-    });
+  function lockAuthenticated(authResult)
+  {
+      if (isUserLoggedIn) {
+        linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
+      } else {
+        // handle authentication for the first login
+      }
+  }
+
+  $(document).ready(function() {
+    lock.on("authenticated", lockAuthenticated);
+  });
+  
+</script>
+<button onclick="linkPasswordAccount()">Link Account</button>
+```
+
+### Handle the second authentication with Passwordless Mode
+
+```html
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  function linkPasswordlessSMS(){
     
-  </script>
-  <button onclick="linkPasswordAccount()">Link Account</button>
-  ```
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}',
+    {
+      autoclose: true,
+      allowedConnections: ["sms"],
+      languageDictionary: {
+        passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
+      }
+    });
 
- * Handling the second authentication with Lock Passwordless:
-
-  ```html
-  <script src="${lock_passwordless_url}"></script>
-  <script type="text/javascript">
-    function linkPasswordlessSMS(){
-      
-      // Initialize Passwordless Lock instance
-      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-
-      var opts = {
-        autoclose: true,
-        rememberLastLogin: false,
-        dict:{
-          phone: {
-            headerText: "Enter your phone to sign in <br>or create an account to link to."
-          }
-        }
-      };
-      // Open the lock in SMS mode with the ability to handle the authentication in page
-      lock.sms( opts, function (err, profile, id_token) {
-        if (!err){
-          linkAccount(id_token);
-        }
-      });
+    lock.on("authenticated", function(authResult)) {
+      linkAccount(authResult.idToken);
     }
-  </script>
-  <button onclick="linkPasswordlessSMS()">SMS</a>
-  ```
+
+    lock.show();
+  }
+</script>
+<button onclick="linkPasswordlessSMS()">SMS</a>
+```
 
 ## 3. Perform linking by calling the Auth0 Management API
 

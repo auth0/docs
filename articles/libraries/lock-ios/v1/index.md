@@ -18,7 +18,7 @@ Auth0 is an authentication broker that supports social identity providers as wel
 
 * **Integrates** your iOS app with **Auth0** (OS X coming soon).
 * Provides a elegant **native UI** to log in your users.
-* Provides support for **Social Providers** (Facebook, Twitter, etc.), **Enterprise Providers** (AD, LDAP, etc.) and **Username & Password** authentication.
+* Provides support for **Social Providers** (Facebook, Twitter, and so on), **Enterprise Providers** (AD, LDAP, and so on) and **Username & Password** authentication.
 * Provides the ability to do **SSO** with 2 or more mobile apps, similar to Facebook and Messenger apps.
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
 * Passwordless authentication using **Touch ID** and **SMS**.
@@ -143,7 +143,7 @@ First, instantiate `A0LockViewController` and register the authentication callba
 A0Lock *lock = ... //Fetch Lock from where its stored
 A0LockViewController *controller = [lock newLockViewController];
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -157,7 +157,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 let lock = ... // Fetch Lock from where its stored
 let controller: A0LockViewController = lock.newLockViewController()
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
     self.dismiss(animated: true, completion: nil)
@@ -187,7 +187,7 @@ A0LockViewController *controller = [lock newLockViewController];
 controller.closable = YES;
 
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-  // Do something with token & profile. e.g.: save them.
+  // Do something with token & profile (such as save them).
   // And dismiss the ViewController
 };
 
@@ -205,7 +205,7 @@ let controller: A0LockViewController = A0Lock.shared().newLockViewController()
 controller.closable = true
 
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // And dismiss the ViewController
 }
 
@@ -231,7 +231,7 @@ A0Lock *lock = [A0Lock sharedLock];
 A0LockSignUpViewController *controller = [lock newSignUpViewController];
 
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-  // Do something with token & profile. e.g.: save them.
+  // Do something with token & profile (such as save them).
   // And dismiss the ViewController
 };
 
@@ -243,7 +243,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 ```swift
 let controller: A0LockViewController = A0Lock.shared().newSignUpViewController()
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // And dismiss the ViewController
 }
 
@@ -379,7 +379,7 @@ A0LockViewController *controller = [lock newLockViewController];
 controller.useWebView = NO;
 
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-  // Do something with token & profile. e.g.: save them.
+  // Do something with token & profile (such as save them).
   // And dismiss the ViewController
 };
 controller.onUserDismissBlock = ^(){
@@ -392,7 +392,7 @@ controller.onUserDismissBlock = ^(){
 let controller: A0LockViewController = A0Lock.shared().newLockViewController()
 controller.useWebView = false
 controller.onAuthenticationBlock = { (profile, token) in
-    // Do something with token & profile. e.g.: save them.
+    // Do something with token & profile (such as save them).
     // And dismiss the ViewController
 }
 self.present(controller, animated: true, completion: nil)

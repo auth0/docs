@@ -6,11 +6,11 @@
       <th width="20%">Status</th>
       <th width="80%">Description</th>
     </tr>
-  <thead>
+  </thead>
   <tbody>
     <tr>
       <td><span class="badge badge-info">200</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "..."}</code></br>The refresh token is revoked, does not exist, or was not issued to the client making the revocation request.</td>
+      <td><code>{"error": "invalid_request", "error_description": "..."}</code></br>The Refresh Token is revoked, does not exist, or was not issued to the client making the revocation request.</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>

@@ -2,10 +2,11 @@
 section: libraries
 description: When should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
 ---
-
 # Lock vs. a Custom UI
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and prevents the dangers of cross-origin authentication. The Hosted Login Page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs. 
+<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
+
+When adding Auth0 to your web apps, the best solution is to use Auth0's [universal login](/hosted-pages/login). Using universal login is an incredibly simple process, and prevents the dangers of cross-origin authentication. The login page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs.
 
 * Lock, Auth0's drop-in login and signup widget
   * [Lock for Web](/libraries/lock)
@@ -17,98 +18,98 @@ When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted 
   * [Auth0 SDK for Android](/libraries/auth0-android)
 * Or, a custom user interface that you have created directly tying into the [Authentication API](/auth-api).
 
-If the Hosted Login Page doesn't work for you, all of the above can be embedded in your own application and used in that way, as well.  
- 
-::: note 
-Passwordless authentication from native mobile apps currently must go through the Hosted Login Page - there is no native passwordless option at this time. 
-::: 
+If universal login doesn't work for you, all of the above can be embedded in your own application and used in that way, as well.  
 
-## When to Implement Lock vs. a Custom UI 
+::: note
+Passwordless authentication from native mobile apps currently must use universal login - there is no native passwordless option at this time.
+:::
+
+## When to Implement Lock vs. a Custom UI
 
 **Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.  
- 
-**Auth0 SDKs** are client-side libraries that **do not** come with a user interface but allow for expanded customization of the behavior and appearance of the login page. 
- 
-The **Authentication API** provides integration without requiring the use of Auth0 SDKs. The best option to choose will depend on the needs of your app. 
- 
-Below is a quick overview of reasons you might want to use Lock, versus using an Auth0 SDK or the authentication API. There are details about each option (Lock, Auth0 SDKs, Authentication API) below the table, to assist you in finding the right way to implement Auth0 in your application! 
- 
-<table class="table"> 
-    <thead> 
-        <tr> 
-            <th align="left"><b>Desired UI Attributes:</b></th> 
-            <th>Lock</th> 
-            <th>Custom&nbsp;UI</th> 
-        </tr> 
-    </thead> 
-    <tbody> 
-        <tr> 
-            <td>Has a simple design that fits in with most modern websites with just a few tweaks to its options.</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
-        </tr> 
-        <tr> 
-            <td>Adapts to your configuration and only show the allowable options in the appropriate situations</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
-        </tr> 
-        <tr> 
-            <td>Chooses the correct connection automatically</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
-        </tr> 
-        <tr> 
-            <td>Remembers the last used connection for a given user</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
-        </tr> 
-        <tr> 
-            <td>Automatically accommodates internationalization</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
-        </tr> 
-        <tr> 
-            <td>Automatically provides password policy checking at signup</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="danger" align="center">No</td> 
+
+**Auth0 SDKs** are client-side libraries that **do not** come with a user interface but allow for expanded customization of the behavior and appearance of the login page.
+
+The **Authentication API** provides integration without requiring the use of Auth0 SDKs. The best option to choose will depend on the needs of your app.
+
+Below is a quick overview of reasons you might want to use Lock, versus using an Auth0 SDK or the authentication API. There are details about each option (Lock, Auth0 SDKs, Authentication API) below the table, to assist you in finding the right way to implement Auth0 in your application!
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-left"><b>Desired UI Attributes:</b></th>
+            <th>Lock</th>
+            <th>Custom&nbsp;UI</th>
         </tr>
-        <tr> 
-            <td>Provide secure authentication via Auth0</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Potential to provide auth without having to create custom code to deal directly with Auth0's API</td> 
-            <td class="success" align="center">Yes</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Follows strict appearance requirements as set by your company</td> 
-            <td class="danger" align="center">No</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Allows you to retain your existing UI for authentication</td> 
-            <td class="danger" align="center">No</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Allows for expert usage of HTML, CSS, and JavaScript for customization</td> 
-            <td class="danger" align="center">No</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Adapts to a simpler process for username/password and social provider authentication</td> 
-            <td class="danger" align="center">No</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-        <tr> 
-            <td>Handles multiple databases or Active Directory connections</td> 
-            <td class="danger" align="center">No</td> 
-            <td class="success" align="center">Yes</td> 
-        </tr> 
-    </tbody> 
-</table> 
+    </thead>
+    <tbody>
+        <tr>
+            <td>Has a simple design that fits in with most modern websites with just a few tweaks to its options.</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Adapts to your configuration and only show the allowable options in the appropriate situations</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Chooses the correct connection automatically</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Remembers the last used connection for a given user</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Automatically accommodates internationalization</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Automatically provides password policy checking at signup</td>
+            <td class="success text-center">Yes</td>
+            <td class="danger text-center">No</td>
+        </tr>
+        <tr>
+            <td>Provide secure authentication via Auth0</td>
+            <td class="success text-center">Yes</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Potential to provide auth without having to create custom code to deal directly with Auth0's API</td>
+            <td class="success text-center">Yes</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Follows strict appearance requirements as set by your company</td>
+            <td class="danger text-center">No</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Allows you to retain your existing UI for authentication</td>
+            <td class="danger text-center">No</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Allows for expert usage of HTML, CSS, and JavaScript for customization</td>
+            <td class="danger text-center">No</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Adapts to a simpler process for username/password and social provider authentication</td>
+            <td class="danger text-center">No</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+        <tr>
+            <td>Handles multiple databases or Active Directory connections</td>
+            <td class="danger text-center">No</td>
+            <td class="success text-center">Yes</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Lock
 

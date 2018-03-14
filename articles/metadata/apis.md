@@ -21,7 +21,7 @@ When setting the `user_metadata` field using the Authentication API's [Signup en
 Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata` fields. You can also update these two fields.
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [how to get a Management APIv2 Token](/tokens/access-token#how-to-get-an-access-token).
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [how to get a Management APIv2 Token](/api/management/v2/tokens).
 :::
 
 ### Set Metadata Fields on Creation

@@ -56,9 +56,9 @@ Add more methods to the `Auth` service to handle authentication in the app.
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js
-* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time 
 * `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
 
 ```js
 // src/Auth/Auth.js
@@ -88,7 +88,7 @@ export default class Auth {
   }
 
   setSession(authResult) {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
@@ -98,7 +98,7 @@ export default class Auth {
   }
 
   logout() {
-    // Clear access token and ID token from local storage
+    // Clear Access Token and ID Token from local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
@@ -108,7 +108,7 @@ export default class Auth {
 
   isAuthenticated() {
     // Check whether the current time is past the 
-    // access token's expiry time
+    // Access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
@@ -133,13 +133,13 @@ ${snippet(meta.snippets.use)}
 This example uses Bootstrap styles. You can use any style library you want, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Add a Callback Component
 
-When you use the Auth0 hosted login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
+When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
 
 ::: note
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
@@ -150,7 +150,7 @@ This example assumes you are using path-based routing with `<BrowserRouter>`. If
 Create a component named `CallbackComponent` and add a loading indicator.
 
 ::: note
-To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
+To display a loading indicator, you need a loading spinner or another indicator in the `assets` directory. See the downloadable sample for demonstration. 
 :::
 
 ```js
@@ -178,7 +178,7 @@ After authentication, your users are taken to the `/callback` route. They see th
 
 ## Process the Authentication Result
 
-When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
+When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
 
 Call the `handleAuthentication` method after you render the `Callback` route. The method processes the authentication hash fragment when the `Callback` component initializes.
 

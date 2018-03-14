@@ -84,7 +84,7 @@ Your app now can retrieve these values and use them to personalize the UI.
 
 ## Custom Claims
 
-When adding custom claims to ID or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid any possible collision with standard OIDC claims.
+When adding custom claims to ID or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid any possible collision with standard OIDC claims.
 
 ### Example: Add Custom Claims
 
@@ -133,16 +133,16 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
 
 ::: note
-Adding custom claims to the access token is very similar to the process of adding custom claims to the ID token. However, you would use `context.accessToken` instead of `context.idToken`.
+Adding custom claims to the Access Token is very similar to the process of adding custom claims to the ID Token. However, you would use `context.accessToken` instead of `context.idToken`.
 :::
 
-Custom claims added to ID tokens using this method allows you to obtain them when calling the `/userinfo` endpoint. However, note that rules run during the user authentication process only, not when `/userinfo` is called.
+Custom claims added to ID Tokens using this method allows you to obtain them when calling the `/userinfo` endpoint. However, note that rules run during the user authentication process only, not when `/userinfo` is called.
 
 ## API Scopes
 
 Scopes allow you to define the API data accessible to your client applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
-Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow and include them in the access token as part of the scope request parameter.
+Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
 
 If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
 

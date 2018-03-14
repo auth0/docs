@@ -4,105 +4,242 @@ description: How to configure WordPress as a client with Auth0.
 
 # Configuration of the Login by Auth0 WordPress Plugin
 
-To configure the [Login by Auth0](https://wordpress.org/plugins/auth0/) WordPress Plugin, copy the **Domain**, **Client Id** and **Client Secret** from the **Settings** page of your client in the [Auth0 dashboard](${manage_url}) to the **Basic** settings page of the Auth0 plugin in WordPress.
+By default, new installations of Login by Auth0 run the Setup Wizard and ask for an app token and attempt to setup all necessary components within your Auth0 tenant. This includes:
 
-::: note
-In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
-:::
+* Creating a new client using your site name with the correct app type and URLs 
+* Creating a database connection for this client for storing users
+* Creating a client grant for the system Auth0 Management API
+* Creating a new user for the WordPress administrator running the wizard
 
-## Create a New Client
+Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
 
-You must first create a client in the Auth0 dashboard before you can configure the Auth0 for WordPress plugin. If you already have created the client you want to connect to WordPress, you can [skip to the next section](#get-your-domain-client-id-and-client-secret).
+The Setup Wizard must run to completion for your site to be setup correctly. If the Wizard fails for any reason before the "setup successful" screen, check the plugin error log at **wp-admin > Auth0 > Error Log** and the steps below to determine the issue. 
 
-1. Log in to the [Auth0 dashboard](${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
-2. Navigate to the [Clients](${manage_url}/#/clients) page and click **+ Create Client**.
+It can be helpful, if you're having any issues with logging in or creating accounts, to walk through the screens for each section below to confirm your setup. 
 
-  ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/management-dashboard.png)
+You'll need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
 
-3. In the **Create Client** window, name your Client and select your Client type, and click **Save**.
+## Auth0 configuration
 
-  ![Creating the Client in the Management Dashboard](/media/articles/cms/wordpress/create-client.png)
+### Client setup
 
-## Get your Domain, Client Id and Client Secret
+First, we'll check for the Client created for your WordPress site. 
 
-1. Go to the [Clients](${manage_url}/#/clients) section of the Auth0 dashboard and select the client you want to connect to WordPress.
+1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard and try again.  
+    
+    ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
-  ![Client Settings in the Management Dashboard](/media/articles/cms/wordpress/auth0-client-settings.png)
+1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
 
-2. Leave this browser window open.
+    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
-## Set your Domain, Client Id and Client Secret
+1. **Client Type** must be set to **Regular Web Application**
 
-1. Log in as an administrator of your WordPress installation.
+1. Scroll down to **Allowed Callback URLs** and input your WordPress site's login URL and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-2. Click on **Plugins** in the left menu of the WordPress dashboard and select the **Settings** link associated with the Login by Auth0 plugin.
+    ![Client - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
-3. Copy the **Domain**, **Client Id** and **Client Secret** settings from the **Settings** page of your app in the Auth0 dashboard to the **Auth0 Settings > Basic** page of your WordPress account.
+1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
-  ![Providing Auth0 Client Settings to WordPress](/media/articles/cms/wordpress/plugin-settings.png)
+1. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
 
-4. Click **Save Changes** at the bottom of the page.
+1. Enter your WordPress site's login URL in the **Allowed Origins (CORS)** field
 
-## Auth0 for WordPress Plugin Settings
+    ::: note
+    Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
+    :::
+
+1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
+
+1. Turn off **OIDC Conformant**.
+
+    ![Client - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+
+1. Click the **Grant Types** tab and select **Implicit,** **Authorization Code,** **Refresh Token,** and **Client Credentials**.
+
+    ![Client - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
+
+1. Click **Save Changes** if anything was modified.
+    
+### Connection setup
+
+Next, we'll need a Connection to store our users. 
+
+1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a connection that has a similar name to the Client setup above. Click the name to view settings.
+
+    ![Client Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
+
+1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
+
+1. Now click the **Clients** tab and activate the Client created above
+
+    ![Client Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
+
+### Authorize the Client for the Management API
+
+In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Client created above to access the Management API. 
+
+1. Navigate to the [APIs](${manage_url}/#/apis) page
+
+1. Click on **Auth0 Management API**, then the **Non-Interactive Clients** tab
+
+1. Look for the Client you created above and click **Unauthorized** to grant access
+
+1. In the panel that appears, select the following scopes below and click **Update** (you can search using the **Filter scopes** field)
+
+    * `create:clients`
+    * `update:clients`
+    * `update:connections`
+    * `create:connections`
+    * `read:connections`
+    * `create:rules`
+    * `delete:rules`
+    * `read:users`
+    * `update:users`
+    * `create:users`
+    * `update:guardian_factors`
+
+![Client Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
+
+### Update Auth0 settings in WordPress
+
+1. Go to back to the [Clients](${manage_url}/#/clients) page and select the client created above.
+
+    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+
+1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
+
+1. Click on the **Basic** tab.
+
+1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Client page to your WordPress settings using the Copy to Clipboard buttons next to each field.
+
+1. Make sure **Client Signing Algorithm** matches the Client's Advanced > OAuth setting. 
+
+1. Scroll down and click **Save Changes**.
+
+## Plugin settings
 
 ### Basic
 
-* **Domain:** The app domain copied from the app settings in your dashboard.
-* **Client Id:** The app client id copied from the app settings in your dashboard.
-* **Client Secret:** The app client secret copied from the app settings in your dashboard.
-* **Client token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
+* **Domain:** The app Domain copied from the Client settings in your dashboard.
+
+* **Client ID:** The app Client ID copied from the Client settings in your dashboard.
+
+* **Client Secret:** The app Client Secret copied from the Client settings in your dashboard.
+
+* **Client Secret Base64 Encoded:** Whether or not the Client Secret is Base64 encoded; it will say below the Client Secret field in your Auth0 dashboard whether or not this should be turned on.
+
+* **Client Signing Algorithm:** The algorithm used for signing tokens from the Advanced Client Settings, OAuth tab; default is RS256.
+
+* **Cache Time (minutes):** How long the JWKS information should be stored.
+
+* **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/tokens#get-a-token-manually) with the appropriate scopes listed here.
+
+* **API token audience:** The Identifier for the API token used above; this is generated automatically and is here for informational purposes only.
+
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
+
 * **Allow signup:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
 
 ### Features
 
 * **Password Policy:** Select the level of complexity you want to enforce for user passwords. For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength).
+
 * **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso).
+
 * **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-).
-* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information.) You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor).
+
+* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information). You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor).
+
 * **FullContact integration:** Enable this option to fill your user profiles with the data provided by FullContact. A valid API key is required. For more information, see [Augment User Profile with FullContact](/scenarios/mixpanel-fullcontact-salesforce#2-augment-user-profile-with-fullcontact-).
+
 * **Store geolocation:** Enable this option to store geolocation information based on the IP addresses saved in `user_metadata`.
-* **Store zip-code income:** Enable this option to store income data based on the zip-code calculated from each user's IP address.
 
-### Connections
+* **Store zip-code income:** Enable this option to store income data based on the ZIP code calculated from each user's IP address.
 
-Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${manage_url}/#/connections/social).
+* **Override WordPress avatars:** Forces WordPress to use Auth0 avatars .
 
 ### Appearance
 
 * **Form Title:** Sets the title of the Lock widget.
+
 * **Show big social buttons:** Toggles the social buttons size between big and small.
+
 * **Icon URL:** Sets the Lock display icon.
-* **Enable Gravatar integration:** When user enters their email, their associated gravatar picture is displayed in the Lock header.
-* **Customize the Login Widget CSS:** A valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
+
+* **Enable Gravatar integration:** When user enters their email, their associated Gravatar picture is displayed in the Lock header.
+
+* **Customize the Login Widget CSS:** A valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget).
+
 * **Username style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
+
+* **Lock primary color:** Information on this setting is [here](/libraries/lock/v11/configurationn#primarycolor-string-).
+
+* **Lock Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-).
+
+* **Lock Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-).
+
 * **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
-* **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', etc...) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
+
+* **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', and so on) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 
 ### Advanced
 
+* **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). 
+
+    ::: note
+    If registrations are allowed in WordPress, new users will be created regardless of this setting.
+    ::: 
+
 * **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
-* **Widget URL:** The URL of to the latest available widget in the CDN.
+
+* **Force HTTPS callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS. 
+
+* **Widget URL:** The URL of to the latest available Lock widget in the CDN.
+
 * **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
-  ::: note
+
+    ::: note
     If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
-  :::
+    :::
+
 * **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
+
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
+
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
+
 * **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
+
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
+
 * **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
+
 * **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
-* **Login redirection URL:** If set, redirects users to the specified URL after login.
-* **Requires verified email:** If set, requires the user to have a verified email to login.
+
+* **Login redirection URL:** If set, redirects users to the specified URL after login. This does not affect logging in via the `[auth0]` shortcode. To change the redirect for the shortcode, add a `redirect_to` attribute, like so:
+    
+    `[auth0 redirect_to="http://yourdomain.com/redirect-here"]`
+
+* **Requires verified email:** If set, requires the user to have a verified email to log in.
+
 * **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
+
 * **Enable on IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the **IP Ranges** textbox.
-* **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`
+
+* **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`.
+
 * **Valid Proxy IP:** List the IP address of your proxy or load balancer to enable IP checks for logins and migration web services.
+
+* **Custom signup fields:** This field is the Json that describes the custom signup fields for lock. It should be a valid json and allows the use of functions (for validation). [More info here](/libraries/lock/v10/new-features#custom-sign-up-fields).
+
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
+
+* **Auth0 server domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information.
+
+* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
+
 * **Anonymous data:** The plugin tracks anonymous usage data by default. Click to disable.
-* **Enable JWT Auth integration:** This enables JWT Auth integration.
 
 ### Dashboard
 
@@ -117,35 +254,48 @@ The plugin includes an `auth0_user_login` action to provide notification for eac
 This action accepts five parameters:
 
 1. `$user_id` (int): The id of the user logged in.
-2. `$user_profile` (stdClass): The Auth0 profile of the user.
-3. `$is_new` (boolean): If the user has created a new WordPress login, this is set to `true`, otherwise `false`. Not to be confused with Auth0 registration, this flag is `true` only if a new user is created in the WordPress database.
-4. `$id_token` (string): The user's JWT.
-5. `$access_token` (string): The user's access token.
+
+1. `$user_profile` (stdClass): The Auth0 profile of the user.
+
+1. `$is_new` (boolean): If the user has created a new WordPress login, this is set to `true`, otherwise `false`. Not to be confused with Auth0 registration, this flag is `true` only if a new user is created in the WordPress database.
+
+1. `$id_token` (string): The user's JWT.
+
+1. `$access_token` (string): The user's Access Token.
 
   ::: note
-  An access token is not provided when using __Implicit Flow__.
+  An Access Token is not provided when using __Implicit Flow__.
   :::
 
 To hook to this action, include the following code:
 
-```js
-// php
-add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
-
+```php
+/**
+ * Runs directly after successful login using Auth0
+ * 
+ * @param integer $user_id
+ * @param stdClass $user_profile
+ * @param bool $is_new
+ * @param string $id_token
+ * @param string $access_token
+ */
 function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
-    ...
+  // Code to run after a user has been logged in
 }
+
+add_action( 'auth0_user_login', 'auth0UserLoginAction', 0, 5 );
 ```
 
-[Click here to learn more about the `add_action` function.](https://developer.wordpress.org/reference/functions/add_action/)
+Click [here](https://developer.wordpress.org/reference/functions/add_action/) to learn more about the `add_action` function.
 
-## Keep reading 
+## Keep Reading
 
-For more information on the Login by Auth0 WordPress Plugin, follow these links.
+More information on the Login by Auth0 WordPress plugin:
 
 ::: next-steps
 * [How does it work?](/cms/wordpress/how-does-it-work)
-* [Installation](/cms/wordpress/installation)
-* [JWT Authentication](/cms/wordpress/jwt-authentication)
-* [Troubleshoot](/cms/wordpress/troubleshoot)
+* [Install the plugin](/cms/wordpress/installation)
+* [JWT API authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
 :::

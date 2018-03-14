@@ -9,7 +9,7 @@ description: SAML Identity Provider Configuration
 
 These are the parameters used to configure a SAML Identity Provider:
 
-* The __post-back URL__ (also called __Assertion Consumer Service URL__) is: `https://${account.namespace}/login/callback`
+* The __post-back URL__ (also called __Assertion Consumer Service URL__) is: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 * The __Entity ID__ of the Service Provider is: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` (default value). Use `connection.options.entityId` if available. You can obtain this value using the [Get a connection by its id APIv2 endpoint](/api/management/v2#!/Connections/get_connections_by_id):
 
 ```har

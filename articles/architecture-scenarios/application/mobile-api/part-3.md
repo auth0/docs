@@ -105,7 +105,7 @@ You will need to store the above credentials in local storage for use in calling
 
 ### Get the User Profile
 
-To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/id-token#verify-the-signature) and [validating the claims](/tokens/id-token#validate-the-claims) of the token. After validating the ID token, you can access its payload containing the user information:
+To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/id-token#verify-the-signature) and [validating the claims](/tokens/id-token#validate-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
 
 ```json
 {
@@ -145,7 +145,7 @@ To access secured resources from your API, the authenticated user's `access_toke
 ### Renew the Token
 
 ::: warning
-Refresh tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever. If refresh tokens are compromised or you no longer need them, you can revoke the refresh tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
+Refresh Tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever. If Refresh Tokens are compromised or you no longer need them, you can revoke the Refresh Tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
 :::
 
 To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result.

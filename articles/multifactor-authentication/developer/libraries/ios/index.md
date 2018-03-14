@@ -64,7 +64,7 @@ An enrollment is a link between the second factor and an Auth0 account. When an 
 
 For an enrollment you need the following things, besides your Guardian Domain:
 
-- Enrollment Uri: The value encoded in the QR Code scanned from Guardian Web Widget or in your enrollment ticket sent to you, e.g. by email.
+- Enrollment Uri: The value encoded in the QR Code scanned from Guardian Web Widget or in your enrollment ticket sent to you, for example, by email.
 - APNS Token: Apple APNS token for the device and **MUST** be a `String`containing the 64 bytes (expressed in hexadecimal format)
 - Key Pair: A RSA (Private/Public) key pair used to assert your identity with Auth0 Guardian
 

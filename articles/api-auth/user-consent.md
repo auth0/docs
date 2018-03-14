@@ -6,7 +6,7 @@ title: User consent and third-party clients
 
 <%= include('../_includes/_pipeline2') %>
 
-The [OIDC-conformant authentication pipeline](/api-auth/tutorials/adoption) supports defining [resource servers (i.e. APIs) as entities separate from clients](/api-auth/tutorials/adoption/api-tokens).
+The [OIDC-conformant authentication pipeline](/api-auth/tutorials/adoption) supports defining [resource servers (such as APIs) as entities separate from clients](/api-auth/tutorials/adoption/api-tokens).
 This lets you decouple APIs from the applications that consume them, and also lets you define third-party clients that you might not control or even fully trust.
 
 ## Types of clients
@@ -36,6 +36,7 @@ If a user is authenticating through a third-party client and is requesting autho
 For example:
 
 <table>
+  <tbody>
     <tr>
         <td>
 <pre><code>GET /authorize?
@@ -52,6 +53,7 @@ client_id=some_third_party_client
         <img alt="Auth0 consent dialog - Fabrikam Client for Contoso is requesting access to your account" src="/media/articles/hosted-pages/consent-dialog.png">
         </td>
     </tr>
+  </tbody>
 </table>
 
 If the user chooses to allow the application, this will create a user grant which represents this user's consent to this combination of client, resource server and scopes.
@@ -79,7 +81,7 @@ Note that this option only allows __verifiable__ first-party clients to skip con
 127.0.0.1       myapp.dev
 ```
 
-Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`) to match the updated domain-mapping!
+Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`), and the callback URL you configured in your application, to match the updated domain-mapping!
 
 :::
 

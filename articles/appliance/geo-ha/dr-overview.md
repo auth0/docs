@@ -23,11 +23,14 @@ The standard configuration of a GEO HA PSaaS Appliance is a stretched cluster th
 The following table summarizes what might happen and its possible performance impact in the event that any portion of the standard configuration encounters an error.
 
 <table class="table">
+  <thead>
     <tr>
         <th>Event</th>
         <th>Outcome</th>
         <th>Performance Impact</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
         <td>Data unavailable for one or more (but not all) of the primary data center's node(s)</td>
         <td>Data for one of the remaining nodes becomes the primary</td>
@@ -63,4 +66,5 @@ The following table summarizes what might happen and its possible performance im
         <td>No impact to the end user if both the primary and secondary data centers are still available</td>
         <td>None</td>
     </tr>
-<table>
+  </tbody>
+</table>

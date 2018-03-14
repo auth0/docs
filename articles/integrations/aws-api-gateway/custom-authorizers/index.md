@@ -1,5 +1,5 @@
 ---
-description: How to use secure AWS API Gateway using custom authorizers that accept Auth0-issued access tokens
+description: How to use secure AWS API Gateway using custom authorizers that accept Auth0-issued Access Tokens
 ---
 
 # Secure AWS API Gateway Endpoints Using Custom Authorizers
@@ -10,13 +10,13 @@ A serverless application runs custom code as a compute service without the need 
 
 The API Gateway extends the capabilities of Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. A serverless approach simplifies your operational demands since concerns like scaling out and fault tolerance are now the responsibility of the compute service that is executing your code.
 
-This tutorial will show you how to set up your API with API Gateway, create and configure your Lambda functions (including the custom authorizers) to secure your API endpoints, and implement the authorization flow so that your users can retrieve the access tokens needed to gain access to your API from Auth0.
+This tutorial will show you how to set up your API with API Gateway, create and configure your Lambda functions (including the custom authorizers) to secure your API endpoints, and implement the authorization flow so that your users can retrieve the Access Tokens needed to gain access to your API from Auth0.
 
 More specifically, the custom authorizers will:
 
-1. Confirm that the access token has been passed via the `authorization` header of the request to access the API
-2. Verify the [RS256 signature](/apis#signing-algorithms) of the access token using a public key obtained via a [JWKS endpoint](/jwks)
-3. Ensure the access token has the required Issuer `iss` and Audience `aud` claims
+1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API
+2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/jwks)
+3. Ensure the Access Token has the required Issuer `iss` and Audience `aud` claims
 
 ::: note
 New to OAuth 2.0? Check out our [introduction to OAuth 2.0](/protocols/oauth2).

@@ -5,9 +5,7 @@ description: Passwordless with Magic Link with Lock Android
 ---
 # Lock Android: Passwordless with Magic Link
 
-::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
-:::
+<%= include('../../../_includes/_native_passwordless_warning') %>
 
 In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any manual input involved.
 
@@ -175,7 +173,7 @@ With App Links, in Android 6.0 (API level 23) and higher, Android allows an app 
 Automatic handling of links requires the cooperation of our app and website (our Auth0 Authentication Server). The app must declare the association with the website and request that the system verify it. The website must, in turn, provide that verification by publishing a [Digital Asset Links](https://developers.google.com/digital-asset-links/) file.
 This feature works as long as the user has not already chosen a default app to handle that URI pattern in the Android settings.
 
-Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically for you after you've configured the **App Package Name** and **Key Hash** as shown before. If you've followed all the steps on this article, the only change you need to do is add an attribute to the **Intent-Filter** declaration in order to ask the OS to verify the link at install time. Go to the `AndroidManifest.xml` file where you have declared the Intent-Filter and add the `android:autoVerify="true"` attribute. i.e. using SMS connection:
+Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically for you after you've configured the **App Package Name** and **Key Hash** as shown before. If you've followed all the steps on this article, the only change you need to do is add an attribute to the **Intent-Filter** declaration in order to ask the OS to verify the link at install time. Go to the `AndroidManifest.xml` file where you have declared the Intent-Filter and add the `android:autoVerify="true"` attribute indicating use of an SMS connection:
 
 ```xml
 <!-- THE LINE BELOW CHANGES -->

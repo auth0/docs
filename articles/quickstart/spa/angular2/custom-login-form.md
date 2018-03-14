@@ -93,7 +93,7 @@ The auth0.js methods for making authentication requests come from the `WebAuth` 
 
 The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the `setSession` method is called to set the user's `access_token`, `id_token`, and `access_token` expiry time in local storage if the transaction is successful.
 
-The `signup` method is a redirect-based flow and the authentication result is handled by the `handleAuthentication` method. This method looks for an `access_token` and `id_token` in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
+The `signup` method is a redirect-based flow and the authentication result is handled by the `handleAuthentication` method. This method looks for an `access_token` and `id_token` in the URL hash when the user is redirected back to the application. If the tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```js
 // src/app/auth/auth.service.ts
@@ -167,7 +167,7 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify(
       (authResult.expiresIn * 1000) + new Date().getTime()
     );
@@ -187,7 +187,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the 
-    // access token's expiry time
+    // Access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }

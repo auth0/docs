@@ -6,7 +6,7 @@
 
 - id: "articles"
   title: "Articles"
-  url: "/overview"
+  url: "/getting-started"
 
 # - id: "sdks"
 #   title: "SDKs"

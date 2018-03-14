@@ -9,7 +9,7 @@ toc: true
 ---
 # Connect your app to Facebook
 
-This article describes how to add login with Facebook to your app. It also discusses how you can get an access token in order to access the Facebook API.
+This article describes how to add login with Facebook to your app. It also discusses how you can get an Access Token in order to access the Facebook API.
 
 First you need to connect your Auth0 client to Facebook. This is summarized in the following steps:
 

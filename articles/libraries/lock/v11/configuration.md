@@ -355,7 +355,7 @@ If the label is set to true, which is the default, the label's text can be custo
 
 #### logo {String}
 
-The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
+The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {
@@ -825,7 +825,7 @@ var options = {
 
 ### defaultEnterpriseConnection {String}
 
-Specifies the enterprise connection which allows to login using an username and a password that will be used when there is more than one available or there is a database connection. If a `defaultDatabaseConnection` is provided the database connection will be used and this option will be ignored.
+Specifies the enterprise connection which allows to login using a username and a password that will be used when there is more than one available or there is a database connection. If a `defaultDatabaseConnection` is provided the database connection will be used and this option will be ignored.
 
 ```js
 var options = {

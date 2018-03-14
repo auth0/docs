@@ -6,7 +6,7 @@ crews: crew-2
 ---
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns to Auth0. 
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0. 
 
 You can retrieve and use this token to call the IdP's API.
 
@@ -18,23 +18,23 @@ The process you will follow differs, depending on whether your code runs in the 
 
 - If your code runs in the backend then we can assume that your server is trusted to safely store secrets (as you will see, we use a secret in the backend scenario). If that's the case proceed to the [backend section](#from-the-backend) of this article.
 
-- If your code runs in the frontend (i.e. it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate approach. To see your options proceed to the [frontend section](#from-the-frontend) of this article.
+- If your code runs in the frontend (for example, it's a SPA, native desktop, or mobile app) then your app cannot hold credentials securely and has to follow an alternate approach. To see your options proceed to the [frontend section](#from-the-frontend) of this article.
 
 ## From the backend
 
-Once you authenticate a user, the IdP often includes an access token in the user profile it returns to Auth0. 
+Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0. 
 
 Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
 
 The steps to follow are:
 
-1. Get an access token that allows you to call the [Auth0 Management API](/api/management/v2).
-2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the access token obtained in step one. This endpoint returns the full user's profile, which contains the IdP access token.
-3. Extract the IdP access token from the response and use it to call the IdP's API.
+1. Get an Access Token that allows you to call the [Auth0 Management API](/api/management/v2).
+2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint, using the Access Token obtained in step one. This endpoint returns the full user's profile, which contains the IdP Access Token.
+3. Extract the IdP Access Token from the response and use it to call the IdP's API.
 
 ### Step 1: Get a Token
 
-You will need an access token to call the [Management API](/api/management/v2).
+You will need an Access Token to call the [Management API](/api/management/v2).
 
 If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure a client that can be used to call the API.
 
@@ -79,7 +79,7 @@ These tokens **cannot be revoked**. To minimize the risk, we recommend issuing s
 
 ### Step 2: Get the full User Profile
 
-Using the access token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
+Using the Access Token you got in the previous section, call the [Get a User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id), in order to get a user's profile:
 
 ```har
 {
@@ -162,9 +162,9 @@ If you are working with a public client (SPA, native desktop, or mobile app) the
 
 As you might have read earlier in this article, the process for calling IdP APIs from a **backend process** includes the following steps:
 
-1. Get an access token in order to access the Auth0 Management API
+1. Get an Access Token in order to access the Auth0 Management API
 2. Use said token to retrieve the user's full profile from the Auth0 Management API
-3. Extract the IdP's access token from the user's full profile, and use it to call the IdP's API
+3. Extract the IdP's Access Token from the user's full profile, and use it to call the IdP's API
 
 You cannot follow the same process from a frontend app because it's a public client that **cannot hold credentials securely**. The credential we are referring to, is the non interactive client's secret which you use to make the call to `/oauth/token`, at the first step of the process.
 
@@ -176,7 +176,7 @@ There are some alternatives you can use.
 
 You can build a process in your backend and expose it to your client as an API.
 
-The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the access token is never exposed to your public client.
+The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public client.
 
 Then, you will call your proxy API from your public client using the respective flow for your case:
 - [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
@@ -196,7 +196,7 @@ Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them
 This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
 :::
 
-In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the access token is never exposed to your public client.
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public client.
 
 Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
 

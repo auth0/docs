@@ -7,7 +7,7 @@ toc: true
 
 We do our best to support many scenarios and different configurations.
 
-Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (e.g. network, proxies, OS versions, etc).
+Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (such as network, proxies, OS versions, and so on).
 
 If you are experiencing problems with the connector, please [open a support ticket](${env.DOMAIN_URL_SUPPORT}) with the following information:
 
@@ -126,7 +126,7 @@ The Connector uses two levels of configurable caching:
 The server caches the _"last successfully authenticated user profile"_, including the username and password (hash). It is enabled by default, and can be disabled.
 
 ::: note
-The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (e.g. a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
+The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (such as a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
 :::
 
 The Connector caches only *groups* a user might be a member of. Its lifetime is controlled with the `GROUPS_CACHE_SECONDS` configuration variable. If not present, the value is 600 seconds.

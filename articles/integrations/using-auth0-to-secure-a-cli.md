@@ -15,7 +15,7 @@ Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https
 
 ## How PKCE works
 
-Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
+Traditionally, public clients (such as mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
 
 The [PKCE flow](/api-auth/grant/authorization-code-pkce) (`pixy` for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from Auth0, and get hold of the token.
 

@@ -4,7 +4,7 @@ description: How to implement Touch ID authentication with Auth0.swift.
 ---
 # Auth0.swift Touch ID Authentication
 
-Here's the scenario: After user authentication, you want to store the user's credentials and use them as long as they are valid. Once they expire, you would want to renew them using the `refreshToken` in order to avoid presenting the Hosted Login Page (HLP) again. Rather than doing this automatically you require the user to validate with their fingerprint.
+Here's the scenario: After user authentication, you want to store the user's credentials and use them as long as they are valid. Once they expire, you would want to renew them using the `refreshToken` in order to avoid presenting the login page again. Rather than doing this automatically you require the user to validate with their fingerprint.
 
 You will be using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and perform the Touch ID authentication.
 
@@ -27,7 +27,7 @@ credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
 
 ### Login
 
-Present the HLP and pass the credentials upon successful authentication to the Credentials Manager.
+Present the login page and pass the credentials upon successful authentication to the Credentials Manager.
 
 ```swift
 Auth0

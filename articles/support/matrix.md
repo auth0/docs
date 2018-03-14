@@ -34,7 +34,7 @@ Throughout this article, we will use the following terms to indicate the varying
       <th width="30%">Label</th>
       <th width="70%">Description</th>
     </tr>
-  <thead>
+  </thead>
   <tbody>
     <tr>
       <td><div class="label label-primary">Supported</div></td>
@@ -152,60 +152,6 @@ At this time, Auth0 only supports use of the Dashboard with desktop browsers.
   </tbody>
 </table>
 
-#### Desktop Browsers
-
-<table class="table">
-  <thead>
-    <tr>
-      <th width="80%">Browser</th>
-      <th width="20%">Level of Support</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Google Chrome (Latest version)</td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td>Apple Safari (Latest version)</td>
-      <td><div class="label label-warning">Supported</div></td>
-    </tr>
-    <tr>
-      <td>Microsoft Internet Explorer 10/11</td>
-      <td><div class="label label-warning">Supported</div></td>
-    </tr>
-    <tr>
-      <td>Microsoft Edge (Latest version)</td>
-      <td><div class="label label-warning">Supported</div></td>
-    </tr>
-    <tr>
-      <td>Mozilla Firefox (Latest version)</td>
-      <td><div class="label label-warning">Supported</div></td>
-    </tr>
-  </tbody>
-</table>
-
-#### Mobile Browsers
-
-<table class="table">
-  <thead>
-    <tr>
-      <th width="80%">Mobile browser</th>
-      <th width="20%">Level of Support</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Apple Safari for iOS 9 (or later)</td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td>Google Chrome for Android KitKat (4.4) or later</td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-  </tbody>
-</table>
-
 ## Operating Systems
 
 This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
@@ -266,9 +212,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 
 ## SDKs and Libraries
 
-::: note
-See the [Libraries](/libraries) page for more information about supported versions of Auth0's SDKs and the Lock widget.
-:::
+<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
 
 ### Auth0 Lock Widgets
 
@@ -341,82 +285,82 @@ See the [Libraries](/libraries) page for more information about supported versio
   <tbody>
     <tr>
       <td><a href="/quickstart/native/android">Android</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-android-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-android-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/electron">Electron</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-electron-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-electron-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/ionic">Ionic</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-ionic-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ionic-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/ionic2">Ionic 2</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-ionic2-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ionic2-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/ios-objc">iOS - Objective-C</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-ios-objc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ios-objc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/ios-swift">iOS - Swift</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-ios-swift-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ios-swift-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/react-native-android">React Native - Android</a></td>
-      <td align="center"><a href="https://github.com/auth0/Mobile-Samples.React"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0/Mobile-Samples.React"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/react-native-ios">React Native - iOS</a></td>
-      <td align="center"><a href="https://github.com/auth0/Mobile-Samples.React"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0/Mobile-Samples.React"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/chrome">Chrome Extension</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-chrome-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-chrome-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/cordova">Cordova</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-cordova-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-cordova-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/phonegap">Phonegap</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-cordova-samples/tree/master/00-Starter-Seed/phonegap-basic-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-cordova-samples/tree/master/00-Starter-Seed/phonegap-basic-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/windows-uwp-csharp">Windows Universal App C#</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-uwp-oidc-samples/tree/master/Quickstart/00-Starter-Seed"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-uwp-oidc-samples/tree/master/Quickstart/00-Starter-Seed"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/windows-uwp-javascript">Windows Universal App JavaScript</a></td>
-      <td align="center"><a href="https://github.com/auth0/Auth0.Windows.UWP/tree/master/samples/LoginClientSample.Js"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0/Auth0.Windows.UWP/tree/master/samples/LoginClientSample.Js"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/windowsphone">Windows Phone</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-WindowsPhone-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-WindowsPhone-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/wpf-winforms">WPF/Winforms</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/native/xamarin">Xamarin</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>
@@ -435,52 +379,52 @@ See the [Libraries](/libraries) page for more information about supported versio
   <tbody>
     <tr>
       <td><a href="/quickstart/spa/angularjs">AngularJS</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-angularjs-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-angularjs-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/angular2">Angular (2+)</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-angular-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-angular-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/vanillajs">JavaScript</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-javascript-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-javascript-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/jquery">jQuery</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-jquery-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-jquery-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/react">React</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-react-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-react-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/socket-io">Socket.io</a></td>
-      <td align="center"></td>
+      <td class="text-center"></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/vuejs">Vue.js</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-vue-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-vue-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/aurelia">Aurelia</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-aurelia-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-aurelia-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/cyclejs">Cycle.js</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-cycle-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-cycle-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/spa/ember">Ember</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-ember-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-ember-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>
@@ -499,87 +443,87 @@ See the [Libraries](/libraries) page for more information about supported versio
   <tbody>
     <tr>
       <td><a href="/quickstart/webapp/aspnet-owin">ASP.NET (OWIN)</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/aspnet">ASP.NET (System.Web)</a></td>
-      <td align="center"><a href="https://github.com/auth0/auth0-aspnet/tree/master/examples/auth0-aspnet-mvc4-sample/"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0/auth0-aspnet/tree/master/examples/auth0-aspnet-mvc4-sample/"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/aspnet-core">ASP.NET Core</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/golang">Go</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-golang-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-golang-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/java">Java</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-servlet-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-servlet-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/java-spring-mvc">Java Spring MVC</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-spring-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/java-spring-security-mvc">Java Spring Security</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-spring-security-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-security-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/nodejs">Node.js</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-nodejs-webapp-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-nodejs-webapp-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/php">PHP</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/laravel">PHP (Laravel)</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-laravel-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-laravel-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/symfony">PHP (Symfony)</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-symfony-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-symfony-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/scala">Play 2 Scala</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-scala-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-scala-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/python">Python</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-python-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-python-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/apache">Apache</a></td>
-      <td align="center"></td>
+      <td class="text-center"></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-nancyfx-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-nancyfx-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/servicestack">ServiceStack</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-servicestack-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-servicestack-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>
@@ -598,72 +542,72 @@ See the [Libraries](/libraries) page for more information about supported versio
   <tbody>
     <tr>
       <td><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/webapi-owin">ASP.NET Web API (OWIN)</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/golang">Go</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-golang-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-golang-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-hapi-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-hapi-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-spring-security-api-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-security-api-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/nodejs">Node.js (Express)</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-express-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-express-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/php">PHP</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-php-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-php-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/php-laravel">Laravel</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-laravel-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-laravel-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/php-symfony">Symfony</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-symfony-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-symfony-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/python">Python</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-python-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-python-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/ruby">Ruby</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-ruby-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-ruby-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>
-      <td align="center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/falcor">Falcor</a></td>
-      <td align="center"><a href="https://github.com/auth0-community/auth0-falcor-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td class="text-center"><a href="https://github.com/auth0-community/auth0-falcor-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/relay">Relay</a></td>
-      <td align="center"></td>
+      <td class="text-center"></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>

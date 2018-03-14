@@ -50,7 +50,7 @@ server.register(jwt, err => {
   if (err) throw err;
   server.auth.strategy('jwt', 'jwt', 'required', {
     complete: true,
-    // verify the access token against the
+    // verify the Access Token against the
     // remote Auth0 JWKS 
     key: jwksRsa.hapiJwt2Key({
       cache: true,
@@ -80,7 +80,7 @@ Add a function called `validateUser` and modify the `req.auth.credentials` objec
 
 const validateUser = (decoded, request, callback) => {
   // This is a simple check that the `sub` claim
-  // exists in the access token. Modify it to suit
+  // exists in the Access Token. Modify it to suit
   // the needs of your application
   if (decoded && decoded.sub) {
     if (decoded.scope)
@@ -95,7 +95,7 @@ const validateUser = (decoded, request, callback) => {
 };
 ```
 
-When a valid JWT access token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
+When a valid JWT Access Token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
 
 ## Protect Individual Endpoints
 

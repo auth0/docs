@@ -1,0 +1,11 @@
+added:
+  -
+    title: "New content on how Auth0 can help with GDPR"
+    tags:
+      - compliance
+      - gdpr
+      - user consent
+      - data portability
+      - data minimization
+    description: |
+      The content of [How Auth0 can help with GDPR Compliance](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance) has been updated. New tutorials were added on how to [track user consent with Lock](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock) or [with a custom UI](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui).

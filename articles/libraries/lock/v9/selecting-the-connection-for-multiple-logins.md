@@ -4,7 +4,7 @@ description: Describes different options for selecting the connection in Auth0 w
 ---
 # Selecting the connection in Auth0 for multiple login options
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.
 
@@ -43,7 +43,7 @@ There are multiple practical ways of getting the `connection` value. Among the m
 These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
 :::
 
-* You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
+* You could use non-human-readable connection names and use some external mechanism to map these to users (for example, through a primary verification, out of band channel for example).
 
 ## Option 2: using email domains with Lock
 

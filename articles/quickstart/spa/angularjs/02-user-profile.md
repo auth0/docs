@@ -42,7 +42,7 @@ var userProfile;
 function getProfile(cb) {
   var accessToken = localStorage.getItem('access_token');
   if (!accessToken) {
-    throw new Error('Access token must exist to fetch profile');
+    throw new Error('Access Token must exist to fetch profile');
   }
   angularAuth0.client.userInfo(accessToken, function(err, profile) {
     if (profile) {

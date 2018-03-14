@@ -18,7 +18,7 @@ Lock
         $0.scope = "openid profile"
     }
     .onAuth { credentials in
-        // Do something with credentials e.g.: save them.
+        // Do something with credentials, such as save them.
         // Lock will not save these objects for you.
         // Lock will dismiss itself automatically by default.
     }

@@ -505,10 +505,6 @@ module.exports = [
     to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
-  },
-  {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
   },
@@ -531,10 +527,6 @@ module.exports = [
   {
     from: ['/scenarios-unbounce', '/scenarios/unbounce'],
     to: '/tutorials/get-user-information-with-unbounce-landing-pages'
-  },
-  {
-    from: '/scenarios/zendesk-sso',
-    to: '/tutorials/single-sign-on-with-zendesk-using-jwt'
   },
   {
     from: '/scenarios',
@@ -1119,22 +1111,6 @@ module.exports = [
     to: '/api-auth/tutorials/implicit-grant'
   },
   {
-    from: '/connections/passwordless/spa-sms',
-    to: '/connections/passwordless/spa-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/spa-email-code',
-    to: '/connections/passwordless/spa-email-code/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-sms',
-    to: '/connections/passwordless/regular-web-app-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-email-code',
-    to: '/connections/passwordless/regular-web-app-email-code/v8'
-  },
-  {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
   },
@@ -1312,11 +1288,11 @@ module.exports = [
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js/v8'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js/v7'
+    to: '/hosted-pages/login/auth0js'
   },
   {
     from: '/connections/database/mysql',
@@ -1447,20 +1423,12 @@ module.exports = [
     to: '/support/how-auth0-versions-software',
   },
   {
-    from: '/tutorials/single-sign-on-with-zendesk-using-jwt',
-    to: '/sso/single-sign-on-with-zendesk-using-jwt',
-  },
-  {
     from: '/tutorials/authenticating-a-tessel-device',
     to: '/integrations/authenticating-a-tessel-device',
   },
   {
     from: '/tutorials/authenticating-devices-using-mqtt',
     to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',
@@ -1649,5 +1617,81 @@ module.exports = [
   {
     from: `/connections/grean/nemid`,
     to: `/connections/criipto/nemid`
+  },
+  {
+    from: '/sso/current/integrations',
+    to: '/integrations/sso'
+  },
+  {
+    from: '/sso/current/integrations/ad-rms',
+    to: '/integrations/sso/ad-rms'
+  },
+  {
+    from: '/sso/current/integrations/box',
+    to: '/integrations/sso/box'
+  },
+  {
+    from: '/sso/current/integrations/cloudbees',
+    to: '/integrations/sso/cloudbees'
+  },
+  {
+    from: '/sso/current/integrations/concur',
+    to: '/integrations/sso/concur'
+  },
+  {
+    from: '/sso/current/integrations/disqus',
+    to: '/integrations/sso/disqus'
+  },
+  {
+    from: '/sso/current/integrations/dropbox',
+    to: '/integrations/sso/dropbox'
+  },
+  {
+    from: '/sso/current/integrations/dynamics-crm',
+    to: '/integrations/sso/dynamics-crm'
+  },
+  {
+    from: '/sso/current/integrations/echosign',
+    to: '/integrations/sso/echosign'
+  },
+  {
+    from: '/sso/current/integrations/egnyte',
+    to: '/integrations/sso/egnyte'
+  },
+  {
+    from: '/sso/current/integrations/new-relic',
+    to: '/integrations/sso/new-relic'
+  },
+  {
+    from: '/sso/current/integrations/office-365',
+    to: '/integrations/sso/office-365'
+  },
+  {
+    from: '/sso/current/integrations/salesforce',
+    to: '/integrations/sso/salesforce'
+  },
+  {
+    from: '/sso/current/integrations/slack',
+    to: '/integrations/sso/slack'
+  },
+  {
+    from: '/sso/current/integrations/springcm',
+    to: '/integrations/sso/springcm'
+  },
+  {
+    from: '/sso/current/integrations/zendesk',
+    to: '/integrations/sso/zendesk'
+  },
+  {
+    from: '/sso/current/integrations/zoom',
+    to: '/integrations/sso/zoom'
+  },
+  {
+    from: `/guides/login/centralized-vs-embedded`,
+    to: `/guides/login/universal-vs-embedded`
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
   }
 ];

@@ -24,7 +24,3 @@ You can create Hooks for the following [extensibility points](/hooks/extensibili
 - credentials-exchange
 - pre-user-registration
 - post-user-registration
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks"]
-}) %>

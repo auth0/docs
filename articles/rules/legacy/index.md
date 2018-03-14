@@ -9,7 +9,7 @@ toc: true
 This document covers an outdated version of the Auth0 authentication pipeline and the way rules can be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
+**Rules** are functions written in JavaScript that are executed when a user authenticates to your application. They run once the authentication process is complete and you can use them to customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
 
 ![Rules Flow](/media/articles/rules/flow.png)
 
@@ -27,7 +27,7 @@ Among many possibilities, Rules can be used to:
 * Keep a __white-list of users__ and deny access based on email.
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
-* Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
+* Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
 
 ## Video: Using Rules
 
@@ -160,7 +160,7 @@ function (user, context, callback) {
 }
 ```
 
-This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
 Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.

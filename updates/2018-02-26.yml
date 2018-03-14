@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Extending the Login by Auth0 WordPress Plugin"
+    tags:
+      - wordpress
+      - CMS
+    description: |
+      A new document, [Extending the plugin](https://auth0.com/docs/cms/wordpress/extending), was added with instructions on extending the Login by Auth0 WordPress plugin.

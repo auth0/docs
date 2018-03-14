@@ -16,6 +16,6 @@ Without passwords, your application will not need to implement a password-reset 
 
 ## OIDC Conformant Passwordless
 
-Auth0 currently supports [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication using centralized login (with the Auth0 [hosted login page](/hosted-pages/login)).
+Auth0 currently supports [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication using [universal login](/hosted-pages/login) as well as in embedded web authentication scenarios using the newest [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) libraries.
 
-Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}) under **Hosted Pages > Default Templates**, or customize it to fit specific requirements.
+Native applications need to use universal login (with Auth0-hosted login page). Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}) under **Hosted Pages > Default Templates**, or customize it to fit specific requirements.

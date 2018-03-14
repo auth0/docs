@@ -31,7 +31,7 @@ The final project after each of the steps is also available in the [Quickstart f
 
 <%= include('../../_includes/_api_create_new_2') %>
 
-Also, update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
+Also, update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, such as
 
 ```json
 {
@@ -110,7 +110,7 @@ The JWT middleware above verifies that the `access_token` included in the reques
 
 <%= include('../../_includes/_api_scopes_access_resources') %>
 
-To make sure that an access token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
+To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
 Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
 

@@ -1,5 +1,3 @@
-# Authenticate users with a one-time code via e-mail
-
 <%= include('./_introduction-email', { isMobile: true }) %>
 
 ## Setup
@@ -45,7 +43,5 @@ After the passwordless login process begins, ask the user for the one-time code.
 ## Authenticate users with a Magic Link via e-mail
 
 <%= include('./_introduction-email-magic-link') %>
-
-The next version of the iOS library will support magic links through iOS 9 Universal Links. When a user clicks a magic link they have received on their device, the link will automatically open your application (instead of opening in the browser) and sign in the user.
 
 Lastly, once the user is authenticated, your app will be able to access the user profile and tokens returned by Auth0.

@@ -12,21 +12,21 @@ According to [OAuth‘s website](http://oauth.net/about/) the protocol is not un
 
 > Many luxury cars today come with a valet key. It is a special key you give the parking attendant and unlike your regular key, will not allow the car to drive more than a mile or two. Some valet keys will not open the trunk, while others will block access to your onboard cell phone address book. Regardless of what restrictions the valet key imposes, the idea is very clever. You give someone limited access to your car with a special key, while using your regular key to unlock everything.
 
-To get access to the protected resources OAuth 2.0 uses **access tokens**. An access token is a string representing the granted permissions.
+To get access to the protected resources OAuth 2.0 uses **Access Tokens**. An Access Token is a string representing the granted permissions.
 
 ::: panel Access Token Format
-By default, Auth0 generates access tokens, for [API Authorization scenarios](/api-auth), in [JSON Web Token (JWT)](/jwt) format. JWTs contain three parts: a header, a payload, and a signature:
+By default, Auth0 generates Access Tokens, for [API Authorization scenarios](/api-auth), in [JSON Web Token (JWT)](/jwt) format. JWTs contain three parts: a header, a payload, and a signature:
  - The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
  - The payload contains a set of claims, which are statements about the permissions that should be allowed, and other information like the intended audience and the expiration time.
  - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
 ::: note
-Auth0 also generates opaque access tokens for the (deprecated) [Management API v1](/api/management/v1).
+Auth0 also generates opaque Access Tokens for the (deprecated) [Management API v1](/api/management/v1).
 :::
 
-The permissions represented by the access token, in OAuth 2.0 terms are known as **scopes**. When a client authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the access token will represent these authorized scopes.
+The permissions represented by the Access Token, in OAuth 2.0 terms are known as **scopes**. When a client authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes.
 
-For example, a Contacts API may accept four different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When a client asks the API to create a new contact, then the access token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the access token should contain the `delete:contacts` scope.
+For example, a Contacts API may accept three different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When a client asks the API to create a new contact, then the Access Token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the Access Token should contain the `delete:contacts` scope.
 
 For more information refer to [Scopes](/scopes).
 
@@ -41,7 +41,7 @@ In any OAuth 2.0 flow we can identify the following roles:
 
 - **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
 
-- **Authorization Server**: the server that authenticates the Resource Owner, and issues access tokens after getting proper authorization. In this case, Auth0.
+- **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
 
 
 ## Protocol Flow
@@ -54,18 +54,18 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 1. Provided that the Resource Owner authorizes this access, the Client receives an **Authorization Grant**. This is a credential representing the Resource Owner's authorization.
 
-1. The Client requests an **access token** by authenticating with the Authorization Server and giving the Authorization Grant.
+1. The Client requests an **Access Token** by authenticating with the Authorization Server and giving the Authorization Grant.
 
-1. Provided that the Client is successfully authenticated and the Authorization Grant is valid, the Authorization Server issues an access token and sends it to the Client.
+1. Provided that the Client is successfully authenticated and the Authorization Grant is valid, the Authorization Server issues an Access Token and sends it to the Client.
 
-1. The Client requests access to the protected resource by the Resource Server, and authenticates by presenting the access token.
+1. The Client requests access to the protected resource by the Resource Server, and authenticates by presenting the Access Token.
 
-1. Provided that the access token is valid, the Resource Server serves the Client's request.
+1. Provided that the Access Token is valid, the Resource Server serves the Client's request.
 
 
 ## Authorization Grant Types
 
-The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an access token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your client.
+The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an Access Token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your client.
 
 - [Authorization Code](/api-auth/grant/authorization-code): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/api-auth/grant/authorization-code-pkce).
 
@@ -97,17 +97,17 @@ The request parameters of the Authorization endpoint are:
 
 #### How Response Type works
 
-This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the client wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an access token), while for **Implicit** grant it will issue an **access token**.
+This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the client wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
 
 ::: panel Authorization Code vs Access Token
-An authorization code is an opaque string, meant to be exchanged with an access token at the [token endpoint](#token-endpoint). An access token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which client application.
+An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which client application.
 :::
 
 In order to inform the authorization server which grant type to use, the `response_type` request parameter is used:
 
 - For **Authorization Code** grant set `response_type=code`. This way the response will include an authorization code.
 
-- For **Implicit** grant set `response_type=token`. This way the response will include an access token. An alternative is to set `response_type=id_token token`. In this case the response will include both an access token and an ID token.
+- For **Implicit** grant set `response_type=token`. This way the response will include an Access Token. An alternative is to set `response_type=id_token token`. In this case the response will include both an Access Token and an ID Token.
 
 ::: panel ID Token
 The ID Token is a JWT that contains information about the logged in user. It was introduced by **OpenID Connect**. For more information refer to [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/id-token).
@@ -137,7 +137,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
   Location: https://my-redirect-uri/callback#access_token=eyB...78f&token_type=Bearer&expires_in=3600
   ```
 
-  Where, the `redirect_uri` is `https://my-redirect-uri/callback`, the access token is `eyB...78f`, it's a Bearer token and it expires in 3600 seconds.
+  Where, the `redirect_uri` is `https://my-redirect-uri/callback`, the Access Token is `eyB...78f`, it's a Bearer token and it expires in 3600 seconds.
 
 - `form_post`: This response mode is defined by the [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) specification. A successful response is `200 OK` and the response parameters are embedded in an HTML form as hidden params. The `action` of the form is the `redirect_uri` and the `onload` attribute is configured to submit the form. Hence, after the HTML is loaded by the browser, a redirection to the `redirect_uri` is done.
 
@@ -160,15 +160,16 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 ### Token Endpoint
 
-The Token endpoint is used by the client in order to get an [access token](/tokens/access-token) or a [refresh token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an access token is issued directly).
+The Token endpoint is used by the client in order to get an [Access Token](/tokens/access-token) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
 
-In the [Authorization Code](/api-auth/grant/authorization-code) grant, the client exchanges the authorization code it got from the Authorization endpoint for an access token.
+In the [Authorization Code](/api-auth/grant/authorization-code) grant, the client exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 
-In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the client authenticates using a set of credentials and then gets an access token.
+In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the client authenticates using a set of credentials and then gets an Access Token.
 
 ## Keep reading
 
 ::: next-steps
- * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
- * [More docs on API Authorization](/api-auth)
- :::
+* [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+* [More docs on API Authorization](/api-auth)
+* [Read about the state parameter and how it can help you mitigate CSRF attacks](/protocols/oauth2/oauth-state)
+:::

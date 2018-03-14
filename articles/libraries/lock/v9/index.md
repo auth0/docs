@@ -6,7 +6,7 @@ toc: true
 ---
 # Lock 9 for Web
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 
@@ -17,7 +17,7 @@ Lock makes it easy to integrate SSO in your app. You won't have to worry about:
 * Having a professional looking login dialog that displays well on any resolution and device.
 * Finding the right icons for popular social providers.
 * Remembering what was the identity provider the user chose the last time.
-* Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
+* Solving the home realm discovery challenge with enterprise users (such as asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
 ![Lock Sign Up](/media/articles/libraries/lock/v9/lock-signup.png)

@@ -76,7 +76,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
 }
 ```
 
-In return, you will receive the Access token:
+In return, you will receive the Access Token:
 
 ```text
 {
@@ -86,7 +86,7 @@ In return, you will receive the Access token:
 
 ### Creating a Tenant
 
-You may use the following call create a tenant. Once the tenant is created, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional access tokens--see the following section for the sample call).
+You may use the following call create a tenant. Once the tenant is created, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional Access Tokens--see the following section for the sample call).
 
 ```har
 {
@@ -112,7 +112,7 @@ You may use the following call create a tenant. Once the tenant is created, the 
 
 #### Getting an Access Token for the Newly-Created Tenant
 
-This snippet shows how you can get an access token for the newly-created tenant, which you can then use to call the Management API.
+This snippet shows how you can get an Access Token for the newly-created tenant, which you can then use to call the Management API.
 
 ```har
 {
