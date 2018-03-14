@@ -45,8 +45,6 @@ For a tutorial on how to implement any of these scenarios, see the [Track Consen
 
 If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
 
----
-
 :::panel What else do I have to do?
 - You must write up the notification users will see around how users' data is being used, how long data will be used, users' rights, etc. as well as customize the UI sign-up box
 - You must determine if re-consent is required for your users, depending on your old terms and conditions and previous privacy certifications
@@ -62,7 +60,7 @@ With Auth0 you can save the user's consent information as part of the `user_meta
 To access the Management API you will need an Access Token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
 :::
 
-The Management API offers several offers several options when it comes to user search (search by email, ID, or other fields) and endpoints to update `user_metadata` or batch export users.
+The Management API offers several offers several options when it comes to user search and endpoints to update `user_metadata` or batch export users.
 
 ### Search for a user using their email address
 
@@ -150,16 +148,6 @@ Sample response:
   }
 }
 ```
-
-### Search for a set of users
-
-To search for a set of users, use [the List or search users endpoint](/users/search#users). 
-
-This endpoint is eventually consistent (that is, the response might not reflect the results of a recently-complete write operation) and [only specific fields are available for search](/api/management/v2/user-search#searchable-fields). 
-
-Information regarding consent that is saved to `user_metadata` are not searchable. 
-
-For a sample request and response see [Search Users](/users/search#users). For more examples, see [Example Queries](/api/management/v2/user-search#example-queries).
 
 ### Update consent information
 
@@ -267,8 +255,6 @@ This endpoint creates a job that exports all users associated with a connection.
 
 Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
 
----
-
 :::panel What else do I have to do?
 - Determine how you want to track consent. We recommend including information on not just the date the user consented, but the version of terms and conditions to which the user agreed. We also recommend including an array to hold information about users that withdraw their permission (remember that the user can consent and withdraw multiple times)
 - Choose where you want to store consent: in Auth0's database or elsewhere
@@ -352,8 +338,6 @@ The script:
 - Returns an `Access denied (deleted user)` error to your app if `user.app_metadata.deleted = true`
 
 Give a name to your rule and save your changes.
-
----
 
 :::panel What else do I have to do?
 - Ensure the consent withdrawal piece is granular enough
