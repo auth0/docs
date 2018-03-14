@@ -229,7 +229,7 @@ Use the following commands to add your desired platform(s) (e.g., `ios` or `andr
 
 ```bash
 # Add platform (e.g., ios or android)
-$ ionic cordova add {platform}
+$ ionic cordova platform add {platform}
 # Run on desired platform (e.g., ios or android)
 $ ionic cordova run {platform} --livereload
 ```
