@@ -18,8 +18,3 @@ Auth0 recommends the following practices to help ensure the security of your end
 ::: note
 Make sure that you monitor any Auth0 [extensions](/extensions#export-auth0-logs-to-an-external-service) you use to send log data to logging tools with reporting capability.
 :::
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr"],
- navHeader: "GDPR Home"
-}) %>
