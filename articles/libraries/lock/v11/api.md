@@ -12,6 +12,7 @@ Lock has many methods, features, and configurable options. This reference is des
 - [show()](#show-) - Showing the Lock widget
 - [on()](#on-) - Listening for events
 - [resumeAuth()](#resumeauth-) - Use to complete authentication flow when `autoParseHash` is false
+- [checkSession()](#checksession-) - Get a new token from Auth0 for an authenticated user
 - [logout()](#logout-) - Log out the user
 
 ## Auth0Lock
@@ -228,6 +229,19 @@ lock.resumeAuth(hash, function(error, authResult) {
     alert("Could not parse hash");
   }
   console.log(authResult.accessToken);
+});
+```
+
+## checkSession()
+
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `/authorize`. If you omit them, it will use the ones provided when initializing Auth0.
+
+- **options** {Object}: This is optional and follows the same rules Read more [here](https://auth0.com/docs/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens).
+- **callback** {Function}: Will be invoked with the token renewal result. Has an error (if any) as the first argument and the authentication result as the second one.
+
+```js
+lock.checkSession({}, function(err, authResult) {
+  // handle error or new tokens
 });
 ```
 
