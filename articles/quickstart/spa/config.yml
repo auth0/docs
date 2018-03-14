@@ -13,7 +13,7 @@ next_steps:
     - text: Learn about options for storing tokens
       icon: 345
       href: "/security/store-tokens"
-  - path: 02-user-profile.md
+  - path: 02-user-profile
     list:
     - text: Learn about the user profile structure
       icon: 350
@@ -24,7 +24,7 @@ next_steps:
     - text: In-depth details about user profile
       icon: 345
       href: "/user-profile/user-profile-details"
-  - path: 03-calling-an-api.md
+  - path: 03-calling-an-api
     list:
     - text: Learn about custom APIs
       icon: 350
@@ -32,12 +32,12 @@ next_steps:
     - text: Introduction to API authorization
       icon: 345
       href: "/api-auth"
-  - path: 04-authorization.md
+  - path: 04-authorization
     list:
     - text: Learn about scopes
       icon: 345
       href: "/scopes"
-  - path: 05-token-renewal.md
+  - path: 05-token-renewal
     list:
     - text: Learn about token renewal
       icon: 345
