@@ -256,3 +256,7 @@ This means that you're attempting to test this in a browser. At this time, you'l
 ### Completely blank page when launching the app
 
 This could either mean that you've built the seed project using a different version of Ionic, or that the device where you are testing it isn't entirely supported by Ionic 3 yet. Be sure to check the console for errors.
+
+### Profile doesn't show after successful login
+
+This is not actually an issue with your code, but is an Ionic quirk. You can generally fix this by turning on live reload when you run your app in the emulator, and adding an alert in your `auth.service.ts` that simply creates a notification with the JSON stringified contents of the `authResult` in the `Client.authorize()` callback. This will generally fix the issue, and then you can remove the alert and everything should work normally.
