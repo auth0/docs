@@ -51,15 +51,18 @@ var data = webAuth.parseHash(
   }
 ```
 
-If you're using lock, your update will be as follows:
+If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
+
+```
+const lock = new Auth0Lock(clientID, domain, options)
+```
+
+Here's the flag itself:
 
 ```javascript
 var options = {
     _enableImpersonation: true
 };
-
-// initialize Lock
-const lock = new Auth0Lock(clientid, domain, options)
 ```
 
 Note that the **enableImpersonation** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
