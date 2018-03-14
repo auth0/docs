@@ -12,11 +12,13 @@ This article will help you migrate your solution from the old implementation to 
 
 ## Overview
 
-Some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints, could be called using ID Tokens. You can now use Access Tokens to access them. The grace period for this migration has already started and will end on the `1st of June, 2018`, when you will no longer be able to use ID Tokens as credentials for the Management API.
+Some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints, could be called using ID Tokens. You can now use Access Tokens to access them. The grace period for this migration has already started and will end on the **1st of June, 2018**, when you will no longer be able to use ID Tokens as credentials for the Management API.
 
 ## Does this affect me?
 
-You are affected by this migration if you use ID Tokens to call any of the following endpoints:
+Some Auth0 customers use ID Tokens as credentials in order to modify the details of a particular user. The intend of this migration is to move to Access Tokens with scopes that allow you to modify the details of only the currently logged in user.
+
+If you use ID Tokens to call any of the following endpoint, then you are affected by this migration:
 
 | **Endpoint** | **Use Case** |
 |-|-|
@@ -29,9 +31,7 @@ You are affected by this migration if you use ID Tokens to call any of the follo
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-Note that the last two endpoints are used for [Account Linking](/link-accounts#the-management-api). The changes in this functionality are the following:
-- You can no longer use an ID Token at the `Authorization` header
-- If you already use Access Tokens at the `Authorization` header you don't need to change something in your implementation, but do note that now you can send at the request's body the secondary account's ID Token, instead of the `user_id` (or you can keep using the `user_id`)
+Note that the last two endpoints are used for Account Linking. To review these changes, see [Changes in Account Linking](#changes-in-account-linking).
 
 **Nothing else changes in how these endpoints work**. You should expect the same request and response schemas and only need update the token that you use for authorization.
 
@@ -96,8 +96,8 @@ https://${account.namespace}/authorize?
         <code>
 https://${account.namespace}/authorize?
   audience=https://${account.namespace}/api/v2/
-  &scope=openid%20read:current_user
-  &response_type=id_token%20token
+  &scope=read:current_user
+  &response_type=token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
   &nonce=CRYPTOGRAPHIC_NONCE
@@ -112,6 +112,22 @@ The differences that we introduced in order to get an Access Token that can acce
 - We set the `audience` to `https://${account.namespace}/api/v2/`
 - We asked for the additional scope `read:current_user`
 - We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
+
+If we decode the Access Token and review its contents we can see the following:
+
+```text
+{
+  "iss": "https://${account.namespace}/",
+  "sub": "auth0|5a620d29a840170a9ef43672",
+  "aud": "https://${account.namespace}/api/v2/",
+  "iat": 1521031317,
+  "exp": 1521038517,
+  "azp": "${account.clientId}",
+  "scope": "read:current_user"
+}
+```
+
+Notice that the `aud` is set to your tenant's API URI, the `scope` to `read:current_user`, and the `sub` to the user ID of the logged in user.
 
 Once you have the Access Token you can use it to call the endpoint. This part remains the same, nothing else changes in the request except for the value you use as `Bearer` token. The response remains also the same.
 
@@ -201,51 +217,13 @@ Once you have the Access Token you can use it to call the endpoint. This part re
 
 ## Changes in Account Linking
 
-We are introducing some changes in the Account Linking process, one of which is breaking.
+The changes in this functionality are the following:
 
-
-You can no longer invoke the endpoint with the authenticated primary account's ID Token in the `Authorization` header. You have to use an Access Token which must include the `update:current_user_identities` scope. We have already seen how you can get an Access Token. In the following snippets you can see what changes in the invocation of the endpoint (that is, only the value you use in the `Authorization` header).
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#with-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#with-access-token" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="with-id-token" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
-Authorization: "Bearer PRIMARY_ACCOUNT_ID_TOKEN"
-Content-Type: application/json
-{
-  "link_with": "SECONDARY_ACCOUNT_ID_TOKEN"
-}
-        </code>
-      </pre>
-    </div>
-    <div id="with-access-token" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
-Authorization: "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-Content-Type: application/json
-{
-  "link_with": "SECONDARY_ACCOUNT_ID_TOKEN"
-}
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
-
-In order to use this new implementation, and send the `SECONDARY_ACCOUNT_ID_TOKEN` as part of the payload, the following must apply:
-- The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
-- The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
-
-If you already use Access Tokens at the `Authorization` header (use case described at the second bullet of [Linking User Accounts](/link-accounts#the-management-api)) you don't need to change something in your implementation, but do note that now you can send at the request's body the secondary account's ID Token, instead of the `user_id` (or you can keep using the `user_id`).
+- You can no longer use an ID Token at the `Authorization` header
+- If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you must send the ID Token of the secondary account in the request's body
+- If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you must send the `user_id` of the secondary account in the request's body. The following must apply:
+  - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
+  - The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
 
 ## Keep reading
 
