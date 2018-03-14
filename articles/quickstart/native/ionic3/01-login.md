@@ -78,7 +78,7 @@ export const AUTH_CONFIG = {
 };
 ```
 
-Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
+Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app. This should be the same as the URI you specified in the callback URL.
 
 ## Create an Authentication Service
 
@@ -251,11 +251,13 @@ You should now be able to log into your app!
 
 ### Cannot read property 'isAvailable' of undefined
 
-This means that you're attempting to test this in a browser. At this time, you'll need to run this either in an emulator or on a device.
+This means that you're attempting to test this in a browser. This library was designed to be run on a device and expects a Cordova environment with the `SafariViewController` plugin available.
 
 ### Completely blank page when launching the app
 
-This could either mean that you've built the seed project using a different version of Ionic, or that the device where you are testing it isn't entirely supported by Ionic 3 yet. Be sure to check the console for errors.
+This could either mean that you've built the seed project using a different version of Ionic, or that the device where you are testing it isn't entirely supported by Ionic 3 yet.
+
+This could also occur on iOS if you are running the app in a simulator and something else is listening on port `8080` on the same machine. A good way to check for this is to run the application from XCode instead and check the logs.
 
 ### Profile doesn't show after successful login
 
