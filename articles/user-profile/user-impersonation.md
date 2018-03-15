@@ -40,13 +40,13 @@ To check the status of your tenant:
 
 If you can't see this button, [contact Support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
 
-Once you've enabled impersonation for your account, you'll need to update **webAuth.parseHash** of the [auth0.js library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableImpersonation** to true.
+Once you've enabled impersonation for your account, you'll need to update **webAuth.parseHash** of the [auth0.js library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to true.
 
 ```javascript
 var data = webAuth.parseHash(
   {
     ...
-    __enableImpersonation: true
+    __enableIdPInitiatedLogin: true
     ...
   }
 ```
@@ -61,11 +61,11 @@ Here's the flag itself:
 
 ```javascript
 var options = {
-    _enableImpersonation: true
+    _enableIdPInitiatedLogin: true
 };
 ```
 
-Note that the **enableImpersonation** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
 
 ::: warning
 Enabling impersonation leaves your client vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response.
