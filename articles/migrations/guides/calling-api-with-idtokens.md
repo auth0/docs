@@ -6,19 +6,15 @@ toc: true
 
 # Migration Guide: Management API and ID Tokens
 
-For some use cases you could use [ID Tokens](/tokens/id-token) as credentials in order to call some of the endpoints of the [Management API](/api/management/v2). This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2).
+For some use cases you could use [ID Tokens](/tokens/id-token) in order to call some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2).
 
-This article will help you migrate your solution from the old implementation to the new one. First, we will see what this migration is about and which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the [Account Linking](/link-accounts) process and the changes introduced to it.
+The grace period for this migration has already started and will end on the **1st of June, 2018**, when you will no longer be able to use ID Tokens as credentials for the Management API.
 
-## Overview
-
-Some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints, could be called using ID Tokens. You can now use Access Tokens to access them. The grace period for this migration has already started and will end on the **1st of June, 2018**, when you will no longer be able to use ID Tokens as credentials for the Management API.
+This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
 
 ## Does this affect me?
 
-Some Auth0 customers use ID Tokens as credentials in order to modify the details of a particular user. The intend of this migration is to move to Access Tokens with scopes that allow you to modify the details of only the currently logged in user.
-
-If you use ID Tokens to call any of the following endpoint, then you are affected by this migration:
+If you use ID Tokens to call any of the following endpoints, then you are affected by this migration:
 
 | **Endpoint** | **Use Case** |
 |-|-|
@@ -33,14 +29,14 @@ If you use ID Tokens to call any of the following endpoint, then you are affecte
 
 Note that the last two endpoints are used for Account Linking. To review these changes, see [Changes in Account Linking](#changes-in-account-linking).
 
-**Nothing else changes in how these endpoints work**. You should expect the same request and response schemas and only need update the token that you use for authorization.
+**Nothing else changes in how the endpoints work**. You should expect the same request and response schemas and only need update the token that you use for authorization.
 
 ## Changes in scopes
 
 The actions you can perform with the Management API depend on the [scopes](/scopes#api-scopes) that your Access Token contains. With this migration you can either get a "limited" Access Token that can update only the logged-in user's data, or an Access Token that can update the data of any user. In the following matrix you can see the scopes that your token needs to have per case and per endpoint.
 
 | **Endpoint** | **Scope for current user** | **Scope for any user** |
-|-|-|
+|-|-|-|
 | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) | `read:current_user` | `read:users` |
 | [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | `read:current_user` | `read:users` |
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | `update:current_user_identities` | `update:users` |
@@ -53,6 +49,10 @@ The actions you can perform with the Management API depend on the [scopes](/scop
 
 For example, if I get an Access Token that contains the scope `read:users` I can retrieve the data of **any user** using the [GET /api/v2/users/{id} endpoint](/api/management/v2#!/Users/get_users_by_id). But if my token contains the scope `read:current_user` I can only retrieve the information of the **currently logged-in user** (the one that the token was issued for).
 
+## Restrictions
+
+The Access Tokens used to access the Management API **must hold only one value at the `aud` claim**. If your token contains more than one value, then your request to the Management API will error out.
+
 ## How to get an Access Token
 
 In this section we will see the changes that are introduced in how you get a token for the aforementioned endpoints. We will see sample scripts side-by-side so you can identify the changes.
@@ -60,25 +60,25 @@ In this section we will see the changes that are introduced in how you get a tok
 There are several variations on how you authenticate a user and get tokens, depending on the technology and the [OAuth 2.0 flow you use to authenticate](/api-auth/which-oauth-flow-to-use):
 - Using the [Authorization endpoint](/api/authentication#authorize-client). This is where you redirect your users to login or sign up. You get your tokens from this endpoint if you authenticate users from a [single-page app](/api/authentication#implicit-grant) (running on the browser).
 - Using the [Token endpoint](/api/authentication#get-token).You get your tokens from this endpoint if you authenticate users from a [web app](/api/authentication#authorization-code) (running on a server), a [mobile app](/api/authentication#authorization-code-pkce-), a [server process](/api/authentication#client-credentials), or a [highly trusted app](/api/authentication#resource-owner-password).
-- Using [cross-origin authentication](/cross-origin-authentication) (endpoint: `/co/authenticate`). This endpoint is used to authenticate users when the requests come from different domains. 
+- Using [Lock](/libraries/lock/v11#cross-origin-authentication) or [auth0.js](/libraries/auth0js/v9#configure-your-auth0-client-for-embedded-login) embedded in your application. In this case you are using [cross-origin authentication](/cross-origin-authentication) (used to authenticate users when the requests come from different domains). 
 
-### Use the Authorization endpoint
+### The Authorization endpoint
 
 In this section we will use an example to showcase the differences in how you get a token with the [Authorization endpoint](/api/authentication#authorize-client). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
 
 In the example below, we want to use the [GET User by ID endpoint](/api/management/v2#!/Users/get_users_by_id) to retrieve the full profile information of the logged-in user. To do so, first we will authenticate our user (using the [Implicit grant](/api/authentication?http#implicit-grant)) and retrieve the token(s).
 
-On the `Legacy (ID Token)` script you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` script you can see the new approach that gets an Access Token as well.
+On the `Legacy (ID Token)` panel you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` panel you can see the new approach that gets an Access Token as well.
 
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#with-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#with-access-token" data-toggle="tab">Current (Access Token)</a></li>
+      <li class="active"><a href="#authZ-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
+      <li><a href="#authZ-access-token" data-toggle="tab">Current (Access Token)</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="with-id-token" class="tab-pane active">
+    <div id="authZ-id-token" class="tab-pane active">
       <pre class="text hljs">
         <code>
 https://${account.namespace}/authorize?
@@ -91,13 +91,13 @@ https://${account.namespace}/authorize?
         </code>
       </pre>
     </div>
-    <div id="with-access-token" class="tab-pane">
+    <div id="authZ-access-token" class="tab-pane">
       <pre class="text hljs">
         <code>
 https://${account.namespace}/authorize?
   audience=https://${account.namespace}/api/v2/
   &scope=read:current_user
-  &response_type=token
+  &response_type=token%20id_token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
   &nonce=CRYPTOGRAPHIC_NONCE
@@ -108,9 +108,9 @@ https://${account.namespace}/authorize?
   </div>
 </div>
 
-The differences that we introduced in order to get an Access Token that can access the Management API are the following:
+In order to get an Access Token that can access the Management API:
 - We set the `audience` to `https://${account.namespace}/api/v2/`
-- We asked for the additional scope `read:current_user`
+- We asked for the scope `read:current_user`
 - We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
 
 If we decode the Access Token and review its contents we can see the following:
@@ -142,7 +142,7 @@ Once you have the Access Token you can use it to call the endpoint. This part re
 }
 ```
 
-### Use the Token endpoint
+### The Token endpoint
 
 In this section we will use an example to showcase the differences in how you get a token with the [Token endpoint](/api/authentication#get-token). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
 
@@ -153,12 +153,12 @@ On the `Legacy (ID Token)` script you can see an implementation of the old appro
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#with-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#with-access-token" data-toggle="tab">Current (Access Token)</a></li>
+      <li class="active"><a href="#token-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
+      <li><a href="#token-access-token" data-toggle="tab">Current (Access Token)</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="with-id-token" class="tab-pane active">
+    <div id="token-id-token" class="tab-pane active">
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
@@ -174,7 +174,7 @@ Content-Type: application/json
         </code>
       </pre>
     </div>
-    <div id="with-access-token" class="tab-pane">
+    <div id="token-access-token" class="tab-pane">
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
@@ -184,7 +184,7 @@ Content-Type: application/json
   "username": "USERNAME",
   "password": "PASSWORD",
   "audience": "https://${account.namespace}/api/v2/",
-  "scope": "openid%20read:current_user",
+  "scope": "read:current_user",
   "client_id": "${account.clientId}",
   "client_secret": "YOUR_CLIENT_SECRET",
 }
@@ -194,9 +194,9 @@ Content-Type: application/json
   </div>
 </div>
 
-The differences that we introduced in order to get an Access Token that can access the Management API are the following:
+In order to get an Access Token that can access the Management API:
 - We set the `audience` to `https://${account.namespace}/api/v2/`
-- We asked for the additional scope `read:current_user`
+- We asked for the scope `read:current_user`
 
 Once you have the Access Token you can use it to call the endpoint. This part remains the same, nothing else changes in the request except for the value you use as `Bearer` token. The response remains also the same.
 
@@ -211,9 +211,75 @@ Once you have the Access Token you can use it to call the endpoint. This part re
 }
 ```
 
-### Use cross-origin authentication
+### Lock or auth0.js (embedded)
 
-(to be updated)
+If you embed either [Lock v11](/libraries/lock/v11) or [auth0.js v9](/libraries/auth0js/v9) in your application, then you are using [cross-origin authentication](/cross-origin-authentication). This is used to authenticate users when the requests come from different domains.
+
+If you use auth0.js to access the Management API and manage your users, then your script will have to be updated.
+
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#coa-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
+      <li><a href="#coa-access-token" data-toggle="tab">Current (Access Token)</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="coa-id-token" class="tab-pane active">
+      <pre class="text hljs">
+        <code>
+// get an ID token
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: '${account.callback}',
+  scope: 'openid',
+  responseType: 'id_token'
+});
+// create a new instance
+var auth0Manage = new auth0.Management({
+  domain: '${account.namespace}',
+  token: 'ID_TOKEN'
+});
+        </code>
+      </pre>
+      <div class="tab-pane-footer">
+        <ul>
+          <li>Asks for an ID Token in the response (<code>responseType: 'id_token'</code>)</li>
+          <li>Authenticates with the Management API using the ID Token</li>
+        </ul>
+      </div>
+    </div>
+    <div id="coa-access-token" class="tab-pane">
+      <pre class="text hljs">
+        <code>
+// get an access token
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: '${account.callback}',
+  audience: 'https://${account.namespace}/api/v2/˜',
+  scope: 'read:current_user',
+  responseType: 'token id_token'
+});
+// create a new instance
+var auth0Manage = new auth0.Management({
+  domain: '${account.namespace}',
+  token: 'ACCESS_TOKEN'
+});
+        </code>
+      </pre>
+      <div class="tab-pane-footer">
+        <ul>
+          <li>Asks for both an ID Token and an Access Token in the response (<code>responseType: 'token id_token'</code>)</li>
+          <li>Sets the Management API as the intended audience of the token (<code>audience: 'https://${account.namespace}/api/v2/˜'</code>)</li>
+          <li>Asks for the permission to read the current user's info (<code>scope: 'read:current_user'</code>)</li>
+          <li>Authenticates with the Management API using the Access Token</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Changes in Account Linking
 
