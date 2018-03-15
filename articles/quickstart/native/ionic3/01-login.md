@@ -73,12 +73,11 @@ export const AUTH_CONFIG = {
   // Needed for Auth0Cordova (capitalization: Id):
   clientId: '${account.clientId}',
   domain: '${account.namespace}',
-  callbackURL: location.href,
   packageIdentifier: 'YOUR_PACKAGE_ID' // config.xml widget ID, e.g., com.auth0.ionic
 };
 ```
 
-Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app. This should be the same as the URI you specified in the callback URL.
+Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
 
 ## Create an Authentication Service
 
