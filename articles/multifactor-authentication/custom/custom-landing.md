@@ -61,22 +61,31 @@ function (user, context, callback) {
 
 If the user makes a request from an IP address that Auth0 has not already associated with them, you can configure Auth0 to request MFA.
 
-```JS
+```js
 function (user, context, callback) {
 
   var deviceFingerPrint = getDeviceFingerPrint();
+  user.app_metadata = user.app_metadata || {};
+    
+  if (user.app_metadata.lastLoginDeviceFingerPrint !== deviceFingerPrint) {
 
-  if (user.lastLoginDeviceFingerPrint !== deviceFingerPrint) {
-
-    user.persistent.lastLoginDeviceFingerPrint = deviceFingerPrint;
+    user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
 
     context.multifactor = {
       allowRememberBrowser: false,
-      provider: 'google-authenticator'
+      provider: 'guardian'
     };
+    
+    auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then( function() {
+      callback(null, user, context);
+    })
+    .catch( function(err) {
+      callback(err);
+    }); 
+  } else {
+    callback(null, user, context);
   }
-
-  callback(null, user, context);
 
   function getDeviceFingerPrint() {
 
