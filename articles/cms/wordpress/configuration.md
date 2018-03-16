@@ -97,21 +97,20 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 Database Connections enable the typical username and password login seen on most sites. This type of Connection is 
 not required and can be skipped if you're using passwordless or social logins only. 
 
-1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Client setup above, if you used the wizard during setup. Otherwise, you can create a new  
-Connection, use and existing Connection created previously, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
+1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Client setup above. Otherwise, you can create a new  
+Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
     ![Client Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
 1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
-1. Now click the **Clients** tab and activate the Client created above
+1. Now click the **Clients** tab and activate the Client created above.
 
     ![Client Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
 ### Social Connection setup
 
-See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login 
-methods. 
+See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods. 
 
 ### Update Auth0 settings in WordPress
 
@@ -183,9 +182,9 @@ methods.
 
 * **Login Form JS:** Valid JS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget).
 
-* **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
+* **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to **Username** if you do not want to force a username to be a valid email address.
 
-* **Primary Color:** Information on this setting is [here](/libraries/lock/v11/configurationn#primarycolor-string-).
+* **Primary Color:** Information on this setting is [here](/libraries/lock/v11/configuration#primarycolor-string-).
 
 * **Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-).
 

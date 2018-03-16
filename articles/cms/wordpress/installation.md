@@ -21,7 +21,7 @@ The plugin can be configured using the built-in setup wizard (covered below) or 
 assigning connections. The completely manual setup process can be used if you're having trouble with the 
 wizard, have been through the setup process before, or want to share a database connection between Clients.
 
-1. In your Auth0 Dashboard, click **Clients** then **Create Client**
+1. In your Auth0 [Dashboard](${manage_url}), click **Clients** then **Create Client**
 1. Give your Client a descriptive name, select **Regular Web Applications**, then **Create**
 1. Follow the [Client setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in 
 WordPress" section to configure the client for your WordPress installation

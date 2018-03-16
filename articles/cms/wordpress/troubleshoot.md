@@ -10,7 +10,7 @@ If you get this error, make sure you are requesting an email from each provider 
 
 ## I'm getting a "Failed cross origin authentication" or "No verifier returned from client" error in my error logs or when logging in.
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Client settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](https://auth0.com/docs/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Client settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
 ## The Auth0 settings page in WordPress displays the warning: "The current user is not authorized to manage the Auth0 account...".
 
@@ -18,7 +18,7 @@ If you updated your plugin to version 2 or configured the plugin without followi
 
 ## I have two accounts for the same user in WordPress.
 
-Under some situations, you may end up with a user with two accounts. WordPress allows you to do merge users. You just delete one of the accounts and then attribute its contents to the user you want to merge with. Go to Users, select the account you want to delete, and in the confirmation dialog select another user to transfer the content.
+Under some situations, you may end up with a user with two accounts. WordPress allows you to merge users by deleting one of the accounts and attributing that account's content to another user. Go to wp-admin > Users, select the account you want to delete, and in the confirmation dialog select another user to transfer the content.
 
 ## My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
@@ -88,11 +88,13 @@ Internally, the plugin uses the dict setting to change the Auth0 widget title. W
 
 To change the form_title in this case, you need to add the following attribute to the dict json:
 
-      {
-        signin:{
-            title: "The desired form title"
-        }
-      }
+```json
+{
+    "signin": {
+        "title": "The desired form title"
+    }
+}
+```
 
 ## How can I configure Lock settings that are not provided in the settings page?
 
