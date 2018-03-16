@@ -144,40 +144,6 @@ webAuth.popup.authorize({
 });
 ```
 
-### webAuth.redirect.loginWithCredentials()
-
-To login using redirect with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
-
-```js
-webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
-});
-```
-
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
-
-However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the universal login page, and is the only way to have SSO cookies set for your users who login using universal login.
-
-### webAuth.popup.loginWithCredentials()
-
-To login using popup mode with credentials to enterprise connections, the `popup.loginWithCredentials` method is used.
-
-```js
-webAuth.popup.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
-});
-```
-
 ### webAuth.login()
 
 The `login` method allows for [cross-origin authentication](/cross-origin-authentication) using database connections, using `/co/authenticate`.

@@ -146,11 +146,10 @@
   });
 
   $('.signin-db').on('click', function() {
-    webAuth.redirect.loginWithCredentials({
-      connection: 'Username-Password-Authentication',
+    webAuth.login({
+      realm: 'tests',
       username: 'testuser',
       password: 'testpass',
-      scope: 'openid'
     });
   });
   // Parse the authentication result
