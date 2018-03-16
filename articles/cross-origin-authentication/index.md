@@ -69,6 +69,8 @@ Add the URL of this callback page to the **Cross-Origin Verification Fallback** 
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
 :::
 
+<%= include('../_includes/_co_authenticate_errors', { library : 'Auth0.js v9 (and Lock v11)'}) %>
+
 ## Browser Testing Matrix
 
 This table lists which browsers can use cross-origin authentication when third-party cookies are disabled.
