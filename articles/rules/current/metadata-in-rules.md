@@ -57,12 +57,12 @@ function(user, context, callback){
 
 ### Reading `client_metadata`
 
-`client_metadata` is an optional, top-level property of the Client object. Existing clients will have no value for this property.
+`clientMetadata` is an optional, top-level property of the context object. Existing clients will have no value for this property.
 
 ```js
-function(client, context, callback){
-  client.client_metadata = client.client_metadata || {};
-  if (client.client_metadata.usersuppliedkey1 === 'black'){
+function(user, context, callback){
+  context.clientMetadata = context.clientMetadata || {};
+  if (context.clientMetadata.usersuppliedkey1 === 'black'){
     // this code would not be executed for the user
   }
   ...
