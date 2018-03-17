@@ -72,6 +72,35 @@ Depending on which claims have been mapped when installing the claims provider t
 
 ![SharePoint User Info](/media/articles/integrations/sharepoint/sharepoint-user-info.png)
 
+## Customizing the Login Page
+
+You can customize the login page by following the instructions in [this document](https://auth0.com/docs/hosted-pages/login#how-to-customize-your-login-page).
+
+You could need to provide a way to let users authenticate with Sharepoint using Windows Authentication, bypassing Auth0. You can do that by customizing the login page adding a link to the Windows Authentication endpoint, usually [https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx]().
+
+On way of doing it is by using jQuery to modify the Lock widget and add a link to the Windows Authentication endpoint.
+
+You need to add a reference to jQuery at the top of the `<body>` section of the customized login page.
+
+```js
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+```
+
+Before calling `lock.show()`, add code to modify the HTML DOM that adds the link.
+
+```js
+lock.on('signin ready', function() {
+  $('.auth0-lock-tabs-container')
+    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' +
+            '<a class="auth0-lock-alternative-link" ' + 
+            'href="https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx">' + 
+            'Login with Windows Authentication</a>' +
+            '</p><p><span>or</span></p></div>');
+        });
+```
+
+![SharePoint Login Page Windows Auth](/media/articles/integrations/sharepoint/sharepoint-login-page-windows-auth.png)
+
 ## Troubleshooting
 
 When working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
