@@ -8,7 +8,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-laravel-php-web-app',
-  path: '00-Starter-Seed',
+  path: '01-Login',
   requirements: [
     'Composer 1.5',
     'PHP 7.0',
