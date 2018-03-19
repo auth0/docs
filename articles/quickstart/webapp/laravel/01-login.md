@@ -18,7 +18,7 @@ budicon: 448
 
 ## Install and Configure Laravel 5.5
 
-If you're installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
+If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
 
 1. **[Installation](https://laravel.com/docs/5.5/installation)**
     * Use any of the install methods listed to start a new project
@@ -101,8 +101,8 @@ Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishin
 * `client_secret` - Your Auth0 Client Secret, found in your Client settings (required)
 * `redirect_uri` - The callback URI for your Laravel application to handle the login response from Auth0; by default this is `APP_URL/auth0/callback` (required)
 * `persist_user` - Should the user information persist in a PHP session? Default is `true`
-* `persist_access_token` - Should the access token persist in a PHP session? Default is `false`
-* `persist_id_token` - Should the ID token persist in a PHP session? Default is `false`
+* `persist_access_token` - Should the Access Token persist in a PHP session? Default is `false`
+* `persist_id_token` - Should the ID Token persist in a PHP session? Default is `false`
 * `authorized_issuers` - An array of authorized token issuers, should include at least your tenant domain
 * `api_identifier` - The authorized token audience
 * `secret_base64_encoded` - Is the Client Secret Base64 encoded? Look below the Client Secret field in the Auth0 dashboard to see how to set this; default is `false`
@@ -114,9 +114,9 @@ To keep sensitive data out of version control and allow for different testing an
 ```
 // .env
 // ...
-AUTH0_DOMAIN=mydomain.auth0.com
-AUTH0_CLIENT_ID=rf7pkndzEccrXNxwAnVUPjMaM2jx9Q
-AUTH0_CLIENT_SECRET=DcGz7qLoc8HPMQVUCHoCpMaqfUXdopYWzrnN3mqkRiaGAPhtuL
+AUTH0_DOMAIN=${account.namespace}
+AUTH0_CLIENT_ID=${account.clientId}
+AUTH0_CLIENT_SECRET=${account.clientSecret}
 ```
 
 Call `env()` in `laravel-auth0.php` to get the correct setting:
