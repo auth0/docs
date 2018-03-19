@@ -1,0 +1,8 @@
+versioning:
+  baseUrl: users/search
+  current: v3
+  versions:
+    - v2
+    - v3
+  defaultArticles:
+    v3: index
