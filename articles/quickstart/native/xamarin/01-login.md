@@ -56,7 +56,7 @@ To integrate Auth0 login into your application, simply instantiate an instance o
 
 ${snippet(meta.snippets.setup)}
 
-The steps for Logging the user in is different for Android and iOS.
+The steps for Logging the user in is different for Android and iOS. Note that this example is not using Xamarin Forms.
 
 ### Android
 
