@@ -42,6 +42,10 @@ You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using
 
 When using the Client Credentials flow, you will need to register a [Non Interactive Client](/clients). You should then subsequently use the **Client ID** and **Client Secret** of this Non Interactive Client when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
 
+:::note
+Auth0 customers are billed based on the number of Client Credential Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
+:::
+
 **2. Using Resource Owner Password**
 
 ```har
