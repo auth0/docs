@@ -4,8 +4,6 @@ description:  Using Google Authenticator with Auth0 for developers
 
 # Google Authenticator for Developers
 
-<%= include('./_deprecation-notice.md') %>
-
 ## Enabling Google Authenticator for MFA
 
 To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
