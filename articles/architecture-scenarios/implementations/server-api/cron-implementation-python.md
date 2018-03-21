@@ -26,7 +26,7 @@ def main():
   domain = "${account.namespace}" # Your Auth0 Domain
   api_identifier = "API_IDENTIFIER" # API Identifier of your API
   client_id = "${account.clientId}" # Client ID of your Non Interactive Client
-  client_secret = "${account.clientSecret}" # Client Secret of your Non Interactive Client
+  client_secret = "YOUR_CLIENT_SECRET" # Client Secret of your Non Interactive Client
   api_url = "http://localhost:8080/timesheets/upload"
   grant_type = "client_credentials" # OAuth 2.0 flow to use
 

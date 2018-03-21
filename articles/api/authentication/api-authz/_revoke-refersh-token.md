@@ -7,7 +7,7 @@ POST https://${account.namespace}/oauth/revoke
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "token": "YOUR_REFRESH_TOKEN",
 }
 ```
@@ -16,7 +16,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/revoke' \
   --header 'content-type: application/json' \
-  --data '{ "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "token": "YOUR_REFRESH_TOKEN" }'
+  --data '{ "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET", "token": "YOUR_REFRESH_TOKEN" }'
 ```
 
 ```javascript
@@ -27,7 +27,7 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json' },
   body: 
    { client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
+     client_secret: 'YOUR_CLIENT_SECRET',
      token: 'YOUR_REFRESH_TOKEN' },
   json: true };
 

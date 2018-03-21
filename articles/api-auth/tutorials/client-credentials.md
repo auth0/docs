@@ -23,7 +23,7 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }
 ```
