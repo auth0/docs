@@ -5,7 +5,7 @@
 
 <%= '\<%' %>
 CLIENT_ID = "${account.clientId}"
-CLIENT_SECRET = "${account.clientSecret}"
+CLIENT_SECRET = "YOUR_CLIENT_SECRET"
 REDIRECT_URI = "${account.callback}"
 
 AUTHORIZATION_CODE = Request.querystring( "code" )
