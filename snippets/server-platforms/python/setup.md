@@ -21,7 +21,7 @@ def callback_handling():
     get_token = GetToken('${account.namespace}')
     auth0_users = Users('${account.namespace}')
     token = get_token.authorization_code('${account.clientId}',
-                                         '${account.clientSecret}', code, '${account.callback}')
+                                         'YOUR_CLIENT_SECRET', code, '${account.callback}')
     user_info = auth0_users.userinfo(token['access_token'])
     session['profile'] = json.loads(user_info)
     return redirect('/dashboard')
