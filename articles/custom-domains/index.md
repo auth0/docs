@@ -22,6 +22,7 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Emails (the links included in the emails will use your custom domain)
 * Database and Social connections
 * Lock 11 with Cross Origin Authentication
+* SAML Connections and Clients
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -163,6 +164,20 @@ If you want to use social identity providers with your custom domain, you must u
 :::warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
+
+#### SAML identity provider configuration
+
+If you want to use SAML identity providers with your custom domain, you must obtain the service provider metadata from Auth0 (such as `https://login.northwind.com/samlp/metadata?connection=CONNECTION_NAME`). This includes updated Assertion Consumer Service (ACS) URLs. You will then need to manually update this value in your IdP(s). This change to your IdP(s) will need to happen at the same time as you enable your custom domains. This can pose a problem if there are multiple IdPs to configure.
+
+Alternatively, you can use signed requests to fulfill this requirement. Once your custom domain is set up, in the [Dashboard](${manage_url}/#/tenant/custom_domains), you will need to download the certificate from the link under the “Sign Request” toggle. You can then give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the AuthnRequest message that Auth0 sends to the IdP. The certificate needs to be imported into the IdP and, if necessary, signature verification should be enabled (exact steps vary by IdP).
+
+You should then turn on the “Sign Request” toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML AuthnRequest messages it sends to the IdP.
+
+Once this is done, and you use your custom domain when interacting with Auth0, the IdP will receive that custom domain in your signed request. Because your application is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. This will prevent you from having to change one or many IdP settings all at the same time, instead allowing you to prepare them to accept your signed requests ahead of time. you can then at a later date have the IdPs change the ACS URL as well.
+
+#### SAML client configuration
+
+If you want to use SAML clients with your custom domain, you should update your SP with new IdP metadata from Auth0 (such as `https://login.northwind.com/samlp/metadata/CLIENT_ID`). Note that the issuer entity ID will change when using a custom domain.
 
 #### APIs
 
