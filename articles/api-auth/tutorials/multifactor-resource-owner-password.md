@@ -162,7 +162,7 @@ var options = { method: 'POST',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -192,7 +192,7 @@ function mfaChallenge(mfa_token) {
     { mfa_token: mfa_token,
       challenge_type: 'oob otp', // Supported challenge types, space separated
       client_id: '${account.clientId}',
-      client_secret: '${account.clientSecret}' },
+      client_secret: 'YOUR_CLIENT_SECRET' },
     json: true };
 
   request(options, function (error, response, body) {
@@ -230,7 +230,7 @@ function mfaOTP(mfa_token, otp) {
       otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
       client_id: '${account.clientId}',
-      client_secret: '${account.clientSecret}' },
+      client_secret: 'YOUR_CLIENT_SECRET' },
     json: true };
 
   request(options, function (error, response, body) {
@@ -277,7 +277,7 @@ function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, 
       binding_code: binding_code, // Only when binding_method = prompt
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
       client_id: '${account.clientId}',
-      client_secret: '${account.clientSecret}' },
+      client_secret: 'YOUR_CLIENT_SECRET' },
     json: true };
 
   request(options, function (error, response, body) {
@@ -315,7 +315,7 @@ function mfaRecovery(mfa_token, recovery_code) {
       otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
       client_id: '${account.clientId}',
-      client_secret: '${account.clientSecret}' },
+      client_secret: 'YOUR_CLIENT_SECRET' },
     json: true };
 
   request(options, function (error, response, body) {
