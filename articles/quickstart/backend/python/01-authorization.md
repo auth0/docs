@@ -38,9 +38,9 @@ six
 flask_caching
 ```
 
-## Create the Flask APP
+## Create the Flask Application
 
-Create a `server.py` file and initializate the Flask App. Set the domain, audience and the error handling.
+Create a `server.py` file and initializate the Flask Application. Set the domain, audience and the error handling.
 
 ```python
 # /server.py
