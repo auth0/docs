@@ -17,6 +17,8 @@ You’ll need one certificate per environment (such as if you have a Dev/Test en
 
 If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
 
+Dedicated and non-dedicated host names must be unique.
+
 ## Sample DNS Naming Scheme
 
 <table class="table">
