@@ -89,26 +89,26 @@ private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
-                  .withScheme("demo")
-                  .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
-                  .withConnection("twitter")
-                  .start(this, new AuthCallback() {
-                      @Override
-                      public void onFailure(@NonNull Dialog dialog) {
-                        // Show error Dialog to user
-                      }
+        .withScheme("demo")
+        .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
+        .withConnection("twitter")
+        .start(this, new AuthCallback() {
+            @Override
+            public void onFailure(@NonNull Dialog dialog) {
+                // Show error Dialog to user
+            }
 
-                      @Override
-                      public void onFailure(AuthenticationException exception) {
-                        // Show error to user
-                      }
+            @Override
+            public void onFailure(AuthenticationException exception) {
+                // Show error to user
+            }
 
-                      @Override
-                      public void onSuccess(@NonNull Credentials credentials) {
-                          // Store credentials
-                          // Navigate to your main activity
-                      }
-                });
+            @Override
+            public void onSuccess(@NonNull Credentials credentials) {
+                // Store credentials
+                // Navigate to your main activity
+            }
+    });
 }
 ```
 
