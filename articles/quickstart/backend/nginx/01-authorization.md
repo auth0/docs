@@ -29,7 +29,7 @@ http {
 
 ## Configure `nginx-jwt` with your Auth0 account
 
-1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Auth0 Client Secret (`${account.clientSecret}`).
+1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Client Secret.
 1. Expose this environment variable to the Nginx server:
 
 ```lua
