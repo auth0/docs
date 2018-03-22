@@ -14,7 +14,7 @@ Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is 
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-<%= include('../../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
