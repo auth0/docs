@@ -29,7 +29,7 @@ This would be the profile stored by Auth0:
   "user_id": "custom|123",
   "favorite_color": "blue",
   "user_metadata": {
-  "preferred_contact": "email"
+    "preferred_contact": "email"
   }
 }
 ```
