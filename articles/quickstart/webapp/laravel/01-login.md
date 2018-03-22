@@ -116,7 +116,7 @@ To keep sensitive data out of version control and allow for different testing an
 // ...
 AUTH0_DOMAIN=${account.namespace}
 AUTH0_CLIENT_ID=${account.clientId}
-AUTH0_CLIENT_SECRET=${account.clientSecret}
+AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
 Call `env()` in `laravel-auth0.php` to get the correct setting:
