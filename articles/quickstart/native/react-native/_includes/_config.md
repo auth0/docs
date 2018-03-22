@@ -15,7 +15,7 @@ Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}
 Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
 
 
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project ths value is:
+Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project the value is:
 
 ```xml
 <key>CFBundleIdentifier</key>
@@ -30,7 +30,7 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 
 Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
-You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project ths value is:
+You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project the value is:
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.auth0sample"
