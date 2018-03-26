@@ -92,11 +92,20 @@ Logs endpoints have not been implemented in Management API v2. Logs must first b
 
 Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
-As explained in [Using JSON Web Tokens as API Keys](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/), Auth0's Management API v2 allows you to issue an Access Token of specific scope. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
-
-### Scopes
+Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
 To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
+
+Note that the Management API used to support authentication with an ID Token. This was using a subset of scopes for end users so your application can perform a subset of operations on behalf of the user:
+* `read:current_user`
+* `update:current_user_identities`
+* `create:current_user_metadata`
+* `update:current_user_metadata`
+* `delete:current_user_metadata`
+* `create:current_user_device_credentials`
+* `delete:current_user_device_credentials`
+
+This approach has been deprecated, and now you must call it with an Access Token. For more information on this see [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
 
 ## User metadata
 
