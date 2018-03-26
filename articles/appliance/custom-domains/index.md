@@ -25,7 +25,6 @@ The follow is a list of custom domain features that differ in behavior from thei
 | Use of custom domain in emails | No |
 | Custom domain protection via API keys | No |
 | Custom domain registration | Yes; accessible via PSaaS Appliance Dashboard |
-| Multiple custom domains per tenant | Yes |
 | Token issuer used as custom domain | No |
 | Auth0-managed certificates | No |
 
