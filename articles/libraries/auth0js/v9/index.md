@@ -133,6 +133,8 @@ Hosted login with popup:
 ```js
 webAuth.popup.authorize({
   //Any additional options can go here
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
@@ -141,6 +143,8 @@ And for social login with popup using `authorize`:
 ```js
 webAuth.popup.authorize({
   connection: 'twitter'
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
