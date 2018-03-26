@@ -96,7 +96,8 @@ Auth0's API v2 requires sending an Access Token with specific scope(s). To perfo
 
 To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 
-Note that the Management API used to support authentication with an ID Token. This was using a subset of scopes for end users so your application can perform a subset of operations on behalf of the user:
+There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
+
 * `read:current_user`
 * `update:current_user_identities`
 * `create:current_user_metadata`
@@ -105,7 +106,7 @@ Note that the Management API used to support authentication with an ID Token. Th
 * `create:current_user_device_credentials`
 * `delete:current_user_device_credentials`
 
-This approach has been deprecated, and now you must call it with an Access Token. For more information on this see [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
+So, for example, if the Access Token contains the scope `update:current_user_metadata` then it can be used to update the metadata of the currently logged-in user. If, on the other hand, it contains the scope `update:users_app_metadata` it can be used to update the metadata of any user.
 
 ## User metadata
 
