@@ -18,6 +18,7 @@ This guide includes all the information you need to update your Lock v10 applica
 <%= include('../../_includes/_configure_embedded_login', { library : 'Lock v11'}) %>
 <%= include('../../_includes/_change_get_profile') %>
 <%= include('../../_includes/_oidc_conformant') %>
+<%= include('../../_includes/_configure_custom_domain', { library : 'Lock v11'}) %>
 
 ## Behavioral changes in Lock v11
 

@@ -12,8 +12,3 @@ description: Definitions used for Auth0's documentation on GDPR
 | Personal Data | Data that can be used to identify (directly or indirectly) a subject, particularly via reference to an identifier (such as a name, identification number, location data, or online identifier), or to the physical, physiological, genetic, mental, economic, cultural, or social identity of that person |
 | Sensitive Personal Data | Personal data that reveals racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade-union membership; genetic data or biometric data |
 | Auth0 Subprocessors | Third party systems to which Auth0 provides personal data |
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/compliance/gdpr"],
- navHeader: "GDPR Home"
-}) %>

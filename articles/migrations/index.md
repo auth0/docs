@@ -96,7 +96,7 @@ This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/
 
 These endpoints will now accept regular [Access Tokens](/access-token). The functionality is available now.
 
-Applications must be updated by June 1, 2018, when the ability to use ID Tokens will be disabled.
+Applications must be updated by **March 31, 2019**, when the ability to use ID Tokens will be disabled.
 
 For more information on this migration and the steps you should follow to upgrade your implementation, see [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
 

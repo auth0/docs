@@ -6,7 +6,7 @@ description: This page details Auth0's Load Testing Policy.
 
 Load testing against the Auth0 production cloud service is not permitted at any time, as stated in our [Terms of Service](https://auth0.com/terms).
 
-Customers who have purchased an enterprise support plan that includes load testing may request one load test (with up to 2 repeats) to conduct load testing against an Auth0 test instance.
+Customers who have purchased an enterprise support plan that includes load testing may request one load test (with up to 2 repeats) to conduct load testing against an Auth0 test instance. For load tests that require more than 100 RPS a separate environment will have to be created and it will have a different time schedule than normal load tests.
 
 ## How to request
 

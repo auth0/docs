@@ -32,7 +32,7 @@ These issues are another reason why the more practical solution is to use [unive
 
 Configuring your client for cross-origin authentication is a process that requires a few steps:
 
-1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards.
+1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
@@ -68,6 +68,8 @@ Add the URL of this callback page to the **Cross-Origin Verification Fallback** 
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
 :::
+
+<%= include('../_includes/_co_authenticate_errors', { library : 'Auth0.js v9 (and Lock v11)'}) %>
 
 ## Browser Testing Matrix
 

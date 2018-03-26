@@ -50,7 +50,7 @@ public class Startup
 
             // Configure the Auth0 Client ID and Client Secret
             ClientId = ${account.clientId},
-            ClientSecret = ${account.clientSecret},
+            ClientSecret = YOUR_CLIENT_SECRET,
 
             // Do not automatically authenticate and challenge
             AutomaticAuthenticate = false,

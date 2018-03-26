@@ -24,13 +24,6 @@ The first question to answer before getting into the changes is why to migrate y
 
 There are often situations where your APIs will need to authorize limited access to users, servers, or servers on behalf of users. Managing these types of authorization flows and access to your APIs is much easier with Auth0. If you need to use these [API Auth](/api-auth) features, we recommend that you upgrade to [auth0.js v8](/libraries/auth0js/v8).
 
-However, if your application is currently relying on being able to request metadata via scopes (as described in the legacy [scopes documentation](/scopes/legacy)), and you do not wish to use API Auth features to handle that instead, you have two choices:
-
-* Continue to use Auth0.js v7 until it is no longer an option
-* Use Auth0.js v8 without using API Auth. 
-  * Do not mark your client as OIDC Conformant in the dashboard
-  * Do not pass the `audience` parameter when using `authorize()`, or use methods which do not support API Auth, such as `loginWithCredentials()`, `signupAndLogin()` or `loginWithResourceOwner()` (note that `loginWithResourceOwner()` requires the legacy Resource Owner grant in order to be used and is unavailable to some customers).
-
 Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
 
 ::: note

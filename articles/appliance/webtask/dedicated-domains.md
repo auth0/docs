@@ -31,6 +31,7 @@ Essentially, this allows tenants to use extensions without providing access to c
 For each environment (such as Development, Testing, or Production), you will need:
 
 * A certificate for your Webtask dedicated domain
+    * Dedicated and non-dedicated host names must be unique.
 * A DNS zone for each domain to manage the name records of your tenants
 
 ### Sample Architecture

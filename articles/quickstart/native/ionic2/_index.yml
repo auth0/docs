@@ -1,13 +1,11 @@
-# Remember to add snippets back to .md
-title: Ionic 2+
+title: Ionic 2
 logo_name: ionic
 alias:
   - ionic2
-  - ionic3
 language:
   - Typescript
 framework:
-  - Ionic3
+  - Ionic2
   - Angular4
   - Cordova
 hybrid: true

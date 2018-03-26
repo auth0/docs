@@ -71,7 +71,12 @@ There are two required parameters that must be passed in the `options` object wh
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `responseType` | optional | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
+| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
+
+::: note
+Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
+:::
 
 ##### Scope
 
@@ -101,12 +106,7 @@ The `authorize()` method can be used for logging in users via [universal login](
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
-| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
 | `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
-
-::: note
-Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
-:::
 
 For hosted login, one must call the `authorize()` method.
 
@@ -144,40 +144,6 @@ webAuth.popup.authorize({
 });
 ```
 
-### webAuth.redirect.loginWithCredentials()
-
-To login using redirect with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
-
-```js
-webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
-});
-```
-
-The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.login` instead. 
-
-However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the universal login page, and is the only way to have SSO cookies set for your users who login using universal login.
-
-### webAuth.popup.loginWithCredentials()
-
-To login using popup mode with credentials to enterprise connections, the `popup.loginWithCredentials` method is used.
-
-```js
-webAuth.popup.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-}, function(err, authResult) {
-  // Auth tokens in the result or an error
-});
-```
-
 ### webAuth.login()
 
 The `login` method allows for [cross-origin authentication](/cross-origin-authentication) using database connections, using `/co/authenticate`.
@@ -211,7 +177,8 @@ var url = webAuth.client.buildAuthorizeUrl({
   clientID: '${account.clientId}', // string
   responseType: 'token id_token', // code
   redirectUri: '${account.callback}',
-  state: 'YOUR_STATE'
+  state: 'YOUR_STATE',
+  nonce: 'YOUR_NONCE'
 });
 
 // Redirect to url
@@ -372,6 +339,8 @@ webAuth.checkSession({
 
 The `webAuth.checkSession` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
 
+<%= include('../../../_includes/_co_authenticate_errors', { library : 'Auth0.js v9'}) %>
+
 ## Logout
 
 To log out a user, use the `logout` method. This method accepts an options object, which can include the following parameters.
@@ -476,6 +445,10 @@ The user will then receive an email which will contain a link that they can foll
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
 To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
+
+::: note
+If you use [custom domains](/custom-domains), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, for use with the Management API calls, as it only works with Auth0 domains.
+:::
 
 ```js
 var webAuth = new auth0.WebAuth({
