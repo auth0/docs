@@ -200,13 +200,13 @@ lock.getUserInfo(accessToken, function(error, profile) {
 });
 ```
 
-## Metadata and Custom Databases
-
-If you are using a [custom database](/connections/database#using-your-own-user-store), use **metadata** instead of **app_metadata** when working with your user profile metadata.
-
 ::: note
 For details on how to use Lock to authenticate users and access their profile information, check out the [Lock documentation](/libraries/lock).
 :::
+
+## Metadata and Custom Databases
+
+If you are using a [custom database](/connections/database#using-your-own-user-store), use **metadata** instead of **app_metadata** when working with your user profile app_metadata.
 
 ## Keep Reading
 
