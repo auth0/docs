@@ -206,7 +206,35 @@ For details on how to use Lock to authenticate users and access their profile in
 
 ## Metadata and Custom Databases
 
-If you are using a [custom database](/connections/database#using-your-own-user-store), use **metadata** instead of **app_metadata** when working with your user profile app_metadata.
+If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
+
+For example, you would *not* use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+Instead, you would use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "metadata": {
+        "plan": "full"
+    }
+}
+```
 
 ## Keep Reading
 
