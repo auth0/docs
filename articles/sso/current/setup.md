@@ -15,17 +15,24 @@ For information on SSO Integrations, check out the [Single Sign On Integrations]
 
 Before enabling SSO on a [Client](/clients), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers ensure the Connection is not using [developer keys](/connections/devkeys).
+For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
 
 ## 2. Enable SSO for the Client
 
-Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client to enable SSO on.
+Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you're working.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
+Under the **Sessions** section, toggle and activate **Enable SSO**.
 
-![](/media/articles/sso/single-sign-on/sso-flag.png)
+Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
+
+| Setting | Description |
+| - | - |
+| Max Cookie Lifetime | The maximum length of time for which the SSO cookie issued by Auth0 is valid. **This setting should not exceed 3 days!** |
+| Force Login if Inactive for N Hours | The amount of time (during which the user is inactive) that must elapse before Auth0 forces the user to login |
+
+![SCREENSHOT FORTHCOMING]()
 
 ::: note
 You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).

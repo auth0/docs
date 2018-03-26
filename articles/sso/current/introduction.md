@@ -46,17 +46,15 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-1. Your application will redirect the user to the login page where they can sign in.
-1. Auth0 will check to see whether there is an existing SSO cookie.
-1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know who the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. Your application will redirect the user to the login page.
+1. Auth0 checks to see if there is an existing SSO cookie.
+1. Auth0 finds the SSO cookie, and if necessary, updates it.
+1. Auth0 returns an ID Token containing identity information for the user.
 
-    ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
-
-1. Auth0 will update the SSO cookie if required
-1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
-
-If an SSO cookie is present you can also sign the user in silently, (that is, without even displaying Lock so they can enter their credentials). This is covered in more detail in the [Setup Single Sign On with Auth0](/sso/current/setup) tutorial.
+Please note that, at no point during the above steps is the user shown a login screen.
 
 ## SSO with Native Platforms
 
-Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
+Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication.
+
+The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
