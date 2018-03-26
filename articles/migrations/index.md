@@ -77,7 +77,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-06-01 |
+| Medium | 2018-03-31 |  2019-03-31 |
 
 For some use cases you could use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
 
