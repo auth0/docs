@@ -169,9 +169,9 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong><a href="/custom-domains">Custom Domains</a></strong></th>
             <td>Yes</td>
-            <td>Yes <sup>**</sup></td>
-            <td>Yes <sup>**</sup></td>
-            <td>Yes <sup>**</sup></td>
+            <td>[Yes](/appliance/custom-domains)<sup>**</sup></td>
+            <td>[Yes](/appliance/custom-domains)<sup>**</sup></td>
+            <td>[Yes](/appliance/custom-domains)<sup>**</sup></td>
         </tr>
         <tr>
             <th class="info"><strong>Shared Resources Among Multiple Customers</strong></th>
