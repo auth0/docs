@@ -21,7 +21,7 @@ After you toggle the slider to enable using Duo, a portal displays a code editin
 ```JS
 function (user, context, callback) {
 
-  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
   // run only for the specified clients
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true

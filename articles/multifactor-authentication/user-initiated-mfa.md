@@ -38,7 +38,7 @@ Finally, if the two parameters above are met, MFA occurs every login.
 function (user, context, callback) {
 
     // run only for the specified clients
-    var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+    var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
     
     if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
         if (user.app_metadata && user.app_metadata.use_mfa){
