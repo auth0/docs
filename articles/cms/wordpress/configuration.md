@@ -25,11 +25,7 @@ You'll need to be logged into your Auth0 account before starting the steps below
 
 First, we'll check for the Client created for your WordPress site. 
 
-1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a Client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard or create a new Client:
-    
-    1. Click **Create Client**
-    1. Enter a Name for your WordPress site Client
-    1. Click **Regular Web Applications**, then **Create** 
+1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a Client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard or create a new Client manually by clicking Create Client**, entering a name for the Client, selecting **Regular Web Applications**, then clicking **Create**. 
     
     ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
