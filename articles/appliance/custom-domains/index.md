@@ -16,6 +16,20 @@ The root tenant authority (RTA) is a special domain that is configured when the 
   All tenant domain names derive from the root tenant authority, and any changes to this will result in the deletion of all tenants.
 :::
 
+## Custom Domains Features
+
+The follow is a list of custom domain features that differ in behavior from their implementation in the Auth0 Public Cloud or have yet to be released to PSaaS Appliance implementations.
+
+| Feature | Currently Supported in the PSaaS Appliance? |
+| - | - |
+| Use of custom domain in emails | No |
+| Custom domain protection via API keys | No |
+| Custom domain registration | Yes; accessible via PSaaS Appliance Dashboard |
+| Multiple custom domains per tenant | Yes |
+| Token issuer used as custom domain | No |
+| Auth0-managed certificates | No |
+
+
 ## Use Example
 
 Suppose that your RTA is `config.example.com`. From this point on, all of your new tenants' domain names must derive from the base name, `example.com`:
