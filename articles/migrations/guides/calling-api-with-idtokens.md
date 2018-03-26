@@ -8,7 +8,7 @@ toc: true
 
 For some use cases you could use [ID Tokens](/tokens/id-token) in order to call some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2).
 
-The grace period for this migration has already started and will end on the **1st of June, 2018**, when you will no longer be able to use ID Tokens as credentials for the Management API.
+The grace period for this migration starts on **March 31, 2018** and ends on **March 31, 2019**. That day forward you will no longer be able to use ID Tokens as credentials for the Management API.
 
 This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
 
@@ -286,8 +286,8 @@ var auth0Manage = new auth0.Management({
 The changes in this functionality are the following:
 
 - You can no longer use an ID Token at the `Authorization` header
-- If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you must send the ID Token of the secondary account in the request's body
-- If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you must send the `user_id` of the secondary account in the request's body. The following must apply:
+- If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you can send at the request's body either the `user_id` or the ID Token of the secondary account
+- If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you can only send the ID Token of the secondary account in the request's body. The following must apply:
   - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
   - The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
 
