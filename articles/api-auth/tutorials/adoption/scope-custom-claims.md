@@ -16,7 +16,7 @@ The OIDC specification defines a [set of standard claims](https://openid.net/spe
 
 ## Custom claims
 
-In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. Custom claims may still be added, but must conform to a namespaced format to avoid possible collisions with standard OIDC claims.
+To improve compatibility for client applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. 
 
 For example, suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user.
 
