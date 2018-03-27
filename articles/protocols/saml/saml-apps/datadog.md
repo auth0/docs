@@ -3,7 +3,7 @@ title: Datadog SAML Configuration
 description: Datadog SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {
