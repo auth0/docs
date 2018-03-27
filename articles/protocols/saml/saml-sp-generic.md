@@ -18,9 +18,9 @@ There are **5 sections**, including a troubleshooting section at the end.
 
 You will need to obtain some information from the Identity Provider.  The instructions here will be generic.  You will have to locate this information in your specific Identity Provider.
 
-* **SSO URL** - The URL at the Identity Provider to which SAML authentication requests should be sent.  This is often called an SSO URL.
+* **SSO URL** - The URL at the Identity Provider to which SAML authentication requests should be sent. This is often called an SSO URL.
 * **Logout URL** - The URL at the Identity Provider to which SAML logout requests should be sent.  This is often called a logout URL, a global logout URL or single logout URL.
-* **Signing certificate** - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions.  There should be a place to download the signing certificate from the Identity Provider.   If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
+* **Signing certificate** - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions. There should be a place to download the signing certificate from the Identity Provider. If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
 
 ## 2. Configure Auth0 as Service Provider
 
