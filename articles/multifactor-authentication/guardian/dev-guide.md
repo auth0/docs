@@ -35,7 +35,7 @@ Once you have enabled either option, you will be presented with the **Customize 
 ```js
 function (user, context, callback) {
 
-  //var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  //var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
   // run only for the specified clients
   // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
@@ -59,7 +59,7 @@ If you choose to selectively apply MFA, you will need the appropriate `clientID`
 More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
 
 ```js
-var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];
+var CLIENTS_WITH_MFA = ['REPLACE_WITH_CLIENT_ID'];
 ```
 
 Once you have finished making your desired changes, click "Save" so that they persist.
