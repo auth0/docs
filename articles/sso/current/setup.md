@@ -38,9 +38,11 @@ Two additional SSO-related settings should appear. You can change them, or you c
 You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
+Scroll to the bottom, and click **Save** to proceed.
+
 ## 3. Configure SSO Session Length
 
-When the SSO flag is set for a Client, Auth0 maintains an SSO session for any user authenticating via that Client. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+When SSO is enabled for a Client, Auth0 maintains an SSO session for any user authenticating via that Client. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
 
 To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 

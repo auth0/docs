@@ -7,9 +7,13 @@ toc: true
 
 Single Sign On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using. The user signs in only one time hence the naming of the feature (Single Sign On).
 
+## SSO Example
+
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that logs in to one of Google's products are automatically logged in to their other products as well.
 
-Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
+Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com).
+
+When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
 1. The user receives a Google Accounts-generated cookie.
@@ -51,7 +55,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
 1. Auth0 finds the SSO cookie, and if necessary, updates it.
 1. Auth0 returns an ID Token containing identity information for the user.
 
-Please note that, at no point during the above steps is the user shown a login screen.
+Please note that the user is never shown a login screen at any point during the above steps.
 
 ## SSO with Native Platforms
 
