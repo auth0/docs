@@ -1,6 +1,7 @@
 ---
 title: Feature-Specific Setup with Custom Domains
 description: How to set up custom domains with feature-specific instructions
+toc:true
 ---
 # Feature-Specific Setup
 
