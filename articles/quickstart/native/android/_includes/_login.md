@@ -28,34 +28,32 @@ You need to make sure you get a response compliant with the OpenID Connect proto
 To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**.
 :::
 
-After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process. 
+After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
 private void login() {
-    Auth0 auth0 = new Auth0(this);
-    auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
-                  .withScheme("demo")
-                  .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
-                  .start(MainActivity.this, new AuthCallback() {
-                      @Override
-                      public void onFailure(@NonNull Dialog dialog) {
-                        // Show error Dialog to user
-                      }
+        .withScheme("demo")
+        .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
+        .start(MainActivity.this, new AuthCallback() {
+            @Override
+            public void onFailure(@NonNull Dialog dialog) {
+               // Show error Dialog to user
+            }
 
-                      @Override
-                      public void onFailure(AuthenticationException exception) {
-                        // Show error to user
-                      }
+            @Override
+            public void onFailure(AuthenticationException exception) {
+               // Show error to user
+            }
 
-                      @Override
-                      public void onSuccess(@NonNull Credentials credentials) {
-                          // Store credentials
-                          // Navigate to your main activity
-                      }
-                });
+            @Override
+            public void onSuccess(@NonNull Credentials credentials) {
+               // Store credentials
+               // Navigate to your main activity
+            }
+    });
 }
 ```
 
@@ -74,7 +72,7 @@ Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available 
 After authentication, the browser redirects the user to your application with the authentication result. The SDK captures the result and parses it. 
 
 ::: note
-You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values.
+You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
 :::
 
 The `AndroidManifest.xml` file should look like this:

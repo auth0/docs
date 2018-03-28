@@ -70,7 +70,11 @@ If you have an API that sends messages from the protected `/private` endpoint, y
 // src/app/ping/ping.component.ts
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+interface IApiResponse {
+  message: string;
+}
 
 // ...
 export class PingComponent {
@@ -86,12 +90,8 @@ export class PingComponent {
       .get(`<%= "${this.API_URL}" %>/private`, {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access_token'))
       })
-      .pipe(
-        map(res => res.json()),
-        catchError(error => console.log(error))
-      )
       .subscribe(
-        data => this.message = data.message,
+        data => this.message = (data as IApiResponse).message,
         error => this.message = error
       );
   }

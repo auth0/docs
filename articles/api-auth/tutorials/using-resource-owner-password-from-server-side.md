@@ -82,7 +82,7 @@ app.post('/api/auth', function(req, res, next) {
       audience: 'API_IDENTIFIER',
       scope: 'SCOPE',
       client_id: '${account.clientId}',
-      client_secret: '${account.clientSecret}' // Client is authenticated
+      client_secret: 'YOUR_CLIENT_SECRET' // Client is authenticated
     },
     json: true
   };

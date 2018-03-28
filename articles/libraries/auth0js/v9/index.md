@@ -177,7 +177,8 @@ var url = webAuth.client.buildAuthorizeUrl({
   clientID: '${account.clientId}', // string
   responseType: 'token id_token', // code
   redirectUri: '${account.callback}',
-  state: 'YOUR_STATE'
+  state: 'YOUR_STATE',
+  nonce: 'YOUR_NONCE'
 });
 
 // Redirect to url

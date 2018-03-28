@@ -251,7 +251,7 @@ Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http
 Create the file `urls.py` in your application folder. Add the URL patterns.
 
 ```python
-# auth0authorization/views.py
+# auth0authorization/urls.py
 
 from django.conf.urls import url
 

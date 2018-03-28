@@ -96,7 +96,7 @@ The payload should be in the following format:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"https://${account.namespace}/api/v2/\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"https://${account.namespace}/api/v2/\"}"
   }
 }
 ```
@@ -172,7 +172,7 @@ def main():
   AUDIENCE = "https://${account.namespace}/api/v2/"
   DOMAIN = "${account.namespace}"
   CLIENT_ID = "${account.clientId}"
-  CLIENT_SECRET = "${account.clientSecret}"
+  CLIENT_SECRET = "YOUR_CLIENT_SECRET"
   GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
 
   # Get an Access Token from Auth0

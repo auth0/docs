@@ -221,6 +221,10 @@ For more information on `sort` and other parameters, see the [Management API Exp
 
 ## Page Results
 
+::: note
+Auth0 limits the number of users you can retrieve (1000). If you exceed this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [User Import / Export](/extensions/user-import-export) extension.
+:::
+
 To page the user search results, use the `page`, `per_page`, and `include_totals` parameters when making your request:
 
 Parameter | Description
@@ -270,7 +274,7 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 The user search engine v2 will be deprecated soon, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`). Before you start migrating, there's a few things you should know:
 
 * Search values are case insensitive in v3.
-* v3 limits the number of users you can retrieve to 1000.
+* v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
 * You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](#wildcards) and [exact matching](#exact-match).
 

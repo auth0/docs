@@ -53,13 +53,11 @@ We will publish guidance for each of the below scenarios on how to transition yo
 
 ### Resource Owner support for oauth/token endpoint
 
-Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year. 
-
-The current [/oauth/ro](/api/authentication#resource-owner) and [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoints will be deprecated in 2018.
+Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year.
 
 #### Am I affected by the change?
 
-If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will need to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead once migration guides are available.
+If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will be able to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead once migration guides are available.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 

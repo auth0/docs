@@ -92,7 +92,7 @@ Server-to-server Access Tokens can be obtained using the [Client Credentials flo
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"https://api.example.com/geocoding/v1/\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"https://api.example.com/geocoding/v1/\"}"
   }
 }
 ```

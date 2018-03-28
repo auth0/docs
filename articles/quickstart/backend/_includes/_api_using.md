@@ -35,7 +35,7 @@ You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }
 ```
@@ -57,7 +57,7 @@ Auth0 customers are billed based on the number of Client Credential Access Token
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"YOUR_API_IDENTIFIER\", \"scope\": \"read:messages\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"YOUR_API_IDENTIFIER\", \"scope\": \"read:messages\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
   }
 }
 ```

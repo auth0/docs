@@ -36,7 +36,7 @@ Your Java Spring App needs some information in order to authenticate against you
 ```xml
 com.auth0.domain: ${account.namespace}
 com.auth0.clientId: ${account.clientId}
-com.auth0.clientSecret: ${account.clientSecret}
+com.auth0.clientSecret: YOUR_CLIENT_SECRET
 ```
 
 The library we're using has this default behavior:
