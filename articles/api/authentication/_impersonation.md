@@ -63,6 +63,8 @@ include('../../_includes/_http-method', {
 
 ::: warning
 Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+
+You will also need to [set the appropriate flag in auth0.js](/user-profile/user-impersonation#enable-impersonation). 
 :::
 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.

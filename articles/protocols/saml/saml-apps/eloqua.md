@@ -3,7 +3,7 @@ title: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
 description: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 
 ```json
