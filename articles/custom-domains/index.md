@@ -17,7 +17,7 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](https://auth0.com/docs/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant Flows (those using the [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token) endpoints)
 * Guardian (Version 1.3.3 or later)
 * Emails (the links included in the emails will use your custom domain)
 * Database and Social connections

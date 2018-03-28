@@ -1,13 +1,13 @@
 ---
-title: Feature-Specific Setup with Custom Domains
-description: How to set up custom domains with feature-specific instructions
+title: Feature Specific Setup with Custom Domains
+description: How to set up custom domains with feature specific instructions
 toc: true
 ---
 # Feature-Specific Setup
 
 There are additional steps you must complete depending on which Auth0 features you are using.
 
-:::warning
+::: warning
 If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `tenant.auth0.com` will no longer be valid once you start using your custom domain, so users will have to login again.
 :::
 
@@ -69,7 +69,7 @@ If you would like your custom domain used with your Auth0 emails, you'll need to
 
 If you want to use social identity providers with your custom domain, you must update the allowed callback URLs to include your custom domain (such as `https://login.northwind.com/login/callback`).
 
-:::warning
+::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
 
@@ -98,6 +98,6 @@ app.use(jwt({
 }));
 ```
 
-:::note
-If you are using built-in Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://northwind.auth0.com/userinfo** and **https://northwind.auth0.com/api/v2/`)
+::: note
+If you are using built-in Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://northwind.auth0.com/userinfo` and `https://northwind.auth0.com/api/v2/`)
 :::
