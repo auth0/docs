@@ -18,6 +18,10 @@ The [example directory](https://github.com/auth0/auth0.js/tree/master/example) o
 1. Download dependencies by running `npm install` from the root of this project
 1. Finally, execute `npm start` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000/example`.
 
+^ When going to this page, 
+`"Attackers might be trying to steal your information from localhost (for example, passwords, messages, or credit cards). Learn more
+NET::ERR_CERT_AUTHORITY_INVALID"` error shows up. Also the proper link is `https://localhost:3000/example/index.html` from the print out
+
 ## Setup and initialization
 
 Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#signup), [login](#login), [logout](#logout), and more!
