@@ -106,9 +106,9 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multifactor Authentication](/multifactor-authentication) |
 | `gd_user_delete` | User delete | Deleted multifactor user account. | [User Profile](/user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
-| `limit_mu` | Blocked IP Address | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
+| `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
-| `limit_wc` | Blocked Account | | [Anomaly Detection](/anomaly-detection) |
+| `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `pwd_leak` | Breached password | | |
 | `s` | Success Login | Successful login event. | |
 | `sapi` | Success API Operation | | |
