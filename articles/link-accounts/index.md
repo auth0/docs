@@ -168,7 +168,7 @@ The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) i
 
 ## The Management API
 
-The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in three ways.
+The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways.
 
 1. With an Access Token that contains the `update:current_user_identities` scope, the `user_id` of the primary account as part of the URL, and the secondary account's ID Token in the payload:
 
@@ -220,7 +220,9 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  Alternatively you can send the secondary account's ID Token as part of the payload:
+  Note that the `SECONDARY_ACCOUNT_USER_ID` should be set to the `user_id` value that follows the character `|`. So for example, if the `user_id` is `google-oauth2|108091299999329986433` you should set the value `108091299999329986433` at your request.
+
+  Instead of the `provider` and `user_id`, you can send the secondary account's ID Token as part of the payload:
 
   ```har
   {
@@ -242,7 +244,11 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  Since the Access Token contains the `update:users` scope, it can be used to update the information of any user. Therefore this method is intended for use in server-side code.
+  The following restrictions apply:
+  - The secondary account's ID Token must be signed with `RS256`
+  - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
+
+  Note also that since the Access Token contains the `update:users` scope, it can be used to update the information of any user. Therefore this method is intended for use in server-side code only.
 
 ## Scenarios
 
@@ -258,9 +264,9 @@ For security purposes, it is best to link accounts **only if both e-mails are ve
 
 ### Automatic account linking
 
-**Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address.
+You can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address.
 
-The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [Management API v2 token](/api/v2/tokens) with `update:users` scope.
+The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
 
 Note, that if the primary account changes during the authorization transaction (for example, the account the user has logged in with, becomes a secondary account to some other primary account), you could get an error in the Authorization Code flow or an `id_token` with the wrong `sub` claim in the token flow. To avoid this, set `context.primaryUser = 'auth0|user123'` in the rule after account linking. This will tell the authorization server to use the user with id `auth0|user123` for the rest of the flow.
 
@@ -286,8 +292,8 @@ You can follow the [Account Linking from Server Side Code](/link-accounts/sugges
 
 The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
 
-* `update:current_user_identities`: when calling the endpoint from client-side code where you have the primary user's JWT (which comes with this scope).
-* `update:users`: when calling the endpoint from server-side code where you need to generate an [Management API v2 TOKEN](/api/v2/tokens) having this scope.
+* `update:current_user_identities`: when you call the endpoint from client-side code where you have an Access Token with this scope
+* `update:users`: when you call the endpoint from server-side code where you have an Access Token with this scope
 
 ```har
 {
