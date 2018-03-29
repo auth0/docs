@@ -1,26 +1,79 @@
 ---
-description: This page explains how to impersonate a user, often used for testing and troubleshooting purposes.
+description: This page explains how to impersonate a user, a feature often used for testing and troubleshooting purposes.
 toc: true
 ---
-# User Impersonation
+# User impersonation
 
-::: warning
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the **Sign in as User** button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
-:::
+In this article, we will cover:
 
-Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can log in to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
+* Why you might use impersonation
+* How you can enable impersonation
+* What the risks of using impersonation are
 
-Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following:
+## Why impersonation
 
-- Detailed auditing of who impersonated when.
-- Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
-- Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
+Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation, administrators can:
+
+* Log in to an app as a specific user
+* See everything exactly as that user sees it
+* Do everything exactly as that user does it
+
+Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following features and information:
+
+* Detailed auditing of who impersonated when
+* Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data
+* Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works
 
 ::: note
 Any [Rules](/rules) that you've implemented will run when you impersonate a user, including any actions that update the user.
 :::
 
-## Use the Dashboard
+## Enable impersonation
+
+Impersonation functionality may be disabled by default for your tenant.
+
+To check the status of your tenant:
+
+1. Go to the [Users](${manage_url}/#/users) page in the Dashboard
+2. Select a user
+3. See if the **Sign in as User** button is displayed
+
+If you can't see this button, [contact Support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+
+Once you've enabled impersonation for your account, you'll need to update **webAuth.parseHash** of the [auth0.js library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to true.
+
+```javascript
+var data = webAuth.parseHash(
+  {
+    ...
+    __enableIdPInitiatedLogin: true
+    ...
+  }
+```
+
+If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
+
+```
+const lock = new Auth0Lock(clientID, domain, options)
+```
+
+Here's the flag itself:
+
+```javascript
+var options = {
+    _enableIdPInitiatedLogin: true
+};
+```
+
+Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+
+::: warning
+Enabling impersonation leaves your client vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response.
+
+By enabling impersonation, you acknowledge that you understand and accept these risks.
+:::
+
+## Use the dashboard
 
 Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the client you want to log in to using the dropdown menu.
 
@@ -41,7 +94,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 Impersonating a user using the [Dashboard](${manage_url}) will not return an [ID Token](/tokens/id-token) to your application by default. There are two ways to achieve this. You can alter the **Response Type** setting in the impersonation menu's [Advanced Settings](#advanced-settings) from `Code` to `Token` (**Sign in as user** -> **Show Advanced Settings**). Alternatively, you can add `additionalParameters.scope: "openid"` to the request body while calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually.
 :::
 
-### Advanced Settings
+### Advanced settings
 
 When impersonating a user in Dashboard, after clicking **Sign in as User** you will see a link to expand "Advanced Settings".
 
@@ -54,15 +107,15 @@ This reveals fields to make it easier to [impersonate a User using the Impersona
 - **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
 - **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
-## Use the Impersonation API
+## Use the impersonation API
 
 You can also use the [Impersonation API](/api/authentication/reference#impersonation). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
 
-## Sample Implementation
+## Sample implementation
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`. You will need to locate the `user_id` of the user you wish to impersonate, either via the Dashboard or the Management API. Next, you will need to obtain an authorization code via the impersonation endpoint. Finally, you will need to exchange your code for a valid Access Token, and your impersonation process will be complete. You can walk through the steps below which use the example `app1` and `app2`.
 
-### 1. Find the User Id
+### 1. Find the user ID
 
 You can use one of two methods to locate the `user_id` of a given user that you want to impersonate. You can either use the Management API v2 to retrieve it, or you can use the Dashboard.
 
@@ -208,7 +261,7 @@ Content-Type: application/json
 
 Congratulations, you are done!
 
-## Keep Reading
+## Keep reading
 
 ::: next-steps
 - [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)

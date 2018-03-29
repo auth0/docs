@@ -15,7 +15,7 @@ DNS records must be finalized for all of the tenants prior to PSaaS Appliance de
 
 You’ll need one certificate per environment (such as if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
 
-If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
+If you’d like to use a [Webtask Dedicated Domain](/appliance/webtasks/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
 
 Dedicated and non-dedicated host names must be unique.
 

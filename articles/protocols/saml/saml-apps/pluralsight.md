@@ -3,7 +3,7 @@ title: Pluralsight SAML Configuration
 description: Pluralsight SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 
 ```json
