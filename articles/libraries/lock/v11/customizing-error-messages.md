@@ -33,4 +33,23 @@ var lock = new Auth0Lock(
 );
 ```
 
+If you are returning custom error codes from a [rule](https://auth0.com/docs/rules/current) or a [custom database script](https://auth0.com/docs/connections/database/custom-db#error-handling), you can also add the error messages in the dictionary:
+
+```js
+//custom database script: getUser
+function getByEmail (email, callback) {
+  callback(new ValidationError('custom-error-code', 'Some custom message'));
+}
+```
+
+```js
+languageDictionary: {
+  error: {
+    forgotPassword: {
+      "custom-error-code": "Your custom error message"
+    }
+  }
+}
+```
+
 These errors will be shown on the widget header.
