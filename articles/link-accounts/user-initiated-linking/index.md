@@ -3,159 +3,113 @@ description: How to provide a UI for the user to authenticate to their other acc
 crews: crew-2
 ---
 
-# User Initiated Account Linking
+# Account Linking Using Client Side Code
 
-In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account.
+Auth0 supports the linking of user accounts from various identity providers. 
 
-::: note
-You can find sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
-:::
+One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
 
-The following steps implement user-initiated account linking for a Single Page Application.
+The following steps implement this scenario for a Single Page Application (SPA). You can find the sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 
-## 1. Initial login
+## Step 1: Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
+The recommended way to trigger authentication is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [JavaScript Quickstart](/quickstart/spa/vanillajs).
 
-![](/media/articles/link-accounts/spa-initial-login.png)
+If you choose instead to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, you can review the sample code for this tutorial in the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) repo on Github.
 
-The following is a sample login using Lock:
+If you don't use Lock at all, but call the Authentication API directly, follow the [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant) tutorial.
 
-```html
-<script src="${lock_url}"></script>
-<script type="text/javascript">
+## Step 2: User initiates account linking
 
-  //Log in using Lock in Redirect Mode
-  function login(){
-    lock.show();
-  }
+Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, and so on). For example, in the user's settings page.
 
-  function lockAuthenticated(authResult) {
-    // Called when the user is authenticated
-    lock.getUserInfo(authResult.accessToken, function(error, profile) {
-      if (error) {
-        alert('There was an error getting user info. ' + error);
-        return;
-      }
+![SPA user setting's page](/media/articles/link-accounts/spa-user-settings.png)
 
-      localStorage.setItem('access_token', authResult.accessToken);
-      localStorage.setItem('id_token', authResult.idToken);
-      localStorage.setItem('user_id', profile.user_id);
-      showLoggedInUser(profile);
-    });
-  }
-
-  $(document).ready(function() {
-    lock.on("authenticated", lockAuthenticated);
-  });
-
-</script>
-<button onclick="javascript:login()">Login</button>
-```
-
-In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single Page Apps](/connections/passwordless/spa) tutorials for examples of passwordless login.
-
-## 2. User initiates account linking
-
-Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, and so on). For example, in the user's settings page:
-
-![](/media/articles/link-accounts/spa-user-settings.png)
-
-When the user clicks on any of the **Link Account** buttons, your app will trigger authentication to the account selected. After successful authentication, use the obtained JWT to link the accounts.
+When the user clicks on any of the **Link Account** buttons, your app will trigger authentication to the account selected. After successful authentication, use the obtained token to link the accounts.
 
 ### Handle the second authentication with Lock
 
-```html
-<script src="${lock_url}"></script>
-<script type="text/javascript">
-  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```js
+/*
+* Link Accounts.
+*/
+function linkPasswordAccount(connection) {
+  localStorage.setItem('linking','linking');
+ 
+  // Instantiates Lock, to get an id_token that will be then used to 
+  // link the account
 
-  function linkPasswordAccount(connection){
-    var opts = {
-      rememberLastLogin: false,
-      languageDictionary: {
-        title: 'Link with another account'
-      },
-      auth: {
-        responseType: 'token id_token'
+  var opts = { 
+    rememberLastLogin: false,
+    auth: {
+      responseType: 'token id_token',
+    },
+    dict: {
+      signin: {
+        title: 'Link another account'
       }
-    };
-
-    if (connection) {
-      opts.connections = [connection];
     }
-
-    // open lock in signin mode with the customized options for linking
-    lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
-    lock.show();
+  };
+        
+  if (connection) {
+    opts.allowedConnections = [connection];
   }
 
-  function lockAuthenticated(authResult)
-  {
-      if (isUserLoggedIn) {
-        linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
-      } else {
-        // handle authentication for the first login
-      }
-  }
+  lock = new Auth0Lock( AUTH0_CLIENT_ID , AUTH0_DOMAIN, opts);
+  lock.show();
+}
 
-  $(document).ready(function() {
-    lock.on("authenticated", lockAuthenticated);
-  });
-  
-</script>
-<button onclick="linkPasswordAccount()">Link Account</button>
-```
-
-### Handle the second authentication with Passwordless Mode
-
-```html
-<script src="${lock_url}"></script>
-<script type="text/javascript">
-  function linkPasswordlessSMS(){
-    
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}',
-    {
-      autoclose: true,
-      allowedConnections: ["sms"],
-      languageDictionary: {
-        passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
-      }
-    });
-
-    lock.on("authenticated", function(authResult)) {
+/*
+* Handles the "authenticated" event for all Lock log-ins.
+*/
+function lockAuthenticated(authResult) {
+    if (localStorage.getItem('linking') === 'linking') {
+      // The "Link Account" method first saves the "linking" item and then authenticates
+      // We identify that flow here, so after each subsequent log-in, we link the accounts
+      localStorage.removeItem('linking');
       linkAccount(authResult.idToken);
+    } else {
+        localStorage.setItem('access_token', authResult.accessToken);
+        localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem('user_id', authResult.idTokenPayload.sub);
+        reloadProfile();
     }
-
-    lock.show();
-  }
-</script>
-<button onclick="linkPasswordlessSMS()">SMS</a>
+}
 ```
 
-## 3. Perform linking by calling the Auth0 Management API
+:::note
+In the sample you can also find the code in order to handle the second authentication with Passwordless and SMS (see function `linkPasswordlessSMS()`), Passwordless and email code (see `linkPasswordlessEmailCode()`), or Passwordless and Magic Link (see `linkPasswordlessEmailLink()`).
+:::
 
-In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
+## Step 3: Call the API to link accounts
+
+In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities). Authenticate with the API using the Access Token, and link using the primary user's ID and the secondary user's ID Token.
 
 ```js
-function linkAccount(secondaryJWT){
-  // At this point you can fetch the secondary user_metadata for merging
-  // with the primary account. Otherwise it will be lost after linking the accounts
-  var primaryJWT = localStorage.getItem('id_token');
+function linkAccount(secondaryIdToken) {
+
+  // At this point you could fetch the secondary account's user_metadata for merging with the primary account.
+  // Otherwise, it will be lost after linking the accounts
+
+  // Uses the access_token of the primary user as a bearer token to identify the account
+  // which will have the account linked to, and the id_token of the secondary user, to identify
+  // the user that will be linked into the primary account. 
+
+  var primaryAccessToken = localStorage.getItem('access_token');
   var primaryUserId = localStorage.getItem('user_id');
+
   $.ajax({
     type: 'POST',
-    url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId + '/identities',
+    url: 'https://' + AUTH0_DOMAIN +'/api/v2/users/' + primaryUserId + '/identities',
     data: {
-      link_with: secondaryJWT
+      link_with: secondaryIdToken
     },
     headers: {
-      'Authorization': 'Bearer ' + primaryJWT
+      'Authorization': 'Bearer ' + primaryAccessToken
     }
   }).then(function(identities){
     alert('linked!');
-    showLinkedAccounts(identities);
+    reloadProfile();
   }).fail(function(jqXHR){
     alert('Error linking Accounts: ' + jqXHR.status + " " + jqXHR.responseText);
   });
@@ -166,20 +120,25 @@ If you wish to retain and merge the `user_metadata` from the secondary account, 
 
 Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
 
-## 4. Unlinking accounts
+## Step 4: Unlinking accounts
 
-For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
+For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the Access Token for authorization.
 
 ```js
-function unlinkAccount(secondaryProvider, secondaryUserId){
+function unlinkAccount(secondaryProvider, secondaryUserId) {
   var primaryUserId = localStorage.getItem('user_id');
-  var primaryJWT = localStorage.getItem('id_token');
+  var primaryAccessToken = localStorage.getItem('access_token');
+  
+  // Uses the access_token of the primary user as a bearer token to identify the account
+  // which will have the account unlinked to, and the user id of the secondary user, to identify
+  // the user that will be unlinked from the primary account. 
+
   $.ajax({
     type: 'DELETE',
-    url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId +
+    url: 'https://' + AUTH0_DOMAIN +'/api/v2/users/' + primaryUserId +
          '/identities/' + secondaryProvider + '/' + secondaryUserId,
     headers: {
-      'Authorization': 'Bearer ' + primaryJWT
+      'Authorization': 'Bearer ' + primaryAccessToken
     }
   }).then(function(identities){
     alert('unlinked!');
