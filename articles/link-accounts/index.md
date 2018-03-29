@@ -278,7 +278,7 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ![](/media/articles/link-accounts/spa-user-settings.png)
 
-You can follow the [User-initiated Account Linking](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
+You can follow the [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
 
 ### Suggested account linking
 
@@ -286,7 +286,7 @@ As with automatic linking, in this scenario you will set up a [Rule](/rules) tha
 
 ![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
-You can follow the [Account Linking from Server Side Code](/link-accounts/suggested-linking) tutorial or view the [Auth0 Node.js Regular Web App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) on Github for implementation details.
+You can follow the [Account Linking Using Server Side Code](/link-accounts/suggested-linking) tutorial or view the [Auth0 Node.js Regular Web App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) on Github for implementation details.
 
 ## Unlinking accounts
 

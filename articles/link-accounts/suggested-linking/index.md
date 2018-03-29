@@ -22,7 +22,7 @@ You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App
 
 The recommended way to trigger authentication is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [Node.js Quickstart](/quickstart/webapp/nodejs).
 
-If you choose to instead embed the [Lock](/libraries/lock/v11) widget in your app, you can review the sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
+If you choose instead to embed the [Lock](/libraries/lock/v11) widget in your app, you can review the sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 
 If you don't use Lock at all, but call the Authentication API directly, follow the [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant) tutorial.
 
