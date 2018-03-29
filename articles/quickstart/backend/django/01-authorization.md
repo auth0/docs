@@ -112,7 +112,7 @@ publickey = certificate.public_key()
 
 JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER':
-        'authorization.user.jwt_get_username_from_payload_handler',
+        'auth0authorization.user.jwt_get_username_from_payload_handler',
     'JWT_PUBLIC_KEY': publickey,
     'JWT_ALGORITHM': 'RS256',
     'JWT_AUDIENCE': '${apiIdentifier}',
