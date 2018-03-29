@@ -1693,5 +1693,9 @@ module.exports = [
   {
     from: `/guides/login/migration-embedded-centralized`,
     to: `/guides/login/migration-embedded-universal`
+  },
+  {
+    from: `/link-accounts/auth-api`,
+    to: `/link-accounts`
   }
 ];
