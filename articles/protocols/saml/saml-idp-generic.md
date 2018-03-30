@@ -45,6 +45,8 @@ If the Service Provider does not support uploading a metadata file, you can conf
 
 - **Identity Provider Login URL**: This is the URL to which the Service Provider should send its SAML Authentication Requests.
 
+Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, instead of using a URL in the format of `https://[YOUR TENANT].auth0.com/samlp/CLIENTID?connection=Username-Password-Authentication` you will want to use one in this format: `https://[YOUR CUSTOM DOMAIN]/samlp/CLIENTID?connection=Username-Password-Authentication`.
+
 If the Service Provider also has a field for a Logout URL, you can enter the same **Identity Provider Login URL**. Both login and logout are handled by the same URL.
 
 The Service Provider will need a certificate from Auth0. 
