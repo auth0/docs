@@ -252,19 +252,18 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
 
 ## Scenarios
 
-Below are implementation details for calling the Linking Account API in these scenarios:
-
-* [Automatic account linking](#automatic-account-linking)
-* [User-initiated account linking](#user-initiated-account-linking)
-* [Suggested account linking](#suggested-account-linking)
+In this section we will see some scenarios that implement account linking:
+* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same e-mail address
+* [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
+* [Suggested account linking](#suggested-account-linking): identify accounts with the same e-mail address and prompt the user in your app to link them
 
 ::: warning
-For security purposes, it is best to link accounts **only if both e-mails are verified**.
+For security purposes, link accounts **only if both e-mails are verified**.
 :::
 
 ### Automatic account linking
 
-You can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address.
+You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same e-mail address.
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
 
@@ -276,7 +275,7 @@ For a rule template on automatic account linking, see [Link Accounts with Same E
 
 Typically, account linking will be initiated by an authenticated user. Your app must provide the UI, such as a **Link accounts** button on the user's profile page.
 
-![](/media/articles/link-accounts/spa-user-settings.png)
+![Sample user profile page](/media/articles/link-accounts/spa-user-settings.png)
 
 You can follow the [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
 
@@ -284,7 +283,7 @@ You can follow the [Account Linking Using Client Side Code](/link-accounts/user-
 
 As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified e-mail address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
 
-![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
+![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
 You can follow the [Account Linking Using Server Side Code](/link-accounts/suggested-linking) tutorial or view the [Auth0 Node.js Regular Web App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) on Github for implementation details.
 
