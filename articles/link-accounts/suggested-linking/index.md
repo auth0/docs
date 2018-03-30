@@ -20,7 +20,9 @@ You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App
 
 ## Step 1: Authenticate the user
 
-The recommended way to trigger authentication is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [Node.js Quickstart](/quickstart/webapp/nodejs).
+Start by logging in the user to your application.
+
+The recommended implementation is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [Node.js Quickstart](/quickstart/webapp/nodejs).
 
 If you choose instead to embed the [Lock](/libraries/lock/v11) widget in your app, you can review the sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 
@@ -213,9 +215,9 @@ module.exports = new Auth0Client();
 
 ## Unlinking accounts
 
-If, at any point in the future, you need to unlink two or more user accounts, you can do so.
+If you need to unlink two or more user accounts, you can do so.
 
-First, you need custom endpoint to update the user in session with the new array of identities (each of which represent a separate user account).
+First, you need to update the user in session with the new array of identities (each of which represent a separate user account).
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -236,7 +238,7 @@ router.post('/unlink-accounts/:targetUserProvider/:targetUserId',ensureLoggedIn,
 });
 ```
 
-Then, invoke the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
+Then, call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
 
 ```js
 const request = require('request');

@@ -13,7 +13,9 @@ The following steps implement this scenario for a Single Page Application (SPA).
 
 ## Step 1: Initial login
 
-The recommended way to trigger authentication is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [JavaScript Quickstart](/quickstart/spa/vanillajs).
+Start by logging in the user to your application.
+
+The recommended implementation is to use [universal login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [JavaScript Quickstart](/quickstart/spa/vanillajs).
 
 If you choose instead to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, you can review the sample code for this tutorial in the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) repo on Github.
 
@@ -36,7 +38,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
 function linkPasswordAccount(connection) {
   localStorage.setItem('linking','linking');
  
-  // Instantiates Lock, to get an id_token that will be then used to 
+  // Instantiates Lock, to get a token that will be then used to 
   // link the account
 
   var opts = { 
@@ -77,9 +79,7 @@ function lockAuthenticated(authResult) {
 }
 ```
 
-:::note
-In the sample you can also find the code in order to handle the second authentication with Passwordless and SMS (see function `linkPasswordlessSMS()`), Passwordless and email code (see `linkPasswordlessEmailCode()`), or Passwordless and Magic Link (see `linkPasswordlessEmailLink()`).
-:::
+In the sample you can also find the code in order to handle the second authentication with Passwordless and SMS (see function `linkPasswordlessSMS`), Passwordless and email code (see `linkPasswordlessEmailCode`), or Passwordless and Magic Link (see `linkPasswordlessEmailLink`).
 
 ## Step 3: Call the API to link accounts
 
@@ -120,9 +120,11 @@ If you wish to retain and merge the `user_metadata` from the secondary account, 
 
 Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
 
-## Step 4: Unlinking accounts
+## Unlink accounts
 
-For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the Access Token for authorization.
+If you need to unlink two or more user accounts, you can do so.
+
+Call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId) {
@@ -148,3 +150,5 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
   });
 }
 ```
+
+That's it, you are done!
