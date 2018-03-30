@@ -7,12 +7,9 @@ public: false
 
 ## Why this error occurred
 
-Beginning with **auth0.js version 9** and **Lock version 11**:
+Beginning with **auth0.js version 9** and **Lock version 11**, when ID Tokens are signed with HS256, they are discarded and a call to **/userinfo** is made to retrieve user information. 
 
-* HS256-signed ID Tokens are discarded
-* API calls to **/userinfo** are made with a valid Access Token
-
-If you do not have a valid Access Token, you will receive the following error:
+Calling **/userinfo** requires and Access Token. If you don't ask for an access token when authenticating, you will receive the following error:
 
 ```
 accessToken parameter is not valid
@@ -30,5 +27,5 @@ accessToken parameter is not valid
     1. Open up the **OAuth** tab. Change the value of **JsonWebToken Signature Algorithm** to **RS256**
     1. Scroll to the bottom of the page and click **Save Changes**
 
-    If you proceed with this option and you are using Access Tokens to call your APIs, be sure to change your server code so that it validates tokens using the RS256 algorithm instead of HS256.
+    If you proceed with this option and you are using the ID Token to call your APIs, be sure to change your server code so that it validates tokens using the RS256 algorithm instead of HS256. Note that using ID Tokens to call APIs [is not recommended](/api-auth/why-use-access-tokens-to-secure-apis).
 
