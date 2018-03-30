@@ -9,13 +9,17 @@ In order to set up custom domains, and depending on the Auth0 features you are u
 
 If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `${account.namespace}` will no longer be valid once you start using your custom domain, so users will have to login again.
 
+## Prerequisites
+
+You have already configured and verified your custom domain. If not, see [How to configure custom domains](/custom-domains#how-to-configure-custom-domains).
+
 ## Which section is relevant to me?
 
 | **Feature** | **Section to read** |
 |-|-|
 | You use [universal login](/hosted-pages/login) and you have customized the login page | [Universal login](#universal-login) |
 | You use Lock embedded in your application | [Embedded Lock](#embedded-lock) |
-| You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0js-and-other-sdks) |
+| You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
 | You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
@@ -93,9 +97,11 @@ Alternatively, you can use signed requests to fulfill this requirement:
 - The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
 - Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
 
-Once this is done, and you start using your custom domain, the IdP will receive that custom domain in your signed request. Because your application is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. This will prevent you from having to change one or many IdP settings all at the same time, instead allowing you to prepare them to accept your signed requests ahead of time. you can then at a later date have the IdPs change the ACS URL as well.
+Once this is done, and you start using your custom domain, the IdP will receive that custom domain in your signed request. Because your application is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours to confirm whether this is supported or not.
 
-Note that if your Identity Provider is configured to use custom domains, the **Try** button in the Dashboard will **not** work.
+If this is supported, it will prevent you from having to change one or many IdP settings all at the same time, and allow you to prepare them to accept your signed requests ahead of time. You can then at a later date have the IdPs change the ACS URL as well.
+
+Something else to keep in mind, is that if your Identity Provider is configured to use custom domains, the **Try** button in the Dashboard will **not** work.
 
 ## Configure your SAML clients
 
