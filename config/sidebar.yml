@@ -208,8 +208,12 @@ articles:
       - title: "Social/Enterprise"
         url: "/identityproviders"
         children:
+        
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
+            
+          - title: "Passing Parameters to IdPs"
+            url: "/connections/passing-parameters-to-idps
 
       - title: "Your Database"
         url: "/connections/database/custom-db"
