@@ -10,7 +10,7 @@ By default, Auth0 enables Guardian for all clients.
 ```js
 function (user, context, callback) {
 
-  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
 
   // Apply Guardian only for the specified clients
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {

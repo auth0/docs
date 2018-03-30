@@ -25,7 +25,7 @@ Initializes a new instance of `Auth0Lock` configured with your client's `clientI
 
 - **clientId {String}**: Required parameter. Your application's _clientId_ in Auth0.
 - **domain {String}**: Required parameter. Your Auth0 _domain_. Usually _your-account.auth0.com_.
-- **options {Object}**: Optional parameter. Allows for the configuration of Lock's appearance and behavior. See [the configuration options page](/libraries/lock/v10/customization) for details.
+- **options {Object}**: Optional parameter. Allows for the configuration of Lock's appearance and behavior. See [the configuration options page](/libraries/lock/v11/configuration) for details.
 
 **Example:**
 
@@ -83,15 +83,15 @@ The `show` method displays the widget. Beginning with Lock version 10.2.0, the `
 
 The following subset of `options` to be overridden from the values they were given (or their defaults) when Lock was instantiated:
 
-- [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-)
-- [auth.params](/libraries/lock/v10/customization#params-object-)
-- [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-)
-- [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-)
-- [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-)
-- [initialScreen](/libraries/lock/v10/customization#initialscreen-string-)
-- [rememberLastLogin](/libraries/lock/v10/customization#rememberlastlogin-boolean-)
+- [allowedConnections](/libraries/lock/v11/configuration#allowedconnections-array-)
+- [auth.params](/libraries/lock/v11/configuration#params-object-)
+- [allowLogin](/libraries/lock/v11/configuration#allowlogin-boolean-)
+- [allowSignUp](/libraries/lock/v11/configuration#allowsignup-boolean-)
+- [allowForgotPassword](/libraries/lock/v11/configuration#allowforgotpassword-boolean-)
+- [initialScreen](/libraries/lock/v11/configuration#initialscreen-string-)
+- [rememberLastLogin](/libraries/lock/v11/configuration#rememberlastlogin-boolean-)
 
-For more detail on the entire list of configurable options that can be chosen when instantiating Lock, as opposed to the limited subset above that can be overridden in the `show` method, please see the [user configurable options page](/libraries/lock/v10/customization).
+For more detail on the entire list of configurable options that can be chosen when instantiating Lock, as opposed to the limited subset above that can be overridden in the `show` method, please see the [user configurable options page](/libraries/lock/v11/configuration).
 
 Options override examples:
 
@@ -161,7 +161,7 @@ Rather than simply failing to login, and Lock closing.
 hide()
 ```
 
-The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v10/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.
+The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v11/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.
 
 Example usage to hide (close) the Lock widget in popup mode:
 
@@ -218,7 +218,7 @@ lock.on("authenticated", function(authResult) {
 
 ## resumeAuth()
 
-If you set the [auth.autoParseHash](/libraries/lock/v10/customization#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
+If you set the [auth.autoParseHash](/libraries/lock/v11/configuration#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
 
 - **hash** {String}: The hash fragment received from the redirect.
 - **callback** {Function}: Will be invoked after the parse is done. Has an error (if any) as the first argument and the authentication result as the second one. If there is no hash available, both arguments will be `null`.

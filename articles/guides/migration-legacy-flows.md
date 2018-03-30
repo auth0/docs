@@ -156,7 +156,7 @@ function getUserUsingManagementApi() {
   }
   ```
 
-You can can ask for the following scopes:
+You can ask for the following scopes:
 
 * `read:current_user`
 * `update:current_user_identities`

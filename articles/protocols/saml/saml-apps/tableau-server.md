@@ -3,7 +3,7 @@ title: Tableau Server SAML Configuration
 description: Tableau Server SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

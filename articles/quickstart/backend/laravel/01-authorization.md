@@ -380,7 +380,7 @@ class MyCustomUserRepository implements Auth0UserRepository {
 
         // it is not the same user as logged in, it is not valid
         if ($user && $user->auth0id == $identifier) {
-            return $auth0User;
+            return $user;
         }
     }
 
