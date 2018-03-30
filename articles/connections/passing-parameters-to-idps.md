@@ -23,6 +23,21 @@ As an example, let's use WordPress, which allows you to pass an optional `blog` 
 
 To accomplish this, you will map WordPress's `blog` parameter to the existing accepted parameter of `access_type` and assign it a default value of `myblog.wordpress.com`:
 
+```
+{
+  "name": "WordPressConn",
+  "strategy": "wordpress",
+  "options": {
+    "upstream_params": {
+      "blog": {
+        "alias": "access_type",
+        "value": "myblog.wordpress.com"
+      }
+    }
+  }
+}
+```
+
 ```har
 {
   "method": "PATCH",
@@ -51,21 +66,6 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
 }
 ```
 
-```
-{
-  "name": "WordPressConn",
-  "strategy": "wordpress",
-  "options": {
-    "upstream_params": {
-      "blog": {
-        "alias": "access_type",
-        "value": "myblog.wordpress.com"
-      }
-    }
-  }
-}
-```
-
 You can test out your code and see other available attributes in our [Management API Explorer](https://auth0.com/docs/api/management/v2#!/Connections/post_connections).
 
 
@@ -75,6 +75,19 @@ Sometimes you may want to configure parameters per user. To do this, use the `up
 
 As an example, let's use Twitter, which allows you to pass an optional `screen_name` parameter to its OAuth authorization endpoint (for more information, see [Twitter's API reference](https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize)). Twitter's `screen_name` parameter pre-fills the username input box of the login screen with the given value, so we want to map it to the existing accepted parameter of `login_hint`.
 
+```
+{
+  "name": "TwitterConn",
+  "strategy": "twitter",
+  "options": {
+    "upstream_params": {
+      "screen_name": {
+        "alias": "login_hint"
+      }
+    }
+  }
+}
+```
 
 ```har
 {
@@ -98,20 +111,6 @@ As an example, let's use Twitter, which allows you to pass an optional `screen_n
         \"tokenURL\": \"https://api.twitter.com/oauth/request_token\" 
       } 
     }"
-  }
-}
-```
-
-```
-{
-  "name": "TwitterConn",
-  "strategy": "twitter",
-  "options": {
-    "upstream_params": {
-      "screen_name": {
-        "alias": "login_hint"
-      }
-    }
   }
 }
 ```
