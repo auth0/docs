@@ -130,7 +130,7 @@ https://customer0.myauth0.com/authorize
 And that value will in turn be passed along to the Twitter authorization endpoint in the `screen_name` parameter:
 
 ```text
-https://IDP
+https://api.twitter.com/oauth/authorize
   ?oauth_token=TOKEN
   &screen_name=john@gmail.com
 ```
