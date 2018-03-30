@@ -230,9 +230,6 @@ Note that deleting the client grant will prevent *new tokens* from being issued 
 __My Client Secret was compromised! What should I do?__</br>
 You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Note that previously issued tokens will continue to be valid until their expiration time.
 
-__I can see some `current_user` scopes in my `id_token`. What is that?__</br>
-Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
-
 ## Keep reading
 
 ::: next-steps
