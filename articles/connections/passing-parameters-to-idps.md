@@ -4,16 +4,7 @@ For Identity Providers that support parameters, you can pass provider-specific p
 
 Only [valid OAuth 2.0/OIDC parameters](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint) are accepted.
 
-Parameters are not supported for the following Identity Providers:
-- Auth0 OpenIDConnect
-- Basecamp
-- Bitbucket
-- Docomo
-- Dropbox
-- Facebook
-- Google OpenID
-- Microsoft Account
-- SAMLP
+Some Identity Providers do not support parameters. Check your desired Identity Provider's documentation to see if parameters are supported.
 
 ## Passing Static Parameters
 
