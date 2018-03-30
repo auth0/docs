@@ -92,7 +92,7 @@ Since third-party clients are assumed to be untrusted, they are not able to skip
 
 ## Revoking Consent
 
-If a user has provided consent, but you would like to revoke it, you can do so via [Dashboard > Users](${manage_url}). Select the user in which you are interested, and switch over to the **Authorized Clients** tab.
+If a user has provided consent, but you would like to revoke it, you can do so via [Dashboard > Users](${manage_url}/#/users). Select the user in which you are interested, and switch over to the **Authorized Clients** tab.
 
 Click **Revoke** next to the appropriate application.
 
