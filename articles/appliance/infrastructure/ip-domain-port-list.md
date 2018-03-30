@@ -129,7 +129,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions</td>
+    <td>Required to run web extensions; also required for admins to browse to the Management Dashboard</td>
     <td>Yes</td>
   </tr>
   <tr>
