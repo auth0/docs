@@ -3,16 +3,18 @@ public: false
 ---
 # Parsing an HS256-Signed ID Token Without an Access Token
 
-**Error Message**: accessToken parameter is not valid
+**Error Message**: The ID Token cannot be validated because it was signed using the HS256 algorithm and public clients (such as a browser) can’t store secrets. Please read the associated doc for ways to fix this.
 
 ## Why this error occurred
 
 Beginning with **auth0.js version 9** and **Lock version 11**, when ID Tokens are signed with HS256, they are discarded and a call to **/userinfo** is made to retrieve user information. 
 
-Calling **/userinfo** requires and Access Token. If you don't ask for an access token when authenticating, you will receive the following error:
+Calling **/userinfo** requires an Access Token. If you don't ask for an Access Token when authenticating, you will receive the following error:
 
 ```
-The ID Token cannot be validated because it was signed using the HS256 algorithm and public clients (such as a browser) can’t store secrets. Please read the associated doc for ways to fix this.
+The ID Token cannot be validated because it was signed using the HS256 algorithm
+and public clients (such as a browser) can’t store secrets. Please read the associated
+doc for ways to fix this.
 ```
 
 ## Ways to fix this error
