@@ -19,9 +19,9 @@ doc for ways to fix this.
 
 ## Ways to fix this error
 
-1. Change the value of your **responseType** parameter to **token id_token**, so that you receive an Access Token in the response.
+To fix this error, change the value of your **responseType** parameter to **token id_token**, so that you receive an Access Token in the response.
 
-1. Change your client's hash algorithm to RS256. You can do so using the Dashboard:
+You may also want to change your client's hash algorithm to RS256. You can do so using the Dashboard:
 
     1. Go to [Dashboard > Clients]({$manage_url}/#/clients)
     1. Select your client
