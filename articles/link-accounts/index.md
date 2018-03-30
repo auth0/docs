@@ -192,7 +192,7 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  Since the Access Token contains the `update:current_user_identities` scope, it can only be used to update the information of the currently logged-in user. Therefore this method is suitable for scenarios where the user initiates the linking process.
+  An Access Token that contains the `update:current_user_identities` scope, can only be used to update the information of the currently logged-in user. Therefore this method is suitable for scenarios where the user initiates the linking process.
 
   Note the following restrictions:
   - The secondary account's ID Token must be signed with `RS256`
@@ -220,7 +220,7 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  Note that the `SECONDARY_ACCOUNT_USER_ID` should be set to the `user_id` value that follows the character `|`. So for example, if the `user_id` is `google-oauth2|108091299999329986433` you should set the value `108091299999329986433` at your request.
+  The `SECONDARY_ACCOUNT_USER_ID` and `SECONDARY_ACCOUNT_PROVIDER` can be deduced by the unique ID of the user. So for example, if the user ID is `google-oauth2|108091299999329986433`, set the `google-oauth2` part as the `provider`, and the `108091299999329986433` part as the `user_id` at your request.
 
   Instead of the `provider` and `user_id`, you can send the secondary account's ID Token as part of the payload:
 
@@ -244,11 +244,11 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  The following restrictions apply:
+  The following restrictions apply in case you decide to send the ID Token as part of the payload:
   - The secondary account's ID Token must be signed with `RS256`
   - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
-  Note also that since the Access Token contains the `update:users` scope, it can be used to update the information of any user. Therefore this method is intended for use in server-side code only.
+  Note also that since the Access Token contains the `update:users` scope, it can be used to update the information of **any** user. Therefore this method is intended for use in server-side code only.
 
 ## Scenarios
 
