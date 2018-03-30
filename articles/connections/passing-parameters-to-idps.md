@@ -11,8 +11,8 @@ Parameters are not supported for the following Identity Providers:
 - Docomo
 - Dropbox
 - Facebook
-- Google OpenID (google-openid)
-- Microsoft Account (windows-live)
+- Google OpenID
+- Microsoft Account
 - SAMLP
 
 ## Passing Static Parameters
