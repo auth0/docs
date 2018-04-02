@@ -55,7 +55,7 @@ Your Java App needs some information in order to authenticate against your Auth0
 
 <context-param>
     <param-name>com.auth0.clientSecret</param-name>
-    <param-value>${account.clientSecret}</param-value>
+    <param-value>YOUR_CLIENT_SECRET</param-value>
 </context-param>
 ```
 

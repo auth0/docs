@@ -4,8 +4,6 @@ description:  Using Google Authenticator with Auth0 for administrators
 
 # Google Authenticator for Administrators
 
-<%= include('./_deprecation-notice.md') %>
-
 ## Enabling Google Authenticator for MFA
 
 To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
@@ -49,7 +47,7 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'google-authenticator',
         // issuer: 'Label on Google Authenticator App', // optional
-        // key: '{YOUR_KEY_HERE}', //  optional, the key to use for TOTP. by default one is generated for you
+        // key: 'YOUR_KEY_HERE', //  optional, the key to use for TOTP. by default one is generated for you
 
         // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details

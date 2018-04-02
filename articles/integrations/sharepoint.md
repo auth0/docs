@@ -4,23 +4,23 @@ description: How to integrate with SharePoint 2010/2013, including setup, troubl
 
 # SharePoint 2010/2013 Integration
 
-Auth0 can help radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add Single Sign On (SSO) to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on.), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on.) or with username and password.
+Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add Single Sign On (SSO) to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
 
 ## Setup
 
 ### 1. Adding the Integration to your account
 
-The first thing you need to do is go to the [SSO Integrations](${manage_url}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
+The first thing you need to do is go to the [SSO Integrations](${manage_url}/#/externalapps/create) section in the Dashboard and choose **SharePoint** from the list of apps.
 
 ![Create a new SSO Integration](/media/articles/integrations/sharepoint/sharepoint-new-sso.png)
 
 ### 2. Follow the Live Documentation
 
 ::: note
-If your SharePoint server does not have Internet access, you will need to download the installation files to a SharePoint server manually. [Learn more](https://github.com/auth0/auth0-sharepoint/tree/master/auth0-authentication-provider#offline-installation)
+If your SharePoint server does not have Internet access, you will need to download the installation files to a SharePoint server manually ([Learn more about offline installation](https://github.com/auth0/auth0-sharepoint/tree/master/auth0-authentication-provider#offline-installation)).
 :::
 
-On the Settings tab you'll need to enter the URL of the SharePoint Web Application and the external URL (typically the internet endpoint in your Alternate Access Mappings).
+On the **Settings** tab you'll need to enter the URL of the SharePoint Web Application and the external URL (typically the internet endpoint in your Alternate Access Mappings).
 
 ![Tutorial](/media/articles/integrations/sharepoint/sharepoint-app-tutorial.png)
 
@@ -28,11 +28,11 @@ The Live Documentation will first start with the installation of the Auth0 CmdLe
 
 ![Auth0 CmdLets for SharePoint](/media/articles/integrations/sharepoint/sharepoint-cmdlets-installation.png)
 
-Once these have been installed you'll be able to enable/disable Auth0 and the Claims Provider for the different Web Applications. You'll first enable authentication with Auth0:
+Once these have been installed you'll be able to enable/disable Auth0 and the Claims Provider for the different Web Applications. You will need to enable authentication with Auth0:
 
 ![Auth0 Authentication for SharePoint](/media/articles/integrations/sharepoint/sharepoint-auth-installation.png)
 
-And as a last step you'll also install the Claims Provider, to make sure the People Picker, permissions, ... work correctly:
+And then install the Claims Provider, to make sure that the People Picker and permissions work correctly:
 
 ![Claims Provider for SharePoint](/media/articles/integrations/sharepoint/sharepoint-cp-installation.png)
 
@@ -42,8 +42,8 @@ Once these scripts have been executed you'll complete the configuration in Centr
 
 Note that the call to `Enable-Auth0` can be adapted to:
 
- - Change the unique identifier for users (eg: email or user_id)
- - Allow addition claims to be passed through to SharePoint
+ - Change the unique identifier for users (such as email or a user id)
+ - Allow additional claims to be passed through to SharePoint
  - Enable or disable the default Windows Authentication
 
 The following example also adds the Role claim to the claims mapping and allows Windows Authentication:
@@ -62,15 +62,44 @@ Enable-Auth0
   -allowWindowsAuth
 ```
 
-### 3. You've nailed it
+### 3. You now have Sharepoint configured
 
-You have configured SharePoint to use Auth0 as the SSO Broker. When your users visit your site they'll be presented with a login page showing all the connections enabled for that application.
+You have configured SharePoint to use Auth0 as the SSO broker. When your users visit your site they'll be presented with a login page showing all the connections enabled for that application.
 
 ![SharePoint Login Page](/media/articles/integrations/sharepoint/sharepoint-login-page.png)
 
 Depending on which claims have been mapped when installing the claims provider this additional information will also be available in the user's personal settings page:
 
 ![SharePoint User Info](/media/articles/integrations/sharepoint/sharepoint-user-info.png)
+
+## Customizing the Login Page
+
+You can customize the login page by following the instructions in the [documentation on customizing the login page](/hosted-pages/login#how-to-customize-your-login-page).
+
+You might wish to provide a way to let users authenticate with Sharepoint using Windows Authentication, bypassing Auth0. You can do that by customizing the login page, adding a link to the Windows Authentication endpoint (usually similar to `https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx`).
+
+On way of doing it is by using jQuery to modify the Lock widget and add a link to the Windows Authentication endpoint.
+
+You need to add a reference to jQuery at the top of the `<body>` section of the customized login page.
+
+```js
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+```
+
+Before calling `lock.show()`, add code to modify the HTML DOM that adds the link.
+
+```js
+lock.on('signin ready', function() {
+  $('.auth0-lock-tabs-container')
+    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' +
+            '<a class="auth0-lock-alternative-link" ' + 
+            'href="https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx">' + 
+            'Login with Windows Authentication</a>' +
+            '</p><p><span>or</span></p></div>');
+        });
+```
+
+![SharePoint Login Page Windows Auth](/media/articles/integrations/sharepoint/sharepoint-login-page-windows-auth.png)
 
 ## Troubleshooting
 

@@ -6,8 +6,6 @@ url: /multifactor-authentication/google-authenticator
 
 # Google Authenticator
 
-<%= include('./_deprecation-notice.md') %>
-
 Google Authenticator is a mobile application made by Google that implements two-step verification.  Authenticator provides a six to eight digit one-time password which users must provide in addition to their username and password to log into an application.
 
 **Click the link below that most fits your role to learn more:**

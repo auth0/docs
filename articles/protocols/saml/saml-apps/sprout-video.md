@@ -3,7 +3,7 @@ title: Sprout Video SAML Configuration
 description: Sprout Video SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

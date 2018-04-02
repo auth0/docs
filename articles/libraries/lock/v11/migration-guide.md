@@ -9,7 +9,11 @@ description: How to migrate to Lock v11
 
 ## Should I migrate to v11?
 
-Everyone should migrate to v11. All previous versions are deprecated as of April 1, 2018, and will at some point cease to work after this date. For clients who use Lock within an Auth0 login page, this migration is recommended; for client applications with Lock embedded within them, this migration is mandatory.
+Everyone should migrate to v11. All previous versions are deprecated, and will be removed from service July 16, 2018. For applications that use Lock within an Auth0 login page, this migration is recommended; for client applications with Lock embedded within them, this migration is mandatory.
+
+::: note
+Previously, deprecated Lock versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date has been extended to **July 16, 2018**. Customers are still encouraged to migrate applications to the latest version **as soon as possible** in order to ensure that applications continue to function properly. 
+:::
 
 ## Migration instructions
 

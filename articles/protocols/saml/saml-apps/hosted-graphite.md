@@ -3,7 +3,7 @@ title: Hosted Graphite SAML Configuration
 description: Hosted Graphite SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

@@ -51,7 +51,7 @@ Once you have met the requirements for enabling Webtasks, submit a Support ticke
 
 ## Dedicated Domains
 
-Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a [dedicated domain](/appliance/webtask/dedicated-domains). This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).
+Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a [dedicated domain](/appliance/webtasks/dedicated-domains). This enables you to safely use extensions in multi-tenant environments (the behavior is akin to that of the Auth0 Public Cloud Service).
 
 ## Keep reading
 
@@ -59,6 +59,6 @@ Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
 * [Extensions](/extensions)
 * [Delegated Admininstration extension](/extensions/delegated-admin)
-* [Webtasks](appliance/webtask)
+* [Webtasks](/appliance/webtasks)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
 :::

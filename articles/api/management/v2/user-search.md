@@ -4,6 +4,7 @@ section: apis
 crews: crew-2
 toc: true
 ---
+
 # User Search
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).

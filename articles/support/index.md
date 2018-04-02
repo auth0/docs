@@ -12,22 +12,24 @@ The following page contains information about the Auth0 support program.
 Auth0 offers the following support plans:
 
 <table class="table">
-  <tr>
-    <th>No Plan</th>
-    <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
-  </tr>
-  <tr>
-    <th>Standard Support</th>
-    <td>For customers with a paid (non-Enterprise) subscription plan or those in the initial trial period.</td>
-  </tr>
-  <tr>
-    <th>Enterprise Support</th>
-    <td>For customers with an Enterprise subscription plan.</td>
-  </tr>
-  <tr>
-    <th>Preferred Support</th>
-    <td>For customers with an Enterprise subscription plan that have added the Preferred Support option.</td>
-  </tr>
+  <tbody>
+    <tr>
+      <th>No Plan</th>
+      <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
+    </tr>
+    <tr>
+      <th>Standard Support</th>
+      <td>For customers with a paid (non-Enterprise) subscription plan or those in the initial trial period.</td>
+    </tr>
+    <tr>
+      <th>Enterprise Support</th>
+      <td>For customers with an Enterprise subscription plan.</td>
+    </tr>
+    <tr>
+      <th>Preferred Support</th>
+      <td>For customers with an Enterprise subscription plan that have added the Preferred Support option.</td>
+    </tr>
+  </tbody>
 </table>
 
 ### No Support
@@ -119,26 +121,30 @@ Your Sales Order will indicate whether you are subscribed to the **Standard** Su
 Auth0 will assign all Defects one of four response priorities, dependent upon the problems caused by the Defect. Auth0 may re-assign prioritization levels assigned by you in Auth0’s trouble ticketing system, to reflect the problem descriptions below. Auth0’s assignment will be consistent with the problem descriptions described below. Priority categories are as follows:
 
 <table class="table">
-  <tr>
-    <th style="width: 15%">Severity Level</th>
-    <th style="width: 85%">Description</th>
-  </tr>
-  <tr>
-    <td>1 (Urgent)</td>
-    <td><b>Emergency Issue</b>. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
-  </tr>
-  <tr>
-    <td>2 (High)</td>
-    <td><b>Significant Business Impact</b>. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
-  </tr>
-  <tr>
-    <td>3 (Normal)</td>
-    <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented <b>or</b> an inquiry by your representatives regarding general technical issues/questions</td>
-  </tr>
-  <tr>
-    <td>4 (Low)</td>
-    <td><b>Minor Problem / Enhancement Request</b>. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
-  </tr>
+  <thead>
+    <tr>
+      <th style="width: 15%">Severity Level</th>
+      <th style="width: 85%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 (Urgent)</td>
+      <td><b>Emergency Issue</b>. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
+    </tr>
+    <tr>
+      <td>2 (High)</td>
+      <td><b>Significant Business Impact</b>. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
+    </tr>
+    <tr>
+      <td>3 (Normal)</td>
+      <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented <b>or</b> an inquiry by your representatives regarding general technical issues/questions</td>
+    </tr>
+    <tr>
+      <td>4 (Low)</td>
+      <td><b>Minor Problem / Enhancement Request</b>. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
+    </tr>
+  </tbody>
 </table>
 
 ### Defect Responses
@@ -168,7 +174,7 @@ We provide all technical support in English, but we will make an effort to accom
 
 ## Upgrades
 
-During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you. 
+During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you.
 
 ## Demand Services
 

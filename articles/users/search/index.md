@@ -59,12 +59,12 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 
 ```har
 {
-	"method": "GET",
-	"url": "https://${account.namespace}/api/v2/users",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}]
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }]
 }
 ```
 
@@ -126,12 +126,12 @@ The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_
 
 ```har
 {
-	"method": "GET",
-	"url": "https://${account.namespace}/api/v2/users/USER_ID",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}]
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }]
 }
 ```
 
@@ -185,12 +185,12 @@ The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/
 
 ```har
 {
-	"method": "GET",
-	"url": "https://${account.namespace}/api/v2/users-by-email?email=USER_EMAIL_ADDRESS",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	}]
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users-by-email?email=USER_EMAIL_ADDRESS",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }]
 }
 ```
 
@@ -253,26 +253,26 @@ When you create your job, you'll need to provide:
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/jobs/users-exports",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
-	},
+    "method": "POST",
+    "url": "https://${account.namespace}/api/v2/jobs/users-exports",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    },
   {
     "name": "Content-Type",
     "value": "application/json"
   }],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}" 
+    "queryString": [],
+    "postData": {
+        "mimeType": "application/json",
+        "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}" 
     },
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+    "headersSize": -1,
+    "bodySize": -1,
+    "comment": ""
 }
 ```
 

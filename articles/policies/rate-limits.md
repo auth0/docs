@@ -76,13 +76,16 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 <!-- markdownlint-disable MD033 -->
 
 <table class="table">
-  <tr>
+  <thead>
+    <tr>
       <th><strong>Endpoint</strong></th>
       <th><strong>GET</strong></th>
       <th><strong>POST</strong></th>
       <th><strong>DELETE</strong></th>
       <th><strong>PATCH</strong></th>
-  </tr>
+    </tr>
+  </thead>
+  <tbody>
   <tr>
       <td>Client Grants</td>
       <td>/client-grants</td>
@@ -174,6 +177,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td></td>
       <td>/tenants/settings</td>
   </tr>
+  </tbody>
 </table>
 
 ### Authentication API
@@ -185,13 +189,16 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
 :::
 
 <table class="table">
-  <tr>
-      <th><strong>Endpoint</strong></th>
-      <th><strong>Path</strong></th>
-      <th><strong>Limited By</strong></th>
-      <th><strong>Affected Tenants</strong></th>
-      <th><strong>Rate Limit</strong></th>
-  </tr>
+  <thead>
+    <tr>
+        <th><strong>Endpoint</strong></th>
+        <th><strong>Path</strong></th>
+        <th><strong>Limited By</strong></th>
+        <th><strong>Affected Tenants</strong></th>
+        <th><strong>Rate Limit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="2">User Profile</td>
     <td>/tokeninfo (legacy)</td>
@@ -260,9 +267,9 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>Free</td>
     <td>20 requests per second</td>
   </tr>
-
+  </tbody>
 </table>
 
 :::note
-(*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers. 
+(*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::

@@ -82,9 +82,9 @@ We will need the email addresses for the administrators of the **Manage** and **
 
 ### Group Email Address
 
-Auth0 will provide a daily performance report of your PSaaS Appliance service, which is sent to an email address (with a group alias) specified by you.
+Auth0 will provide a daily uptime report of your PSaaS Appliance service, which is sent to an email address (with a group alias) specified by you.
 
-In the event that there is an issue, this email address is the one we will use to notify you.
+In the event that there is an issue, you can specify a group alias to receive alerts.
 
 ### SMTP Settings
 
