@@ -35,10 +35,10 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 ```php
 // config/app.php
 
-'aliases' => array(
+'aliases' => [
     // ...
     'Auth0' => Auth0\Login\Facade\Auth0::class
-);
+];
 ```
 
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
