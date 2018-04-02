@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to add authentication and authorizat
   path: '01-Authorization-RS256',
   requirements: [
     'PHP 5.5',
-    'Symfony 3.2'
+    'Symfony 3.3'
   ]
 }) %>
 
@@ -93,6 +93,59 @@ Modify the `security.yml` file located in `app/config` such that it contains the
 
 ${snippet(meta.snippets.use)}
 
+## Set up the Exception listener
+
+Create `AuthenticationExceptionListener` class with `onKernelException` method to handle exceptions and return the appropriate status code and response. 
+
+```php
+// /src/AppBundle/EventListener/AuthenticationExceptionListener.php
+
+class AuthenticationExceptionListener
+{
+    public function onKernelException(GetResponseForExceptionEvent $event)
+    {
+        $exception = $event->getException();
+        $code = 500;
+        if ($exception instanceof CoreException) {
+            $code = 401;
+        }
+        if ($exception instanceof InvalidTokenException) {
+            $code = 401;
+        }
+        $ex = $exception->getPrevious();
+        if ($ex instanceof AccessDeniedException) {
+            if ($ex->getAttributes()[0] !== "IS_AUTHENTICATED_ANONYMOUSLY"
+                && $ex->getAttributes()[0] !== "ROLE_OAUTH_AUTHENTICATED"
+                &&  strlen($event->getRequest()->headers->get("Authorization")) > 0)
+                $code = 403;
+            else
+                $code = 401;
+        }
+        $responseData = [
+            'error' => [
+                'code' => $code,
+                'message' => $exception->getMessage()
+            ]
+        ];
+        $event->setResponse(new JsonResponse($responseData, $code));
+    }
+}
+```
+
+Modify the `security.yml` file and create a service for the exception listener defined above.
+
+```yml
+services:
+    # ...
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+
+    exception.listener:
+            class: AppBundle\EventListener\AuthenticationExceptionListener
+            tags:
+                - { name: kernel.event_listener, event: kernel.exception, method: onKernelException}
+```
+
 ## Set Up a Protected Route
 
 ```php
@@ -104,30 +157,35 @@ class SecuredController extends Controller
     /**
      * @Route("/api/public", name="public")
      */
-    // This route doesn't need authentication
     public function publicAction()
     {
-        return new JsonResponse(array(
-          'message' => "Hello from a public endpoint! You don't need to be authenticated to see this."
-        ));
+        return new Response(
+            '{"message": "Hello from a public endpoint! You don\'t need to be authenticated to see this."}',
+            Response::HTTP_OK,
+            array("Content-Type" => "application/json")
+        );
     }
     /**
      * @Route("/api/private", name="private")
      */
     public function privateAction()
     {
-        return new JsonResponse(array(
-          'message' => "Hello from a private endpoint! You need to be authenticated to see this."
-        ));
+        return new Response(
+          '{"message": "Hello from a private endpoint! You need to be authenticated to see this."}',
+          Response::HTTP_OK,
+          array("Content-Type" => "application/json")
+        );
     }
     /**
      * @Route("/api/private-scoped", name="privatescoped")
      */
     public function privateScopedAction()
     {
-        return new JsonResponse(array(
-          'message' => "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
-        ));
+        return new Response(
+          '{"message": "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."}',
+          Response::HTTP_OK,
+          array("Content-Type" => "application/json")
+        );
     }
 }
 ```
