@@ -166,9 +166,9 @@ Note that:
 
 The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
 
-## The Management API
+## Use the Management API
 
-The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways.
+The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post_identities) endpoint, which can be invoked in two ways.
 
 1. With an Access Token that contains the `update:current_user_identities` scope, the `user_id` of the primary account as part of the URL, and the secondary account's ID Token in the payload:
 
@@ -194,7 +194,7 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
 
   An Access Token that contains the `update:current_user_identities` scope, can only be used to update the information of the currently logged-in user. Therefore this method is suitable for scenarios where the user initiates the linking process.
 
-  Note the following restrictions:
+  The following **must** apply:
   - The secondary account's ID Token must be signed with `RS256`
   - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
@@ -244,11 +244,21 @@ The Auth0 two API V2 provides a [Link a user account endpoint](/api/v2#!/Users/p
   }
   ```
 
-  The following restrictions apply in case you decide to send the ID Token as part of the payload:
+  The following **must** apply in case you send the ID Token as part of the payload:
   - The secondary account's ID Token must be signed with `RS256`
   - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
   Note also that since the Access Token contains the `update:users` scope, it can be used to update the information of **any** user. Therefore this method is intended for use in server-side code only.
+
+## Use Auth0.js
+
+Instead of calling directly the API, you can use the [Auth0.js](/libraries/auth0js) library.
+
+First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
+
+Once you have the Access Token, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the Access Token.
+
+For more information and sample scripts, see [Auth0.js > User management](/libraries/auth0js/v9#user-management).
 
 ## Scenarios
 
