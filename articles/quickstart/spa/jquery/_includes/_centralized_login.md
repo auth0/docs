@@ -173,13 +173,13 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, the user is redirected to the Auth0 hosted login page.
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, the user is redirected to the login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Process the Authentication Result
 
-When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` function in the `app.js` file processes the hash.
+When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` function in the `app.js` file processes the hash.
 
 Call the `handleAuthentication` function in the `app.js` file. The function processes the authentication hash while your app loads. 
 

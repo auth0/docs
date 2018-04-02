@@ -41,7 +41,7 @@ six
 
 ## Initialize Flask-OAuthlib
 
-With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to our [hosted login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
+With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to the [login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
 Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
 
 ```python
@@ -110,7 +110,7 @@ def callback_handling():
 
 ## Trigger Authentication
 
-Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to Auth0's [hosted login page](/hosted-pages/login).
+Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to the [login page](/hosted-pages/login).
 
 ```python
 # /server.py
@@ -133,7 +133,7 @@ Create a `home.html` file in a `/template` folder. Add a link to the `/login` ro
 
 ## Logout
 
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our logout documentation](/logout).
 
 ```python
 # /server.py

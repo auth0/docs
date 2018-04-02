@@ -14,7 +14,7 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | ---- | ----------- |
 | [Customer Error Page](/hosted-pages/custom-error-pages) Configured | [Configure a Custom Error Page](${manage_url}/#/account) with your application-specific details and corporate branding |
 | Customize [Guardian Multifactor Page](/hosted-pages/guardian) | If you're using Guardian Multifactor Authentication, [configure a Custom Hosted Page for Guardian Multifactor](${manage_url}/#/guardian_mfa_page) with your application details and corporate branding |
-| Customize [Hosted Login Page](/hosted-pages/login) | [Configure a Custom Hosted Page for Login](${manage_url}/#/login_page) with your application details and corporate branding |
+| Customize [Login Page](/hosted-pages/login) | [Configure a Custom Hosted Page for Universal Login](${manage_url}/#/login_page) with your application details and corporate branding |
 | Customize [Password Reset Page](/hosted-pages/password-reset) | [Configure a Custom Hosted Page for Password Reset](${manage_url}/#/password_reset) with your application details and corporate branding |
 | [Email Templates](/email/custom) Configured | [Configure custom email templates](${manage_url}/#/emails) with your application specific details and corporate branding |
 | Enable [MFA for Tenant Administrators](/tutorials/manage-dashboard-admins) | [Enable multifactor authentication](${manage_url}/#/account/admins) for tenant administrators |

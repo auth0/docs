@@ -30,7 +30,7 @@ You can now define your resource server APIs as entities separate from clients u
 This lets you decouple your resource server APIs from the client applications that consume them and also lets you define third-party clients that you might not control or even fully trust (keep reading for more info).
 
 ::: note
-  For more information on APIs, their role in OAuth and how to configure an API in Auth0 Dashboard, refer to <a href="/apis">APIs Overview</a>.
+For more information on APIs, their role in OAuth and how to configure an API in Auth0 Dashboard, refer to [APIs Overview](/apis).
 :::
 
 ### Third-Party Clients
@@ -42,7 +42,7 @@ Third-party clients, are clients that are controlled by different people or orga
 So far, third-party clients cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Client Registration](/api-auth/dynamic-client-registration) functionality. All clients registered through that will be third-party clients.
 
 ::: note
-  For more information, refer to <a href="/api-auth/user-consent">User consent and third-party clients</a>.
+For more information, refer to [User consent and third-party clients](/api-auth/user-consent).
 :::
 
 ### Calling APIs from a Service (machine-to-machine)
@@ -50,7 +50,7 @@ So far, third-party clients cannot be created from the dashboard. They must be c
 We implemented the OAuth 2.0 Client Credentials grant which allows clients to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
 
 ::: note
-  For more information on the Client Credentials grant, refer to <a href="/api-auth/grant/client-credentials">Calling APIs from a Service</a>.
+For more information on the Client Credentials grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
 :::
 
 ## What is Changing
@@ -60,7 +60,7 @@ We implemented the OAuth 2.0 Client Credentials grant which allows clients to au
 Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/api-tokens">Calling your APIs with Auth0 tokens</a>.
+For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens).
 :::
 
 ### User Profile Claims and Scope
@@ -77,15 +77,15 @@ To customize the tokens, use Hooks for Client Credentials, and Rules for the res
 - __Authorization Code (PKCE)__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens)
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/scope-custom-claims">User profile claims and scope</a>.
+For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, users must be redirected to an Auth0-hosted login page and redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
-  Support for SSO from client applications is planned for a future release.
+Support for SSO from client applications is planned for a future release.
 :::
 
 Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support SSO at the moment:
@@ -118,7 +118,7 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
 </table>
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/single-sign-on">OIDC Single sign-on</a>.
+For more information, refer to [OIDC Single sign-on](/api-auth/tutorials/adoption/single-sign-on).
 :::
 
 ### Authorization Code Grant
@@ -131,7 +131,7 @@ Some changes were introduced in the implementation of Authorization Code grant:
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/authorization-code">Authorization Code grant</a>.
+For more information, refer to [Authorization Code grant](/api-auth/tutorials/adoption/authorization-code).
 :::
 
 ### Implicit Grant
@@ -147,7 +147,7 @@ Some changes were introduced in the implementation of Implicit grant:
 - ID Tokens will be signed asymmetrically using `RS256`.
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/implicit">Implicit grant</a>.
+For more information, refer to [Implicit grant](/api-auth/tutorials/adoption/implicit).
 :::
 
 ### Resource Owner Password Grant
@@ -163,7 +163,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a>.
+For more information, refer to [Resource Owner Password Credentials exchange](/api-auth/tutorials/adoption/password).
 :::
 
 ### Delegation
@@ -181,7 +181,7 @@ At the moment there is no OIDC-compliant mechanism to obtain third-party API tok
 
 Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism when using web clients (with Lock.js or auth0.js).
 
-Native applications need to use centralized login (with Auth0-hosted login page). Customers can use the Lock (Passwordless) template in Dashboard under Hosted Pages -> Default Templates, or customize it to fit specific requirements.
+Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
 
 ### Other Authentication API endpoints
 
@@ -196,6 +196,7 @@ Native applications need to use centralized login (with Auth0-hosted login page)
 ## How to use the new flows
 
 To use the new pipeline, at least one of the following should apply:
+
 - The client is flagged as __OIDC Conformant__, or
 - The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
 
@@ -246,7 +247,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, the users must be redirected to an Auth0-hosted login page.</td>
+      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>
@@ -316,7 +317,7 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 ## Keep Reading
 
 ::: next-steps
-* [API Authorization Index](/api-auth)
+* [API Authorization index](/api-auth)
 * [Why you should use Access Tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)
 :::

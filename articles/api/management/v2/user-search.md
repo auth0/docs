@@ -10,6 +10,10 @@ Auth0 allows you, as an administrator, to search for users using [Lucene Query S
 
 This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
+::: warning
+The user search endpoint allows you to return a maximum of **10,000** users. For additional results, please use either the [User Export Job endpoint](/api/management/v2#!/Jobs/post_users_exports) or the [User Export Extension](/extensions/user-import-export).
+:::
+
 ## Searchable Fields
 
 You can search for users using the following fields:
@@ -31,10 +35,6 @@ For more information on user related metadata refer to [User Metadata](/metadata
 :::
 
 ## Search for Users Using the Management API
-
-::: warning
-Auth0 limits the number of users you can retrieve; if the number of users you're retrieving exceeds this threshold, please [contact support](${env.DOMAIN_URL_SUPPORT}) for further assistance.
-:::
 
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 

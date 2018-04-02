@@ -189,6 +189,7 @@ Authorization:  'Bearer {access_token}'
 curl --request PUT \
   --url 'https://{extension_url}/roles/{role_id}' \
   --header 'Authorization: Bearer {access_token}' \
+  --header 'Content-Type: application/json' \
   --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["{permission_id}"] }'
 ```
 

@@ -146,7 +146,3 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 ::: note
 The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
 :::
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/extensibility-points"]
-}) %>

@@ -51,7 +51,3 @@ You can rename your Hook using the Management Dashboard.
 3. Click **Rename**. You will see a dialog pop up, asking you for the **Current Name** of the Hook, as well as the **New Name** you want to use. Click **Rename** when you have populated both values.
 
 ![Rename Hooks prompt](/media/articles/hooks/rename-hook.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/dashboard"]
-}) %>

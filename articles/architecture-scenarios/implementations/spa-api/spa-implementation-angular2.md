@@ -121,7 +121,7 @@ export class AuthService {
 
 The service includes several methods for handling authentication.
 
-- __login__: calls `authorize` from auth0.js which redirects users to the hosted login page
+- __login__: calls `authorize` from auth0.js which initiates [universal login](/hosted-pages/login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - __setSession__: sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
 - __logout__: removes the user's tokens from browser storage
@@ -129,7 +129,7 @@ The service includes several methods for handling authentication.
 
 ### Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsibile for processing the hash.
+When a user authenticates via universal login and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsibile for processing the hash.
 
 Call `handleAuthentication` in your app's root component so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 
@@ -155,7 +155,7 @@ export class AppComponent {
 
 ### Add the Callback Component
 
-Using Auth0's hosted login page means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
+Using universal login means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
  
 You can choose to have users return to any URL in your application that you like; however, it is recommended that you create a dedicated callback route to serve as a central location that the user will be returned to upon successful authentication. Having a single callback route is beneficial for two main reasons:
 

@@ -166,7 +166,7 @@ If you're currently using a legacy grant type, refer to the chart below to see w
 | `http://auth0.com/oauth/legacy/grant-type/access_token` | Use browser-based social authentication. |
 
 ::: note
-Those implementing Passwordless Authentication should use hosted login pages instead of the `oauth/ro` endpoint.
+Those implementing Passwordless Authentication should use [universal login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
 :::
 
 ## Enable a Legacy Grant Type

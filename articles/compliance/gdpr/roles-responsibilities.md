@@ -39,7 +39,7 @@ The customer is the party that's responsible for the security of their data. Aut
 
 Auth0 is responsible for:
 
-* Following the data processor's instructions as explicated in the MSA and DPA (for enterprise customers) or Terms of Service (for self-service customers)
+* Following the data processor's instructions as explicated in the Subscription Agreement (SA) and Data Processing Addendum (DPA) (for enterprise customers) or Terms of Service (for self-service customers)
 * Notifying the customer if it receives requests from the customer's end users exercising their GDPR rights as subjects for data access, erasure, and so on
 * Notifying the customer if it receives requests from EU Data Privacy Authorities (unless prohibited by law enforcement)
 * Notifying the customer if it becomes aware of a confirmed security breach

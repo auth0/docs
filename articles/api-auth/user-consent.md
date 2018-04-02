@@ -79,7 +79,7 @@ Note that this option only allows __verifiable__ first-party clients to skip con
 127.0.0.1       myapp.dev
 ```
 
-Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`) to match the updated domain-mapping!
+Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`), and the callback URL you configured in your application, to match the updated domain-mapping!
 
 :::
 

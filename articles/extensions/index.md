@@ -32,7 +32,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 ### Monitor your AD/LDAP connectors
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector)
 
-### Import or Export exisiting users
+### Import or Export existing users
 - [Users Import / Export](/extensions/user-import-export)
 
 ### Export Auth0 logs to an external service

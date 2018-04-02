@@ -6,6 +6,8 @@ toc: true
 ---
 # New Features in Lock 10
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 ## Custom sign up fields
 
 You can add input fields to the sign up form with the new option `additionalSignUpFields`.

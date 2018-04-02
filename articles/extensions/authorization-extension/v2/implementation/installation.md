@@ -90,6 +90,9 @@ When you click the link to open the extension for the first time, you will be as
 
 ![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
 
-<%= include('./_stepnav', {
- next: ["Configure the Extension", "/extensions/authorization-extension/v2/implementation/setup"]
-}) %>
+## Keep Reading
+
+::: next-steps
+* [Configure the Authorization Extension](/extensions/authorization-extension/v2/implementation/configuration)
+* [Set Up the Authorization Extension](/extensions/authorization-extension/v2/implementation/setup)
+:::

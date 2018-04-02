@@ -97,8 +97,3 @@ On the top right you can see your tenant's name and icon, and a little arrow. Th
 - **View profile**: Use this to view information about your [account profile](${manage_url}/#/profile).
 - **Subscription overview**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
 - **Log out**: Log out from your account.
-
-<%= include('./_stepnav', {
- next: ["Deployment Models", "/getting-started/deployment-models"],
- prev: ["Getting Started", "/getting-started"]
-}) %>

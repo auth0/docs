@@ -1,6 +1,6 @@
 
-<% if (meta.path !== "articles/libraries/lock/v10") { %>
-  <p>For more information on using Lock <a href="/libraries/lock">see the documentation.</a></p>
+<% if (meta.path !== "articles/libraries/lock/v11") { %>
+  <p>For more information on using Lock v11 <a href="/libraries/lock">see the documentation.</a></p>
 <% } %>
 <div class="code-picker">
   <div class="languages-bar">
@@ -44,7 +44,7 @@
     container: 'root',
     auth: {
       redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
-      responseType: 'token id_token'
+      responseType: 'token id_token',
       params: {
         scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
       }
@@ -58,7 +58,7 @@
 &lt;script&gt;
   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         allowedConnections: ['sms'],             // Should match the SMS connection name  
-        responseType: 'token id_token'
+        responseType: 'token id_token',
         auth: {
           redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
           params: {
@@ -80,7 +80,7 @@
 &lt;script&gt;
   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
     passwordlessMethod: "link",              // Sets Lock to use magic link
-    responseType: 'token id_token'
+    responseType: 'token id_token',
     auth: {
       redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
       params: {
@@ -101,7 +101,7 @@
   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
     allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
     passwordlessMethod: 'code',              // If not specified, defaults to 'code'
-    responseType: 'token id_token'
+    responseType: 'token id_token',
     auth: {
       redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
       params: {

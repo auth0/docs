@@ -139,13 +139,13 @@ Provide a template with controls for the user to log in and log out.
 </div>
 ```
 
-The `action` added to the **Log In** control makes the appropriate call to the `login` method in `auth.js` to allow the user to log in. When the **Log In** control is clicked, the user will be redirected to Auth0's hosted login page.
+The `action` added to the **Log In** control makes the appropriate call to the `login` method in `auth.js` to allow the user to log in. When the **Log In** control is clicked, the user will be redirected to the login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
 ## Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
 
 Call `handleAuthentication` in `app.js` so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 
@@ -223,4 +223,4 @@ Notice that there is also a `Log Out` control in this route which has an `action
 
 ## Embedded Login
 
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).
+Auth0's universal login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).

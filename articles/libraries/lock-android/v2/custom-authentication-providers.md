@@ -14,7 +14,7 @@ Create a class that implements the `AuthProvider` interface and override its met
 You can also use any **Native** implementation already provided by Auth0. The [native social authentication](/libraries/lock-android/v2/native-social-authentication) providers currently available are Google and Facebook.
 
 ::: warning
-The native social providers rely on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. We recommend using browser-based flows, as explained in [Authentication with Auth0 Hosted Login Page](/libraries/auth0-android#authentication-with-auth0-hosted-login-page).
+The native social providers rely on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. We recommend using browser-based flows, as explained in [Authentication via Universal Login](/libraries/auth0-android#authentication-via-universal-login).
 :::
 
 ## The AuthHandler class

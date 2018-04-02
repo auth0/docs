@@ -91,7 +91,7 @@ If the one you need isn't found here we suggest getting in touch with [Criipto](
 
 ## Database and Custom Connections
 
-If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
+If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
 
 You can create any number of custom fields and store this information as part of the `user_metadata`. You can easily import users from a legacy user store, enable or disable sign ups, configure your password policy or enable Multifactor Authentication.
 

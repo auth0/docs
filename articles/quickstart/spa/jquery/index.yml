@@ -5,7 +5,7 @@ language:
   - Javascript
 framework:
   - jQuery
-image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
+image: /media/platforms/jquery.svg
 tags:
   - quickstart
 snippets:

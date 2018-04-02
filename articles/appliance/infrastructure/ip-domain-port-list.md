@@ -157,6 +157,14 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Allows access to Healthcheck endpoints</td>
     <td>No</td>
   </tr>
+  <tr>
+    <td>DNS</td>
+    <td>Inbound <b>and</b> Outbound</td>
+    <td>Local domain servers</td>
+    <td>53</td>
+    <td>Required by the PSaaS Appliance to resolve host names internal and external to your environment</td>
+    <td>Yes</td>
+  </tr>
 </table>
 
 ## Notes

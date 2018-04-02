@@ -1,12 +1,12 @@
 ---
-title: Moving SPAs using Lock to Centralized Login 
-description: Learn how to migrate from Single Page Applications using Lock to Centralized Login
+title: Moving SPAs using Lock to Universal Login 
+description: Learn how to migrate from Single Page Applications using Lock to Universal Login
 toc: true
 ---
 
-# Migrate SPAs using Lock 10+ to Centralized Login
+# Migrate SPAs using Lock 10+ to Universal Login
 
-This document explains how to migrate Single Page Applications using [Lock](/libraries/lock) to centralized login. For other migration scenarios see [Migrating from Embedded to Centralized Login](/guides/login/migration-embedded-centralized).
+This document explains how to migrate Single Page Applications using [Lock](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
 When you use Lock, your code does basically this:
 
@@ -54,7 +54,7 @@ function login() {
 }
 ```
 
-To use **centralized login**, you need to use [auth0.js](/libraries/auth0js) to perform the same tasks:
+To use **universal login**, you need to use [auth0.js](/libraries/auth0js) to perform the same tasks:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock:
 
@@ -99,6 +99,6 @@ function login() {
 
 5. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing centralized login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
+You can find complete examples of implementing universal login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
 <%= include('_includes/_customizing-login-page') %>

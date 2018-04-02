@@ -7,14 +7,12 @@ img: media/articles/libraries/lock-web.png
 ---
 # Lock 10 for Web
 
+<%= include('../../../_includes/_version_warning_lock') %>
+
 Lock is an embeddable login form, [configurable to your needs][lock-configuration] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
 ::: note
 Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
-:::
-
-::: note
-Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method to authenticate users for your applications.
 :::
 
 ## Lock 10 Installation
@@ -117,7 +115,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using the [Hosted Login Page](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
+Embedding Lock within your application, rather than using [universal login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 
@@ -126,8 +124,6 @@ Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **I
 ## More Examples
 
 The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
-
-<%= include('../../../_includes/_lock-sdk') %>
 
 ## Next Steps
 
