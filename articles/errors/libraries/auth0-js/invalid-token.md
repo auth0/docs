@@ -15,9 +15,9 @@ Beginning with **auth0.js version 9** and **Lock version 11**, when ID Tokens ar
 Calling **/userinfo** requires an Access Token. If you don't ask for an Access Token when authenticating, you will receive the following error:
 
 ```
-The ID Token cannot be validated because it was signed using the HS256 algorithm
-and public clients (such as a browser) can’t store secrets. Please read the associated
-doc for ways to fix this.
+The id_token cannot be validated because it was signed with the HS256 algorithm
+and public clients (like a browser) can’t store secrets.
+Please read the associated doc for possible ways to fix this.
 ```
 
 ### Ways to fix this error
