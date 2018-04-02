@@ -8,9 +8,9 @@ toc: true
 
 For some use cases you could use [ID Tokens](/tokens/id-token) in order to call some of the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2).
 
-The grace period for this migration starts on **March 31, 2018** and ends on **March 31, 2019**. That day forward you will no longer be able to use ID Tokens as credentials for the Management API.
+The grace period for this migration starts on **March 31, 2018** and ends on **March 31, 2019**. From that day forward you will no longer be able to use ID Tokens as credentials for the Management API.
 
-This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
+This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will go through a brief summary of the changes introduced in the [Account Linking](/link-accounts) process.
 
 ## Does this affect me?
 
@@ -70,64 +70,7 @@ In the example below, we want to use the [GET User by ID endpoint](/api/manageme
 
 On the `Legacy (ID Token)` panel you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` panel you can see the new approach that gets an Access Token as well.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#authZ-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#authZ-access-token" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="authZ-id-token" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  scope=openid
-  &response_type=id_token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-    <div id="authZ-access-token" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  audience=https://${account.namespace}/api/v2/
-  &scope=read:current_user
-  &response_type=token%20id_token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
-
-In order to get an Access Token that can access the Management API:
-- We set the `audience` to `https://${account.namespace}/api/v2/`
-- We asked for the scope `read:current_user`
-- We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
-
-If we decode the Access Token and review its contents we can see the following:
-
-```text
-{
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|5a620d29a840170a9ef43672",
-  "aud": "https://${account.namespace}/api/v2/",
-  "iat": 1521031317,
-  "exp": 1521038517,
-  "azp": "${account.clientId}",
-  "scope": "read:current_user"
-}
-```
-
-Notice that the `aud` is set to your tenant's API URI, the `scope` to `read:current_user`, and the `sub` to the user ID of the logged in user.
+<%= include('./_get-token-authorize.md', { scope: 'read:current_user', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
 
 Once you have the Access Token you can use it to call the endpoint. This part remains the same, nothing else changes in the request except for the value you use as `Bearer` token. The response remains also the same.
 
@@ -217,82 +160,24 @@ If you embed either [Lock v11](/libraries/lock/v11) or [auth0.js v9](/libraries/
 
 If you use auth0.js to access the Management API and manage your users, then your script will have to be updated.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#coa-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#coa-access-token" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="coa-id-token" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-// get an ID token
-var webAuth = new auth0.WebAuth({
-  clientID: '${account.clientId}',
-  domain: '${account.namespace}',
-  redirectUri: '${account.callback}',
-  scope: 'openid',
-  responseType: 'id_token'
-});
-// create a new instance
-var auth0Manage = new auth0.Management({
-  domain: '${account.namespace}',
-  token: 'ID_TOKEN'
-});
-        </code>
-      </pre>
-      <div class="tab-pane-footer">
-        <ul>
-          <li>Asks for an ID Token in the response (<code>responseType: 'id_token'</code>)</li>
-          <li>Authenticates with the Management API using the ID Token</li>
-        </ul>
-      </div>
-    </div>
-    <div id="coa-access-token" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-// get an access token
-var webAuth = new auth0.WebAuth({
-  clientID: '${account.clientId}',
-  domain: '${account.namespace}',
-  redirectUri: '${account.callback}',
-  audience: 'https://${account.namespace}/api/v2/˜',
-  scope: 'read:current_user',
-  responseType: 'token id_token'
-});
-// create a new instance
-var auth0Manage = new auth0.Management({
-  domain: '${account.namespace}',
-  token: 'ACCESS_TOKEN'
-});
-        </code>
-      </pre>
-      <div class="tab-pane-footer">
-        <ul>
-          <li>Asks for both an ID Token and an Access Token in the response (<code>responseType: 'token id_token'</code>)</li>
-          <li>Sets the Management API as the intended audience of the token (<code>audience: 'https://${account.namespace}/api/v2/˜'</code>)</li>
-          <li>Asks for the permission to read the current user's info (<code>scope: 'read:current_user'</code>)</li>
-          <li>Authenticates with the Management API using the Access Token</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<%= include('./_get-token-auth0js.md', { scope: 'read:current_user' }) %>
 
 ## Changes in Account Linking
 
 The changes in this functionality are the following:
 
-- You can no longer use an ID Token at the `Authorization` header
-- If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you can send at the request's body either the `user_id` or the ID Token of the secondary account
-- If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you can only send the ID Token of the secondary account in the request's body. The following must apply:
+- You can no longer use an ID Token at the `Authorization` header, an Access Token must be used instead
+- If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you can send at the request's body either the `user_id` or the ID Token of the secondary account.
+- If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you can only send the ID Token of the secondary account in the request's body.
+- If you send the ID Token of the secondary account in the request's body (that is, the use cases described in the previous two bullets), then the following must apply:
   - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
   - The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
+
+For a detailed overview of these changes and migration steps per use case, see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
 
 ## Keep reading
 
 :::next-steps
 - [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token)
+- [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 :::
