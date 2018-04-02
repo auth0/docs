@@ -261,6 +261,8 @@ cache = Cache(app, config=config)
 Update `get_public_key` function to return the public key from cache, and if isn't cached fetch from JWKS.
 
 ```python
+# /server.py
+
 def get_public_key(token, get_from_cache=True):
     """Obtain the public key from JWKS
     Args:
@@ -312,27 +314,28 @@ We've added `get_from_cache` parameter with `True` as default value, this way by
 Update `requires_auth` decorator get the public key from cache.
 
 ```python
+# /server.py
+
 def requires_auth(f):
     """Determines if the access token is valid
     """
     @wraps(f)
     def decorated(*args, **kwargs):
         token = get_token_auth_header()
+        rsa_key = get_public_key(token)
 
-        rsa_key = cache.get('rsa_key')
+        # Try to decode with the cached JWKS key.
+        # If it fails, it could be because the JWKS key expired, so we retrieve it
+        # from the JWKS endpoint and try decoding again.
 
-        if rsa_key is not None:
-            try:
-                jws.verify(token, rsa_key, ALGORITHMS)
-            except jws.JWSError:
-                rsa_key = get_public_key(token)
-
+        try:
             payload = decode_jwt(token, rsa_key)
-            _request_ctx_stack.top.current_user = payload
-        else:
-            rsa_key = get_public_key(token)
-            payload = decode_jwt(token, rsa_key)
-            _request_ctx_stack.top.current_user = payload
+        except AuthError as ex:
+            if ex.error["code"] == "invalid_signature":
+                rsa_key = get_public_key(token, False)
+                payload = decode_jwt(token, rsa_key)
+
+        _request_ctx_stack.top.current_user = payload
 
         return f(*args, **kwargs)
     return decorated
