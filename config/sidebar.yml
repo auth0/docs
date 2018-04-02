@@ -732,6 +732,11 @@ articles:
 
       - title: "Past Migrations"
         url: "/migrations/past-migrations"
+        hidden: true
+
+      - title: "Management API and ID Tokens"
+        url: "/migrations/guides/calling-api-with-idtokens"
+        hidden: true
         
   - title: "Support"
     url: "/support"
