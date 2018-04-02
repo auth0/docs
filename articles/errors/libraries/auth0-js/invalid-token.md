@@ -1,5 +1,5 @@
 ---
-public: false
+public: true
 ---
 # Parsing an HS256-Signed ID Token Without an Access Token
 
