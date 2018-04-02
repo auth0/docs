@@ -2,7 +2,7 @@
 public: true
 ---
 
-# `invalid_token` errors
+# Errors with code 'invalid_token'
 
 ## Parsing an HS256-Signed ID Token Without an Access Token
 
