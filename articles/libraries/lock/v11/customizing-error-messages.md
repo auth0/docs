@@ -33,7 +33,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-If you are returning custom error codes from a [rule](https://auth0.com/docs/rules/current) or a [custom database script](https://auth0.com/docs/connections/database/custom-db#error-handling), you can also add the error messages in the dictionary:
+If you are returning custom error codes from a [rule](/rules) or a [custom database script](/connections/database/custom-db#error-handling), you can also add the error messages in the dictionary:
 
 ```js
 //custom database script: getUser
