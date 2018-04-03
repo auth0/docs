@@ -22,9 +22,12 @@ Please read the associated doc for possible ways to fix this.
 
 ### Ways to fix this error
 
-To fix this error, change the value of your **responseType** parameter to **token id_token**, so that you receive an Access Token in the response.
+There are two ways to fix the error:
 
-You may also want to change your client's hash algorithm to RS256. You can do so using the Dashboard:
+1. **(RECOMMENDED)** Change the client signature algorithm to RS256 instead of HS256.
+2. Change the value of your **responseType** parameter to **token id_token** (instead of the default), so that you receive an Access Token in the response.
+
+To change the client signature algorithm to RS256 instead of HS256:
 
     1. Go to [Dashboard > Clients]({$manage_url}/#/clients)
     1. Select your client
