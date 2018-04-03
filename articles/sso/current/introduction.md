@@ -5,13 +5,15 @@ toc: true
 
 # Introduction to Single Sign On with Auth0
 
-## What is Single Sign On?
-
 Single Sign On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using. The user signs in only one time hence the naming of the feature (Single Sign On).
+
+## SSO Example
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that logs in to one of Google's products are automatically logged in to their other products as well.
 
-Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
+Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com).
+
+When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
 1. The user receives a Google Accounts-generated cookie.
@@ -43,22 +45,20 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
-1. Once the user has logged in, Auth0 will set an SSO cookie
+1. Once the user has logged in, Auth0 will set an SSO cookie.
 1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-1. Your application will redirect the user to the login page where they can sign in.
-1. Auth0 will check to see whether there is an existing SSO cookie.
-1. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know who the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+1. Your application will redirect the user to the login page.
+1. Auth0 checks to see if there is an existing SSO cookie.
+1. Auth0 finds the SSO cookie, and if necessary, updates it.
+1. Auth0 returns an ID Token containing identity information for the user.
 
-    ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
-
-1. Auth0 will update the SSO cookie if required
-1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
-
-If an SSO cookie is present you can also sign the user in silently, (that is, without even displaying Lock so they can enter their credentials). This is covered in more detail in the [Setup Single Sign On with Auth0](/sso/current/setup) tutorial.
+Please note that the user is never shown a login screen at any point during the above steps.
 
 ## SSO with Native Platforms
 
-Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
+Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication.
+
+The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
