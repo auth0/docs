@@ -2,8 +2,6 @@
 
 ## Social
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -94,8 +92,6 @@ Social connections only support browser-based (passive) authentication because m
 
 ## Database/AD/LDAP (Passive)
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -175,8 +171,6 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 ## Enterprise (SAML and Others)
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 GET https://${account.namespace}/authorize?
