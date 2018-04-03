@@ -98,6 +98,12 @@ Once the API verifies the token's signature, the next step is to validate the st
 - _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
 - _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
 
+::: panel Token issuance
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. Custom domain users might use either, their custom domain, or their Auth0 domain. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an Access Token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**. 
+
+If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
+:::
+
 ### How can I validate the claims?
 
 To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, `iss`, `aud`) and validate their values.
