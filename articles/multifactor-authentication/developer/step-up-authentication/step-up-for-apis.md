@@ -85,9 +85,6 @@ Next you need to configure your application to send the appropriate authenticati
     <ul>
       <li class="active"><a href="#without-mfa" data-toggle="tab">Authenticate without MFA</a></li>
       <li><a href="#with-mfa" data-toggle="tab">Authenticate with MFA</a></li>
-      <li class="pull-right">
-        <div class="btn btn-sm btn-transparent btn-copy"><span class="btn-icon icon-budicon-450"></span>Copy</div>
-      </li>
     </ul>
   </div>
   <div class="tab-content">

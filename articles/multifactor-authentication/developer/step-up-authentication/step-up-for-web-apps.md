@@ -39,9 +39,6 @@ In the snippet below you can see how an ID Token's payload is if the user has au
     <ul>
       <li class="active"><a href="#with-mfa" data-toggle="tab">ID Token with MFA</a></li>
       <li><a href="#without-mfa" data-toggle="tab">ID Token without MFA</a></li>
-      <li class="pull-right">
-        <div class="btn btn-sm btn-transparent btn-copy"><span class="btn-icon icon-budicon-450"></span>Copy</div>
-      </li>
     </ul>
   </div>
   <div class="tab-content">
