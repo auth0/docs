@@ -63,7 +63,7 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
 }
 ```
 
-You can test out your code and see other available attributes in our [Management API Explorer](https://auth0.com/docs/api/management/v2#!/Connections/post_connections).
+You can test out your code and see other available attributes in our [Management API Explorer](/api/management/v2#!/Connections/post_connections).
 
 
 ## Passing Dynamic Parameters
