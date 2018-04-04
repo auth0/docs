@@ -39,9 +39,13 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
 {
   "method": "PATCH",
   "url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_ACCESS_TOKEN"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
   "postData": {
     "mimeType": "application/json",
     "text": "{ 
@@ -90,9 +94,13 @@ As an example, let's use Twitter, which allows you to pass an optional `screen_n
 {
   "method": "PATCH",
   "url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_ACCESS_TOKEN"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
   "postData": {
     "mimeType": "application/json",
     "text": "{ 
@@ -127,7 +135,7 @@ And that value will in turn be passed along to the Twitter authorization endpoin
 
 ```text
 https://api.twitter.com/oauth/authorize
-  ?oauth_token=TOKEN
+  ?oauth_token=YOUR_TOKEN
   &screen_name=john@gmail.com
 ```
 
