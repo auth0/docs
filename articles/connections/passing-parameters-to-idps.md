@@ -1,3 +1,9 @@
+---
+title: Passing Parameters to Identity Providers
+description: How to pass parameters to an Identity Provider API
+toc: true
+crews: crew-2
+---
 # Passing Parameters to Identity Providers
 
 For Identity Providers that support parameters, you can pass provider-specific parameters to the Authorization endpoint by configuring either static values per connection or dynamic values per user.
