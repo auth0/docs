@@ -213,7 +213,7 @@ articles:
             url: "/extensions/custom-social-extensions"
             
           - title: "Passing Parameters to IdPs"
-            url: "/connections/passing-parameters-to-idps
+            url: "/connections/passing-parameters-to-idps"
 
       - title: "Your Database"
         url: "/connections/database/custom-db"
