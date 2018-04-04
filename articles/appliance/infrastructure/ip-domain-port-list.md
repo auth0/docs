@@ -125,7 +125,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Web extensions</td>
+    <td>Web extensions and Management Dashboard</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
