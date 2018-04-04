@@ -116,7 +116,7 @@ Now, when calling the /authorize endpoint for a specific user, you can pass thei
 
 ```text
 https://customer0.myauth0.com/authorize
-  ?client_id=CLIENT_ID
+  ?client_id=${account.clientId}
   &response_type=token
   &redirect_uri=http://URI
   &scope=openid%20name%20email
