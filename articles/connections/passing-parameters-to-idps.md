@@ -115,7 +115,7 @@ As an example, let's use Twitter, which allows you to pass an optional `screen_n
 Now, when calling the /authorize endpoint for a specific user, you can pass their email address in the `login_hint` parameter:
 
 ```text
-https://customer0.myauth0.com/authorize
+https://${account.namespace}/authorize
   ?client_id=${account.clientId}
   &response_type=token
   &redirect_uri=http://URI
