@@ -133,6 +133,8 @@ Hosted login with popup:
 ```js
 webAuth.popup.authorize({
   //Any additional options can go here
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
@@ -141,6 +143,8 @@ And for social login with popup using `authorize`:
 ```js
 webAuth.popup.authorize({
   connection: 'twitter'
+}, function(err, authResult) {
+  //do something 
 });
 ```
 
@@ -177,7 +181,8 @@ var url = webAuth.client.buildAuthorizeUrl({
   clientID: '${account.clientId}', // string
   responseType: 'token id_token', // code
   redirectUri: '${account.callback}',
-  state: 'YOUR_STATE'
+  state: 'YOUR_STATE',
+  nonce: 'YOUR_NONCE'
 });
 
 // Redirect to url
@@ -444,6 +449,10 @@ The user will then receive an email which will contain a link that they can foll
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
 To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
+
+::: note
+If you use [custom domains](/custom-domains), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, for use with the Management API calls, as it only works with Auth0 domains.
+:::
 
 ```js
 var webAuth = new auth0.WebAuth({

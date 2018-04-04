@@ -3,8 +3,6 @@ description: Explains how to install the Auth0 WordPress plugin.
 ---
 # Installation of the Login by Auth0 WordPress Plugin
 
-![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
-
 ::: note
 In order to install or customize plugins, you must use a self-hosted WordPress.org site. Using a WordPress.com site does not allow installing plugins. [More information on the differences here](https://en.support.wordpress.com/com-vs-org/).
 :::
@@ -17,7 +15,20 @@ As soon as the plugin is activated, you are redirected to the start of the Setup
 
 If you don't already have an Auth0 account, click the **[Sign Up For Free](https://auth0.com/signup).** button and create one before proceeding. 
 
-## Social Login
+## Manual setup
+
+The plugin can be configured using the built-in setup wizard (covered below) or manually by creating a Client and 
+assigning connections. The completely manual setup process can be used if you're having trouble with the 
+wizard, have been through the setup process before, or want to share a database connection between Clients.
+
+1. In your Auth0 [Dashboard](${manage_url}), click **Clients** then **Create Client**
+1. Give your Client a descriptive name, select **Regular Web Applications**, then **Create**
+1. Follow the [Client setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in 
+WordPress" section to configure the client for your WordPress installation
+
+Once the steps above are complete, your site will be configured and ready to use!
+
+## Wizard - Social Login
 
 Click **Social** to start the basic Auth0 setup. 
 

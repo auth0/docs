@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2+ app
+description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2 app
 budicon: 448
 ---
 
@@ -10,7 +10,7 @@ budicon: 448
   repo: 'auth0-ionic2-samples',
   path: '01-Login',
   requirements: [
-    'Ionic 3.x',
+    'Ionic 2.x',
     'Angular 4+'
   ]
 }) %>

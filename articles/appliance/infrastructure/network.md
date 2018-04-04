@@ -40,6 +40,8 @@ Each PSaaS Appliance VM needs connectivity to the Internet. At a minimum, the VM
 
 Since the PSaaS Appliance is delivered as a subscription-based managed service, Auth0 will need access to specified endpoints to provide proactive monitoring.
 
+Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
+
 ## DNS Records
 
 DNS records are required for all PSaaS Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires four DNS entries for the following:

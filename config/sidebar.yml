@@ -538,12 +538,12 @@ articles:
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
-          - title: "Step-up with ID Tokens"
-            url: "/multifactor-authentication/developer/mfa-from-id-token"
+          - title: "Step-up Authentication for Web Apps"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
-          - title: "Step-Up with Custom MFA Rules"
-            url: "/multifactor-authentication/custom-mfa-rules"
+          - title: "Step-up Authentication for APIs"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
 
   - title: "Security"
@@ -743,6 +743,11 @@ articles:
 
       - title: "Past Migrations"
         url: "/migrations/past-migrations"
+        hidden: true
+
+      - title: "Management API and ID Tokens"
+        url: "/migrations/guides/calling-api-with-idtokens"
+        hidden: true
         
   - title: "Support"
     url: "/support"

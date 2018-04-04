@@ -17,11 +17,12 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](https://auth0.com/docs/api/authentication#get-token) endpoints)
-* Guardian (Version 1.3.3 or later)
+* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
 * Database and Social connections
 * Lock 11 with Cross Origin Authentication
+* SAML Connections and Clients
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -94,94 +95,16 @@ This means the verification process is complete and within 1 to 2 minutes, your 
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
 
-### Step 3: Complete feature-specific setup
+### Step 3: Additional configuration steps
 
-There are additional steps you must complete depending on which Auth0 features you are using.
-
-:::warning
-If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `tenant.auth0.com` will no longer be valid once you start using your custom domain, so users will have to login again.
-:::
-
-#### Configure the Login Page
-
-When using custom domains with [universal login](/hosted-pages/login), you will need to determine which of the following apply to you:
-
-* If you're using the **default** login page without customization, you will not need to make any changes. Your custom domain will work right out of the box.
-* If you're using a **customized** login page, you'll need to update the code in your [Dashboard](${manage_url}) to use your custom domain. The changes that you'll need to make are regarding the initializing of Lock. The following code sample shows the lines reflecting the necessary changes.
-
-```js
-var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
-...
-	configurationBaseUrl: config.clientConfigurationBaseUrl,
-	overrides: {
-		__tenant: config.auth0Tenant,
-		__token_issuer: config.auth0Domain
-	},
-...
-});
-```
-
-#### Embedded Lock
-
-If you're using Embedded Lock (Lock v11), you need to use your custom domain when initializing Lock. You will also need to set the **configurationBaseUrl** to the appropriate CDN URL:
-
-```js
-var lock = new Auth0Lock('your-client-id', 'login.northwind.com', {
-...
-    configurationBaseUrl: 'https://cdn.auth0.com'
-...
-});
-```
-
-:::note
-The CDN URL varies by region. For regions outside of the US, use `https://cdn.{region}.auth0.com`.
-:::
-
-#### SDKs
-
-If you are using [Auth0.js](/libraries/auth0js) or other SDKs, you will have to initialize the SDK using your custom domain. For example, if you are using the auth0.js SDK, you'll need to set the following:
-
-```js
-webAuth = new auth0.WebAuth({
-  domain:       'login.northwind.com',
-  clientID:     'your-client-id'
-});
-```
-
-#### Auth0 emails
-
-If you would like your custom domain used with your Auth0 emails, you'll need to enable this feature in the [Dashboard](${manage_url}/#/tenant). You can do this by clicking the toggle associated with the **Use Custom Domain in Emails**. When the toggle is green, this feature is enabled.
-
-![](/media/articles/custom-domains/cd_email_toggle.png)
-
-#### Social identity provider configuration
-
-If you want to use social identity providers with your custom domain, you must update the allowed callback URLs to include your custom domain (such as `https://login.northwind.com/login/callback`).
-
-:::warning
-You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
-:::
-
-#### APIs
-
-If you are using Auth0 with a custom domain to issue Access Tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if using the [express-jwt](https://github.com/auth0/express-jwt) middleware:
-
-```js
-app.use(jwt({ 
-	issuer: 'https://login.northwind.com', 
-	... additional params ...
-}));
-```
-
-:::note
-If you are using built-in Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://northwind.auth0.com/userinfo** and **https://northwind.auth0.com/api/v2/`)
-:::
+There may be additional steps you must complete depending on which Auth0 features you are using. See the [Additional Configuration for Custom Domains](/custom-domains/additional-configuration) document for more information.
 
 ## FAQ
 
 1. **If I use a custom domain, will I still be able to use my ${account.namespace} domain to access Auth0?**
   
 Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are however a few exceptions:
+
 - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
 - If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 

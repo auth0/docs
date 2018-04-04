@@ -71,7 +71,7 @@ The SDK for your platform should make the `access_token` available in simplest w
   var strategy = new Auth0Strategy({
      domain:       '${account.namespace}',
      clientID:     '${account.clientId}',
-     clientSecret: '${account.clientSecret}',
+     clientSecret: 'YOUR_CLIENT_SECRET',
      callbackURL:  '${account.callback}',
      passReqToCallback: true //need this to save the accessToken to session
     },
