@@ -112,7 +112,7 @@ As an example, let's use Twitter, which allows you to pass an optional `screen_n
 }
 ```
 
-Now, when calling the /authorize endpoint for a specific user, you can pass their email address in the `login_hint` parameter:
+Now, when calling the [/authorize endpoint](/api/authentication#authorize-client) for a specific user, you can pass their email address in the `login_hint` parameter:
 
 ```text
 https://${account.namespace}/authorize
