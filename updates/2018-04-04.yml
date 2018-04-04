@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated guidance on step-up authentication"
+    tags:
+      - mfa
+      - step-up
+    description: |
+      The [Step-Up Authentication](https://auth0.com/multifactor-authentication/developer/step-up-authentication) guidance has been updated and two new tutorials were added: [How to Implement Step-up Authentication for Web Apps](https://auth0.com/docs/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps), and [How to Implement Step-up Authentication for APIs](https://auth0.com/docs/multifactor-authentication/developer/step-up-authentication/step-up-for-apis).
