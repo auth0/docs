@@ -32,7 +32,7 @@ For more information on the signature verification and claims validation, see [I
 
 ## Sample payloads
 
-In the snippet below you can see how an ID Token's payload is if the user has authenticated with MFA, and how it is if they haven not.
+In the snippet below you can see how an ID Token's payload is if the user has authenticated with MFA, and how it is if they have not.
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -118,7 +118,7 @@ The `context.request.query.acr_values` property exists only if the web app inclu
 
 ### 2. Configure your application
 
-If the user tries to access the salary information screen, then the web app must check the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we saw in the previous paragraph triggers MFA. Once the user authanticates a new token is sent to the app.
+If the user tries to access the salary information screen, then the web app must check the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we saw in the previous paragraph triggers MFA. Once the user authenticates, a new token is sent to the app.
 
 #### Check the ID Token
 
@@ -149,7 +149,7 @@ jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(er
 
 #### Ask for MFA
 
-If the output of the previous checks is that the user has not authenticated with MFA, then you must trigger authentication again. The request will include the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which as a result will trigger the rule we wrote at [the first step](#1-create-the-rule).
+If the output of the previous validations is that the user has not authenticated with MFA, then you must trigger authentication again. The request will include the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which as a result will trigger the rule we wrote at [the first step](#1-create-the-rule).
 
 Our web app uses the [Authorization Code Grant](/api-auth/tutorials/authorization-code-grant) to authenticate, so the request is as follows.
 
@@ -164,7 +164,9 @@ https://${account.namespace}/authorize?
     acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
 ```
 
-Once the user authenticates with Guardian, the web app receives in the response the Authorization Code (`code`) which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see [Exchange the Authorization Code for a Token](/api-auth/tutorials/authorization-code-grant#2-exchange-the-authorization-code-for-an-access-token).
+Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see [Exchange the Authorization Code for a Token](/api-auth/tutorials/authorization-code-grant#2-exchange-the-authorization-code-for-an-access-token).
+
+That's it, you are done!
 
 ## Keep reading
 
