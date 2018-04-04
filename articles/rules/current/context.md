@@ -32,7 +32,7 @@ The following properties are available for the `context` object:
   - `current_clients`: client IDs using SSO.
 * `accessToken`: used to add custom namespaced claims to the `access_token`.
 * `idToken`: used to add custom namespaced claims to the `id_token`.
-* `sessionID`: unique id for the authentication session.
+* `sessionID`: unique id for the authentication session. Value is kept only if `prompt=none`
 * `request`: an object containing useful information of the request. It has the following properties:
   - `userAgent`: the user-agent of the client that is trying to log in.
   - `ip`: the originating IP address of the user trying to log in.
