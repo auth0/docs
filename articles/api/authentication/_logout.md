@@ -1,7 +1,5 @@
 # Logout
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/v2/logout?
   client_id=${account.clientId}&

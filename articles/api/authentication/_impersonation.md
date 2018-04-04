@@ -1,7 +1,5 @@
 # Impersonation
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/users/{user_id}/impersonate
 Content-Type:   application/json

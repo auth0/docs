@@ -1,7 +1,5 @@
 # Revoke Refresh Token
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/revoke
 Content-Type: application/json

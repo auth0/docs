@@ -1,7 +1,5 @@
 # Resource Owner
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/ro
 Content-Type: application/json

@@ -11,8 +11,6 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 
 ## Authorization Code
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -114,8 +112,6 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 ## Authorization Code (PKCE)
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -207,8 +203,6 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ## Client Credentials
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -297,8 +291,6 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 
 ## Resource Owner Password
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -422,8 +414,6 @@ Next, you have to verify the MFA, using the `/oauth/token` endpoint and the chal
 
 ### MFA Challenge Request
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/mfa/challenge
 Content-Type: application/json
@@ -528,8 +518,6 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 
 ### Verify MFA using OTP
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -602,8 +590,6 @@ To verify MFA using an OTP code your app must prompt the user to get the OTP cod
 
 
 ### Verify MFA using an OOB challenge
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -708,8 +694,6 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 
 ### Verify MFA using a recovery code
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -788,8 +772,6 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 ::: warning
 This endpoint is still under development. It is available to customers with early access.
 :::
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/mfa/associate
@@ -901,8 +883,6 @@ Content-Type: application/json
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/mfa/authenticators
 Content-Type: application/json
@@ -987,8 +967,6 @@ Content-Type: application/json
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
 Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
@@ -1033,8 +1011,6 @@ HTTP/1.1 204 OK
 - [Manage the Authenticators](/multifactor-authentication/api/manage)
 
 ## Refresh Token
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/token
