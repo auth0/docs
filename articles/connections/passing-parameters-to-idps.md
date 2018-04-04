@@ -118,7 +118,7 @@ Now, when calling the /authorize endpoint for a specific user, you can pass thei
 https://${account.namespace}/authorize
   ?client_id=${account.clientId}
   &response_type=token
-  &redirect_uri=http://URI
+  &redirect_uri=${account.callback}
   &scope=openid%20name%20email
   &login_hint=john@gmail.com
 ```
