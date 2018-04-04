@@ -718,13 +718,6 @@ articles:
         
       - title: "LDAP"
         url: "/protocols/ldap"
-        
-  - title: "Addons/Third-Party Apps"
-    url: "/addons"
-    children:
-
-      - title: "Overview"
-        url: "/addons"
 
   - title: "Auth0 Migrations"
     url: "/migrations"
