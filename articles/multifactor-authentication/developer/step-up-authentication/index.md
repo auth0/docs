@@ -34,18 +34,22 @@ The solution is that the client performs another authentication call, but this t
 
 Once the user successfully authenticates with MFA, a new Access Token which includes the high-value scope is generated and sent. The client will pass the Access Token to the API which will discard it after verification, thereby treating it like a single-use token.
 
-For details see [Step-up Authentication with Access Tokens](/multifactor-authentication/developer/mfa-from-access-token).
+For details and sample code, see [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis).
 
 ## Step-up Authentication for Web Apps
 
-If it is a web app that verifies the authentication level, and not an API, then you do not have an Access Token. In this case you can check if a user has logged in with MFA by reviewing the contents of their [ID Token](/tokens/id-token). You can then configure your application to deny access to pages with sensitive information if the ID Token indicates that the user did not log in with MFA.
+If it is a web app that verifies the authentication level, and not an API, then you do not have an Access Token. In this case you can check if a user has logged in with MFA by reviewing the contents of their [ID Token](/tokens/id-token). You can then configure your application to deny access to pages with sensitive information if the ID Token indicates that the user did not log in with MFA, and use a rule to trigger the step-up authentication mechanism (for example, prompt MFA).
 
-For details see [Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token).
+For example, you might have an employee app that authenticates users with username and password, but if a user wants to access salary information, they have to provide a second factor, using for example a mobile push notification.
+
+You can implement this by checking the ID Token when the user tries to access that screen. If the claims show that the user has authenticated with MFA already then display the sensitive information. Otherwise, trigger authentication again, and using a rule, prompt the user to authenticate with MFA.
+
+For details and sample code, see [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps).
 
 ## Keep reading
 
 ::: next-steps
+* [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)
+* [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
-* [Implement Step-up Authentication with Access Tokens](/multifactor-authentication/developer/mfa-from-access-token)
-* [Implement Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token)
 :::

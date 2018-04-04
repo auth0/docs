@@ -1,9 +1,9 @@
 ---
-title: Step-up Authentication with Access Tokens
+title: Step-up Authentication for APIs
 description: Describes how an API can check if a user has logged in with Multifactor Authentication by examining their Access Token
 toc: true
 ---
-# Step-up Authentication with Access Tokens
+# Step-up Authentication for APIs
 
 With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
@@ -39,7 +39,8 @@ In this section we will see how you would implement the scenario described in th
 
 ### Before you start
 
-This article assumes that you have already done the following:
+This tutorial assumes that you have already done the following:
+
 - [Register a client](/clients#how-to-configure-a-client) for your application. For the purposes of this example we'll be using a single-page web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
@@ -48,7 +49,7 @@ This article assumes that you have already done the following:
 
 ### 1. Create the rule
 
-First we will create a rule that will challenge the user to authenticate with MFA when the `trasnfer:funds` scope is requested.
+First we will create a rule that will challenge the user to authenticate with MFA when the `transfer:funds` scope is requested.
 
 Go to [Dashboard > Multifactor Auth](${manage_url}/#/guardian) and modify the script as follows.
 
@@ -208,5 +209,5 @@ That's it, you're done! Now your application allows access to different types of
 * [Overview of rules](/rules)
 * [Overview of scopes](/scopes)
 * [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
-* [List of architecture scenarios, including different types of apps calling APIs](/architecture-scenarios#application-configurations)
+* [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)
 :::

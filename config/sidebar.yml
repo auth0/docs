@@ -521,12 +521,12 @@ articles:
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
-          - title: "Step-up with ID Tokens"
-            url: "/multifactor-authentication/developer/mfa-from-id-token"
+          - title: "Step-up Authentication for Web Apps"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
-          - title: "Step-up with Access Tokens"
-            url: "/multifactor-authentication/developer/mfa-from-access-token"
+          - title: "Step-up Authentication for APIs"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
 
   - title: "Security"
