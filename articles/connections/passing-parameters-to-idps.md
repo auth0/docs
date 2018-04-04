@@ -18,7 +18,7 @@ As an example, let's use WordPress, which allows you to pass an optional `blog` 
 
 To accomplish this, you will map WordPress's `blog` parameter to the existing accepted parameter of `access_type` and assign it a default value of `myblog.wordpress.com`:
 
-```
+```json
 {
   "name": "WordPressConn",
   "strategy": "wordpress",
@@ -74,7 +74,7 @@ Sometimes you may want to configure parameters per user. To do this, use the `up
 
 As an example, let's use Twitter, which allows you to pass an optional `screen_name` parameter to its OAuth authorization endpoint (for more information, see [Twitter's API reference](https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize)). Twitter's `screen_name` parameter pre-fills the username input box of the login screen with the given value, so we want to map it to the existing accepted parameter of `login_hint`.
 
-```
+```json
 {
   "name": "TwitterConn",
   "strategy": "twitter",
