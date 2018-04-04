@@ -398,13 +398,21 @@ articles:
             url: "/user-profile/user-picture"
 
       - title: "User Search"
-        url: "/users/search"
+        url: "/users/search/v3"
         children:
           - title: "Query Syntax"
             url: "/users/search/query-sytax"
 
           - title: "Best Practices"
             url: "/users/search/best-practices"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v2"
+        hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/query-sytax"
             hidden: true
 
       - title: "User Metadata"
