@@ -1,8 +1,6 @@
 ---
 title: Passing Parameters to Identity Providers
 description: How to pass parameters to an Identity Provider API
-toc: true
-crews: crew-2
 ---
 # Passing Parameters to Identity Providers
 
