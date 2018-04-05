@@ -236,7 +236,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>/passwordless/start</td>
     <td>IP</td>
     <td>All</td>
-    <td>50 requests per minute</td>
+    <td>50 requests per hour</td>
   </tr>
   <tr>
     <td>Get Token</td>
