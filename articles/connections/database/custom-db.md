@@ -113,7 +113,7 @@ function login(email, password, callback) {
 
 ```
 
-The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns.
+The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. Note that `id` returned by Login script is used to construct `user_id` attribute of user profile. If you are using multiple custom database connections then value of `id` must be unique across all the custom database connections to avoid and `user_id` collisions. Our recommendation is to prefix the value of `id` with connection name without any whitespace in the resulting value.
 
 ## Add configuration parameters
 
@@ -155,6 +155,8 @@ For example:
 ```js
 callback(new ValidationError('email-too-long', 'Email is too long.'));
 ```
+
+If you use [Lock](/libraries/lock), you can customize the error messages that will be displayed by adding them to the dictionary. For more info, see [Customizing Lock Error Messages](libraries/lock/customizing-error-messages).
 
 ## Troubleshoot
 

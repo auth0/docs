@@ -27,7 +27,7 @@ Note that upon enabling this option, only password changes going forward will be
 
 ## Password Dictionary
 
-The Password Dictionary option, when enabled, allows the use of a password dictionary to stop users from choosing common passwords. The [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/10k_most_common.txt) that Auth0 uses can be enabled just by toggling this option on. It will not allow users to use a password that is present on that list.
+The Password Dictionary option, when enabled, allows the use of a password dictionary to stop users from choosing common passwords. The [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt) that Auth0 uses can be enabled just by toggling this option on. It will not allow users to use a password that is present on that list.
 
 Additionally, you can use the text area here and add your own prohibited passwords, one per line. These can be items that are specific to your company, or passwords that your own research has shown you are commonly used in general or at your company in specific.
 

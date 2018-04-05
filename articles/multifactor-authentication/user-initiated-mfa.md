@@ -38,7 +38,7 @@ Finally, if the two parameters above are met, MFA occurs every login.
 function (user, context, callback) {
 
     // run only for the specified clients
-    var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+    var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
     
     if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
         if (user.app_metadata && user.app_metadata.use_mfa){
@@ -63,7 +63,7 @@ In this step, we'll add functionality within the user creation/login process tha
 
 You'll need to [get an Access Token](/api/management/v2/tokens) to call the [Management API](/api/management/v2) during the user creation process. The only scope that you need to grant to the issued token is `update:users_app_metadata`.
 
-Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `useMfa = true`.
+Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `use_mfa = true`.
 
 You can do this by making the appropriate `PATCH` call to the [Update a User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id). Note that the body of the call omits most of the extra details (such as email and phone number) you might need to include.
 
@@ -80,7 +80,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"blocked\": false, \"email_verified\": false, \"email\": \"\", \"verify_email\": false, \"phone_number\": \"\", \"phone_verified\": false, \"verify_phone_number\": false, \"password\": \"\", \"verify_password\": false,\"user_metadata\": {},\"app_metadata\": { \"useMfa\": true }, \"connection\": \"\", \"username\": \"\",\"client_id\": \"DaM8...rdyX\"}"
+		"text": "{ \"blocked\": false, \"email_verified\": false, \"email\": \"\", \"verify_email\": false, \"phone_number\": \"\", \"phone_verified\": false, \"verify_phone_number\": false, \"password\": \"\", \"verify_password\": false,\"user_metadata\": {},\"app_metadata\": { \"use_mfa\": true }, \"connection\": \"\", \"username\": \"\",\"client_id\": \"DaM8...rdyX\"}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,

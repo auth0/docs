@@ -101,7 +101,7 @@ You can modify the lifetime of this link for security purposes. By default, the 
 If users click on an expired link and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the query string:
 
 ```text
-http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
+http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired.&success=false
 ```
 
 ## Email Templates

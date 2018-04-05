@@ -87,7 +87,7 @@ Open your `web.config` file and change the three Auth0's parameters under `<appS
 
 ```text
 <add key="oauth.auth0.AppId" value="${account.clientId}" />
-<add key="oauth.auth0.AppSecret" value="${account.clientSecret}" />
+<add key="oauth.auth0.AppSecret" value="YOUR_CLIENT_SECRET" />
 <add key="oauth.auth0.OAuthServerUrl" value="https://${account.namespace}" />
 ```
 

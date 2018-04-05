@@ -14,12 +14,15 @@ The PSaaS Appliance requires certain ports within the cluster to be open and abl
 When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other PSaaS Appliance instances in the same cluster:
 
 <table class="table">
+  <thead>
   <tr>
     <th>Port</th>
     <th>Use</th>
     <th>Required?</th>
     <th>Notes</th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td>27017</td>
     <td>Database</td>
@@ -62,6 +65,7 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>No</td>
     <td>Allows healthchecks between nodes</td>
   </tr>
+  </tbody>
 </table>
 
 ## External Connectivity
@@ -69,6 +73,7 @@ When possible, instances within a cluster should have full connectivity to each 
 Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your PSaaS Appliance instances to connect to these addresses.
 
 <table class="table">
+  <thead>
   <tr>
     <th>Use</th>
     <th>Direction</th>
@@ -77,6 +82,8 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <th>Notes</th>
     <th>Required?</th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td>All</td>
     <td>Inbound</td>
@@ -118,11 +125,11 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Web extensions</td>
+    <td>Web extensions and Management Dashboard</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions</td>
+    <td>Required to run web extensions; also required for admins to browse to the Management Dashboard</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -165,6 +172,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Required by the PSaaS Appliance to resolve host names internal and external to your environment</td>
     <td>Yes</td>
   </tr>
+  </tbody>
 </table>
 
 ## Notes

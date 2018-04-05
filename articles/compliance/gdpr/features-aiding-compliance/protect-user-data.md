@@ -3,7 +3,7 @@ title: GDPR Compliance: Protect and secure user data
 description: This article discusses how customers can use Auth0 to better protect and secure their user's personal data
 toc: true
 ---
-# GDPR Compliance: Protect and secure user data
+# GDPR: Protect and secure user data
 
 As per article 32 of GDPR, you must implement appropriate security measures in order to ensure a level of security appropriate to the risk, including (but not limited to):
 
@@ -68,9 +68,9 @@ For information on how to use them see [Password Strength](/connections/database
 
 With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [Multifactor Authentication (MFA)](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then they must authenticate with one more factor (for example, a code sent via SMS).
 
-You can check if a user has logged in with MFA by reviewing the contents of their ID Token. You can then configure your application to deny access to sensitive resources if the ID Token indicates that the user did not log in with MFA.
+You can check if a user has logged in with MFA by reviewing the contents of their ID Token or Access Token. You can then configure your application to deny access to sensitive resources if the token indicates that the user did not log in with MFA.
 
-For details see [Step-up Authentication with ID Tokens](/multifactor-authentication/developer/mfa-from-id-token).
+For details see [Step-up Authentication](/multifactor-authentication/developer/step-up-authentication).
 
 ## Availability and resilience
 
@@ -88,8 +88,3 @@ You decide which deployment model works best for you based on your business and 
 For more information on Auth0 architecture, see [Availability & Trust](https://auth0.com/availability-trust).
 
 For more information on the available deployment models of Auth0, see [Auth0 Deployment Models](/getting-started/deployment-models).
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

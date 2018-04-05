@@ -2,7 +2,7 @@
 title: User consent and third-party clients
 ---
 
-# User consent and third-party clients
+# User Consent and Third-Party Clients
 
 <%= include('../_includes/_pipeline2') %>
 
@@ -36,6 +36,7 @@ If a user is authenticating through a third-party client and is requesting autho
 For example:
 
 <table>
+  <tbody>
     <tr>
         <td>
 <pre><code>GET /authorize?
@@ -52,10 +53,14 @@ client_id=some_third_party_client
         <img alt="Auth0 consent dialog - Fabrikam Client for Contoso is requesting access to your account" src="/media/articles/hosted-pages/consent-dialog.png">
         </td>
     </tr>
+  </tbody>
 </table>
 
 If the user chooses to allow the application, this will create a user grant which represents this user's consent to this combination of client, resource server and scopes.
+
 The client application will then receive a successful authentication response from Auth0 as usual.
+
+Once consent has been given, the user will no longer see the consent dialog on subsequent logins.
 
 ## Handling rejected permissions
 
@@ -84,6 +89,12 @@ Once you do this, remember to update your [client configuration URLs](/clients#c
 :::
 
 Since third-party clients are assumed to be untrusted, they are not able to skip consent dialogs.
+
+## Revoking Consent
+
+If a user has provided consent, but you would like to revoke it, you can do so via [Dashboard > Users](${manage_url}/#/users). Select the user in which you are interested, and switch over to the **Authorized Clients** tab.
+
+Click **Revoke** next to the appropriate application.
 
 ## Password-based flows
 

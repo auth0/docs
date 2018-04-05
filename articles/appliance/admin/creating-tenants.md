@@ -68,7 +68,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
     "queryString" : [],
     "postData" : {
         "mimeType": "application/json",
-        "text": "{\"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
+        "text": "{\"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,

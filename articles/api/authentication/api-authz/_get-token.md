@@ -11,15 +11,13 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 
 ## Authorization Code
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "code": "AUTHORIZATION_CODE",
   "redirect_uri": "${account.callback}"
 }
@@ -29,7 +27,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","code": "AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
 ```
 
 ```javascript
@@ -41,7 +39,7 @@ var options = { method: 'POST',
   body:
    { grant_type: 'authorization_code',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
+     client_secret: 'YOUR_CLIENT_SECRET',
      code: 'AUTHORIZATION_CODE',
      redirect_uri: '${account.callback}' },
   json: true };
@@ -113,8 +111,6 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 
 ## Authorization Code (PKCE)
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -207,8 +203,6 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ## Client Credentials
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -216,7 +210,7 @@ Content-Type: application/json
   "audience": "API_IDENTIFIER",
   "grant_type": "client_credentials",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}"
+  "client_secret": "YOUR_CLIENT_SECRET"
 }
 ```
 
@@ -224,7 +218,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"audience":"API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
+  --data '{"audience":"API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"YOUR_CLIENT_SECRET"}'
 ```
 
 ```javascript
@@ -235,7 +229,7 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json' },
   body:
    { client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
+     client_secret: 'YOUR_CLIENT_SECRET',
      audience: 'API_IDENTIFIER',
      grant_type: 'client_credentials' },
   json: true };
@@ -298,8 +292,6 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 ## Resource Owner Password
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
@@ -310,7 +302,7 @@ Content-Type: application/json
   "audience": "API_IDENTIFIER",
   "scope": "SCOPE",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}"
+  "client_secret": "YOUR_CLIENT_SECRET"
 }
 ```
 
@@ -318,7 +310,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"
  }'
 ```
 
@@ -335,7 +327,7 @@ var options = { method: 'POST',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -422,14 +414,12 @@ Next, you have to verify the MFA, using the `/oauth/token` endpoint and the chal
 
 ### MFA Challenge Request
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/mfa/challenge
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "mfa_token": "MFA_TOKEN",
   "challenge_type": "oob|otp"
 }
@@ -439,7 +429,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/mfa/challenge' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "challenge_type":"oob otp", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "challenge_type":"oob otp", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
 ```javascript
@@ -452,7 +442,7 @@ var options = { method: 'POST',
    { mfa_token: 'MFA_TOKEN',
      challenge_type: 'oob otp',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -528,14 +518,12 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 
 ### Verify MFA using OTP
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "mfa_token": "MFA_TOKEN",
   "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp",
   "otp": "OTP_CODE"
@@ -546,7 +534,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
 ```javascript
@@ -560,7 +548,7 @@ var options = { method: 'POST',
      otp: 'OTP_CODE',
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -603,14 +591,12 @@ To verify MFA using an OTP code your app must prompt the user to get the OTP cod
 
 ### Verify MFA using an OOB challenge
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "mfa_token": "MFA_TOKEN",
   "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob",
   "oob_code": "OOB_CODE",
@@ -622,7 +608,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
 ```javascript
@@ -637,7 +623,7 @@ var options = { method: 'POST',
      binding_code: "BINDING_CODE"
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -708,14 +694,12 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 
 ### Verify MFA using a recovery code
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "mfa_token": "MFA_TOKEN",
   "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code",
   "recovery_code": "RECOVERY_CODE"
@@ -726,7 +710,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
 ```javascript
@@ -740,7 +724,7 @@ var options = { method: 'POST',
      recovery_code: 'RECOVERY_CODE',
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-recover-code',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}' },
+     client_secret: 'YOUR_CLIENT_SECRET' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -789,15 +773,13 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/mfa/associate
 Content-Type: application/json
 Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
 {
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "authenticator_types": ["oob"],
   "oob_channels": "sms",
   "phone_number": "+1 555 123456"
@@ -810,7 +792,7 @@ curl --request POST \
   --url 'https://${account.namespace}/mfa/associate' \
   --header 'authorization: Bearer ACCESS_TOKEN or MFA_TOKEN' \
   --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "authenticator_types":["oob"], "oob_channels":"sms", "phone_number": "+1 555 123456"}'
+  --data '{"client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET", "authenticator_types":["oob"], "oob_channels":"sms", "phone_number": "+1 555 123456"}'
 ```
 
 ```javascript
@@ -824,7 +806,7 @@ var options = { method: 'POST',
   },
   body:
    { client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
+     client_secret: 'YOUR_CLIENT_SECRET',
      authenticator_types: ["oob"],
      oob_channels: "sms",
      phone_number: "+1 555 123456" },
@@ -900,8 +882,6 @@ Content-Type: application/json
 ::: warning
 This endpoint is still under development. It is available to customers with early access.
 :::
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 GET https://${account.namespace}/mfa/authenticators
@@ -987,8 +967,6 @@ Content-Type: application/json
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
 Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
@@ -1034,15 +1012,13 @@ HTTP/1.1 204 OK
 
 ## Refresh Token
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
   "grant_type": "refresh_token",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
+  "client_secret": "YOUR_CLIENT_SECRET",
   "refresh_token": "YOUR_REFRESH_TOKEN"
 }
 ```
@@ -1051,7 +1027,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","refresh_token": "YOUR_REFRESH_TOKEN"}'
+  --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","refresh_token": "YOUR_REFRESH_TOKEN"}'
 ```
 
 ```javascript
@@ -1063,7 +1039,7 @@ var options = { method: 'POST',
   body:
    { grant_type: 'refresh_token',
      client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
+     client_secret: 'YOUR_CLIENT_SECRET',
      refresh_token: 'YOUR_REFRESH_TOKEN'},
   json: true };
 

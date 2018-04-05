@@ -2,8 +2,6 @@
 
 ## Accept Request
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/wsfed/${account.clientId}
 ```
@@ -64,8 +62,6 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 
 ## Get Metadata
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 GET https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml

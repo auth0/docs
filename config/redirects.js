@@ -875,8 +875,8 @@ module.exports = [
     to: '/dev-centers/java'
   },
   {
-    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol'],
-    to: '/protocols/oauth2/oauth-web-protocol'
+    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
+    to: '/client-auth/current/server-side-web'
   },
   {
     from: '/oauth-implicit-protocol',
@@ -1405,10 +1405,6 @@ module.exports = [
   {
     from: '/tutorials/troubleshooting-with-har-files',
     to: '/support/troubleshooting-with-har-files',
-  },
-  {
-    from: '/tutorials/custom-mfa-rules',
-    to: '/multifactor-authentication/custom-mfa-rules',
   },
   {
     from: '/tutorials/delete-reset-tenant',

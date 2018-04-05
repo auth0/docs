@@ -56,7 +56,7 @@ To integrate Auth0 login into your application, simply instantiate an instance o
 
 ${snippet(meta.snippets.setup)}
 
-The steps for Logging the user in is different for Android and iOS.
+The steps for Logging the user in is different for Android and iOS. Note that this example is not using Xamarin Forms.
 
 ### Android
 
@@ -98,7 +98,7 @@ public class MainActivity : Activity
 }
 ```
 
-Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, such as `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case.
+Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, such as `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case. Set `LaunchMode = LaunchMode.SingleTask`, otherwise the system will create a new instance of the activity every time the Callback URL gets called.
 
 Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `ProcessResponseAsync` method, passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
 

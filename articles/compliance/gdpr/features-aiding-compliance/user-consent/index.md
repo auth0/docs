@@ -13,35 +13,37 @@ This article explains how you can use Auth0 features to implement these requirem
 
 Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
 
+### Use Lock
+
+You can customize the Lock UI to display links to your terms and conditions and/or privacy statement pages, and a consent checkbox that the user has to check in order to sign up. This can be done with the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This property, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using a [rule](/rules) that will run upon first login.
+
+If you want to get more information from the users during signup, and you authenticate users with a database connection, you can add custom fields to the Lock UI. This can be done with the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). Any custom fields are automatically added to the `user_metadata`.
+
 ::: note
 Before you design your solution using `user_metadata` make sure you have reviewed the [custom fields limitations](/libraries/custom-signup#custom-fields-limitations).
+::: 
+
+If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). Once the signup process is complete, save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+
+:::note
+For a tutorial on how to implement any of these scenarios, see the [Track Consent with Lock](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock).
 :::
 
-### Lock with database connection
+### Use your custom UI
 
-If you use Lock and authenticate users with a database connection, add an extra field to the signup screen using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). This extra field will be automatically added to the `user_metadata`.
+If you use a custom signup form with a database connection, you have to add an extra field to the signup screen in order to capture the user's consent. Afterwards, call the [Authentication API's Signup endpoint](/api/authentication#signup) in order to create the user in Auth0. At this point, you can set the consent information as part of the `user_metadata`.
 
-Alternatively, you can use the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-).
+Alternatively, if you use Auth0.js from an SPA, you can use [the signup method](/libraries/auth0js#sign-up) in order to create the user in Auth0 and set the consent info as part of the `user_metadata`.
 
-### Lock with social login
+If you use a custom signup form with social providers, you cannot set the user's consent information upon signup but you can update it as soon as the user is created. Save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-If you use Lock and authenticate users with social providers, you cannot add a custom field to the signup screen, but you can redirect the user to another page where you ask for consent and then redirect back to finish the authentication transaction. Implement the redirection using [redirect rules](/rules/redirect). Once you get the user's consent and the signup process is complete, save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
-
-### Custom UI with database connection
-
-If you use a custom signup form with a database connection, you have to add an extra field to the signup screen in order to capture the user's consent. Afterwards, call the [Authentication API's Signup endpoint](/api/authentication#signup) in order to create the user in Auth0. At this point, you can set the consent information as part of the `user_metadata`. For a sample request, refer to [Custom Signup > Send the Form Data](/libraries/custom-signup#2-send-the-form-data).
-
-Alternatively, if you use Auth0.js, you can use [the signup method](/libraries/auth0js#sign-up) in order to create the user in Auth0 and set the consent info as part of the `user_metadata`.
-
-### Custom UI with social login
-
-If you use a custom signup form with social providers, you have to add an extra field to the signup screen in order to capture the user's consent. Save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+:::note
+For a tutorial on how to implement any of these scenarios, see the [Track Consent with Custom UI](/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui).
+:::
 
 ### Re-consent and user migration
 
 If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
-
----
 
 :::panel What else do I have to do?
 - You must write up the notification users will see around how users' data is being used, how long data will be used, users' rights, etc. as well as customize the UI sign-up box
@@ -58,7 +60,7 @@ With Auth0 you can save the user's consent information as part of the `user_meta
 To access the Management API you will need an Access Token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
 :::
 
-The Management API offers several offers several options when it comes to user search (search by email, ID, or other fields) and endpoints to update `user_metadata` or batch export users.
+The Management API offers several offers several options when it comes to user search and endpoints to update `user_metadata` or batch export users.
 
 ### Search for a user using their email address
 
@@ -146,16 +148,6 @@ Sample response:
   }
 }
 ```
-
-### Search for a set of users
-
-To search for a set of users, use [the List or search users endpoint](/users/search#users). 
-
-This endpoint is eventually consistent (that is, the response might not reflect the results of a recently-complete write operation) and [only specific fields are available for search](/api/management/v2/user-search#searchable-fields). 
-
-Information regarding consent that is saved to `user_metadata` are not searchable. 
-
-For a sample request and response see [Search Users](/users/search#users). For more examples, see [Example Queries](/api/management/v2/user-search#example-queries).
 
 ### Update consent information
 
@@ -263,8 +255,6 @@ This endpoint creates a job that exports all users associated with a connection.
 
 Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
 
----
-
 :::panel What else do I have to do?
 - Determine how you want to track consent. We recommend including information on not just the date the user consented, but the version of terms and conditions to which the user agreed. We also recommend including an array to hold information about users that withdraw their permission (remember that the user can consent and withdraw multiple times)
 - Choose where you want to store consent: in Auth0's database or elsewhere
@@ -349,14 +339,7 @@ The script:
 
 Give a name to your rule and save your changes.
 
----
-
 :::panel What else do I have to do?
 - Ensure the consent withdrawal piece is granular enough
 - Configure into the app the area where customers will withdraw consent
 :::
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

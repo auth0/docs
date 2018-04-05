@@ -15,11 +15,14 @@ DNS records must be finalized for all of the tenants prior to PSaaS Appliance de
 
 You’ll need one certificate per environment (such as if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
 
-If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
+If you’d like to use a [Webtask Dedicated Domain](/appliance/webtasks/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
+
+Dedicated and non-dedicated host names must be unique.
 
 ## Sample DNS Naming Scheme
 
 <table class="table">
+  <tbody>
     <tr>
         <th>Management Dashboard</th>
         <td>manage-project.yourdomain.com</td>
@@ -36,11 +39,13 @@ If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated
         <th>App Tenant(s)</th>
         <td>app1-project.yourdomain.com; <br /> app2-project.yourdomain.com <br />...and so on</td>
     </tr>
+  </tbody>
 </table>
 
 For a dev/test non-production PSaaS Appliance a common practice is to append “-dev” to the hostname component in the domain name:
 
 <table class="table">
+  <tbody>
     <tr>
         <th>Management Dashboard (Dev)</th>
         <td>manage-dev-project.yourdomain.com</td>
@@ -57,6 +62,7 @@ For a dev/test non-production PSaaS Appliance a common practice is to append “
         <th>App Tenant(s) (Dev)</th>
         <td>app1-dev-project.yourdomain.com; <br /> app2-dev-project.yourdomain.com <br />...and so on</td>
     </tr>
+  </tbody>
 </table>
 
 ### Definitions of Terms Used in the DNS Naming Scheme
@@ -91,6 +97,7 @@ The hostname (such as **manage-project**.yourdomain.com) must be at least three 
 The following are reserved tenant names and **may not** be used for the **app** tenant.
 
 <table class="table">
+  <tbody>
     <tr>
         <td>login</td>
         <td>admin</td>
@@ -140,6 +147,7 @@ The following are reserved tenant names and **may not** be used for the **app** 
         <td>auth</td>
         <td></td>
     </tr>
+  </tbody>
 </table>
 
 ::: warning
@@ -159,6 +167,7 @@ In the PSaaS Appliance, you may map any arbitrary domain name to a tenant using 
 Suppose these were your standard domains:
 
 <table class="table">
+  <tbody>
     <tr>
         <td>Root Tenant Authority</td>
         <td>Sample Tenant</td>
@@ -169,6 +178,7 @@ Suppose these were your standard domains:
         <td>auth.example.com</td>
         <td>new-name.not-example.com</td>
     </tr>
+  </tbody>
 </table>
 
 Please note that all tenant names are derived from the base Configuration Tenant. However, you may set your custom domain to point toward any of your tenants (in the example above, `new-name.not-example.com` maps to `auth.example.com`, and the latter may be used by your clients).

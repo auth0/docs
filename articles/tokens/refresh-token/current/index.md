@@ -21,9 +21,9 @@ For more information on our authentication pipeline, refer to [Introducing OIDC 
 
 ## Overview
 
-The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
+The response of an [authentication request](/api-auth) can result in an Access Token and/or an ID Token being issued by Auth0. The  Access Token is used to make authenticated calls to a secured API, while the ID Token contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
 
-A Refresh Token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without having to re-authenticate the user. This will work as long as the Refresh Token has not been revoked.
+A Refresh Token allows the application to request Auth0 to issue a new Access Token or ID Token directly, without having to re-authenticate the user. This will work as long as the Refresh Token has not been revoked.
 
 ## Restrictions
 
@@ -62,7 +62,7 @@ Once the user authenticates successfully, the client will be redirected to the `
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
@@ -105,7 +105,7 @@ To refresh your token, using the `refresh_token` you already got during authoriz
     "queryString" : [],
     "postData" : {
       "mimeType": "application/json",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
+      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
     },
     "headersSize" : 150,
     "bodySize" : 0,
@@ -119,7 +119,7 @@ Where:
 - `client_secret` (optional): Your application's Client Secret. Only required for [confidential clients](/clients/client-types#confidential-clients).
 - `refresh_token`: The Refresh Token to use.
 
-The response will include a new `access_token`, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new `id_token` will be in the response as well.
+The response will include a new Access Token, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new ID Token will be in the response as well.
 
 ```json
 {
@@ -132,16 +132,23 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 ```
 
 ::: panel Rate limits
-You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+You should only ask for a new token if the Access Token has expired or you want to refresh the claims contained in the ID Token. For example, it's a bad practice to call the endpoint to get a new Access Token every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 ## Revoke a Refresh Token
 
-Since Refresh Tokens never expire it is important to be able to revoke them. You can revoke a Refresh Token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
+Since Refresh Tokens never expire it is important to be able to revoke them in case they get compromised.
+
+Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries.
+Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, client, and audience will be revoked**.
+
+You can revoke a Refresh Token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
 
 ### Use the API
 
 To revoke a Refresh Token you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
+
+The API first validates the client credentials and then verifies whether the token was issued to the client making the revocation request.  If this validation fails, the request is refused and the client is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Note that each revocation request invalidates all the tokens that have been issued for the same authorization grant.
 
 ```har
 {
@@ -155,7 +162,7 @@ To revoke a Refresh Token you can send a `POST` request to `https://${account.na
     "queryString" : [],
     "postData" : {
       "mimeType": "application/json",
-      "text" : "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"token\": \"YOUR_REFRESH_TOKEN\" }"
+      "text" : "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"token\": \"YOUR_REFRESH_TOKEN\" }"
     },
     "headersSize" : 150,
     "bodySize" : 0,
@@ -164,21 +171,17 @@ To revoke a Refresh Token you can send a `POST` request to `https://${account.na
 ```
 
 Where:
-- `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential clients](/clients/client-types#confidential-clients).
-- `token`: The Refresh Token you want to revoke.
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The client should match the one the Refresh Token was issued for. |
+| `client_secret` | Your application's Client Secret. Required for [confidential clients](/clients/client-types#confidential-clients). |
+| `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
 The client should match the one the Refresh Token was issued for.
 
 ::: panel Revoke a token without the Client Secret
-For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing no `client_secret` but the client itself must have the property `tokenEndpointAuthMethod` set to `none`, so the client can perform the following request:
-
-```json
-{
-"token" : YOUR_REFRESH_TOKEN,
-"client_id" : ${account.clientId}
-}
-```
+For clients that cannot keep the Client Secret safe (for example, native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret but the client itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > client Settings](${manage_url}/#/clients/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
 If the request is valid, the Refresh Token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
@@ -197,10 +200,6 @@ The possible responses are:
 | 200 | The Refresh Token is revoked, does not exist, or was not issued to the client making the revocation request. The response body is empty. |
 | 400 | The required parameters were not sent in the request (`"error": "invalid_request"`). |
 | 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
-
-::: note
-For prudence, revoking a token with the API also invalidates the user's grant to the application. This will cause other Refresh Tokens issued for the same application and user to stop working as well.
-:::
 
 ### Use the Dashboard
 

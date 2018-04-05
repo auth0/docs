@@ -14,6 +14,7 @@ By default, all users are displayed, but you can filter the displayed list by co
 The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](#access-hook).
 
 <table class="table">
+  <tbody>
     <tr>
         <th>Action</th>
         <th> Available in the Management Dashboard </th>
@@ -64,6 +65,7 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
         <th>Yes</th>
     </tr>
+  </tbody>
 </table>
 
 Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.

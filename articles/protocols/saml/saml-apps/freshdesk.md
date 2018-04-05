@@ -3,7 +3,7 @@ title: Freshdesk SAML Configuration
 description: Freshdesk SAML Configuration
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

@@ -22,8 +22,7 @@ This is essentially a hybrid between B2B and B2E for larger SAAS applications (s
 The following is a list of articles on this website which will help you to implement this scenario:
 
 * [Lock](https://auth0.com/lock)
-* [Identity Protocols supported by Auth0](/protocols)
-* [Integrating a Web App with Auth0](/oauth-web-protocol)
+* [Protocols supported by Auth0](/protocols)
 * [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
 * [SAML](/saml-configuration)
 * [Using Auth0 in SaaS, multi-tenant Apps](/saas-apps)

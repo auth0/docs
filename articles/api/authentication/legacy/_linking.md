@@ -2,8 +2,6 @@
 
 ## Link
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -53,8 +51,6 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 
 ## Unlink
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/login/unlink
