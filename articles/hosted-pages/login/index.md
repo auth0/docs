@@ -126,3 +126,7 @@ To create a new tenant go to the [Dashboard](${manage_url}), and using the top r
 ![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
 
 You can easily switch between tenants using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
+
+## Incorrect Implementations of the Login Page
+
+The login page should not be implemented by calling its URL directly. This circumvents the Universal Login approach, does not allow for SSO (as the correct endpoint is not hit), and is not supported. Note that this also applies to users who bookmark the login page itself.
