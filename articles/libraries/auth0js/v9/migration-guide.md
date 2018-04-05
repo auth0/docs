@@ -13,8 +13,9 @@ toc: true
 Everyone should migrate to v9. All previous versions are deprecated, and will be removed from service July 16, 2018. For applications that use Auth0.js within an Auth0 login page, this migration is recommended; for client applications with Auth0.js embedded within them, this migration is mandatory.
 
 ::: note
-Previously, deprecated Auth0.js versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date has been extended to **July 16, 2018**. Customers are still encouraged to migrate applications to the latest version **as soon as possible** in order to ensure that applications continue to function properly. 
+Previously, deprecated Auth0.js versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date has been extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting). Customers are still encouraged to migrate applications to the latest version **as soon as possible** in order to ensure that applications continue to function properly. 
 :::
+
 ## Migration Instructions
 
 The documents below describe all the changes that you should be aware of when migrating from different versions of auth0.js to v9. Make sure you go through the relevant guide(s) before upgrading.
