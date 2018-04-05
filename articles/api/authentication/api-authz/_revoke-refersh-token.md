@@ -50,7 +50,7 @@ HTTP/1.1 200 OK
   "link": "#revoke-refresh-token"
 }) %>
 
-Use this endpoint to invalidate a Refresh Token.
+Use this endpoint to invalidate a Refresh Token if it has been compromised.
 
 Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, client, and audience will be revoked**.
 

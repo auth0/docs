@@ -137,7 +137,7 @@ You should only ask for a new token if the Access Token has expired or you want 
 
 ## Revoke a Refresh Token
 
-Since Refresh Tokens never expire it is important to be able to revoke them.
+Since Refresh Tokens never expire it is important to be able to revoke them in case they get compromised.
 
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries.
 Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, client, and audience will be revoked**.
