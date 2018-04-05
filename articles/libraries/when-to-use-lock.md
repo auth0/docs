@@ -149,7 +149,7 @@ Consider using **Lock** if:
 
 If the requirements of your app cannot be met by the standardized behavior of **Lock**, or if you have a complex custom authentication process, a custom user interface is needed. You also might prefer this option if you already have a user interface which you would prefer to keep.
 
-With Auth0's library for [Web](/libraries/auth0js), or with native libraries for [iOS](/libraries/auth0-swift) or [Android](/libraries/auth0-android), you can customize the behavior and flow of the process used to trigger signup and authentication. You an also directly use the [Authentication API](/auth-api), without any wrapper at all, if you so choose.
+With Auth0's library for [Web](/libraries/auth0js), or with native libraries for [iOS](/libraries/auth0-swift) or [Android](/libraries/auth0-android), you can customize the behavior and flow of the process used to trigger signup and authentication. You can also directly use the [Authentication API](/auth-api), without any wrapper at all, if you so choose.
 
 ![](/media/articles/libraries/lock-vs-customui/customui.png)
 
