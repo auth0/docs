@@ -50,7 +50,9 @@ HTTP/1.1 200 OK
   "link": "#revoke-refresh-token"
 }) %>
 
-Since refersh tokens never expire, you need to have a way to invalidate them in case they are compromised or you no longer need them. You can do use using this endpoint.
+Use this endpoint to invalidate a Refresh Token.
+
+Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, client, and audience will be revoked**.
 
 ### Request Parameters
 
@@ -62,7 +64,7 @@ Since refersh tokens never expire, you need to have a way to invalidate them in 
 
 ### Remarks
 
-- For non-confidential clients that cannot keep the `client_secret` safe (for example, mobile apps), the endpoint supports passing no `client_secret` but the client itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Clients > client Settings](${manage_url}/#/clients/${account.clientId}/settings)) or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+- For non-confidential clients that cannot keep the Client Secret safe (for example, native apps), the endpoint supports passing no Client Secret but the client itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Clients > client Settings](${manage_url}/#/clients/${account.clientId}/settings)) or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
 ### Error Codes
 
