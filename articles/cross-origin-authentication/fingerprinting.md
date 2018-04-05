@@ -18,6 +18,6 @@ Auth0 performs “fingerprinting” on each request to the vulnerable endpoints.
 "description": "Unable to verify transaction consistency"
 ```
 
-Note that getting this error does not mean that an attack occurred, but merely that the request did not pass the fingerprinting validation. If this error occurs, you may wish to prompt users to retry authentication. If fingerprinting validation issues persist, the more definitive solution is to migrate to the latest version of Lock / Auth0.js.
+Note that getting this error does not mean that an attack occurred, but merely that the request did not pass the fingerprinting validation. If this error occurs, you may wish to prompt users to retry authentication. If fingerprinting validation issues persist, the only definitive solution is to migrate to the latest version of Lock / Auth0.js.
 
 This feature allows applications which have been unable to update to have more time to do so with less risk, but the requirement to migrate away from these deprecated library versions still stands, and the Removal of Service date for those deprecated library versions is **July 16, 2018**.
