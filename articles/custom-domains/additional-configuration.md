@@ -28,12 +28,29 @@ You have already configured and verified your custom domain. If not, see [How to
 
 ## Universal login
 
-If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. The changes are in the initializing of Lock and you can see them at the following sample script.
+If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
+
+If you are using [Lock](/libraries/lock), the additional values required in the initialization can be seen in the following sample script:
 
 ```js
 var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   //code omitted for brevity
   configurationBaseUrl: config.clientConfigurationBaseUrl,
+  overrides: {
+  	__tenant: config.auth0Tenant,
+  	__token_issuer: config.auth0Domain
+  },
+  //code omitted for brevity
+});
+```
+
+If you use [Auth0.js](/libraries/auth0js) on the hosted login page, you need to set the `overrides` option like this:
+
+```js
+var webAuth = new new auth0.WebAuth({
+  clientID: config.clientID, 
+  domain: config.auth0Domain, 
+  //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
   	__token_issuer: config.auth0Domain
