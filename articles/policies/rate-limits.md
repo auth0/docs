@@ -234,7 +234,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
   <tr>
     <td>Get Passwordless Code or Link</td>
     <td>/passwordless/start</td>
-    <td>User IP</td>
+    <td>IP</td>
     <td>All</td>
     <td>50 requests per minute</td>
   </tr>
