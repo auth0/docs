@@ -40,7 +40,6 @@ To retrieve an Access Token that is authorized to access your API, you need to s
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 private static final String API_URL = "localhost:8080/secure";
-private static final String API_IDENTIFIER = "https://api.mysite.com";
 
 private void login() {
     Auth0 auth0 = new Auth0(this);

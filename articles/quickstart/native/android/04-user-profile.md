@@ -62,8 +62,9 @@ Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 
 String accessToken = getIntent().getStringExtra(LoginActivity.KEY_ACCESS_TOKEN);
-UsersAPIClient usersClient = new UsersAPIClient(auth0, accessToken);
-AuthenticationAPIClient authenticationAPIClient = new AuthenticationAPIClient(auth0);
+
+authenticationAPIClient = new AuthenticationAPIClient(auth0);
+usersClient = new UsersAPIClient(auth0, accessToken);
 ```
 
 ::: note
