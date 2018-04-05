@@ -4,7 +4,7 @@ description: An explanation of the technique used to mitigate CSRF attacks for c
 ---
 # Fingerprinting of Username + Password Login Requests
 
-Auth0 has announced a [vulnerability](/migrations#introducing-lock-v11-and-auth0-js-v9) in all versions of Lock (<11) and auth0.js (<9). We strongly recommend that all users of legacy versions migrate to the newest, most secure versions immediately. Support for conducting logins with a username and password with these versions is now end of life and deprecated versions will stop working on **July 16th, 2018**.
+Auth0 has announced a [vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/) in all versions of Lock (<11) and auth0.js (<9). We strongly recommend that all users of legacy versions migrate to the newest, most secure versions immediately. Support for conducting logins with a username and password with these versions is now end of life and deprecated versions will stop working on **July 16th, 2018**.
 
 * [Migration Guide for Lock v11](/libraries/lock/v11/migration-guide)
 * [Migration Guide for Auth0.js](/libraries/auth0js/v9/migration-guide)
