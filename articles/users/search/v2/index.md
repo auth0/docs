@@ -1,6 +1,5 @@
 ---
 description: This page lists several examples of user search queries using query string syntax.
-section: apis
 crews: crew-2
 toc: true
 ---
