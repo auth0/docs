@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Python OAuthlib to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Python Authlib to add authentication and authorization to your web app
 budicon: 448
 ---
 
@@ -16,7 +16,7 @@ You can get started by either downloading the complete sample or following the t
     'Flask 0.10.1 and up',
     'Python-dotenv 0.6.5 and up',
     'Requests 2.3.0 and up',
-    'Flask-oauthlib 0.9.4 and up',
+    'Authlib 0.6',
     'Six 1.10.0 and up'
   ]
 }) %>
@@ -25,7 +25,7 @@ You can get started by either downloading the complete sample or following the t
 
 ## Add the Dependencies
 
-This example uses [Flask](http://flask.pocoo.org) and the [Flask OAuthlib](https://flask-oauthlib.readthedocs.io) OAuth client library.
+This example uses [Flask](http://flask.pocoo.org) and the [Authlib](https://github.com/lepture/authlib) OAuth library.
 
 Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
@@ -35,11 +35,11 @@ Add the following dependencies to your `requirements.txt` and run `pip install -
 flask
 python-dotenv
 requests
-flask-oauthlib
+authlib
 six
 ```
 
-## Initialize Flask-OAuthlib
+## Initialize Authlib
 
 With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to the [login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
 Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
@@ -47,33 +47,42 @@ Create a file named `server.py`, and instantiate a client with your client keys,
 ```python
 # /server.py
     
+from functools import wraps
+import json
+from os import environ as env
+from werkzeug.exceptions import HTTPException
+
+from dotenv import load_dotenv, find_dotenv
 from flask import Flask
+from flask import jsonify
+from flask import redirect
 from flask import render_template
-from flask import request
-from flask_oauthlib.client import OAuth
+from flask import session
+from flask import url_for
+from authlib.flask.client import OAuth
+from six.moves.urllib.parse import urlencode
+import requests
     
 app = Flask(__name__)
 
 oauth = OAuth(app)
-auth0 = oauth.remote_app(
+
+auth0 = oauth.register(
     'auth0',
-    consumer_key='${account.clientId}',
-    consumer_secret='YOUR_CLIENT_SECRET',
-    request_token_params={
+    client_id='${account.clientId}',
+    client_secret='YOUR_CLIENT_SECRET',
+    api_base_url='https://${account.namespace}',
+    access_token_url='https://${account.namespace}/oauth/token',
+    authorize_url='https://${account.namespace}/authorize',
+    client_kwargs={
         'scope': 'openid profile',
-        'audience': 'https://' + '${account.namespace}' + '/userinfo'
     },
-    base_url='https://%s' % '${account.namespace}',
-    access_token_method='POST',
-    access_token_url='/oauth/token',
-    authorize_url='/authorize',
 )
 ```
 
 ## Add the Auth0 Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` 
-and an `id_token`.
+This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
 
 The `id_token` is a [JWT](/jwt) that contains the user profile information for the requested [OIDC Conformant claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
 
@@ -84,40 +93,35 @@ The `id_token` is a [JWT](/jwt) that contains the user profile information for t
 @app.route('/callback')
 def callback_handling():
     # Handles response from token endpoint
-    resp = auth0.authorized_response()
-    if resp is None:
-        raise Exception('Access denied: reason=%s error=%s' % (
-            request.args['error_reason'],
-            request.args['error_description']
-        ))
-    
-    url = 'https://' + AUTH0_DOMAIN + '/userinfo'
+    resp = auth0.authorize_access_token()
+
+    url = 'https://${account.namespace}/userinfo'
     headers = {'authorization': 'Bearer ' + resp['access_token']}
     resp = requests.get(url, headers=headers)
     userinfo = resp.json()
-    
+
     # Store the tue user information in flask session.
-    session[constants.JWT_PAYLOAD] = userinfo
-    
-    session[constants.PROFILE_KEY] = {
+    session['jwt_payload'] = userinfo
+
+    session['profile'] = {
         'user_id': userinfo['sub'],
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-    
+
     return redirect('/dashboard')
 ```
 
 ## Trigger Authentication
 
-Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to the [login page](/hosted-pages/login).
+Add a `/login` route that uses the `Authlib` client instance to redirect the user to the [hosted login page](/hosted-pages/login).
 
 ```python
 # /server.py
 
 @app.route('/login')
 def login():
-    return auth0.authorize(callback='${account.callback}')
+    return auth0.authorize_redirect(redirect_uri='YOUR_CALLBACK_URL', audience='https://${account.namespace}/userinfo')
 ```
 
 Create a `home.html` file in a `/template` folder. Add a link to the `/login` route.
@@ -175,7 +179,7 @@ def requires_auth(f):
 
 ## Showing the User Profile
 
-Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session. 
+Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session.
 
 Decorate it with `@requires_auth`. It will only be accessible if the user has been authenticated.
 
@@ -186,11 +190,11 @@ Decorate it with `@requires_auth`. It will only be accessible if the user has be
 @requires_auth
 def dashboard():
     return render_template('dashboard.html',
-                           userinfo=session[constants.PROFILE_KEY],
-                           userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
+                           userinfo=session['profile'],
+                           userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
 ```
 
-Add a `dashboard.html` file in a `/template` folder to display the user information. 
+Add a `dashboard.html` file in a `/template` folder to display the user information.
 
 Add a link to allow users to Log Out.
 
