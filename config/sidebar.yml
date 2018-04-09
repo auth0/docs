@@ -538,6 +538,14 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "CVE 2018-6874"
+            url: "/security/bulletins/cve-2018-6874"
+            hidden: true
+            
+          - title: "CVE 2018-6873"
+            url: "/security/bulletins/cve-2018-6873"
+            hidden: true
+            
           - title: "CVE 2018-7307"
             url: "/security/bulletins/cve-2018-7307"
             hidden: true
