@@ -33,6 +33,10 @@ However, there may be behavioral changes as a result of this migration. As such,
 
 Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
 
+![Runtime toggle](/media/articles/migrations/node-runtime1.png)
+
+![Runtime toggle options](/media/articles/migrations/node-runtime1.png)
+
 ::: warning
 Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant, test your setup, and switch your production tenant only if there are no breaking changes.
 :::
