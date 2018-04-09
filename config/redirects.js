@@ -1692,10 +1692,10 @@ module.exports = [
   },
   {
     from: '/api/management/v2/user-search',
-    to: '/users/search/v2'
+    to: '/users/search'
   },
   {
     from: '/api/management/v2/query-string-syntax',
-    to: '/users/search/v2/query-syntax'
+    to: '/users/search/query-syntax'
   }
 ];

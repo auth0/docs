@@ -401,7 +401,7 @@ articles:
         url: "/users/search/v3"
         children:
           - title: "Query Syntax"
-            url: "/users/search/v3/query-sytax"
+            url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
             url: "/users/search/v3/best-practices"
@@ -412,7 +412,7 @@ articles:
         hidden: true
         children:
           - title: "Query Syntax"
-            url: "/users/search/v2/query-sytax"
+            url: "/users/search/v2/query-syntax"
             hidden: true
 
       - title: "User Metadata"
