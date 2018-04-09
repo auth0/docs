@@ -29,6 +29,16 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### Node.js v8 for Webtask Runtime
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| High | 2018-04-16 | 2018-04-30 |
+
+Beginning 30 April 2016, [Node.js v4 will no longer be under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule). As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.
+
+[Migration Guide: Extensibility and Node.js v8](/migrations/extensibility-node8)
+
 ### Introducing Lock v11 and Auth0.js v9
 
 | Severity | Grace Period Start | Mandatory Opt-In|
