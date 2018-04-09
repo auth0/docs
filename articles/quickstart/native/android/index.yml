@@ -26,3 +26,44 @@ articles:
   - 05-linking-accounts
   - 06-calling-apis
   - 07-authorization
+next_steps:
+  - path: 00-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+  - path: 03-session-handling.md
+    list:
+    - text: Learn about refresh tokens
+      icon: 345
+      href: "/tokens/refresh-tokens"
+  - path: 04-user-profile.md
+    list:
+    - text: Learn about the user profile structure
+      icon: 345
+      href: "/user-profile/normalized/oidc"
+    - text: Learn about scopes
+      icon: 345
+      href: "/scopes"
+    - text: In-depth details about user profile
+      icon: 345
+      href: "/user-profile/user-profile-details"
+  - path: 06-calling-apis.md
+    list:
+    - text: Learn about custom APIs
+      icon: 345
+      href: "/api"
+    - text: Introduction to API authorization
+      icon: 345
+      href: "/api-auth"
+  - path: 07-authorization.md
+    list:
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
