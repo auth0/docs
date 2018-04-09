@@ -113,6 +113,7 @@ The following table lists the codes associated with the appropriate log events.
 | `s` | Success Login | Successful login event. | |
 | `sapi` | Success API Operation | | |
 | `sce` | Success Change Email | | [Emails in Auth0](/email) |
+| `scoa` | Success cross-origin authentication | | |
 | `scp` | Success Change Password | | |
 | `scph` | Success Post Change Password Hook | | |
 | `scpn` | Success Change Phone Number | | |
