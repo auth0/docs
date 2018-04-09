@@ -1,5 +1,6 @@
 title: Chrome Extension
-community: true
+author:
+  community: true
 language:
   - JavaScript
 framework:

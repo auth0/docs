@@ -4,6 +4,10 @@ alias:
   - react native
   - react native ios
   - react native android
+author:
+  name: Martin Walsh
+  email: martin.walsh@auth0.com
+  community: false
 language:
   - Javascript
 framework:

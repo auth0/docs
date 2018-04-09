@@ -6,6 +6,10 @@ languages:
   - PHP
 framework:
   - Laravel
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 image: /media/platforms/php.png
 tags:
   - quickstart
