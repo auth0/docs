@@ -15,8 +15,6 @@ Based on the OAuth 2.0 flow you are implementing, the parameters slightly change
 
 ## Authorization Code Grant
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   audience=API_IDENTIFIER&
@@ -83,8 +81,6 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 
 ## Authorization Code Grant (PKCE)
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -158,8 +154,6 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 
 ## Implicit Grant
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 GET https://${account.namespace}/authorize?

@@ -2,8 +2,6 @@
 
 ## Get User Info
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/userinfo
 Authorization: 'Bearer {ACCESS_TOKEN}'

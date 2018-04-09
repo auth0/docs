@@ -25,13 +25,13 @@ If universal login does not meet your requirements, however, Auth0 has a variety
 
 * [Lock](#lock) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
 * [Auth0 SDKs](#auth0-sdks) are client-side libraries that do not come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
-* The [Authentication API](/api/authentication) can be used to integrate applications with Auth0 without using any of the Auth0's libraries.
+* The [Authentication API](/api/authentication) can be used to integrate applications with Auth0 without using any of the Auth0 libraries.
 
 The best option to choose will depend on the needs of your app. Check out [When to Use Lock](/libraries/when-to-use-lock) for more information to help you decide between using Lock or an SDK.
 
 ## Lock
 
-The Lock widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app. Lock gives your users a customizable UI to authenticate with which to authenticate in your app.
+The Lock widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app. Lock gives your users a customizable UI with which to authenticate in your app.
 
 The Lock widget for each platform has detailed reference documentation.
 

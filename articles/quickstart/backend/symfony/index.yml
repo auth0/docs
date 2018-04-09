@@ -1,5 +1,6 @@
 title: Symfony API
-community: true
+author:
+  community: true
 thirdParty: false
 alias:
   - symfony

@@ -1,5 +1,6 @@
 title: Aurelia
-community: true
+author:
+  community: true
 alias:
   - aurelia
   - aureliajs
