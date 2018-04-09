@@ -1683,19 +1683,19 @@ module.exports = [
     to: '/integrations/sso/zoom'
   },
   {
-    from: `/guides/login/centralized-vs-embedded`,
-    to: `/guides/login/universal-vs-embedded`
+    from: '/guides/login/centralized-vs-embedded',
+    to: '/guides/login/universal-vs-embedded'
   },
   {
-    from: `/guides/login/migration-embedded-centralized`,
-    to: `/guides/login/migration-embedded-universal`
+    from: '/guides/login/migration-embedded-centralized',
+    to: '/guides/login/migration-embedded-universal'
   },
   {
-    from: `/api/management/v2/user-search`,
-    to: `/users/search/v2`
+    from: '/api/management/v2/user-search',
+    to: '/users/search/v2'
   },
   {
-    from: `/api/management/v2/query-string-syntax`,
-    to: `/users/search/v2/query-syntax`
+    from: '/api/management/v2/query-string-syntax',
+    to: '/users/search/v2/query-syntax'
   }
 ];
