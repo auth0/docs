@@ -28,7 +28,7 @@ Previously, requests to /oauth/ro looked similar to this:
 ### Changes to Requests
 
 * The endpoint to execute token exchanges is now /oauth/token
-* [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection `realm`. The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
+* [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection `realm`. Auth0 supports the [standard OIDC scopes](/scopes/current#openid-connect-scopes), along with the scopes which you have defined in your [custom API](/api-auth/apis).
 * `favorite_color` is no longer a valid scope.
 * The `device` parameter is removed.
 * The `audience` parameter is optional.
@@ -47,7 +47,7 @@ Here is an example of a request to /oauth/token:
 }
 ```
 
-Note that the grant type is specified here as `http://auth0.com/oauth/grant-type/password-realm`, rather than `http://auth0.com/oauth/grant-type/password-grant`. The parameters `client_id`, `username`, and `password` are unchanged. The `realm` is included because we are using Password Realm grant type, and replaces the `connection` parameter from previous calls. The `scope` parameter is mostly the same, but does not accept non-OIDC values. Finally, the `audience` parameter can be added, indicating the API audience the token will be intended for.
+Note that the grant type is specified here as `password-realm`, rather than the standard `password`. The parameters `client_id`, `username`, and `password` are unchanged. The `realm` is included because we are using Password Realm grant type, and replaces the `connection` parameter from previous calls. The `scope` parameter is mostly the same, but does not accept non-OIDC values. Finally, the `audience` parameter can be added, indicating the API audience the token will be intended for.
 
 ## Alter Your Response Handling
 
@@ -65,7 +65,7 @@ Responses from `oauth/ro` were similar in format to the following:
 
 ### Changes to Responses
 
-* The returned Access Token is valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API specified by the `audience` param uses RS256 as signing algorithm) and optionally the resource server if one was specified.
+* The returned Access Token is valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API specified by the `audience` param uses RS256 as signing algorithm) and optionally the [custom API](/api-auth/apis) if one was specified.
 * The ID Token will be forcibly signed using RS256 if requested by a [public client](/clients/client-types#public-clients).
 * A Refresh Token will be returned only if the `offline_access` scope was granted.
 
