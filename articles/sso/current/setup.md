@@ -15,7 +15,7 @@ For information on SSO Integrations, check out the [Single Sign On Integrations]
 
 Before enabling SSO on a [Client](/clients), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers ensure the Connection is not using [developer keys](/connections/devkeys).
+For Social Identity Providers ensure the Connection is not using [developer keys](/connections/social/devkeys).
 
 ## 2. Enable SSO for the Client
 
