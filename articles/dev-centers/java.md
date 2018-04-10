@@ -1,21 +1,7 @@
 ---
 title: Java Developer Center
-subtitle: Resources and documentation for Java developers
 description: Resources and documentation for Java developers
 logo: java
-url: /dev-centers/java
-tutorials:
-  - native-platforms/ios-objc
-  - native-platforms/ios-swift
-scenarios:
-  - apps-apis
-resources:
-  -
-    title: ASP.NET
-    subtitle:  Libraries and Samples
-    type: sample
-    link: https://github.com/auth0/auth0-aspnet
-
 ---
 
 # Java SDK Developer Center
