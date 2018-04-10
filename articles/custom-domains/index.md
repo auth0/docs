@@ -114,7 +114,7 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 
 2. **What about support for other features?**
   
-We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
+We are planning to support several additional features in the future, including WS-Fed clients and enterprise and Passwordless connections.
 
 ## Troubleshooting
 
