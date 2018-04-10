@@ -266,17 +266,14 @@ articles:
     url: "/rules/current"
     children:
 
-      - title: "Overview"
-        url: "/rules/current"
-
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
 
       - title: "Use the Management API in rules"
-        url: "/rules/current/management-api"
+        url: "/rules/management-api"
       
       - title: "Using C# in Rules"
-        url: "/rules/current/csharp"
+        url: "/rules/csharp"
 
       - title: "Deploy Rules with GitHub"
         url: "/extensions/github-deploy"
