@@ -17,7 +17,7 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 ## Before Starting
 
