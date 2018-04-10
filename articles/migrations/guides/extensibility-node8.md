@@ -68,6 +68,13 @@ We have created a [migration assistant](https://github.com/auth0/webtask-migrati
 
 Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
 
+In addition, test logging in using the development tenant to ensure that all of the following items that you have set up work as expected:
+
+* Rules
+* Hooks
+* Database Connections
+* Custom Social Connections
+
 ## Affected modules
 
 If you are using the following built-in modules (that is, modules that you did not explicitly require), please be aware that some versions were updated to work with Node.js v8. The following table summarizes the changes.
