@@ -16,7 +16,7 @@ This tutorial shows you how to let users log in and maintain an active session w
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
