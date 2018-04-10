@@ -1115,10 +1115,6 @@ module.exports = [
     to: '/quickstart/native/ios-swift'
   },
   {
-    from: '/rules/metadata-in-rules',
-    to: '/rules/current/metadata-in-rules'
-  },
-  {
     from: '/quickstart/native/ionic/00-intro',
     to: '/quickstart/native/ionic'
   },
