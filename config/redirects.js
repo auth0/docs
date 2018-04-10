@@ -79,7 +79,7 @@ module.exports = [
   },
   {
     from: '/firebaseapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/ionic-tutorial',
@@ -167,15 +167,15 @@ module.exports = [
   },
   {
     from: '/salesforcesandboxapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/salesforceapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/sapapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/servicestack-tutorial',
@@ -477,6 +477,41 @@ module.exports = [
   {
     from: '/connections/passwordless/ios-sms',
     to: '/connections/passwordless/ios-sms-objc'
+  },
+
+/* --- Clients --- */
+
+  {
+    from: '/applications/addons',
+    to: '/clients/addons'
+  },
+  {
+    from: '/clients/client-grant-types',
+    to: '/applications/application-grant-types'
+  },
+  {
+    from: '/clients/client-types',
+    to: '/applications/application-types'
+  },
+  {
+    from: '/clients/connections',
+    to: '/applications/connections'
+  },
+  {
+    from: '/clients/enable-android-app-links',
+    to: '/applications/enable-android-app-links'
+  },
+  {
+    from: '/clients/enable-universal-links',
+    to: '/applications/enable-universal-links'
+  },
+  {
+    from: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-application-secret'
+  },
+  {
+    from: 'clients/client-settings',
+    to: 'applications/application-settings'
   },
 
   /* --- Scenarios to Tutorials --- */
@@ -1444,7 +1479,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/clients/how-to-update-client-secret',
+    to: '/applications/how-to-update-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1576,7 +1611,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
