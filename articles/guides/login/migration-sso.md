@@ -13,7 +13,7 @@ Single Page Applications (SPAs) with embedded login can only achieve SSO if they
 
 SSO works by having Auth0 set a cookie that identifies the session in the Auth0 server for a specific domain. 
 
-In order to make embedded login work properly, you need to set up a Custom Domain that matches your website's top level domain, so as to avoid [cross-origin authentication issues](/cross-origin-authentication#limitations-of-cross-origin-authentication). 
+In order to make embedded login work properly, you need to set up a [custom domain](/custom-domains) that matches your website's top level domain, so as to avoid [cross-origin authentication issues](/cross-origin-authentication#limitations-of-cross-origin-authentication). 
 
 If two applications using embedded login are sitting on different top-level domains, they would need to point to two different custom domains in order implement embedded login properly. If they are on different domains, those domains cannot share the same SSO cookie, so you can’t implement SSO across those sites.
 
