@@ -176,3 +176,10 @@ Search by date | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
 Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
 String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
 Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
+
+## Next Steps
+
+::: next-steps
+* [User Search Query Syntax](/users/search/v3/query-syntax)
+* [User Search Best Practices](/users/search/v3/best-practices)
+:::

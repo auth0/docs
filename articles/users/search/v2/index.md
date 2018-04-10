@@ -6,6 +6,10 @@ toc: true
 
 # User Search
 
+::: version-warning
+This document covers a previous version of user search. We recommend you use <a href="/users/search/v3">user search v3</a>.
+:::
+
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
 This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
