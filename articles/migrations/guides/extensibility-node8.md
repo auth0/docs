@@ -85,6 +85,7 @@ If you are using the following built-in modules (that is, modules that you did n
 | request | ~2.27.0 | ~2.81.0 |
 | pg | ^4.3.0^* | ^4.5.7 |
 | bcrypt | ~0.8.5^* | ~0.8.7 |
+| xml2json | ~0.10.0^* | ~0.11.2 |
 
 ^* These versions are no longer supported due to incompatibility with Node.js v8.
 
