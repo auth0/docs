@@ -23,7 +23,7 @@ The Webtask runtime powering the following Auth0 features utilize Node.js v4:
 * Custom database connections
 * Custom social connections
 
-Due to the end of long-term support (LTS) for Node.jsv.4, we will be migrating the Webtask runtime to use Node.js v8.
+Due to the end of long-term support (LTS) for Node.js v4, we will be migrating the Webtask runtime to use Node.js v8.
 
 As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
 
@@ -64,7 +64,7 @@ You will need to manually copy over any Hooks-related code that you use.
 
 ### Migration assistance
 
-We have created a migration assistant to help ease the copying of code between production and development tenants.
+We have created a [migration assistant](https://github.com/auth0/webtask-migration-assistant) to help ease the copying of code between production and development tenants.
 
 Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
 
@@ -98,7 +98,7 @@ For example, you must change
 
 to
 
-`var mysql = require(‘mysql@2.0.0’);`
+`var mysql = require(‘mysql’);`
 
 ### Behavioral and syntactic changes
 
