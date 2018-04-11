@@ -1,5 +1,5 @@
 versioning:
-    baseUrl: client-auth
+    baseUrl: application-auth
     current: current
     versions:
       - legacy

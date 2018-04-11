@@ -1,5 +1,5 @@
 versioning:
-  baseUrl: clients/client-settings
+  baseUrl: applications/application-settings
   current: native
   versions:
     - native
