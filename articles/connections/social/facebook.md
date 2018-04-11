@@ -11,7 +11,7 @@ toc: true
 
 This article describes how to add login with Facebook to your app. It also discusses how you can get an Access Token in order to access the Facebook API.
 
-First you need to connect your Auth0 client to Facebook. This is summarized in the following steps:
+First you need to connect your Auth0 application to Facebook. This is summarized in the following steps:
 
 - Setup a Facebook app
 - Get your Facebook **App ID** and **App Secret**
@@ -40,9 +40,9 @@ On the **Product Setup** page that follows, click **Set Up** under **Facebook Lo
 
 Next choose the type of application, for this tutorial we have selected **Web**.
 
-The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Client OAuth Settings** page:
+The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Application OAuth Settings** page:
 
-![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
+![Application OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
 Enter the following URL in the **Valid OAuth redirect URIs** field:
 
@@ -86,9 +86,9 @@ Select all the **Attributes** and **Permissions** you want to enable.
 Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
 :::
 
-Then click the **Clients** tab and select the applications you wish to enable this connection for.
+Then click the **Applications** tab and select the applications you wish to enable this connection for.
 
-![Enable clients](/media/articles/connections/social/facebook/enable-clients.png)
+![Enable applications](/media/articles/connections/social/facebook/enable-applications.png)
 
 When finished click **Save**.
 

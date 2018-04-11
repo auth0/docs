@@ -1,18 +1,18 @@
 ---
-description: How to enable Android App Links support for your Auth0 client
+description: How to enable Android App Links support for your Auth0 application
 ---
 
-# Enable Android App Links Support for your Auth0 Client
+# Enable Android App Links Support for your Auth0 Application
 
-The following document outlines how to configure [Android App Links](https://developer.android.com/training/app-links/index.html) for your Auth0 client.
+The following document outlines how to configure [Android App Links](https://developer.android.com/training/app-links/index.html) for your Auth0 application.
 
 Android App Links allow an application to designate itself as the default handler of a given type of link. For example, clicking a URL in an email would open the link in the designated application.
 
 ## Provide Your App's Package Name and Certificate Fingerprint
 
-You can establish the app link with Auth0 using [Clients](${manage_url}/#/clients) page of the [Auth0 Dashboard](${manage_url}).
+You can establish the app link with Auth0 using [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}).
 
-Select the Client you want to link with your Android application. You will see the **Settings** page for the Client.
+Select the Application you want to link with your Android application. You will see the **Settings** page for the Application.
 
 ![](/media/articles/applications/settings.png)
 
