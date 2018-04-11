@@ -1,11 +1,14 @@
 ---
 description: This page lists several examples of user search queries using query string syntax.
-section: apis
 crews: crew-2
 toc: true
 ---
 
 # User Search
+
+::: version-warning
+This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
+:::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 

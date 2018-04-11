@@ -1,13 +1,14 @@
 ---
-name: User Search
+name: User Search Best Practices
 description: Best practices when searching for users in Auth0
 toc: true
 ---
-# User Search
+
+# User Search Best Practices
 
 Auth0 provides multiple endpoints you can use to retrieve users. Each one offers slightly different functionality, and in this document, we'll cover the best practices for using each of the endpoints.
 
-## User Search Options
+## User search options
 
 Currently, Auth0 offers three different ways by which you can search for users:
 
@@ -28,7 +29,7 @@ In this document, we use the terms **eventually consistent** and **immediately c
 
 * **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
 
-## General Principles
+## General principles
 
 When running user searches:
 
@@ -177,7 +178,7 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
 * User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
-## Users by Email
+## Users by email
 
 The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address.
 
@@ -238,7 +239,7 @@ The Users by Email endpoint is immediately consistent, and as such, we recommend
 * User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
-## User Export
+## User export
 
 The [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint allows you to create a job that exports all users associated with a [connection](/identityproviders).
 

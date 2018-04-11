@@ -1,10 +1,14 @@
 ---
 toc: true
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
-section: apis
 crews: crew-2
 ---
+
 # Query String Syntax
+
+::: version-warning
+This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
+:::
 
 This page explains query string syntax, the mini-language used by the Query String Query.
 

@@ -398,11 +398,22 @@ articles:
             url: "/user-profile/user-picture"
 
       - title: "User Search"
-        url: "/users/search"
-
-      - title: "User Search v3"
         url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/users/search/v3/best-practices"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v2"
         hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
 
       - title: "User Metadata"
         url: "/metadata"
@@ -901,14 +912,6 @@ apis:
         children:
         - title: Changes
           url: "/api/management/v2/tokens-flows"
-
-      - title: Query String Syntax
-        url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
-
-      - title: User Search
-        url: "/api/management/v2/user-search"
-        forceFullReload: true
 
       - title: Changes in v2
         url: "/api/management/v2/changes"
