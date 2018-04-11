@@ -39,7 +39,7 @@ Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications]
 
 The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Application Type** and click on the **Create** button to create the new application.
 
-![](/media/articles/client-auth/client-side-web/create-application.png)
+![](/media/articles/client-auth/client-side-web/create-client.png)
 
 Once the application has been created you can navigate to the **Settings** tab of the application and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
 
