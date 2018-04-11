@@ -180,6 +180,6 @@ Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 ## Next Steps
 
 ::: next-steps
-* [User Search Query Syntax](/users/search/v3/query-syntax)
-* [User Search Best Practices](/users/search/v3/best-practices)
+* [Learn how you can use the query string syntax to build custom queries](/users/search/v3/query-syntax)
+* [Learn about the Auth0 best practices for user search](/users/search/v3/best-practices)
 :::
