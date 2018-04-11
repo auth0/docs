@@ -42,7 +42,7 @@ six
 ## Initialize Flask-OAuthlib
 
 With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to the [login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
-Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
+Create a file named `server.py`, and instantiate an application with your client keys, scopes, and OAuth endpoints.
 
 ```python
 # /server.py
@@ -110,7 +110,7 @@ def callback_handling():
 
 ## Trigger Authentication
 
-Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to the [login page](/hosted-pages/login).
+Add a `/login` route that uses the `Flask-OAuthlib` application instance to redirect the user to the [login page](/hosted-pages/login).
 
 ```python
 # /server.py
@@ -148,7 +148,7 @@ def logout():
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
 
 ## Check if the user is authenticated

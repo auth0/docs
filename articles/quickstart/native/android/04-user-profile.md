@@ -21,7 +21,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
 ## Before You Start
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API clients, you need a valid Access Token and ID Token.
+Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API applications, you need a valid Access Token and ID Token.
 :::
 
 Before launching the login process, you need to make sure the authorization server allows you to read and edit the current user profile. To do that, ask for the `openid profile email read:current_user update:current_user_metadata` scope and the Management API audience, which happens to include the User Info audience as well. Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email read:current_user update:current_user_metadata")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
@@ -46,14 +46,14 @@ Note that the Management API audience value ends in `/` in constrast to the User
 
 
 To get the user's information:
-1. Use the user's access token to call the `userInfo` method in the `AuthenticationAPIClient` client instance.
+1. Use the user's access token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
 The profile obtained this way is OIDC-conformant. Depending on the [scopes](/scopes/current) you requested when logging in, the profile contains different information. The result will never contain fields outside the OIDC specification.
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). Since fields such as [user_metadata](#additional-information) are not part of the OIDC specification you need to obtain the full profile to read them. This step is explained next:
 
 
-Create an instance of the Users API client using the Access Token that you saved in the log in step. This Access Token can be used to authorize requests since you've requested the Management API audience and the corresponding user entity scopes in the login step. In the snippet bellow we obtain the token from the extras that the LoginActivity class has passed when starting this activity. The API client is used to request the user's profile data.
+Create an instance of the Users API application using the Access Token that you saved in the log in step. This Access Token can be used to authorize requests since you've requested the Management API audience and the corresponding user entity scopes in the login step. In the snippet bellow we obtain the token from the extras that the LoginActivity class has passed when starting this activity. The API application is used to request the user's profile data.
 
-Create now an instance of the Authentication API client. This time is used to call the userinfo endpoint and retrieve the ID of the user to whom the token was issued.
+Create now an instance of the Authentication API application. This time is used to call the userinfo endpoint and retrieve the ID of the user to whom the token was issued.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -72,9 +72,9 @@ Do not hardcode the Auth0 `domain` and `clientId` values when creating the Auth0
 
 
 To get the user's profile:
-1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` client instance.
+1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
 You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes/current) you requested, the profile contains different information. 
-2. To get the user's full profile, use the [Management API](/api/management/v2#!/Users). Use the user ID obtained in previous step to call `getProfile` on the Users API client and obtain the full user profile. Use the received data to update the layout.
+2. To get the user's full profile, use the [Management API](/api/management/v2#!/Users). Use the user ID obtained in previous step to call `getProfile` on the Users API application and obtain the full user profile. Use the received data to update the layout.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -163,7 +163,7 @@ Map<String, Object> userMetadata = new HashMap<>();
 userMetadata.put("country", "USA");
 ```
 
-Update the information with the Users API client created before:
+Update the information with the Users API application created before:
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
