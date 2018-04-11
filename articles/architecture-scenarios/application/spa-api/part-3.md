@@ -41,7 +41,7 @@ The validations that the API should perform are:
 [JWT.io](https://jwt.io/) provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
 :::
 
-Part of the validation process is to also check the Client permissions (scopes), but we will address this separately in the next paragraph of this document.
+Part of the validation process is to also check the Application permissions (scopes), but we will address this separately in the next paragraph of this document.
 
 For more information on validating Access Tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
@@ -49,7 +49,7 @@ For more information on validating Access Tokens, refer to [Verify Access Tokens
 See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#2-secure-the-api-endpoints)
 :::
 
-### Check the Client's Permissions
+### Check the Application's Permissions
 
 By now we have verified that the JWT is valid. The last step is to verify that the client has the permissions required to access the protected resources.
 
@@ -94,8 +94,8 @@ var auth0 = new auth0.WebAuth({
 
 You need to pass the following configuration values:
 
-- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url}/#/clients}).
-- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url}/#/clients}).
+- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/clients}).
+- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/clients}).
 - __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an `access_token` in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
 - __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url}/#/apis}) at the Dashboard.
 - __redirectUri__: The URL to which Auth0 should redirect to after the user has authenticated.

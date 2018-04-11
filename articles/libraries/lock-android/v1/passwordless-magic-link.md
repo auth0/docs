@@ -7,7 +7,7 @@ description: Passwordless with Magic Link with Lock Android
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link
@@ -34,7 +34,7 @@ In this article we'll show how Auth0 helps you set up your app to use app links 
 
 Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](${manage_url}/#/connections/passwordless). We'll show you how to do it.
 
-### Client configuration
+### Application configuration
 
 We'll have to configure/add some field to our Auth0 client. The fields we need to configure are:
 

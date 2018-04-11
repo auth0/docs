@@ -1,8 +1,8 @@
 ---
-title: Call APIs from Highly Trusted Clients
+title: Call APIs from Highly Trusted Applications
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
-# Call APIs from Highly Trusted Clients
+# Call APIs from Highly Trusted Applications
 
 <%= include('../../_includes/_pipeline2') %>
 
@@ -30,7 +30,7 @@ This grant type can eliminate the need for the client to store the user credenti
  1. The client can use the `access_token` to call the API on behalf of the end user.
 
 ::: note
-In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+In OAuth 2.0 terms, the web app is the Application, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
 
 ## How to implement the flow

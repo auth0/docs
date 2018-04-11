@@ -34,13 +34,13 @@ The `GET` request to the authorization URL should include the following values:
 
 Parameter | Description
 ----------|------------
-__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/clients).
 __audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
 __scope__ | The [scopes](/scopes) which determine the claims to be returned in the `id_token` and `access_token`. For example, a scope of `openid` will return an `id_token` in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a `refresh_token`, and return the user's `name`, `picture`, and `email` claims in the `id_token`.
 __response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
 __code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
-__redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients).
+__redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/clients).
 
 ::: note
 [See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#2-authorize-the-user)
@@ -74,7 +74,7 @@ Next you can exchange the `authorization_code` from the response for an Access T
 Parameter | Description
 ----------|------------
 __grant_type__ | This must be set to `authorization_code`.
-__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/clients).
 __code_verifier__ | Cryptographically random key that was used to generate the `code_challenge` passed to [authorization URL](/api/authentication#authorization-code-grant-pkce-) (`/authorize`).
 __code__ | The `authorization_code` received from the previous authorize call.
 __redirect_uri__ | The URL must match the `redirect_uri` passed in the previous section to `/authorize`.
@@ -177,7 +177,7 @@ Your request should include:
 Parameter | Description
 ----------|------------
 __grant_type__ | This must be set to `refresh_token`.
-__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/clients).
 __refresh_token__ | the `refresh_token` to use, from the previous authentication result.
 
 The response will include the new `access_token`:

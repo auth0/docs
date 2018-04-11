@@ -10,9 +10,9 @@ toc: true
 
 # Connect your app to PayPal
 
-To configure an OAuth connection with PayPal, register your Auth0 Client on the [**PayPal Developer Portal**](https://developer.paypal.com/).
+To configure an OAuth connection with PayPal, register your Auth0 Application on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 
-## 1. Registering Your Auth0 Client Using the PayPal Developer Portal
+## 1. Registering Your Auth0 Application Using the PayPal Developer Portal
 
 Go to the [PayPal Developer Portal](https://developer.paypal.com/) and log in with your PayPal credentials. Click on **Dashboard** in the upper-right corner.
 
@@ -46,7 +46,7 @@ If you would like to control the scope of access to customer data (such as profi
 
 Click **Save**:
 
-## 4. Provide Your PayPal Client Id and Secret to Your Auth0 Client
+## 4. Provide Your PayPal Client Id and Secret to Your Auth0 Application
 
 Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard. Under the **Social** page, click to enable **PayPal**.
 
@@ -58,9 +58,9 @@ Paste in the **Client Id** and **Secret** from the **PayPal Developer Portal** i
 
 ## 5. Enable and Test the Connection
 
-Switch the **Paypal** connection in the dashboard to enabled. Then under **Clients**, choose which of your clients you want to enable this connection and then click **SAVE**.
+Switch the **Paypal** connection in the dashboard to enabled. Then under **Applications**, choose which of your clients you want to enable this connection and then click **SAVE**.
 
-![Enable Clients](/media/articles/connections/social/paypal/enable-clients.png)
+![Enable Applications](/media/articles/connections/social/paypal/enable-clients.png)
 
 Now you should see a **TRY** button for the **Paypal** connection.
 

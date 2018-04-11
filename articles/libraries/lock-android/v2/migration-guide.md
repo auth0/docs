@@ -14,7 +14,7 @@ In v1 of Lock for Android, you were asked to create a custom `Application` class
 In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. You can get the `access_token` and request the information associated to that user, by making a request to Auth0.
 
 1. Create a new `AuthenticationAPIClient` instance by passing an instance of the `Auth0` object. It can be the same instance used to launch Lock in the first place.
-1. Call the `userInfo` method on the API client passing the previously obtained `access_token`.
+1. Call the `userInfo` method on the API application passing the previously obtained `access_token`.
 1. A `UserProfile` instance is returned
 
 ```java

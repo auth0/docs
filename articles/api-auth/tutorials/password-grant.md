@@ -53,8 +53,8 @@ Where:
 * `username`: The end user's identifier.
 * `password`: The end user's password.
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
-* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
-* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients). This is required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
+* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/clients).
+* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/clients). This is required when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
 * `scope`: String value of the different [scopes](/scopes) the client is asking for. Multiple scopes are separated with whitespace.
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
@@ -145,7 +145,7 @@ When using this flow from server-side applications, some anomaly detection featu
 ## Keep reading
 
 ::: next-steps
-* [Call APIs from Highly Trusted Clients](/api-auth/grant/password)
+* [Call APIs from Highly Trusted Applications](/api-auth/grant/password)
 * [How to configure an API in Auth0](/apis)
 * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Tokens used by Auth0](/tokens)

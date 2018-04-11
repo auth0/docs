@@ -20,7 +20,7 @@ You will perform this role assignment logic in two different ways:
 * JavaScript;
 * Auth0 rules.
 
-For many Auth0 Clients, you'll want different users to have different levels of access, and you'll want additional information about a given identity to use in your service logic. In cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to *add* and *remove* pets, but social users can only *buy* pets).
+For many Auth0 Applications, you'll want different users to have different levels of access, and you'll want additional information about a given identity to use in your service logic. In cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to *add* and *remove* pets, but social users can only *buy* pets).
 
 The following diagram illustrates AWS IAM role assignments for two different user classes: users authenticated via Social Connections and users authenticated via Database Connections. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is a group of permissions to AWS capabilities that is defined by one or more policies and then assigned to an entity.
 
@@ -160,7 +160,7 @@ You will now see a pop-up that walks you through the configuration process.
 
 ![Configure AWS](/media/articles/integrations/aws-api-gateway/part-4/configure-amazon.png)
 
-Once you've selected the Clients that will be using this social connection, you will be prompted to enter values for the following fields:
+Once you've selected the Applications that will be using this social connection, you will be prompted to enter values for the following fields:
 
 * *client id*;
 * *client secret*.
@@ -170,10 +170,10 @@ If you haven't used Login with Amazon before, there is also a link called **How 
 Once you've entered the appropriate information, click **Try** to ensure that everything is set up correctly.
 
 ::: note
-When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Client, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
+When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Application, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
 :::
 
-In the Auth0 Dashboard, go back to **Clients**, select your Client, and then open up the **Connections** page. Ensure that *amazon* is enabled under Social Connections.
+In the Auth0 Dashboard, go back to **Applications**, select your Application, and then open up the **Connections** page. Ensure that *amazon* is enabled under Social Connections.
 
 ![AWS Connections](/media/articles/integrations/aws-api-gateway/part-4/aws-connections.png)
 
@@ -230,11 +230,11 @@ Note that, as an Amazon user, you can buy a pet, but not add or remove pets. How
 
 ### Enforce Role Assignment with Auth0 Rules
 
-In some cases, you might determine the appropriate role using the Client (as shown here), but for security reasons (you might want to prevent the user from assuming a more privileged role than necessary), you might want to determine user privileges on the server-side.
+In some cases, you might determine the appropriate role using the Application (as shown here), but for security reasons (you might want to prevent the user from assuming a more privileged role than necessary), you might want to determine user privileges on the server-side.
 
 With Auth0, this is done via [rules](/rules), which are service logic statements you define that are then run during the Auth0 authentication process. For example, you could create rules to:
 
-* Eliminate the passing of role information from the browser to the Client;
+* Eliminate the passing of role information from the browser to the Application;
 * Insert role information into the delegation request based on the authentication source.
 
 #### Enforce Role Assignment
@@ -325,6 +325,6 @@ You will then be presented with the output of running your rule.
 ![Output from Trying Rules](/media/articles/integrations/aws-api-gateway/part-4/try-rules-output.png)
 
 <%= include('./_stepnav', {
- prev: ["3. Building the Client Application", "/integrations/aws-api-gateway/delegation/part-3"],
+ prev: ["3. Building the Application", "/integrations/aws-api-gateway/delegation/part-3"],
  next: ["5. Using Identity Tokens", "/integrations/aws-api-gateway/delegation/part-5"]
 }) %>

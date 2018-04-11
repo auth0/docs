@@ -46,9 +46,9 @@ When calling the `/authorize` endpoint or configuring Lock, you'll need to speci
 
 You can also write rules that are executed after the Authorization Extension rule to do things like control access to your application. One method of doing this is to specify the roles that are required for each client using the [client metadata](/rules/metadata-in-rules#reading-metadata).
 
-### Step 1: Set the Client Metadata's `required_roles`
+### Step 1: Set the Application Metadata's `required_roles`
 
-In this step, you'll set the Client's metadata with it's roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Client so that the rules you'll set up in the next step know which Client to act on.
+In this step, you'll set the Application's metadata with it's roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Application so that the rules you'll set up in the next step know which Application to act on.
 
 ⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, begin by selecting the client you want to work with [in the dashboard](${manage_url}/#/clients).
 
@@ -56,15 +56,15 @@ This brings you to the client's **Settings**. Scroll down and click **Show Advan
 
 ![Click Advanced Settings Link](/media/articles/extensions/authorization/adv-settings-link.png)
 
-2. Under **Client Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. Click the **CREATE** button to add the field.
+2. Under **Application Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. Click the **CREATE** button to add the field.
 
 ![Example of required roles](/media/articles/extensions/authorization/required-roles.png)
 
 3. When finished click **Save Changes**. Now when you login from this client, in `context.clientMetadata` you will have the `required_roles` with the roles value string you entered.
 
-### Step 2: Create the Rule Enforcing Client Roles
+### Step 2: Create the Rule Enforcing Application Roles
 
-Now that each Client has a role associated with it, you can create the rule executes with this piece of client information in context.
+Now that each Application has a role associated with it, you can create the rule executes with this piece of client information in context.
 
 ::: warning
 Before creating this rule, enable **Roles** under the [Token Contents](/extensions/authorization-extension/v2/configuration#token-contents) and [publish the Authorization Extension rule](/extensions/authorization-extension/v2/configuration#publish-the-authorization-extension-rule). Then, add this rule and make sure it is listed *after* the generated "auth0-authorization-extension" rule.

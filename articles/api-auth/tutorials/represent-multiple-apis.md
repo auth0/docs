@@ -19,22 +19,22 @@ We will represent the two APIs using just one Auth0 API called `Organizer Servic
 
 Please see the `README` for additional information on setting up the sample on your local environment.
 
-## The Auth0 Client
+## The Auth0 Application
 
-If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
+If you don't already have an Auth0 Application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
-2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
-3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. In the [Auth0 Dashboard](${manage_url}), click on [Applications](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Application**.
+2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
+3. Navigate to the [Auth0 Application Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/clients/${account.clientId}/settings).
 4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
-### Enable a Connection for Your Client
+### Enable a Connection for Your Application
 
-[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Client, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Application, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Client**.
+1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Application**.
 2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
-3. Once your Connection is ready, click over to the *Clients* tab, and enable the Connection for your Client.
+3. Once your Connection is ready, click over to the *Applications* tab, and enable the Connection for your Application.
 
 ### Create a Test User
 
@@ -94,7 +94,7 @@ You are now ready to provide access to your APIs by granting Access Tokens to th
 
 The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
 
-* If you have a **Non Interactive Client**, you can authorize it to request Access Tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
+* If you have a **Machine to Machine Application**, you can authorize it to request Access Tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
 * If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
@@ -122,7 +122,7 @@ Lock handles the login process.
 
 ![SPA Login](/media/articles/api-auth/tutorials/represent-multiple-apis/lock.png)
 
-Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client. In this case, the user's asked to consent to the app reading their contacts and calendar.
+Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Application. In this case, the user's asked to consent to the app reading their contacts and calendar.
 
 ![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 

@@ -169,13 +169,13 @@ We recommend that you use RS256 for signing tokens in Single Page Applications.
 ### Switching from HS256 to RS256
 
 ::: panel-warning Before Changing the Signing Algorithm
-Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
+Please note that altering the signing algorithm for your application will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your application somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
 :::
 
-To switch from HS256 to RS256 for a specific client, follow these instructions:
+To switch from HS256 to RS256 for a specific application, follow these instructions:
 
-1. Go to [Dashboard > Clients](${manage_url}/#/clients)
-1. Select your client
+1. Go to [Dashboard > Applications](${manage_url}/#/applications)
+1. Select your application
 1. Go to _Settings_
 1. Click on __Show Advanced Settings__
 1. Click on the _OAuth_ tab in Advanced Settings
@@ -193,11 +193,11 @@ In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and 
 
 Delegation is now done via the `delegation` method, which takes an `options` object containing the following potential parameters:
 
-* __client_id__ (required): a string; the Auth0 client identifier
+* __client_id__ (required): a string; the Auth0 application identifier
 * __grant_type__ (required): a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
 * __id_token__ (required): a string; either a valid id_token or a valid refresh_token is required
 * __refresh_token__: a string; either a valid refresh_token or a valid id_token is required
-* __target__: a string; the target client id of the delegation
+* __target__: a string; the target application id of the delegation
 * __scope__: a string; either `'openid'` or `'openid profile email'`
 * __api_type__: a string; the api to be called
 
@@ -213,4 +213,4 @@ webAuth.client.delegation({
 
 ## User Management
 
-Linking accounts and gathering info has also changed. You can now instantiate a Management client object and call the `getUser`, `patchUserMetadata`, and `linkUser` methods on it to get a user's profile, update their metadata, or link two user accounts together. For more information, read about [user management](/libraries/auth0js#user-management) in the auth0.js documentation.
+Linking accounts and gathering info has also changed. You can now instantiate a Management application object and call the `getUser`, `patchUserMetadata`, and `linkUser` methods on it to get a user's profile, update their metadata, or link two user accounts together. For more information, read about [user management](/libraries/auth0js#user-management) in the auth0.js documentation.

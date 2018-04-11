@@ -2,7 +2,7 @@
   description: Writing rules to restrict user/client access to an API
 ---
 
-# Restrict Client or User Requests for API Scopes
+# Restrict Application or User Requests for API Scopes
 
 By default, any user associated with an [Auth0 client](/clients) can request an API's [scope(s)](/scopes#api-scopes). If you would like to restrict access to the API's scopes based on the user's role, client association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
@@ -58,5 +58,5 @@ function (user, context, callback) {
 ```
 
 ::: note
-The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Clients](${manage_url}/#/clients).
+The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Applications](${manage_url}/#/clients).
 :::

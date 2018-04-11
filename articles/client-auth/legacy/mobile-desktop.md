@@ -8,13 +8,13 @@ toc: true
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version, using the dropdown. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-You can easily authenticate users in your mobile and desktop applications by using either the Lock client libraries, or by calling the Auth0 OAuth 2.0 endpoints yourself. 
+You can easily authenticate users in your mobile and desktop applications by using either the Lock application libraries, or by calling the Auth0 OAuth 2.0 endpoints yourself. 
 
 ## Overview
 
 Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can call these endpoints through an embedded browser in your application, and then intercept the request to the callback URL to extract the `id_token` which contains the user's profile information.
 
-We also make a set of client libraries available which encapsulates all the logic for you and makes it much easier to implement authentication in all the popular mobile and desktop platforms. Please refer to our [Native Quickstarts](/quickstart/native) to get started with any of these.
+We also make a set of application libraries available which encapsulates all the logic for you and makes it much easier to implement authentication in all the popular mobile and desktop platforms. Please refer to our [Native Quickstarts](/quickstart/native) to get started with any of these.
 
 ## The Authentication Flow
 
@@ -28,22 +28,22 @@ The `id_token` can be decoded to extract the claims and you can use these inside
 
 ![](/media/articles/client-auth/mobile-desktop/mobile-desktop-flow.png)
 
-1. The Client initiates the flow and redirects the user to the Authorization Server
+1. The Application initiates the flow and redirects the user to the Authorization Server
 2. The user authenticates
 3. The Authorization Server redirects the user to the `redirect_uri` with an `id_token` in the hash fragment
-4. The Client can now extract the token from the hash fragment.  
+4. The Application can now extract the token from the hash fragment.  
 
-## Register your Client
+## Register your Application
 
-The first thing you need to do is to create a new client in Auth0. An Auth0 client maps to your application and allows it to use Auth0 for authentication.
+The first thing you need to do is to create a new application in Auth0. An Auth0 application maps to your application and allows it to use Auth0 for authentication.
 
-Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. Create a new Client by clicking on the **Create Client** button.
+Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Application** button.
 
-The **Create Client** window will open, allowing you to enter the name of your new application. Choose **Native** as the **Client Type** and click on the **Create** button to create the new client.
+The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Native** as the **Application Type** and click on the **Create** button to create the new application.
 
 ![](/media/articles/client-auth/mobile-desktop/create-client.png) 
 
-Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add the URL `https://${account.namespace}/mobile`. Save the Settings.
+Once the application has been created you can navigate to the **Settings** tab of the application and in the **Allowed Callback URLs** field add the URL `https://${account.namespace}/mobile`. Save the Settings.
 
 ![](/media/articles/client-auth/mobile-desktop/allowed-callback-url.png)
 
@@ -56,14 +56,14 @@ This endpoint supports the following query string parameters:
 | Parameter | Description |
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For mobile applications using the Implicit Grant Flow this **must be set** to `token` |
-| client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
+| client_id | The Client ID of the Application you registered in Auth0. This can be found on the **Settings** tab of your Application in the Auth0 Dashboard |
 | scope | Specifies the claims (or attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL where the user will be redirected to after they have authenticated. For mobile applications you should specify this as `https://${account.namespace}/mobile`|
-| connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `google-oauth2` to send the user directly to Google to log in with their Google account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
+| connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `google-oauth2` to send the user directly to Google to log in with their Google account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your application.  |
 | state | The state parameter will be sent back should be used for CSRF and contextual information (like a return url) |
 
 ::: note
-  Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}).
+  Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Application inside the [Auth0 Dashboard](${manage_url}).
 :::
 
 ## Handle the callback
@@ -108,7 +108,7 @@ The payload above contains the following claims:
 | picture | The profile picture of the user which is returned from the Identity Provider. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), such as github&#124;1234567890. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 

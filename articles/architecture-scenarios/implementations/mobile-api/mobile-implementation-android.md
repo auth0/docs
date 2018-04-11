@@ -26,7 +26,7 @@ This document is part of the [Mobile + API Architecture Scenario](/architecture-
 For this implementation, we will use the following dependencies within the app’s `build.gradle` file:
 
 - [Auth0.Android](https://github.com/auth0/Auth0.Android): this package enables integration with Auth0 to authenticate users.
-- [OkHttp](http://square.github.io/okhttp/): this package provides an HTTP client to make requests to the Node.JS API.
+- [OkHttp](http://square.github.io/okhttp/): this package provides an HTTP application to make requests to the Node.JS API.
 - [JWTDecode.Android](https://github.com/auth0/JWTDecode.Android): this package will assist with decoding JWTs.
 - AppCompat: this package lets us use the toolbar widget for navigation in our activities.
 

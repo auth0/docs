@@ -32,21 +32,21 @@ Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You ca
 Instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
 :::
 
-## Register Your Client
+## Register Your Application
 
-If you haven't already created a new [Client](/clients) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Client maps to your application and allows your application to use Auth0 for authentication purposes.
+If you haven't already created a new [Application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
 
-Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
+Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
-The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Native** as the **Client Type**. When done, click on **Create** to proceed.
+The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed.
 
 ::: warning
-The Authorization Code flow with PKCE can only be used for Native Clients.
+The Authorization Code flow with PKCE can only be used for Native Applications.
 :::
 
 ![](/media/articles/client-auth/mobile-desktop/create-client.png)
 
-Once Auth0 creates the Client, navigate to the Client's **Settings** tab to:
+Once Auth0 creates the Application, navigate to the Application's **Settings** tab to:
 
 * Add the following URL to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`;
 * Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.

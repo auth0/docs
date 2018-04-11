@@ -45,39 +45,39 @@ For a more detailed overview of the JWT signing algorithms refer to: [JSON Web T
 
 ## Configure the Scopes
 
-Once the client has been created you will need to configure the Scopes which clients can request during authorization.
+Once the application has been created you will need to configure the Scopes which applications can request during authorization.
 
 In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `batch:upload`, `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
 
 ::: note
-  For the purposes of this document we will only be ever concerned with the `batch:upload` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future clients as well.
+  For the purposes of this document we will only be ever concerned with the `batch:upload` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future applications as well.
 :::
 
 ![Add Scopes](/media/articles/architecture-scenarios/server-api/add-scopes.png)
 
-## Create the Client
+## Create the Application
 
-When creating an API in the Auth0 Dashboard, a test client for the API will automatically be generated. In the Auth0 Dashboard, navigate to the [Client Section](${manage_url}/#/clients) and you will see the test client for the Timesheets API.
+When creating an API in the Auth0 Dashboard, a test application for the API will automatically be generated. In the Auth0 Dashboard, navigate to the [Application Section](${manage_url}/#/applications) and you will see the test application for the Timesheets API.
 
-![Non Interactive Client](/media/articles/architecture-scenarios/server-api/non-interactive-client.png)
+![Machine to Machine Application](/media/articles/architecture-scenarios/server-api/non-interactive-client.png)
 
-Go to the settings for the client by clicking on the gear icon, and rename the client to `Timesheets import Job`.
+Go to the settings for the application by clicking on the gear icon, and rename the application to `Timesheets import Job`.
 
-For the cron job you will need a Non-Interactive client. This test client which was generated when the API was created was automatically configured as a Non-Interactive client as can be seen in the screenshot below.
+For the cron job you will need a Machine to Machine Application. This test application which was generated when the API was created was automatically configured as a Machine to Machine Application as can be seen in the screenshot below.
 
-![Non Interactive Client Settings](/media/articles/architecture-scenarios/server-api/non-interactive-client-settings.png)
+![Machine to Machine Application Settings](/media/articles/architecture-scenarios/server-api/non-interactive-client-settings.png)
 
-## Configure Client's access to the API
+## Configure Application's access to the API
 
-The final part of the Auth0 configuration is to allow the client access to the Timesheets API. Go back to the configuration of the API, and select the *Non-interactive Clients* tab.
+The final part of the Auth0 configuration is to allow the application access to the Timesheets API. Go back to the configuration of the API, and select the *Machine to Machine Application* tab.
 
-You will see the **Timesheets Import Job** client listed, and it should have access to API as can be seen from the switch to the right of the client name which indicates a value of `Authorized`. If it does not indicate that the client is authorized, simply toggle the value of the switch from `Unauthorized` to `Authorized`.
+You will see the **Timesheets Import Job** application listed, and it should have access to API as can be seen from the switch to the right of the application name which indicates a value of `Authorized`. If it does not indicate that the application is authorized, simply toggle the value of the switch from `Unauthorized` to `Authorized`.
 
-![Authorize Client](/media/articles/architecture-scenarios/server-api/authorize-client.png)
+![Authorize Application](/media/articles/architecture-scenarios/server-api/authorize-client.png)
 
-You will also need to specify which scopes will be included in Access Tokens which are issued to the client when the client authorizes with Auth0.
+You will also need to specify which scopes will be included in Access Tokens which are issued to the application when the application authorizes with Auth0.
 
-Expand the settings for the client by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `batch:upload` scope as it will simply create new timesheets based on the timesheet entries in the external system.
+Expand the settings for the application by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `batch:upload` scope as it will simply create new timesheets based on the timesheet entries in the external system.
 
 Once you have selected the `batch:upload` scope you can save the settings by clicking the **Update** button.
 
