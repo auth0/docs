@@ -10,12 +10,12 @@ toc: true
 In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:
-- The client is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
 - Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
 
 ## Before you start
 
-* Check that your client's [grant type property](/clients/client-grant-types) is set appropriately
+* Check that your application's [grant type property](/applications/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
 
@@ -31,7 +31,7 @@ The Password Grant relies on a connection capable of authenticating users via us
 
 ## Ask for a Token
 
-In order to execute the flow the client needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the client has the credentials it needs to forward them to Auth0 with a `POST` to the [/oauth/token endpoint of Auth0's Authentication API](/api/authentication#resource-owner-password).
+In order to execute the flow the application needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the application has the credentials it needs to forward them to Auth0 with a `POST` to the [/oauth/token endpoint of Auth0's Authentication API](/api/authentication#resource-owner-password).
 
 ```har
 {
@@ -53,9 +53,9 @@ Where:
 * `username`: The end user's identifier.
 * `password`: The end user's password.
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
-* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/clients).
-* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/clients). This is required when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
-* `scope`: String value of the different [scopes](/scopes) the client is asking for. Multiple scopes are separated with whitespace.
+* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
+* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications). This is required when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your application is not highly trusted (for example, SPA).
+* `scope`: String value of the different [scopes](/scopes) the application is asking for. Multiple scopes are separated with whitespace.
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 
@@ -67,7 +67,7 @@ The response contains a [signed JSON Web Token](/jwt), the token's type (which i
 }
 ```
 
-In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
+In case the scopes issued to the application differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
 ::: panel Password grant and standard scopes
 If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the `access_token`.

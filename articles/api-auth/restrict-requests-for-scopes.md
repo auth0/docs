@@ -4,7 +4,7 @@
 
 # Restrict Application or User Requests for API Scopes
 
-By default, any user associated with an [Auth0 client](/clients) can request an API's [scope(s)](/scopes#api-scopes). If you would like to restrict access to the API's scopes based on the user's role, client association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+By default, any user associated with an [Auth0 client](/clients) can request an API's [scope(s)](/scopes#api-scopes). If you would like to restrict access to the API's scopes based on the user's role, application association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
 ## Example: Deny access based on the API audience
 
@@ -37,7 +37,7 @@ The value of an API's `audience` is displayed at the **API Audience** field, at 
 
 ## Example: Deny access based on the Client ID
 
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the client the user is associated with. In this example, we deny access to all users, if the client through which they login, has an ID equal to `CLIENT_ID` (this is equivalent to disabling **all** Connections for the client).
+The following [rule](/rules), demonstrates how you would deny access on an API, depending on the application the user is associated with. In this example, we deny access to all users, if the application through which they login, has an ID equal to `CLIENT_ID` (this is equivalent to disabling **all** Connections for the application).
 
 ```js
 function (user, context, callback) {
@@ -58,5 +58,5 @@ function (user, context, callback) {
 ```
 
 ::: note
-The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Applications](${manage_url}/#/clients).
+The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Applications](${manage_url}/#/applications).
 :::

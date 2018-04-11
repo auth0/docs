@@ -12,7 +12,7 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 
 | Test | Description |
 | ---- | ----------- |
-| [Allowed Callback Urls](tutorials/redirecting-users) Not Localhost | Validates the [Application Allowed Callback URLs do not point to localhost](${manage_url}/#/clients), 127.0.0.1, and so on |
+| [Allowed Callback Urls](tutorials/redirecting-users) Not Localhost | Validates the [Application Allowed Callback URLs do not point to localhost](${manage_url}/#/applications), 127.0.0.1, and so on |
 | Configure [Guardian SMS Provider](/multifactor-authentication/administrator/twilio-configuration) (Dependency: Guardian is Configured) | Ensures that [Twilio SMS is configured](${manage_url}/#/guardian) if you're using Guardian MFA |
 | Configure Tenant Environment Tag | Ensures the [tenant environment tag is set](${env.DOMAIN_URL_SUPPORT}/tenants/public) appropriately to Production, Staging or Development |
 | [Email Provider](/email/providers) Configured | Verifies that the [custom email provider has been configured](${manage_url}/#/emails/provider) |

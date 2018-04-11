@@ -23,10 +23,10 @@ Please see the `README` for additional information on setting up the sample on y
 
 If you don't already have an Auth0 Application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Applications](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Application**.
+1. In the [Auth0 Dashboard](${manage_url}), click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
-3. Navigate to the [Auth0 Application Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/clients/${account.clientId}/settings).
-4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+3. Navigate to the [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+4. Scroll to the bottom of the [Settings](${manage_url}/#/applications/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
 ### Enable a Connection for Your Application
 
@@ -70,7 +70,7 @@ After Auth0 creates your API, you'll be directed to its *Quick Start* page. At t
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
 
-Scopes allow you to define the API data accessible to your client applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
+Scopes allow you to define the API data accessible to your applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
 
 * `read:samples`
 * `delete:samples`
@@ -88,7 +88,7 @@ Add these two scopes to your API and **Save** your changes.
 
 ## Grant Access to the Auth0 API
 
-You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
+You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control an application to some or all of the APIs represented by the Auth0 API.
 
 :::panel Authorization Flows
 

@@ -7,7 +7,7 @@ description: Server-side SSO with regular web applications.
 
 To log a user in silently (that is, without displaying the Lock screen) the following conditions need to be met:
 
-1. The Application needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/clients)
+1. The Application needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications)
 2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
 3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name is the same as the one specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
 

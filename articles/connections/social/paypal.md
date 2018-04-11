@@ -58,7 +58,7 @@ Paste in the **Client Id** and **Secret** from the **PayPal Developer Portal** i
 
 ## 5. Enable and Test the Connection
 
-Switch the **Paypal** connection in the dashboard to enabled. Then under **Applications**, choose which of your clients you want to enable this connection and then click **SAVE**.
+Switch the **Paypal** connection in the dashboard to enabled. Then under **Applications**, choose which of your applications you want to enable this connection and then click **SAVE**.
 
 ![Enable Applications](/media/articles/connections/social/paypal/enable-clients.png)
 

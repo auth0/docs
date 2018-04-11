@@ -16,7 +16,7 @@ For simplicity reasons we will keep our implementation solely focused on the aut
 First we need to define the endpoints of our API.
 
 ::: panel What is an API endpoint?
-An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
+An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your application towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your application would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
 For this implementation we will only define 2 endpoints; one for retrieving a list of all timesheets for an employee, and another which will allow an employee to create a new timesheet entry.
@@ -51,7 +51,7 @@ See the implementation in [Node.js](/architecture-scenarios/application/spa-api/
 
 ### Check the Application's Permissions
 
-By now we have verified that the JWT is valid. The last step is to verify that the client has the permissions required to access the protected resources.
+By now we have verified that the JWT is valid. The last step is to verify that the application has the permissions required to access the protected resources.
 
 To do so, the API needs to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
 
@@ -79,7 +79,7 @@ In this section we will see how we can implement a SPA for our scenario.
 
 ### Authorize the user
 
-To authorize the user we will be using the [auth0.js library](/libraries/auth0js). You can initialize a new instance of the Auth0 client as follows:
+To authorize the user we will be using the [auth0.js library](/libraries/auth0js). You can initialize a new instance of the Auth0 application as follows:
 
 ```js
 var auth0 = new auth0.WebAuth({
@@ -94,8 +94,8 @@ var auth0 = new auth0.WebAuth({
 
 You need to pass the following configuration values:
 
-- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/clients}).
-- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/clients}).
+- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
+- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
 - __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an `access_token` in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
 - __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url}/#/apis}) at the Dashboard.
 - __redirectUri__: The URL to which Auth0 should redirect to after the user has authenticated.
@@ -107,7 +107,7 @@ To initiate the authentication flow you can call the `authorize()` method:
 auth0.authorize();
 ```
 
-After the authentication, Auth0 will redirect back to the __redirectUri__ you specified when configuring the new instance of the Auth0 client. At this point you will need to call the `parseHash()` method which parses a URL hash fragment to extract the result of an Auth0 authentication response.
+After the authentication, Auth0 will redirect back to the __redirectUri__ you specified when configuring the new instance of the Auth0 application. At this point you will need to call the `parseHash()` method which parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
 The contents of the authResult object returned by parseHash depend upon which authentication parameters were used. It may include the following:
 

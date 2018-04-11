@@ -5,7 +5,7 @@ description: How to handle returning users after authentication.
 
 To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0  redirects users back to your application after authentication.
 
-When implementing Auth0, please note that the `redirect_uri` field is used as a callback URL. Auth0 invokes callback URLs after the authentication process and are where your application gets routed. Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the `Allowed Callback URLs` field of a [Application's Settings](${manage_url}/#/clients/${account.clientId}/settings) as valid.
+When implementing Auth0, please note that the `redirect_uri` field is used as a callback URL. Auth0 invokes callback URLs after the authentication process and are where your application gets routed. Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the `Allowed Callback URLs` field of a [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) as valid.
 
 The callback URL is not necessarily the same URL to which you want users redirected after authentication.
 

@@ -7,7 +7,7 @@ description: Passwordless with Magic Link with Lock Android
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link
@@ -36,7 +36,7 @@ Auth0 will generate the [Digital Asset Links](https://developers.google.com/digi
 
 ### Application configuration
 
-We'll have to configure/add some field to our Auth0 client. The fields we need to configure are:
+We'll have to configure/add some field to our Auth0 application. The fields we need to configure are:
 
 - **app\_package\_name**: This is the package name, as declared in the app's manifest. An example would be *com.example.android.myapp*
 - **sha256\_cert\_fingerprints**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary lenght array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints.
@@ -57,7 +57,7 @@ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -sto
 
 #### Configure Auth0 via API
 
-Once we have the package name and the SHA256 fingerprint, we'll update our Auth0 client via API with [patch\_clients\_by\_id](/api/v2#!/Clients/patch_clients_by_id) (they aren't yet available in the dashboard).
+Once we have the package name and the SHA256 fingerprint, we'll update our Auth0 application via API with [patch\_clients\_by\_id](/api/v2#!/Clients/patch_clients_by_id) (they aren't yet available in the dashboard).
 
 In the *id* field we must introduce the *client_id* of our Auth0 App, and the *body* should look like this:
 
@@ -112,7 +112,7 @@ Your verification code is: {{ code }}
 
 ### Application configuration
 
-Now that we have the Auth0 client configured, before we start with the Android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android#passwordless).
+Now that we have the Auth0 application configured, before we start with the Android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android#passwordless).
 
 Now, in order to use App Links, there is an additional configuration step we must follow. We must declare an intent filter in the `AndroidManifest.xml`, inside the `LockPasswordlessActivity` activity tag. This filter will allow the app lo handle the links we'll send by Email or SMS.
 

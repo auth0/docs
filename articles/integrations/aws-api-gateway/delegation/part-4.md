@@ -306,7 +306,7 @@ Be sure to adjust the above code with the correct values for your integration. T
 
 #### Caveats
 
-* Rules run at a global scope for every authentication. You should only run the logic on authentication requests associated with a given client (which is why the script used asks for the *clientID*. Without this information, the logic runs for every authentication request associated with your Auth0 account.
+* Rules run at a global scope for every authentication. You should only run the logic on authentication requests associated with a given application (which is why the script used asks for the *clientID*. Without this information, the logic runs for every authentication request associated with your Auth0 account.
 * Information is passed into the rule with the *context* and the *user*.
 * You can extend the objects passed in to the rule. In the code above, the rule checks the body of the request for the role information. The role is set into the context *addonConfiguration* of the allowed role, which always overrides settings in the request body.
 
