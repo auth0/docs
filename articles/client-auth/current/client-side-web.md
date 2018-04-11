@@ -28,7 +28,7 @@ You can potentially also receive an `access_token` which can be used to call the
 For more information on calling APIs from Client-side Web Apps, please see [Call APIs from Client-side Web Apps](/api-auth/grant/implicit)
 :::
 
-![](/media/articles/applications-auth/client-side-web/client-side-web-flow.png)
+![](/media/articles/client-auth/client-side-web/client-side-web-flow.png)
 
 1. The Applications initiates the flow and redirects the user to the Authorization Server
 2. The user authenticates
@@ -43,13 +43,13 @@ Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applicationss
 
 The **Create Applications** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Applications Type** and click on the **Create** button to create the new applications.
 
-![](/media/articles/applications-auth/client-side-web/create-applications.png)
+![](/media/articles/client-auth/client-side-web/create-applications.png)
 
 Once the applications has been created you can navigate to the **Settings** tab of the applications and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
 
 This URL must be part of your application, as your application will need to extract the `id_token` from the hash fragment of this URL. 
 
-![](/media/articles/applications-auth/client-side-web/allowed-callback-url.png)
+![](/media/articles/client-auth/client-side-web/allowed-callback-url.png)
 
 Next, click on **Show Advanced Settings**. Go to the **OAuth** tab and ensure that you have enabled the **OIDC Conformant** switch:
 
