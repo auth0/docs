@@ -7,13 +7,13 @@ toc: true
 
 This doc walks you through the process of installing the Authorization Extension.
 
-Before you begin, make sure that you have an existing [client](/client) that can be used with the Authorization Extension. Currently, you can use the following types of clients:
+Before you begin, make sure that you have an existing [application](/application) that can be used with the Authorization Extension. Currently, you can use the following types of applications:
 
 * Native
 * Regular Web Applications
 * Single Page Applications
 
-Clients without an assigned type or Non Interactive Clients cannot be used with this extension.
+Applications without an assigned type or Machine to Machine Applications cannot be used with this extension.
 
 ## Install the Extension
 
@@ -83,7 +83,7 @@ Once the extension is installed, you will see it listed under **Installed Extens
 ![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
 
 ::: warning
-Installing this extension creates an `auth0-authz` client for your account. **Do not delete this client!** If you uninstall the extension at a later date, this client will be deleted automatically.
+Installing this extension creates an `auth0-authz` application for your account. **Do not delete this application!** If you uninstall the extension at a later date, this application will be deleted automatically.
 :::
 
 When you click the link to open the extension for the first time, you will be asked to provide permission for the extension to access your Auth0 account. If you do, you will be redirected to the Authorization Dashboard.

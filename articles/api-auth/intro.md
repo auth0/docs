@@ -23,31 +23,31 @@ If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/sam
 
 ### APIs Section in the Dashboard
 
-You can now define your resource server APIs as entities separate from clients using our new APIs dashboard area.
+You can now define your resource server APIs as entities separate from applications using our new APIs dashboard area.
 
 ![APIs Dashboard](/media/articles/api-auth/api-dashboard.png)
 
-This lets you decouple your resource server APIs from the client applications that consume them and also lets you define third-party clients that you might not control or even fully trust (keep reading for more info).
+This lets you decouple your resource server APIs from the applications that consume them and also lets you define third-party applications that you might not control or even fully trust (keep reading for more info).
 
 ::: note
 For more information on APIs, their role in OAuth and how to configure an API in Auth0 Dashboard, refer to [APIs Overview](/apis).
 :::
 
-### Third-Party Clients
+### Third-Party Applications
 
-Up until recently we were treating every client as first-party client. This means that all clients were considered trusted. Now you have the option to define a client as either first-party or third-party.
+Up until recently we were treating every application as first-party application. This means that all applications were considered trusted. Now you have the option to define a application as either first-party or third-party.
 
-Third-party clients, are clients that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party clients is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
+Third-party applications, are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
 
-So far, third-party clients cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Client Registration](/api-auth/dynamic-client-registration) functionality. All clients registered through that will be third-party clients.
+So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Application Registration](/api-auth/dynamic-application-registration) functionality. All applications registered through that will be third-party applications.
 
 ::: note
-For more information, refer to [User consent and third-party clients](/api-auth/user-consent).
+For more information, refer to [User consent and third-party applications](/api-auth/user-consent).
 :::
 
 ### Calling APIs from a Service (machine-to-machine)
 
-We implemented the OAuth 2.0 Client Credentials grant which allows clients to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
+We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
 
 ::: note
 For more information on the Client Credentials grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
@@ -57,7 +57,7 @@ For more information on the Client Credentials grant, refer to [Calling APIs fro
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 ::: note
 For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens).
@@ -65,7 +65,7 @@ For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/t
 
 ### User Profile Claims and Scope
 
-Historically, you were able to define and request arbitrary application-specific claims. From now on, your client can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
+Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
 
 In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
@@ -82,10 +82,10 @@ For more information, refer to [User profile claims and scope](/api-auth/tutoria
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
-Support for SSO from client applications is planned for a future release.
+Support for SSO from applications is planned for a future release.
 :::
 
 Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support SSO at the moment:
@@ -142,7 +142,7 @@ Some changes were introduced in the implementation of Implicit grant:
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
 - Refresh Tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
-- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the client must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
+- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - ID Tokens will be signed asymmetrically using `RS256`.
 
@@ -159,7 +159,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- The ID Token will be forcibly signed using `RS256` if requested by a [public client](/clients/client-types#public-clients).
+- The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/application-types#public-applications).
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -169,7 +169,7 @@ For more information, refer to [Resource Owner Password Credentials exchange](/a
 ### Delegation
 
 [Delegation](/api/authentication#delegation) is used for many operations:
-- Exchanging an ID Token issued to one client for a new one issued to a different client
+- Exchanging an ID Token issued to one application for a new one issued to a different application
 - Using a Refresh Token to obtain a fresh ID Token
 - Exchanging an ID Token for a third-party API token, such as Firebase or AWS.
 
@@ -179,7 +179,7 @@ At the moment there is no OIDC-compliant mechanism to obtain third-party API tok
 
 ### Passwordless
 
-Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism when using web clients (with Lock.js or auth0.js).
+Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism when using web applications (with Lock.js or auth0.js).
 
 Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
 
@@ -191,18 +191,18 @@ Native applications need to use Universal Login (with an Auth0-hosted login page
 
 - [/oauth/access_token](/api/authentication#social-with-provider-s-access-token): The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint, used on native social authentication on mobile devices (for example, use the Facebook SDK and then this endpoint to create the user in Auth0), is now disabled. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) since last year.
 
-- [/oauth/ro](/api/authentication#resource-owner): This endpoint will soon be deprecated. Use the password grant instead. Note that the password grant should be used only by highly trusted clients, with the current exception of native apps (not with SPAs). This grant's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA. For more information on this grant refer to [Call APIs from Highly Trusted Clients](/api-auth/grant/password).
+- [/oauth/ro](/api/authentication#resource-owner): This endpoint will soon be deprecated. Use the password grant instead. Note that the password grant should be used only by highly trusted applications, with the current exception of native apps (not with SPAs). This grant's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA. For more information on this grant refer to [Call APIs from Highly Trusted Applications](/api-auth/grant/password).
 
 ## How to use the new flows
 
 To use the new pipeline, at least one of the following should apply:
 
-- The client is flagged as __OIDC Conformant__, or
+- The application is flagged as __OIDC Conformant__, or
 - The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
 
 If none of these applies, then the legacy flows will be used.
 
-To mark your client as OIDC Conformant: go to [Dashboard](${manage_url}) > click [Clients](${manage_url}/#/clients) > select your client > go to _Settings_ > click the _Show advanced settings_ link at the end > click _OAuth_ > toggle the __OIDC Conformant__ flag.
+To mark your application as OIDC Conformant: go to [Dashboard](${manage_url}) > click [Applications](${manage_url}/#/applications) > select your application > go to _Settings_ > click the _Show advanced settings_ link at the end > click _OAuth_ > toggle the __OIDC Conformant__ flag.
 
 ![OIDC Conformant flag](/media/articles/api-auth/oidc-conformant-flag.png)
 
@@ -225,13 +225,13 @@ To use the `audience` param instead, configure your app to send it when initiati
       <td>Supported</td>
     </tr>
     <tr>
-      <th><strong>Third-party Clients</strong></th>
+      <th><strong>Third-party Applications</strong></th>
       <td>Not Supported</td>
       <td>Supported</td>
     </tr>
     <tr>
       <th><strong>Client Credentials Grant</strong></th>
-      <td>This grant does not exist in the legacy pipeline, but the <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a> can be used to simulate it by creating a "service user". We strongly discourage the latter approach in favor of using Client Credentials, since it allows defining fine-grained permissions for each API client.</td>
+      <td>This grant does not exist in the legacy pipeline, but the <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials exchange</a> can be used to simulate it by creating a "service user". We strongly discourage the latter approach in favor of using Client Credentials, since it allows defining fine-grained permissions for each API application.</td>
       <td>Supported</td>
     </tr>
     <tr>
