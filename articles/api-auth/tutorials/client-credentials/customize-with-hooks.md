@@ -23,7 +23,7 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [non-interactive client](${manage_url}/#/clients) that is authorized to use the API created in the previous step
+- You have created a [machine to machine application](${manage_url}/#/applications) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
 - How to set up a Client Credentials Grant:
@@ -44,7 +44,7 @@ If you haven't done these yet, refer to these docs for details:
   At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
 
 ::: note
-You can create more than one hooks per extensibility point but __only one__ can be enabled. The enabled hook will then be executed for __all__ clients and APIs.
+You can create more than one hooks per extensibility point but __only one__ can be enabled. The enabled hook will then be executed for __all__ applications and APIs.
 :::
 
 3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
@@ -68,7 +68,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
-  In order to improve compatibility for client applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `claim`, you would name the claim `https://foo.com/claim`, instead of just `claim`.
+  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `claim`, you would name the claim `https://foo.com/claim`, instead of just `claim`.
   :::
 
   ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
@@ -193,7 +193,7 @@ As you saw in our example, the webtask takes five input parameters. You can use 
 
 Let's see what each one contains.
 
-- __client__ (object): Information on the client asking for the token, including the `client` metadata (a key-value pair that can be set by client). Sample snippet:
+- __client__ (object): Information on the application asking for the token, including the `client` metadata (a key-value pair that can be set by application). Sample snippet:
 
     ```json
     {

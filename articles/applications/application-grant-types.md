@@ -1,5 +1,5 @@
 ---
-description: Using the Grant Types property on Clients
+description: Using the Grant Types property on Applications
 toc: true
 ---
 # Client Grant Types
@@ -27,7 +27,7 @@ Not sure which non-legacy grant type is appropriate for your use case? Refer to 
 
 ## Grant Types Available
 
-The following is a list of grant types valid for Auth0 Clients. The grant types can be divided into three different categories:
+The following is a list of grant types valid for Auth0 Applications. The grant types can be divided into three different categories:
 
 * Grants that conform with specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
 * [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
@@ -63,28 +63,28 @@ The following are legacy grant types:
 You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
 
 ::: warning
-As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
+As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.
 :::
 
-Begin by navigating to the [Clients page](${manage_url}/#/clients) of the Management Dashboard.
+Begin by navigating to the [Applications page](${manage_url}/#/applications) of the Management Dashboard.
 
-![Auth0 Clients](/media/articles/clients/client-grant-types/clients.png)
+![Auth0 Applications](/media/articles/applications/client-grant-types/applications.png)
 
 Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Client you're interested in to launch its settings page.
 
-![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
+![Auth0 Client Settings](/media/articles/applications/client-grant-types/client-settings.png)
 
 Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 
-![Auth0 Client Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
+![Auth0 Client Advanced Settings](/media/articles/applications/client-grant-types/client-advanced-settings.png)
 
 Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
 
-![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
+![Auth0 Client Grant Types](/media/articles/applications/client-grant-types/grant-types.png)
 
 ### Use the Management API
 
-In addition to setting the `grant_types` value using the Dasbhoard, you can make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the Management API to update the `grant_types` field.
+In addition to setting the `grant_types` value using the Dasbhoard, you can make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
 
 ### Errors
 
@@ -96,19 +96,19 @@ Grant type `grant_type` not allowed for the client.
 
 ## Information for Existing and New Auth0 Customers
 
-As of 8 June 2017, all Auth0 clients have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Client or a new customer.
+As of 8 June 2017, all Auth0 applications have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Client or a new customer.
 
-### Existing Clients
+### Existing Applications
 
-To avoid changes in functionality for current Auth0 customers, we will populate the `grant_types` property for all existing Clients as of 8 June 2017 with **all** Auth0 legacy, Auth0 extension, and specification-conformant grant types.
+To avoid changes in functionality for current Auth0 customers, we will populate the `grant_types` property for all existing Applications as of 8 June 2017 with **all** Auth0 legacy, Auth0 extension, and specification-conformant grant types.
 
-### New Clients
+### New Applications
 
-Depending on whether a newly-created Client is [public](/clients/client-types#public-clients) or [confidential](/clients/client-types#confidential-clients), the Client will have varying access to grant types. Trusted first-party clients have access to additional grant types.
+Depending on whether a newly-created Client is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Client will have varying access to grant types. Trusted first-party applications have access to additional grant types.
 
-#### Public Clients
+#### Public Applications
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
+Public Applications, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
 
 ::: panel Token Endpoint Authentication Method
 The `Token Endpoint Authentication Method` defines how a client authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
@@ -117,31 +117,31 @@ The `Token Endpoint Authentication Method` defines how a client authenticates ag
 * `Post`, for a client using HTTP POST parameters
 * `Basic`, for a client using HTTP Basic parameters 
 
-You can find this field at the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
+You can find this field at the [Client Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
 :::
 
-By default, Public Clients are created with the following `grant_types`:
+By default, Public Applications are created with the following `grant_types`:
 
 * `implicit`
 * `authorization_code`
 * `refresh_token`
 
 ::: note
-Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
+Public applications **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
 :::
 
-#### Confidential Clients
+#### Confidential Applications
 
-Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Clients are created with the following `grant_types`:
+Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
 * `refresh_token`;
 * `client_credentials`.
 
-#### Trusted First-Party Clients
+#### Trusted First-Party Applications
 
-Trusted first-party clients can additionally use the following `grant_types`:
+Trusted first-party applications can additionally use the following `grant_types`:
 
 * `password`
 * `http://auth0.com/oauth/grant-type/password-realm`
@@ -172,7 +172,7 @@ Those implementing Passwordless Authentication should use [universal login](/hos
 ## Enable a Legacy Grant Type
 
 ::: warning
-As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their clients. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types).
+As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their applications. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types).
 :::
 
 To enable a legacy grant type, you will need to update the `grant_types` property for you client appropriately. For details on how to do so, refer to [Edit the grant_types Property](#edit-available-grant_types).

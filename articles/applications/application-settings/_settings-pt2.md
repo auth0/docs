@@ -12,4 +12,4 @@
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-![Client Settings Page](/media/articles/clients/settings.png)
+![Application Settings Page](/media/articles/applications/settings.png)

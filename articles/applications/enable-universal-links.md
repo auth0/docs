@@ -2,9 +2,9 @@
 description: How to enable Universal Links support for your Auth0 app in Xcode
 ---
 
-# Enable Universal Links Support for your Auth0 Client in Xcode
+# Enable Universal Links Support for your Auth0 Application in Xcode
 
-Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Client settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
+Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Application settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
 
 * `Team ID`;
 * `Bundle identifier`.
@@ -19,9 +19,9 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 ## Provide Your Apple `Team ID` and `Bundle Identifier` to Auth0
 
-You can establish the universal link from the Auth0 side using [Clients](${manage_url}/#/clients) page of the [Management Dashboard](${manage_url}).
+You can establish the universal link from the Auth0 side using [Applications](${manage_url}/#/clients) page of the [Management Dashboard](${manage_url}).
 
-Select the Client you want to link with your iOS application. You will see the *Settings* page for the Client.
+Select the Application you want to link with your iOS application. You will see the *Settings* page for the Application.
 
 ![](/media/articles/applications/settings.png)
 

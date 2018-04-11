@@ -1,6 +1,6 @@
 ## Configure Callback URLs
 
-A Callback URL is a URL that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly which could be harmful. For security reasons, you will need to add your application's callback URL in the **Allowed Callback URLs** box in your app's [Client Settings](${manage_url}/#/applications/${account.clientId}/settings). This will allow Auth0 to recognize the URLs as valid. The same principle applies to **Logout URLs**. They must be whitelisted in the Auth0 Dashboard.
+A Callback URL is a URL that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly which could be harmful. For security reasons, you will need to add your application's callback URL in the **Allowed Callback URLs** box in your app's [Application Settings](${manage_url}/#/applications/${account.clientId}/settings). This will allow Auth0 to recognize the URLs as valid. The same principle applies to **Logout URLs**. They must be whitelisted in the Auth0 Dashboard.
 
 If you are following this guide directly, set the following for your Callback and Logout URLs:
 
@@ -52,5 +52,5 @@ But it also allows us to customize it's behavior:
 
 
 ::: panel Check populated attributes
-If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for.
+If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered application. In any case, you should verify that the values are correct if you have multiple applications in your account and you might want to use another than the one we set the information for.
 :::
