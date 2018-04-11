@@ -405,7 +405,6 @@ articles:
 
           - title: "Best Practices"
             url: "/users/search/best-practices"
-            hidden: true
 
       - title: "User Search"
         url: "/users/search/v2"
