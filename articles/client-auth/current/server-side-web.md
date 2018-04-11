@@ -28,23 +28,23 @@ You will also receive an [Access Token](/tokens/access-token) which you can use 
 
 ![Authentication flow for server-side web apps](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
 
-1. The Client initiates the flow and redirects the user to the Authorization Server.
+1. The Application initiates the flow and redirects the user to the Authorization Server.
 2. The user authenticates.
 3. The Authorization Server redirects to the `redirect_uri` with a `code` in the query string.
-4. The Client sends the `code` together with the Client ID, Client Secret and `redirect_uri` to the Authorization Server.
+4. The Application sends the `code` together with the Client ID, Client Secret and `redirect_uri` to the Authorization Server.
 5. The Authorization Server validates this information and returns an ID Token.
 
-## Register your Client
+## Register your Application
 
-The first thing you need to do is to create a new client in Auth0. An Auth0 client maps to your application and allows it to use Auth0 for authentication.
+The first thing you need to do is to create a new application in Auth0. An Auth0 application maps to your application and allows it to use Auth0 for authentication.
 
-Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. Create a new Client by clicking on the **Create Client** button.
+Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Application** button.
 
-The **Create Client** window will open, allowing you to enter the name of your new application. Choose **Regular Web Applications** as the **Client Type** and click on the **Create** button to create the new client.
+The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Regular Web Applications** as the **Application Type** and click on the **Create** button to create the new application.
 
 ![](/media/articles/client-auth/server-side-web/create-client.png)
 
-Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `${account.callback}`.
+Once the application has been created you can navigate to the **Settings** tab of the application and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `${account.callback}`.
 
 This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the ID Token.
 
@@ -65,13 +65,13 @@ This endpoint supports the following query string parameters:
 | Parameter | Description |
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
-| client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
+| client_id | The Client ID of the Application you registered in Auth0. This can be found on the **Settings** tab of your Application in the Auth0 Dashboard |
 | scope | Specifies the claims (or attributes) of the user you want the be returned in the ID Token. To get an ID Token in the response, you need to specify at least the scope of `openid` in the request. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read the [scopes documentation](/scopes) for more information. |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, such as `${account.callback}`|
-| connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
+| connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your application.  |
 
 ::: note
-  Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}).
+  Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Application inside the [Auth0 Dashboard](${manage_url}).
 :::
 
 ## Exchange the code for an ID Token
@@ -142,7 +142,7 @@ The payload above contains the following claims:
 | picture | The profile picture of the user which is returned from the Identity Provider. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), such as github&#124;1234567890. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued ID Token, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 
