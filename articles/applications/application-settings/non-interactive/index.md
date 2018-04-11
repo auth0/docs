@@ -1,26 +1,26 @@
 ---
-description: Client settings for Non Interactive Clients
-url: /clients/client-settings/non-interactive
+description: Application settings for Machine to Machine Applications
+url: /applications/application-settings/non-interactive
 toc: true
 ---
 
-# Client Settings: Non Interactive Client
+# Application Settings: Machine to Machine Application
 
 ::: version-warning
-This document lists the settings for a Non Interactive Client; if you're using a different Client type, please use the drop-down to select the appropriate doc.
+This document lists the settings for a Machine to Machine Application; if you're using a different Application type, please use the drop-down to select the appropriate doc.
 :::
 
-When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
+When creating an Auth0 Application, you'll be asked to indicate the *type* of Application you want to create. 
 
-![Window for selecting client type](/media/articles/clients/create-clients.png)
+![Window for selecting application type](/media/articles/clients/create-clients.png)
 
-If your app is a CLI, daemon, or a service running on the backend, you'll want to create a **Non Interactive Client**.
+If your app is a CLI, daemon, or a service running on the backend, you'll want to create a **Machine to Machine Application**.
 
 ## Settings
 
 <%= include('../_settings') %>
 
-- **Client Type**: The type of client you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Non Interactive Client**.
+- **Application Type**: The type of application you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Machine to Machine Application**.
 
 <%= include('../_token-endpoint-auth-method') %>
 

@@ -3,7 +3,7 @@ order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
 extract: Mobile application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
-description: Explains the architecture scenario with a mobile application client communicating with an API.
+description: Explains the architecture scenario with a mobile application communicating with an API.
 toc: true
 ---
 
@@ -37,7 +37,7 @@ The company has built a timesheets application, a scenario we covered in [Single
 
 ExampleCo wants to build a flexible solution. There are potential multiple employees and contractors who should be able to log timesheet entries, as well as batch processes which may upload timesheet entries from other, external systems.
 
-Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this mobile app, but by all other apps as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this mobile app, but by all other apps as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 

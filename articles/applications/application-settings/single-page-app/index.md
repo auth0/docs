@@ -1,26 +1,26 @@
 ---
-description: Client settings for Single Page Apps
-url: /clients/client-settings/single-page-app
+description: Application settings for Single Page Apps
+url: /applications/application-settings/single-page-app
 toc: true
 ---
 
-# Client Settings: Single Page Applications
+# Application Settings: Single Page Applications
 
 ::: version-warning
-This document lists the settings for an SPA Client; if you're using a different Client type, please use the drop-down to select the appropriate doc.
+This document lists the settings for an SPA Application; if you're using a different Application type, please use the drop-down to select the appropriate doc.
 :::
 
-When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
+When creating an Auth0 Application, you'll be asked to indicate the *type* of Application you want to create. 
 
-![Window for selecting client type](/media/articles/clients/create-clients.png)
+![Window for selecting application type](/media/articles/clients/create-clients.png)
 
-If your app is similar to one with a JavaScript front-end that utilizes an API, you'll want to create a SPA Client.
+If your app is similar to one with a JavaScript front-end that utilizes an API, you'll want to create a SPA Application.
 
 ## Settings
 
 <%= include('../_settings') %>
 
-- **Client Type**: The type of client you are implementing. For apps with a JavaScript front-end that utilizes an API, create an SPA client.
+- **Application Type**: The type of application you are implementing. For apps with a JavaScript front-end that utilizes an API, create an SPA.
 
 <%= include('../_settings-pt2') %>
 
