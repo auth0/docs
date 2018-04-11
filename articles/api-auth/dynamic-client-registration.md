@@ -1,15 +1,15 @@
 ---
-title: Dynamic Client Registration
-description: How to dynamically register clients with Auth0, using the Management API
+title: Dynamic Application Registration
+description: How to dynamically register applications with Auth0, using the Management API
 crews: crew-2
 toc: true
 ---
 
-# Dynamic Client Registration
+# Dynamic Application Registration
 
 <%= include('../_includes/_pipeline2') %>
 
-Dynamic Client Registration enables you to register clients dynamically. These clients can be either [first-party or third-party clients](/clients/client-types#first-vs-third-party-clients). 
+Dynamic Application Registration enables you to register applications dynamically. These applications can be either [first-party or third-party applications](/applications/application-types#first-vs-third-party-applications). 
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 
@@ -17,11 +17,11 @@ This feature is based on the [OpenID Connect Dynamic Client Registration specifi
 
 By default, the feature is disabled for all tenants. To change this, you have to:
 - update some tenant settings
-- promote the connections you will use with your dynamic clients to **domain connections**, and
-- update your client's login page (if you use [Lock](/libraries/lock/v11))
+- promote the connections you will use with your dynamic applications to **domain connections**, and
+- update your application's login page (if you use [Lock](/libraries/lock/v11))
 
 ::: warning
-Auth0 supports **Open Dynamic Registration**, which means that if you enable this feature, **anyone** will be able to create clients in your tenant without a token.
+Auth0 supports **Open Dynamic Registration**, which means that if you enable this feature, **anyone** will be able to create applications in your tenant without a token.
 :::
 
 ### Update tenant settings
@@ -50,7 +50,7 @@ You need to update the `API2_ACCESS_TOKEN` with a valid token with the scope `up
 
 ### Promote connections
 
-Clients registered via the [Dynamic Client Registration Endpoint](#register-your-client) can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic client to allow users to authenticate.
+Applications registered via the [Dynamic Application Registration Endpoint](#register-your-application) can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic application to allow users to authenticate.
 
 You can promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 
@@ -77,7 +77,7 @@ Where:
 
 ### Update the login page
 
-To use the Auth0's [Universal Login](/hosted-pages/login) with the Dynamic Client feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
+To use the Auth0's [Universal Login](/hosted-pages/login) with the Dynamic Application feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
 
 Sample script:
 
@@ -119,13 +119,13 @@ Sample script:
 
 ## Use dynamic registration
 
-In this section we will see how you can dynamically register and configure a client.
+In this section we will see how you can dynamically register and configure a application.
 
-### Register your client
+### Register your application
 
-In order to dynamically register a client with Auth0, you need to send an HTTP `POST` message to the Client Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports **Open Dynamic Registration**, which means that the endpoint will accept a registration request without an [Access Token](/tokens/access-token).
+In order to dynamically register an application with Auth0, you need to send an HTTP `POST` message to the Application Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports **Open Dynamic Registration**, which means that the endpoint will accept a registration request without an [Access Token](/tokens/access-token).
 
-To create a client with the name `My Dynamic Client` and the callback URLs `https://client.example.com/callback` and `https://client.example.com/callback2`, use the following snippet.
+To create an application with the name `My Dynamic Client` and the callback URLs `https://client.example.com/callback` and `https://client.example.com/callback2`, use the following snippet.
 
 ```har
 {
@@ -142,18 +142,18 @@ To create a client with the name `My Dynamic Client` and the callback URLs `http
 ```
 
 Where:
-- **client_name** (required): The name of the Dynamic Client to be created
+- **client_name** (required): The name of the Dynamic Application to be created
 - **redirect_uris** (required): An array of URLs that Auth0 will deem valid to call at the end of an authentication flow
 
 Optionally, you can set a value for `token_endpoint_auth_method`, which can be `none` or `client_secret_post` (default value).
 
-The response includes the basic client information.
+The response includes the basic application information.
 
 ```json
 HTTP/1.1 201 Created
 Content-Type: application/json
 {
-  "client_name": "My Dynamic Client",
+  "client_name": "My Dynamic Application",
   "client_id": "8SXWY6j3afl2CP5ntwEOpMdPxxy49Gt2",
   "client_secret": "Q5O...33P",
   "redirect_uris": [
@@ -165,15 +165,15 @@ Content-Type: application/json
 ```
 
 Where:
-- **client_id**: Unique client identifier. This is the ID you will use while configuring your apps to use Auth0. It is generated by the system and it cannot be modified.
-- **client_secret**: Alphanumeric 64-bit client secret. This value is used by clients to authenticate to the [token endpoint](/api/authentication#get-token) and for signing and validating [ID Tokens](/tokens/id-token).
-- **client_secret_expires_at**: Time at which the `client_secret` will expire. For Auth0 this value will always be zero (`0`) which means that the client never expires.
+- **client_id**: Unique application identifier. This is the ID you will use while configuring your apps to use Auth0. It is generated by the system and it cannot be modified.
+- **client_secret**: Alphanumeric 64-bit application secret. This value is used by applications to authenticate to the [token endpoint](/api/authentication#get-token) and for signing and validating [ID Tokens](/tokens/id-token).
+- **client_secret_expires_at**: Time at which the `client_secret` will expire. For Auth0 this value will always be zero (`0`) which means that the application never expires.
 
-Make a note of the Client ID and Secret, as these are the most important pieces for executing [authentication](/client-auth) and [authorization](/api-auth) flows.
+Make a note of the Client ID and Secret, as these are the most important pieces for executing [authentication](/application-auth) and [authorization](/api-auth) flows.
 
-Also, keep in mind that third-party developers are not allowed to modify the client settings. In case this is necessary, they need to contact the tenant owner with their request.
+Also, keep in mind that third-party developers are not allowed to modify the application settings. In case this is necessary, they need to contact the tenant owner with their request.
 
-### Configure your client
+### Configure your application
 
 Now that you have a Client ID and Secret, you can configure your application to authenticate users with Auth0.
 
@@ -202,8 +202,8 @@ Where:
 
 - **response_type**: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`.
 - **client_id**: Your application's Client ID.
-- **redirect_uri**: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
-- **state**: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
+- **redirect_uri**: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Application Settings of your application.
+- **state**: An opaque value the applications add to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks.
 - **nonce**: A string value which will be included in the ID Token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
 For example:
