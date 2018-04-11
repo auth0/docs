@@ -24,7 +24,7 @@ After the user has authenticated, Auth0 will redirect the browser back to the **
 
 The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
-![](/media/articles/application-auth/client-side-web/client-side-web-flow.png)
+![](/media/articles/client-auth/client-side-web/client-side-web-flow.png)
 
 1. The Application initiates the flow and redirects the user to the Authorization Server
 2. The user authenticates
@@ -39,13 +39,13 @@ Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications]
 
 The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Application Type** and click on the **Create** button to create the new application.
 
-![](/media/articles/application-auth/client-side-web/create-application.png)
+![](/media/articles/client-auth/client-side-web/create-application.png)
 
 Once the application has been created you can navigate to the **Settings** tab of the application and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
 
 This URL must be part of your application, as your application will need to extract the `id_token` from the hash fragment of this URL. Save the Settings.
 
-![](/media/articles/application-auth/client-side-web/allowed-callback-url.png)
+![](/media/articles/client-auth/client-side-web/allowed-callback-url.png)
 
 ## Call the Authorization URL
 
