@@ -181,5 +181,5 @@ Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 
 ::: next-steps
 * [Learn how you can use the query string syntax to build custom queries](/users/search/v3/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/v3/best-practices)
+* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
 :::
