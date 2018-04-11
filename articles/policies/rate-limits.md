@@ -232,6 +232,13 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
+    <td>Get Passwordless Code or Link</td>
+    <td>/passwordless/start</td>
+    <td>IP</td>
+    <td>All</td>
+    <td>50 requests per hour</td>
+  </tr>
+  <tr>
     <td>Get Token</td>
     <td>/oauth/token</td>
     <td>(any request)</td>

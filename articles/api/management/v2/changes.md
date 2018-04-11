@@ -92,34 +92,21 @@ Logs endpoints have not been implemented in Management API v2. Logs must first b
 
 Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
-As explained in [Using JSON Web Tokens as API Keys](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/), Auth0's API v2 allows you to issue an API JWT of specific scope, referred to below as `api_jwt_token`. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer {api_jwt_token}`.
-
-### Scopes
+Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
 To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 
-### The id_token and special scopes
-
-An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
-```
-{
-  "iss": "https://contoso.auth0.com/",
-  "sub": "google-oauth2|200076635456998357447",
-  "aud": "rs3sdOssVWaZlg0PzyPtIgWFCzcurlm5",
-  "exp": 1418452802,
-  "iat": 1418416802
-}
-```
-
-When this token is sent to the API in the `Authorization` header (`Authorization: Bearer {id_token}`), the following scopes will be granted automatically:
+There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
 
 * `read:current_user`
 * `update:current_user_identities`
 * `create:current_user_metadata`
 * `update:current_user_metadata`
 * `delete:current_user_metadata`
+* `create:current_user_device_credentials`
+* `delete:current_user_device_credentials`
 
-Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
+So, for example, if the Access Token contains the scope `update:current_user_metadata` then it can be used to update the metadata of the currently logged-in user. If, on the other hand, it contains the scope `update:users_app_metadata` it can be used to update the metadata of any user.
 
 ## User metadata
 

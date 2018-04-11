@@ -1,5 +1,6 @@
 title: Cycle
-community: true
+author:
+  community: true
 alias:
   - cyclejs
 language:

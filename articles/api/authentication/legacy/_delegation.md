@@ -2,8 +2,6 @@
 
 # Delegation
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/delegation
 Content-Type: application/json

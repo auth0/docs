@@ -2,8 +2,6 @@
 
 ## Social
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -94,8 +92,6 @@ Social connections only support browser-based (passive) authentication because m
 
 ## Database/AD/LDAP (Passive)
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -176,8 +172,6 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 ## Enterprise (SAML and Others)
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -214,10 +208,6 @@ GET https://${account.namespace}/authorize?
   });
 </script>
 ```
-
-::: note
-Note that in order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. Check the  [Cross-Origin Authentication](/cross-origin-authentication) to understand the limitations of this approach.
-:::
 
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
@@ -258,6 +248,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
+- In order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. Check the [Cross-Origin Authentication](/cross-origin-authentication) article to understand the limitations of this approach.
 
 ### More Information
 

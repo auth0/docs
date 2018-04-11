@@ -1,7 +1,5 @@
 # Change Password
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/dbconnections/change_password
 Content-Type: application/json

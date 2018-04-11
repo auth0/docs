@@ -1,5 +1,6 @@
 title: WPF / Winforms
-community: true
+author:
+  community: true
 hybrid: false
 language:
   - Javascript

@@ -2,8 +2,6 @@
 
 ## Get Token Info
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/tokeninfo
 Content-Type: application/json

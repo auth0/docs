@@ -1,64 +1,26 @@
 ---
 url: /addons
-description:
+description: How to setup Client Addons, like Amazon Web Services and Azure Blob Storage, with your Auth0 app.
 ---
-
-<style>
-.addon {
-  padding: 15px;
-  /*border: 1px solid $gray-lighter;*/
-}
-.addon-content {
-  text-align: center;
-  min-height: 150px;
-}
-.addon-content:before {
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;
-  height: 90px;
-}
-.addon-image-wrap {
-  display: inline-block;
-  vertical-align: middle;
-}
-.addon-image-wrap img {
-  max-height: 80px;
-  max-width: 120px;
-}
-</style>
 
 # Auth0 Client Addons
 
 Addons are plugins associated with a Client in Auth0. Usually, they are 3rd party APIs used by the client that Auth0 generates Access Tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so on).
 
-## Configure an Addon
+## How to configure an Addon
 
-### Select the Addon
+Go to [Dashboard > Clients > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons) page and use the toggle to enable the add-on you want to configure.
 
-<% if (account.clientId) { %>
-Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Application Addons</a> page and select the add-on.
-<% } else { %>
-Go to <a href="${manage_url}/#/applications/">Application Addons</a> page and select the add-on.
-<% } %>
-
-![](/media/addons/manage-addons.png)
-
-### Setup
+![Client Addons](/media/addons/manage-addons.png)
 
 Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it in the dashboard.
 
-The key to this integration is the [/delegation endpoint](/api/authentication#delegation) in Auth0. 
+## Additional information for specific Addons
 
-See the Delegation documentation to learn more about how to call this endpoint:
-
-[Delegation Tokens](/tokens/delegation)
-
-[Lock Android: Delegation API](/libraries/lock-android/delegation-api)
-
-[Lock iOS: Delegation API](/libraries/lock-ios/delegation-api)
-
-## Additional Information for Specific Addons:
-
-<% var clientAddons = cache.find('articles/addons/client-addons', {sort: 'index'}); %>
-<%= include('./_addons', { addons: clientAddons }) %>
+- Amazon Web Services: For more info on how to use delegation with the AWS API Gateway, see the [AWS API Gateway](/integrations/aws-api-gateway/delegation) Tutorial
+- [Azure Blob Storage](/addons/azure-blob-storage)
+- [Azure Mobile Services](/addons/azure-mobile-services)
+- [Azure Service Bus](/addons/azure-sb)
+- [Salesforce (sandbox)](/addons/salesforce-sandbox)
+- [Salesforce](/addons/salesforce)
+- [SAP OData](/addons/sap-odata)

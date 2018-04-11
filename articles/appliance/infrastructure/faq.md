@@ -29,7 +29,12 @@ If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required certificate(
 Webtasks and web extensions require this due to Node.js security requirements.
 
 #### Can I whitelist specific IP addresses on my firewall to the Internet sites the PSaaS Appliance requires outbound access to?
-For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required. For certain protocols, Internet connectivity is required during operation (such as social connections or emails).
+
+For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required.
+
+For certain protocols, Internet connectivity is required during operation (such as social connections or emails).
+
+Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
 
 #### Can I use Lock with my PSaaS Appliance implementation?
 

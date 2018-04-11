@@ -19,7 +19,7 @@ This tutorial shows you how to access protected resources in your API.
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 ## Before You Start
 

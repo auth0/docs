@@ -1,5 +1,6 @@
 title: Xamarin
-community: true
+author:
+  community: true
 language:
   - C#
 framework:

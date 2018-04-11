@@ -4,8 +4,6 @@
 
 ## Social with Provider's Access Token
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/access_token
 Content-Type: application/json
@@ -102,8 +100,6 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp)
 
 ## Database/AD/LDAP (Active)
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/ro

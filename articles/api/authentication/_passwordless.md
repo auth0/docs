@@ -6,8 +6,6 @@ Passwordless connections do not require the user to remember a password. Instead
 
 ## Get Code or Link
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/passwordless/start
 Content-Type: application/json
@@ -119,8 +117,6 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Passwordless FAQ](/connections/passwordless/faq)
 
 ## Authenticate User
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/oauth/ro

@@ -1,5 +1,6 @@
 title: Socket.io
-community: true
+author:
+  community: true
 alias:
   - socket.io
 language:

@@ -16,7 +16,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 ## Before You Start
 

@@ -4,8 +4,6 @@ The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforc
 
 ## Accept Request
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/samlp/${account.clientId}?
   connection=CONNECTION
@@ -55,8 +53,6 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 ## Get Metadata
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/samlp/metadata/${account.clientId}
 ```
@@ -94,8 +90,6 @@ This endpoint returns the SAML 2.0 metadata.
 
 
 ## IdP-Initiated SSO Flow
-
-<h5 class="code-snippet-title">Examples</h5>
 
 ```http
 POST https://${account.namespace}/login/callback?connection=CONNECTION

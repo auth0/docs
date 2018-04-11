@@ -14,6 +14,7 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 
 ## Migration steps
 
+<%= include('../../_includes/_migrate_universal') %>
 <%= include('../../_includes/_get_auth0_js_latest_version') %>
 <%= include('../../_includes/_configure_embedded_login', { library : 'Auth0.js v9'}) %>
 <%= include('../../_includes/_review_get_ssodata') %>

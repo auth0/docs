@@ -402,11 +402,22 @@ articles:
             url: "/user-profile/user-picture"
 
       - title: "User Search"
-        url: "/users/search"
-
-      - title: "User Search v3"
         url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/users/search/v3/best-practices"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v2"
         hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
 
       - title: "User Metadata"
         url: "/metadata"
@@ -531,12 +542,12 @@ articles:
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
-          - title: "Step-up with ID Tokens"
-            url: "/multifactor-authentication/developer/mfa-from-id-token"
+          - title: "Step-up Authentication for Web Apps"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
-          - title: "Step-Up with Custom MFA Rules"
-            url: "/multifactor-authentication/custom-mfa-rules"
+          - title: "Step-up Authentication for APIs"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
 
   - title: "Security"
@@ -546,6 +557,14 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "CVE 2018-6874"
+            url: "/security/bulletins/cve-2018-6874"
+            hidden: true
+            
+          - title: "CVE 2018-6873"
+            url: "/security/bulletins/cve-2018-6873"
+            hidden: true
+            
           - title: "CVE 2018-7307"
             url: "/security/bulletins/cve-2018-7307"
             hidden: true
@@ -736,6 +755,11 @@ articles:
 
       - title: "Past Migrations"
         url: "/migrations/past-migrations"
+        hidden: true
+
+      - title: "Management API and ID Tokens"
+        url: "/migrations/guides/calling-api-with-idtokens"
+        hidden: true
         
   - title: "Support"
     url: "/support"
@@ -892,14 +916,6 @@ apis:
         children:
         - title: Changes
           url: "/api/management/v2/tokens-flows"
-
-      - title: Query String Syntax
-        url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
-
-      - title: User Search
-        url: "/api/management/v2/user-search"
-        forceFullReload: true
 
       - title: Changes in v2
         url: "/api/management/v2/changes"

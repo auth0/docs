@@ -1,6 +1,7 @@
 title: Hapi API
-community: true
 thirdParty: false
+author:
+  community: true
 alias:
   - hapi
   - hapijs

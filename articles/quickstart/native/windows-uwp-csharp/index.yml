@@ -1,5 +1,6 @@
 title: Windows Universal App C#
-community: true
+author:
+  community: true
 hybrid: false
 alias:
   - windows app

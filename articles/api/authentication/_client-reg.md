@@ -1,7 +1,5 @@
 # Dynamic Client Registration
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oidc/register
 Content-Type: application/json

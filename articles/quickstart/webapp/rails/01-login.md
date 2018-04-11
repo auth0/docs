@@ -63,6 +63,7 @@ rails generate controller auth0 callback failure --skip-template-engine --skip-a
 In the newly created controller, add a callback success and failure handler.
 
 ```ruby
+# app/controllers/auth0_controller.rb
 class Auth0Controller < ApplicationController
   def callback
     # This stores all the user information that came from Auth0
@@ -139,6 +140,8 @@ Create a file called `show.html.erb` to add the template for `show` action. Add 
 You can use a controller `concern` to control access to routes that require the user to be authenticated.
 
 ```ruby
+# app/controllers/concerns/secured.rb
+
 module Secured
   extend ActiveSupport::Concern
 
@@ -152,11 +155,19 @@ module Secured
 end
 ```
 
-Include the `concern` in the corresponding controller to prevent unauthenticated users from accessing its routes:
+Use the following command to create the controller for the dashboard view:
+
+```bash
+rails generate controller dashboard show --skip-template-engine --skip-assets
+```
+
+Include the `concern` in the newly-created controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
+# app/controllers/dashboard_controller.rb
+
 class DashboardController < ApplicationController
- include Secured
+  include Secured
 
   def show
   end
