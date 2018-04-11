@@ -30,7 +30,7 @@ All implementations will have the same final result, a `consentGiven` property s
 
 ## Configure the application
 
-1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new [client](/clients). Choose `Single Web Page Applications` as type.
+1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications). Choose `Single Web Page Applications` as type.
 
 1. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 
@@ -42,7 +42,7 @@ All implementations will have the same final result, a `consentGiven` property s
 
 1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
 
-1. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
+1. Go to the connection's **Applications** tab and make sure your newly created application is enabled.
 
 1. Download the [JavaScript SPA Sample](/quickstart/spa/vanillajs). 
 
