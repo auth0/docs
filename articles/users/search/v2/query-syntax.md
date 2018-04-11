@@ -7,7 +7,7 @@ crews: crew-2
 # Query String Syntax
 
 ::: version-warning
-This document covers a previous version of user search. We recommend you use <a href="/users/search/v3">user search v3</a>.
+This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
 :::
 
 This page explains query string syntax, the mini-language used by the Query String Query.
