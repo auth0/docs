@@ -31,7 +31,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 
 ## How to enable the Node.js v8 runtime
 
-Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
+Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on 17 April 2018.
 
 ![Runtime toggle](/media/articles/migrations/node-runtime1.png)
 
@@ -118,7 +118,7 @@ Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs
 
 ## Important Dates
 
-* **2018 April 16**: The Webtask runtime using Node.js v8 becomes available to Auth0 customers
+* **2018 April 17**: The Webtask runtime using Node.js v8 becomes available to Auth0 customers
 * **2018 April 30**: [Node.js v4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 
 **To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node.js v8 runtime before 30 April 2018.**
