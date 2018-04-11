@@ -6,7 +6,7 @@ title: OIDC-conformant Implicit grant
 
 <%= include('./_about.md') %>
 
-The [Implicit grant](/api-auth/grant/implicit) is used by clients that are incapable of securely storing secrets, such as single-page JavaScript applications.
+The [Implicit grant](/api-auth/grant/implicit) is used by applications that are incapable of securely storing secrets, such as single-page JavaScript applications.
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -129,7 +129,7 @@ Location: https://app.example.com/#
 }</code></pre>
         <ul>
             <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
-            <li>After validating the ID Token, the client must <a href="/api-auth/tutorials/nonce">validate the nonce to mitigate replay attacks</a>.</li>
+            <li>After validating the ID Token, the application must <a href="/api-auth/tutorials/nonce">validate the nonce to mitigate replay attacks</a>.</li>
         </ul>
     </div>
   </div>

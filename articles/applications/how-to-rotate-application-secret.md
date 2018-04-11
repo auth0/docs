@@ -1,15 +1,15 @@
 ---
-description: This page lists different ways of how to update your client's secret.
+description: This page lists different ways of how to update your application's secret.
 crews: crew-2
 ---
 
 # Rotate the Client Secret
 
-The client secret protects your resources by only granting tokens to requestors if they're authorized. Protect your client secrets; if any are ever compromised, you should rotate to a new one. Please remember that all authorized apps will therefore need to be updated with the new client secret.
+The client (application) secret protects your resources by only granting tokens to requestors if they're authorized. Protect your client secrets; if any are ever compromised, you should rotate to a new one. Please remember that all authorized apps will therefore need to be updated with the new client secret.
 
 ## Rotate the Client Secret in the Dashboard
 
-You can rotate your client secret under [Clients in the Dashboard](${manage_url}/#/clients). Choose the client you wish to edit by clicking on its name *or* the **Settings** gear icon associated with the client.
+You can rotate your client secret under [Applications in the Dashboard](${manage_url}/#/applications). Choose the application you wish to edit by clicking on its name *or* the **Settings** gear icon associated with the application.
 
 ![](/media/articles/clients/change-client-secret/clients.png)
 
@@ -21,7 +21,7 @@ Scroll to the bottom of the Settings page, and click **Save Changes**.
 
 ## Rotate the Client Secret Using the Management API
 
-You can rotate your client's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
+You can rotate your application's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
 
 Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
@@ -47,6 +47,6 @@ To make calls to the Management API, you'll need to [obtain and provide a valid 
 }
 ```
 
-## Update Authorized Clients
+## Update Authorized Applications
 
-Once you've rotated your client secret, you'll need to update any authorized clients with the new value. To make sure that you see as little downtime as possible when connecting your apps to your Auth0 client, we suggest you store the new client secret as a fallback to the previous secret. Then, if the connection doesn't work with the old secret, your app will use the new secret. Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app.
+Once you've rotated your application secret, you'll need to update any authorized applications with the new value. To make sure that you see as little downtime as possible when connecting your apps to your Auth0 application, we suggest you store the new client secret as a fallback to the previous secret. Then, if the connection doesn't work with the old secret, your app will use the new secret. Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app.
