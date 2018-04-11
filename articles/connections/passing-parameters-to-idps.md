@@ -35,33 +35,19 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
 
 ```har
 {
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_ACCESS_TOKEN"
-  }, {
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{ 
-      \"options\": { 
-        \"client_id\": \"...\", 
-        \"client_secret\": \"...\", 
-        \"upstream_params\": { 
-          \"blog\": { 
-            \"alias\": \"access_type\",
-            \"value\": \"myblog.wordpress.com\"
-          }
-        }, 
-        \"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\", 
-        \"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\",
-        \"scope\": \"auth\" 
-      } 
-    }"
-  }
+	"method": "PATCH",
+	"url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
+	"headers": [{
+			"name": "Authorization",
+			"value": "Bearer YOUR_ACCESS_TOKEN"
+		},{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"options\": {\"client_id\": \"...\",\"client_secret\": \"...\",\"upstream_params\": {\"blog\": {\"alias\": \"access_type\",\"value\": \"myblog.wordpress.com\"}}, \"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\",\"scope\": \"auth\"}}"
+	}
 }
 ```
 
@@ -101,19 +87,7 @@ As an example, let's use Twitter, which allows you to pass an optional `screen_n
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{ 
-      \"options\": { 
-        \"client_id\": \"...\", 
-        \"client_secret\": \"...\", 
-        \"upstream_params\": { 
-          \"screen_name\": { 
-            \"alias\": \"login_hint\" 
-          } 
-        },  
-        \"authorizationURL\": \"https://api.twitter.com/oauth/authorize\",
-        \"tokenURL\": \"https://api.twitter.com/oauth/request_token\" 
-      } 
-    }"
+    "text": "{\"options\": {\"client_id\": \"...\",\"client_secret\": \"...\",\"upstream_params\": {\"screen_name\": {\"alias\": \"login_hint\"}},\"authorizationURL\": \"https://api.twitter.com/oauth/authorize\",\"tokenURL\": \"https://api.twitter.com/oauth/request_token\"}}"
   }
 }
 ```
