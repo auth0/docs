@@ -31,7 +31,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 
 ## How to enable the Node.js v8 runtime
 
-Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
+Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on April 17, 2018.
 
 ![Runtime toggle](/media/articles/migrations/node-runtime1.png)
 
