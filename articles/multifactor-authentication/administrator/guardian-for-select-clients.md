@@ -1,18 +1,18 @@
 ---
-description: Guardian for Select Client
+description: Guardian for Select Applications
 ---
-# Customize MFA for Select Clients
+# Customize MFA for Select Applications
 
-Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that allows advanced configuration of Guardian's behavior via [Rules](/rules). One option is to apply Guardian authentication only to a subset of your clients.
+Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that allows advanced configuration of Guardian's behavior via [Rules](/rules). One option is to apply Guardian authentication only to a subset of your applications.
 
-By default, Auth0 enables Guardian for all clients.
+By default, Auth0 enables Guardian for all applications.
 
 ```js
 function (user, context, callback) {
 
   var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
 
-  // Apply Guardian only for the specified clients
+  // Apply Guardian only for the specified applications
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
       context.multifactor = {
         provider: 'guardian', //required
