@@ -56,7 +56,7 @@ Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenan
 ![Runtime toggle options](/media/articles/migrations/node-runtime2.png)
 
 ::: warning
-Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch to your development tenant, test your setup, and switch to your production tenant only if there are no breaking changes.
+Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant to the Node 8 runtime, test your setup, and switch your production tenant only if there are no breaking changes.
 :::
 
 ## How to ensure a stable migration
