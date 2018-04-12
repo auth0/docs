@@ -5,7 +5,7 @@ description: How to setup Application Addons, like Amazon Web Services and Azure
 
 # Auth0 Application Addons
 
-Addons are plugins associated with a Application in Auth0. Usually, they are 3rd party APIs used by the application that Auth0 generates Access Tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so on).
+Addons are plugins associated with an Application in Auth0. Usually, they are 3rd party APIs used by the application that Auth0 generates Access Tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so on).
 
 ## How to configure an Addon
 
