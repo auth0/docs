@@ -2,7 +2,8 @@
 description: Learn how to use C# in Rules with Edge.js
 toc: true
 ---
-# Using C&num; in Rules
+<%= csharp : '<span>#</span>' %>
+# Using ${csharp} in Rules
 
 Even though you typically write Rules in JavaScript, there is support for using C# by making use of [Edge.js](http://tjanczuk.github.io/edge/#/). In order to use C# in your Rule you will first need to `require` Edge:
 
