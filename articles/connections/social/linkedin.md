@@ -12,19 +12,19 @@ toc: true
 
 To connect your Auth0 app to LinkedIn, you will need to generate a **Client ID** and **Client Secret** in a LinkedIn app, copy these keys into your Auth0 settings, and enable the connection.
 
-## 1. Log in to the Developer Portal
+## 1. Log in to the developer portal
 
 Log in to the [LinkedIn Developer portal](http://developer.linkedin.com/), and click **My Apps**:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-1.png)
 
-## 2. Create Your App
+## 2. Create your app
 
 Click the **Create Application** button:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-2.png)
 
-## 3. Enter Details About Your App
+## 3. Enter details about your app
 
 For the **Website URL** field, enter the following URL:
 
@@ -36,7 +36,7 @@ Click **Submit**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-3.png)
 
-## 4. Enter the Redirect URL
+## 4. Enter the redirect URL
 
 Enter the following URL in the **Authorized Redirect URLs** field, and click **Add**:
 
@@ -46,13 +46,13 @@ Next, click **Update**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-4.png)
 
-## 5. Get Your **Client ID** and **Client Secret**
+## 5. Get Your Client ID and Client Secret
 
 On the same page, you will be able to see your **Client ID** and **Client Secret** under the **Authentication Keys** section:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-5.png)
 
-## 6. Copy Your **Client ID** and **Client Secret** into Auth0
+## 6. Copy your Client ID and Client Secret into Auth0
 
 Login to the [Connections > Social section of the Auth0 Dashboard](${manage_url}/#/connections/social).
 
@@ -62,13 +62,13 @@ Copy the **Client ID** into the **API Key** section and **Client Secret** into t
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-6.png)
 
-## 7. Enable the Connection
+## 7. Enable the connection
 
 Go to the **Apps** tab of the LinkedIn connection on Auth0, and select each of your existing Auth0 apps for which you want to enable this connection:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-7.png)
 
-## 8. Test Your App
+## 8. Test your app
 
 Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
