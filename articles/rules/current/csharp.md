@@ -1,8 +1,12 @@
 ---
+title: Write Rules in C#
 description: Learn how to use C# in Rules with Edge.js
 toc: true
 ---
-# Using C\# in Rules
+[csharp]: <span>#</span>
+# Write Rules in C${csharp}
+
+# Write Rules in C<span>#</span>
 
 Even though you typically write Rules in JavaScript, there is support for using C# by making use of [Edge.js](http://tjanczuk.github.io/edge/#/). In order to use C# in your Rule you will first need to `require` Edge:
 
@@ -86,6 +90,4 @@ function (user, context, callback) {
 }
 ```
 
-::: note
-For details on the properties of the `context` argument refer to [Context Argument Properties in Rules](/rules/context).
-:::
+For more info on the properties of the `context` argument, see [Context Argument Properties in Rules](/rules/context).
