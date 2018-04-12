@@ -36,7 +36,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 ## How to enable the Node.js v8 runtime
 
 :::warning
-The Extensibility panel, that this section refers to, will be made available to our cloud customers when the Node 8 runtime is available.
+The Extensibility panel, that this section refers to, will be made available to our cloud customers on **April 17th, 2018**.
 :::
 
 Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on 17 April 2018.
