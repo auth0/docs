@@ -119,7 +119,7 @@ Sample script:
 
 ## Use dynamic registration
 
-In this section we will see how you can dynamically register and configure a application.
+In this section we will see how you can dynamically register and configure an application.
 
 ### Register your application
 
