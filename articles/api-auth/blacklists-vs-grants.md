@@ -55,7 +55,7 @@ By default, Auth0 issues Access Tokens that last for 24 hours. Setting the token
 
 You can change the lifetime of a token by setting the `token_lifetime` option. The specific lifetime appropriate to your use case will vary, but we recommend setting this value to be as short as possible. A good starting point for determining this value would be the window you consider allowable for the delay between deleting the grant and final use of the API.
 
-### Delete a Application Grant
+### Delete an Application Grant
 
 To delete an application grant, make the appropriate `DELETE` call to the Management API's [Delete an Application Grant endpoint](/api/management/v2#!/Client_Grants/delete_client_grants_by_id). 
 
