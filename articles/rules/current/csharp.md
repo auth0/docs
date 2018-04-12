@@ -3,6 +3,7 @@ title: Write Rules in C#
 description: Learn how to use C# in Rules with Edge.js
 toc: true
 ---
+# Write Rules in C${csharp}
 
 # Write Rules in C<span>#</span>
 
@@ -89,3 +90,6 @@ function (user, context, callback) {
 ```
 
 For more info on the properties of the `context` argument, see [Context Argument Properties in Rules](/rules/context).
+
+<!--vars-->
+[csharp]: <span>#</span>
