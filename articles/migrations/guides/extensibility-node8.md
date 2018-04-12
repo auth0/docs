@@ -5,6 +5,10 @@ toc: true
 ---
 # Migration Guide: Extensibility and Node.js v8
 
+:::warning
+The Node.js 8 runtime will be available to all public cloud customers on **April 17th, 2018**.
+:::
+
 Beginning 2018 April 30, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.
 
 As such, Auth0 will be migrating from Node.js v4 to Node.js v8.
@@ -30,6 +34,10 @@ As part of this migration, the Auth0 development team has performed extensive te
 However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node.js v8.
 
 ## How to enable the Node.js v8 runtime
+
+:::warning
+The Extensibility panel, that this section refers to, will be made available to our cloud customers when the Node 8 runtime is available.
+:::
 
 Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on 17 April 2018.
 
