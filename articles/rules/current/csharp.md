@@ -86,6 +86,4 @@ function (user, context, callback) {
 }
 ```
 
-::: note
-For details on the properties of the `context` argument refer to [Context Argument Properties in Rules](/rules/context).
-:::
+For more info on the properties of the `context` argument, see [Context Argument Properties in Rules](/rules/context).
