@@ -13,5 +13,5 @@ You can get more details on implementing these flows by following one of the fol
 <%= include('../../_includes/_topic-links', { links: [
   'application-auth/legacy/mobile-desktop',
   'application-auth/legacy/server-side-web',
-  'application-auth/legacy/application-side-web'
+  'application-auth/legacy/client-side-web'
 ] }) %>
