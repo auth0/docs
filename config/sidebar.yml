@@ -759,6 +759,10 @@ articles:
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
         hidden: true
+      
+      - title: "Extensibility and Node.js v8"
+        url: "/migrations/guides/extensibility-node8"
+        hidden: true
         
   - title: "Support"
     url: "/support"
