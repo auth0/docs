@@ -152,3 +152,10 @@ All users with more than 100 logins | `logins_count:>100`
 Logins count >= 100 and <= 200 | `logins_count:[100 TO 200]`
 Logins count >= 100 | `logins_count:[100 TO *]`
 Logins count > 100 and < 200 | `logins_count:{100 TO 200}`
+
+## Next Steps
+
+::: next-steps
+* [Learn how you can use the query string syntax to build custom queries](/users/search/v2/query-syntax)
+* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
+:::

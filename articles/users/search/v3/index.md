@@ -160,7 +160,7 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 
 The user search engine v2 will be deprecated soon, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`). Before you start migrating, there's a few things you should know:
 
-* Search values are case insensitive in v3.
+* Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
 * You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](#wildcards) and [exact matching](#exact-match).
@@ -181,5 +181,5 @@ Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 
 ::: next-steps
 * [Learn how you can use the query string syntax to build custom queries](/users/search/v3/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/v3/best-practices)
+* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
 :::

@@ -404,8 +404,7 @@ articles:
             url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
-            url: "/users/search/v3/best-practices"
-            hidden: true
+            url: "/users/search/best-practices"
 
       - title: "User Search"
         url: "/users/search/v2"
@@ -413,6 +412,10 @@ articles:
         children:
           - title: "Query Syntax"
             url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
             hidden: true
 
       - title: "User Metadata"
@@ -755,6 +758,10 @@ articles:
 
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
+        hidden: true
+      
+      - title: "Extensibility and Node.js v8"
+        url: "/migrations/guides/extensibility-node8"
         hidden: true
         
   - title: "Support"
