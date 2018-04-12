@@ -5,7 +5,7 @@ description: Learn how to migrate from old versions of Lock/Auth0.js when your a
 
 # Migration in Embedded Login Scenarios with SSO
 
-Migration from legacy versions of Lock and Auth0.js is required. For Single Sign On (SSO) scenarios, it will imply movinng to [Universal Login](/hosted-pages/login) in most cases. 
+Migration from legacy versions of Lock and Auth0.js is required. For Single Sign On (SSO) scenarios, it will imply moving to [Universal Login](/hosted-pages/login) in most cases. 
 
 ## Single Page Apps
 
