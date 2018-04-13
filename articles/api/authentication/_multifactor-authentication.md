@@ -107,7 +107,7 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 - An `unsupported_challenge_type` error is returned if your application does not support any of the challenge types the user has enrolled with.
 - This endpoint does not support enrollment; the user must be enrolled with the preferred method before requesting a challenge.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
-- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check __Add an authenticator__ below to see how to proceed.
+- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](/api/authentication#add-an-authenticator) below to see how to proceed.
 
 ### More information
 
