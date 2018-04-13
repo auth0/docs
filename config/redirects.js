@@ -479,6 +479,41 @@ module.exports = [
     to: '/connections/passwordless/ios-sms-objc'
   },
 
+/* --- Clients --- */
+
+  {
+    from: '/clients/addons',
+    to: '/applications/addons'
+  },
+  {
+    from: '/clients/client-grant-types',
+    to: '/applications/application-grant-types'
+  },
+  {
+    from: '/clients/client-types',
+    to: '/applications/application-types'
+  },
+  {
+    from: '/clients/connections',
+    to: '/applications/connections'
+  },
+  {
+    from: '/clients/enable-android-app-links',
+    to: '/applications/enable-android-app-links'
+  },
+  {
+    from: '/clients/enable-universal-links',
+    to: '/applications/enable-universal-links'
+  },
+  {
+    from: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-application-secret'
+  },
+  {
+    from: 'clients/client-settings',
+    to: 'applications/application-settings'
+  },
+
   /* --- Scenarios to Tutorials --- */
 
   {
