@@ -6,15 +6,15 @@ description: How to configure your Joomla instance for use with Auth0.
 
 Before you can use Auth0 to handle authentication and authorization requests for your Joomla users, you'll need to do some configuration from both sides of the integration.
 
-## Configure Client Values
+## Configure Application Values
 
-To use Auth0 with Joomla, be sure you have a valid [Client](/clients). You'll need to provide information about your client to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
+To use Auth0 with Joomla, be sure you have a valid [Application](/applications). You'll need to provide information about your application to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
 
 1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Components > Auth0 > Auth0**. Click **Options** (located in the top right of the window). 
 
     ![](/media/articles/cms/joomla/configuration/joomla-1.png)
 
-2. Provide the requested values for your Auth0 client. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings). Click **Save & Close** to proceed.
+2. Provide the requested values for your Auth0 application. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings). Click **Save & Close** to proceed.
 
     ![](/media/articles/cms/joomla/configuration/joomla-2.png)
 

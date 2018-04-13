@@ -8,7 +8,7 @@ toc: true
 Often, the biggest barrier to learning new things, especially in the tech industry, is terminology. The words that are used to describe things can cause problems when you try to understand new concepts. This document explains some of the basic terminology we use here at Auth0, and maps these terms to concepts you are already familiar with.
 
 ::: panel TL;DR
-This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **clients**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
+This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
 
 We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to login with username/password, Google, or GitHub.
 :::
@@ -41,27 +41,27 @@ You can use a custom domain, such as `example-co.com`. This comes with an additi
 - An [on-premise installation](/appliance)
 :::
 
-## Client
+## Application
 
-Now that you have an account, we need to know about your app(s) that will be using our services. To that end, you must register each application. We use the term **client** to refer to an application (like [OAuth 2.0 does](https://tools.ietf.org/html/rfc6749#page-6)).
+Now that you have an account, we need to know about your app(s) that will be using our services. To that end, you must register each application. We use the term **application** to refer to an application (like [OAuth 2.0 does](https://tools.ietf.org/html/rfc6749#page-6)).
 
-When you create a client in the [Dashboard](${manage_url}/#/clients), the first piece of information we ask for is its type. This can be one of the following.
+When you create an application in the [Dashboard](${manage_url}/#/applications), the first piece of information we ask for is its type. This can be one of the following.
 
-![Client Types](/media/articles/getting-started/client-types.png)
+![Application Types](/media/articles/getting-started/client-types.png)
 
-Each client is assigned a **Client ID** upon creation. This is an alphanumeric string and it's the unique identifier for your client (such as `q8fij2iug0CmgPLfTfG1tZGdTQyGaTUA`). It cannot be modified and you will be using it in your application's code when you call Auth0 APIs.
+Each application is assigned a **Client ID** upon creation. This is an alphanumeric string and it's the unique identifier for your application (such as `q8fij2iug0CmgPLfTfG1tZGdTQyGaTUA`). It cannot be modified and you will be using it in your application's code when you call Auth0 APIs.
 
-Another important piece of information is the **Client Secret**. Think of it as your client's password which **must be kept confidential at all times**. If anyone gains access to your Client Secret they can impersonate your application and access protected resources.
+Another important piece of information is the **Client Secret**. Think of it as your application's password which **must be kept confidential at all times**. If anyone gains access to your Client Secret they can impersonate your application and access protected resources.
 
-In our example, `ExampleCo` has two apps: a web app (running on a server) and a mobile app. Hence, they would create two clients: one of type `Regular Web Applications`, and one of type `Native`.
+In our example, `ExampleCo` has two apps: a web app (running on a server) and a mobile app. Hence, they would create two applications: one of type `Regular Web Applications`, and one of type `Native`.
 
 ::: note
-We won't get into details on how to create a client, since this article is meant to provide a high level overview. However, if you want to know more, refer to the [Clients](/clients) documentation.
+We won't get into details on how to create an application, since this article is meant to provide a high level overview. However, if you want to know more, refer to the [Applications](/applications) documentation.
 :::
 
 ## Connection
 
-Now that you have set up your **Clients**, you are ready to configure how your users will login. 
+Now that you have set up your **Applications**, you are ready to configure how your users will login. 
 
 Auth0 sits between your app and the identity provider that authenticates your users (such as Google or Facebook). Through this level of abstraction, Auth0 keeps your app isolated from any changes of the provider's implementation.
 
@@ -74,17 +74,17 @@ Connections are sources of users and they can be of the following types:
 - [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
 - [Passwordless systems](/connections/passwordless): Users log in with one-time codes, sent via SMS or email
 
-Each connection can be shared among multiple clients. You can configure any number of connections, and then choose which of them to enable for each client.
+Each connection can be shared among multiple applications. You can configure any number of connections, and then choose which of them to enable for each application.
 
 In our example, `ExampleCo` wants their users to be able to login with username/password, Google, and GitHub, both from the web app and from the mobile app. Therefore, the steps to follow would be:
 1. [Configure a GitHub connection](/connections/social/github)
 1. [Configure a Google connection](/connections/social/google)
 1. [Configure a database connection](/connections/database)
-1. Enable all three connections for the web app client
-1. Enable all three connections for the mobile app client
+1. Enable all three connections for the web app
+1. Enable all three connections for the mobile app
 
 ::: note
-For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for a client, refer to [Client Connections](/clients/connections).
+For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Application Connections](/applications/connections).
 :::
 
 ## Where to go from here

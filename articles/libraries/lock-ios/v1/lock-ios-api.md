@@ -52,7 +52,7 @@ A0Lock *lock = [A0Lock newLockWithClientId:@"YOUR_CLIENT_ID" domain:@"YOUR_DOMAI
 - (A0APIClient *)apiClient;
 ```
 
-Returns an instance of the API client for Authentication API configured for your application.
+Returns an instance of the API application for Authentication API configured for your application.
 
 ```objc
 A0APIClient *client = [lock apiClient];

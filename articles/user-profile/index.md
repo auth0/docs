@@ -25,7 +25,7 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 * **Email**: the user's email address. The maximum length is 64 chars for the user/local part and 256 chars for the domain part.
 * **Password**: the user's password. There is no limit for max password length. For more information refer to [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 * **Repeat Password**: retype the user's password to ensure that you entered the password correctly.
-* **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your tenant. The connection you use must be associated with a Client.
+* **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your tenant. The connection you use must be associated with an Application.
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
@@ -140,15 +140,15 @@ First, you have to generate an `access_token` to call the Management API. For in
 
 Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
-## User access to clients
+## User access to applications
 
-Inside a single Auth0 tenant the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
+Inside a single Auth0 tenant the users are shared between applications. The idea here is that the all the applications in a single tenant will usually belong to the same app.
 
 For total separation you can create a new tenant. To do this click on tenant name on top right of the dashboard and select **+ Create Tenant** . If you have multiple tenants, you can easily switch between them from the tenants menu.
 
-If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
+If you need to restrict some users to certain applications you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
-You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the **Clients** tab, here you can enable/disable any client.
+You can also restrict users from applications by configuring a new connection and only giving access to a specific application. To enable application access for a connection go to the the **Settings** section for a connection and click on the **Applications** tab, here you can enable/disable any application.
 
 ## Keep reading
 

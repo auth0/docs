@@ -1,9 +1,9 @@
 ---
 order: 02
-title: Server Client + API
+title: Server Application + API
 image: /media/articles/architecture-scenarios/server-api.png
-extract: Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
-description: Explains the architecture scenario with server to server communication with secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
+extract: Server to server communication where a server “Application” needs to make secure calls to an API (“Resource Server”), but on behalf of the application vs. a user.
+description: Explains the architecture scenario with server to server communication with secure calls to an API (“Resource Server”), but on behalf of the application vs. a user.
 toc: true
 ---
 
@@ -15,11 +15,11 @@ We will also be building a cron job which will process timesheet entries from an
 
 ::: panel TL;DR
 * Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/application/server-api/part-1#api-authentication-and-authorization))
-* For authorizing a Non Interactive Client (a CLI, service or daemon where no user interaction is involved) Auth0 supports the Client Credentials grant (see [Client Credentials Grant](/architecture-scenarios/application/server-api/part-1#client-credentials-grant))
-* Both the Non Interactive Client and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/application/server-api/part-2))
+* For authorizing a Machine to Machine Application (a CLI, service or daemon where no user interaction is involved) Auth0 supports the Client Credentials grant (see [Client Credentials Grant](/architecture-scenarios/application/server-api/part-1#client-credentials-grant))
+* Both the Machine to Machine Application and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/application/server-api/part-2))
 * The API will be secured by ensuring that a valid Access Token (which is implemented as a JSON Web Token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/application/server-api/part-3))
-* Upon successful authorization an Access Token is issued to the Non Interactive Client (see [Get an Access Token](/architecture-scenarios/application/server-api/part-3#get-an-access-token))
-* The Non Interactive Client can in turn use this Access Token to pass along as an HTTP Authorization header to authenticate calls to API endpoints (see [Invoke the API](/architecture-scenarios/application/server-api/part-3#invoke-the-api))
+* Upon successful authorization an Access Token is issued to the Machine to Machine Application (see [Get an Access Token](/architecture-scenarios/application/server-api/part-3#get-an-access-token))
+* The Machine to Machine Application can in turn use this Access Token to pass along as an HTTP Authorization header to authenticate calls to API endpoints (see [Invoke the API](/architecture-scenarios/application/server-api/part-3#invoke-the-api))
 :::
 
 ## The Premise
@@ -28,7 +28,7 @@ ExampleCo is a consulting startup company. Currently they have approximately 100
 
 ### Goals & Requirements
 
-ExampleCo wants to build a flexible solution. At the moment only an automated process needs to push timesheet entries but in the future the company plans on launching more clients, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process, but by all future clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+ExampleCo wants to build a flexible solution. At the moment only an automated process needs to push timesheet entries but in the future the company plans on launching more applications, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process, but by all future applications as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 

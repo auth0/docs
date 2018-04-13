@@ -47,31 +47,31 @@ For a more detailed overview of the JWT signing algorithms refer to [JSON Web To
 
 ## Configure the Scopes
 
-Once the client has been created you will need to configure the Scopes which clients can request during authorization.
+Once the application has been created you will need to configure the Scopes which applications can request during authorization.
 
 In the settings for your API, go to the **Scopes** tab. In this section you can add the scopes for our business case: `read:timesheets`, `create:timesheets`, `delete:timesheets`, and `approve:timesheets`.
 
 ![Add Scopes](/media/articles/architecture-scenarios/spa-api/add-scopes.png)
 
-## Create the Client
+## Create the Application
 
-There are four client types in Auth0: 
+There are four application types in Auth0: 
 - __Native__ (used by mobile or desktop apps), 
 - __Single Page Web Applications__, 
 - __Regular Web Applications__ and 
-- __Non Interactive Clients__ (used by CLIs, Daemons, or services running on your backend). 
+- __Machine to Machine Applications__ (used by CLIs, Daemons, or services running on your backend). 
 
-For this scenario we want to create a new Client for our SPA, hence we will use Single Page Application as the client type.
+For this scenario we want to create a new Application for our SPA, hence we will use Single Page Application as the application type.
 
-To create a new Client, navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients}) menu option on the left. Click the __+ Create Client__ button.
+To create a new Application, navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications}) menu option on the left. Click the __+ Create Application__ button.
 
-Set a name for your Client (we will use `Timesheets SPA`) and select `Single Page Web Applications` as the type.
+Set a name for your Application (we will use `Timesheets SPA`) and select `Single Page Web Applications` as the type.
 
 Click __Create__.
 
-![Create Client](/media/articles/architecture-scenarios/spa-api/create-client.png)
+![Create Application](/media/articles/architecture-scenarios/spa-api/create-client.png)
 
-That's it for now. When we are done with the SPA implementation we will revisit the dashboard and this Client's settings to make some changes in its configuration.
+That's it for now. When we are done with the SPA implementation we will revisit the dashboard and this Application's settings to make some changes in its configuration.
 
 ## Configure the Authorization Extension
 

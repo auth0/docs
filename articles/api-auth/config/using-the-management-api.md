@@ -13,7 +13,7 @@ If you do not want to use the Auth0 Dashboard to create a Resource Server or you
 You will need the following:
 
 - A Management APIv2 token with the appropriate scopes. For details on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
-- The Client information (`Client_Id` and `Client_Secret`) for the Non Interactive Client that should already be created and visible in your [Auth0 dashboard](${manage_url}/#/clients).
+- The Application information (`Client_Id` and `Client_Secret`) for the Machine to Machine Application that should already be created and visible in your [Auth0 dashboard](${manage_url}/#/applications).
 
 ## 1. Create your Resource Server
 
@@ -74,13 +74,13 @@ Note the following:
 - The secret used to sign the tokens will be `FF1prn9UxZotnolsDVwEJhqqyRmwdSu5` (`signing_secret`).
 - The generated tokens will expire after `86400` seconds (`token_lifetime`).
 
-## 2. Authorize the Client
+## 2. Authorize the Application
 
-Now that the API and the Client are defined in Auth0, you can create a trust relationship between them. To do so, authorize the Client to access the API, while defining the scopes that should be given to the Client (meaning the actions the Client will be able to perform on the API).
+Now that the API and the Application are defined in Auth0, you can create a trust relationship between them. To do so, authorize the Application to access the API, while defining the scopes that should be given to the Application (meaning the actions the Application will be able to perform on the API).
 
-To authorize your Client send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `access_token` that has the create client grants scope (`create:client_grantss`).
+To authorize your Application send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `access_token` that has the create application grants scope (`create:client_grantss`).
 
-The following example authorizes the Client with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
+The following example authorizes the Application with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
 
 ```har
 {

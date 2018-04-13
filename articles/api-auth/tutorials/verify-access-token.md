@@ -13,7 +13,7 @@ This document lists all the validations that your API should perform:
 - Check that the JWT is well formed
 - Check the signature
 - Validate the standard claims
-- Check the Client permissions (scopes)
+- Check the Application permissions (scopes)
 
 ::: note
 <a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
@@ -81,7 +81,7 @@ To verify a token's signature, you can use one of the libraries available in [JW
 Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method supports a `secretOrPublicKey` argument. This should be populated with a string or buffer containing either the secret (for `HS256`), or the PEM encoded public key (for `RS256`). 
 
 ::: panel Where can I find my public key?
-Go to [Dashboard > Clients](${manage_url}/#/clients). Open the **Settings** of your client, scroll down and open **Advanced Settings**. Open the **Certificates** tab and you will find the Public Key in the **Signing Certificate** field.
+Go to [Dashboard > Applications](${manage_url}/#/applications). Open the **Settings** of your application, scroll down and open **Advanced Settings**. Open the **Certificates** tab and you will find the Public Key in the **Signing Certificate** field.
 
 If you want to verify the signature of a token from one of your applications, we recommend getting it by parsing your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`. 
 
@@ -118,13 +118,13 @@ Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-
 
 ## Check the Permissions
 
-By now you have verified that the JWT is valid. The last step is to verify that the client has the permissions required to access the protected resources.
+By now you have verified that the JWT is valid. The last step is to verify that the application has the permissions required to access the protected resources.
 
 To do so, you need to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
 
 ### How can I check the permissions?
 
-To check the permissions granted to the client, you need to check the contents of the `scope`.
+To check the permissions granted to the application, you need to check the contents of the `scope`.
 
 For example, a user management API might provide three endpoints to read, create or delete a user record: `/create`, `/read` and `/delete`. We have configured this API, so each endpoint requires a specific permission (or scope):
 
@@ -134,11 +134,11 @@ For example, a user management API might provide three endpoints to read, create
 
 If a request requests to access the `/create` endpoint, but the `scope` claim does NOT include the value `create:users`, then the API should reject the request with `403 Forbidden`.
 
-You can see how to do this, for a simple timesheets API in Node.js, in this document: [Check the Client permissions](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions).
+You can see how to do this, for a simple timesheets API in Node.js, in this document: [Check the Application permissions](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-application-permissions).
 
 ## Sample Implementation
 
-You can find a sample API implementation, in Node.js, in [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs).
+You can find a sample API implementation, in Node.js, in [Server Application + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs).
 
 This document is part the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api), an implementation of a Client Credentials grant for a hypothetical scenario. For more information on the complete solution refer to [Server + API Architecture Scenario](/architecture-scenarios/application/server-api).
 
@@ -150,5 +150,5 @@ This document is part the [Server + API Architecture Scenario](/architecture-sce
 - [APIs in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Tokens used by Auth0](/tokens)
-- [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
+- [Server Application + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-application-permissions)
 - [How to implement API authentication and authorization scenarios](/api-auth)

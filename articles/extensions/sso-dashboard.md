@@ -12,9 +12,9 @@ The SSO dashboard supports two types of users:
 
 [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
 
-## Create A Client
+## Create A Application
 
-Let's start with creating a new client application. Navigate to [Clients](${manage_url}/#/applications) and click on the **+Create Client** button. Set a name and choose **Single Page Web Applications** client type. Click on **Create**.
+Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single Page Web Applications** application type. Click on **Create**.
 
 ![](/media/articles/extensions/sso-dashboard/create-client.png)
 
@@ -46,13 +46,13 @@ Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
 Save your changes.
 
-### Client Connections
+### Application Connections
 
-By default all the connection types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Client.
+By default all the connection types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Application.
 
 ## Install the Extension
 
-We are now ready to setup our new extension. But first, head back to your newly created Client and copy the **Client ID** value.
+We are now ready to setup our new extension. But first, head back to your newly created Application and copy the **Client ID** value.
 
 To install and configure this extension, click on the **SSO Dashboard** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
 
@@ -60,17 +60,17 @@ To install and configure this extension, click on the **SSO Dashboard** box in t
 
 Set the following configuration variables:
 
-- **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Clients](${manage_url}/#/clients) that you wish to use this extension with.
+- **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with.
 - **TITLE**: This the custom title that will appear at the top of the SSO Dashboard page.
 - **CUSTOM_CSS** *Optional*: This field that can contain a link to custom CSS you can use to style the look of your SSO Dashboard page.
 
 Once you have provided this information, click **INSTALL**.
 
-If you navigate back to the [Clients](${manage_url}/#/clients) view, you will see that there has been an additional client created.
+If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that there has been an additional application created.
 
-![New created Client](/media/articles/extensions/sso-dashboard/new-client.png)
+![New created Application](/media/articles/extensions/sso-dashboard/new-client.png)
 
-The `auth0-sso-dashboard` client is created automatically when you install the extension. It's a client authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
+The `auth0-sso-dashboard` application is created automatically when you install the extension. It's an application authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
 
 ## Use the Extension
 
@@ -106,7 +106,7 @@ You will then need to enter the following fields for the new application:
 * **Application**: This is the application name of the application you have created that you wish to associate the login of users.
 * **Name**: The name of the new application you are adding.
 * **Logo**: Enter the url of the logo you wish to user as an icon for the application.
-* **Callback**: This is one of the **Allowed Callback URLs** under your [Client Settings](${manage_url}/#/clients) of the application.
+* **Callback**: This is one of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) of the application.
 * **Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
 * **Enabled**: Select this checkbox for this application to be visible (published) to your users.
 
