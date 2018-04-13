@@ -1,5 +1,5 @@
 ---
-title: Migration Guide - Extensibility and Node 8
+title: Migration Guide: Extensibility and Node 8
 description: This article covers the Auth0 features/modules affected, as well as our recommendations to ensure a smooth migration process.
 toc: true
 ---
@@ -13,17 +13,12 @@ Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LT
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
 
-:::note
 We will **NOT** be shutting down the Node 4 runtime after the April 30 LTS deadline. Your extensibility code will continue to run on Node 4, if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4.
-:::
 
 In this document, we:
 
 * Provide recommendations on how you can ensure a smooth migration for your environment
 * Detail the specific modules effected
-
-
-
 
 ## Summary of the migration
 
@@ -41,13 +36,20 @@ Due to the end of long-term support (LTS) for Node 4, we will be migrating the W
 
 However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
+### Important Dates
+
+* **2018 April 17**: The Webtask runtime using Node 8 becomes available to Auth0 customers
+* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the *Installed Extensions* tab of the [Extensions page](https://manage.auth0.com/#/extensions)
+* **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
+* **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
+
 ## How to enable the Node 8 runtime
 
 :::warning
 The Extensibility panel, that this section refers to, will be made available to our cloud customers on **April 17, 2018**.
 :::
 
-Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on April 17, 2018.
+Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
 
 ![Runtime toggle](/media/articles/migrations/node-runtime1.png)
 
@@ -74,7 +76,7 @@ You can query the Management API for your Rules, Custom Database scripts, and Cu
 
 Please see our documentation on the [Connections](/api/management/v2#!/Connections) and [Rules](/api/management/v2#!/Rules/get_rules) endpoints for additional information on this process.
 
-When using the `/connections` endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`
+When using the `/connections` endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
@@ -135,15 +137,8 @@ or, if the module must be pinned to a specific version:
 
 Some of the behavioral and syntactic changes in modules were not forward-compatible with Node 8.
 
-For example, the default encoding of the **crypto** module was changed from **binary** to **utf8**, and the used of **new Buffer()** has been deprecated in favor of **Buffer.from()**.
+For example, the default encoding of the `crypto` module was changed from `binary` to `utf8`, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
 
 Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/node/wiki/Breaking-changes-between-v4-LTS-and-v6-LTS) and [v6 to v8](https://github.com/nodejs/node/wiki/Breaking-changes-between-v6-LTS-and-v8-LTS) for additional information.
-
-## Important Dates
-
-* **2018 April 17**: The Webtask runtime using Node 8 becomes available to Auth0 customers
-* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the *Installed Extensions* tab of the [Extensions page](https://manage.auth0.com/#/extensions)
-* **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
-* **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
 
 **To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 8 runtime before April 30 2018.**
