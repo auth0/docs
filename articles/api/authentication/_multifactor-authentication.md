@@ -1,10 +1,12 @@
 # Multifactor Authentication
 
-In addition to username and password, you can ask users for an additional factor as proof of identity before issuing the requested tokens.
+You can ask users for additional proof of identity, such as a one-time password, before issuing the requested tokens.
 
 First, request a challenge based on the challenge types supported by the application and user. If you know that one-time password (OTP) is supported, you can skip the challenge request.
 
 Next, verify the multifactor authentication using the `/oauth/token` endpoint and the specified challenge type: a one-time password (OTP), a recovery code, or an out-of-band (OOB) challenge.
+
+Check out [Multifactor Authentication in Auth0](/multifactor-authentication/) for more information.
 
 ## Challenge request
 
@@ -96,7 +98,7 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 | `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
-| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on __List authenticators__ below. |
+| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](/api/authentication#list-authenticators) below. |
 
 ### Remarks
 
@@ -453,6 +455,14 @@ Content-Type: application/json
   "recovery_codes":["ABCDEFGDRFK75ABYR7PH8TJA"],
 }
 ```
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
+  "http_method": "POST",
+  "path": "/mfa/associate",
+  "link": "#multifactor-authentication"
+}) %>
+
+Adds a new authenticator for multifactor authentication.
 
 ### Request parameters
 
@@ -468,7 +478,7 @@ Content-Type: application/json
 
 - As long as there are no active authenticators, you can associate a new one using the MFA token. If there are already active authenticators, you need to use an access token with the `enroll` scope to associate new authenticators.
 - Once associated, you must verify the authenticator before Auth0 marks it as active. You can use the returned values in place of the ones returned from the `/mfa/challenge` endpoint to continue with the verification flow.
-- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes to pass MFA as shown on __Verify with a recovery code__ above.
+- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes to pass MFA as shown on [Verify with recovery code](/api/authentication#verify-with-recovery-code) above.
 
 ### More information
 
@@ -549,6 +559,14 @@ Content-Type: application/json
   }
 ]
 ```
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "GET",
+  "path": "/mfa/authenticators",
+  "link": "#multifactor-authentication"
+}) %>
+
+Returns a list of authenticators associated with your tenant.
 
 ### Remarks
 
@@ -597,11 +615,19 @@ request(options, function (error, response, body) {
 ```JSON
 HTTP/1.1 204 OK
 ```
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-warning",
+  "http_method": "DELETE",
+  "path": "/mfa/authenticators",
+  "link": "#multifactor-authentication"
+}) %>
+
+Deletes an associated authenticator by its authenticator ID.
 
 ### Remarks
 
-- You can get the authenticator ID by listing the authenticators as shown on __List authenticators__.
 - You need an access token with scope `remove:authenticators` to call this endpoint.
+- You can get the authenticator ID by listing the authenticators as shown on [List authenticators](/api/authentication#list-authenticators).
 
 ### More information
 
