@@ -1,5 +1,5 @@
 ---
-title: Connect your app to LinkedIn
+title: Connect Your App to LinkedIn
 connection: LinkedIn
 index: 3
 image: /media/connections/linkedin.png
@@ -8,13 +8,13 @@ description: This page shows you how to connect your Auth0 app to LinkedIn. You 
 toc: true
 ---
 
-# Connect your app to LinkedIn
+# Connect Your App to LinkedIn
 
 To connect your Auth0 app to LinkedIn, you will need to generate a **Client ID** and **Client Secret** in a LinkedIn app, copy these keys into your Auth0 settings, and enable the connection.
 
-## 1. Log into the developer portal
+## 1. Log in to the developer portal
 
-Login to the [LinkedIn Developer portal](http://developer.linkedin.com/) and click **My Apps**:
+Log in to the [LinkedIn Developer portal](http://developer.linkedin.com/), and click **My Apps**:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-1.png)
 
@@ -24,47 +24,47 @@ Click the **Create Application** button:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-2.png)
 
-## 3. Complete information about your app
+## 3. Enter details about your app
 
-For the **Website URL** field enter the following URL:
+For the **Website URL** field, enter the following URL:
 
 `https://${account.namespace}`
 
-Then complete all the required feilds on the form. 
+Then complete all the required fields on the form. 
 
 Click **Submit**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-3.png)
 
-## 4. Enter Redirect URL
+## 4. Enter the redirect URL
 
-Enter the following URL in the **Authorized Redirect URLs** field and click **Add**:
+Enter the following URL in the **Authorized Redirect URLs** field, and click **Add**:
 
 `https://${account.namespace}/login/callback`
 
-Next click **Update**.
+Next, click **Update**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-4.png)
 
-## 5. Get your **Client ID** and **Client Secret**
+## 5. Get your Client ID and Client Secret
 
-On the same page you will be able to see your **Client ID** and **Client Secret** under the **Authentication Keys** section:
+On the same page, you will be able to see your **Client ID** and **Client Secret** under the **Authentication Keys** section:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-5.png)
 
-## 6. Copy your **Client Id** and **Client Secret** into Auth0
+## 6. Copy your Client ID and Client Secret into Auth0
 
 Login to the [Connections > Social section of the Auth0 Dashboard](${manage_url}/#/connections/social).
 
 Select the LinkedIn connection to access its **Settings** page.
 
-Copy the **Client Id** into the **API Key** section and **Client Secret** into the **Secret Key** section. Enable any desired permissions and attributes then click **SAVE**.
+Copy the **Client ID** into the **API Key** section and **Client Secret** into the **Secret Key** section. Enable any desired permissions and attributes, then click **SAVE**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-6.png)
 
-## 7. Enable the Connection
+## 7. Enable the connection
 
-Go to the **Apps** tab of the LinkedIn connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
+Go to the **Apps** tab of the LinkedIn connection on Auth0, and select each of your existing Auth0 apps for which you want to enable this connection:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-7.png)
 
@@ -78,7 +78,7 @@ A **TRY** icon will now be displayed next to the LinkedIn logo:
 
 Click **TRY**.
 
-You will see the LinkedIn Authorize screen, click **Allow** to finish creating the connection.
+You will see the LinkedIn Authorize screen. Click **Allow** to finish creating the connection.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-8a.png)
 
