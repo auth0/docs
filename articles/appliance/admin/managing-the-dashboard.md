@@ -7,10 +7,10 @@ description: How to access and restrict access to the PSaaS Appliance Management
 
 ## Access the Dashboard
 
-::: panel-warning Connections for the Auth0 Client
-The **Auth0** client in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this client is the built-in Database Connection (the default Connection for this client is a Database Connection called *Initial-Connection*) or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** client.
+::: panel-warning Connections for the Auth0 Application
+The **Auth0** application in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this application is the built-in Database Connection (the default Connection for this application is a Database Connection called *Initial-Connection*) or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** application.
 
-Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** client.
+Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** application.
 :::
 
 
@@ -19,7 +19,7 @@ The [Auth0 Dashboard](/appliance/dashboard) uses the PSaaS Appliance to authenti
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 
 ::: note
-Changes to the Auth0 Client or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
+Changes to the Auth0 Application or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
 :::
 
 Because the Dashboard uses the PSaaS Appliance for authentication, any configured rules will run whenever a user accesses the Dashboard. Because errors in one or more of your rules may result in you losing access to the Dashboard, Auth0 suggests writing rules that exclude the Auth0 application:

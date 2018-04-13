@@ -21,7 +21,7 @@ Field | Description
 Connection Name | Descriptive name for the connection
 Email domains (optional) | List of valid domains for the connection
 Disable cache | Enable or disable caching
-Use client SSL certificate authentication | Enable or disable client SSL certificate authentication
+Use application SSL certificate authentication | Enable or disable application SSL certificate authentication
 Use Windows Integrated Auth (Kerberos) | Enable or disable Kerberos authentication
 
 ![Active Directory / LDAP Connection Configuration](/media/articles/connections/enterprise/ldap/settings.png)

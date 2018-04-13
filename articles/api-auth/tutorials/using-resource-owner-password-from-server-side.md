@@ -28,28 +28,28 @@ Before you continue, make sure to have [brute force protection](/anomaly-detecti
 
 Brute-force protection relies on having the original user's IP. When calling the API from your server, Auth0 treats the IP of your server as the IP of the end user, and uses it as input for the anomaly-detection functionality, in particular, for brute-force protection. This situation could potentially trigger false positives into the brute-force protection shields, causing it to block users or trigger warnings for legitimate requests.
 
-To prevent this, you may send the end-user's IP address to Auth0 along with the credentials and configure the client to trust the provided IP. Because of security considerations, this configuration is only possible for Authenticated clients (such as those with authentication based on a client secret).
+To prevent this, you may send the end-user's IP address to Auth0 along with the credentials and configure the application to trust the provided IP. Because of security considerations, this configuration is only possible for Authenticated applications (such as those with authentication based on a client secret).
 
 ::: warning
-<strong>Warning!</strong> Authenticated clients must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
+<strong>Warning!</strong> Authenticated applications must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
 :::
 
 
-### Configuring the Auth0 Client to receive and trust the IP sent by your server
+### Configuring the Auth0 Application to receive and trust the IP sent by your server
 
-1. Navigate to your [dashboard](${manage_url}) and configure a regular web application or non-interactive client using this [tutorial](/clients#how-to-configure-a-client).
+1. Navigate to your [dashboard](${manage_url}) and configure a regular web application or machine to machine application using this [tutorial](/applications#how-to-configure-an-application).
 
-2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/clients#client-settings) section.
+2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/applications#application-settings) section.
 
 ![Token Endpoint Authentication Method](/media/articles/api-auth/client-auth-method.png)
 
 ::: warning
-Due to security considerations, the configuration stated on Step 3 will not be available for Non-Authenticated clients.
+Due to security considerations, the configuration stated on Step 3 will not be available for Non-Authenticated applications.
 :::
 
 3. Scroll to the bottom and click _Show Advanced Settings_.
 
-4. Switch on __Trust Token Endpoint IP Header__ under the _OAuth_ tab to configure the client to trust the IP sent from your server.
+4. Switch on __Trust Token Endpoint IP Header__ under the _OAuth_ tab to configure the application to trust the IP sent from your server.
 
 ![Enabling Auth0-Forwarded-For](/media/articles/api-auth/enabling-auth0-forwarded-for.png)
 
@@ -58,7 +58,7 @@ Due to security considerations, the configuration stated on Step 3 will not be a
 To send the end-user IP from your server, include a `auth0-forwarded-for` header with the value of the end-user IP address. If the IP is valid, Auth0 will use it as the source IP for brute-force protection. It is important to make sure the provided IP address really belongs to your end user.
 
 ::: warning
-<strong>Warning!</strong> Trusting headers like the <code>x-forwarded-for</code> (or, in general, data from client) as source for the end-user IP can be a big risk. This should not be done unless you know you can trust that header, since it is easy to spoof and makes possible to bypass the anomaly-detection validation.
+<strong>Warning!</strong> Trusting headers like the <code>x-forwarded-for</code> (or, in general, data from application) as source for the end-user IP can be a big risk. This should not be done unless you know you can trust that header, since it is easy to spoof and makes possible to bypass the anomaly-detection validation.
 </div>
 :::
 

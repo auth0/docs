@@ -47,7 +47,7 @@ The Connector must be installed on a server with access to the LDAP server on po
 
 ## Inbound Connectivity
 
-You do not need inbound connectivity enabled to the Connector unless **Kerberos** or **Client Certificate authentication** is enabled. In these cases, the server(s) on which the connector is installed must be reachable from your users' browsers on port 443. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector or the another.
+You do not need inbound connectivity enabled to the Connector unless **Kerberos** or **Application Certificate authentication** is enabled. In these cases, the server(s) on which the connector is installed must be reachable from your users' browsers on port 443. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector or the another.
 
 ## Service Account
 
@@ -59,4 +59,4 @@ If you establish multiple Auth0 tenants, perhaps to isolate development and prod
 
 ## High Availability
 
-The Connector can be installed on multiple host servers for redundancy (most organizations provision two) in case one server becomes unavailable. Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself, unless you enable __Kerberos__ or __Client Certificate__ based authentication.
+The Connector can be installed on multiple host servers for redundancy (most organizations provision two) in case one server becomes unavailable. Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself, unless you enable __Kerberos__ or __Application Certificate__ based authentication.

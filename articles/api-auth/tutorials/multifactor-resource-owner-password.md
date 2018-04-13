@@ -15,7 +15,7 @@ Before you continue, make sure that you've met the following prerequisites:
 
 1. MFA is enabled on the [Auth0 dashboard](${manage_url}). Currently, the supported providers for this flow are [Google Authenticator](/multifactor-authentication/google-auth/admin-guide#enabling-google-authenticator-for-mfa) and [Guardian](/multifactor-authentication/administrator#guardian-basics). [Duo Security](/multifactor-authentication/duo) is __not__ supported.
 
-1. A Client is configured to execute the Resource Owner Password Grant (either [password](/api-auth/tutorials/password-grant) or [password-realm](/api-auth/tutorials/password-grant#realm-support) grant types). For details on how to implement this, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
+1. An Application is configured to execute the Resource Owner Password Grant (either [password](/api-auth/tutorials/password-grant) or [password-realm](/api-auth/tutorials/password-grant#realm-support) grant types). For details on how to implement this, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
 1. End users are enrolled in MFA.
 
@@ -23,9 +23,9 @@ Before you continue, make sure that you've met the following prerequisites:
 
 The flow starts by collecting end-user credentials and sending them to Auth0, as described in [Resource Owner Password Grant](/api-auth/grant/password). Both [password](/api-auth/tutorials/password-grant) and [password-realm](/api-auth/tutorials/password-grant#realm-support) flows are available.
 
-1. The user enters their credentials into the Client application.
+1. The user enters their credentials into the Application.
 
-2. The Client forwards the credentials to Auth0.
+2. The Application forwards the credentials to Auth0.
 
 3. Auth0 validates the credentials and executes any applicable [rules](/rules).
 
@@ -41,9 +41,9 @@ The flow starts by collecting end-user credentials and sending them to Auth0, as
   }
   ```
   
-5. The Client will then make a request to the [MFA challenge](/api/authentication#resource-owner-password-and-mfa) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp), [OOB with binding method `prompt`](#challenge-type-oob-and-binding-method-prompt), and [OOB with no binding method](#challenge-type-oob-with-no-binding-method). If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this and the next steps an go directly to [Challenge Type `OTP`](#challenge-type-otp) below.
+5. The Application will then make a request to the [MFA challenge](/api/authentication#resource-owner-password-and-mfa) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp), [OOB with binding method `prompt`](#challenge-type-oob-and-binding-method-prompt), and [OOB with no binding method](#challenge-type-oob-with-no-binding-method). If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this and the next steps an go directly to [Challenge Type `OTP`](#challenge-type-otp) below.
 
-6. Auth0 sends a response containing the `challenge_type` derived from the types supported by the Client and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
+6. Auth0 sends a response containing the `challenge_type` derived from the types supported by the Application and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
 
 The supported challenge types are:
 
@@ -53,11 +53,11 @@ The supported challenge types are:
 
 To execute MFA, follow the next steps according to the challenge type you will use:
 
-- [OTP](#challenge-type-otp): for this challenge type, your client application must prompt the end-user for an OTP code and continue the flow using the __mfa-otp__ grant type.
+- [OTP](#challenge-type-otp): for this challenge type, your application must prompt the end-user for an OTP code and continue the flow using the __mfa-otp__ grant type.
 
-- [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt): the challenge will be sent through a side channel (such as SMS), and your client application will need to prompt the user for the `binding_code` that was included as part of the challenge sent, as well as the `oob_code` received as response to this request to prove possession.
+- [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt): the challenge will be sent through a side channel (such as SMS), and your application will need to prompt the user for the `binding_code` that was included as part of the challenge sent, as well as the `oob_code` received as response to this request to prove possession.
 
-- [OOB with no binding method](#challenge-type-oob-with-no-binding-method): in this case, the proof of possession will be driven entirely in a side channel (such as a push notification-based authenticator). The response will include an `oob_code` that the Client application will use to periodically check for the resolution of the transaction. Continue the flow using the __mfa-oob__ grant type.
+- [OOB with no binding method](#challenge-type-oob-with-no-binding-method): in this case, the proof of possession will be driven entirely in a side channel (such as a push notification-based authenticator). The response will include an `oob_code` that the Application will use to periodically check for the resolution of the transaction. Continue the flow using the __mfa-oob__ grant type.
 
 ## Execute Multifactor Authentication
 
@@ -67,21 +67,21 @@ The following sections cover how to execute MFA based on the challenge type used
 
 ![Resource Owner MFA OTP](/media/articles/api-auth/challenge-type-otp.png)
 
-For this type of challenge, the Client must get an one-time password (`otp`) code from a OTP Generator app, such as Google Authenticator or Microsoft Authenticator.
+For this type of challenge, the Application must get an one-time password (`otp`) code from a OTP Generator app, such as Google Authenticator or Microsoft Authenticator.
 
 ::: note
 If you already know that the user supports OTP, then steps 5 and 6 above of the [Initiate Multifactor Authentication](#initiate-multifactor-authentication) section are optional.
 :::
 
-7. The Client application prompts the end user to enter an OTP code.
+7. The Application prompts the end user to enter an OTP code.
 
-8. The end user enters their OTP into the Client application.
+8. The end user enters their OTP into the Application.
 
-9. The Client application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
+9. The Application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 
 10. Auth0 validates the provided OTP and returns the `access_token` and the `refresh_token`.
 
-11. The Client can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the `access_token` to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with Binding Method `prompt`
 
@@ -89,15 +89,15 @@ If you already know that the user supports OTP, then steps 5 and 6 above of the 
 
 This challenge type, together with `prompt` binding method, indicates that the challenge will be delivered to the user using a side channel (such as SMS) and that a `binding_code` is needed to bind the side channel to the one being authenticated. The binding code is sent as part of the challenge message and it is usually an OTP-like code composed of 6 numeric digits.
 
-7. The Client application prompts the user for the `binding_code` and stores the `oob_code` from step 6 for future use.
+7. The Application prompts the user for the `binding_code` and stores the `oob_code` from step 6 for future use.
 
-8. The end user receives the challenge on the side channel and enters the `binding_code` into the Client application.
+8. The end user receives the challenge on the side channel and enters the `binding_code` into the Application.
 
-9. The Client application forwards the `binding_code` to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+9. The Application forwards the `binding_code` to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 10. Auth0 validates the `binding_code` and `oob_code` and returns the `access_token` and the `refresh_token`.
 
-11. The Client can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the `access_token` to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with No Binding Method
 
@@ -105,9 +105,9 @@ This challenge type, together with `prompt` binding method, indicates that the c
 
 In this scenario, the challenge will be sent using a side channel, however, there is no need for a `binding_code`. Currently, the only mechanism supported for this scenario is Push Notification with the Guardian Provider.
 
-7. The Client application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
+7. The Application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
 
-8. The Client application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
     - `authorization_pending` error: if the challenge has not been accepted nor rejected.
@@ -115,7 +115,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
     - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
     - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
   
-10. The Client can use the `access_token` to call the API on behalf of the end user.
+10. The Application can use the `access_token` to call the API on behalf of the end user.
 
 ## Using Recovery Codes
 
@@ -133,15 +133,15 @@ Steps 1-4 are the same as above.
 
 5. End user chooses to use the recovery code.
 
-6. The Client prompts the end user to enter recovery code.
+6. The Application prompts the end user to enter recovery code.
 
-7. The end user enters their recovery code into the Client application.
+7. The end user enters their recovery code into the Application.
 
-8. The Client application forwards the recovery code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
+8. The Application forwards the recovery code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
 
 9. Auth0 validates the recovery code and returns the `access_token` and the `refresh_token`.
 
-10. The Client can use the `access_token` to call the API on behalf of the end user.
+10. The Application can use the `access_token` to call the API on behalf of the end user.
 
 ## Samples
 

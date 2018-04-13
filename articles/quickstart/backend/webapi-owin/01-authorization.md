@@ -184,6 +184,6 @@ public class ApiController : ApiController
 
 ## Further Reading
 
-* To learn how you can call your API from clients, please refer to the [Using your API section](/quickstart/backend/webapi-owin/02-using).
+* To learn how you can call your API from applications, please refer to the [Using your API section](/quickstart/backend/webapi-owin/02-using).
 
 * If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/webapi-owin/03-troubleshooting).

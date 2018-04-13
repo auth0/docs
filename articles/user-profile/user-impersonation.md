@@ -68,22 +68,22 @@ var options = {
 Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
 
 ::: warning
-Enabling impersonation leaves your client vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response.
+Enabling impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response.
 
 By enabling impersonation, you acknowledge that you understand and accept these risks.
 :::
 
 ## Use the dashboard
 
-Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the client you want to log in to using the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the application you want to log in to using the dropdown menu.
 
 ![Click Sign in as User](/media/articles/user-profile/user2.png)
 
 ::: panel I can't see this button
 In order to see this button the following conditions should apply:
 - Impersonation should be enabled for your tenant (see panel at the top of this page)
-- The Clients registered in the tenant must have at least one __callback URL__ listed
-- The Clients must have the connections turned on that the users who are to be impersonated belong to
+- The Applications registered in the tenant must have at least one __callback URL__ listed
+- The Applications must have the connections turned on that the users who are to be impersonated belong to
 :::
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
@@ -171,7 +171,7 @@ The data part of the request should include the following:
 
 The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
 
-The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+The `callback_url` must match what is defined in your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 There are various possible values for `scope`:
 
@@ -214,7 +214,7 @@ Upon successful authentication, a URL will be returned as response that will loo
 ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 ```
 
-- `${account.callback}` is the URL you specified as `callback_url` (and configured in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- `${account.callback}` is the URL you specified as `callback_url` (and configured in your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings))
 - `state` should match the `state` value you sent with your request
 - `code` is the authorization code you need
 

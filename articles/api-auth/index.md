@@ -19,7 +19,7 @@ title: API Authorization
 
 At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
 
-Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.
+Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and application-to-server applications.
 
 By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself.
 
@@ -41,7 +41,7 @@ Using Auth0, you can easily support different flows in your own APIs without wor
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/which-oauth-flow-to-use">Which OAuth 2.0 flow should I use?</a>
     <p>
-      OAuth 2.0 supports several different grants. Deciding which one is suited for your case depends mostly on your Client's type, but other parameters weight in as well, like the level of trust for the Client, or the experience you want your users to have. Start here if you are not familiar with all that and you need directions in order to decide the proper flow for your case.
+      OAuth 2.0 supports several different grants. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weight in as well, like the level of trust for the Application, or the experience you want your users to have. Start here if you are not familiar with all that and you need directions in order to decide the proper flow for your case.
     </p>
   </li>
   <li>
@@ -122,9 +122,9 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/password">Calling APIs from Highly Trusted Clients</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/password">Calling APIs from Highly Trusted Applications</a>
     <p>
-      If the application is highly trusted and no other grant can be used, read these docs. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is sent to the backend and from there to Auth0.  It is therefore imperative that the client is absolutely trusted with this information.
+      If the application is highly trusted and no other grant can be used, read these docs. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is sent to the backend and from there to Auth0.  It is therefore imperative that the application is absolutely trusted with this information.
     </p>
     <ul>
       <li>
@@ -148,9 +148,9 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/dynamic-client-registration">Dynamic Client Registration</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/dynamic-application-registration">Dynamic Application Registration</a>
     <p>
-      Learn how to allow third party developers to create clients under your tenant following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration specification</a>.
+      Learn how to allow third party developers to create applications under your tenant following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Application Registration specification</a>.
     </p>
   </li>
   <li>
@@ -160,13 +160,13 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Client Requests for API Scopes</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Application Requests for API Scopes</a>
     <p>
-      Learn how to restrict users/clients from requesting API scopes for which they don't have access.
+      Learn how to restrict users/applications from requesting API scopes for which they don't have access.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/blacklists-vs-grants">Blacklists and Client Grants</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/blacklists-vs-grants">Blacklists and Application Grants</a>
     <p>
       Learn about revoking access to APIs and best practices for doing so.
     </p>

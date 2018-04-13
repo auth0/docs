@@ -47,20 +47,20 @@ If Auth0 is the SAML **identity provider**, it can sign responses/assertions wit
 
 To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}):
 
-1. Go to **Clients** -> **Settings** -> **Show Advanced Settings**.
+1. Go to **Applications** -> **Settings** -> **Show Advanced Settings**.
 2. Scroll to the *Certificates* section, and click **Download Certificate* to obtain the signing certificate you need to provide to your IdP.
 3. Send your certificate to the service provider.
 
 Next, you'll need make sure that the SAML assertion is *not* signed (you can sign either the assertion or the response, but not both). Here's how to unsign the SAML Assertion:
 
-1. In the [Management Dashboard](${manage_url}), navigate to **Clients**. Find the Client you're interested in go to **Addons** > SAML2 WEB APP > Settings.
+1. In the [Management Dashboard](${manage_url}), navigate to **Applications**. Find the Application you're interested in go to **Addons** > SAML2 WEB APP > Settings.
 2. By default, `signResponse` is true. As such, uncomment this line and set the value to `false`. Your SAML assertion will no longer be signed.
 
 ## Receive Signed SAML Authentication Requests
 
 If Auth0 is the SAML **identity provider**, it can received requests signed with the service provider's private key. Auth0 will then use the service providers' public key/certificate to validate the signature.
 
-To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Clients** > **Addons** > **SAML2 WEB APP** > **Settings**.
+To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
 
 ## Receive Signed SAML Authentication Responses
 
