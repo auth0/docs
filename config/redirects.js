@@ -482,8 +482,8 @@ module.exports = [
 /* --- Clients --- */
 
   {
-    from: '/applications/addons',
-    to: '/clients/addons'
+    from: '/clients/addons',
+    to: '/applications/addons'
   },
   {
     from: '/clients/client-grant-types',
