@@ -46,7 +46,7 @@ Next, click **Update**.
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-4.png)
 
-## 5. Get Your Client ID and Client Secret
+## 5. Get your Client ID and Client Secret
 
 On the same page, you will be able to see your **Client ID** and **Client Secret** under the **Authentication Keys** section:
 
