@@ -158,6 +158,10 @@ callback(new ValidationError('email-too-long', 'Email is too long.'));
 
 If you use [Lock](/libraries/lock), you can customize the error messages that will be displayed by adding them to the dictionary. For more info, see [Customizing Lock Error Messages](libraries/lock/customizing-error-messages).
 
+## Metadata
+
+Depending on your custom database script, you may return a user profile available to Auth0 apps. This profile includes the user metadata fields. However, the way you [handle metadata is a bit different with custom databases](/metadata#metadata-and-custom-databases).
+
 ## Troubleshoot
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
