@@ -14,9 +14,9 @@ Each tutorial in the series includes a link to a sample project. You can find al
 
 Each tutorial uses the [Auth0.Android](https://github.com/auth0/Auth0.Android) library. It is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
 
-## Create an Application
+## Create a Client
 
-Create a new client application in your [Auth0 dashboard](${manage_url}/#/applications). For **Type**, select **Native**.
+Create a new client application in your [Auth0 dashboard](${manage_url}/#/clients). For **Type**, select **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

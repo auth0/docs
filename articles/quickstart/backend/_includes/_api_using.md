@@ -1,6 +1,6 @@
 ## Calling the API from your application
 
-You can call the API from your application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token.
+You can call the API from your client application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token. 
 
 ```har
 {
@@ -12,7 +12,7 @@ You can call the API from your application by passing an Access Token in the `Au
 }
 ```
 
-The exact implementation will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+The exact implementation will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant client Quickstarts which contain detailed instructions:
 
 * [Single Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
@@ -40,7 +40,7 @@ You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using
 }
 ```
 
-When using the Client Credentials flow, you will need to register a [Machine to Machine Application](/applications). You should then subsequently use the **Client ID** and **Client Secret** of this Machine to Machine Application when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
+When using the Client Credentials flow, you will need to register a [Non Interactive Client](/clients). You should then subsequently use the **Client ID** and **Client Secret** of this Non Interactive Client when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
 
 :::note
 Auth0 customers are billed based on the number of Client Credential Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.

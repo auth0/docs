@@ -80,13 +80,13 @@ Click **SAVE**.
 
 ## Customize MFA for Select Users
 
-Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Applications. By default, Auth0 enables Guardian for all accounts.
+Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts.
 
 ```js
 function (user, context, callback) {
 
   //var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
-  // run only for the specified applications
+  // run only for the specified clients
   // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){

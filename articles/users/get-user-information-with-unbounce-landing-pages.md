@@ -6,7 +6,7 @@ description: How to get user information with one-click social authentication on
 ## Auth0 Configuration
 
 1. Create an Auth0 account and navigate to the [dashboard](${manage_url}).
-1. Go to [Applications](${manage_url}/#/applications) and click **+ Create Application**. Pick the `Single Page Application` option and go to **Settings**. Note the **Client ID** and **Domain**. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your Unbounce page URL. For example:`http://unbouncepages.com/changeit`).
+1. Go to [Clients](${manage_url}/#/clients) and click **+ Create Client**. Pick the `Single Page Application` option and go to **Settings**. Note the **Client ID** and **Domain**. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your Unbounce page URL. For example:`http://unbouncepages.com/changeit`).
 1. Go to **Connections > Social** and enable the social providers you want to support.
 
 ![Social Connections](/media/articles/scenarios/unbounce/social-connections.png)
@@ -31,7 +31,7 @@ description: How to get user information with one-click social authentication on
 ```
 
 ::: note
-You should use the clientID and Domain of the application you just configured.
+You should use the clientID and Domain of the client you just configured.
 :::
 
 * You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and adding `Hidden fields` for each field. In the following example we are using the fields `name` and `email`.
