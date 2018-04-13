@@ -19,7 +19,7 @@ At that point, a consent dialog will be displayed, requesting access to your acc
 ![Consent Screen for Extension](/media/articles/extensions/authentication-api-debugger/consent.png)
 
 ::: note
-The extension will communicate to the Management API on your behalf to retrieve details about the Applications which you have configured in your Auth0 Dashboard, and use this information to call the Authentication API endpoints.
+The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard, and use this information to call the Authentication API endpoints.
 :::
 
 Once you accept, you will be navigated to the extension's views.
@@ -31,8 +31,8 @@ The basic configuration for all flows can be found on the _Configuration_ tab.
 ![Extension Configuration Screen](/media/articles/extensions/authentication-api-debugger/configuration.png)
 
 * **Domain**: The domain for your tenant. This field is read-only and only displayed for informational purposes.
-* **Application**: The Application for which you want to initiate any of the authentication flows. You can manage the list of Applications in the [Applications section](${manage_url}/#/applications) of your Auth0 Dashboard.
-* **Callback URL**: The callback URL for this extension. It is important that you add this URL to the **Allowed Callback URLs** under the _Settings_ for the Application.
+* **Client**: The Client for which you want to initiate any of the authentication flows. You can manage the list of Clients in the [Clients section](${manage_url}/#/clients) of your Auth0 Dashboard.
+* **Callback URL**: The callback URL for this extension. It is important that you add this URL to the **Allowed Callback URLs** under the _Settings_ for the Client.
 * **State**: Optional state information which can be sent with the authentication flow.
 * **Connection**: Specify the name of the connection which you want to use to log in. You can use this parameter to bypass the main Login screen and go directly for the login screen of the relevant Identity Provider.
 

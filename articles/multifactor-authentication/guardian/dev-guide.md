@@ -29,14 +29,14 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some applications or users, as shown below.
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some clients or users, as shown below.
 
 
 ```js
 function (user, context, callback) {
 
   //var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
-  // run only for the specified applications
+  // run only for the specified clients
   // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){
@@ -56,7 +56,7 @@ function (user, context, callback) {
 
 If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rules) whenever a user logs in.
 
-More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate application's client IDs:
+More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
 
 ```js
 var CLIENTS_WITH_MFA = ['REPLACE_WITH_CLIENT_ID'];

@@ -15,7 +15,7 @@ The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/
 
 Before you begin this tutorial, do the following:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register your API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization
@@ -43,15 +43,15 @@ Where:
 
 * `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`.
 
-* `client_id`: Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings). 
+* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings). 
 
   ::: warning
   Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments.
   :::
 
-* `state`: An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value must be used by the application to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
+* `state`: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
 
 * `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
@@ -140,6 +140,6 @@ This is a series of tutorials that describe a scenario for a fictitious company.
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
+- [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

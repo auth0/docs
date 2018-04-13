@@ -8,4 +8,4 @@ If you are running your website from `http://localhost` or `http://127.0.0.1` an
 Consent required. When using `getSSOData`, the user has to be authenticated with the following scope: `openid profile email`
 ```
 
-This will not happen when you run your application in production, or if you specify the required [scope](/scopes). You can read more about this scenario in the documentation on [skipping consent for first-party applications](/api-auth/user-consent#skipping-consent-for-first-party-applications).
+This will not happen when you run your application in production, or if you specify the required [scope](/scopes). You can read more about this scenario in the documentation on [skipping consent for first-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients).

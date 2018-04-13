@@ -197,7 +197,7 @@ var options = new OpenIdConnectOptions("Auth0")
 
 This will ensure that when `SignOutAsync` is called for the OIDC Middleware, that the `/v2/logout` endpoint of the Auth0 Authentication API is called to log the user out of Auth0. 
 
-It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your application in the Auth0 Dashboard.
+It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your Client in the Auth0 Dashboard.
 
 ## Add Login and Logout Links
 

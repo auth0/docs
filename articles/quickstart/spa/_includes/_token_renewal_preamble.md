@@ -6,6 +6,6 @@ This short expiry time is good for security, but can affect user experience. To 
 
 ::: note
 You can control the expiry time of an Access Token from the [APIs section](${manage_url}/#/apis). 
-You can control the expiry time of an ID Token from the [Applications section](${manage_url}/#/applications). 
+You can control the expiry time of an ID Token from the [Clients section](${manage_url}/#/clients). 
 These settings are independent.
 :::
