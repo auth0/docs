@@ -32,11 +32,11 @@ There are two approaches you can follow to remediate the issue:
 
 These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
 
-## Configure Your Application for Cross-Origin Authentication
+## Configure Your Client for Cross-Origin Authentication
 
-Configuring your application for cross-origin authentication is a process that requires a few steps:
+Configuring your client for cross-origin authentication is a process that requires a few steps:
 
-1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
+1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
@@ -67,7 +67,7 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
-Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Application's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
+Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Client's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
 
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.

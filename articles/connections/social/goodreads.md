@@ -100,7 +100,7 @@ JSON.stringify(`function(token, tokenSecret, ctx, cb) {
 
 ## 5. Test the connection
 
-You can use the [/authorize endpoint](/api/authentication?shell#authorize-application) with custom `client_id` and `connection` parameters to test your connection. For example:
+You can use the [/authorize endpoint](/api/authentication?shell#authorize-client) with custom `client_id` and `connection` parameters to test your connection. For example:
 
 ```text
 https://${account.namespace}/authorize?

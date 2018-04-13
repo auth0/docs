@@ -2,8 +2,8 @@
   This is the dashboard home page. Here you can view statistics about your apps: the login activity for the past year, the logins and new signups for the past week, a list of the latest signups, and more.
   [More docs on the dashboard](/dashboard).
 <% } else if (screen === "clients") { %>
-  Use this page to manage your applications. For every app of yours that you want to use Auth0, you should register an application here. You can create new applications, view your existing ones, review settings, enable connections, and more.
-  [More info on applications](/clients).
+  Use this page to manage your clients. For every app of yours that you want to use Auth0, you should register a client here. You can create new clients, view your existing ones, review settings, enable connections, and more.
+  [More info on clients](/clients).
 <% } else if (screen === "apis") { %>
   Use this page to manage your APIs. Here you can register a new API of yours, that you want to secure with Auth0, and manage your existing ones.
   [More info on APIs](/apis).

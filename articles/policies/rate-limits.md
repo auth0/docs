@@ -87,14 +87,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   </thead>
   <tbody>
   <tr>
-      <td>Application Grants</td>
+      <td>Client Grants</td>
       <td>/client-grants</td>
       <td>/client-grants</td>
       <td>/client-grants/{id}</td>
       <td>/client-grants/{id}</td>
   </tr>
   <tr>
-      <td>Applications</td>
+      <td>Clients</td>
       <td>/client <br />/client/{id}</td>
       <td>/client</td>
       <td>/client/{id}</td>

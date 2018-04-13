@@ -50,7 +50,7 @@ articles:
            - title: Conclusion
              url: /architecture-scenarios/application/web-app-sso/part-4
 
-      - title: Server Application + API
+      - title: Server Client + API
         url: /architecture-scenarios/application/server-api
         children:
            - title: Solution Overview
@@ -110,49 +110,49 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/business/b2e 
 
-  - title: "Applications"
-    url: "/applications"
+  - title: "Clients"
+    url: "/clients"
     children:
 
       - title: Overview
-        url: /applications
+        url: /clients
 
       - title: Connections
-        url: /applications/connections
+        url: /clients/connections
 
-      - title: Application Types
-        url: /applications/application-types
+      - title: Client Types
+        url: /clients/client-types
 
       - title: Grant Types
-        url: /applications/application-grant-types
+        url: /clients/client-grant-types
 
   - title: "Authentication"
-    url: "/application-auth/current"
+    url: "/client-auth/current"
     children:
 
       - title: "Server-side App"
-        url: "/application-auth/current/server-side-web"
+        url: "/client-auth/current/server-side-web"
       
       - title: "Client-side App"
-        url: "/application-auth/current/client-side-web"
+        url: "/client-auth/current/client-side-web"
         
       - title: "Mobile App"
-        url: "/application-auth/current/mobile-desktop"
+        url: "/client-auth/current/mobile-desktop"
       
       - title: "Legacy"
-        url: "/application-auth/legacy"
+        url: "/client-auth/legacy"
         hidden: true
         children:
           - title: "Server-side App"
-            url: "/application-auth/legacy/server-side-web"
+            url: "/client-auth/legacy/server-side-web"
             hidden: true
       
           - title: "Client-side App"
-            url: "/application-auth/legacy/client-side-web"
+            url: "/client-auth/legacy/client-side-web"
             hidden: true
         
           - title: "Mobile App"
-            url: "/application-auth/legacy/mobile-desktop"
+            url: "/client-auth/legacy/mobile-desktop"
             hidden: true
             
         
@@ -187,11 +187,11 @@ articles:
       - title: "APIs & CLIs"
         url: "/api-auth/grant/client-credentials"
 
-      - title: "APIs & Trusted Applications"
+      - title: "APIs & Trusted Clients"
         url: "/api-auth/grant/password"
 
-      - title: "Dynamic Application Registration"
-        url: "/api-auth/dynamic-application-registration"
+      - title: "Dynamic Client Registration"
+        url: "/api-auth/dynamic-client-registration"
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"

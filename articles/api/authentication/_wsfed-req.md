@@ -26,7 +26,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client-id`      | The `client-id` of your application. |
+| `client-id`      | The `client-id` of your client. |
 | `wtrealm`        | Can be used in place of `client-id`. |
 | `whr`            | The name of the connection (used to skip the login page). |
 | `wctx`           | Your application's state. |
@@ -42,9 +42,9 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
+1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 1. At the *Other Flows* tab, click **WS-Federation**.
 

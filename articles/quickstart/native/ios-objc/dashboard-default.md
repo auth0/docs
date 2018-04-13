@@ -33,9 +33,9 @@ A brief description:
 
 - [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many the [Auth0 API](/api/info) functions and enables you to integrate the Login.
 
-## Create an Application
+## Create a Client
 
-If you haven't already done so, create a new application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
+If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

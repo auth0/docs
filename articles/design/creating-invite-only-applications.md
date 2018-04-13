@@ -21,7 +21,7 @@ The invite-only authorization flow includes the following steps:
 1. Triggering the email verification process via Auth0
 1. Triggering the password reset process via Auth0
 
-### Setup your Application
+### Setup your Client
 
 You can store all ExampleCo end users in a single database, since everyone will provide their unique corporate email addresses.
 
@@ -29,24 +29,24 @@ You can store all ExampleCo end users in a single database, since everyone will 
 
 To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
  
-You will need to create a [application](/applications) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
+You will need to create a [client](/clients) in the [Dashboard](${manage_url}/#/clients) with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
- - **Application Type**: this will be a regular web application.
+ - **Client Type**: this will be a regular web application.
  - **Allowed Callback URLs**: this should be the URL of your app
 
 ![](/media/articles/invite-only/invite-only-app.png)
 
-Since this application needs to access the [Management API](/api/v2), you'll need to authorize it and set its scopes as follows:
+Since this client needs to access the [Management API](/api/v2), you'll need to authorize it and set its scopes as follows:
 
 * Go to the [APIs section](${manage_url}/#/apis) of the Dashboard.
 * Select **Auth0 Management API**.
-* Click over to the **Machine to Machine Applications** tab.
-* Find the application you just created, and set its toggle to **Authorized**.
+* Click over to the **Non-interactive Clients** tab.
+* Find the client you just created, and set its toggle to **Authorized**.
 * Use the **down arrow** to open up the scopes selection area. Select the following scopes: `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
 * Click **Update**.
 
-![Authorize Application](/media/articles/invite-only/invite-only-authorize-application.png)
+![Authorize Client](/media/articles/invite-only/invite-only-authorize-client.png)
 
 ### Import Users
 

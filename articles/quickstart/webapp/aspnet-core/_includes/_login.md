@@ -187,7 +187,7 @@ public class AccountController : Controller
         {
             // Indicate here where Auth0 should redirect the user after a logout.
             // Note that the resulting absolute Uri must be whitelisted in the 
-            // **Allowed Logout URLs** settings for the app.
+            // **Allowed Logout URLs** settings for the client.
             RedirectUri = Url.Action("Index", "Home")
         });
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -199,7 +199,7 @@ ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You nee
 
 When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API. The user is logged out of Auth0.
 
-If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 In the `Startup.cs` file, update the call to `AddOpenIdConnect` with the following code:
 

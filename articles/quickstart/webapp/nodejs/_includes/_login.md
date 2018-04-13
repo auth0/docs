@@ -13,7 +13,7 @@ yarn add passport passport-auth0 connect-ensure-login
 ## Configure the Middleware
 
 Create a new instance of the `Auth0Strategy` strategy. 
-Enter your Auth0 application details as configuration values. Tell `passport` to use this strategy. 
+Enter your Auth0 client details as configuration values. Tell `passport` to use this strategy. 
 
 ```js
 // app.js
@@ -60,7 +60,7 @@ You can also embed the Lock widget directly in your application. If you use this
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
-Add a route called `/login`. Use the `env` object to set the following properties for your application: 
+Add a route called `/login`. Use the `env` object to set the following properties for your client: 
 * Client ID
 * Domain
 * Callback URL
@@ -73,7 +73,7 @@ You need to make sure you get an OIDC-conformant response. You can achieve it tw
 
 ::: note
 The example below shows how to set the audience to get an OIDC-conformant response. 
-To turn on the **OIDC conformant** switch, in your [Application Settings](${manage_url}/#/applications/${account.applicationId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [new flows documentation](/api-auth/intro#how-to-use-the-new-flows).
+To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [new flows documentation](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 ```js

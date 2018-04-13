@@ -38,7 +38,7 @@ Lastly, the project defines a helper class: the `AuthenticationControllerProvide
 
 ## Authenticate the User
 
-Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our application properties and create a new instance of this controller:
+Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our client properties and create a new instance of this controller:
 
 ```java
 String domain = getServletConfig().getServletContext().getInitParameter("com.auth0.domain");
