@@ -1,5 +1,5 @@
 * [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens)
-* [User consent and third-party applications](/api-auth/user-consent)
+* [User consent and third-party clients](/api-auth/user-consent)
 * [Custom user profile claims and `scope`](/api-auth/tutorials/adoption/scope-custom-claims)
 * [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on)
 * Initiating authentication flows:
@@ -11,4 +11,4 @@
 * [Refresh Tokens](/api-auth/tutorials/adoption/refresh-tokens)
 * [Delegation (deprecated)](/api-auth/tutorials/adoption/delegation)
 * [Passwordless authentication](/api-auth/passwordless)
-* [List of breaking changes for OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant)
+* [List of breaking changes for OIDC-conformant clients](/api-auth/tutorials/adoption/oidc-conformant)

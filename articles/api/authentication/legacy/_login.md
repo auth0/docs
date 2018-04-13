@@ -62,7 +62,7 @@ xhr.send(params);
 ::: warning
 This endpoint is part of the legacy authentication pipeline. We recommend that you open the browser to do social authentication instead, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 
-This feature is disabled by default for new tenants as of 8 June 2017. Please see [Application Grant Types](/applications/application-grant-types) for more information.
+This feature is disabled by default for new tenants as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
 
 :::
 
@@ -72,7 +72,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
 | `access_token` <br/><span class="label label-danger">Required</span> | The social provider's `access_token`. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your app. |
 | `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
@@ -125,7 +125,7 @@ curl --request POST \
 // Script uses auth0.js. See Remarks for details.
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  // Initialize application
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
@@ -175,7 +175,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
 | `username` <br/><span class="label label-danger">Required</span> | Username/email of the user to login |
 | `password` <br/><span class="label label-danger">Required</span> | Password of the user to login |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
@@ -192,9 +192,9 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 1. At the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
 

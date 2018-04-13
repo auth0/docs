@@ -34,7 +34,7 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
 | `connection`     | The connection to use. |
 
 
@@ -77,7 +77,7 @@ This endpoint returns the SAML 2.0 metadata.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
 
 
 ### Test with Postman
@@ -120,7 +120,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your application. |
+| `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your client. |
 | `SAMLResponse` <br/><span class="label label-danger">Required</span> | An IdP-Initiated Sign On SAML Response. |
 
 
@@ -128,9 +128,9 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
+1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 1. At the *Other Flows* tab, click **SAML**.
 

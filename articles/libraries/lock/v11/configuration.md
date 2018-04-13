@@ -18,7 +18,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [allowAutocomplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
-| [allowedConnections](#allowedconnections-array-) | limit the application connections shown in Lock to a particular set |
+| [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
 | [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
 | [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
@@ -88,7 +88,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
-| [clientBaseUrl](#clientbaseurl-string-) | Override your application's base URL |
+| [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
 | [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
@@ -401,7 +401,7 @@ var options = {
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
 
-Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this application in the dashboard.
+Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this client in the dashboard.
 
 ```js
 var options = {};
@@ -568,7 +568,7 @@ When the `responseType` is set to `code`, Lock will never show the **Last time y
 
 #### sso {Boolean}
 
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
 
 ::: warning
 Failing to set this to true will result in multifactor authentication not working correctly.
@@ -847,7 +847,7 @@ var options = {
 
 ### clientBaseUrl {String}
 
-This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
+This option can provide a URL to override the client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
 
 ```js
 var options = {

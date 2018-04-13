@@ -55,7 +55,7 @@ Enter your **Client ID** and **Client ID** from the dAccount Connect service you
 
 ![Paste your Client ID and Client Secret](/media/articles/connections/social/docomo/enter-keys.png)
 
-Next on the **Clients** tab, enable which of your applications will be able to use this connection. After enabling the applications, click **SAVE**.
+Next on the **Clients** tab, enable which of your clients will be able to use this connection. After enabling the clients, click **SAVE**.
 
 ## 4. Test the Connection
 
