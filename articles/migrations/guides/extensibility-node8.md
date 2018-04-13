@@ -20,7 +20,7 @@ In this document, we:
 
 ## Summary of the migration
 
-The Webtask runtime powering the following Auth0 features utilize Node.js v4:
+The Webtask runtime powering the following Auth0 features utilizes Node.js v4:
 
 * Rules
 * Hooks
@@ -39,7 +39,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 The Extensibility panel, that this section refers to, will be made available to our cloud customers on **April 17th, 2018**.
 :::
 
-Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on 17 April 2018.
+Node.js v8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard. This panel will be visible once the new Node 8 runtime is made available on 17 April 2018.
 
 ![Runtime toggle](/media/articles/migrations/node-runtime1.png)
 
@@ -64,9 +64,9 @@ You can query the Management API for your rules, custom database scripts, and cu
 
 Please see our documentation on the [Connections](/api/management/v2#!/Connections) and [Rules](/api/management/v2#!/Rules/get_rules) endpoints for additional information on this process.
 
-When using the **/connections** endpoints, Custom Database Scripts can be retrieved or updated using **options.customScripts**
+When using the **/connections** endpoints, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
 
-Similarly, you can find Custom Social Connections in **options.scripts.fetchUserProfile**.
+Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
 You will need to manually copy over any Hooks-related code that you use.
 
@@ -106,7 +106,7 @@ If you are using the following built-in modules (that is, modules that you did n
 
 ### Pinned modules
 
-If you have manually pinned modules, you may need to manually update them so that you code runs with Node.js v8.
+If you have manually pinned modules, you may need to manually update them so that your code runs with Node.js v8.
 
 For example, you must change
 
@@ -120,7 +120,7 @@ to
 
 Some of the behavioral and syntactic changes in modules were not forward-compatible with Node.js v8.
 
-For example, the default encoding of the **crypto** module was changed from **binary** to **utf8**, and the used of **new Buffer()** has been deprecated in favor of **Buffer.from()**.
+For example, the default encoding of the **crypto** module was changed from **binary** to **utf8**, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
 
 Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/node/wiki/Breaking-changes-between-v4-LTS-and-v6-LTS) and [v6 to v8](https://github.com/nodejs/node/wiki/Breaking-changes-between-v6-LTS-and-v8-LTS) for additional information.
 
