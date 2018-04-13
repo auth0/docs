@@ -67,11 +67,13 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2018-03-31 |  2019-03-31 |
+| Medium | 2018-03-31 |  - |
 
-For some use cases you could use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
+For some use cases you can use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
 
-This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. The affected endpoints are the following.
+This is used by the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
+
+List of affected endpoints:
 
 | **Endpoint** | **Use Case** |
 |-|-|
@@ -84,11 +86,11 @@ This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints will now accept regular [Access Tokens](/access-token). The functionality is available now.
+These endpoints can now accept regular [Access Tokens](/access-token). 
 
-Applications must be updated by **March 31, 2019**, when the ability to use ID Tokens will be disabled.
+The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes customers will be notified beforehand.
 
-For more information on this migration and the steps you should follow to upgrade your implementation, see [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
+For more information on this migration and the steps you should follow to upgrade your implementation, see the [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
 
 #### Am I affected by the change?
 
