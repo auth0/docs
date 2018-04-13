@@ -16,7 +16,7 @@ budicon: 448
   ]
 }) %>
 
-This tutorial explains how to integrate the Auth0 OIDC Client with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+This tutorial explains how to integrate the Auth0 OIDC Application with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 <%= include('../_includes/_dotnet-oidc-client-configuration') %>
 
@@ -51,7 +51,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 This will print out the callback URL to your Debug window in Visual Studio.
 
 <div class="setup-callback">
-<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, such as</p>
+<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, such as</p>
 
 <pre><code>ms-app://S-1-xxx...</pre></code>
 </div>

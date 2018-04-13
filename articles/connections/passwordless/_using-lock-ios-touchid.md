@@ -46,7 +46,7 @@ You can generate a random password to avoid asking the user for one at this time
 
 Once the user has signed up, use the `idToken` to register the public key for the user.
 
-First, you will need a place to store an Auth0 API client with the token until you register the key, and a place to store the TouchID component:
+First, you will need a place to store an Auth0 API application with the token until you register the key, and a place to store the TouchID component:
 
 <div>
 <% if (language === "objc") { %>
@@ -66,7 +66,7 @@ Now implement the following method to perform TouchID authentication:
 <% } %>
 </div>
 
-Then create and store the API client:
+Then create and store the API application:
 
 <div>
 <% if (language === "objc") { %>

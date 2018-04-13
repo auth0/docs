@@ -89,11 +89,11 @@ To generate a token follow the next steps:
 
   Where:
 
-  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
   - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
-  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
+  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create applications, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 
   - __iat__: The time at which the token was issued. It must be a number containing a `NumericDate` value, for example `1487260214` (which maps to `Thu, 16 Feb 2017 15:50:14 GMT`). You can use an [epoch converter](http://www.epochconverter.com/) to get this value.
 
@@ -130,6 +130,6 @@ To generate a token follow the next steps:
 
   - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
-  - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
+  - We want this token in order to call the [Get all applications](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 
   - The token expires in one year (`expiresIn: '1y'`).

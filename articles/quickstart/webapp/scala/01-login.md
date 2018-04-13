@@ -249,7 +249,7 @@ class Application @Inject() (cache: CacheApi) extends Controller {
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
 
 In the `user` view add a link to `logout` route.

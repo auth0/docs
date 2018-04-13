@@ -32,7 +32,7 @@ Before you begin the process of configuring self-association of authenticators, 
 
 1. Configure Your Tenant (including setting the [Default Audience and/or Default Directory](/dashboard-tenant-settings#api-authorization-settings))
 1. Register Your [API](https://auth0.com/docs/apis#how-to-configure-an-api-in-auth0)
-1. Set the [grant type property](/clients/client-grant-types) of the Non Interactive Client created with your API
+1. Set the [grant type property](/applications/application-grant-types) of the Machine to Machine Application created with your API
 1. Create Your [Connection](/connections/database)
 
 ## Associate Authenticators

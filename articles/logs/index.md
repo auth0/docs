@@ -13,7 +13,7 @@ Using the Auth0 Dashboard, you can pull log data on:
 
 ## How to View Log Data
 
-The **Logs** page of the [Auth0 Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Clients, Connections, and Rules.
+The **Logs** page of the [Auth0 Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
 ![](/media/articles/logs/dashboard-logs.png)
 
@@ -62,7 +62,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/user-profile) |
-| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified client | [Clients](/clients#client-settings) |
+| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/applications#application-settings) |
 | `fcoa` | Failed cross-origin authentication | | |
 | `fcp` | Failed Change Password | | [Changing a User's Password](/connections/database/password-change) |
 | `fcph` | Failed Post Change Password Hook | | |

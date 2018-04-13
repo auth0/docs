@@ -4,16 +4,16 @@ description: How to use Auth0 in a SAML2 web application.
 
 # Using Auth0 with a SAML2 Web App
 
-You can configure a SAML2 Web Application for use with an Auth0 Client via the Management Dashboard.
+You can configure a SAML2 Web Application for use with an Auth0 Application via the Management Dashboard.
 
-## Enable the SAML2 Web App Addon for your Auth0 Client
+## Enable the SAML2 Web App Addon for your Auth0 Application
 
-1. Log in to Auth0, and navigate to the [Clients](${manage_url}/#/clients) page of the [Management Dashboard](${manage_url}).
+1. Log in to Auth0, and navigate to the [Applications](${manage_url}/#/applications) page of the [Management Dashboard](${manage_url}).
 
   ![](/media/articles/protocols/saml/saml2-web-app/mgmt-dshbrd-clients.png)
 
-2. Identify the Client with which you want to use a SAML2 Web Application. Click the Client's name to go to its configuration settings pages.
-3. Go to the *Addons* page for the Client.
+2. Identify the Application with which you want to use a SAML2 Web Application. Click the Application's name to go to its configuration settings pages.
+3. Go to the *Addons* page for the Application.
 
   ![](/media/articles/protocols/saml/saml2-web-app/select-addon.png)
 
@@ -64,8 +64,8 @@ You can click **Debug** to test if your provided parameters are valid.
 
 Click **Save** when done.
 
-## Provide Your Auth0 Client Details to Your SAML2 Web App
+## Provide Your Auth0 Application Details to Your SAML2 Web App
 
-While the specific steps for providing your Auth0 Client details to your SAML2 Web App will vary, you can get the configuration information you need from the *Usage* tab after you have set up the Addon from the Auth0 side.
+While the specific steps for providing your Auth0 Application details to your SAML2 Web App will vary, you can get the configuration information you need from the *Usage* tab after you have set up the Addon from the Auth0 side.
 
   ![](/media/articles/protocols/saml/saml2-web-app/usage.png)

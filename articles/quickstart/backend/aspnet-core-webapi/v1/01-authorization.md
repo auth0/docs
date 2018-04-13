@@ -188,6 +188,6 @@ public class ApiController : Controller
 
 ## Further Reading
 
-* To learn how you can call your API from clients, please refer to the [Using your API section](/quickstart/backend/aspnet-core-webapi/v1/02-using).
+* To learn how you can call your API from applications, please refer to the [Using your API section](/quickstart/backend/aspnet-core-webapi/v1/02-using).
 
 * If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/aspnet-core-webapi/v1/03-troubleshooting).

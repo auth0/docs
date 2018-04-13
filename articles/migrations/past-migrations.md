@@ -233,11 +233,11 @@ You are effected by the change only if you redirect from rules, and do not yet c
 | --- | --- | --- | --- |
 | High | 2016-12-06 |
 
-The `jwt_configuration.secret_encoded` configuration is no longer accepted by the PATCH and POST clients endpoints.
+The `jwt_configuration.secret_encoded` configuration is no longer accepted by the PATCH and POST applications endpoints.
 
-In order to further comply with the OIDC specification, Auth0 will no longer generate or accept base64 encoded client secrets for new clients.
+In order to further comply with the OIDC specification, Auth0 will no longer generate or accept base64 encoded application secrets for new applications.
 
-Existing clients with encoded secrets stored will remain intact and unchanged, but *new* clients will no longer use base64 encoding. The `secret_encoded` flag is no longer accepted or necessary, as a result.
+Existing applications with encoded secrets stored will remain intact and unchanged, but *new* applications will no longer use base64 encoding. The `secret_encoded` flag is no longer accepted or necessary, as a result.
 
 ### Am I affected by the change?
 

@@ -10,9 +10,9 @@ framework:
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/angular2/dependencies
-  setup: client-platforms/angular2/setup
-  use: client-platforms/angular2/use
+  dependencies: application-platforms/angular2/dependencies
+  setup: application-platforms/angular2/setup
+  use: application-platforms/angular2/use
 seo_alias: angular2
 default_article: dashboard-default
 articles:
