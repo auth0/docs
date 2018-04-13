@@ -117,7 +117,7 @@ Create a service and provide a `login` method that calls the `authorize` method 
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish the Service
+## Handle Authentication Tokens
 
 Add more methods to the `authService` service to handle authentication in the app.
 
@@ -245,7 +245,7 @@ To display a loading indicator, you need a loading spinner or another indicator 
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `authService` service processes the hash. 
 

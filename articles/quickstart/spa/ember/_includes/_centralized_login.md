@@ -42,7 +42,7 @@ export default Service.extend({
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Authentication Functions
+## Handle Authentication Tokens
 
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
@@ -143,7 +143,7 @@ The `action` added to the **Log In** control makes the appropriate call to the `
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
 

@@ -1,4 +1,4 @@
-## Integrate Auth0 in your application
+## Integrate Auth0 in your Application
 
 ### Install auth0.js
 
