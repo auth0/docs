@@ -29,7 +29,7 @@ This package adds the `LoginCallback.ashx` file to your project to process the l
 
 After authenticating the user on Auth0, send a POST request to the `/LoginCallback.ashx` URL on your website, for example `http://localhost:PORT/LoginCallback.ashx`. 
 
-For security, register this URL in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
+For security, register this URL in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 

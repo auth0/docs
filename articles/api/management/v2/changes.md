@@ -17,7 +17,7 @@ This document describes the major differences between Auth0's Management API v1 
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
 * New formats for `user_id` (available as `v2_id` with the "usr\_" prefix) and `clientID` (with the "cli\_" prefix) recognize the entity type based on its id.
 * Improved input validation and error messages.
-* Only one connection is exposed per tenant, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
+* Only one connection is exposed per tenant, instead of one per application. To enable/disable a connection for an application, use the `enabled_clients` property.
 * When updating field values, v2 removes fields with `null` values, instead of storing them with the value `null`
 
 ### User endpoints
@@ -49,7 +49,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
 
 
-### Client endpoints
+### Application endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -168,11 +168,11 @@ User data previously stored under `metadata` will be available under `app_metada
 
 ## Connections
 
-For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's clients.
+For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's applications.
 
-However, given a named connection, Management API v2 exposes only one connection per tenant. Management of connection-enabled clients is performed using the `enabled_clients` property.
+However, given a named connection, Management API v2 exposes only one connection per tenant. Management of connection-enabled applications is performed using the `enabled_clients` property.
 
-For example, to create a connection that is enabled for clients `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV`:
+For example, to create a connection that is enabled for applications `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV`:
 
 ```text
 curl -H "Authorization: Bearer {API_TOKEN}" -X POST -H "Content-Type: application/json"

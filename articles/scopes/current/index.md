@@ -6,21 +6,21 @@ toc: true
 
 # Scopes
 
-The OAuth2 protocol is a delegated authorization mechanism, where a client application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the client a more restricted set of credentials than those of the user.
+The OAuth2 protocol is a delegated authorization mechanism, where an application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the application a more restricted set of credentials than those of the user.
 
-The `scope` parameter allows the client to express the desired scope of the access request. In turn, the `scope` parameter can be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
+The `scope` parameter allows the application to express the desired scope of the access request. In turn, the `scope` parameter can be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
 
 You can use scopes to:
 
-- Let a client application authenticate users and get additional information about them, such as their email or picture. For details, refer to [OpenID Connect Scopes](#openid-connect-scopes).
+- Let an application authenticate users and get additional information about them, such as their email or picture. For details, refer to [OpenID Connect Scopes](#openid-connect-scopes).
 
 - Implement granular access control to your API. In this case, you need to define custom scopes for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](#api-scopes).
 
 ## OpenID Connect Scopes
 
-OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the client application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
+OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
 
-The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the client application to use the OIDC protocol to verify the identity of the user.
+The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the application to use the OIDC protocol to verify the identity of the user.
 
 In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
 
@@ -29,7 +29,7 @@ In OpenID Connect (OIDC), we have the notion of __claims__. There are two types 
 
 ### Standard Claims
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the client with user details such as email, name and picture.
+OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the application with user details such as email, name and picture.
 
 The basic claim returned for the `openid` scope is the `sub` claim, which uniquely identifies the user (`iss`, `aud`, `exp`, `iat` and `at_hash` claims will also be present in the `id_token`). Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:
 
@@ -140,9 +140,9 @@ Custom claims added to ID Tokens using this method allows you to obtain them whe
 
 ## API Scopes
 
-Scopes allow you to define the API data accessible to your client applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+Scopes allow you to define the API data accessible to your applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
-Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
+Once you create an API and define the scopes, the applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
 
 If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
 
@@ -168,7 +168,7 @@ Note the differences between the two examples. In the latest, we want to get an 
 ### Define Scopes Using the Dashboard
 
 ::: warning
-By default, any user of any client can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
+By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
 :::
 
 You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
@@ -186,7 +186,7 @@ Click **Add** when you've provided the requested values.
 
 ### Limiting API Scopes being Issued
 
-A client application can request any scope and the user will be prompted to approve those scopes during the authorization flow. This may not be a desirable situation, as you may want to limit the scopes based on, for example, the permissions (or role) of a user.
+An application can request any scope and the user will be prompted to approve those scopes during the authorization flow. This may not be a desirable situation, as you may want to limit the scopes based on, for example, the permissions (or role) of a user.
 
 You can make use of the [Authorization Extension](/extensions/authorization-extension) in conjunction with a custom [Rule](/rules) to ensure that scopes are granted based on the permissions of a user.
 

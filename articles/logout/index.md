@@ -86,7 +86,7 @@ You will need to add the non-encoded `returnTo` URL (for these examples, it is `
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the Client Level](#set-the-allowed-logout-urls-at-the-client-level) for more information.
+  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the Application Level](#set-the-allowed-logout-urls-at-the-application-level) for more information.
 
 ### Set the Allowed Logout URLs at the Tenant Level
 
@@ -99,11 +99,11 @@ When providing the URL list, you can:
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
-### Set the Allowed Logout URLs at the Client Level
+### Set the Allowed Logout URLs at the Application Level
 
-To redirect the user after they log out from a specific client, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 client that is associated with the `CLIENT_ID` parameter.
+To redirect the user after they log out from a specific application, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 application that is associated with the `CLIENT_ID` parameter.
 
-![Client level logout screen](/media/articles/logout/client-level-logout.png)
+![Application level logout screen](/media/articles/logout/client-level-logout.png)
 
 When providing the URL list, you can:
 
@@ -173,7 +173,7 @@ Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#log
 
 ## SAML Logout
 
-SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have a client with the SAML2 Web App addon).
+SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have a application with the SAML2 Web App addon).
 
 ### Logout for Auth0 as SAML Service Provider
 
@@ -208,7 +208,7 @@ When Auth0 is acting as a [SAML Identity Provider](/protocols/saml/saml-idp-gene
 
 If your Service Provider supports SAML Single Logout, you will need to configure the Service Provider to call `https://${account.namespace}/samlp/CLIENT_ID/logout` (also listed in the SAML IdP Metadata). When a logout request is triggered by the Service Provider, a logout request will be sent to this endpoint and Auth0 starts the SAML SLO flow by notifying the existing session participants using a frontend channel.
 
-* To prevent a session participant from being notified, you can set `logout.slo_enabled` to `false` in the `SAML2 Web App` client addon's settings. 
+* To prevent a session participant from being notified, you can set `logout.slo_enabled` to `false` in the `SAML2 Web App` application addon's settings. 
 * To send the SAML Logout response using `HTTP-Redirect` bindings (instead of the default `HTTP-POST`), you can set `binding` to `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
 
 #### Non Single Logout Scenario

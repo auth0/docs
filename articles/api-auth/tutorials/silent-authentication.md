@@ -6,9 +6,9 @@ description: How to keep users logged in to your application
 
 <%= include('../../_includes/_pipeline2') %>
 
-There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple client applications.
+There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple applications.
 
-For privacy reasons, client applications cannot query Auth0 directly to determine if a user has logged in via SSO. This means that users must be redirected to Auth0 for SSO authentication.
+For privacy reasons, applications cannot query Auth0 directly to determine if a user has logged in via SSO. This means that users must be redirected to Auth0 for SSO authentication.
 
 However, redirecting users away from your application is usually considered disruptive and should be avoided, from a UX perspective. **Silent authentication** lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page.
 
@@ -72,19 +72,19 @@ When using the [Authorization Code Grant](/api-auth/grant/authorization-code), t
 The possible values for `ERROR_CODE` are defined by the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AuthError):
 
 * `login_required`: The user was not logged in at Auth0, so silent authentication is not possible
-* `consent_required`: The user was logged in at Auth0, but needs to give consent to authorize the client
-* `interaction_required`: The user was logged in at Auth0 and has authorized the client, but needs to be redirected elsewhere before authentication can be completed; for example, when using a [redirect rule](/rules/redirect).
+* `consent_required`: The user was logged in at Auth0, but needs to give consent to authorize the application
+* `interaction_required`: The user was logged in at Auth0 and has authorized the application, but needs to be redirected elsewhere before authentication can be completed; for example, when using a [redirect rule](/rules/redirect).
 
 If any of these errors are returned, the user must be redirected to the Auth0 login page without the `prompt=none` parameter to authenticate.
 
 ## Renew expired tokens
 
-Access Tokens are opaque to clients. This means that clients are unable to inspect the contents of Access Tokens to determine their expiration date.
+Access Tokens are opaque to applications. This means that applications are unable to inspect the contents of Access Tokens to determine their expiration date.
 
 There are two options to determine when an Access Token expires:
 
 1. Read the `expires_in` response parameter returned by Auth0
-2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the client (such as with a 401).
+2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the application (such as with a 401).
 
 In the case of the [Implicit Grant](/api-auth/grant/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. For the [Authorization Code Grant](/api-auth/grant/code), it is returned to the backend server when performing the authorization code exchange.
 

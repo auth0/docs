@@ -28,7 +28,7 @@ OpenID Connect issues an identity token, known as an `id_token`, while OAuth 2.0
 
 ## How to use each token
 
-The `id_token` is a [JWT](/jwt) and is meant for the client only. In the example we used earlier, when you authenticate using Google, an `id_token` is sent from Google to the to-do application, that says who you are. The to-do application can parse [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and use this information, like your name and your profile picture, to customize the user experience.
+The `id_token` is a [JWT](/jwt) and is meant for the application only. In the example we used earlier, when you authenticate using Google, an `id_token` is sent from Google to the to-do application, that says who you are. The to-do application can parse [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and use this information, like your name and your profile picture, to customize the user experience.
 
 ::: warning
 You must never use the info in an `id_token` unless you have validated it! For more information refer to: [How to validate an ID Token](/tokens/id-token#validate-an-id-token). For a list of libraries you can use to verify a JWT refer to [jwt.io](https://jwt.io/).
@@ -37,7 +37,7 @@ You must never use the info in an `id_token` unless you have validated it! For m
 The `access_token` can be any type of token (not necessarily a JWT) and is meant for the API. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). In the example we used earlier, after you authenticate, and provide your consent that the to-do application can have read/write access to your calendar, an `access_token` is sent from Google to the to-do application. Each time the to-do application wants to access your Google Calendar it will make a request to the Google Calendar API, using this `access_token` in an HTTP `Authorization` header.
 
 ::: note
-  Access Tokens should be treated as opaque strings by clients. They are only meant for the API. Your Client should not attempt to decode them or depend on a particular <code>access_token</code> format.
+  Access Tokens should be treated as opaque strings by applications. They are only meant for the API. Your Client should not attempt to decode them or depend on a particular <code>access_token</code> format.
 :::
 
 ## How NOT to use each token
@@ -46,7 +46,7 @@ Now that we've seen what these tokens can be used for, let's see what they canno
 
 - __An `access_token` cannot be used for authentication__. It holds no authenticating information about the user (in fact, the only identifying information about the user is their ID, located in the `sub` claim). It cannot tell us if the user has authenticated and when.
 
-- __An `id_token` cannot be used for API access__. Each token contains information on the intended audience (recipient). According to the OpenID Connect specification, the audience (claim `aud`) of each `id_token` must be the `client_id` of the client making the authentication request. If it isn't you shouldn't trust the token. An API, on the other hand, expects a token with the audience set to the API's unique identifier. So unless you are in control of both the client and the API, sending an `id_token` to an API will not work. Furthermore, the `id_token` is signed with a secret that is known to the client (since it is issued to a particular client). This means that if an API were to accept such token, it would have no way of knowing if the client has modified the token (to add more scopes) and then signed it again.
+- __An `id_token` cannot be used for API access__. Each token contains information on the intended audience (recipient). According to the OpenID Connect specification, the audience (claim `aud`) of each `id_token` must be the `client_id` of the application making the authentication request. If it isn't you shouldn't trust the token. An API, on the other hand, expects a token with the audience set to the API's unique identifier. So unless you are in control of both the application and the API, sending an `id_token` to an API will not work. Furthermore, the `id_token` is signed with a secret that is known to the application (since it is issued to a particular application). This means that if an API were to accept such token, it would have no way of knowing if the application has modified the token (to add more scopes) and then signed it again.
 
 ## Compare Tokens
 
@@ -71,7 +71,7 @@ The (decoded) contents of an `id_token` look like the following:
 }
 ```
 
-This token is meant for __authenticating the user to the client__. Note that the audience (`aud` claim) of the token is set to the client's identifier, which means that only this specific client should consume this token.
+This token is meant for __authenticating the user to the application__. Note that the audience (`aud` claim) of the token is set to the application's identifier, which means that only this specific application should consume this token.
 
 For comparison, let's look at the contents of an `access_token`:
 
@@ -90,7 +90,7 @@ For comparison, let's look at the contents of an `access_token`:
 }
 ```
 
-This token is meant for __authorizing the user to the API__. As such, it is completely opaque to clients, meaning that a client should not care about the contents of this token, decode it or depend on a particular token format. Note that the token does not contain any information about the user itself besides their ID (`sub` claim), it only contains authorization information about which actions the client is allowed to perform at the API (`scope` claim).
+This token is meant for __authorizing the user to the API__. As such, it is completely opaque to applications, meaning that an application should not care about the contents of this token, decode it or depend on a particular token format. Note that the token does not contain any information about the user itself besides their ID (`sub` claim), it only contains authorization information about which actions the application is allowed to perform at the API (`scope` claim).
 
 Since in many cases it is desirable to retrieve additional user information at the API, this token is also valid for calling the `/userinfo` API, which will return the user's profile information. So the intented audience (`aud` claim) of the token is either the API (`my-api-identifier`) or the `/userinfo` endpoint (`https://${account.namespace}/userinfo`).
 

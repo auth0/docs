@@ -18,7 +18,7 @@ budicon: 448
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 
@@ -38,7 +38,7 @@ If you're using __Phonegap Build__ service, you need to add the plugin using the
 
 ### 3. Follow the guide specific to the frontend technology you're using
 
-Now, you can just follow the tutorial for the frontend technology that you're using. We currently support applications using [jQuery](/client-platforms/jquery), [AngularJS](/client-platforms/angularjs) and [Vanilla JS](/client-platforms/vanillajs).
+Now, you can just follow the tutorial for the frontend technology that you're using. We currently support applications using [jQuery](/application-platforms/jquery), [AngularJS](/application-platforms/angularjs) and [Vanilla JS](/application-platforms/vanillajs).
 
 ::: note
 Phonegap doesn't support getting dependencies from a CDN, so you're going to have to download the JS and CSS dependencies locally and then point to the downloaded files.

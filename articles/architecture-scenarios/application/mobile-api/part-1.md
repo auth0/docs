@@ -17,7 +17,7 @@ The [Authorization Code Grant](/api-auth/grant/authorization-code) has some secu
 
 The Proof Key for Code Exchange (PKCE) (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, the Client creates, for every authorization request, a cryptographically random key called `code_verifier` and its transformed value called `code_challenge`, which is sent to Auth0 to get the `authorization_code`. When the Client receives the `authorization_code`, it will send the code and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
+With PKCE, the Application creates, for every authorization request, a cryptographically random key called `code_verifier` and its transformed value called `code_challenge`, which is sent to Auth0 to get the `authorization_code`. When the Application receives the `authorization_code`, it will send the code and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
 
 ![PKCE](/media/articles/architecture-scenarios/mobile-api/authorization-code-grant-pkce.png)
 

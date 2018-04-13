@@ -25,7 +25,7 @@ All of the changes described in this guide apply to the **OIDC Conformant Authen
 
 -   An [authentication request](/api/authentication#social) was initiated with an `audience` parameter.
 
--   The client being used is flagged as **OIDC Conformant** (available at _Dashboard > Clients > Settings > Show advanced settings > OAuth > OIDC Conformant flag_).
+-   The application being used is flagged as **OIDC Conformant** (available at _Dashboard > Applications > Settings > Show advanced settings > OAuth > OIDC Conformant flag_).
 
 If none of these conditions are met, the **legacy authentication pipeline** will be used, and everything will keep working as usual.
 
@@ -35,9 +35,9 @@ Any new Auth0 features, examples and documentation moving forward will target on
 
 The new features provided by the OIDC-conformant pipeline include:
 
-* [Create third-party clients for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
-* Restrict the user profile information provided to clients upon authentication
-* [OIDC Dynamic Client Registration](/api-auth/dynamic-client-registration)
+* [Create third-party applications for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
+* Restrict the user profile information provided to applications upon authentication
+* [OIDC Dynamic Application Registration](/api-auth/dynamic-application-registration)
 
 ## Is there a deadline to adopt these new features?
 

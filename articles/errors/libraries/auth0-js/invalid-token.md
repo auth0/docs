@@ -6,7 +6,7 @@ public: true
 
 ## Parsing an HS256-Signed ID Token Without an Access Token
 
-**Error Message**: The ID Token cannot be validated because it was signed using the HS256 algorithm and public clients (such as a browser) can’t store secrets. Please read the associated doc for ways to fix this.
+**Error Message**: The ID Token cannot be validated because it was signed using the HS256 algorithm and public applications (such as a browser) can’t store secrets. Please read the associated doc for ways to fix this.
 
 ### Why this error occurred
 
@@ -16,7 +16,7 @@ Calling **/userinfo** requires an Access Token. If you don't ask for an Access T
 
 ```
 The id_token cannot be validated because it was signed with the HS256 algorithm
-and public clients (like a browser) can’t store secrets.
+and public applications (like a browser) can’t store secrets.
 Please read the associated doc for possible ways to fix this.
 ```
 
@@ -24,13 +24,13 @@ Please read the associated doc for possible ways to fix this.
 
 There are two ways to fix the error:
 
-1. **(RECOMMENDED)** Change the client signature algorithm to RS256 instead of HS256.
+1. **(RECOMMENDED)** Change the application signature algorithm to RS256 instead of HS256.
 2. Change the value of your **responseType** parameter to **token id_token** (instead of the default), so that you receive an Access Token in the response.
 
-To change the client signature algorithm to RS256 instead of HS256:
+To change the application signature algorithm to RS256 instead of HS256:
 
-    1. Go to [Dashboard > Clients]({$manage_url}/#/clients)
-    1. Select your client
+    1. Go to [Dashboard > Applications]({$manage_url}/#/applications)
+    1. Select your application
     1. Scroll to the bottom of the **Settings** tab, and click **Show Advanced Settings**
     1. Open up the **OAuth** tab. Change the value of **JsonWebToken Signature Algorithm** to **RS256**
     1. Scroll to the bottom of the page and click **Save Changes**

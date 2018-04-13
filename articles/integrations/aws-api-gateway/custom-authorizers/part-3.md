@@ -39,7 +39,7 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 4. Test the custom authorizer locally.
 
-a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your client's type, trust level, or overall end-user experience. 
+a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your application's type, trust level, or overall end-user experience. 
 
 You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 

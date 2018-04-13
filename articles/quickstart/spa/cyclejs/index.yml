@@ -11,13 +11,13 @@ image: /media/platforms/cyclejs.svg
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/cyclejs/dependencies
-  setup: client-platforms/cyclejs/setup
-  configure: client-platforms/cyclejs/configure
-  securize: client-platforms/cyclejs/securize
-  query: client-platforms/cyclejs/query
-  use: client-platforms/cyclejs/use
-  logout: client-platforms/cyclejs/logout
+  dependencies: application-platforms/cyclejs/dependencies
+  setup: application-platforms/cyclejs/setup
+  configure: application-platforms/cyclejs/configure
+  securize: application-platforms/cyclejs/securize
+  query: application-platforms/cyclejs/query
+  use: application-platforms/cyclejs/use
+  logout: application-platforms/cyclejs/logout
 seo_alias: cyclejs
 default_article: 01-login
 articles:

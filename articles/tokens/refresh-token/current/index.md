@@ -10,10 +10,10 @@ Usually, a user will need a new Access Token only after the previous one expires
 
 Refresh Tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh Tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
-::: panel-warning OIDC-conformant clients
-The behaviour in this document is applicable to [OIDC-conformant clients](/api-auth/tutorials/adoption/oidc-conformant). A client can be configured as OIDC-conformant in two ways:
+::: panel-warning OIDC-conformant applications
+The behaviour in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). An application can be configured as OIDC-conformant in two ways:
 
-1. By enabling the **OIDC Conformant** flag for a Client
+1. By enabling the **OIDC Conformant** flag for an Application
 2. By passing an `audience` to the `/authorize` endpoint
 
 For more information on our authentication pipeline, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
@@ -37,7 +37,7 @@ Another safeguard is that the API should allow offline access. This is configure
 
 ## Get a Refresh Token
 
-To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
+To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
 For example, if you are using [Authorization Code Grant](/api-auth/grant/authorization-code), the authentication request would look like the following:
 
@@ -51,7 +51,7 @@ https://${account.namespace}/authorize?
     state={OPAQUE_VALUE}
 ```
 
-Once the user authenticates successfully, the client will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an Access Token using the `/oauth/token` endpoint.
+Once the user authenticates successfully, the application will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an Access Token using the `/oauth/token` endpoint.
 
 ```har
 {
@@ -77,7 +77,7 @@ The response should contain an Access Token and a Refresh Token.
 }
 ```
 
-If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential clients](/clients/client-types#confidential-clients). 
+If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications). 
 
 ::: warning
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
@@ -116,7 +116,7 @@ To refresh your token, using the `refresh_token` you already got during authoriz
 Where:
 - `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token use `refresh_token`.
 - `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential clients](/clients/client-types#confidential-clients).
+- `client_secret` (optional): Your application's Client Secret. Only required for [confidential applications](/applications/application-types#confidential-applications).
 - `refresh_token`: The Refresh Token to use.
 
 The response will include a new Access Token, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new ID Token will be in the response as well.
@@ -140,7 +140,7 @@ You should only ask for a new token if the Access Token has expired or you want 
 Since Refresh Tokens never expire it is important to be able to revoke them in case they get compromised.
 
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries.
-Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, client, and audience will be revoked**.
+Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
 
 You can revoke a Refresh Token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
 
@@ -148,7 +148,7 @@ You can revoke a Refresh Token either by posting a request to [the Authenticatio
 
 To revoke a Refresh Token you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
-The API first validates the client credentials and then verifies whether the token was issued to the client making the revocation request.  If this validation fails, the request is refused and the client is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Note that each revocation request invalidates all the tokens that have been issued for the same authorization grant.
+The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Note that each revocation request invalidates all the tokens that have been issued for the same authorization grant.
 
 ```har
 {
@@ -174,14 +174,14 @@ Where:
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The client should match the one the Refresh Token was issued for. |
-| `client_secret` | Your application's Client Secret. Required for [confidential clients](/clients/client-types#confidential-clients). |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The application should match the one the Refresh Token was issued for. |
+| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/application-types#confidential-applications). |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
-The client should match the one the Refresh Token was issued for.
+The application should match the one the Refresh Token was issued for.
 
 ::: panel Revoke a token without the Client Secret
-For clients that cannot keep the Client Secret safe (for example, native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret but the client itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > client Settings](${manage_url}/#/clients/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+For applications that cannot keep the Client Secret safe (for example, native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > Application Settings](${manage_url}/#/applications/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
 If the request is valid, the Refresh Token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
@@ -197,9 +197,9 @@ The possible responses are:
 
 | HTTP Status | Description |
 | --- | --- |
-| 200 | The Refresh Token is revoked, does not exist, or was not issued to the client making the revocation request. The response body is empty. |
+| 200 | The Refresh Token is revoked, does not exist, or was not issued to the application making the revocation request. The response body is empty. |
 | 400 | The required parameters were not sent in the request (`"error": "invalid_request"`). |
-| 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
+| 401 | The request is not authorized (`"error": "invalid_client"`). Check that the application credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
 ### Use the Dashboard
 
@@ -207,7 +207,7 @@ When you revoke a Refresh Token using the dashboard, you have to revoke the user
 
 To do so, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
-Select the *Authorized Applications* tab. This page lists all the clients to which the user has authorized access. Revoking an authorized application revokes also its associated Refresh Tokens.
+Select the *Authorized Applications* tab. This page lists all the applications to which the user has authorized access. Revoking an authorized application revokes also its associated Refresh Tokens.
 
 To revoke the user's access to an authorized application, and hence invalidate the Refresh Token, click **Revoke**.
 

@@ -30,7 +30,7 @@ If you want to use single sign on, you should use universal login rather than an
 
 This behavior occurs without the need for any modification to the login page itself. This is a simple two step process:
 
-1. Enable SSO for the client in the [Dashboard](${manage_url}) (Go to the Client's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
+1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note 
@@ -73,7 +73,7 @@ In order to get started customizing the login page, you'll first want to choose 
 
 You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the login page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
+All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the application or connection. Remember that the login page customizations are per **tenant** rather than per application. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
 #### Parameters for the Authorize Endpoint
 
@@ -89,10 +89,10 @@ The below examples assume that you are using [Auth0.js](/libraries/auth0js) with
 
 ##### Callback URL
 
-Once authentication has been performed using universal login, your user will then be redirected to the default callback URL set in your [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings). You can also pass a specific `redirect_uri` option to `authorize`, and access it within the login page editor by referring to `config.callbackURL`.
+Once authentication has been performed using universal login, your user will then be redirected to the default callback URL set in your [Application's settings page](${manage_url}/#/applications/${account.clientId}/settings). You can also pass a specific `redirect_uri` option to `authorize`, and access it within the login page editor by referring to `config.callbackURL`.
 
 ::: note
-Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings).
+Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Application's settings page](${manage_url}/#/applications/${account.clientId}/settings).
 :::
 
 ```js
@@ -103,13 +103,13 @@ webAuth.authorize({
 
 ## Configure Multiple Pages by Using Separate Tenants
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each client that requires a different hosted page. 
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page. 
 
 In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
 
 Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
 
-Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of clients, users, settings, and so on as these things are not shared between tenants.
+Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
 
 ### Creating New Tenants
 
@@ -117,9 +117,9 @@ If your use case requires separate sets of custom pages, let's see how you would
 
 If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
 
-- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one login page  which these clients will all share.
-- Create a second tenant, configure a new client for `app4`, and configure the login page for this client.
-- Create a third tenant, configure a new client for `app5`, and configure the login page for this client.
+- If you already have an account, you have a tenant configured. Configure three applications under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one login page  which these applications will all share.
+- Create a second tenant, configure a new application for `app4`, and configure the login page for this application.
+- Create a third tenant, configure a new application for `app5`, and configure the login page for this application.
 
 To create a new tenant go to the [Dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
 

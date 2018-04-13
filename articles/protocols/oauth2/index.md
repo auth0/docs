@@ -24,9 +24,9 @@ By default, Auth0 generates Access Tokens, for [API Authorization scenarios](/ap
 Auth0 also generates opaque Access Tokens for the (deprecated) [Management API v1](/api/management/v1).
 :::
 
-The permissions represented by the Access Token, in OAuth 2.0 terms are known as **scopes**. When a client authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes.
+The permissions represented by the Access Token, in OAuth 2.0 terms are known as **scopes**. When a application authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes.
 
-For example, a Contacts API may accept three different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When a client asks the API to create a new contact, then the Access Token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the Access Token should contain the `delete:contacts` scope.
+For example, a Contacts API may accept three different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When an application asks the API to create a new contact, then the Access Token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the Access Token should contain the `delete:contacts` scope.
 
 For more information refer to [Scopes](/scopes).
 
@@ -39,7 +39,7 @@ In any OAuth 2.0 flow we can identify the following roles:
 
 - **Resource Server**: the server hosting the protected resources. This is the API you want to access.
 
-- **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
+- **Application**: the app requesting access to a protected resource on behalf of the Resource Owner.
 
 - **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
 
@@ -50,22 +50,22 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 ![Generic OAuth Flow](/media/articles/protocols/oauth2-generic-flow.png)
 
-1. The Client asks for authorization from the Resource Owner in order to access the resources.
+1. The Application asks for authorization from the Resource Owner in order to access the resources.
 
-1. Provided that the Resource Owner authorizes this access, the Client receives an **Authorization Grant**. This is a credential representing the Resource Owner's authorization.
+1. Provided that the Resource Owner authorizes this access, the Application receives an **Authorization Grant**. This is a credential representing the Resource Owner's authorization.
 
-1. The Client requests an **Access Token** by authenticating with the Authorization Server and giving the Authorization Grant.
+1. The Application requests an **Access Token** by authenticating with the Authorization Server and giving the Authorization Grant.
 
-1. Provided that the Client is successfully authenticated and the Authorization Grant is valid, the Authorization Server issues an Access Token and sends it to the Client.
+1. Provided that the Application is successfully authenticated and the Authorization Grant is valid, the Authorization Server issues an Access Token and sends it to the Application.
 
-1. The Client requests access to the protected resource by the Resource Server, and authenticates by presenting the Access Token.
+1. The Application requests access to the protected resource by the Resource Server, and authenticates by presenting the Access Token.
 
-1. Provided that the Access Token is valid, the Resource Server serves the Client's request.
+1. Provided that the Access Token is valid, the Resource Server serves the Application's request.
 
 
 ## Authorization Grant Types
 
-The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an Access Token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your client.
+The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an Access Token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your application.
 
 - [Authorization Code](/api-auth/grant/authorization-code): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/api-auth/grant/authorization-code-pkce).
 
@@ -90,17 +90,17 @@ The Authorization endpoint is used to interact with the resource owner and get t
 
 The request parameters of the Authorization endpoint are:
 - `response_type`: Tells the authorization server which grant to execute. Refer to the [How Response Type Works paragraph](#how-response-type-works) for details.
-- `client_id`: The id of the client application that asks for authorization.
+- `client_id`: The id of the application that asks for authorization.
 - `redirect_uri`: Holds a URL. A successful response from this endpoint results in a redirect to this URL.
-- `scope`: A space-delimited list of permissions that the client application requires.
-- `state`: An opaque value, used for security purposes. If this request parameter is set in the request, then it is returned to the client application as part of the `redirect_uri`.
+- `scope`: A space-delimited list of permissions that the application requires.
+- `state`: An opaque value, used for security purposes. If this request parameter is set in the request, then it is returned to the application as part of the `redirect_uri`.
 
 #### How Response Type works
 
-This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the client wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
+This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
 
 ::: panel Authorization Code vs Access Token
-An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which client application.
+An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
 :::
 
 In order to inform the authorization server which grant type to use, the `response_type` request parameter is used:
@@ -156,15 +156,15 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
   </html>
   ```
 
-- `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Client's settings](${manage_url}/#/clients/${account.clientId}/settings).
+- `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Application's settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ### Token Endpoint
 
-The Token endpoint is used by the client in order to get an [Access Token](/tokens/access-token) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [Access Token](/tokens/access-token) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
 
-In the [Authorization Code](/api-auth/grant/authorization-code) grant, the client exchanges the authorization code it got from the Authorization endpoint for an Access Token.
+In the [Authorization Code](/api-auth/grant/authorization-code) grant, the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 
-In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the client authenticates using a set of credentials and then gets an Access Token.
+In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the application authenticates using a set of credentials and then gets an Access Token.
 
 ## Keep reading
 

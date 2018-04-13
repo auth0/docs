@@ -9,9 +9,9 @@ image: /media/platforms/jquery.svg
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/jquery/dependencies
-  setup: client-platforms/jquery/setup
-  use: client-platforms/jquery/use
+  dependencies: application-platforms/jquery/dependencies
+  setup: application-platforms/jquery/setup
+  use: application-platforms/jquery/use
 seo_alias: jquery
 default_article: dashboard-default
 articles:

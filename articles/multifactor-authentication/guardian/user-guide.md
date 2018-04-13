@@ -10,7 +10,7 @@ This page will help to explain how to sign up and log in using the Guardian app 
 
 ## Enroll for MFA
 
-Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
+Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to an application protected by MFA. Additionally, administrators have the ability to [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
 
 If you choose to enroll from the Guardian widget, then following your initial authentication you will see the option to download the Auth0 Guardian app from the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). 
 
