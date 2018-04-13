@@ -10,7 +10,7 @@ For some use cases you could use [ID Tokens](/tokens/id-token) in order to call 
 
 This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2).
 
-The grace period for this migration starts on **March 31, 2018** and at the moment is open-ended. This means that you will still be able to use ID Tokens to access these endpoints. When a mandatory opt-in date is set for this migration customers will be notified beforehand.
+The grace period for this migration started on **March 31, 2018** and at the moment is open-ended. This means that you will still be able to use ID Tokens to access these endpoints. When a mandatory opt-in date is set for this migration customers will be notified beforehand.
 
 However, customers are encouraged to migrate to Access Tokens. This article will help you with that. 
 
