@@ -16,8 +16,8 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 
 There are three ways to authenticate with this API: 
 - with an OAuth2 Access Token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
-- with your Client ID and Client Secret credentials
-- only with your Client ID
+- with your Client Id and Client Secret credentials
+- only with your Client Id
 
 Each endpoint supports only one option.
 
@@ -25,13 +25,13 @@ Each endpoint supports only one option.
 
 In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
-### Client ID and Client Secret
+### Client Id and Client Secret
 
-In this case, you have to send your Client ID and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential applications (such as applications that are able to hold credentials in a secure way without exposing them to unauthorized parties).
+In this case, you have to send your Client Id and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential clients (such as clients that are able to hold credentials in a secure way without exposing them to unauthorized parties).
 
-### Client ID
+### Client Id
 
-For public applications (such as applications that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client ID. An example is the [Implicit Grant](#implicit-grant).
+For public clients (such as clients that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client Id. An example is the [Implicit Grant](#implicit-grant).
 
 ## Parameters
 
@@ -77,7 +77,7 @@ We have preconfigured a collection that you can [download](https://app.getpostma
 
 ## Errors
 
-When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your applications can tell what the problem is.
+When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your client can tell what the problem is.
 
 If you get an `4xx` HTTP response code, then you can assume that there is a bad request from your end. In this case, check the [Standard Error Responses](#standard-error-responses) for more context. 
 

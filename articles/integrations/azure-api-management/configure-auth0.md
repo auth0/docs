@@ -6,15 +6,15 @@ toc: true
 
 To use Auth0 as an [OAuth 2.0 authorization server](/protocols/oauth2#oauth-roles), you'll need to execute the following setup steps:
 
-1. Create an Auth0 API and Machine to Machine Application.
+1. Create an Auth0 API and Non Interactive Client.
 2. Create a Connection to store your users.
 3. Create a user so that you can test your integration when you've finished setting it up.
 
-## Step 1: Create an API and Machine to Machine Application
+## Step 1: Create an API and Non Interactive Client
 
-An API is an entity that represents an external resource that's capable of accepting and responding to requests made by applications. You'll need to create an [Auth0 API](/apis) using the Management Dashboard to represent the API managed by Azure's API Management Service that you want secured by Auth0.
+An API is an entity that represents an external resource that's capable of accepting and responding to requests made by clients. You'll need to create an [Auth0 API](/apis) using the Management Dashboard to represent the API managed by Azure's API Management Service that you want secured by Auth0.
 
-You'll also need a [Machine to Machine Application](/applications#application-types), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated Machine to Machine Application by default.
+You'll also need a [Non Interactive Client](/clients#client-types), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated non interactive client by default.
 
 To begin, you'll need to log into the Auth0 Management Dashboard. Go the [APIs](${manage_url}/#/apis) and click **Create API**.
 
@@ -32,13 +32,13 @@ When complete, click **Create**.
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/api-config.png)
 
-When your API is ready, you'll be shown the **Quick Start** page for the API. Switch over to the **Machine to Machine Applications** tab. You'll see that Auth0 has also created and enabled a [Machine to Machine Application](/applications) for use with your API.
+When your API is ready, you'll be shown the **Quick Start** page for the API. Switch over to the **Non Interactive Clients** tab. You'll see that Auth0 has also created and enabled a non interactive [client](/clients) for use with your API.
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/api-nic.png)
 
 ## Step 2: Create a Connection
 
-After you've created your API and your Application, you'll need to create a [Connection](/applications/connections), which is a source of users. For the purposes of this example, we'll create a [Database Connection](/connections/database).
+After you've created your API and your Client, you'll need to create a [Connection](/clients/connections), which is a source of users. For the purposes of this example, we'll create a [Database Connection](/connections/database).
 
 ::: note
 If you already have a set of users, you may [import them](/extensions/user-import-export) or create a [custom database connection](https://auth0.com/docs/connections/database/mysql).
@@ -54,11 +54,11 @@ The only thing you'll need to provide at this time is a descriptive **Name** for
 
 Click **Create** to proceed.
 
-### Enable the Connection for Your Application
+### Enable the Connection for Your Client
 
-Once Auth0 has created your Connection, you'll be redirected to your Connection's **Settings** page. Switch over to the **Applications** tab, where you'll see a full list of all the Applications you have with this account. You'll need to enable the Connection for use with the Machine to Machine Application that you're using with your API.
+Once Auth0 has created your Connection, you'll be redirected to your Connection's **Settings** page. Switch over to the **Clients** tab, where you'll see a full list of all the Clients you have with this account. You'll need to enable the Connection for use with the Non Interactive Client that you're using with your API.
 
-![](/media/articles/integrations/azure-api-mgmt/auth0/connection-application.png)
+![](/media/articles/integrations/azure-api-mgmt/auth0/connection-client.png)
 
 ## Step 3: Create a User
 

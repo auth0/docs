@@ -14,7 +14,7 @@ The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/Applications/Application-grant-types) is set appropriately
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Create a Code Verifier
@@ -157,9 +157,9 @@ Where:
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
-* `client_id`: Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/Applications/${account.clientId}/settings).
+* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-* `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/Applications/${account.clientId}/settings).
+* `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 * `code_challenge`: Generated challenge from the `code_verifier`.
 
@@ -217,7 +217,7 @@ The response contains `access_token`, `refresh_token`, `id_token`, and `token_ty
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
 
 ::: warning
-The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` in the Dashboard.
+The Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
 :::
 
 ## 5. Call the API
@@ -257,7 +257,7 @@ This is a series of tutorials that describe a scenario for a fictitious company.
 
 ::: next-steps
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application Authentication for Mobile & Desktop Apps](/Application-auth/mobile-desktop)
+- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)

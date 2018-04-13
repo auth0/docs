@@ -35,14 +35,14 @@ All endpoints in this explorer, start with `https://{extension_url}`. This is th
 
 When you [enabled API access for your tenant](/extensions/authorization-extension/v2#enable-api-access), an API was created at your [dashboard](${manage_url}), which you can use to access the Authorization Extension API.
 
-To do so you will have to configure a machine to machine application which will have access to this API and which you will use to get an [Access Token](/tokens/access-token).
+To do so you will have to configure a non interactive client which will have access to this API and which you will use to get an [Access Token](/tokens/access-token).
 
-Follow these steps to setup your application (you will have to do this only once):
+Follow these steps to setup your client (you will have to do this only once):
 
-1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new application of type `Machine to Machine`.
+1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new client of type `Non Interactive`.
 2. Go to the [Dashboard > APIs](${manage_url}/#/apis) and select the `auth0-authorization-extension-api`.
-3. Go to the `Machine to Machine Applications` tab, find the application you created at the first step, and toggle the `Unauthorized` to `Authorized`.
-4. Select the [scopes](/scopes#api-scopes) that should be granted to your application, based on the endpoints you want to access. For example, `read:users` to [get all users](#get-all-users).
+3. Go to the `Non Interactive Clients` tab, find the client you created at the first step, and toggle the `Unauthorized` to `Authorized`.
+4. Select the [scopes](/scopes#api-scopes) that should be granted to your client, based on the endpoints you want to access. For example, `read:users` to [get all users](#get-all-users).
 
 In order to get an `access_token` you need to `POST` to the `/oauth/token` endpoint. You can find detailed instructions [here](/api-auth/tutorials/client-credentials#ask-for-a-token).
 

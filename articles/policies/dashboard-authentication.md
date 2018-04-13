@@ -17,7 +17,7 @@ To enable multifactor authentication for your account:
 2. Scroll down to the **Multifactor** section.
 3. Click the **Enroll Your Device Now** link to get started.
 
-The process for setting up each form of authentication is the same as using MFA with an application, [click here for more information on each type of authentication.](/multifactor-authentication)
+The process for setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](/multifactor-authentication)
 
 ### Unenrolling a Device from Multifactor
 

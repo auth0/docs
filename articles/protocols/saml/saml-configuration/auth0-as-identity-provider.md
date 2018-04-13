@@ -49,9 +49,9 @@ You can also refer to [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial) for
 
 If the Service Provider option you've chosen doesn't come with built-in Auth0 support, you can [manually add the configuration](/saml-idp-generic).
 
-Navigate to the [Applications section of the Management Dashboard](${manage_url}/#/applications), find the Application you're working with, and click on **Settings**.
+Navigate to the [Clients section of the Management Dashboard](${manage_url}/#/clients), find the Client you're working with, and click on **Settings**.
 
-![](/media/articles/protocols/saml/saml-configuration/applications.png)
+![](/media/articles/protocols/saml/saml-configuration/clients.png)
 
 Switch over to the **Addons** tab.
 
