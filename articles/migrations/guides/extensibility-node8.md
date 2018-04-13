@@ -9,7 +9,7 @@ toc: true
 The Node 8 runtime will become available to all public cloud customers on **April 17, 2018**.
 :::
 
-Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities
+Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
 
@@ -37,9 +37,7 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 
 If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
-Due to the end of long-term support (LTS) for Node 4, we will be migrating the Webtask runtime to use Node 8.
-
-As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
+Due to the end of long-term support (LTS) for Node 4, we will be migrating the Webtask runtime to use Node 8. As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
 
 However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
@@ -56,7 +54,7 @@ Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenan
 ![Runtime toggle options](/media/articles/migrations/node-runtime2.png)
 
 ::: warning
-Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant to the Node 8 runtime, test your setup, and switch your production tenant only if there are no breaking changes.
+Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant to the Node 8 runtime, test your setup, and switch your production tenant only when you have identified there are no breaking changes.
 :::
 
 ## How to ensure a stable migration
@@ -80,7 +78,7 @@ When using the `/connections` endpoints in the Management API, Custom Database S
 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
-You will need to manually copy over any Hooks-related code that you use.
+You will need to manually copy over any Hooks-related code that you use since they cannot be accessed via the Management API.
 
 ### Migration assistance
 
