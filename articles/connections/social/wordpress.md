@@ -30,7 +30,6 @@ Complete all the fields on the **Create an Application** screen.
 
 |**Field**|**Description**|
 |-|-|
-
 |**Name** | The name of your application|
 |**Description** | The description of your application|
 |**Website URL** | The URL to an informational home page about your application|
