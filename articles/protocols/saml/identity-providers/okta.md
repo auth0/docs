@@ -99,17 +99,17 @@ In the next dialog window, you'll be provided two options. If you are a domain a
 
 ## Enable Access to the Connection
 
-Now that you've created and configured your Connection, you'll need to enable access to the Connection for your Client(s).
+Now that you've created and configured your Connection, you'll need to enable access to the Connection for your Application(s).
 
-Using the [Management Dashboard](${manage_url}), go to the [Clients](${manage_url}/#/clients) to see the list of Clients associated with your Auth0 account.
+Using the [Management Dashboard](${manage_url}), go to the [Applications](${manage_url}/#/applications) to see the list of Applications associated with your Auth0 account.
 
-![Auth0 Clients](/media/articles/saml/identity-providers/okta/clients.png)
+![Auth0 Applications](/media/articles/saml/identity-providers/okta/clients.png)
 
-To enable your Connection for a given Client, click **Connections** on its associated row.
+To enable your Connection for a given Application, click **Connections** on its associated row.
 
-Scroll down to the *Enterprise* section, and click the slider to enable your Okta Connection for the associated Client.
+Scroll down to the *Enterprise* section, and click the slider to enable your Okta Connection for the associated Application.
 
-![Enable Connection for a Client](/media/articles/saml/identity-providers/okta/enable-connection.png)
+![Enable Connection for an Application](/media/articles/saml/identity-providers/okta/enable-connection.png)
 
 ## Test your Connection
 
@@ -133,11 +133,11 @@ Okta provides an Application Portal/Launcher for their users. If you would like 
 
 Be sure to change `YOUR_CONNECTION_NAME` to the name of your Auth0 Connection.
 
-Lastly, you'll need to select the Client to which the Auth0 redirects after it validates the SAML Response.
+Lastly, you'll need to select the Application to which the Auth0 redirects after it validates the SAML Response.
 
 Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider**. On the row associated with Okta, click **Settings**, and switch to the **IdP-Initiated SSO** screen.
 
-Set the **Default Client** and indicate that the **Response Protocol** is *SAML*.
+Set the **Default Application** and indicate that the **Response Protocol** is *SAML*.
 
 ![Enable IDP](/media/articles/saml/identity-providers/okta/enable-idp-connection.png)
 

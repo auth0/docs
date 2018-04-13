@@ -9,7 +9,7 @@ Auth0 recommends the following practices to help ensure the security of your end
 * Protect client secrets and keys
 * Protect Management Dashboard credentials, and require multifactor authentication for access to the Dashboard
 * Review the list of administrators for the Dashboard on a regular basis and remove outdated entries
-* Review the list of connections and clients associated with your Auth0 tenants and remove outdated entries
+* Review the list of connections and applications associated with your Auth0 tenants and remove outdated entries
 * Ensure that Dashboard administrators use corporate credentials that can be easily revoked if necessary, *not* personal credentials such as a personal email account
 * Remove accounts for terminated employees promptly
 * Ensure that administrators use devices with mandatory screen locking

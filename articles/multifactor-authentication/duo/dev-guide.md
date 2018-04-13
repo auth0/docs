@@ -82,7 +82,7 @@ Replace the three fields in the code snippet, and click **SAVE**.
 ### Use Duo only for Specified Users
 
 #### Based on your Application
-To use Duo for logins only for the specified clients, replace `REPLACE_WITH_YOUR_CLIENT_ID` field with the Client ID of the application you wish to use. You can find your Client ID(s) under the [Applications](${manage_url}/#/applications) section of the dashboard and then clicking the application you wish to use.
+To use Duo for logins only for the specified applications, replace `REPLACE_WITH_YOUR_CLIENT_ID` field with the Client ID of the application you wish to use. You can find your Client ID(s) under the [Applications](${manage_url}/#/applications) section of the dashboard and then clicking the application you wish to use.
 
 To use Duo for users of all your applications, you can comment or remove the sections regarding `CLIENTS_WITH_MFA`.
 

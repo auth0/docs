@@ -28,6 +28,6 @@ Default Username (Optional) | Default username assigned to anyone connecting fro
 
 Click __Save__.
 
-Next you will see a list of your registered [clients](${manage_url}/#/clients) with the option to enable the connection for any of them.
+Next you will see a list of your registered [applications](${manage_url}/#/applications) with the option to enable the connection for any of them.
 
 That's it! You are now ready to test and start using your connection.

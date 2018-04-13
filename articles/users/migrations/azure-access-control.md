@@ -22,11 +22,11 @@ In this article, you'll learn how to migrate from Azure Access Control (ACS) to 
 
 Start by [signing up for Auth0](https://auth0.com/signup). After creating your account, you'll be prompted to create a new [tenant](/getting-started/the-basics#account-and-tenants). Tenants in Auth0 are like namespaces in ACS: `${account.namespace}`.
 
-## Create a client
+## Create an application
 
-In order for an application to use Auth0 it must be registered as a [client](/docs/clients). Create a new client for your application on the [Dashboard](https://manage.auth0.com/#/clients).
+In order for an application to use Auth0 it must be registered as a [application](/docs/applications). Create a new application on the [Dashboard](https://manage.auth0.com/#/applications).
 
-![Create Client window](/media/articles/applications/create-client-popup.png)
+![Create Application window](/media/articles/applications/create-application-popup.png)
 
 ## Add Auth0 to your identity provider
 
@@ -46,7 +46,7 @@ Next, either enter your WS-Federation server URL in the __ADFS URL__ field or up
 
 ![New Connection](/media/articles/connections/enterprise/ws-fed/new.png)
 
-After saving the new connection you'll see a list of your registered [clients](${manage_url}/#/clients). Enable the connection for your client.
+After saving the new connection you'll see a list of your registered [applications](${manage_url}/#/applications). Enable the connection for your application.
 
 ## Update your application
 

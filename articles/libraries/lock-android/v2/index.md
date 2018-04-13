@@ -8,7 +8,7 @@ mobileimg: media/articles/libraries/lock-android.png
 # Lock Android: Getting Started
 
 ::: warning
-Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [universal login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
+Username/Email & Password authentication from native applications is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [universal login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Application Grant Types](/applications/application-grant-types) for more information.
 :::
 
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
@@ -43,7 +43,7 @@ You need to fill in a few settings in your [Auth0 Dashboard](${manage_url}) befo
 
 ### Callback URL
 
-Head over to your Auth0 Dashboard and go to the client's settings. Add the following URL to the client's "Allowed Callback URLs"
+Head over to your Auth0 Dashboard and go to the application's settings. Add the following URL to the application's "Allowed Callback URLs"
 
 ```text
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -189,7 +189,7 @@ The results of the AuthenticationCallback are in a `credentials` object. This ob
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Application / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
 
 This is an example of what your `Activity` should look:
 
@@ -249,7 +249,7 @@ That's it! Lock will handle the rest for you.
 ### Android App Links - Custom Scheme
 
 The callback URI scheme used in this article is `https`. This works best for Android Marshmallow (API 23) or newer if you're using [Android App Links](https://developer.android.com/training/app-links/index.html), but in previous Android versions this may show the intent chooser dialog prompting the user to chose either your application or the browser to resolve the intent. You can change this behavior by using a custom unique scheme so that the OS opens the link directly with your app.
-Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` value. Then go to your client's dashboard and update the "Allowed callback URL" value to match the new scheme. Now call `withScheme()` in the Lock.Builder and pass the custom value so that Lock requests the correct redirect URI.
+Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` value. Then go to your application's dashboard and update the "Allowed callback URL" value to match the new scheme. Now call `withScheme()` in the Lock.Builder and pass the custom value so that Lock requests the correct redirect URI.
 
 ## Implementing Passwordless authentication with Lock for Android
 

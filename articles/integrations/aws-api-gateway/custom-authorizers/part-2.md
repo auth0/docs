@@ -13,10 +13,10 @@ In this part of the AWS API Gateway tutorial, we will show you how to import and
 
 * Import an API into API Gateway
 * Test an API import
-* Deploy an API for use with any front-end clients
+* Deploy an API for use with any front-end applications
 * Test an API deployment
 
-In later parts of this tutorial, we will show how to secure the endpoints of this API using custom authorizers that accept Auth0 Access Tokens, as well as how we can integrate this API with our front-end JavaScript client.
+In later parts of this tutorial, we will show how to secure the endpoints of this API using custom authorizers that accept Auth0 Access Tokens, as well as how we can integrate this API with our front-end JavaScript application.
 
 ## Import and Configure the Pets API
 
@@ -57,7 +57,7 @@ As an example, click **POST** under `/pets`. This brings up the **Method Executi
 
 We can use this area to test the API we've created. 
 
-Click **Test** (shown on the **Client** sliver located in the middle of the page).
+Click **Test** (shown on the **Application** sliver located in the middle of the page).
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-5b.png)
 
@@ -83,7 +83,7 @@ You'll see the results of the test at the right side of the page.
 
 ## Deploy the API
 
-The test we just completed was done using the API Gateway console. To use the API with a different client, you'll need to deploy the API to a stage. You can do this via the **Actions** menu, which offers the **Deploy API** option.
+The test we just completed was done using the API Gateway console. To use the API with a different application, you'll need to deploy the API to a stage. You can do this via the **Actions** menu, which offers the **Deploy API** option.
 
 You'll be asked to provide the following values:
 
@@ -132,7 +132,7 @@ In Part 2 of the AWS API Gateway tutorial, we covered how to:
 
 * Import an API into API Gateway
 * Test an API import
-* Deploy an API for use with any front-end clients
+* Deploy an API for use with any front-end applications
 * Test an API deployment
 
 Now that we have a fully functional API that's managed by API Gateway, we'll...

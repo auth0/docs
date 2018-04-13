@@ -97,7 +97,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 If you have just executed the [Authorization Code Grant](#authorization-code-grant) you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
 
-1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test.
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -188,7 +188,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 If you have just executed the [Authorization Code Grant (PKCE)](#authorization-code-grant-pkce-) you should already have the **Authorization Code** and **Code Verifier** fields, of the *OAuth2 / OIDC* tab, set. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
 
-1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -260,7 +260,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client Id and a Client Secret).
+This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 
@@ -276,7 +276,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -360,7 +360,7 @@ Content-Type: application/json
 This flow should only be used from highly trusted applications that **cannot do redirects**. If you can use redirect-based flows from your apps we recommend using the [Authorization Code Grant](#authorization-code-grant) instead.
 :::
 
-This is the OAuth 2.0 grant that highly trusted apps use in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the client is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+This is the OAuth 2.0 grant that highly trusted apps use in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
 
 
 ### Request Parameters
@@ -373,7 +373,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
-| `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+| `scope` | String value of the different scopes the application is asking for. Multiple scopes are separated with whitespace. |
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 ### Request headers
@@ -386,7 +386,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -395,20 +395,20 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 
 ### Remarks
 
-- The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
-- If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the client in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
+- The scopes issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the application in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Applications](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
 
 ### More Information
-- [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
+- [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 
 ## Resource Owner Password and MFA
 
 In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens.
 
-The first step, is to request a challenge based on the challenge types supported by the Client application and the end-user (see next paragraph). This is an optional step, since it is not required if you already know that `otp` is supported.
+The first step, is to request a challenge based on the challenge types supported by the application and the end-user (see next paragraph). This is an optional step, since it is not required if you already know that `otp` is supported.
 
 Next, you have to verify the MFA, using the `/oauth/token` endpoint and the challenge type specified in the first step: an OTP code, a recovery code, or an OOB challenge.
 
@@ -489,7 +489,7 @@ Content-Type: application/json
   "link": "#resource-owner-password-and-mfa"
 }) %>
 
-This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
+This endpoint lets you request a challenge based on the challenge types supported by the application and the end user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
 
 For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
@@ -500,8 +500,8 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 | `mfa_token` <br/><span class="label label-danger">Required</span> | Token got together with `mfa_required` error for Resource Owner Password flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
-| `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
+| `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your application accepts all supported challenge types. |
+| `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your application will accept all supported OOB channels. |
 | `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on __List MFA Authenticators__ below. |
 
 #### Remarks

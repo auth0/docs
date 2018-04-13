@@ -23,7 +23,7 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
 | You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
-| You want to use SAML clients with your custom domain | [Configure your SAML clients](#configure-your-saml-clients) |
+| You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
 | You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis)
 
 ## Universal login
@@ -98,7 +98,7 @@ Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/cust
 
 ## Configure social identity providers
 
-If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/clients/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
+If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/applications/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
@@ -120,9 +120,9 @@ If this is supported, it will prevent you from having to change one or many IdP 
 
 Something else to keep in mind, is that if your Identity Provider is configured to use custom domains, the **Try** button in the Dashboard will **not** work.
 
-## Configure your SAML clients
+## Configure your SAML applications
 
-If you want to use SAML clients with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
 
 ## APIs
 

@@ -96,9 +96,9 @@ php artisan vendor:publish
 
 Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishing complete.` This creates the file `config/laravel-auth0.php` with the following settings:
 
-* `domain` - Your Auth0 tenant domain, found in your Client settings (required)
-* `client_id` - Your Auth0 Client ID, found in your Client settings (required)
-* `client_secret` - Your Auth0 Client Secret, found in your Client settings (required)
+* `domain` - Your Auth0 tenant domain, found in your Application settings (required)
+* `client_id` - Your Auth0 Client ID, found in your Application settings (required)
+* `client_secret` - Your Auth0 Client Secret, found in your Application settings (required)
 * `redirect_uri` - The callback URI for your Laravel application to handle the login response from Auth0; by default this is `APP_URL/auth0/callback` (required)
 * `persist_user` - Should the user information persist in a PHP session? Default is `true`
 * `persist_access_token` - Should the Access Token persist in a PHP session? Default is `false`
@@ -149,7 +149,7 @@ Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 
 
 If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled. 
 
-Now we need to add this URL to the **Allowed Callback URLs** field in the Client settings screen for the Client used with this app. Add the complete URL, like `https://myapp.com/auth0/callback`.
+Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. Add the complete URL, like `https://myapp.com/auth0/callback`.
 
 Lastly, we need to set up how users log in and out of our app. This is handled by redirecting users to Auth0 for the former and clearing out session data for the latter. Let's start by creating a generic route handling controller. In the console:
 
@@ -232,7 +232,7 @@ To test all this out, let's add links to our site to access these routes. If you
 @endif
 ```
 
-Load the homepage of your app and you should see a **Login** link at the top right. If you click on that, you should be redirected to an Auth0 login page for your client. If this does not happen then you should see one of two things:
+Load the homepage of your app and you should see a **Login** link at the top right. If you click on that, you should be redirected to an Auth0 login page for your application. If this does not happen then you should see one of two things:
 
 1. A Laravel debug screen (is `APP_DEBUG` is set to `true`) which, along with the steps above, should help diagnose the issues
 1. An Auth0 error page with more information under the "Technical Details" heading (click **See details for this error**)

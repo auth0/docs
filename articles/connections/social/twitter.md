@@ -2,14 +2,14 @@
 title: Connect your app to Twitter
 connection: Twitter
 image: /media/connections/twitter.png
-description: This page shows you how to connect your Auth0 client to Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This page shows you how to connect your Auth0 application to Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 seo_alias: twitter
 index: 8
 toc: true
 ---
 # Connect your app to Twitter
 
-To connect your Auth0 client to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
+To connect your Auth0 application to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
 
 ## 1. Create a Twitter application
 
@@ -50,14 +50,14 @@ To connect your Auth0 client to Twitter, you will need to generate **Consumer** 
 4. Click **Save**.
 
 ::: panel Twitter Profile Attribute Permissions
-Unlike many social identity providers, Twitter manages profile attribute permissions at the application level. By default, your client will be granted *Read* and *Write* permissions. You can customize these in the **Permissions** section of the [Twitter Application Management](https://apps.twitter.com) page. For more information, see: [Application Permission Model](https://dev.twitter.com/oauth/overview/application-permission-model).
+Unlike many social identity providers, Twitter manages profile attribute permissions at the application level. By default, your application will be granted *Read* and *Write* permissions. You can customize these in the **Permissions** section of the [Twitter Application Management](https://apps.twitter.com) page. For more information, see: [Application Permission Model](https://dev.twitter.com/oauth/overview/application-permission-model).
 :::
 
 ## 4. Enable the connection
 
-1. Go to the **Clients** tab of the Twitter connection on Auth0 and select each of your existing Auth0 clients for which you want to enable this connection:
+1. Go to the **Applications** tab of the Twitter connection on Auth0 and select each of your existing Auth0 applications for which you want to enable this connection:
 
-    ![Enable connection for clients](/media/articles/connections/social/twitter/twitter-api-6.png)
+    ![Enable connection for applications](/media/articles/connections/social/twitter/twitter-api-6.png)
 
 2. Click **Save**.
 

@@ -76,7 +76,7 @@ In this sample we are not interested in user registration. So we are leaving tha
 ## Configuring Callback URLs
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your website. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your website. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
 
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>

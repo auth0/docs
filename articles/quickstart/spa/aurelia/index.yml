@@ -12,9 +12,9 @@ image:
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/aurelia/dependencies
-  setup: client-platforms/aurelia/setup
-  use: client-platforms/aurelia/use
+  dependencies: application-platforms/aurelia/dependencies
+  setup: application-platforms/aurelia/setup
+  use: application-platforms/aurelia/use
 seo_alias: aurelia
 default_article: dashboard-default
 articles:

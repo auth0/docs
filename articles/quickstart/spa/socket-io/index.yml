@@ -11,9 +11,9 @@ image: /media/platforms/socketio.svg
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/socket-io/dependencies
-  setup: client-platforms/socket-io/setup
-  use: client-platforms/socket-io/use
+  dependencies: application-platforms/socket-io/dependencies
+  setup: application-platforms/socket-io/setup
+  use: application-platforms/socket-io/use
 seo_alias: socket-io
 default_article: 01-login
 articles:

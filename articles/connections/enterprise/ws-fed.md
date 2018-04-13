@@ -30,6 +30,6 @@ If you configure the connection with a WS-Federation server URL, Auth0 will retr
 
 Click __Save__.
 
-Next you will see a list of your registered [clients](${manage_url}/#/clients) with the option to enable the new connection for any of them.
+Next you will see a list of your registered [applications](${manage_url}/#/applications) with the option to enable the new connection for any of them.
 
 That's it! You are now ready to test and start using your connection.
