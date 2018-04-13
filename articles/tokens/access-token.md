@@ -20,7 +20,7 @@ Auth0 currently generates Access Tokens in two formats: as opaque strings or as 
 This depends on the value that the **audience** parameter has in the [authorization request](/api/authentication#authorize-client).
 
 ::: panel What is the audience?
-The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token--which is the intended *audience* of this token. If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token (in other words, which is the intended *audience* of this token). If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
 * If the **audience** is set to `${account.namespace}/userinfo`, then the Access Token will be an opaque string.
