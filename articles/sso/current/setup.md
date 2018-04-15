@@ -13,13 +13,13 @@ For information on SSO Integrations, check out the [Single Sign On Integrations]
 
 ## 1. Configure the Connection
 
-Before enabling SSO on a [Client](/clients), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
+Before enabling SSO on a [Application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers ensure the Connection is not using [developer keys](/connections/devkeys).
+For Social Identity Providers ensure the Connection is not using [developer keys](/connections/social/devkeys).
 
-## 2. Enable SSO for the Client
+## 2. Enable SSO for the Application
 
-Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client to enable SSO on.
+Navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application to enable SSO on.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
@@ -28,12 +28,12 @@ Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 
 ::: note
-You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+You can also set the Application's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
 ## 3. Configure SSO Session Length
 
-When the SSO flag is set for a Client, Auth0 maintains an SSO session for any user authenticating via that Client. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+When the SSO flag is set for an Application, Auth0 maintains an SSO session for any user authenticating via that Application. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
 
 To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
@@ -43,7 +43,7 @@ SSO session cookies expire after **3 days** of inactivity. For example, if no ap
 
 The session inactivity duration (3 days) and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
 
-## 4. Check the User's SSO Status from the Client
+## 4. Check the User's SSO Status from the Application
 
 Whenever you need to determine the user's SSO status, you'll need to check the following:
 

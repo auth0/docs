@@ -1,5 +1,6 @@
 title: Ember
-community: true
+author:
+  community: true
 alias:
   - ember
   - emberjs

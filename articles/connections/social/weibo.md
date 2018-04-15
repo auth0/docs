@@ -55,9 +55,9 @@ Enter your **App Key** and **App Secret** from Weibo, select your **Attributes**
 
 ![Paste your App Key and App Secret](/media/articles/connections/social/weibo/enter-keys.png)
 
-Next click on the **Clients** tab next to **Settings** and enable which of your clients will be able to use this connection.
+Next click on the **Applications** tab next to **Settings** and enable which of your applications will be able to use this connection.
 
-![Enable the Clients](/media/articles/connections/social/weibo/enable-clients.png)
+![Enable the Applications](/media/articles/connections/social/weibo/enable-clients.png)
 
 When finished, click **SAVE**.
 

@@ -2,6 +2,10 @@ title: iOS Objective-C
 language:
   - Objective-C
 image: /media/platforms/ios.png
+author:
+  name: Martin Walsh
+  email: martin.walsh@auth0.com
+  community: false
 tags:
   - quickstart
 alias:

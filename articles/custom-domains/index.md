@@ -5,9 +5,13 @@ toc: true
 ---
 # Custom Domains
 
-Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
+Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain.
+
+For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
 Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login](/hosted-pages/login).
+
+Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
 
 ## Prerequisites
 
@@ -17,12 +21,12 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
 * Database and Social connections
 * Lock 11 with Cross Origin Authentication
-* SAML Connections and Clients
+* SAML Connections and Applications
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -110,7 +114,7 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 
 2. **What about support for other features?**
   
-We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
+We are planning to support several additional features in the future, including WS-Fed applications and enterprise and Passwordless connections.
 
 ## Troubleshooting
 

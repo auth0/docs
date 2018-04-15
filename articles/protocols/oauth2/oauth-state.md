@@ -21,7 +21,7 @@ By using the state parameter to hold a value for verification, malicious request
 Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
 :::
 
-1. Before redirecting a request to the [IdP](/identityproviders), have the client generate a random string.
+1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
 
 ```
 xyzABC123
@@ -41,7 +41,7 @@ var encodedString = Base64.encode(string);
 tenant.auth0.com/authorize?...&state=encodedString
 ```
 
-4. After the request is sent, the user is redirected back to the client by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
+4. After the request is sent, the user is redirected back to the application by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```
 /login/callback?...&state=encodedString

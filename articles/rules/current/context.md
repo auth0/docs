@@ -9,7 +9,7 @@ The following properties are available for the `context` object:
 
 * `clientID`: the client id of the application the user is logging in to.
 * `clientName`: the name of the application (as defined on the dashboard).
-* `clientMetadata`: is an object, whose keys and values are strings, for holding other client properties.
+* `clientMetadata`: is an object, whose keys and values are strings, for holding other application properties.
 * `connection`: the name of the connection used to authenticate the user (such as: `twitter` or `some-google-apps-domain`)
 * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), and so on.
 * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
@@ -25,7 +25,7 @@ The following properties are available for the `context` object:
   - `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365
   - `delegation`: when calling the [Delegation endpoint](/api/authentication#delegation)
   - `redirect-callback`: when a redirect rule is resumed
-* `stats`: an object containing specific user stats, like `stats.loginsCount`.
+* `stats`: an object containing specific user stats, like `stats.loginsCount`. Note that this counter does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`)
 * `sso`: this object will contain information about the SSO transaction (if available)
   - `with_auth0`: when a user signs in with SSO to an application where the `Use Auth0 instead of the IdP to do Single Sign On` setting is enabled.
   - `with_dbconn`: an SSO login for a user that logged in through a database connection.
@@ -34,7 +34,7 @@ The following properties are available for the `context` object:
 * `idToken`: used to add custom namespaced claims to the `id_token`.
 * `sessionID`: unique id for the authentication session. Value is kept only if `prompt=none`
 * `request`: an object containing useful information of the request. It has the following properties:
-  - `userAgent`: the user-agent of the client that is trying to log in.
+  - `userAgent`: the user-agent of the application that is trying to log in.
   - `ip`: the originating IP address of the user trying to log in.
   - `hostname`: the hostname that is being used for the authentication flow.
   - `query`: an object containing the querystring properties of the login transaction sent by the application. 

@@ -17,6 +17,10 @@ Auth0 provides a [cross-origin authentication flow](https://raw.githubuserconten
 Cross-origin authentication is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
 :::
 
+### Security in deprecated library versions
+
+Cross-origin authentication performed using deprecated versions of the [Lock](/libraries/lock) (< v11) and [Auth0.js](/libraries/auth0js) (< v9) libraries is [unsafe](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/), and the deprecated versions will be removed from service on July 16, 2018. For any applications which have yet to update and are still using embedded login from those deprecated libraries, a mitigation to the danger has been applied. All requests to the deprecated endpoints from those applications will be [fingerprinted](/cross-origin-authentication/fingerprinting), to allow the Auth0 server to compare the request with previous ones and further mitigate risks. This measure does not prevent attacks, nor does it remove the need to migrate applications.
+
 ## Limitations of Cross-Origin Authentication
 
 Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail.
@@ -28,11 +32,11 @@ There are two approaches you can follow to remediate the issue:
 
 These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
 
-## Configure Your Client for Cross-Origin Authentication
+## Configure Your Application for Cross-Origin Authentication
 
-Configuring your client for cross-origin authentication is a process that requires a few steps:
+Configuring your application for cross-origin authentication is a process that requires a few steps:
 
-1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
+1. Ensure that the **Allowed Web Origins** field is set to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings). Please note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to author a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
@@ -63,7 +67,7 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
-Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Client's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
+Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Application's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
 
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.

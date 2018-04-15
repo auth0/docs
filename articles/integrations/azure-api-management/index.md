@@ -10,7 +10,7 @@ Azure's API Management Service allows you to create new APIs or import existing 
 
 In this tutorial, we will show you how to [create a representation of your API in Auth0](/integrations/azure-api-management/configure-auth0), set up the [Azure API Management service, import an existing API, and secure it using Auth0](/integrations/azure-api-management/configure-azure). More specifically, we will:
 
-1. Set up Auth0 by creating an API and Non Interactive Client, Connection, and User
+1. Set up Auth0 by creating an API and Machine to Machine Application, Connection, and User
 2. Create an API Management Service on the Azure Portal
 3. Import a Basic Calculator API (this sample API is provided by Microsoft)
 4. Set up Auth0 for use as an OAuth 2.0 Server in Azure

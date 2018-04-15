@@ -67,7 +67,7 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 3. The number of applications affected
 4. What the expected behavior is, as well as what the current behavior is
 5. How far through the login sequence the user gets
-6. The name of the Client application registered in Auth0 and the identity protocol it uses
+6. The name of the application registered in Auth0 and the identity protocol it uses
 7. The name of the Connection involved
 8. Whether or not you're using the Auth0 Lock widget (if so, what version?)
 9. Is a customized version of Lock used?

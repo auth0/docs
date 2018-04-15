@@ -20,7 +20,7 @@ Refresh Tokens are subject to strict storage requirements to ensure that they ar
 
 ## Obtain a Refresh Token
 
-To obtain a Refresh Token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
+To obtain a Refresh Token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
 For example:
 
@@ -56,7 +56,7 @@ Refresh Tokens must be stored securely by an application since they allow a user
 :::
 
 ::: note
-In this case, the token was returned to the client directly in the URL because the Implicit Flow (`response_type=token`) was used.
+In this case, the token was returned to the application directly in the URL because the Implicit Flow (`response_type=token`) was used.
 :::
 
 ## Use a Refresh Token

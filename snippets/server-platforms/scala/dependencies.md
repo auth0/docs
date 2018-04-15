@@ -1,1 +1,1 @@
-Add the client ID, client secret, domain, and callback URL for your application to `application.conf`. You can get your client ID, client secret, and domain from your [application settings](${manage_url}/#/clients/${account.clientId}/settings).
+Add the client ID, client secret, domain, and callback URL for your application to `application.conf`. You can get your client ID, client secret, and domain from your [application settings](${manage_url}/#/applications/${account.clientId}/settings).

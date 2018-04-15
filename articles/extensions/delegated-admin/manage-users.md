@@ -5,7 +5,7 @@ toc: true
 
 # Delegated Administration: Manage Users
 
-In the Client exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
+In the Application exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
 
 By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/hooks#the-filter-hook).
 

@@ -6,7 +6,7 @@ toc: true
 
 # Delegated Administration
 
-The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area. This is done by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
+The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area. This is done by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 application.
 
 :::panel PSaaS Appliance Availability
 The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
@@ -14,21 +14,21 @@ The Delegated Administration extension is available for [PSaaS Appliance](/appli
 
 Prior to configuring the extension, you will need to:
 
-* [Create and configure an Auth0 Client](#create-a-client)
-* [Enable a Connection on the Client](#enable-a-connection-on-the-client)
+* [Create and configure an Auth0 Application](#create-an-application)
+* [Enable a Connection on the Application](#enable-a-connection-on-the-application)
 * [Add a user to the Connection](#add-a-user-to-the-new-connection)
 
-## Create a Client
+## Create an Application
 
-The first step is to create the Client that the extension exposes to those who should have administrative privileges to the Users page.
+The first step is to create the Application that the extension exposes to those who should have administrative privileges to the Users page.
 
-After you've logged into the [Management Dashboard](${manage_url}), navigate to [Clients](${manage_url}/#/clients) and click on **+Create Client**. Provide a name for your Client (such as `Users Dashboard`) and set the Client type to `Single Page Web Applications`. Click **Create** to proceed.
+After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications) and click on **+Create Application**. Provide a name for your Application (such as `Users Dashboard`) and set the Application type to `Single Page Web Applications`. Click **Create** to proceed.
 
-![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
+![Create an Application](/media/articles/extensions/delegated-admin/create-client.png)
 
-### Configure Client Settings
+### Configure Application Settings
 
-Once you've created your Client, you'll need to make the following Client configuration changes.
+Once you've created your Application, you'll need to make the following Application configuration changes.
 
 Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies based on your location:
 
@@ -53,20 +53,20 @@ Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client
 Next, set the **JsonWebToken Signature Algorithm** to `RS256`, and make sure the **OIDC Conformant** toggle is disabled.
 
 ::: note
-The **Delegated Administration** extension requires clients to disable the **OIDC Conformant** flag. After turning off **OIDC Conformant** on the dashboard, ensure your client's authentication code is updated as well.
+The **Delegated Administration** extension requires applications to disable the **OIDC Conformant** flag. After turning off **OIDC Conformant** on the dashboard, ensure your application's authentication code is updated as well.
 :::
 
 ![Change Advanced OAuth Settings](/media/articles/extensions/delegated-admin/oauth-settings.png)
 
 Click **Save Changes** to proceed.
 
-### Enable a Connection on the Client
+### Enable a Connection on the Application
 
-When you create a new Client, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Client secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
+When you create a new Application, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Application secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
 
 #### Disable All Existing Connections
 
-Switch over to the Client's **Connections** tab and disable all the Connections using the associated switches.
+Switch over to the Application's **Connections** tab and disable all the Connections using the associated switches.
 
 #### Create a New Connection
 
@@ -82,7 +82,7 @@ Navigate to the **Settings** tab of your new Connection and enable the **Disable
 
 ![Disable Sign Ups](/media/articles/extensions/delegated-admin/disable-signup.png)
 
-Under the **Clients Using This Connection** section, enable this Connection for your `Users Dashboard` Client.
+Under the **Applications Using This Connection** section, enable this Connection for your `Users Dashboard` Application.
 
 ### Add a User to the New Connection
 
@@ -130,7 +130,7 @@ function (user, context, callback) {
 
 ## Install the Extension
 
-Now that we've created and configured a Client, a Connection, and our users, we can install and configure the extension itself.
+Now that we've created and configured an Application, a Connection, and our users, we can install and configure the extension itself.
 
 On the Management Dashboard, navigate to the [Extensions](${manage_url}/#/extensions) page. Click on the **Delegated Administration** box in the list of provided extensions. The **Install Extension** window will open.
 
@@ -138,19 +138,19 @@ On the Management Dashboard, navigate to the [Extensions](${manage_url}/#/extens
 
 Set the following configuration variables:
 
-- **EXTENSION_CLIENT_ID**: The **Client ID** value of the Client you will use. You can find this value on the **Settings** page of your Client.
+- **EXTENSION_CLIENT_ID**: The **Client ID** value of the Application you will use. You can find this value on the **Settings** page of your Application.
 
-- **TITLE** (optional): Set a title for your Client. It will be displayed at the header of the page.
+- **TITLE** (optional): Set a title for your Application. It will be displayed at the header of the page.
 
-- **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Client.
+- **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
 Once done, click **Install**. Your extension is now ready to use!
 
-If you navigate back to the [Clients](${manage_url}/#/clients) view, you will see that the extension automatically created an additional client called `auth0-delegated-admin`.
+If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that the extension automatically created an additional application called `auth0-delegated-admin`.
 
 ![](/media/articles/extensions/delegated-admin/two-clients.png)
 
-Because the client is authorized to access the [Management API](/api/management/v2), you shouldn't modify it.
+Because the application is authorized to access the [Management API](/api/management/v2), you shouldn't modify it.
 
 ## Use the Extension
 
