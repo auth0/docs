@@ -45,6 +45,8 @@ You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanc
 
 ## Troubleshooting
 
+### Lock takes long to display the login options
+
 If Lock takes a lot of time to display the login options, it could be because the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property is not correctly set.
 
 To verify that this is a problem check your logs at [Dashboard > Logs](${manage_url}/#/logs). If you see an entry with the following error description, set the [Allowed Web Origins](/libraries/lock/v11/migration-v10-v11#configure-auth0-for-embedded-login) property and try again.
@@ -52,3 +54,13 @@ To verify that this is a problem check your logs at [Dashboard > Logs](${manage_
 ```text
 The specified redirect_uri 'https://YOUR_APP_URL' does not have a registered domain.
 ```
+
+### I upgraded but I still get deprecation warnings in the logs
+
+You have already migrated to Lock 11 but you still see this error in your logs:
+
+```text
+Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
+```
+
+These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **April 01, 2018** the user will not be able to log in.
