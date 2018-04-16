@@ -36,7 +36,7 @@ curl --request POST \
   "http_badge": "badge-primary",
   "http_method": "POST",
   "path": "/oidc/register",
-  "link": "#dynamic-client-registration"
+  "link": "#dynamic-application-client-registration"
 }) %>
 
 With a name and the necessary callback URLs, you can dynamically register a client with Auth0. No token is needed for this request.
