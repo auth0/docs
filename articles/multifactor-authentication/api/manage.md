@@ -1,14 +1,9 @@
 ---
 title: Manage the Authenticators for Multifactor Authentication
 description: How to manage your MFA authenticators
-beta: true
 ---
 
 # Manage the Authenticators
-
-::: warning
-This article includes documentation on features that are still under development. These features are available to customers with early access.
-:::
 
 Auth0 provides several API endpoints to help you manage the authenticators you're using with a particular tenant for multifactor authentication (MFA).
 
@@ -22,7 +17,7 @@ To get a list of the authenticators you've associated and can be used with your 
 	"url": "https://${account.namespace}/mfa/authenticators",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+		"value": "Bearer MFA_API_ACCESS_TOKEN"
 	}]
 }
 ```
@@ -61,7 +56,7 @@ To delete an authenticator you've associated, send a delete request to the `/mfa
 	"url": "https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+		"value": "Bearer MFA_API_ACCESS_TOKEN"
 	}]
 }
 ```

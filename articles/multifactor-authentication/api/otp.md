@@ -32,7 +32,7 @@ To associate an authenticator where the challenge type is an OTP code the user i
 	"url": "https://${account.namespace}/mfa/associate",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+		"value": "Bearer MFA_API_ACCESS_TOKEN"
 	}],
 	"postData": {
 		"mimeType": "application/json",
