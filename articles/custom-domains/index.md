@@ -11,8 +11,6 @@ For example, if your Auth0 domain is **northwind.auth0.com**, you can have your 
 
 Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login](/hosted-pages/login).
 
-Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
-
 ## Prerequisites
 
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
@@ -115,6 +113,10 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 2. **What about support for other features?**
   
 We are planning to support several additional features in the future, including WS-Fed applications and enterprise and Passwordless connections.
+
+3. **How many custom domains can I use per tenant?**
+
+Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
 
 ## Troubleshooting
 
