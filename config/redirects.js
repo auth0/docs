@@ -482,6 +482,10 @@ module.exports = [
 /* --- Clients --- */
 
   {
+    from: '/clients',
+    to: '/applications'
+  },
+  {
     from: '/clients/addons',
     to: '/applications/addons'
   },
