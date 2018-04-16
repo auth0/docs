@@ -5,6 +5,8 @@ description: Cisco WebEx SAML Configuration
 
 ${include('./_header')}
 
+Please review [Single Sign-On with Cisco Spark Services](https://collaborationhelp.cisco.com/article/en-us/lfu88u) for additional information on integrating with Auth0.
+
 ```json
 {
    "mappings": {
