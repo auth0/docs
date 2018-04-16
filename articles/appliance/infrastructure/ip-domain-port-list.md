@@ -103,7 +103,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
   <tr>
     <td>Command Line Interface</td>
     <td>Inbound <b>and</b> Outbound</td>
-    <td>CLI Clients (often on the internal network)</td>
+    <td>CLI Applications (often on the internal network)</td>
     <td>10121</td>
     <td>Allows use of the PSaaS Appliance Command Line Interface</td>
     <td>No</td>

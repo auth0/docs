@@ -55,7 +55,7 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
-Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
@@ -65,7 +65,7 @@ Make sure you read about the [limitations of cross-origin authentication](/cross
 
 ### 1. Initializing Lock
 
-First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 application, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
 
 ```js
 // Initializing our Auth0Lock
@@ -149,7 +149,7 @@ var passwordlessOptions = {
 ```
 
 ::: note
-Remember to enable the passwordless connection of your choice in the [Dashboard](${manage_url}) under **Connections -> Passwordless**, and then to enable it for your client, that way when Lock tries to use it, it is already set up and linked to the client.
+Remember to enable the passwordless connection of your choice in the [Dashboard](${manage_url}) under **Connections -> Passwordless**, and then to enable it for your application, that way when Lock tries to use it, it is already set up and linked to the application.
 :::
 
 If you choose to use `email`, you have one more option to select - whether you wish your users to receive a code to input, or a "magic link" to use. This is done via the `passwordlessMethod` option, which takes values of `code` or `link`.

@@ -31,7 +31,7 @@ Typically, the above endpoint will reach the load balancer, but since a typical,
 
 ### Non-Responsive Nodes
 
-The load balancer may remove nodes that are not responding or time out **without affecting service**, because all nodes of a cluster can serve requests from client applications. All configuration information is continuously replicated across nodes.
+The load balancer may remove nodes that are not responding or time out **without affecting service**, because all nodes of a cluster can serve requests from applications. All configuration information is continuously replicated across nodes.
 
 ::: note
   These endpoints are typically used by the Load Balancer to decide whether or not a node should be removed from the cluster. If a node stops responding, and the Load Balancer removes it, please contact [Auth0 Support](${env.DOMAIN_URL_SUPPORT}) for additional assistance.

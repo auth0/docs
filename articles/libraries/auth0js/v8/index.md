@@ -59,7 +59,7 @@ If you are using a bundler, you will want to install with `npm i auth0-js --prod
 
 ### Initialization
 
-Initialize a new instance of the Auth0 client as follows:
+Initialize a new instance of the Auth0 application as follows:
 
 ```html
 <script type="text/javascript">
@@ -77,7 +77,7 @@ There are two required parameters that must be passed in the `options` object wh
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
-| `clientID` | required | (String) Your Auth0 client\_id |
+| `clientID` | required | (String) Your Auth0 client ID |
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
@@ -295,7 +295,7 @@ The `parseHash` method takes an `options` object that contains the following par
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `state` | optional | (String) An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` | optional | (String) An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value must be used by the application to prevent CSRF attacks. |
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
@@ -386,7 +386,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel returnTo parameter
-Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
+Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Application's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
 ```js
@@ -404,7 +404,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | --- | --- | --- |
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
-| `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
+| `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
@@ -444,7 +444,7 @@ webAuth.checkSession({
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
-Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 client in the [Dashboard](${manage_url}) under your client's **Settings**.
+Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 application in the [Dashboard](${manage_url}) under your application's **Settings**.
 
 ::: warning
 If the connection is a social connection and you are using Auth0 dev keys, the `checkSession` call will always return `login_required`.
@@ -473,7 +473,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## Cross-Origin authentication
 
-Using auth0.js within your application (rather than using [universal login](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your client to make it work.
+Using auth0.js within your application (rather than using [universal login](/hosted-pages/login)) requires cross-origin authentication. Make sure you read the [cross-origin authentication documentation](/cross-origin-authentication) to understand how to properly configure your application to make it work.
 
 ## User management
 

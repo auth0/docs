@@ -9,12 +9,12 @@ toc: true
 
 Before beginning this tutorial, please:
 
-* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## Ask for a token
 
-To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
+To ask Auth0 for tokens for any of your authorized applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
 ```har
 {
@@ -33,8 +33,8 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
 Where:
 
 * `grant_type`: This must be `client_credentials`.
-* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
-* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
+* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
+* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).

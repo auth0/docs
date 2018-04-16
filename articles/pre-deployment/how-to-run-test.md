@@ -1,5 +1,5 @@
 ---
-description: How to run the Auth0 Pre-Deployment Tests to ensure that your Clients are production-ready
+description: How to run the Auth0 Pre-Deployment Tests to ensure that your Applications are production-ready
 ---
 
 # How to Run the Pre-Deployment Test
@@ -18,11 +18,11 @@ You'll see a listing of all tenants associated with your Auth0 account. Each ten
 
 Click **Run Production Check** to launch the testing interface.
 
-At this point, you'll be able to select one or more [Clients](/clients) associated with this tenant for which you want tests run.
+At this point, you'll be able to select one or more [Applications](/applications) associated with this tenant for which you want tests run.
 
-![](/media/articles/support/pre-deployment-tests//choose-clients.png)
+![](/media/articles/support/pre-deployment-tests/choose-clients.png)
 
-Once you've selected your clients, click **Run Check**.
+Once you've selected your applications, click **Run Check**.
 
 When the test is complete, your screen will automatically refresh to display your test results. 
 
@@ -40,17 +40,17 @@ There are three types of test results: Required, Recommended, and Best Practices
 
 The following are possible results for your test: Passed, Failed, Unable to Verify.
 
-Under each set of test results, Auth0 tells you how many tests your Client passed, as well as how many tests your Clients failed.
+Under each set of test results, Auth0 tells you how many tests your Application passed, as well as how many tests your Applications failed.
 
 ![](/media/articles/support/pre-deployment-tests/reading-results.png)
 
-If your Clients **failed** one or more tests, Auth0 provides you:
+If your Applications **failed** one or more tests, Auth0 provides you:
 
 * The name of the test
 * Information on what the test is looking for
 * Details on the error thrown to and retrieved by the test
-* Hyperlink to the appropriate area where you can make the required fixes so that your Client passes the test
+* Hyperlink to the appropriate area where you can make the required fixes so that your Application passes the test
 
 ![](/media/articles/support/pre-deployment-tests/detailed-results.png)
 
-All of the tests that your Client **passed** are grouped together at the bottom of the results set. You can view the name of and information about the test, as well as review the associated documentation and use the hyperlink to go to the corresponding configuration area where you can make changes (if desired).
+All of the tests that your Application **passed** are grouped together at the bottom of the results set. You can view the name of and information about the test, as well as review the associated documentation and use the hyperlink to go to the corresponding configuration area where you can make changes (if desired).

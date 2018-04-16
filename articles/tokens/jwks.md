@@ -6,7 +6,7 @@ toc: true
 ---
 # JSON Web Key Set (JWKS)
 
-When creating clients and resources servers (APIs) in Auth0, two algorithms are supported for signing [JSON Web Tokens (JWTs)](/jwt): **RS256** and **HS256**. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
+When creating applications and resources servers (APIs) in Auth0, two algorithms are supported for signing [JSON Web Tokens (JWTs)](/jwt): **RS256** and **HS256**. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
 
 Auth0 uses the [JWK](https://tools.ietf.org/html/rfc7517) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high level data structures: **JSON Web Key (JWK)** and **JSON Web Key Set (JWKS)**. Here are the definitions directly from the specification:
 

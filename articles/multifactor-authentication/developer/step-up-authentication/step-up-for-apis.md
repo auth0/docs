@@ -41,7 +41,7 @@ In this section we will see how you would implement the scenario described in th
 
 This tutorial assumes that you have already done the following:
 
-- [Register a client](/clients#how-to-configure-a-client) for your application. For the purposes of this example we'll be using a single-page web app
+- [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a single-page web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
 - [Enable Multifactor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
@@ -121,10 +121,10 @@ https://${account.namespace}/authorize?
 
 - Set `audience` to the **Identifier** of your API (find it at [API Settings](${manage_url}/#/apis/)). We set ours to `https://my-banking-api`
 - The `response_type` is set to `id_token token` so we get both an ID Token and an Access Token in the response
-- Set `client_id` to the Client ID of your application (find it at [Client Settings](${manage_url}/#/clients/${account.clientId}/settings))
-- Set the `redirect_uri` to the URL of your application that Auth0 should redirect back to after authentication (find it at [Client Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- Set `client_id` to the Client ID of your application (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings))
+- Set the `redirect_uri` to the URL of your application that Auth0 should redirect back to after authentication (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings))
 - Set `nonce` to a string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`
-- Set `state` to an opaque value that Auth0 includes when redirecting back to the client. This value must be used by the client to [prevent CSRF attacks](/protocols/oauth2/oauth-state)
+- Set `state` to an opaque value that Auth0 includes when redirecting back to the application. This value must be used by the application to [prevent CSRF attacks](/protocols/oauth2/oauth-state)
 
 ### 3. Configure your API
 

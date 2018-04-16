@@ -32,7 +32,7 @@ In this section, we will use a simple Single Page Application and customize the 
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
-1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new [client](/clients). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
+1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 
     :::note
     This field holds the set of URLs to which Auth0 is allowed to redirect the users after they authenticate. Our sample app will run at `http://localhost:3000` hence we set this value.
@@ -40,7 +40,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
+1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. Go to the connection's **Applications** tab and make sure your newly created application is enabled.
 
 1. Download the [JavaScript SPA Sample](/quickstart/spa/vanillajs).
 

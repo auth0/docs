@@ -69,7 +69,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [client settings](/#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
+Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [application settings](/#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
 
 
 ```python

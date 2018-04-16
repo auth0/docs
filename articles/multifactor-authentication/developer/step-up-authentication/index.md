@@ -24,15 +24,15 @@ You can use a rule to trigger the step-up authentication mechanism (for example,
 
 This is best explained with an example.
 
-A user signs into Fabrikam's web app. The standard login gives to this user the ability to interact with their API and fetch the users account list. This means that the Access Token that the client receives after the user authentication contains a scope like `read:accounts`.
+A user signs into Fabrikam's web app. The standard login gives to this user the ability to interact with their API and fetch the users account list. This means that the Access Token that the application receives after the user authentication contains a scope like `read:accounts`.
 
 Now the user wishes to transfer funds from one account to another, which is deemed a high-value transaction. In order to perform this action, the API requires the scope `transfer:funds`.
 
-The Access Token that the user currently has does not include this scope and the client knows it since it knows the set of scopes it requested in the initial authentication call.
+The Access Token that the user currently has does not include this scope and the application knows it since it knows the set of scopes it requested in the initial authentication call.
 
-The solution is that the client performs another authentication call, but this time it requests the required scope. The browser redirects to Auth0 and a rule is used to challenge the user to authenticate with MFA since a high-value scope was requested.
+The solution is that the application performs another authentication call, but this time it requests the required scope. The browser redirects to Auth0 and a rule is used to challenge the user to authenticate with MFA since a high-value scope was requested.
 
-Once the user successfully authenticates with MFA, a new Access Token which includes the high-value scope is generated and sent. The client will pass the Access Token to the API which will discard it after verification, thereby treating it like a single-use token.
+Once the user successfully authenticates with MFA, a new Access Token which includes the high-value scope is generated and sent. The application will pass the Access Token to the API which will discard it after verification, thereby treating it like a single-use token.
 
 For details and sample code, see [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis).
 

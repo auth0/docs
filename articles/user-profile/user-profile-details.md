@@ -19,7 +19,7 @@ Auth0 supports [a wide variety of Connections](/identityproviders). Each connect
 
 ## Caching of the User Profile in Auth0
 
-Auth0 caches the User Profile received from a Connection prior to passing it on to the calling client application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
+Auth0 caches the User Profile received from a Connection prior to passing it on to the calling application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
 
 The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
@@ -59,7 +59,7 @@ Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) 
 
 ## Application Access to User Profile
 
-The User Profile will be provided to a client app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
+The User Profile will be provided to an app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
 
 One SDK is the Auth0 Lock widget, which provides a user login interface:
 
@@ -81,7 +81,7 @@ Finally, there is the Authentication API specifically used for authentication fl
 
 In the authentication flows described above, Auth0 returns a set of tokens in lieu of a full User Profile.
 
-One of the returned tokens is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the client uses `RS256` encryption then the `id_token` will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
+One of the returned tokens is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the application uses `RS256` encryption then the `id_token` will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
 
 The claims within a JWT generally contain a subset of the information available on the User Profile in order to minimize the overall size. For further information on controlling the claims returned in a JWT, see the [Scopes](#scopes) section below.
 
@@ -105,7 +105,7 @@ The authentication flows supported by Auth0 includes an optional parameter that 
 
 The User Profile can also be modified through the Auth0 Management Dashboard. The dashboard allows administrators to manually edit portions of the User Profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the User Profile.
 
-In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by client applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
+In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
 
 ::: note
 The User Details page will show “pending” when a user is first created until they have logged in for the first time.
@@ -177,7 +177,7 @@ More info:
 
 ### Rules and their Usage
 
-The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If a client application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/api/authentication/reference#get-user-info) authentication endpoint.
+The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If an application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/api/authentication/reference#get-user-info) authentication endpoint.
 
 When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/api/authentication/reference#get-token-info) authentication endpoint, or the Auth0 Dashboard.
 
@@ -189,7 +189,7 @@ This mapping is implemented in a file called `profileMapper.js` located in the i
 
 ## Mapping User Profile Attributes in SAML Assertions
 
-If the SAML protocol is used between Auth0 and the client application, there are two places where user attribute mapping can occur.
+If the SAML protocol is used between Auth0 and the application, there are two places where user attribute mapping can occur.
 
 If Auth0 is serving as a SAML Service Provider, the "Mappings" tab for a SAML connection is used to map attributes coming from an IDP to attributes in the Auth0 User Profile.
 
