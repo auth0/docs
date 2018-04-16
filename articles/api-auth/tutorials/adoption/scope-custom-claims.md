@@ -8,7 +8,7 @@ title: User profile claims and scope
 
 The behavior of the `scope` parameter has been changed to conform to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 
-Instead of requesting arbitrary application-specific claims, clients can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
+Instead of requesting arbitrary application-specific claims, applications can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
 
 ## Standard claims
 
@@ -16,7 +16,7 @@ The OIDC specification defines a [set of standard claims](https://openid.net/spe
 
 ## Custom claims
 
-To improve compatibility for client applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. 
+To improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. 
 
 For example, suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user.
 
@@ -34,7 +34,7 @@ This would be the profile stored by Auth0:
 }
 ```
 
-This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the client:
+This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
 
 ```json
 {

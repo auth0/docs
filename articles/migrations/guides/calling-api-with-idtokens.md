@@ -64,7 +64,7 @@ In this section we will see the changes that are introduced in how you get a tok
 There are several variations on how you authenticate a user and get tokens, depending on the technology and the [OAuth 2.0 flow you use to authenticate](/api-auth/which-oauth-flow-to-use):
 - Using the [Authorization endpoint](/api/authentication#authorize-client). This is where you redirect your users to login or sign up. You get your tokens from this endpoint if you authenticate users from a [single-page app](/api/authentication#implicit-grant) (running on the browser).
 - Using the [Token endpoint](/api/authentication#get-token).You get your tokens from this endpoint if you authenticate users from a [web app](/api/authentication#authorization-code) (running on a server), a [mobile app](/api/authentication#authorization-code-pkce-), a [server process](/api/authentication#client-credentials), or a [highly trusted app](/api/authentication#resource-owner-password).
-- Using [Lock](/libraries/lock/v11#cross-origin-authentication) or [auth0.js](/libraries/auth0js/v9#configure-your-auth0-client-for-embedded-login) embedded in your application. In this case you are using [cross-origin authentication](/cross-origin-authentication) (used to authenticate users when the requests come from different domains). 
+- Using [Lock](/libraries/lock/v11#cross-origin-authentication) or [auth0.js](/libraries/auth0js/v9#configure-your-auth0-application-for-embedded-login) embedded in your application. In this case you are using [cross-origin authentication](/cross-origin-authentication) (used to authenticate users when the requests come from different domains). 
 
 ### The Authorization endpoint
 
@@ -292,8 +292,8 @@ The changes in this functionality are the following:
 - You can no longer use an ID Token at the `Authorization` header
 - If you use an Access Token at the `Authorization` header, with `update:users` as the granted permission, then you can send at the request's body either the `user_id` or the ID Token of the secondary account
 - If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you can only send the ID Token of the secondary account in the request's body. The following must apply:
-  - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
-  - The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
+  - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Applications > Application Settings > Advanced Settings > OAuth*)
+  - The claim `aud` of the ID Token, must identify the application, and be the same value with the `azp` claim of the Access Token
 
 ## Keep reading
 

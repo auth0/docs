@@ -47,7 +47,7 @@ If you are using a bundler, you will want to install with `npm i auth0-js --prod
 
 ### Initialization
 
-Initialize a new instance of the Auth0 client as follows:
+Initialize a new instance of the Auth0 application as follows:
 
 ```html
 <script type="text/javascript">
@@ -65,7 +65,7 @@ There are two required parameters that must be passed in the `options` object wh
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
-| `clientID` | required | (String) Your Auth0 client\_id |
+| `clientID` | required | (String) Your Auth0 client ID |
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
@@ -87,7 +87,7 @@ If you don't specify at least the above scope when initializing Auth0.js, and yo
 
 `Consent required. When using getSSOData, the user has to be authenticated with the following scope: openid profile email`
 
-That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients) document.
+That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party applications](/api-auth/user-consent#skipping-consent-for-first-party-applications) document.
 :::
 
 ## Login
@@ -101,7 +101,7 @@ The `authorize()` method can be used for logging in users via [universal login](
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the client. |
+| `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the application. |
 | `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
@@ -270,7 +270,7 @@ The `parseHash` method takes an `options` object that contains the following par
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `state` | optional | (String) An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value is used by auth0.js to prevent CSRF attacks. |
+| `state` | optional | (String) An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value is used by auth0.js to prevent CSRF attacks. |
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
@@ -356,7 +356,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel returnTo parameter
-Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
+Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Application's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
 ```js
@@ -374,7 +374,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | --- | --- | --- |
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
-| `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
+| `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
 | `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
@@ -417,7 +417,7 @@ Note that `checkSession()` triggers any [rules](/rules) you may have set up, so 
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
-Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 client in the [Dashboard](${manage_url}) under your client's **Settings**.
+Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 application in the [Dashboard](${manage_url}) under your application's **Settings**.
 
 ::: warning
 If the connection is a social connection and you are using Auth0 dev keys, the `checkSession` call will always return `login_required`.

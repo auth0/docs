@@ -33,7 +33,7 @@ The company has built a timesheets application, a scenario we covered in [Single
 
 ## Goals & Requirements
 
-ExampleCo wants to build a flexible solution. At the moment only a SPA is required to capture timesheet entries but in the future, the company plans on launching more clients, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process but by all future clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+ExampleCo wants to build a flexible solution. At the moment only a SPA is required to capture timesheet entries but in the future, the company plans on launching more applications, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process but by all future applications as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 

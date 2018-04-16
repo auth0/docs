@@ -36,32 +36,32 @@ The steps to follow are:
 
 You will need an Access Token to call the [Management API](/api/management/v2).
 
-If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure a client that can be used to call the API.
+If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure an application that can be used to call the API.
 
-To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer) and click **Create & Authorize a Test Client**.
+To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer) and click **Create & Authorize a Test Application**.
 
-This will create a new client and grant **all scopes of the Management API**. This means that the tokens generated for this client will be able to access **all Management API endpoints**.
+This will create a new application and grant **all scopes of the Management API**. This means that the tokens generated for this application will be able to access **all Management API endpoints**.
 
 ::: panel Can't see the button?
-If you don't see this button, it means that you have at least one authorized client already. In this case you can either update the scopes of an existing client and use that, or create a new one following these steps:
-1. Go to [Dashboard > Clients](${manage_url}/#/clients)
-2. Click **+ Create Client**, select **Non Interactive Clients** and click **Create**
+If you don't see this button, it means that you have at least one authorized application already. In this case you can either update the scopes of an existing application and use that, or create a new one following these steps:
+1. Go to [Dashboard > Applications](${manage_url}/#/applications)
+2. Click **+ Create Application**, select **Non Interactive Applications** and click **Create**
 3. At the **Select an API** dropdown select `Auth0 Management API`
 4. Click **Navigate to the API and Authorize**
 5. Set the toggle to **Authorized** and enable the required scopes
 :::
 
-It is recommended, for security reasons, that you only assign the required scopes to the client you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
+It is recommended, for security reasons, that you only assign the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from a client, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Clients tab](${manage_url}/#/apis/management/authorized-clients).
+You can grant or remove scopes from a application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
 
-![Edit the scopes granted to the Client](/media/articles/connections/edit-granted-scopes.png)
+![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 
 You are now done with the configuration part, and you are ready to get your Management API token.
 
 To do so, go to the [Test tab](${manage_url}/#/apis/management/test). There you can find ready-to-use snippets that you can use to get a token.
 
-Pick your client using the dropdown at the top, and choose your language of preference for the snippet.
+Pick your application using the dropdown at the top, and choose your language of preference for the snippet.
 
 Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
 
@@ -74,7 +74,7 @@ The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 
 The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time.
 
 ::: panel-warning Security warning
-These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each client). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
+These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
 :::
 
 ### Step 2: Get the full User Profile
@@ -149,7 +149,7 @@ In this sample response we can see that our user had only one identity: `google-
 You are now ready to call the IdP's API. Please refer to the IdP's documentation for specifics on how to do so.
 
 ::: warning
-Make sure that you don't expose the IdP tokens to your client-side application! If your client is public refer to the [frontend section](#from-the-frontend) of this article.
+Make sure that you don't expose the IdP tokens to your client-side application! If your application is public refer to the [frontend section](#from-the-frontend) of this article.
 :::
 
 ::: note
@@ -158,7 +158,7 @@ For more information on how to request specific scopes for an Identity Provider 
 
 ## From the frontend
 
-If you are working with a public client (SPA, native desktop, or mobile app) then this is the place to be.
+If you are working with a public application (SPA, native desktop, or mobile app) then this is the place to be.
 
 As you might have read earlier in this article, the process for calling IdP APIs from a **backend process** includes the following steps:
 
@@ -166,7 +166,7 @@ As you might have read earlier in this article, the process for calling IdP APIs
 2. Use said token to retrieve the user's full profile from the Auth0 Management API
 3. Extract the IdP's Access Token from the user's full profile, and use it to call the IdP's API
 
-You cannot follow the same process from a frontend app because it's a public client that **cannot hold credentials securely**. The credential we are referring to, is the non interactive client's secret which you use to make the call to `/oauth/token`, at the first step of the process.
+You cannot follow the same process from a frontend app because it's a public application that **cannot hold credentials securely**. The credential we are referring to, is the machine to machine application's secret which you use to make the call to `/oauth/token`, at the first step of the process.
 
 SPA's code can be viewed and altered and native/mobile apps can be decompiled and inspected. As such, they cannot be trusted to hold sensitive information like secret keys or passwords.
 
@@ -174,13 +174,13 @@ There are some alternatives you can use.
 
 ### Option 1: Build a proxy
 
-You can build a process in your backend and expose it to your client as an API.
+You can build a process in your backend and expose it to your application as an API.
 
-The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public client.
+The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public application.
 
-Then, you will call your proxy API from your public client using the respective flow for your case:
+Then, you will call your proxy API from your public application using the respective flow for your case:
 - [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
-- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile client
+- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile application
 
 :::panel Show me how to do it
 If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
@@ -196,9 +196,9 @@ Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them
 This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
 :::
 
-In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public client.
+In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public application.
 
-Your client will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
+Your application will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).
 
 :::note
 You can find a sample [in this GitHub repository](https://github.com/vikasjayaram/ext-idp-api-webtask/tree/master/RS256). Review carefully before you use it since this is not officially maintained by Auth0 and could be outdated.

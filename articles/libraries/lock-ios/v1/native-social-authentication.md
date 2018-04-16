@@ -9,7 +9,7 @@ description: How to enable native login for some the supported social social con
 <%= include('../_includes/_lock-version-1') %>
 
 ::: warning
-This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. 
+This feature relies on a deprecated grant type. Applications created after June 8th 2017 won't be able to use this feature. 
 We recommend using browser-based flows, as explained in [Web-based auth](/libraries/auth0-swift#web-based-auth-ios-only-).
 :::
 

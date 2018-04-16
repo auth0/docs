@@ -32,7 +32,7 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
   <li>
     <i class="icon icon-budicon-715"></i><a href="/tokens/id-token">ID Token</a>
     <p>
-      The ID Token, usually referred to as <code>id_token</code> in code samples, is a <a href="/jwt">JSON Web Token (JWT)</a> that contains user profile attributes represented in the form of <i>claims</i>. The <code>id_token</code> is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
+      The ID Token, usually referred to as <code>id_token</code> in code samples, is a <a href="/jwt">JSON Web Token (JWT)</a> that contains user profile attributes represented in the form of <i>claims</i>. The <code>id_token</code> is consumed by the application and used to get user information like the user's name, email, and so forth, typically used for UI display.
     </p>
     <ul>
       <li>
@@ -70,7 +70,7 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
   <li>
     <i class="icon icon-budicon-715"></i><a href="/tokens/access-token">Access Token</a>
     <p>
-      The Access Token, commonly referred to as <code>access_token</code>, is a credential that can be used by a client to access an API. Auth0 uses Access Tokens to protect access to the Auth0 Management API.
+      The Access Token, commonly referred to as <code>access_token</code>, is a credential that can be used by an application to access an API. Auth0 uses Access Tokens to protect access to the Auth0 Management API.
     </p>
     <ul>
       <li>
@@ -90,7 +90,7 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
   <li>
     <i class="icon icon-budicon-715"></i><a href="/tokens/idp">Identity Provider Access Token</a>
     <p>
-      When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an Access Token that can be used by the client program to call that social provider's API.
+      When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an Access Token that can be used by the application to call that social provider's API.
     </p>
     <ul>
       <li>
@@ -124,7 +124,7 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api/v2/tokens">Management APIv2 Token</a>
     <p>
-      The Management APIv2 token is used to call the Auth0 Management API v2. This APIv2 token is a JWT, and contains various scope claims, such as <code>read:users</code> or <code>update:clients</code>, and is signed with a client API key and secret for the entire tenant.
+      The Management APIv2 token is used to call the Auth0 Management API v2. This APIv2 token is a JWT, and contains various scope claims, such as <code>read:users</code> or <code>update:clients</code>, and is signed with an application API key and secret for the entire tenant.
     </p>
     <ul>
       <li>

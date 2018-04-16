@@ -13,7 +13,7 @@ These links include the same code that would be used in the traditional password
 
 ## Auth0 Dashboard Configuration
 
-Go to your [client settings](${manage_url}/#/clients/${account.clientId}/settings) and click "Show Advanced Settings" at the bottom of the page. Then in the "Mobile Settings" tab you will need to provide both the Application's **Package Name** and certificate **Key Hash**.
+Go to your [application settings](${manage_url}/#/applications/${account.clientId}/settings) and click "Show Advanced Settings" at the bottom of the page. Then in the "Mobile Settings" tab you will need to provide both the Application's **Package Name** and certificate **Key Hash**.
 
 - **App Package Name**: This is the package name, as declared in the app's manifest. It's also available in the `app/build.gradle` file as the `applicationId` attribute. An example would be `com.example.android.myapp`
 - **Key Hashes**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary length array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints. An example would be `DE:1A:5B:75:27:AA:48:D5:A6:72:2F:76:43:95:9B:79:C6:86:1A:5B:75:27:AA:48:D5:A6:73:FE`.
@@ -70,7 +70,7 @@ Your verification code is: {{ code }}
 
 ## Application Configuration
 
-Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up PasswordlessLock with `Lock.Android` as seen in the [passwordless docs](/libraries/lock-android/v2/passwordless). The only difference is that we'll add **Intent-Filters** that will capture the link click and redirect the user back to our app.
+Now that we have the Auth0 application configured, before we start with the android configuration we must follow the instructions and set up PasswordlessLock with `Lock.Android` as seen in the [passwordless docs](/libraries/lock-android/v2/passwordless). The only difference is that we'll add **Intent-Filters** that will capture the link click and redirect the user back to our app.
 
 In the `AndroidManifest.xml` file add the intent-filters inside the `PasswordlessLockActivity` activity tag. Depending on the chosen passwordless connection, the `pathPrefix` of the filter changes.
 

@@ -48,9 +48,9 @@ Enter your **Client Key** and **Client Secret** from Yahoo! then click **SAVE**.
 
 ![Enter your key and secret](/media/articles/connections/social/yahoo/setup-connection.png)
 
-Next click on the **Clients** tab next to **Settings** and enable which of your clients will be able to use this connection.
+Next click on the **Applications** tab next to **Settings** and enable which of your applications will be able to use this connection.
 
-![Enable Clients](/media/articles/connections/social/yahoo/enable-clients.png)
+![Enable Applications](/media/articles/connections/social/yahoo/enable-clients.png)
 
 When finished, click **SAVE**.
 

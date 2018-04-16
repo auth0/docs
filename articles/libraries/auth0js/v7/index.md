@@ -59,7 +59,7 @@ If you are using [browserify](http://browserify.org/), you will want to install 
 The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
 :::
 
-Construct a new instance of the Auth0 client as follows:
+Construct a new instance of the Auth0 application as follows:
 
 ```html
 <script src="${auth0js_urlv7}"></script>
@@ -397,7 +397,7 @@ How does control return back to your app after a login has been attempted?  This
 
 The default mode of the `login` method is Redirect Mode. Here two separate "redirect" actions will occur when `login` is called. First, the browser will navigate to a separate login page to collect the user's credentials. Once the user successfully logs in, the browser will redirect the user *back* to your application via the `callbackURL`.
 
-For example, let's say you've initialized your Auth0 client as shown in the [Initialize](#initialize) section above. Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
+For example, let's say you've initialized your Auth0 application as shown in the [Initialize](#initialize) section above. Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
 
 ```js
 auth0.login({
@@ -447,7 +447,7 @@ If there is no hash, `result` will be null.  If the hash contains the JWT, the `
 
 ##### Regular Web Apps
 
-If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie. In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 client is created:
+If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie. In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 application is created:
 
 ```js
 var auth0 = new Auth0({
@@ -681,7 +681,7 @@ If you want to get the token for another API or App:
 var options = {
   id_token: "your ID Token", // The id_token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'The other client id'
+  targetClientId: 'The other application id'
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {

@@ -16,7 +16,7 @@ The Tenants page of the PSaaS Appliance Dashboard lists all tenants associated w
 For each associated tenant, you will see the following pieces of information:
 
 * **Name**: the name of the tenant;
-* **Clients**: the number of clients associated with the tenant;
+* **Applications**: the number of applications associated with the tenant;
 * **Connections**: the number of Connections enabled for the tenant;
 * **Total Users**: the total number of users associated with the tenant;
 * **Total Logins**: the total number of logins by users associated with the tenant.

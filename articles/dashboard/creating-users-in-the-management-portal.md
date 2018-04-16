@@ -24,7 +24,7 @@ Click on the __Create User__ button near the top right-hand side of the screen.
   When finished, click __Save__.
 
 ::: note
-The connection you use must be associated with a Client, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Clients from the <a href="${manage_url}">Dashboard</a>, in <em> Client Settings > Connections</em>, or from the <em>Connection Settings > Clients</em>.
+The connection you use must be associated with a Application, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Applications from the <a href="${manage_url}">Dashboard</a>, in <em> Application Settings > Connections</em>, or from the <em>Connection Settings > Applications</em>.
 :::
 
 ![](/media/articles/users/create-user.png)

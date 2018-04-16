@@ -57,7 +57,7 @@ function(user, context, callback){
 
 ### Reading `client_metadata`
 
-`clientMetadata` is an optional, top-level property of the context object. Existing clients will have no value for this property.
+`clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
 
 ```js
 function(user, context, callback){
@@ -73,17 +73,17 @@ function(user, context, callback){
 
 `client_metadata` is included amongst in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
 
-#### Creating clients with `client_metadata` properties
+#### Creating applications with `client_metadata` properties
 
-A `client_metadata` object can be included when creating a new client via the `POST /api/v2/` clients endpoint.
+A `client_metadata` object can be included when creating a new application via the `POST /api/v2/` applications endpoint.
 
 #### Creating `client_metadata` properties in the dashboard
 
-`client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
+`client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
 Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section, enter the key and value then click **CREATE**.
 
-![Create client metadata](/media/articles/rules/adv-settings-create.png)
+![Create application metadata](/media/articles/rules/adv-settings-create.png)
 
 ## Updating Metadata
 
@@ -221,9 +221,9 @@ This results in the following JSON representation of the user profile details:
 
 ### Updating `client_metadata`
 
-Client metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying a client object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
+Application metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying a application object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
 
-*Client Before*
+*Application Before*
 
 ```
 {
@@ -243,7 +243,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 { "client_metadata": { "mycolor": "blue" } }
 ```
 
-*Client After*
+*Application After*
 
 ```
 {
@@ -258,7 +258,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 
 #### Updating `client_metadata` in the dashboard
 
-Client metadata can also be updated in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
+Application metadata can also be updated in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
 Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section. For the key value, enter the name of the key you wish to edit. Then enter the new value that you want to update. 
 
@@ -391,15 +391,15 @@ This results in the following JSON representation of the user profile details:
 
 ### Deleting `client_metadata` properties and values
 
-`client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-client_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
+`client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-application_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
 #### Deleting`client_metadata` properties and values in the dashboard
 
-`client_metadata` keys can also be removed in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
+`client_metadata` keys can also be removed in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
 Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section, click the **REMOVE** button for the key/value pair you wish to delete.
 
-![Remove client metadata](/media/articles/rules/adv-settings-remove.png)
+![Remove application metadata](/media/articles/rules/adv-settings-remove.png)
 
 ## Considerations
 
