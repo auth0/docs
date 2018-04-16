@@ -28,7 +28,7 @@ Auth0 supports **Open Dynamic Registration**, which means that if you enable thi
 
 Set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
 
-This can be done by enabling the **OIDC Dynamic Client Registration** toggle on your tenant's [Advanced Settings page](${manage_url}/#/tenant/advanced).
+This can be done by enabling the **OIDC Dynamic Application Registration** toggle on your tenant's [Advanced Settings page](${manage_url}/#/tenant/advanced).
 
 Alternatively, you can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
