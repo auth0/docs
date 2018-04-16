@@ -926,10 +926,6 @@ module.exports = [
     to: '/metadata/management-api'
   },
   {
-    from: '/applications',
-    to: '/clients'
-  },
-  {
     from: '/saml-apps',
     to: '/protocols/saml/saml-apps'
   },
