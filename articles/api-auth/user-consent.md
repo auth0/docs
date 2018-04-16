@@ -81,7 +81,7 @@ Only first-party applications can skip the consent dialog, assuming the resource
 Note that this option only allows __verifiable__ first-party applications to skip consent at the moment. As `localhost` is never a verifiable first-party (because any malicious application may run on `localhost` for a user), Auth0 will always display the consent dialog for applications running on `localhost` regardless of whether they are marked as first-party applications. During development, you can work around this by modifying your `/etc/hosts` file to add an entry such as the following:
 
 ```text
-127.0.0.1       myapp.dev
+127.0.0.1       myapp.example
 ```
 
 Once you do this, remember to update your application configuration URLs, such as the **Allowed Callback URLs** (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)), and the callback URL you configured in your application, to match the updated domain-mapping.
