@@ -2,9 +2,14 @@
 title: Associate an OOB Authenticator
 description: How to associate an OOB authenticator
 ---
+
 # Associate an OOB Authenticator
 
 In this tutorial, we will show you how you can configure your Auth0 tenant to allow the self-association of out-of-band (OOB) authenticators.
+
+## Before You Start
+
+...
 
 ## Step 1. Trigger the MFA Error and Use the MFA Token to Associate the New Authenticator
 

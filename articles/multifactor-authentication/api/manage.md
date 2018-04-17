@@ -7,6 +7,10 @@ description: How to manage your MFA authenticators
 
 Auth0 provides several API endpoints to help you manage the authenticators you're using with a particular tenant for multifactor authentication (MFA).
 
+## Before You Start
+
+...
+
 ## List Authenticators
 
 To get a list of the authenticators you've associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
