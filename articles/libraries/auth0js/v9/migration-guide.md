@@ -34,3 +34,14 @@ The documents below describe all the changes that you should be aware of when mi
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
 :::
 
+## Troubleshooting
+
+### I upgraded but I still get deprecation warnings in the logs
+
+You have already migrated to Auth0.js 9 but you still see this error in your logs:
+
+```text
+Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
+```
+
+These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in.
