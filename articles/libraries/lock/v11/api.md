@@ -143,7 +143,7 @@ lock.on('authorization_error', function(error) {
   lock.show({
     flashMessage: {
       type: 'error',
-      text: error.error_description
+      text: error.errorDescription
     }
   });
 });
