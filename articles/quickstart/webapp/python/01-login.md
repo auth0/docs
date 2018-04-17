@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Python Authlib to add authentication and authorization to your web application.
+description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with Flask.
 budicon: 448
 ---
 
