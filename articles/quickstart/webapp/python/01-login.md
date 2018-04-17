@@ -84,7 +84,7 @@ auth0 = oauth.register(
 
 This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
 
-The `id_token` is a [JWT](/jwt) that contains the user profile information for the requested [OIDC Conformant claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
+The `access_token` will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # /server.py
