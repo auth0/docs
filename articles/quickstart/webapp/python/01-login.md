@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Python Authlib to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Python Authlib to add authentication and authorization to your web application.
 budicon: 448
 ---
 
