@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how integrate Auth0 with a Django Web Applcation.
+description: This tutorial demonstrates how integrate Auth0 with a Django Web Application.
 budicon: 448
 ---
 
@@ -61,7 +61,7 @@ The `settings.py` file contains the configuration of your Django project.
 Add one entry for `social_django` and for your application into the `INSTALLED_APPS` entry.
 
 ```python
-# webappexample\settings.py
+# webappexample/settings.py
 
 INSTALLED_APPS = [
     'social_django',
@@ -73,7 +73,7 @@ Add your Auth0 domain, the Client Id and the Client Secret. You can get this inf
 
 
 ```python
-# webappexample\settings.py
+# webappexample/settings.py
 
 SOCIAL_AUTH_TRAILING_SLASH = False                    # Remove end slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
@@ -84,7 +84,7 @@ SOCIAL_AUTH_AUTH0_SECRET = 'YOUR_CLIENT_SECRET'
 Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes/current) for more information.
 
 ```python
-# webappexample\settings.py
+# webappexample/settings.py
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
@@ -104,7 +104,7 @@ $ python manage.py migrate
 
 The `social_django` application is now configured. The next step is to create an authentication backend that bridges `social_django` with Auth0.
 
-Create a file to implement the custom `Auth0` authentication backend. 
+Create a file to implement the custom `Auth0` authentication backend.
 
 ```python
 # auth0login/auth0backend.py
@@ -153,7 +153,7 @@ The callback URL will be calculated by `social-auth` by concatenating `/callback
 Register the authentication backends in `settings.py`. Add the custom backend for `Auth0` and `ModelBackend` for users to be able to login with username/password method.
 
 ```python
-# webappexample\settings.py
+# webappexample/settings.py
 
 AUTHENTICATION_BACKENDS = {
     'YOUR_DJANGO_APP_NAME.auth0backend.Auth0',
@@ -164,11 +164,10 @@ AUTHENTICATION_BACKENDS = {
 Configure the login, redirect login and redirect logout URLs as set below. The LOGIN_URL ends with `auth0` as it needs to match the `name` property of the custom backend defined above.
 
 ```python
-# webappexample\settings.py
+# webappexample/settings.py
 
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/dashboard"
-LOGOUT_REDIRECT_URL = "/"
 ```
 
 ## Trigger Login with Social-Django
@@ -236,7 +235,19 @@ Add the following snippet to `dashboard.html` to display the [user information](
 
 ## Logout
 
-To log a user out, add a link to `/logout` in `dashboard.html`.
+To log the user out you will need to clear the session from Django, as well as Auth0. for more information you can refer to the Auth0 [logout documentation](/logout)
+
+```python
+# auth0login/views.py
+
+def log_out(request):
+    logout(request)
+    url = 'https://%s/v2/logout?client_id=%s&returnTo=%s' % \
+          (settings.SOCIAL_AUTH_AUTH0_DOMAIN, settings.SOCIAL_AUTH_AUTH0_KEY, request.build_absolute_uri('/'))
+    return HttpResponseRedirect(url)
+```
+
+Add a link to `/logout` in `dashboard.html`.
 
 ```html
 <!-- auth0login/templates/dashboard.html -->
@@ -259,11 +270,12 @@ Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http
 Add mappings for the root folder, the dashboard folder, and the authentication applications in `urls.py`.
 
 ```python
-# auth0login\urls.py
+# auth0login/urls.py
 
 urlpatterns = [
     url('^$', views.index),
     url(r'^dashboard', views.dashboard),
+    url(r'^logout', views.log_out),
     url(r'^', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^', include('social_django.urls', namespace='social')),
 ]
