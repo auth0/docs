@@ -54,16 +54,16 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>Required for logging and debugging</td>
   </tr>
   <tr>
-    <td>3000</td>
-    <td>Grafana instrumentation</td>
-    <td>Yes</td>
-    <td>Required for instrumentation</td>
-  </tr>
-  <tr>
-    <td>9300-9400</td>
+    <td>9200, 9300-9400</td>
     <td>Elastic Search</td>
     <td>Yes</td>
     <td>Required for Elastic Search</td>
+  </tr> 
+   <tr>
+    <td>3000</td>
+    <td>Grafana instrumentation</td>
+    <td>No</td>
+    <td>Required if you are using Grafana instrumentation</td>
   </tr>  
   <tr>
     <td>22</td>
