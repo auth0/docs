@@ -1,10 +1,10 @@
 ---
-title: User Search v3
+title: User Search
 description: Learn about Auth0's user search query string syntax and how to search for users then sort the results.
 toc: true
 ---
 
-# User Search v3
+# User Search
 
 Looking for someone? You can search for users matching a custom query with the [list or search users](/api/management/v2#!/Users/get_users) endpoint.
 
