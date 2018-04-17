@@ -24,7 +24,7 @@ By default, Auth0 generates Access Tokens, for [API Authorization scenarios](/ap
 Auth0 also generates opaque Access Tokens for the (deprecated) [Management API v1](/api/management/v1).
 :::
 
-The permissions represented by the Access Token, in OAuth 2.0 terms are known as **scopes**. When a application authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes.
+The permissions represented by the Access Token, in OAuth 2.0 terms are known as **scopes**. When an application authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes.
 
 For example, a Contacts API may accept three different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When an application asks the API to create a new contact, then the Access Token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the Access Token should contain the `delete:contacts` scope.
 
@@ -39,7 +39,7 @@ In any OAuth 2.0 flow we can identify the following roles:
 
 - **Resource Server**: the server hosting the protected resources. This is the API you want to access.
 
-- **Application**: the app requesting access to a protected resource on behalf of the Resource Owner.
+- **Client**: the app requesting access to a protected resource on behalf of the Resource Owner.
 
 - **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
 
@@ -50,7 +50,7 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 ![Generic OAuth Flow](/media/articles/protocols/oauth2-generic-flow.png)
 
-1. The Application asks for authorization from the Resource Owner in order to access the resources.
+1. The Applicatio (Client) asks for authorization from the Resource Owner in order to access the resources.
 
 1. Provided that the Resource Owner authorizes this access, the Application receives an **Authorization Grant**. This is a credential representing the Resource Owner's authorization.
 
