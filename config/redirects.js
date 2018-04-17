@@ -1732,5 +1732,9 @@ module.exports = [
   {
     from: '/api/management/v2/query-string-syntax',
     to: '/users/search/v2/query-syntax'
+  },
+  {
+    from: '/api-auth/dynamic-client-registration',
+    to: '/api-auth/dynamic-application-registration'
   }
 ];
