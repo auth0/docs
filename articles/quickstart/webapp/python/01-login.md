@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with Flask.
+description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with the Flask framework.
 budicon: 448
 ---
 
