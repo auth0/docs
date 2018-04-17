@@ -41,7 +41,6 @@ six
 
 ## Initialize Authlib
 
-With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to the [login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
 Create a file named `server.py`, and instantiate an application with your client keys, scopes, and OAuth endpoints.
 
 ```python
