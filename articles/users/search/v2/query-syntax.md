@@ -4,7 +4,7 @@ description: This page explains query string syntax, which you can use to constr
 crews: crew-2
 ---
 
-# Query String Syntax
+# User Search Query Syntax
 
 ::: version-warning
 This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
