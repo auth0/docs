@@ -1,51 +1,54 @@
 ---
-title: Associate a New Authenticator for Use with Multifactor Authentication
-description: How to associate a new authenticator for use with MFA using the new MFA API endpoints
-beta: true
+title: MFA API
+description: MFA API index, listing available APIs
 ---
 
-# Associate a New Authenticator for Use with Multifactor Authentication
+# MFA API
 
-::: warning
-This article includes documentation on features that are still under development. These features are available to customers with early access.
-:::
+The MFA API is a set of APIs that will allow you to provide multiple use cases to your users.
+* Enforcing MFA when interacting with the Token Endpoint
+* Programmatic enrollment and management of user authenticators
 
-Auth0 allows you to configure your tenant so that your end users can self-associate a new authenticator for use in multifactor authentication.
+## Requirements
 
-In this tutorial, you'll learn how to configure self-association of a new authenticator for use in multifactor authentication. Configuring Auth0 for such process requires the following steps:
+In order to use these APIs you will need,
+1. An enabled MFA rule that sets Guardian as the MFA provided.
+2. In case of using this with a Token Endpoint grant, the requirements for that grant apply.
 
-1. Obtaining an MFA token
-2. Requesting authenticator association
-3. Using the authenticator to confirm association
+## Enforcing MFA when interacting with the Token Endpoint
+Support for MFA on the token endpoint has been expanded to cover the following use cases,
+* The following grants can prompt for MFA: [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), [refresh-token](/tokens/refresh-token/current#use-a-refresh-token)
+* End users perform the first time enrollment for MFA when interacting with the Token Endpoint
+* Before executing the challenge the end user can select the MFA authenticator to use
+<!-- * Support for TOPT delivered via Email -->
+<!-- TODO: Add link to (to be created) doc about email authenticator -->
 
-## Background
+### Read More
 
-Let's say that you have enabled multifactor authentication for your tenant, and you are capable of supporting more than one type of authenticator. You can then configure your authorization process so that users who log in and do not have at least one active authenticator (other than a recovery code) can self-associate a new authenticator.
+* [Manually trigger MFA challenges](/multifactor-authentication/api/challenges)
+* [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
+* [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
+<!-- * [Using Push Notifications]
+* [Using one-time passwords via email] -->
+<!-- TODO: Add missing articles and link to them -->
+* [End to end example on how to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 
-## Prerequisites
+## Programmatic enrollment and management of user authenticators
 
-::: note
-For these tutorials, we will be using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
-:::
+The Associate API will allow for CRUD operations of authenticators. This API can power end user interfaces where users could manage their MFA enrollments by inspecting their setup, adding new authenticators, and removing existing ones.
 
-Before you begin the process of configuring self-association of authenticators, you'll need to:
+This is useful to unlock use cases such as,
+* I want my users to be able to enroll more than one device
+* I want to provide my users with the ability to select a fallback MFA mechanism in case the primary one is not available in a certain context (e.g. use OTP when the SMS network is not present or unresponsive)
 
-1. Configure Your Tenant (including setting the [Default Audience and/or Default Directory](/dashboard-tenant-settings#api-authorization-settings))
-1. Register Your [API](https://auth0.com/docs/apis#how-to-configure-an-api-in-auth0)
-1. Set the [grant type property](/applications/application-grant-types) of the Machine to Machine Application created with your API
-1. Create Your [Connection](/connections/database)
+### Read More
+* [API docs](/multifactor-authentication/api/)
+* [List authenticators](/multifactor-authentication/api/manage#list-authenticators)
+* [Delete an authenticator](/multifactor-authentication/api/manage#delete-authenticators).
+<!-- * [Enroll a new authenticator](/multifactor-authentication/api/manage#enroll-authenticators). -->
+<!-- TODO: Add link to enroll authenticator (requires expanding doc) -->
 
-## Associate Authenticators
+## Limitations
 
-When logging in, your users can self-associate the following types of authenticators:
-
-* Authenticators using [one-time passwords](/multifactor-authentication/api/otp) as the MFA challenge
-* Authenticators using [SMS messages](/multifactor-authentication/api/oob) as the MFA challenge
-
-## Manage Authenticators
-
-You can use [list the authenticators](/multifactor-authentication/api/manage#list-authenticators) you've associated with your tenant or [delete individual authenticators](/multifactor-authentication/api/manage#delete-authenticators) as necessary.
-
-## MFA Challenges
-
-You can [manually trigger MFA challenges](/multifactor-authentication/api/challenges) for associated authenticators.
+* The current API is designed to work with the Guardian Provider. Support for other providers will be provided in future releases.
+* Support for selection of the authenticator is currently limited to the Token Endpoint. We will continue working to extend this support to our Hosted MFA Pages. If users have more than one authenticator enrolled, the last enrolled one  will be used by the Hosted MFA Pages.
