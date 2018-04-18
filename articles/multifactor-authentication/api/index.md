@@ -1,28 +1,28 @@
 ---
 title: Multifactor Authentication API
-description: Index of Available MFA APIs
+description: Overview of available multifactor authentication APIs
 ---
 
-# Multifactor Authentication (MFA) API
+# Multifactor Authentication API
 
-The Multifactor Authentication (MFA) API is a set of APIs that allows you to:
+The Multifactor Authentication (MFA) API is a set of endpoints that allow you to:
 
-* Enforce MFA when users interact with the Token Endpoints
+* Enforce MFA when users interact with the Token endpoints
 * Programmatically enroll and manage user authenticators
 
 ## Requirements
 
 To use the MFA APIs you will need **an enabled MFA rule that sets Guardian as the MFA provider**.
 
-If you are using the MFA API in conjunction with a Token Endpoint grant, you must meet the requirements for the grant.
+If you are using the MFA API in conjunction with a Token endpoint grant, you must meet the requirements for the grant.
 
-## Enforcing MFA when interacting with the Token Endpoint
+## Enforcing MFA when interacting with the Token endpoint
 
-We have expanded MFA support on the Token Endpoints to cover the following use cases:
+We have expanded MFA support on the Token endpoints to cover the following use cases:
 
-* Use of MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants
-* Completion of first-time enrollment by end users when interacting with the Token Endpoint
-* Selection of the desired MFA authenticator by the end user prior to executing the MFA challenge
+* Use of MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants.
+* Completion of first-time enrollment by users when interacting with the Token endpoint.
+* Selection of the desired MFA authenticator by the user prior to executing the MFA challenge.
 <!-- * Support for TOPT delivered via Email -->
 <!-- TODO: Add link to (to be created) doc about email authenticator -->
 
@@ -42,7 +42,7 @@ We have expanded MFA support on the Token Endpoints to cover the following use c
 
 The MFA Associate API allows you to create, read, update, and delete (CRUD) authenticators.
 
-You can use this API to power your end-user interfaces where your users can:
+You can use this API to power user interfaces where your users can:
 
 * Manage their MFA enrollments
 * Add new MFA authenticators
