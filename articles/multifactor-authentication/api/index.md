@@ -1,5 +1,5 @@
 ---
-title: MFA API
+title: Multifactor Authentication API
 description: Index of Available MFA APIs
 ---
 
