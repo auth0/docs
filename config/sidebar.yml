@@ -552,8 +552,6 @@ articles:
       - title: "API"
         url: "/multifactor-authentication/api"
         children:
-          - title: "Associate Authenticators"
-            url: "/multifactor-authentication/api/associate"
           - title: "Challenge Request"
             url: "/multifactor-authentication/api/challenges"
           - title: "Manage Authenticators"
