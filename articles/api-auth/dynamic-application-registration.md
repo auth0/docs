@@ -28,7 +28,9 @@ Auth0 supports **Open Dynamic Registration**, which means that if you enable thi
 
 Set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
 
-You can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
+This can be done by enabling the **OIDC Dynamic Application Registration** toggle on your tenant's [Advanced Settings page](${manage_url}/#/tenant/advanced).
+
+Alternatively, you can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
 ```har
 {
@@ -142,7 +144,7 @@ To create an application with the name `My Dynamic Client` and the callback URLs
 ```
 
 Where:
-- **client_name** (required): The name of the Dynamic Application to be created
+- **client_name**: The name of the Dynamic Application to be created
 - **redirect_uris** (required): An array of URLs that Auth0 will deem valid to call at the end of an authentication flow
 
 Optionally, you can set a value for `token_endpoint_auth_method`, which can be `none` or `client_secret_post` (default value).

@@ -482,6 +482,10 @@ module.exports = [
 /* --- Clients --- */
 
   {
+    from: '/clients',
+    to: '/applications'
+  },
+  {
     from: '/clients/addons',
     to: '/applications/addons'
   },
@@ -924,10 +928,6 @@ module.exports = [
   {
     from: '/metadata/apiv2',
     to: '/metadata/management-api'
-  },
-  {
-    from: '/applications',
-    to: '/clients'
   },
   {
     from: '/saml-apps',
@@ -1732,5 +1732,9 @@ module.exports = [
   {
     from: '/api/management/v2/query-string-syntax',
     to: '/users/search/v2/query-syntax'
+  },
+  {
+    from: '/api-auth/dynamic-client-registration',
+    to: '/api-auth/dynamic-application-registration'
   }
 ];

@@ -27,6 +27,8 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 
 <%= include('../../_includes/_legacy_flows') %>
 
+<%= include('../../_includes/_verifying_migration') %>
+
 ## Behavioral Changes
 
 <%= include('../../_includes/_default_values') %>
