@@ -13,7 +13,9 @@ toc: true
 1. The user authenticates successfully.
 1. The tokens ([id_token](/tokens/id-token) and/or [access_token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
 
-Among many possibilities, Rules can be used to:
+## What can I use rules for?
+
+Among many possibilities, rules can be used to:
 
 * __Profile enrichment__: query for information on the user from a database/API, and add it to the user profile object.
 * Create __authorization rules__ based on complex logic (anything that can be written in JavaScript).
@@ -25,7 +27,7 @@ Among many possibilities, Rules can be used to:
 * Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
 * Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
-## Video: Using Rules
+## Video: Using rules
 
 Watch this video learn all about rules in just a few minutes.
 
@@ -36,10 +38,6 @@ Watch this video learn all about rules in just a few minutes.
 A Rule is a function with the following arguments:
 
 * `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
-
-    ::: note
-    Rules execute after the actual login, so for the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rules.
-    :::
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 

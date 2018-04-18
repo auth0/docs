@@ -37,8 +37,7 @@ function(user, context, callback) {
       traits: {
       email: user.email,
       signed_up: user.created_at,
-      login_count: user.logins_count,
-      last_login: user.last_login,
+      login_count: user.logins_count
     },
     "context": {
       "userAgent": context.request.UserAgent,
