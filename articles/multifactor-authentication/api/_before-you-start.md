@@ -6,7 +6,6 @@ The MFA endpoints require an [Access Token](/tokens/access-token) with:
 * `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
 
 For example:
-
 ```har
 {
   "method": "POST",
