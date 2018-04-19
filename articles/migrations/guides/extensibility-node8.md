@@ -25,7 +25,6 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 * Custom database connections
 * Custom social connections
 
-
 If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
 Due to the end of long-term support (LTS) for Node 4, we will be migrating the Webtask runtime to use Node 8. As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
@@ -35,7 +34,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 ### Important Dates
 
 * **2018 April 17**: The Webtask runtime using Node 8 becomes available to Auth0 customers
-* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the *Installed Extensions* tab of the [Extensions page](https://manage.auth0.com/#/extensions)
+* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
 * **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
 
@@ -119,7 +118,6 @@ For example, you must change
 to
 
 `var mysql = require(‘mysql’);`
-
 
 or, if the module must be pinned to a specific version:
 
