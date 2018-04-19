@@ -27,17 +27,17 @@ First, we'll check for the Application created for your WordPress site.
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an Application that is similar to your site name; if you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking Create Application**, entering a name for the Application, selecting **Regular Web Applications**, then clicking **Create**. 
     
-    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
+    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
 1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-application-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. **Application Type** must be set to **Regular Web Application**
 
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-    ![Application - allowed callback field](/media/articles/cms/wordpress/application-allowed-callbacks.png)
+    ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -53,12 +53,12 @@ First, we'll check for the Application created for your WordPress site.
 
 1. Turn off **OIDC Conformant**.
 
-    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/application-advanced-settings.png)
+    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
 1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and 
 **Client Credentials**.
 
-    ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/application-grant-types.png)
+    ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
 1. Click **Save Changes** if anything was modified.
 
@@ -86,7 +86,7 @@ In order for your WordPress site to perform certain actions on behalf of your Au
     * `create:users`
     * `update:guardian_factors`
 
-![Application Advanced Settings](/media/articles/cms/wordpress/grant-application-access-to-api.png)
+![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
 ### Database Connection setup
 
@@ -102,7 +102,7 @@ Connection, use an existing Connection, or use the default **Username-Password-A
 
 1. Now click the **Applications** tab and activate the Application created above.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-applications.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
 ### Social Connection setup
 
@@ -112,7 +112,7 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-application-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
