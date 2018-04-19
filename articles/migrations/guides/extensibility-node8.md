@@ -6,7 +6,7 @@ toc: true
 # Migration Guide: Extensibility and Node 8
 
 :::warning
-The Node 8 runtime will become available to all public cloud customers on **April 17, 2018**.
+Due to a [recent incident](https://status.auth0.com/incidents/77gg0xqtvqd5) the ability to upgrade to Node 8 has been temporarily disabled. The incident has been resolved and as soon as we complete our tests we will enable this migration again.
 :::
 
 Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
@@ -44,10 +44,6 @@ However, there may be behavioral changes as a result of this migration. As such,
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
 
 ## How to enable the Node 8 runtime
-
-:::warning
-The Extensibility panel, that this section refers to, will be made available to our cloud customers on **April 17, 2018**.
-:::
 
 Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
 
