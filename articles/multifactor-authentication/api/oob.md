@@ -1,11 +1,11 @@
 ---
 title: Associate an Out-of-Band
-description: Configure your application to allow users to self-associate out-of-band (OOB) authenticators.
+description: Configure your application so users can self-associate out-of-band (OOB) authenticators.
 ---
 
 # Associate an Out-of-Band Authenticator
 
-In this tutorial, you'll learn how to configure your application to allow users to self-associate out-of-band (OOB) authenticators.
+In this tutorial, you'll learn how to configure your application so users can self-associate out-of-band (OOB) authenticators.
 
 <%= include('./_before-you-start.md') %>
 
@@ -27,7 +27,7 @@ In the next step, use the MFA token (`mfa_token`) instead of the standard access
 
 Next, make a `POST` request to the `/mfa/associate` endpoint to request association of your authenticator. Remember to use the MFA token from the previous step.
 
-To associate an authenticator where the challenge type is an SMS message containing a code the user provides, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
+To associate an authenticator where the challenge type is an SMS message containing a code the user provides, make the following `POST` request to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
@@ -44,7 +44,7 @@ To associate an authenticator where the challenge type is an SMS message contain
 }
 ```
 
-If successful, you'll receive a response similar to the following:
+If successful, you'll receive a response like this:
 
 ```json
 {
@@ -57,7 +57,7 @@ If successful, you'll receive a response similar to the following:
 
 ### Recovery Codes
 
-If this is the first time you're associating an authenticator, you'll notice that your response includes `recovery_codes`. This is used to access your account in the event that you lose access to the account or device used for your second factor authentication. These are one-time usable codes, and new ones are generated as necessary.
+If this is the first time you're associating an authenticator, you'll notice your response includes `recovery_codes`. This is used to access your account in the event that you lose access to the account or device used for your second factor authentication. These are one-time usable codes, and new ones are generated as necessary.
 
 ## 3. Confirm the authenticator association
 
@@ -78,7 +78,7 @@ To confirm the association of an authenticator using SMS messages for the MFA ch
 }
 ```
 
-If your call was successful, you'll receive a response similar to the following:
+If your call was successful, you'll receive a response like this:
 
 ```
 {
