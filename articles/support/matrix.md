@@ -2,10 +2,8 @@
 title: Auth0 Product Support Matrix
 description: This doc covers what features, platforms, and software configurations Auth0 supports.
 toc: true
+classes: support-matrix-page
 ---
-<!-- markdownlint-disable -->
-<div class="support-matrix-page">
-
 # Auth0 Product Support Matrix
 
 For customers with valid [subscriptions](${manage_url}/#/account/billing/subscription), this article covers the features, platforms, and software configurations that are eligible for Auth0 support.

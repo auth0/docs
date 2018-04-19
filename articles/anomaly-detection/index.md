@@ -41,12 +41,12 @@ If this block is triggered, it can be cleared the following ways:
 **Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. Or *50* sign ups attempts per minute from the same IP address.
 
 **Actions:**
-* Notify dashboard owners
+* Notify dashboard administrator(s)
 * Block suspicious addresses
 
 If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
 
-Auth0 does email the dashboard owner when this block is triggered. Within this email there's a link the owner can click on to remove the block.
+Auth0 does email the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
 #### Restrictions Regarding Brute-Force Protection
 
