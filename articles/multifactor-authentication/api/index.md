@@ -12,7 +12,7 @@ The Multifactor Authentication (MFA) API is a set of endpoints that allow you to
 
 ## Requirements
 
-To use the MFA APIs you will need **an enabled MFA rule that sets Guardian as the MFA provider**. Fore more info on this see [Guardian for Administrators](/multifactor-authentication/administrator).
+To use the MFA APIs you will need **an enabled MFA rule that sets Guardian as the MFA provider**. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
 
 If you are using the MFA API in conjunction with a [Token endpoint](/api/authentication#get-token), you must meet the requirements of the corresponding grant.
 
