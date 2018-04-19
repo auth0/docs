@@ -5,10 +5,9 @@ description: How to manage your MFA authenticators
 
 # Manage the Authenticators
 
-Auth0 provides several API endpoints to help you manage the authenticators you're using with a particular application for multifactor authentication (MFA).
+Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multifactor authentication (MFA).
 
-## Before You Start
-
+<%= include('./_before-you-start.md') %>
 
 ## List Authenticators
 
