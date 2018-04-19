@@ -5,7 +5,7 @@ description: How to associate an OTP authenticator
 
 # Associate an OTP Authenticator
 
-In this tutorial, we will show you how you can configure your Auth0 tenant to allow the self-association of one-time password (OTP) authenticators.
+In this tutorial, you'll learn how to configure your application to allow users to self-associate one-time password (OTP) authenticators.
 
 <%= include('./_before-you-start.md') %>
 

@@ -1,17 +1,17 @@
 ---
-title: Associate an OOB Authenticator
-description: How to associate an OOB authenticator
+title: Associate an Out-of-Band
+description: Configure your application to allow users to self-associate out-of-band (OOB) authenticators.
 ---
 
-# Associate an OOB Authenticator
+# Associate an Out-of-Band Authenticator
 
-In this tutorial, we will show you how you can configure your Auth0 tenant to allow the self-association of out-of-band (OOB) authenticators.
+In this tutorial, you'll learn how to configure your application to allow users to self-associate out-of-band (OOB) authenticators.
 
 <%= include('./_before-you-start.md') %>
 
-## Step 1. Trigger the MFA Error and Use the MFA Token to Associate the New Authenticator
+## 1. Get the MFA token
 
-Whenever a user begins the authorization process and they do not have an active authenticator associated with their account, they will trigger the following MFA response when calling the `/oauth/token` endpoint:
+When a user begins the authorization process without an active authenticator associated with their account, they will trigger the following MFA response when calling the `/oauth/token` endpoint:
 
 ```json
 {
@@ -21,13 +21,13 @@ Whenever a user begins the authorization process and they do not have an active 
 }
 ```
 
-You will use the MFA token instead of the standard access token to request association of a new authenticator.
+In the next step, use the MFA token (`mfa_token`) instead of the standard access token to request association of a new authenticator.
 
-## Step 2: Use the MFA Token to Request Association of the Authenticator
+## 2. Request association of the authenticator
 
-Now that you have the appropriate MFA token, you can send the appropriate `POST` request to the `/mfa/associate` endpoint to request Association of your authenticator.
+Next, make a `POST` request to the `/mfa/associate` endpoint to request association of your authenticator. Remember to use the MFA token from the previous step.
 
-To associate an authenticator where the challenge type is an SMS message containing a code that the user is then required to provide, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
+To associate an authenticator where the challenge type is an SMS message containing a code the user provides, make the following `POST` call to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
@@ -59,11 +59,13 @@ If successful, you'll receive a response similar to the following:
 
 If this is the first time you're associating an authenticator, you'll notice that your response includes `recovery_codes`. This is used to access your account in the event that you lose access to the account or device used for your second factor authentication. These are one-time usable codes, and new ones are generated as necessary.
 
-## Step 3: Use the Authenticator to Confirm Its Association
+## 3. Confirm the authenticator association
 
-Once you've associated an authenticator, **you must use it at least once to confirm the association**. You can check to see if an authenticator has been confirmed by calling the [`mfa/authenticators` endpoint](/multifactor-authentication/api/manage#list-authenticators). If confirmed, the value of `active` is `true`.
+Once you've associated an authenticator, **you must use it at least once to confirm the association**.
 
-To confirm the association of an authenticator using SMS messages for the MFA challenge, you'll make a `POST` call to the `oauth/token` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
+You can check if an authenticator has been confirmed by calling the [`mfa/authenticators` endpoint](/multifactor-authentication/api/manage#list-authenticators). If confirmed, the value of `active` is `true`.
+
+To confirm the association of an authenticator using SMS messages for the MFA challenge, make a `POST` request to the `oauth/token` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
 ```har
 {
