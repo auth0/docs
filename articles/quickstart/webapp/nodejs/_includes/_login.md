@@ -12,8 +12,8 @@ yarn add passport passport-auth0 connect-ensure-login
 
 ## Configure the Middleware
 
-Create a new instance of the `Auth0Strategy` strategy. 
-Enter your Auth0 application details as configuration values. Tell `passport` to use this strategy. 
+Create a new instance of the `Auth0Strategy` strategy.
+Enter your Auth0 application details as configuration values. Tell `passport` to use this strategy.
 
 ```js
 // app.js
@@ -56,11 +56,11 @@ app.use(passport.session());
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features.
 
 ::: note
-You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible.
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
-Add a route called `/login`. Use the `env` object to set the following properties for your application: 
+Add a route called `/login`. Use the `env` object to set the following properties for your application:
 * Client ID
 * Domain
 * Callback URL
@@ -68,12 +68,18 @@ Add a route called `/login`. Use the `env` object to set the following propertie
 The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the login page.
 
 You need to make sure you get an OIDC-conformant response. You can achieve it two ways:
-* set the audience. 
-* turn on the **OIDC conformant** switch in your Auth0 dashboard. 
+* set the audience.
+* turn on the **OIDC conformant** switch in your Auth0 dashboard.
 
 ::: note
-The example below shows how to set the audience to get an OIDC-conformant response. 
+The example below shows how to set the audience to get an OIDC-conformant response.
 To turn on the **OIDC conformant** switch, in your [Application Settings](${manage_url}/#/applications/${account.applicationId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [new flows documentation](/api-auth/intro#how-to-use-the-new-flows).
+:::
+
+Add a route called `/logout`. This route calls the `logout` method to clean the login session and logout from Auth0 calling `/v2/logout` endpoint of the authentication API.
+
+::: note
+Please take into consideration that the return to needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout).
 :::
 
 ```js
@@ -113,7 +119,14 @@ router.get(
 // Perform session logout and redirect to homepage
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  const url = new URL(env.AUTH0_CALLBACK_URL);
+    const logout_url = util.format(
+        'https://%s/v2/logout?client_id=%s&returnTo=%s',
+        env.AUTH0_DOMAIN,
+        env.AUTH0_CLIENT_ID,
+        url.origin
+    );
+    res.redirect(logout_url);
 });
 
 // Perform the final stage of authentication and redirect to '/user'
