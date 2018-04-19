@@ -5,24 +5,21 @@ description: Overview of available multifactor authentication APIs
 
 # Multifactor Authentication API
 
-The Multifactor Authentication (MFA) API is a set of endpoints that allow you to:
-
-* Enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token)
-* Programmatically enroll and manage user authenticators
+The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well programmatically enroll and manage user authenticators.
 
 ## Requirements
 
-To use the MFA APIs you will need **an enabled MFA rule that sets Guardian as the MFA provider**. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
+To use the MFA APIs, an enabled MFA rule that sets Guardian as the MFA provider is required. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
 
 If you are using the MFA API in conjunction with a [Token endpoint](/api/authentication#get-token), you must meet the requirements of the corresponding grant.
 
-## Enforcing MFA when interacting with the Token endpoint
+## Multifactor authentication with the Token endpoint
 
 We have expanded MFA support on the Token endpoints to cover the following use cases:
 
-* Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants
-* Completion of first-time enrollment by end-users during authentication
-* Selection of the desired MFA authenticator by the end-user before they execute the MFA challenge
+* Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants.
+* Completion of first-time enrollment by users during authentication.
+* Selection of the desired MFA authenticator by the user before they execute the MFA challenge.
 <!-- * Support for TOPT delivered via Email -->
 <!-- TODO: Add link to (to be created) doc about email authenticator -->
 
@@ -38,20 +35,11 @@ We have expanded MFA support on the Token endpoints to cover the following use c
 * [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 :::
 
-## Programmatic enrollment and management of user authenticators
+## Enrollment and management of user authenticators
 
-The MFA Associate API allows you to create, read, update, and delete authenticators.
+The MFA Associate API allows you to create, read, update, and delete authenticators. You can use this API to power user interfaces where users can manage MFA enrollments, or add and remove authenticators.
 
-You can use this API to power user interfaces where your users can:
-
-* Manage their MFA enrollments
-* Add new MFA authenticators
-* Remove existing MFA authenticators
-
-This is useful if you want your users to be able to:
-
-* Enroll more than one device
-* Select a fallback MFA mechanism in case the primary one is not available in a certain context. For example, your user might use OTP when their SMS network is not present or unresponsive
+This enables users to enroll more than one device and select a fallback MFA mechanism in case the primary one is not available. For example, your user might use OTP when their SMS network is not present or unresponsive.
 
 ### More info
 
