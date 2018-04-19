@@ -56,7 +56,6 @@ This is useful if you want your users to be able to:
 ### More info
 
 ::: next-steps
-* [API docs](/multifactor-authentication/api/)
 * [List authenticators](/multifactor-authentication/api/manage#list-authenticators)
 * [Delete an authenticator](/multifactor-authentication/api/manage#delete-authenticators)
 <!-- * [Enroll a new authenticator](/multifactor-authentication/api/manage#enroll-authenticators) -->
