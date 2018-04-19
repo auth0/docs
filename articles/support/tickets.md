@@ -2,7 +2,7 @@
 decription: How to open and manage tickets with Support Center.
 ---
 
-# Opening and Managing Tickets in Support Center
+# Open and Manage Support Tickets
 
 With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You can access Support Center if you are a full administrator of an Auth0 account, or have received an invitation to Support Center from an administrator. 
 
@@ -10,11 +10,11 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 
 ## Opening a New Ticket
 
-1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **OPEN TICKET** button.
-![](/media/articles/support/open-ticket.png)
-1. Choose the "Affected Account" from the dropdown menu.
-1.  Under "What can we help you with?" select the type of issue that best fits your case.
-![](/media/articles/support/issue-types.png)
+1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Contact Support** button. If you don't see this button, then you do not have access to support (only paying and trial customers have). In this case you can use our [Community](https://community.auth0.com/) instead (button **Ask our Community**).
+![Support Center](/media/articles/support/open-ticket.png)
+1. Choose the **Affected Account** from the dropdown menu.
+1.  Under **What can we help you with?** select the type of issue that best fits your case.
+![Issue types](/media/articles/support/issue-types.png)
     * **Auth0 Service Issue** - Choose this if something isn’t working correctly or you need help using a feature or getting something working.
         * With Service Issues, you will be asked to select a severity:
             *  **Low: Product Question** - You have questions about how things work, whether we support something
@@ -42,10 +42,10 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 ## Updating an Existing Ticket
 
 1. You can view the existing tickets you have filed by going to the [Support Center](${env.DOMAIN_URL_SUPPORT}) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.
-![](/media/articles/support/select-ticket.png)
+![Select ticket](/media/articles/support/select-ticket.png)
 
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
-![](/media/articles/support/update-ticket.png)
+![Update ticket](/media/articles/support/update-ticket.png)
 
 ### Closed Tickets
 
