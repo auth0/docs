@@ -8,9 +8,9 @@ With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for que
 
 If you are an existing PSaaS Appliance customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing PSaaS Appliance subscription.
 
-## Opening a New Ticket
+## Open a new ticket
 
-1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Contact Support** button. If you don't see this button, then you do not have access to support (only paying and trial customers have). In this case you can use our [Community](https://community.auth0.com/) instead (button **Ask our Community**).
+1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Contact Support** button. If you don't see this button, then you do not have access to support (only paying and trial customers have). In this case you can use our [Community](https://community.auth0.com/) instead (click **Ask our Community**).
 ![Support Center](/media/articles/support/open-ticket.png)
 1. Choose the **Affected Account** from the dropdown menu.
 1.  Under **What can we help you with?** select the type of issue that best fits your case.
@@ -39,7 +39,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
     * What troubleshooting steps have you tried?
 1. When you have completed all the fields, click on the **SUBMIT** button.
 
-## Updating an Existing Ticket
+## Update an existing ticket
 
 1. You can view the existing tickets you have filed by going to the [Support Center](${env.DOMAIN_URL_SUPPORT}) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.
 ![Select ticket](/media/articles/support/select-ticket.png)
@@ -47,6 +47,6 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
 ![Update ticket](/media/articles/support/update-ticket.png)
 
-### Closed Tickets
+### Closed tickets
 
 If your ticket has been closed, but you'd like to continue working with Auth0 on the issue, please create a new [Support Center ticket](${env.DOMAIN_URL_SUPPORT}). Be sure to include the reference number for the original ticket(s).
