@@ -75,7 +75,7 @@ The user's information is stored in the session. Each time you call `getUser()`,
 ```html
 <!-- index.php -->
 
-<a class="btn btn-primary btn-lg btn-login btn-block" href="login.php">SignIn</a>
+<a class="btn btn-primary btn-lg btn-login btn-block" href="login.php">Sign In</a>
 ```
 
 ```php
@@ -87,7 +87,7 @@ The user's information is stored in the session. Each time you call `getUser()`,
 ```
 
 ::: note
-The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [ Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
+The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
 :::
 
 ## Access User Information
@@ -108,15 +108,34 @@ $userInfo = $auth0->getUser();
 </html>
 ```
 
-To learn about all the available properties from the user's profile, read the [user profile](/user-profile) documentation. 
+To learn about all the available properties from the user's profile, read the [user profile](/user-profile) documentation.
 
 ::: note
 Some of the user profile properties depend on the social provider you use.
 :::
 
+## Logout
+
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
+
+```php
+// logout.php
+
+<?php
+// ...
+$auth0->logout();
+$return_to = 'http://' . $_SERVER['HTTP_HOST'];
+$logout_url = sprintf('http://%s/v2/logout?client_id=%s&returnTo=%s', $domain, $client_id, $return_to);
+header('Location: ' . $logout_url);
+```
+
+::: note
+Please take into consideration that the return to URL needs to be in the list of **Allowed Logout URLs** in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout).
+:::
+
 ### Optional: Configure session data
 
-By default, the SDK stores user information in the PHP session and discards the access and ID Tokens. 
+By default, the SDK stores user information in the PHP session and discards the access and ID Tokens.
 
 To keep the tokens, to the SDK configuration, pass the following:
 * `'persist_access_token' => true`
