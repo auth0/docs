@@ -15,9 +15,7 @@ There are several Auth0 features than can help you achieve that, like user profi
 
 ## Encrypt user profile information
 
-You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality.
-
-To decrypt your data, you can use the **Decrypt sensitive data from the user profile** built-in [rules](/rules) template.
+<%= include('./_encrypt-data.md') %>
 
 ## Enable brute-force protection
 
