@@ -1,4 +1,5 @@
 ---
+url: /articles
 section: articles
 classes: topic-page
 title: Auth0 Documentation
