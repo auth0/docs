@@ -2,10 +2,11 @@
 
 The MFA endpoints require an [Access Token](/tokens/access-token) with:
 
-* `audience`: Set to `https://${account.namespace}/mfa`
-* `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
+- `audience`: Set to `https://${account.namespace}/mfa`
+- `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
 
 For example:
+
 ```har
 {
   "method": "POST",
@@ -19,5 +20,3 @@ For example:
   }
 }
 ```
-
-[Resource Owner Password Grant & MFA: Ask for a Token](/api-auth/tutorials/password-grant#ask-for-a-token)

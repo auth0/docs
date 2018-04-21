@@ -9,7 +9,10 @@ The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when
 
 ## Requirements
 
-To use the MFA APIs, an enabled MFA rule that sets Guardian as the MFA provider is required. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
+Before you can use the MFA APIs, you'll need to:
+
+* Enable the MFA grant type for your application. You can enable the MFA grant by going to [Applications > Your Application > Advanced Settings > Grant Types](${manage_url}/#/applications) and selecting MFA.
+* Create a rule that sets Guardian as the MFA provider. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
 
 If you are using the MFA API in conjunction with a [Token endpoint](/api/authentication#get-token), you must meet the requirements of the corresponding grant.
 
@@ -20,8 +23,6 @@ We have expanded MFA support on the Token endpoints to cover the following use c
 * Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants.
 * Completion of first-time enrollment by users during authentication.
 * Selection of the desired MFA authenticator by the user before they execute the MFA challenge.
-<!-- * Support for TOPT delivered via Email -->
-<!-- TODO: Add link to (to be created) doc about email authenticator -->
 
 ### More info
 
@@ -29,9 +30,6 @@ We have expanded MFA support on the Token endpoints to cover the following use c
 * [Manually triggering MFA challenges](/multifactor-authentication/api/challenges)
 * [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
 * [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
-<!-- * [Using Push Notifications]
-* [Using one-time passwords via email] -->
-<!-- TODO: Add missing articles and link to them -->
 * [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 :::
 
@@ -46,8 +44,6 @@ This enables users to enroll more than one device and select a fallback MFA mech
 ::: next-steps
 * [List authenticators](/multifactor-authentication/api/manage#list-authenticators)
 * [Delete an authenticator](/multifactor-authentication/api/manage#delete-authenticators)
-<!-- * [Enroll a new authenticator](/multifactor-authentication/api/manage#enroll-authenticators) -->
-<!-- TODO: Add link to enroll authenticator (requires expanding doc) -->
 :::
 
 ## Limitations
