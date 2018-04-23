@@ -7,7 +7,7 @@ In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd 
 
 ![Hosted Guardian MFA Page](/media/articles/hosted-pages/guardian.png)
 
-To see the default page name for the Guardian Login page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+To find the default page name for the Guardian Login Page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
 
 ## Guardian Login Page HTML Editor
 

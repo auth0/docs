@@ -7,7 +7,7 @@ crews: crew-2
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
-To see the default page name for the password reset page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+To find the default page name for the Password Reset Page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
 
 ::: note
 The Password Reset Page allows users to enter and confirm a new password; the email address requiring the password reset should already have been specified.

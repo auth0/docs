@@ -14,7 +14,7 @@ If you cannot use universal login, you can embed the Lock widget or a custom log
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
-To see the default page name for the login page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+To find the default page name for the login page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
 
 ### How Does Universal Login Work
 
