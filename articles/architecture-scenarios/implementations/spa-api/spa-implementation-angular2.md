@@ -2,6 +2,7 @@
 title: "SPA + API: Angular 2 Implementation for the SPA"
 description: The Angular 2 implementation of the SPA for the SPA + API architecture scenario
 url: /architecture-scenarios/application/spa-api/spa-implementation-angular2
+toc: true
 ---
 
 # SPA + API: Angular 2 Implementation for the SPA
