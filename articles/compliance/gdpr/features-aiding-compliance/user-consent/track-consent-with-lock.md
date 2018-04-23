@@ -22,9 +22,9 @@ We will capture consent information, under various scenarios, and save this at t
 ```
 
 We will see three different implementations for this:
-- one that displays a flag and works for database connections
-- one that displays a flag and works for social connections
 - one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed
+- one that adds custom fields at the signup widget and works for database connections
+- one that redirects to another page where the user can provide consent, and works for social connections
 
 All implementations will have the same final result, a `consentGiven` property saved at the user's metadata.
 
