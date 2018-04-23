@@ -11,7 +11,7 @@ The Management API provides functionality that you can use to manage users of yo
 * Unlink user accounts, returning them to separate identities
 * Update user [metadata](/metadata)
 
-## Initializing the API Client
+## Initializing the API Application
 
 To get started, create a new `UsersAPIClient` instance by passing it the `account` and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
 

@@ -27,7 +27,11 @@ Auth0 supports the following social providers out of the box. You can also use a
 
 ## Legal Identities
 
+<<<<<<< HEAD
 Through our partner Criipto, we offer a growing range of government and bank identities tied to legal persons. 
+=======
+Through our partner, Criipto, we offer a growing range of government and bank identities tied to legal persons. 
+>>>>>>> 6e836abde6dac86c98a0775e11d3fa7b7926ab30
 <% var criiptoConnections = cache.find('articles/connections/criipto', {sort: 'index'}); %>
 <%= include('./_connections', { connections: criiptoConnections }) %>
 
@@ -35,9 +39,15 @@ If the one you need isn't found here, we suggest getting in touch with [Criipto]
 
 ## Database and Custom Connections
 
+<<<<<<< HEAD
 If you want to create your own user store, instead of using external Identity Providers like Google or Facebook, you can use a Database Connection. This way you can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store or in your own database.
 
 You can create any number of custom fields and store this information as part of the `user_metadata`. You can easily import users from a legacy user store, enable or disable sign-ups, configure your password policy, or enable Multifactor Authentication.
+=======
+If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store or in your own database.
+
+You can create any number of custom fields and store this information as part of the `user_metadata`. You can easily import users from a legacy user store, enable or disable sign ups, configure your password policy, or enable Multifactor Authentication.
+>>>>>>> 6e836abde6dac86c98a0775e11d3fa7b7926ab30
 
 For more details, refer to the [Database Connections](/connections/database) documentation.
 

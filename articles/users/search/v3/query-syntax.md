@@ -14,7 +14,7 @@ The query string is parsed into a series of terms and operators:
 * A term can be a phrase surrounded by double quotes (`"green apple"`), which will match all words in the phrase in the same order.
 * A term without a field name will not match text in the [user metadata](/metadata) fields.
 * Multiple terms can be grouped together with parentheses to form sub-queries.
-* Search values are case insensitive.
+* Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * Operators (`AND`, `OR`, `NOT`) work on all normalized user fields and root metadata fields.
 
 ## Searchable fields

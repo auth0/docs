@@ -3,7 +3,7 @@ description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect 
 ---
 # Integrate Auth0 with Amazon Cognito
 
-**Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
+**Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your application (native or web).
 
 This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, and so on), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
 
@@ -11,13 +11,13 @@ This document will explain how you can integrate your app with two solutions: Au
 
 ### Create a new OpenID Connect Provider
 
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
+The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **applicationId** these values can be found in the [Settings of your chosen Application](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
 
 1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
 
     ![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
 
-1. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/clients/)).
+1. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/applications/)).
 
     ![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
 
@@ -69,7 +69,7 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
 Amazon will use the public signing key from the [OpenID Provider Metadata](https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token.
 
-By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your client in the [dashboard](${manage_url}/#/clients), click the **Show Advanced Settings** link and then **OAuth** and change the algorithm to **RS256**.
+By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the [dashboard](${manage_url}/#/applications), click the **Show Advanced Settings** link and then **OAuth** and change the algorithm to **RS256**.
 
 ![Change to RS256](/media/articles/scenarios/amazon-cognito/jwt-algorithm.png)
 

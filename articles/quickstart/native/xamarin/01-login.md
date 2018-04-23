@@ -17,7 +17,7 @@ budicon: 448
   ]
 }) %>
 
-This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application.
+This tutorial explains how to integrate the Auth0 OIDC Application with a Xamarin application.
 
 <%= include('../_includes/_dotnet-oidc-client-configuration') %>
 
@@ -29,7 +29,7 @@ ${snippet(meta.snippets.dependencies)}
 
 Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, `access_token` and `refresh_token`.
 
-Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
+Since callback URLs can be manipulated, you will need to add your application's URL to your application's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
 * For Android, the callback URL will be in the format
 
@@ -48,7 +48,7 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
   where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier for your application, such as `com.mycompany.myapplication`.
 
-Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the correct URL. **Also, ensure that the Callback URL is in lowercase.**
+Go to your [Application's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the correct URL. **Also, ensure that the Callback URL is in lowercase.**
 
 ## Integration
 
@@ -151,7 +151,7 @@ var loginResult = await client.LoginAsync();
 
 #### 3. Handle the Callback URL
 
-After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
+After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Application by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL sent in. This will allow the Auth0 OIDC Application library to complete the authentication process:
 
 ```csharp
 using Auth0.OidcClient;
@@ -222,7 +222,7 @@ if (!loginResult.IsError)
 ```
 
 ::: note
-The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Client documentation.
+The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Application documentation.
 :::
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
@@ -239,4 +239,4 @@ if (!loginResult.IsError)
 
 ## More Information
 
-For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
+For more information, please refer to the [Auth0 OIDC Application Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).

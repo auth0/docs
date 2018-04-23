@@ -32,15 +32,15 @@ This endpoint will trigger the login flow to link an existing account with a new
 | Parameter        | Description |
 |:-----------------|:------------|
 | `response_type`<br/><span class="label label-danger">Required</span>  | Use `code` for server side flows, `token` for client side flows |
-| `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your application |
+| `connection`     | The name of the connection configured to your application. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`<br/><span class="label label-danger">Required</span>   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
 
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 
 ### More Information

@@ -34,7 +34,7 @@ Once registered you will be asked to create your tenant.
 
 ## 2. Create an Application to point to Auth0
 
-In Criipto Verify go to the **APPLICATIONS** tab and create a new application, a client, by clikcing the **with Auth0** button.
+In Criipto Verify go to the **APPLICATIONS** tab and create a new application by clicking the **with Auth0** button.
 Give it a meaningful name, select the domain and remember to select the **DK NemID**.
 
 ![Create application with Auth0](/media/articles/connections/criipto/auth0-app-dk.png)
@@ -55,7 +55,7 @@ Click **Proceed**.
 
 If you are not already logged in to Auth0 in this session, you will be prompted to do so in the popup window.
 
-Once logged in you must grant Criipto Verify consent to create connections and read the details of your clients.
+Once logged in you must grant Criipto Verify consent to create connections and read the details of your applications.
 
 ::: note
 If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
@@ -77,7 +77,7 @@ Personal NemID (POCES), Employee NemID (MOCES), and Employee NemID with a code f
 
 ![ADFS connections created](/media/articles/connections/criipto/adfs-connections-dk.png)
 
-Remember to enable at least one client before clicking the **Try** button! For more on test users see the documentation
+Remember to enable at least one application before clicking the **Try** button! For more on test users see the documentation
 on Criipto Verify.
 
 ## 6. Create your test users

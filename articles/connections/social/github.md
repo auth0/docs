@@ -11,7 +11,7 @@ toc: true
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
 
-This doc refers to the steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+This doc refers to the steps to connect your application. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Add a new application
 

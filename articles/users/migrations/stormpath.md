@@ -35,11 +35,11 @@ On the **Settings** page for your database connection, enable the **Import Users
 
 ![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
 
-### 3. Enable Clients
+### 3. Enable Applications
 
-Navigate to the **Clients** tab of your database connection. Here you can choose the clients which will use the database connection.
+Navigate to the **Applications** tab of your database connection. Here you can choose the applications which will use the database connection.
 
-![Database Connection Clients](/media/articles/users/migrations/enable-clients.png)
+![Database Connection Applications](/media/articles/users/migrations/enable-clients.png)
 
 ### 4. Create the Login Script
 

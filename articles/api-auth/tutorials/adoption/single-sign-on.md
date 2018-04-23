@@ -6,12 +6,13 @@ title: OIDC Single sign-on
 
 <%= include('./_about.md') %>
 
-Single sign-on (SSO) occurs when a user logs in to one client and is then signed in to other clients automatically.
+Single sign-on (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically.
 
-In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not client applications.
+In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not applications.
+
 This means that for SSO to happen, you must employ [universal login](/hosted-pages/login) and redirect users to the login page.
 
-We are planning on providing support for SSO from client applications in future releases.
+We are planning on providing support for SSO from applications in future releases.
 
 ## How SSO works
 
@@ -27,7 +28,7 @@ An application that does not use SSO might decide to use embedded login to authe
 An application can easily determine if a user is logged in locally by checking the validity of a local ID Token or session cookie.
 However, in some cases your application might need to determine if the user has a valid SSO session at Auth0.
 In the legacy authentication pipeline, this could be achieved by using the `/ssodata` endpoint, which would return information about the user's SSO session.
-OIDC-conformant clients must use [silent authentication](/api-auth/tutorials/silent-authentication), which either re-authenticates a user if they are already logged in, or returns an error if they need to authenticate.
+OIDC-conformant applications must use [silent authentication](/api-auth/tutorials/silent-authentication), which either re-authenticates a user if they are already logged in, or returns an error if they need to authenticate.
 
 ## Authentication flows without SSO
 

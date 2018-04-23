@@ -14,7 +14,7 @@ In this scenario, we will build a web application for a fictitious company named
 ::: panel TL;DR
 * Auth0 supports open standards such as OAuth 2.0 and OpenID Connect (OIDC) for authentication and authorization (see [Which protocol to use](/architecture-scenarios/application/web-app-sso/part-1#which-protocol-to-use))
 * OIDC supports several different authorization flows - the most appropriate one for Web Applications being the Authorization Code Flow (see [Authentication Flow](/architecture-scenarios/application/web-app-sso/part-1#authentication-flow))
-* Your application will be configured in Auth0 as a Client (see [Client](/architecture-scenarios/application/web-app-sso/part-2#client))
+* Your application will be configured in Auth0 as a Application (see [Application](/architecture-scenarios/application/web-app-sso/part-2#application))
 * Identity Providers will be configured in Auth0 as a Connection (see [Connections](/architecture-scenarios/application/web-app-sso/part-2#connections))
 * Auth0 provides a Lock widget, which allow users to log in to the application (see [User Login](/architecture-scenarios/application/web-app-sso/part-3#user-login))
 * The web application needs to manage session state to keep track of the fact that the user is logged in. Along with this, Auth0 and the Identity Provider is also managing session information. (see [Session Management](/architecture-scenarios/application/web-app-sso/part-3#session-management))
@@ -45,11 +45,11 @@ ExampleCo wants to __authenticate__ and __authorize__ each user. Authentication 
 :::
 
 ExampleCo's timesheets app needs to support two roles: _User_ and _Admin_:
-- Someone with the User role can add timesheet entries, by specifying the date, the client and the hours worked. The Admin role also has this same right.
+- Someone with the User role can add timesheet entries, by specifying the date, the application and the hours worked. The Admin role also has this same right.
 - Those with the User role should have access only to their own timesheets entries.
 - Someone with the Admin role can additionally:
   - Approve or reject timesheet entries of other users.
-  - Edit the client drop-down list of values (add, edit, delete).
+  - Edit the application drop-down list of values (add, edit, delete).
 
 Each user will be required to fill in their timesheets by the end of the week. They can either choose to register daily their timesheets or add the entries for the whole week together. The timesheets will have to be reviewed and approved by an Admin. The rejected entries will have to be updated by each employee and re-submitted for approval.
 

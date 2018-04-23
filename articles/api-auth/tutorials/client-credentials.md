@@ -1,18 +1,20 @@
 ---
-description: How to request tokens for your applications.
+title: How to implement the Client Credentials Grant
+description: How to call an API from a server process using OAuth 2.0 and the Client Credentials grant
+toc: true
 ---
-# How to implement the Client Credentials Grant
+# How to Implement the Client Credentials Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
 Before beginning this tutorial, please:
 
-* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
-## Ask for a Token
+## Ask for a token
 
-To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
+To ask Auth0 for tokens for any of your authorized applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
 ```har
 {
@@ -31,8 +33,8 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
 Where:
 
 * `grant_type`: This must be `client_credentials`.
-* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
-* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
+* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
+* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
@@ -58,7 +60,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 }
 ```
 
-## Modify Scopes and Claims
+## Modify scopes and claims
 
 You can change the scopes and add custom claims to the `access_token` you got, using [Hooks](/hooks).
 
@@ -67,11 +69,17 @@ Hooks allow you to customize the behavior of Auth0 using Node.js code. They are 
 For more information and details on how to do that refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
 
-## Verify the Token
+## Verify the token
 
 Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+
+## Sample application
+
+For an example implementation see the [Server Client + API](/architecture-scenarios/application/server-api) architecture scenario. 
+
+This is a series of tutorials that describe a scenario for a fictitious company that wants to implement a Timesheets API and send timesheets entries from a server process using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
 ## Keep reading
 

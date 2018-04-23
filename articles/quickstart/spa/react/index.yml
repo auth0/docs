@@ -10,9 +10,9 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/react/dependencies
-  setup: client-platforms/react/setup
-  use: client-platforms/react/use
+  dependencies: application-platforms/react/dependencies
+  setup: application-platforms/react/setup
+  use: application-platforms/react/use
 seo_alias: react
 default_article: dashboard-default
 articles:

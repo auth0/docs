@@ -50,7 +50,7 @@ articles:
            - title: Conclusion
              url: /architecture-scenarios/application/web-app-sso/part-4
 
-      - title: Server Client + API
+      - title: Server Application + API
         url: /architecture-scenarios/application/server-api
         children:
            - title: Solution Overview
@@ -110,49 +110,49 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/business/b2e 
 
-  - title: "Clients"
-    url: "/clients"
+  - title: "Applications"
+    url: "/applications"
     children:
 
       - title: Overview
-        url: /clients
+        url: /applications
 
       - title: Connections
-        url: /clients/connections
+        url: /applications/connections
 
-      - title: Client Types
-        url: /clients/client-types
+      - title: Application Types
+        url: /applications/application-types
 
       - title: Grant Types
-        url: /clients/client-grant-types
+        url: /applications/application-grant-types
 
   - title: "Authentication"
-    url: "/client-auth/current"
+    url: "/application-auth/current"
     children:
 
       - title: "Server-side App"
-        url: "/client-auth/current/server-side-web"
+        url: "/application-auth/current/server-side-web"
       
       - title: "Client-side App"
-        url: "/client-auth/current/client-side-web"
+        url: "/application-auth/current/client-side-web"
         
       - title: "Mobile App"
-        url: "/client-auth/current/mobile-desktop"
+        url: "/application-auth/current/mobile-desktop"
       
       - title: "Legacy"
-        url: "/client-auth/legacy"
+        url: "/application-auth/legacy"
         hidden: true
         children:
           - title: "Server-side App"
-            url: "/client-auth/legacy/server-side-web"
+            url: "/application-auth/legacy/server-side-web"
             hidden: true
       
           - title: "Client-side App"
-            url: "/client-auth/legacy/client-side-web"
+            url: "/application-auth/legacy/client-side-web"
             hidden: true
         
           - title: "Mobile App"
-            url: "/client-auth/legacy/mobile-desktop"
+            url: "/application-auth/legacy/mobile-desktop"
             hidden: true
             
         
@@ -187,11 +187,11 @@ articles:
       - title: "APIs & CLIs"
         url: "/api-auth/grant/client-credentials"
 
-      - title: "APIs & Trusted Clients"
+      - title: "APIs & Trusted Applications"
         url: "/api-auth/grant/password"
 
-      - title: "Dynamic Client Registration"
-        url: "/api-auth/dynamic-client-registration"
+      - title: "Dynamic Application Registration"
+        url: "/api-auth/dynamic-application-registration"
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
@@ -408,8 +408,7 @@ articles:
             url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
-            url: "/users/search/v3/best-practices"
-            hidden: true
+            url: "/users/search/best-practices"
 
       - title: "User Search"
         url: "/users/search/v2"
@@ -417,6 +416,10 @@ articles:
         children:
           - title: "Query Syntax"
             url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
             hidden: true
 
       - title: "User Metadata"
@@ -760,7 +763,70 @@ articles:
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
         hidden: true
+      
+      - title: "Extensibility and Node.js v8"
+        url: "/migrations/guides/extensibility-node8"
+        hidden: true
         
+  - title: "Data Privacy"
+    url: "/compliance"
+    children:   
+      - title: "GDPR"
+        url: "/compliance/gdpr"
+        children:        
+          - title: "Terminology"
+            hidden: true
+            url: "/compliance/gdpr/definitions"
+            
+          - title: "Summary"
+            hidden: true
+            url: "/compliance/gdpr/gdpr-summary"
+             
+          - title: "Roles and Responsibilities"
+            hidden: true
+            url: "/compliance/gdpr/roles-responsibilities"
+          
+          - title: "Auth0 Data Processing"
+            hidden: true
+            url: "/compliance/gdpr/data-processing"
+
+          - title: "How Auth0 can help"
+            url: "/compliance/gdpr/features-aiding-compliance"
+            children:
+          
+              - title: "User Consent"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
+                children:
+              
+                  - title: "Track Consent with Lock"
+                    hidden: true
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
+                  
+                  - title: "Track Consent with custom UI"
+                    hidden: true
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
+
+              - title: "Access, correct, and erase data"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
+
+              - title: "Data Minimization"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
+
+              - title: "Data Portability"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/data-portability"
+
+              - title: "Protect and secure user data"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
+              
+          - title: "Security Advice"
+            hidden: true
+            url: "/compliance/gdpr/security-advice-for-customers"
+      
   - title: "Support"
     url: "/support"
     children:
@@ -826,70 +892,6 @@ articles:
 
       - title: "Jumpstart"
         url: "/services/jumpstart"
-        
-  - title: "Compliance"
-    hidden: true
-    url: "/compliance"
-    children:
-    
-      - title: "GDPR"
-        hidden: true
-        url: "/compliance/gdpr"
-        children:
-        
-          - title: "Definitions"
-            hidden: true
-            url: "/compliance/gdpr/definitions"
-            
-          - title: "Summary"
-            hidden: true
-            url: "/compliance/gdpr/gdpr-summary"
-             
-          - title: "Roles and Responsibilities"
-            hidden: true
-            url: "/compliance/gdpr/roles-responsibilities"
-          
-          - title: "Auth0 Data Processing"
-            hidden: true
-            url: "/compliance/gdpr/data-processing"
-
-          - title: "How Auth0 can help"
-            hidden: true
-            url: "/compliance/gdpr/features-aiding-compliance"
-            children:
-          
-              - title: "User Consent"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
-                children:
-              
-                  - title: "Track Consent with Lock"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
-                  
-                  - title: "Track Consent with custom UI"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
-
-              - title: "Access, correct, and erase data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
-
-              - title: "Data Minimization"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
-
-              - title: "Data Portability"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-portability"
-
-              - title: "Protect and secure user data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
-              
-          - title: "Security Advice"
-            hidden: true
-            url: "/compliance/gdpr/security-advice-for-customers"
 
 apis:
 

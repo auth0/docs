@@ -33,7 +33,7 @@ Auth0 also supports other common identity protocols, such as [WS-Federation](/pr
 
 ## Access your APIs
 
-Auth0's [API authorization](/api-auth) features allow you to manage the authorization requirements for server-to-server and client-to-server applications, using the [OAuth 2.0 protocol](/protocols/oauth2). Using Auth0, you can easily support [different flows](/api-auth/which-oauth-flow-to-use) in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
+Auth0's [API authorization](/api-auth) features allow you to manage the authorization requirements for server-to-server and application-to-server applications, using the [OAuth 2.0 protocol](/protocols/oauth2). Using Auth0, you can easily support [different flows](/api-auth/which-oauth-flow-to-use) in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
 
 ## An Extensible Platform
 
@@ -51,7 +51,7 @@ Auth0 is a service usually running in the cloud, but it can also be deployed in 
 
 ## Domain Names
 
-The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
+The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Applications deployed using this service a domain name in one of the two formats:
 
 * `{account-name}.auth0.com`
 * `{account-name}.{location}.auth0.com`
@@ -65,7 +65,7 @@ mycompany.au.auth0.com
 ```
 
 ::: note
-With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
+With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Application.
 :::
 
 You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:

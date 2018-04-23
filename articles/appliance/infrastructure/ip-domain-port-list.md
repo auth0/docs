@@ -54,6 +54,18 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>Required for logging and debugging</td>
   </tr>
   <tr>
+    <td>9200, 9300-9400</td>
+    <td>Elastic Search</td>
+    <td>Yes</td>
+    <td>Required for Elastic Search</td>
+  </tr> 
+   <tr>
+    <td>3000</td>
+    <td>Grafana instrumentation</td>
+    <td>No</td>
+    <td>Required if you are using Grafana instrumentation</td>
+  </tr>  
+  <tr>
     <td>22</td>
     <td>Maintenance</td>
     <td>No</td>
@@ -103,7 +115,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
   <tr>
     <td>Command Line Interface</td>
     <td>Inbound <b>and</b> Outbound</td>
-    <td>CLI Clients (often on the internal network)</td>
+    <td>CLI Applications (often on the internal network)</td>
     <td>10121</td>
     <td>Allows use of the PSaaS Appliance Command Line Interface</td>
     <td>No</td>

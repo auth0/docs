@@ -1,8 +1,8 @@
 ---
-title: Passing Parameters to Identity Providers
+title: Pass Parameters to Identity Providers
 description: How to pass parameters to an Identity Provider API
 ---
-# Passing Parameters to Identity Providers
+# Pass Parameters to Identity Providers
 
 For Identity Providers that support parameters, you can pass provider-specific parameters to the Authorization endpoint by configuring either static values per connection or dynamic values per user.
 
@@ -10,7 +10,7 @@ Only [valid OAuth 2.0/OIDC parameters](http://openid.net/specs/openid-connect-co
 
 Some Identity Providers do not support parameters. Check your desired Identity Provider's documentation to see if parameters are supported.
 
-## Passing Static Parameters
+## Pass static parameters
 
 To pass static parameters per connection, you can use the `upstream_params` element of the `options` attribute when configuring a connection via the Management API. Each time your connection is used, the specified parameters will be sent to the Identity Provider.
 
@@ -54,7 +54,7 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
 You can test out your code and see other available attributes in our [Management API Explorer](/api/management/v2#!/Connections/post_connections).
 
 
-## Passing Dynamic Parameters
+## Pass dynamic parameters
 
 Sometimes you may want to configure parameters per user. To do this, use the `upstream_params` element of the `options` attribute to specify a mapping between one of the existing accepted parameters to the parameter accepted by the Identity Provider. Then, when authorizing the user, dynamically add parameters to the authorization query.
 
