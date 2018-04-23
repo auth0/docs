@@ -10,7 +10,7 @@ The Password Reset Page allows users to change their passwords in the event that
 To find the default page name for the Password Reset Page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
 
 ::: note
-The Password Reset Page allows users to enter and confirm a new password; the email address requiring the password reset should already have been specified.
+The Password Reset Page allows users to enter and confirm a new password. The email address requiring the password reset should already have been specified.
 :::
 
 ## Enable the Custom Password Reset Page
