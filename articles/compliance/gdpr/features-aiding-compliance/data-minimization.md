@@ -1,5 +1,5 @@
 ---
-title: GDPR Compliance: Data Minimization
+title: "GDPR: Data Minimization"
 description: This article discusses how customers can minimize the personal data they collect for processing and ensure their security
 toc: true
 ---

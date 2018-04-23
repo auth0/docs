@@ -1,4 +1,5 @@
 ---
+title: "SPA + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 url: /architecture-scenarios/application/spa-api/api-implementation-nodejs
 toc: true
