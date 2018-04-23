@@ -14,6 +14,8 @@ If you cannot use universal login, you can embed the Lock widget or a custom log
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
+To see the default page name for the login page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+
 ### How Does Universal Login Work
 
 Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
@@ -26,14 +28,14 @@ If the incoming authentication request includes a `connection` parameter that us
 
 #### Single Sign-On (SSO)
 
-If you want to use single sign on, you should use universal login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login. 
+If you want to use single sign on, you should use universal login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login.
 
 This behavior occurs without the need for any modification to the login page itself. This is a simple two step process:
 
 1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
-::: note 
+::: note
 For more details about how SSO works, see the [SSO documentation](/sso).
 :::
 
@@ -67,7 +69,7 @@ In order to get started customizing the login page, you'll first want to choose 
 
 - [Lock](/hosted-pages/login/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
 - [Lock (Passwordless Mode)](/hosted-pages/login/lock-passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
-- [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
+- [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login.
 
 ### 3. Customization
 
@@ -85,7 +87,7 @@ The `config` object contains the set of configuration values that adjusts the be
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ```
 
-The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `authorize` endpoint and show the login page. 
+The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `authorize` endpoint and show the login page.
 
 ##### Callback URL
 
@@ -103,11 +105,11 @@ webAuth.authorize({
 
 ## Configure Multiple Pages by Using Separate Tenants
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page. 
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page.
 
 In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
 
-Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
+Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs.
 
 Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
 

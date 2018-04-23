@@ -7,6 +7,12 @@ crews: crew-2
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
+To see the default page name for the password reset page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+
+::: note
+The Password Reset Page allows users to enter and confirm a new password; the email address requiring the password reset should already have been specified.
+:::
+
 ## Enable the Custom Password Reset Page
 
 Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your Hosted Password Reset Page by flipping the toggle switch.
@@ -23,16 +29,16 @@ You can use JavaScript to retrieve the following custom variables:
 
 | Variable | Description |
 | - | - |
-| `email` | The email address of the user requesting the password change | 
-| `ticket` | The ticket representing the given password reset request | 
-| `csrf_token` | Token used to prevent CSRF activity | 
-| `tenant.name` | The name associated with your Auth0 tenant | 
-| `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
-| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
-| `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
-| `lang` | The user's language | 
-| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
+| `email` | The email address of the user requesting the password change |
+| `ticket` | The ticket representing the given password reset request |
+| `csrf_token` | Token used to prevent CSRF activity |
+| `tenant.name` | The name associated with your Auth0 tenant |
+| `tenant.friendly_name` | The name displayed for your Auth0 tenant |
+| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 |
+| `tenant.support_email` | The support email address for your company displayed to your Auth0 users |
+| `tenant.support_url` | The support URL for your company displayed to your Auth0 users |
+| `lang` | The user's language |
+| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
 
 ::: note
 You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
