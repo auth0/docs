@@ -29,7 +29,7 @@ If you choose to display a custom error page, you have two options:
 -  Redirect the user to a custom error page.
 -  Configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
 
-#### Redirecting Users to a Custom Error Page
+#### Redirect Users to a Custom Error Page
 
 To redirect users to a custom error page:
 
@@ -39,11 +39,11 @@ To redirect users to a custom error page:
 
 ![Error Page Redirect Option](/media/articles/error-pages/redirect-error-page.png)
 
-## Customizing Error Pages via the Management API
+## Customize Error Pages via the Management API
 
 Instead of using the Management Portal, you may configure your error pages by making the appropriate `PATCH /api/v2/tenants/settings` call to the Management API.
 
-### Redirecting Users to a Custom Error Page
+### Redirect Users to a Custom Error Page
 
 To redirect users to a custom error page, update the `url` field of your JSON body to point to the location of the error page.
 
@@ -69,7 +69,7 @@ HTTP Request:
 }
 ```
 
-### Rendering a Custom Error Page
+### Render a Custom Error Page
 
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the `html` element:
 
