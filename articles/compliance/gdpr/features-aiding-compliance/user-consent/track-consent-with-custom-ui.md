@@ -1,5 +1,5 @@
 ---
-title: Track consent with custom UI
+title: "GDPR: Track consent with your custom UI"
 description: This tutorial describes how you can use either auth0.js or the Auth0 APIs to capture consent information when you use your own custom UI for logins
 toc: true
 ---

@@ -1,5 +1,5 @@
 ---
-title: GDPR Compliance: Protect and secure user data
+title: "GDPR: Protect and secure user data"
 description: This article discusses how customers can use Auth0 to better protect and secure their user's personal data
 toc: true
 ---
