@@ -13,7 +13,7 @@ The Login project sample has the following structure:
 -------------- ErrorController.java
 -------------- HomeController.java
 -------------- LoginController.java
--------------- LogoutController.java
+-------------- CustomLogoutSuccessHandler.java
 ------------ security
 -------------- AppConfig.java
 -------------- TokenAuthentication.java
@@ -36,7 +36,7 @@ The project contains also five Controllers:
 - `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
-- `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
+- `CustomLogoutSuccessHandler.java`: Invoked when the user clicks the logout link. The handler invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
 
@@ -65,6 +65,11 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 Next, define the rules that will prevent unauthenticated users to access our protected resources. You do that by allowing anyone to access the `/login` and `/callback` endpoints in order to be able to complete the login flow, and blocking them from accessing any other endpoint if they are not authenticated:
 
 ```java
+@Bean
+public CustomLogoutSuccessHandler customLogoutSuccessHandler() {
+    return new CustomLogoutSuccessHandler();
+}
+
 @Override
 protected void configure(HttpSecurity http) throws Exception {
     http.csrf().disable();
@@ -73,7 +78,7 @@ protected void configure(HttpSecurity http) throws Exception {
             .antMatchers("/callback", "/login").permitAll()
             .antMatchers("/**").authenticated()
             .and()
-            .logout().permitAll();
+            .logout().logoutSuccessHandler(customLogoutSuccessHandler());
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
 }
 ```
@@ -142,7 +147,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean bootRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the framework to the login page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the framework to the login page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
