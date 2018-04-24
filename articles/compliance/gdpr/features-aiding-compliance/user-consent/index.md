@@ -22,7 +22,7 @@ You can customize the Lock UI to display links to your terms and conditions and/
 If you want to get more information from the users during signup, and you authenticate users with a database connection, you can add custom fields to the Lock UI. This can be done with the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). Any custom fields are automatically added to the `user_metadata`.
 
 ::: note
-Before you design your solution using `user_metadata` make sure you have reviewed the [custom fields limitations](/libraries/custom-signup#custom-fields-limitations).
+Before you design your solution using `user_metadata` make sure you have reviewed the [metadata size limits](/metadata#metadata-size-limits).
 ::: 
 
 If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). Once the signup process is complete, save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
