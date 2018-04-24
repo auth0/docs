@@ -1,9 +1,9 @@
 ---
-title: "GDPR Compliance: Conditions for Consent"
+title: "GDPR: Conditions for Consent"
 description: This article discusses which Auth0 features can help customers comply with the Conditions for Consent GDPR requirements
 toc: true
 ---
-# GDPR Compliance: Conditions for Consent
+# GDPR: Conditions for Consent
 
 According to Article 7 of GDPR, you must ask users to consent on the processing of their personal data in a clear and easily accessible form. You must also show that the user has consented, and provide an easy way to withdraw consent at any time.
 
