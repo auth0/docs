@@ -8,4 +8,5 @@ Now that you have a working connection, the next step is to configure your appli
 * [Configure your application using our Auth0.js library and your own UI](/libraries/auth0js)
 * [Use our Authentication API to authenticate](/api/authentication)
 * [Read more about client authentication](/client-auth)
+* [Re-prompt Social Connection users for permissions](/connections/social/reprompt-permissions)
 :::

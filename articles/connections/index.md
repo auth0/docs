@@ -20,8 +20,6 @@ Auth0 supports the following social providers out of the box. You can also use a
 <% var socialConnections = cache.find('articles/connections/social', {sort: 'index'}); %>
 <%= include('./_connections', { connections: socialConnections }) %>
 
-Learn [how to re-prompt users for permissions](/connections/social/reprompt-permissions) when working with social connections.
-
 ## Enterprise
 
 <% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
