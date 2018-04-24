@@ -5,10 +5,6 @@ toc: true
 ---
 # Migration Guide: Extensibility and Node 8
 
-:::warning
-Due to a [recent incident](https://status.auth0.com/incidents/77gg0xqtvqd5) the ability to upgrade to Node 8 has been temporarily disabled. The incident has been resolved and as soon as we complete our tests we will enable this migration again.
-:::
-
 Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
@@ -29,7 +25,6 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 * Custom database connections
 * Custom social connections
 
-
 If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
 Due to the end of long-term support (LTS) for Node 4, we will be migrating the Webtask runtime to use Node 8. As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
@@ -39,7 +34,7 @@ However, there may be behavioral changes as a result of this migration. As such,
 ### Important Dates
 
 * **2018 April 17**: The Webtask runtime using Node 8 becomes available to Auth0 customers
-* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the *Installed Extensions* tab of the [Extensions page](https://manage.auth0.com/#/extensions)
+* **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
 * **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
 
@@ -123,7 +118,6 @@ For example, you must change
 to
 
 `var mysql = require(‘mysql’);`
-
 
 or, if the module must be pinned to a specific version:
 
