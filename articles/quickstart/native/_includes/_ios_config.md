@@ -7,7 +7,7 @@ You need the following information:
 * **Domain**
 
 ::: note
-If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+If you download the sample from the top of this page, these details are filled out for you. If you have more than one application in your account, the sample comes with the values for your **Default App**.
 :::
 
 Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
