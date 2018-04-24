@@ -64,7 +64,7 @@ The Management API offers several offers several options when it comes to user s
 
 ### Search for a user using their email address
 
-To search for a user using their email address, use [the Search user by email endpoint](/users/search#users-by-email). 
+To search for a user using their email address, use [the Search user by email endpoint](/users/search/best-practices#users-by-email). 
 
 Set the **fields** request parameter to `user_metadata` in order to limit the fields returned. This way, only the user_metadata will be returned instead of the complete user profile.
 
@@ -111,7 +111,7 @@ Sample response:
 
 ### Search for a user using their ID
 
-To search for a user using their ID, use [the Get a user endpoint](/users/search#users-by-id). 
+To search for a user using their ID, use [the Get a user endpoint](/users/search/best-practices#users-by-id). 
 
 Set the **fields** request parameter to `user_metadata` in order to limit the fields returned. This way, only the `user_metadata` will be returned instead of the complete user profile.
 
@@ -249,11 +249,11 @@ This will add a new property to the user profile, the **user_metadata.consent.da
 
 ### Export consent information
 
-To export a list of your users using the Management API, use [the User export endpoint](/users/search#user-export). 
+To export a list of your users using the Management API, use [the User export endpoint](/users/search/best-practices#user-export). 
 
 This endpoint creates a job that exports all users associated with a connection. You will need the ID of the connection. To find this ID, use [the Get Connections endpoint](/api/management/v2#!/Connections/get_connections) (you can set the **name** parameter to the name of the connection to retrieve only this one).
 
-Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search#user-export).
+Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search/best-practices#user-export).
 
 :::panel What else do I have to do?
 - Determine how you want to track consent. We recommend including information on not just the date the user consented, but the version of terms and conditions to which the user agreed. We also recommend including an array to hold information about users that withdraw their permission (remember that the user can consent and withdraw multiple times)
@@ -282,7 +282,7 @@ To delete a user, use the [Delete a user endpoint](/api/management/v2#!/Users/de
 }
 ```
 
-The response body for this endpoint is empty, so if you want to confirm that the user was successfully deleted try to [retrieve the user using their email](/users/search#users-by-email). If the endpoint returns an error, then your call to delete the user was successful.
+The response body for this endpoint is empty, so if you want to confirm that the user was successfully deleted try to [retrieve the user using their email](/users/search/best-practices#users-by-email). If the endpoint returns an error, then your call to delete the user was successful.
 
 ### Flag user as deleted
 
