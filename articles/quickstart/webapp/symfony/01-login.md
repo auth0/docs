@@ -15,7 +15,7 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
+<%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/auth0/callback' }) %>
 
 
 ## Using HWIOAuthBundle for Authentication
@@ -67,8 +67,6 @@ Add this to your `src/AppBundle/Auth0ResourceOwner.php`
 
 namespace AppBundle;
 
-use Dotenv\Dotenv;
-
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -104,17 +102,11 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
     {
         parent::configureOptions($resolver);
 
-        $dotenv = new Dotenv();
-
-        if (!getenv('AUTH0_DOMAIN')) {
-            $dotenv->load(__DIR__ . '/../../.env');
-        }
-
         $resolver->setDefaults(array(
             'authorization_url' => '{base_url}/authorize',
             'access_token_url' => '{base_url}/oauth/token',
             'infos_url' => '{base_url}/userinfo',
-            'audience' => 'https://'.getenv('AUTH0_DOMAIN').'/userinfo',
+            'audience' => '{base_url}/userinfo',
         ));
 
         $resolver->setRequired(array(
@@ -128,6 +120,7 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
         $resolver->setNormalizer('authorization_url', $normalizer);
         $resolver->setNormalizer('access_token_url', $normalizer);
         $resolver->setNormalizer('infos_url', $normalizer);
+        $resolver->setNormalizer('audience', $normalizer);
     }
 }
 ```
@@ -194,14 +187,14 @@ Notice that we need to identify the user provided selected in the step before bo
 
 ## Triggering Login and accessing user information
 
-Set the following in `app/resources/views/index.html.twig`
+Set the following in `app/resources/views/default/index.html.twig`
 
 ```html
 {% if app.user %}
     Welcome, {{ app.user.username }}!<br/>
     {{ dump(app.user) }}
     <a href="{{ url('secured') }}">Protected route</a>
-    <a href="{{ logout_url("secured_area") }}">
+    <a href="{{ logoutUrl }}">
         <button>Logout</button>
     </a>
 {% else %}
@@ -210,3 +203,43 @@ Set the following in `app/resources/views/index.html.twig`
 {% endif %}
 ```
 
+## Logout
+
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
+
+Add this to your `src/AppBundle/Controller/DefaultController.php`.
+
+```php
+<?php
+
+namespace AppBundle\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction()
+    {
+        $returnTo = sprintf('%s://%s:%s/auth0/logout',
+            $this->container->get('router')->getContext()->getScheme(),
+            $this->container->get('router')->getContext()->getHost(),
+            $this->container->get('router')->getContext()->getHttpPort());
+        $logoutUrl = sprintf(
+            'https://%s/v2/logout?client_id=%s&returnTo=%s',
+            '${account.namespace}',
+            '${account.clientId}',
+            $returnTo);
+        return $this->render('default/index.html.twig', array(
+            'logoutUrl' => $logoutUrl
+        ));
+    }
+}
+```
+
+::: note
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
+:::
