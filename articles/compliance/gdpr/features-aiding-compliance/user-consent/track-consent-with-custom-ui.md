@@ -24,7 +24,7 @@ We will see four different implementations for this:
 1. one that displays a flag, works for database connections, and uses the [auth0.js](/libraries/auth0js) library to create the user (used by Single Page Applications)
 1. one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
 1. one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
-1. one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed (used either by SPAs or Regular Web Apps)
+1. one that redirects to another page where the Terms & Conditions and/or privacy policy information can be reviewed and consent info can be provided (used either by SPAs or Regular Web Apps)
 
 All implementations will have the same final result, a `consentGiven` property saved at the [user's metadata](/metadata).
 
