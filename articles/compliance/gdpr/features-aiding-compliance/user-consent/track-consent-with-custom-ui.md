@@ -7,6 +7,8 @@ toc: true
 
 In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
 
+<%= include('../_legal-warning.md') %>
+
 ## Overview
 
 We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:

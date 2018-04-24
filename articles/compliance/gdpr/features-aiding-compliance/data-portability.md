@@ -9,6 +9,8 @@ According to Article 20 of GDPR, users have the right to receive the personal da
 
 You can export user data, stored in the Auth0 user store, either manually or programmatically. Raw data from Auth0 can be exported in JSON format (which is machine-readable).
 
+<%= include('./_legal-warning.md') %>
+
 ## Export data manually
 
 To export a user's data manually from the Dashboard:

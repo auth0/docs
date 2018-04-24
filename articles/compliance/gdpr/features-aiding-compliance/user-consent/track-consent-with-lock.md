@@ -7,6 +7,8 @@ toc: true
 
 In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/metadata).
 
+<%= include('../_legal-warning.md') %>
+
 ## Overview
 
 We will configure a simple JavaScript Single Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).

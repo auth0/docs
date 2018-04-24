@@ -9,6 +9,8 @@ According to Article 5 of GDPR, the personal data you collect must be limited to
 
 There are several Auth0 features than can help you achieve these goals, like account linking, user profile encryption, and more.
 
+<%= include('./_legal-warning.md') %>
+
 ## Restrict user profile information
 
 To limit the amount of personal information in the Auth0 user profile, you can:
