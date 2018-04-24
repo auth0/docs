@@ -11,6 +11,8 @@ With Auth0, you can access, edit, and delete user information:
 - manually, using the [Dashboard](${manage_url}/#/users), or
 - programatically, using the [Management API](/api/management/v2)
 
+<%= include('./_legal-warning.md') %>
+
 ## Manual process
 
 You can view, edit, and delete user information at [Dashboard > Users](${manage_url}/#/users). Drill down to a user to view their info. The information you can change are:

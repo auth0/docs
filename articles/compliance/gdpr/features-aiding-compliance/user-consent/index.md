@@ -9,6 +9,8 @@ According to Article 7 of GDPR, you must ask users to consent on the processing 
 
 This article explains how you can use Auth0 features to implement these requirements.
 
+<%= include('../_legal-warning.md') %>
+
 ## Ask for consent
 
 Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
