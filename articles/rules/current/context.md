@@ -22,13 +22,13 @@ The following properties are available for the `context` object.
 | `connection` | The name of the connection used to authenticate the user (such as: `twitter` or `some-google-apps-domain`) |
 | `connectionStrategy` | The type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), and so on.
 | `samlConfiguration` | An object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol). |
-| `protocol` | <%= include('../_context-protocol.md') %> |
+| `protocol` | <%= include('./_context-protocol.md') %> |
 | `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
-| `sso` | <%= include('../_context-sso.md') %> |
+| `sso` | <%= include('./_context-sso.md') %> |
 | `accessToken` | Used to add custom namespaced claims to the [Access Token](/tokens/access-token). |
 | `idToken` | Used to add custom namespaced claims to the [ID Token](/tokens/id-token). |
 | `sessionID` | Unique id for the authentication session. Value is kept only if `prompt=none`.
-| `request` | <%= include('../_context-request.md') %> |
+| `request` | <%= include('./_context-request.md') %> |
 
 ## Sample contents
 
