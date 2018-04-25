@@ -1,6 +1,6 @@
 ## Set Credentials
 
-Your will need some details about this application to communicate with Auth0. You can get these details from the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard.
+You will need some details about this application to communicate with Auth0. You can get these details from the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard.
 
 You need the following information: 
 * **Client ID**
