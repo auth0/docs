@@ -55,7 +55,7 @@ You need to make sure you get a response compliant with the OpenID Connect proto
 This example sets the `audience` parameter to get an OIDC-compliant response. 
 
 ::: note
-To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. For more information, read [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+To turn on the **OIDC conformant** switch, in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. For more information, read [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 After the user authenticates, their information is returned in a `credentials` object.

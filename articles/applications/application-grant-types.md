@@ -2,7 +2,7 @@
 description: Using the Grant Types property on Applications
 toc: true
 ---
-# Client Grant Types
+# Application Grant Types
 
 Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/api-auth/grant/authorization-code-pkce), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](api-auth/grant/implicit).
 

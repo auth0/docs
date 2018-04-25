@@ -43,7 +43,7 @@ Log into **Tenant 2**
 
 1. Click on **"Applications"** link at left.
 
-2. Click on the red **"+ CREATE CLIENT"** button on the right.
+2. Click on the red **"+ CREATE APPLICATION"** button on the right.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-02.png)
 

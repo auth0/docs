@@ -7,7 +7,7 @@ An API endpoint can be secured or not. In our case, since the timesheets are sen
 An Access Token is obtained by authenticating the user with an Authorization Server and the user can then, in turn, authorize the application to access the API on their behalf.
 
 ::: panel What is an Access Token?
-An Access Token (also referred to as `access_token`) is an opaque string representing an authorization issued to the client. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (for example, the user's identity, permissions, and so forth) in a verifiable manner.
+An Access Token (also referred to as `access_token`) is an opaque string representing an authorization issued to the application. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (for example, the user's identity, permissions, and so forth) in a verifiable manner.
 
 It is quite common for Access Tokens to be implemented as [JSON Web Tokens](/jwt).
 

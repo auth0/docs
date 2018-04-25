@@ -12,13 +12,13 @@ To install this extension, click on the __Account Link__ box in the list of prov
 
 ![Install Account Link Extension](/media/articles/extensions/account-link/install-extension.png)
 
-The extension will create a new **Client** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
+The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
 
 ## Setup
 
-### Changing the Client Name
+### Changing the Application Name
 
-We recommend changing the name of the default client used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Login Page** when they authenticate their primary account.
+We recommend changing the name of the default application used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Login Page** when they authenticate their primary account.
 
 ### Updating the Login Page
 
