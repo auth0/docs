@@ -56,7 +56,7 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN", "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],
     "postData": {
@@ -82,12 +82,12 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN", "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],
     "postData": {
         "mimeType": "application/json",
-    "text": "{\"error page\": {\"html\": \"<h1>Hello {{name}}. This error was generated {{'now' | date: '%Y %h'}}.<\\h1>\"}, \"show_log_link\": false, \"url\": \"\"}"
+    "text": "{\"error_page\": {\"html\": \"<h1>Hello {{name}}. This error was generated {{'now' | date: '%Y %h'}}.<\\h1>\", \"show_log_link\": false, \"url\": \"\"}}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
