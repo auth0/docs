@@ -1,6 +1,6 @@
 ## Add Auth0 Credentials
 
-Your application needs some details about your client to communicate with Auth0. You can get these details from the **Settings** section for your client in the [Auth0 dashboard](${manage_url}/#/).
+Your application needs some details about your Auth0 application to communicate with Auth0. You can get these details from the **Settings** section for your client in the [Auth0 dashboard](${manage_url}/#/).
 
 You need the following information: 
 
