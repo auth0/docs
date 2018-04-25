@@ -45,17 +45,11 @@ A Rule is a function with the following arguments:
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard. Select an empty rule to start from scratch, or use oe of the templates. Name your rule, keeping in mind that it can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
 
-::: note
-You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
-:::
+For more examples see our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
 ### Hello World
-
-::: panel Namespace Identifiers
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-:::
 
 This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
 
@@ -69,8 +63,8 @@ function (user, context, callback) {
 
 Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `access_token`.
 
-::: note
-You can add `console.log` lines for [debugging](#debugging) or use the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
+::: panel Namespace Identifiers
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
 ### Add roles to a user
@@ -300,7 +294,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
     ![Try this Rule](/media/articles/rules/try-rule.png)
 
-1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions. For more info see [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
 1. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
   For example:
@@ -323,7 +317,6 @@ The code sandbox Rules run on allows storing _expensive_ resources that will sur
 This example, shows how to use the `global` object to keep a mongodb connection:
 
 ```js
-
 ...
 
 //If the db object is there, use it.
@@ -344,7 +337,6 @@ function query(db, cb){
 });
 
 ...
-
 ```
 
 Notice that the code sandbox in which Rules run on, can be recycled at any time. So your code __must__ always check `global` to contain what you expect.
@@ -353,7 +345,7 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
 
-For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
+For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
 
 ## Keep reading
 
