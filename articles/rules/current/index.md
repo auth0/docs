@@ -45,7 +45,9 @@ A Rule is a function with the following arguments:
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard. Select an empty rule to start from scratch, or use oe of the templates. Name your rule, keeping in mind that it can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard. 
+
+Select an empty rule to start from scratch, or use one of the templates. Name your rule, keeping in mind that it can only contain alphanumeric characters, spaces and '-', and cannot start, nor end, with '-' or spaces.
 
 For more examples see our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
