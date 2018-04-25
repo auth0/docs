@@ -68,19 +68,19 @@ As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant 
 
 Begin by navigating to the [Applications page](${manage_url}/#/applications) of the Management Dashboard.
 
-![Auth0 Applications](/media/articles/applications/client-grant-types/applications.png)
+![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
 
 Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Client you're interested in to launch its settings page.
 
-![Auth0 Client Settings](/media/articles/applications/client-grant-types/client-settings.png)
+![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
 Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 
-![Auth0 Client Advanced Settings](/media/articles/applications/client-grant-types/client-advanced-settings.png)
+![Auth0 Client Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
 
 Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
 
-![Auth0 Client Grant Types](/media/articles/applications/client-grant-types/grant-types.png)
+![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
 ### Use the Management API
 
