@@ -45,7 +45,9 @@ For a tutorial on how to implement any of these scenarios, see the [Track Consen
 
 ### Re-consent and user migration
 
-If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
+If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password.
+
+Note that every time your Terms and Conditions change, you **must** ask the users for consent again.
 
 :::panel What else do I have to do?
 - You must write up the notification users will see around how users' data is being used, how long data will be used, users' rights, etc. as well as customize the UI sign-up box
