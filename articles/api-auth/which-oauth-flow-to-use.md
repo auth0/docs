@@ -52,4 +52,4 @@ While SPAs cannot use [Refresh Tokens](/tokens/refresh-token), they can take adv
 
 If the Application is a native app then the **Authorization Code Grant using Proof Key for Code Exchange** should be used. What this grant adds to Authorization Code Grant, is the concept of `code_verifier`. When at first the application asks for an **Authorization Code** it generates a `code_verifier` and its transformed value called `code_challenge`. The `code_challenge` is sent along with the request. A `code_challenge_method` is also sent. Afterwards, when the application wants to exchange the Authorization Code for an Access Token, it also sends along the `code_verifier`. The Authorization Server transforms this and if it matches the originally sent `code challenge` it returns an Access Token.
 
-For more information on how this flow works and how to implement it, refer to [/api-auth/grant/authorization-code-pkce](/api-auth/grant/authorization-code-pkce).
+For more information on how this flow works and how to implement it, refer to [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce).
