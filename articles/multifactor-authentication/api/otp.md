@@ -7,7 +7,12 @@ description: Configure your application so users can self-associate one-time pas
 
 In this tutorial, you'll learn how to configure your application so users can self-associate one-time password (OTP) authenticators.
 
-<%= include('./_before-you-start.md') %>
+## Before you start
+
+Before you can use the MFA APIs, you'll need to:
+
+* Enable the MFA grant type for your application. You can enable the MFA grant by going to [Applications > Your Application > Advanced Settings > Grant Types](${manage_url}/#/applications) and selecting MFA.
+* Create a rule that sets Guardian as the MFA provider. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
 
 ## 1. Get the MFA Token
 
