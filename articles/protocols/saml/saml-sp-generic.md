@@ -34,25 +34,24 @@ In this section you will configure Auth0 to serve as a SAML Service Provider.
 3. In the middle of the screen, click on **"SAMLP Identity Provider"**
 4. Click on the blue **"Create New Connection"** button
 
-In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the "Configuration" tab.
+In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the **Configuration** tab.
 
-**Connection Name:** You can enter any name, such as "SAML-SP"
-
-**Email Domains:** Enter the email domain name for the users that will log in via this connection.
+- **Connection Name:** You can enter any name, such as `SAML-SP`.
+- **Email Domains:** Enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  If you leave this field blank, users with any email domain can use the IDP.
-
-**Sign In URL:** enter the **"SAML SSO URL"** that you obtained from the Identity Provider.
-
-**Sign Out URL:** enter the **SAML Logout URL** obtained from the Identity Provider.
-
-**Certificate:**  
-Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you obtained from the Identity Provider.
+- **Sign In URL:** Enter the **SAML SSO URL** that you obtained from the Identity Provider.
+- **Sign Out URL:** Enter the **SAML Logout URL** obtained from the Identity Provider.
+- **Certificate:**  Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you obtained from the Identity Provider.
+- **User Id Attribute**: The attribute in the SAML token that will be mapped to the `user_id` property in Auth0. If not set, then the `user_id` will be retrieved from the following (in listed order):
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 
 You can ignore the rest of the fields for now.
 
-**Save:** Click on the blue **"SAVE"** button at the bottom.
+Click on the blue **"SAVE"** button at the bottom.
 
-Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain.)
+Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain)
 
 ![](/media/articles/saml/saml-sp-generic/saml-sp-generic1.png)
 
