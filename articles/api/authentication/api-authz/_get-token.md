@@ -403,6 +403,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 ### More Information
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+- [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
 
 ## Refresh Token
 

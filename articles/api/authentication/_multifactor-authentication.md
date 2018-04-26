@@ -1,12 +1,16 @@
 # Multifactor Authentication
 
-You can ask users for additional proof of identity, such as a one-time password, before issuing the requested tokens.
+The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well programmatically enroll and manage user authenticators.
 
 First, request a challenge based on the challenge types supported by the application and user. If you know that one-time password (OTP) is supported, you can skip the challenge request.
 
 Next, verify the multifactor authentication using the `/oauth/token` endpoint and the specified challenge type: a one-time password (OTP), a recovery code, or an out-of-band (OOB) challenge.
 
-Check out [Multifactor Authentication in Auth0](/multifactor-authentication/) for more information.
+For more information, check out:
+
+- [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Multifactor Authentication API](/multifactor-authentication/api)
+- [Multifactor Authentication in Auth0](/multifactor-authentication)
 
 ## Challenge request
 
@@ -100,6 +104,10 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 | `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
 | `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](/api/authentication#list-authenticators) below. |
 
+### More information
+
+- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/challenges)
+
 ### Remarks
 
 - If you already know that OTP is supported by the user and you don't want to request a different factor, you can skip this step an go directly to __Verify with one-time password (OTP)__ below.
@@ -108,11 +116,6 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 - This endpoint does not support enrollment; the user must be enrolled with the preferred method before requesting a challenge.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
 - **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](/api/authentication#add-an-authenticator) below to see how to proceed.
-
-### More information
-
-- [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
-- [Multifactor Authentication in Auth0](/multifactor-authentication)
 
 ## Verify with one-time password (OTP)
 
@@ -188,6 +191,9 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
+### More informationm
+
+- [Associate an OTP Authenticator](/multifactor-authentication/api/otp)
 
 ## Verify with out-of-band (OOB)
 
@@ -290,6 +296,10 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from the `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
+
+### More informationm
+
+- [Associate an OTP Authenticator](/multifactor-authentication/api/oob)
 
 ## Verify with recovery code
 
