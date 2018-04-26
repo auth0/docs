@@ -37,7 +37,7 @@ For more information on APIs, their role in OAuth and how to configure an API in
 
 Up until recently we were treating every application as first-party application. This means that all applications were considered trusted. Now you have the option to define an application as either first-party or third-party.
 
-Third-party applications, are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
+Third-party applications are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
 
 So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Application Registration](/api-auth/dynamic-application-registration) functionality. All applications registered through that will be third-party applications.
 
