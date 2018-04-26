@@ -24,6 +24,7 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 * Hooks
 * Custom database connections
 * Custom social connections
+* Extensions
 
 If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
@@ -50,6 +51,26 @@ Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenan
 Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant to the Node 8 runtime, test your setup, and switch your production tenant only when you have identified there are no breaking changes.
 :::
 
+## Whitelist the new URLs
+
+When you upgrade to Node 8, the URLs you use to access our extensions, change.
+
+| Location | Node 4 URL | Node 8 URL |
+| - | - | - |
+| USA | `https://${account.tenant}.us.webtask.io/EXTENSION-URL` | `https://${account.tenant}.us8.webtask.io/EXTENSION-URL` |
+| Europe | `https://${account.tenant}.eu.webtask.io/EXTENSION-URL` | `https://${account.tenant}.eu8.webtask.io/EXTENSION-URL` |
+| Australia | `https://${account.tenant}.au.webtask.io/EXTENSION-URL` | `https://${account.tenant}.au8.webtask.io/EXTENSION-URL` |
+
+The change is the `8` that is appened before the `webtask.io` part. The rest remains the same.
+
+If you use the [Delegated Administration Extension](/extensions/delegated-admin) or the [Single Sign-On (SSO) Dashboard](/extensions/sso-dashboard), you must whitelist the new URLs both as Allowed Callback and as Allowed Logout URLs.
+
+To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
+
+For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings: 
+- **Allowed Callback URLs**: `https://mariap.us8.webtask.io/auth0-delegated-admin/login`
+- **Allowed Logout URLs**: `https://mariap.us8.webtask.io/auth0-delegated-admin`
+
 ## How to ensure a stable migration
 
 As part of the process of introducing Node 8 in our Webtask runtime, we ran a number of tests to determine which modules are not forward-compatible from Node 4 to 8. Most customers _should_ be able to upgrade to Node 8 without any issues.
@@ -60,6 +81,7 @@ With that said, before you migrate, we highly recommend testing all of your:
 * Hooks
 * Custom Database Connections/Scripts
 * Custom Social Connections
+* Extensions
 
 Furthermore, we recommend that the testing be done in your development tenant and migrating your production tenant only if you see no issues in development. 
 
@@ -67,7 +89,7 @@ You can query the Management API for your Rules, Custom Database scripts, and Cu
 
 Please see our documentation on the [Connections](/api/management/v2#!/Connections) and [Rules](/api/management/v2#!/Rules/get_rules) endpoints for additional information on this process.
 
-When using the `/connections` endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
+When using the [Connections](/api/management/v2#!/Connections) endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
@@ -85,6 +107,7 @@ In addition, test _logging in_ using the development tenant to ensure that all o
 * Hooks
 * Database Connections
 * Custom Social Connections
+* Extensions
 
 ## Affected modules
 
