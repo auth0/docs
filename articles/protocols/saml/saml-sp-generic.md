@@ -116,15 +116,15 @@ https://${account.namespace}/logout
 
 In this section, you will test to make sure the SAML configuration between Auth0, the Service Provider, and the remote SAML Identity Provider is working.
 
-* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+* In the [Dashboard](${manage_url}), navigate to:  __Connections > Enterprise > SAMLP Identity Provider__.
 
-* Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
+* Click on the triangular **Try** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
 * You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username.   If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
 
 You will then be redirected to the login screen of the Identity Provider.  Login with the credentials for a user that exists in the Identity Provider.
 
-If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!!!"__.  This page will display the contents of the SAML authentication assertion sent by the Identity Provider to Auth0 Service Provider.
+If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __It works__.  This page will display the contents of the SAML authentication assertion sent by the Identity Provider to Auth0 Service Provider.
 This means the SAML connection from Auth0 Service Provider to Identity Provider is working.
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
@@ -133,7 +133,7 @@ If it didn't work, double check the above steps and then consult the **troublesh
 The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
 :::
 
-Here is a sample of the **"It Works"** screen:
+Here is a sample of the **It Works** screen:
 
 ![](/media/articles/saml/saml-sp-generic/saml-auth0-9.png)
 
@@ -147,9 +147,11 @@ When troubleshooting SSO, it is often helpful to capture an HTTP trace of the in
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
-Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field in the __"Settings"__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
+Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field.  
 
-The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
+To do so, go to [Dashboard](${manage_url}), click on __Applications__, then on the __Settings__ icon to the right of the application name.
+
+The [http://samltool.io](http://samltool.io) tool can decode a SAML assertion and is a useful debugging tool.
 
 ## Supported algorithms for signatures
 
