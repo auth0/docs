@@ -53,23 +53,47 @@ Changing the runtime may break your existing Rules, Hooks, and Custom Database/S
 
 ## Whitelist the new URLs
 
-When you upgrade to Node 8, the URLs you use to access our extensions, change.
+When you upgrade to Node 8, the URLs you use to access our extensions, change. The change is an `8` that is appened before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
 
-| Location | Node 4 URL | Node 8 URL |
-| - | - | - |
-| USA | `https://${account.tenant}.us.webtask.io/EXTENSION-URL` | `https://${account.tenant}.us8.webtask.io/EXTENSION-URL` |
-| Europe | `https://${account.tenant}.eu.webtask.io/EXTENSION-URL` | `https://${account.tenant}.eu8.webtask.io/EXTENSION-URL` |
-| Australia | `https://${account.tenant}.au.webtask.io/EXTENSION-URL` | `https://${account.tenant}.au8.webtask.io/EXTENSION-URL` |
+This is a breaking change for some extensions, that require whitelisting the URLs in order to properly work.
 
-The change is the `8` that is appened before the `webtask.io` part. The rest remains the same.
-
-If you use the [Delegated Administration Extension](/extensions/delegated-admin) or the [Single Sign-On (SSO) Dashboard](/extensions/sso-dashboard), you must whitelist the new URLs both as Allowed Callback and as Allowed Logout URLs.
+The affected extensions are the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-On (SSO) Dashboard](/extensions/sso-dashboard). If you use either, **you must whitelist the new URLs** both as Allowed Callback and as Allowed Logout URLs.
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
+### Delegated Administration URLs
+
+The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+
+| Location | Allowed Callback URL for Node 8 | Allowed Logout URL for Node 8 |
+| --- | --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
+
 For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings: 
-- **Allowed Callback URLs**: `https://mariap.us8.webtask.io/auth0-delegated-admin/login`
-- **Allowed Logout URLs**: `https://mariap.us8.webtask.io/auth0-delegated-admin`
+- **Allowed Callback URLs**: `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login`
+- **Allowed Logout URLs**: `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin`
+
+### SSO Dashboard URLs
+
+The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+
+The login URL for **Admins**:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
+
+The login URL for **Users**:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
 
 ## How to ensure a stable migration
 
