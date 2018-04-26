@@ -1,6 +1,6 @@
 ---
 title: Changing a User's Password
-description: This document explains the ways you can reset the passwords for users of your Auth0 clients.
+description: This document explains the ways you can reset the passwords for users of your Auth0 applications.
 crews: crew-2
 ---
 # Changing a User's Password
@@ -27,6 +27,10 @@ You can only change passwords for users signing in using Database connections. U
 ## Using the Authentication API
 
 To reset a user's password using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
+
+::: note
+If you're calling this from the browser, don't forget to add your URL to the the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
+:::
 
 ```har
 {

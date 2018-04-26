@@ -19,7 +19,7 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 1. The web app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant)), so the user can authenticate.
 
-1. Auth0 authenticates the user (via the browser). The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the Client (for example: post messages, list contacts, and so forth).
+1. Auth0 authenticates the user (via the browser). The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the applicaion (for example: post messages, list contacts, and so forth).
 
 1. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
 
@@ -30,7 +30,7 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 1. The web app can use the `access_token` to call the API on behalf of the user.
 
 ::: note
-In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+In OAuth 2.0 terms, the web app is the application, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
 
 
@@ -50,6 +50,6 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 - [How to implement an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
+- [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

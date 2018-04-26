@@ -41,19 +41,19 @@ If this block is triggered, it can be cleared the following ways:
 **Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. Or *50* sign ups attempts per minute from the same IP address.
 
 **Actions:**
-* Notify dashboard owners
+* Notify dashboard administrator(s)
 * Block suspicious addresses
 
 If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
 
-Auth0 does email the dashboard owner when this block is triggered. Within this email there's a link the owner can click on to remove the block.
+Auth0 does email the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
 #### Restrictions Regarding Brute-Force Protection
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are *not* supported:
 
 1. Using the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. See point 2 below as an alternative.
-2. Using [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. Using this call does not get the IP address of the user, however, you can [configure your client and send the IP address of the user as part of the request](/api-auth/tutorials/using-resource-owner-password-from-server-side) to make brute-force protection work correctly.
+2. Using [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. Using this call does not get the IP address of the user, however, you can [configure your application and send the IP address of the user as part of the request](/api-auth/tutorials/using-resource-owner-password-from-server-side) to make brute-force protection work correctly.
 3. Authenticating many users from the same IP address. For example, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ### Breached Password Detection

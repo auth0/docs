@@ -1,14 +1,14 @@
 ---
-description: How to configure WordPress as a Client with Auth0.
+description: How to configure WordPress as a application with Auth0.
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
 
 By default, new installations of Login by Auth0 run the Setup Wizard and ask for an app token and attempt to setup all necessary components within your Auth0 tenant. This includes:
 
-* Creating a new Client using your site name with the correct app type and URLs 
-* Creating a database Connection for this Client for storing users
-* Creating a Client grant for the system Auth0 Management API
+* Creating a new Application using your site name with the correct app type and URLs 
+* Creating a database Connection for this Application for storing users
+* Creating a Application grant for the system Auth0 Management API
 * Creating a new user for the WordPress administrator running the wizard
 
 Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
@@ -21,23 +21,23 @@ You'll need to be logged into your Auth0 account before starting the steps below
 
 ## Auth0 configuration
 
-### Client setup
+### Application setup
 
-First, we'll check for the Client created for your WordPress site. 
+First, we'll check for the Application created for your WordPress site. 
 
-1. Navigate to the [Clients](${manage_url}/#/clients) page and look for a Client that is similar to your site name; if you don't find one, it means that a Client was not created by the Wizard. Restart the Setup Wizard or create a new Client manually by clicking Create Client**, entering a name for the Client, selecting **Regular Web Applications**, then clicking **Create**. 
+1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**. 
     
-    ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
+    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
-1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
+1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
 
-    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
-1. **Client Type** must be set to **Regular Web Application**
+1. **Application Type** must be set to **Regular Web Application**
 
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-    ![Client - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
+    ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -53,24 +53,24 @@ First, we'll check for the Client created for your WordPress site.
 
 1. Turn off **OIDC Conformant**.
 
-    ![Client - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
 1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and 
 **Client Credentials**.
 
-    ![Client - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
+    ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
 1. Click **Save Changes** if anything was modified.
 
-### Authorize the Client for the Management API
+### Authorize the Application for the Management API
 
-In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Client created above to access the Management API. 
+In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. 
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
-1. Click on **Auth0 Management API**, then the **Non-Interactive Clients** tab
+1. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab
 
-1. Look for the Client you created above and click **Unauthorized** to grant access
+1. Look for the Application you created above and click **Unauthorized** to grant access
 
 1. In the panel that appears, select the following scopes below and click **Update** (you can search using the **Filter scopes** field)
 
@@ -86,23 +86,23 @@ In order for your WordPress site to perform certain actions on behalf of your Au
     * `create:users`
     * `update:guardian_factors`
 
-![Client Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
+![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
 ### Database Connection setup
 
 Database Connections enable the typical username and password login seen on most sites. This type of Connection is 
 not required and can be skipped if you're using passwordless or social logins only. 
 
-1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Client setup above. Otherwise, you can create a new  
+1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new  
 Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
-    ![Client Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
 1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
-1. Now click the **Clients** tab and activate the Client created above.
+1. Now click the **Applications** tab and activate the Application created above.
 
-    ![Client Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
 ### Social Connection setup
 
@@ -110,17 +110,17 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 ### Update Auth0 settings in WordPress
 
-1. Go to back to the [Clients](${manage_url}/#/clients) page and select the Client created above.
+1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
 
-    ![Client Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
 1. Click on the **Basic** tab.
 
-1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Client page to your WordPress settings using the Copy to Clipboard buttons next to each field.
+1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Application page to your WordPress settings using the Copy to Clipboard buttons next to each field.
 
-1. Make sure **Client Signing Algorithm** matches the Client's Advanced > OAuth setting. 
+1. Make sure **Application Signing Algorithm** matches the Application's Advanced > OAuth setting. 
 
 1. Scroll down and click **Save Changes**.
 
@@ -128,15 +128,15 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 ### Basic
 
-* **Domain:** The app Domain copied from the Client settings in your dashboard.
+* **Domain:** The app Domain copied from the Application settings in your dashboard.
 
-* **Client ID:** The app Client ID copied from the Client settings in your dashboard.
+* **Client ID:** The app Client ID copied from the Application settings in your dashboard.
 
-* **Client Secret:** The app Client Secret copied from the Client settings in your dashboard.
+* **Client Secret:** The app Client Secret copied from the Application settings in your dashboard.
 
 * **Client Secret Base64 Encoded:** Whether or not the Client Secret is Base64 encoded; it will say below the Client Secret field in your Auth0 dashboard whether or not this should be turned on.
 
-* **Client Signing Algorithm:** The algorithm used for signing tokens from the Advanced Client Settings, OAuth tab; default is RS256.
+* **Application Signing Algorithm:** The algorithm used for signing tokens from the Advanced Application Settings, OAuth tab; default is RS256.
 
 * **Cache Time (minutes):** How long the JWKS information should be stored.
 
@@ -223,7 +223,7 @@ social Connections from working properly.
 
 * **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
 
-* **Implicit Login Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
+* **Implicit Login Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-applications-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
 
 * **Enable IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the **IP Ranges** textbox.
 

@@ -17,7 +17,7 @@ In this article we will see the steps involved in implementing this flow.
 
 ## 1. Set up your connection
 
-To set up the passwordless connection, go to [Dashboard > Connections > Passwordless](${manage_url}/#/connections/passwordless) and turn on either Email or SMS. Then, go to the **Apps** tab and enable the connection for the clients that will be using it.
+To set up the passwordless connection, go to [Dashboard > Connections > Passwordless](${manage_url}/#/connections/passwordless) and turn on either Email or SMS. Then, go to the **Apps** tab and enable the connection for the applications that will be using it.
 
 ## 2. Configure your login page
 

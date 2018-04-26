@@ -9,7 +9,7 @@ description: How to build a serverless application using Token-based Authenticat
 Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
 :::
 
-With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript client.
+With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript application.
 
 A serverless application runs custom code as a compute service without the need to maintain an operating environment to host your service. Instead, a service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf.
 
@@ -23,7 +23,7 @@ You will be taken through the following steps:
 
 * [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/delegation/part-1)
 * [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-2)
-* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/delegation/part-3)
+* [Step 3 - Build the Application](/integrations/aws-api-gateway/delegation/part-3)
 * [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-4)
 * [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/delegation/part-5)
 

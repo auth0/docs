@@ -5,12 +5,12 @@ description: This page explains an overview about Auth0 delegation tokens.
 # Delegation Tokens
 
 ::: warning
-With [the latest Auth0 authentication pipeline](/api-auth/intro), delegation tokens should not be used to exchange an ID Token issued to one client for a new one issued to a different client, or to get a new ID Token. See the [migration notice](/migrations#introducing-api-authorization-with-third-party-vendor-apis) for more information.
+With [the latest Auth0 authentication pipeline](/api-auth/intro), delegation tokens should not be used to exchange an ID Token issued to one application for a new one issued to a different application, or to get a new ID Token. See the [migration notice](/migrations#api-authorization-with-third-party-vendor-apis) for more information.
 :::
 
-A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
+A delegation token should be obtained and used when an application needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
 
-Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
+Given an existing token, this endpoint will generate a new token signed with the `target` application's secret. This is used to flow the identity of the user from the application to an API.
 
 The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be a SAS (Shared Access Signature). If it is for the Firebase Addon, it will be a JWT.
 
@@ -30,12 +30,12 @@ For an example on how to get a new token for an addon that you have activated, u
 
 The validity period and the ability to revoke a delegation token, varies by individual Addon. The documentation available from the provider of any Addon API should be consulted for further information.
 
-## Using Delegation Tokens with Public Clients
+## Using Delegation Tokens with Public Applications
 
-There is an important caveat to note when using the delegation endpoint with [Public Clients](/clients/client-types#public-clients). 
+There is an important caveat to note when using the delegation endpoint with [Public Applications](/applications/application-types#public-applications). 
 
-If you call the [Token endpoint](/api/authentication#get-token) from a Public Client, the `id_token` will be forcibly signed using `RS256`, even if the _JsonWebToken Signature Algorithm_ in the Client settings is configured as `HS256`.
+If you call the [Token endpoint](/api/authentication#get-token) from a Public Application, the `id_token` will be forcibly signed using `RS256`, even if the _JsonWebToken Signature Algorithm_ in the Application settings is configured as `HS256`.
 
-If you then subsequently call the delegation endpoint with that `id_token`, it will fail if the Client's _JsonWebToken Signature Algorithm_ was configured as `HS256`. This is because delegation performs validation according to the Client's settings, but the `id_token` was issued with a different algorithm because of the forced algorithm change.
+If you then subsequently call the delegation endpoint with that `id_token`, it will fail if the Application's _JsonWebToken Signature Algorithm_ was configured as `HS256`. This is because delegation performs validation according to the Application's settings, but the `id_token` was issued with a different algorithm because of the forced algorithm change.
 
-It is therefore important that if you intend to use delegation with a Public Client, that you configure the _JsonWebToken Signature Algorithm_ of your client as `RS256`.
+It is therefore important that if you intend to use delegation with a Public Application, that you configure the _JsonWebToken Signature Algorithm_ of your application as `RS256`.

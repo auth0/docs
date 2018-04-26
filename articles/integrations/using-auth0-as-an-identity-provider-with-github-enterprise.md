@@ -9,9 +9,9 @@ When using GitHub Enterprise, you can configure Auth0 to act as an identity prov
 
 ## Configure Your Auth0 Application
 
-Create a new or select an existing Client using the [Clients]() page of the Management Dashboard.
+Create a new or select an existing Application using the [Applications](${manage_url}/#/applications) page of the Management Dashboard.
 
-On the row associated with your chosen Client, click on the **Addons** button, which is the second button from the right on the appropriate Client row.
+On the row associated with your chosen Application, click on the **Addons** button, which is the second button from the right on the appropriate Application row.
 
 ![](/media/articles/scenarios/github-enterprise/clients.png)
 

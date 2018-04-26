@@ -11,7 +11,7 @@ Single Sign On (SSO) occurs when a user logs in to one application and is then s
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that logs in to one of Google's products are automatically logged in to their other products as well.
 
-Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
+Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple applications. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
 1. The user receives a Google Accounts-generated cookie.

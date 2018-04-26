@@ -9,7 +9,7 @@ By integrating Auth0 with AWS, you'll allow your users to log in to AWS using an
 
 ## Configure Auth0
 
-Log in to the [Management Dashboard](${manage_url}/#/applications), and create a new [Client](/client) (you can also use an existing Client if you'd like). On the **Addons** tab, enable the **SAML2 Web App** addon.
+Log in to the [Management Dashboard](${manage_url}/#/applications), and create a new [Application](/application) (you can also use an existing Application if you'd like). On the **Addons** tab, enable the **SAML2 Web App** addon.
 
 ![](/media/articles/integrations/aws/addons.png)
 
@@ -192,7 +192,7 @@ function (user, context, callback) {
 
 ## Test Your Setup
 
-You are now set up for single sign-on to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [client](${manage_url}/#/clients) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
+You are now set up for single sign-on to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [application](${manage_url}/#/applications) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
 
 ![](/media/articles/integrations/aws/idp-download.png)
 

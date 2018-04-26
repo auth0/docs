@@ -33,11 +33,13 @@ For migrations that have already been enabled for all customers, see [Past Migra
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| High | 2018-04-16 | 2018-04-30 |
+| High | 2018-04-17 | 2018-04-30 |
 
-Beginning 30 April 2016, [Node.js v4 will no longer be under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule). As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.
+The Webtask engine powering Auth0 extensibility points currently utilizes Node 4. Beginning **30 April 2018**, [Node.js v4 will no longer be under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule). This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8.
 
-[Migration Guide: Extensibility and Node.js v8](/migrations/guides/extensibility-node8)
+On **17 April 2018** we will make the Node 8 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.
+
+For more information on this migration and the steps you should follow to upgrade your implementation, see [Migration Guide: Extensibility and Node.js v8](/migrations/guides/extensibility-node8).
 
 ### Introducing Lock v11 and Auth0.js v9
 
@@ -65,11 +67,13 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2018-03-31 |  2019-03-31 |
+| Medium | 2018-03-31 |  - |
 
-For some use cases you could use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
+For some use cases you can use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
 
-This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/device-credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. The affected endpoints are the following.
+This is used by the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
+
+List of affected endpoints:
 
 | **Endpoint** | **Use Case** |
 |-|-|
@@ -82,11 +86,11 @@ This was used by the [/users](/api/management/v2#!/Users/get_users_by_id) and [/
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints will now accept regular [Access Tokens](/access-token). The functionality is available now.
+These endpoints can now accept regular [Access Tokens](/access-token). 
 
-Applications must be updated by **March 31, 2019**, when the ability to use ID Tokens will be disabled.
+The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
-For more information on this migration and the steps you should follow to upgrade your implementation, see [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
+For more information on this migration and the steps you should follow to upgrade your implementation, see the [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens).
 
 #### Am I affected by the change?
 

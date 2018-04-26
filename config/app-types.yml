@@ -19,7 +19,7 @@ appTypes:
     example: "eg: AngularJS, React"
     question: "What technology are you using for your web app?"
     budicon: 349
-    slug: client-platforms
+    slug: application-platforms
 
   - title: Web App
     name: webapp

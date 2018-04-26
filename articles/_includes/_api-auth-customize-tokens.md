@@ -1,4 +1,4 @@
-You can use [Rules](/rules) to change the returned scopes of the `access_token` and/or add claims to it (and the `id_token`) with a script like this:
+You can use [Rules](/rules) to change the returned scopes of the Access Token and/or add claims to it (and the ID Token) with a script like this:
 
 ```javascript
 function(user, context, callback) {

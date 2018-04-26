@@ -8,7 +8,7 @@ toc: true
 In some cases, you may want to customize the user sign up form with more fields other than email and password.
 
 :::panel Universal Login
-Auth0 offers a [universal login](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the client name, logo and background color, then universal login via an Auth0 login page might be an easier option to implement.
+Auth0 offers a [universal login](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the application name, logo and background color, then universal login via an Auth0 login page might be an easier option to implement.
 :::
 
 ## Using Lock
@@ -84,10 +84,11 @@ Send a POST request to the [/dbconnections/signup](/api/authentication/reference
 
 When your users sign up, the custom fields are sent as part of `user_metadata`. The limitations of this field are:
 
-* `user_metadata` must contain no more than 10 fields;
-* `user_metadata.field` must be a string;
-* `user_metadata.field.value.length` must be fewer than 500 characters;
-* `user_metadata.field.length` must be fewer than 100 characters.
+* `user_metadata` must contain no more than 10 fields
+* `user_metadata.field` must be a string
+* `user_metadata.field.value.length` must be fewer than 500 characters
+* `user_metadata.field.length` must be fewer than 100 characters
+* The current size limit for `user_metadata` is **16 MB**
 
 ## Redirect mode
 

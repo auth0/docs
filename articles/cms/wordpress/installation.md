@@ -17,14 +17,14 @@ If you don't already have an Auth0 account, click the **[Sign Up For Free](https
 
 ## Manual setup
 
-The plugin can be configured using the built-in setup wizard (covered below) or manually by creating a Client and 
+The plugin can be configured using the built-in setup wizard (covered below) or manually by creating an Application and 
 assigning connections. The completely manual setup process can be used if you're having trouble with the 
-wizard, have been through the setup process before, or want to share a database connection between Clients.
+wizard, have been through the setup process before, or want to share a database connection between Applications.
 
-1. In your Auth0 [Dashboard](${manage_url}), click **Clients** then **Create Client**
-1. Give your Client a descriptive name, select **Regular Web Applications**, then **Create**
-1. Follow the [Client setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in 
-WordPress" section to configure the client for your WordPress installation
+1. In your Auth0 [Dashboard](${manage_url}), click **Applications** then **Create Application**
+1. Give your Application a descriptive name, select **Regular Web Applications**, then **Create**
+1. Follow the [Application setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in 
+WordPress" section to configure the application for your WordPress installation
 
 Once the steps above are complete, your site will be configured and ready to use!
 
