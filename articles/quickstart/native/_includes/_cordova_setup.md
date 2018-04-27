@@ -23,7 +23,7 @@ Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 file://*
 ```
 
-Lastly, be sure that the **Application Type** for your application is set to **Native** in the application settings.
+Lastly, be sure that the **Application Type** for your application is set to **Native** in its settings.
 
 ${snippet(meta.snippets.dependencies)}
 

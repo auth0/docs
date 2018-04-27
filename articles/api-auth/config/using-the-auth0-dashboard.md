@@ -24,7 +24,7 @@ The selection of the **Signing Algorithm** will dictate how the API will validat
 ![Create an API](/media/articles/api-auth/apis-create.png)
 
 ::: note
-  There will already be an <strong>Auth0 Management API</strong> that represents Auth0's APIv2. You can authorize applications to request tokens from this API as well.
+There will already be an `Auth0 Management API` that represents Auth0's APIv2. You can authorize applications to request tokens from this API as well.
 :::
 
 4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the Access Token. With this information, the API can enforce fine-grained authorization.
@@ -36,3 +36,11 @@ The selection of the **Signing Algorithm** will dictate how the API will validat
   ![Authorize the Application](/media/articles/api-auth/apis-authorize-client-tab.png)
 
 6. Setup your API to accept Access Tokens. The **Quickstart** tab provides you with code snippets for different languages and will guide you through bootstrapping your API, depending on the selected **Signing Algorithm**.
+
+## Keep reading
+
+:::next-steps
+* [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials)
+* [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+* [How to add custom claims to a token using Rules](/scopes#custom-claims)
+:::
