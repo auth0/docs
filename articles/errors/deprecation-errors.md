@@ -41,14 +41,14 @@ On the left, navigate to **Logs > Search log events** and then scroll down to **
 
 ![Management API - Logs](/media/articles/errors/libraries/management-api-logs.png)
 
-In the "q" field enter: `type:"depnote"`
+In the **q** field enter: `type:"depnote"`
 
 Click on the **TRY** button. If successful, you should see a screen similar to the one below.
 
 ![Management API - Logs - Results](/media/articles/errors/libraries/management-api-logs-results.png)
 
 * The results will match one of the messages + descriptions below.
-* The "Client ID" field in the results will indicate which application (client) on your tenant is using the deprecated feature.
+* The **Client ID** field in the results will indicate which application (client) on your tenant is using the deprecated feature.
 
 ## Deprecation Messages 
 
