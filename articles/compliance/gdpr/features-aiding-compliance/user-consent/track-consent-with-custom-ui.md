@@ -11,11 +11,18 @@ In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask f
 
 ## Overview
 
-We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:
+We will capture consent information, under various scenarios, and save this at the user's metadata.
+
+All scenarios will save the following properties at the [user's metadata](/metadata):
+- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
+- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+
+For example:
 
 ```text
 {
-  "consentGiven": true
+  "consentGiven": "true"
+  "consentTimestamp": "1525101183"
 }
 ```
 
@@ -25,8 +32,6 @@ We will see four different implementations for this:
 1. one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
 1. one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
 1. one that redirects to another page where the Terms & Conditions and/or privacy policy information can be reviewed and consent info can be provided (used either by SPAs or Regular Web Apps)
-
-All implementations will have the same final result, a `consentGiven` property saved at the [user's metadata](/metadata).
 
 ## Option 1: Use auth0.js
 
@@ -82,7 +87,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
       connection: databaseConnection,
       email: email,
       password: password,
-      user_metadata: { consentGiven: 'true' }
+      user_metadata: { consentGiven: 'true', consentTimestamp: Date.now() }
     }, function(err) {
       if (err) displayError(err);
     });
@@ -99,7 +104,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 If you serve your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
 
-For the same scenario we have been discussing so far, once you sign up a new user, you can use the following snippet to create the user at Auth0 and set the metadata.
+For the same scenario we have been discussing so far, once you sign up a new user, you can use the following snippet to create the user at Auth0 and set the metadata. Remember to replace the value of the `consentTimestamp` request parameter with the timestamp of when the user provided consent.
 
 ```har
 {
@@ -111,7 +116,7 @@ For the same scenario we have been discussing so far, once you sign up a new use
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"YOUR_USER_EMAIL\",\"password\": \"YOUR_USER_PASSWORD\",\"user_metadata\": {\"consentGiven\": \"true\"}}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"YOUR_USER_EMAIL\",\"password\": \"YOUR_USER_PASSWORD\",\"user_metadata\": {\"consentGiven\": \"true\", \"consentTimestamp\": \"1525101183\" }}"
   }
 }
 ```
@@ -151,7 +156,7 @@ Once you have a valid token, use the following snippet to update the user's meta
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"user_metadata\": {\"consentGiven\":true}}" 
+		"text": "{\"user_metadata\": {\"consentGiven\":true, \"consentTimestamp\": \"1525101183\"}}" 
     },
 	"headersSize": -1,
 	"bodySize": -1,
@@ -167,7 +172,13 @@ If you want to display more information to your user, then upon signup you can r
 
 <%= include('./_redirect.md') %>
 
-To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. You will be navigated to the consent form. Check the **I agree** flag and click **Submit**. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
+To test this configuration: 
+1. Run the application and go to [http://localhost:3000](http://localhost:3000)
+1. Sign up with a new user. You will be navigated to the consent form. 
+1. Check the **I agree** flag and click **Submit**
+1. Go to [Dashboard > Users](${manage_url}/#/users) and search for your new user
+1. Go to **User Details** and scroll down to the **Metadata** section. 
+1. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`, and the `consentTimestamp` set to the Unix timestamp of the moment the user consented
 
 ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 

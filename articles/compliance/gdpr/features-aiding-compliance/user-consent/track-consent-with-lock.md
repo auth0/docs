@@ -15,11 +15,18 @@ We will configure a simple JavaScript Single Page Application and a database con
 
 Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
-We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:
+We will capture consent information, under various scenarios, and save this at the user's metadata.
+
+All scenarios will save the following properties at the [user's metadata](/metadata):
+- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
+- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+
+For example:
 
 ```text
 {
-  "consentGiven": true
+  "consentGiven": "true"
+  "consentTimestamp": "1525101183"
 }
 ```
 
@@ -27,8 +34,6 @@ We will see three different implementations for this:
 - one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed
 - one that adds custom fields at the signup widget and works for database connections
 - one that redirects to another page where the user can provide consent, and works for social connections
-
-All implementations will have the same final result, a `consentGiven` property saved at the user's metadata.
 
 ## Configure the application
 
@@ -92,13 +97,14 @@ This works both for database connections and social logins.
       
       // first time login/signup
       user.user_metadata.consentGiven = true;
-        auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
-        .then(function(){
-          callback(null, user, context);
-        })
-        .catch(function(err){
-          callback(err);
-        });
+      user.user_metadata.consentTimestamp = Date.now();
+      auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+      .then(function(){
+        callback(null, user, context);
+      })
+      .catch(function(err){
+        callback(err);
+      });
     }
     ```
 
@@ -187,7 +193,8 @@ We are done with the configuration part, let's test!
 
     ```text
     {
-      "consentGiven": true
+      "consentGiven": "true"
+      "consentTimestamp": "1525101183"
     }
     ```
 
