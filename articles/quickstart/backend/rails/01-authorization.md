@@ -26,7 +26,7 @@ This sample demonstrates how to check for a JWT in the `Authorization` header of
 Install the **jwt** Gem.
 
 ```bash
-gem `jwt`
+gem 'jwt'
 bundle install
 ```
 
@@ -120,7 +120,7 @@ With the `Secured` Concern in place, you can now apply it to whichever endpoints
 class PublicController < ActionController::API
   # This route doesn't need authentication
   def public
-    render json: { message: 'Hello from a public endpoint! You don't need to be authenticated to see this.' }
+    render json: { message: "Hello from a public endpoint! You don't need to be authenticated to see this." }
   end
 end
 ```
