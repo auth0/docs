@@ -19,7 +19,7 @@ You can connect any application (written in any language or on any stack) to Aut
 
 This video will give you a walkthrough of Auth0 and how it will help save you time adding identity to your application.
 
-<%= include('../videos/_video', { id: 's15ysw45uy' }) %>
+<%= include('../../_video', { id: 's15ysw45uy' }) %>
 
 ## Integrate Auth0 with your Application
 
