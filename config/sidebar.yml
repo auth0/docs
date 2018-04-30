@@ -21,16 +21,6 @@ articles:
       - title: Deployment Models
         url: /getting-started/deployment-models
 
-      - title: Videos
-        url: /videos
-        children:
-
-        - title: Rules
-          url: /videos/rules
-
-        - title: Session & Cookies
-          url: /videos/session-and-cookies
-
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
