@@ -56,7 +56,8 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN", "name": "Content-Type", "value": "application/json" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"}, 
+      { "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],
     "postData": {
@@ -82,7 +83,8 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN", "name": "Content-Type", "value": "application/json" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"}, 
+      { "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],
     "postData": {
