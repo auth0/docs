@@ -6,6 +6,6 @@ Now that you have a working connection, the next step is to configure your appli
 * [Get started with our Quickstarts](/quickstarts)
 * [Configure your application using our libraries](/libraries)
 * [Call our Authentication API](/api/authentication)
-* [Read more about client authentication](/client-auth)
+* [Read more about client authentication](/application-auth)
 * [Re-prompt users for permissions](/connections/social/reprompt-permissions)
 :::

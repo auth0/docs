@@ -7,6 +7,8 @@ toc: true
 
 In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/metadata).
 
+<%= include('../_legal-warning.md') %>
+
 ## Overview
 
 We will configure a simple JavaScript Single Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
@@ -40,7 +42,7 @@ All implementations will have the same final result, a `consentGiven` property s
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
+1. Go to [Dashboard > Connections > Database](${manage_url}/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
 
 1. Go to the connection's **Applications** tab and make sure your newly created application is enabled.
 
@@ -67,7 +69,7 @@ This works both for database connections and social logins.
         //code reducted for simplicity
       },
       languageDictionary: {
-        signUpTerms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
+        signUpTerms: "I agree to the <a href='https://my-app-url.com/terms' target='_new'>terms of service</a> and <a href='https://my-app-url.com/privacy' target='_new'>privacy policy</a>."
       },
       mustAcceptTerms: true,
       //code reducted for simplicity

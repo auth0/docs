@@ -50,7 +50,7 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 ![Generic OAuth Flow](/media/articles/protocols/oauth2-generic-flow.png)
 
-1. The Applicatio (Client) asks for authorization from the Resource Owner in order to access the resources.
+1. The Application (Client) asks for authorization from the Resource Owner in order to access the resources.
 
 1. Provided that the Resource Owner authorizes this access, the Application receives an **Authorization Grant**. This is a credential representing the Resource Owner's authorization.
 

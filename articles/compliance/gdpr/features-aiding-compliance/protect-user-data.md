@@ -13,6 +13,8 @@ As per article 32 of GDPR, you must implement appropriate security measures in o
 
 There are several Auth0 features than can help you achieve that, like user profile encryption, brute-force protection, breached password detection, step-up authentication, and more.
 
+<%= include('./_legal-warning.md') %>
+
 ## Encrypt user profile information
 
 <%= include('./_encrypt-data.md') %>

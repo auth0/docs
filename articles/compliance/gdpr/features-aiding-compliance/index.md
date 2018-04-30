@@ -7,6 +7,8 @@ toc: true
 
 In this article, you will find a list of GDPR regulations and how Auth0 can help you comply with them.
 
+<%= include('./_legal-warning.md') %>
+
 ## Conditions for consent
 
 According to Article 7 of GDPR, you must:
