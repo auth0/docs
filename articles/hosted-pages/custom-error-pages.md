@@ -1,5 +1,7 @@
 ---
+title: Custom Error Pages
 description: How to setup a custom error page for authorization error events.
+toc: true
 crews: crew-2
 ---
 # Custom Error Pages
@@ -12,8 +14,8 @@ This article will show you how to use a customized error page. For details on th
 
 If you choose to display a custom error page, you have two options:
 
--  Redirect the user to a custom error page.
--  Configure Auth0 to render a custom error page on your behalf. This feature is only available via the Management API.
+-  [Redirect the user to a custom error page](#redirect-users-to-a-custom-error-page)
+-  [Configure Auth0 to render a custom error page on your behalf](#render-a-custom-error-page). This feature is only available via the Management API.
 
 ### Redirect users to a custom error page
 
