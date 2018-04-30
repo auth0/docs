@@ -511,8 +511,12 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-application-secret'
+    to: '/applications/how-to-rotate-client-secret'
   },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
+  }
   {
     from: '/clients/client-settings',
     to: '/applications/application-settings'
