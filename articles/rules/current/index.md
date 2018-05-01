@@ -347,7 +347,7 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
 
-For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire) and [Addtional Modules Available in Rules](/appliance/modules)
+For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire) and [Addtional Modules Available in Rules](/appliance/modules).
 
 ## Keep reading
 
