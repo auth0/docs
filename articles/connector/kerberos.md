@@ -9,7 +9,7 @@ The AD/LDAP connector makes it easy for your users to authenticate when they are
 
 ## Configuration
 
-To activate this feature for Active Directory/LDAP, simply enable the option in the dashboard.
+To activate this feature for Active Directory/LDAP, simply enable the option in the dashboard. You need to go to the **Connections/Enterprise/Active Directory / LDAP**, select the connection you want configure, and click the **Settings** icon.
 
 ![](/media/articles/connector/kerberos/connector-kerberos-configuration.png)
 
