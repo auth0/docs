@@ -79,7 +79,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
     //code reducted for simplicity
     ```
 
-1. Edit the `signup()` function to set the metadata. Note that we set the value of the metadata to a string with the value `true` and not to a boolean value. This is due to a restriction of the [Authentication API Signup endpoint](/api/authentication#signup) which only accepts strings as values, not booleans.
+1. Edit the signup function to set the metadata. Note that we set the value of the metadata to a string with the value `true` and not to a boolean value, and we are using `toString` to convert the number to a string. This is due to a restriction of the [Authentication API Signup endpoint](/api/authentication#signup) which only accepts strings as values.
 
     ```js
     //code reducted for simplicity
@@ -87,7 +87,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
       connection: databaseConnection,
       email: email,
       password: password,
-      user_metadata: { consentGiven: 'true', consentTimestamp: Date.now() }
+      user_metadata: { consentGiven: 'true', consentTimestamp: Date.now().toString() }
     }, function(err) {
       if (err) displayError(err);
     });
