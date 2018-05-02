@@ -31,9 +31,9 @@ Auth0 provides a __Sign in As__ feature for user impersonation, and provides the
 Any [Rules](/rules) that you have implemented will run when you impersonate a user, including any actions that update the user.
 :::
 
-## API Authorization
+## Limitations
 
-Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the `access_token` returned to applications when using this flow is only valid for requests to the `/userinfo` endpoint. 
+Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 
 ## Enable impersonation
 
@@ -259,6 +259,6 @@ Congratulations, you are done!
 ## Keep reading
 
 ::: next-steps
-- [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
+- [Troubleshooting? This is what you shouldn’t do](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
 - [Identity Protocols supported by Auth0](/protocols)
 :::
