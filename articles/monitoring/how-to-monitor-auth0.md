@@ -9,7 +9,7 @@ If you are using the public cloud version of Auth0, we recommend subscribing to 
 
 Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
-## Monitor Your Auth0 Account
+## Monitor your Auth0 account
 
 You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
 
@@ -52,7 +52,7 @@ We recommend using an authentication flow that doesn't require a user interface 
 * [New Relic](http://newrelic.com)
 * [Pingdom](http://pingdom.com)
 
-### Monitor External Services Associated with Your Auth0 Account
+## Monitor external services
 
 If you are seeing potential issues with your Auth0 service, but the monitoring endpoints and the [Auth0 Status page](https://status.auth0.com) aren't indicating any problems, check the status of any external services that you use alongside Auth0.
 
@@ -74,7 +74,7 @@ If you are seeing potential issues with your Auth0 service, but the monitoring e
 * [Twilio](https://status.twilio.com/)
 * [VM Ware](https://status.vmware-services.io/)
 
-## Monitoring a Dedicated Deployment
+## Monitor a Dedicated Deployment
 
 Please see the [PSaaS Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 
