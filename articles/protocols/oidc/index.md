@@ -1,6 +1,7 @@
 ---
+url: /oidc
 title: OpenID Connect
-description: What is the OpenID Connect protocol and how it works
+description: An open standard for authentication. Allows third-party services to verify that users are who they say they are without clients needing to collect, store, and therefore become liable for a user's login information.
 ---
 # OpenID Connect
 
@@ -32,4 +33,3 @@ The [ID Token](/tokens/id_token) is a [JSON Web Token (JWT)](/jwt) that contains
 JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
 
 The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [custom claims and add them to your tokens](/tokens/id-token#add-custom-claims).
-
