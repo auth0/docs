@@ -6,7 +6,7 @@ toc: true
 ---
 # The Auth0 Management APIv2 Token
 
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a application API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with an application API key and secret for the entire tenant.
 
 There are two ways to get a Management APIv2 Token:
 - [get one manually using the Dashboard](#get-a-token-manually), or

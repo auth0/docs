@@ -36,7 +36,7 @@ You can switch back and forth between the tenants by going to the upper right co
 
 ## 2. Set up the Auth0 IDP (tenant 2)
 
-In this section you will configure one Auth0 tenant (tenant 2) to serve as an Identity Provider.  You will do this by registering a application, but in this case, the 'application' you register is really a representation of tenant 1, the SAML Service Provider.
+In this section you will configure one Auth0 tenant (tenant 2) to serve as an Identity Provider.  You will do this by registering an application, but in this case, the 'application' you register is really a representation of tenant 1, the SAML Service Provider.
 
 Log into **Tenant 2**
 

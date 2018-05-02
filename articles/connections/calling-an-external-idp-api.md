@@ -53,7 +53,7 @@ If you don't see this button, it means that you have at least one authorized app
 
 It is recommended, for security reasons, that you only assign the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from a application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
+You can grant or remove scopes from an application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
 
 ![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 

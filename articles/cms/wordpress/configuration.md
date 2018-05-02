@@ -1,5 +1,5 @@
 ---
-description: How to configure WordPress as a application with Auth0.
+description: How to configure WordPress as an application with Auth0.
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
@@ -8,7 +8,7 @@ By default, new installations of Login by Auth0 run the Setup Wizard and ask for
 
 * Creating a new Application using your site name with the correct app type and URLs 
 * Creating a database Connection for this Application for storing users
-* Creating a Application grant for the system Auth0 Management API
+* Creating an application grant for the system Auth0 Management API
 * Creating a new user for the WordPress administrator running the wizard
 
 Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
