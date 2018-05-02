@@ -38,7 +38,7 @@ next_steps:
     - text: Learn about anomaly detection
       icon: 345
       href: "/anomaly-detection"
-  - path: 03-user-sessions.md
+  - path: 03-user-sessions
     list:
     - text: Learn about refresh tokens
       icon: 345
@@ -52,7 +52,7 @@ next_steps:
     - text: In-depth details about user profile
       icon: 345
       href: "/user-profile/user-profile-details"
-  - path: 04-calling-apis.md
+  - path: 04-calling-apis
     list:
     - text: Learn about custom APIs
       icon: 345
@@ -60,7 +60,7 @@ next_steps:
     - text: Introduction to API authorization
       icon: 345
       href: "/api-auth"
-  - path: 05-authorization.md
+  - path: 05-authorization
     list:
     - text: Learn about rules
       icon: 345
