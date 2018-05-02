@@ -1,5 +1,5 @@
 ---
-title: GDPR Compliance: Data Portability
+title: "GDPR: Data Portability"
 description: This article discusses how customers can export user data in order to comply with data portability GDPR requirements
 toc: true
 ---
@@ -8,6 +8,8 @@ toc: true
 According to Article 20 of GDPR, users have the right to receive the personal data concerning them in a structured, commonly used and machine-readable format.
 
 You can export user data, stored in the Auth0 user store, either manually or programmatically. Raw data from Auth0 can be exported in JSON format (which is machine-readable).
+
+<%= include('./_legal-warning.md') %>
 
 ## Export data manually
 
@@ -21,4 +23,4 @@ To export a user's data manually from the Dashboard:
 
 ## Export data using the API
 
-You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/users/search#users-by-id), or [export a list of your users](/users/search#user-export).
+You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/users/search/best-practices#users-by-id), or [export a list of your users](/users/search/best-practices#user-export).

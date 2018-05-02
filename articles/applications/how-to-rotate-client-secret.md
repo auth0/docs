@@ -5,7 +5,7 @@ crews: crew-2
 
 # Rotate the Client Secret
 
-The client (application) secret protects your resources by only granting tokens to requestors if they're authorized. Protect your client secrets; if any are ever compromised, you should rotate to a new one. Please remember that all authorized apps will therefore need to be updated with the new client secret.
+The client secret protects your resources by only granting tokens to requestors if they're authorized. Protect your client secrets; if any are ever compromised, you should rotate to a new one. Please remember that all authorized apps will therefore need to be updated with the new client secret.
 
 ## Rotate the Client Secret in the Dashboard
 
@@ -26,7 +26,7 @@ You can rotate your application's secret by making a `POST` call to the [Rotate 
 Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 ::: note
-To make calls to the Management API, you'll need to [obtain and provide a valid Access Token](/api/management/v2/tokens).
+To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
 :::
 
 ```har
@@ -49,4 +49,8 @@ To make calls to the Management API, you'll need to [obtain and provide a valid 
 
 ## Update Authorized Applications
 
-Once you've rotated your application secret, you'll need to update any authorized applications with the new value. To make sure that you see as little downtime as possible when connecting your apps to your Auth0 application, we suggest you store the new client secret as a fallback to the previous secret. Then, if the connection doesn't work with the old secret, your app will use the new secret. Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app.
+Once you've rotated your client secret, you must update any authorized applications with the new value. 
+
+To make sure that you see as little downtime as possible when connecting your apps to your Auth0 application, we suggest you store the new client secret as a fallback to the previous secret. Then, if the connection doesn't work with the old secret, your app will use the new secret. 
+
+Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app.

@@ -1,5 +1,5 @@
 ---
-title: GDPR Compliance: Data Minimization
+title: "GDPR: Data Minimization"
 description: This article discusses how customers can minimize the personal data they collect for processing and ensure their security
 toc: true
 ---
@@ -8,6 +8,8 @@ toc: true
 According to Article 5 of GDPR, the personal data you collect must be limited to what is necessary for processing and must be kept only as long as needed. Appropriate security must be ensured during data processing, including protection against unauthorised or unlawful processing and against accidental loss, destruction, or damage.
 
 There are several Auth0 features than can help you achieve these goals, like account linking, user profile encryption, and more.
+
+<%= include('./_legal-warning.md') %>
 
 ## Restrict user profile information
 
