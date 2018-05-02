@@ -12,6 +12,9 @@ alias:
   - windows-azure-vm
   - azure-websites
   - azure-vm
+tags:
+  - azure
+  - mobile
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
 

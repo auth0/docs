@@ -7,6 +7,7 @@ alias:
 image: /media/platforms/azure.png
 tags:
   - quickstart
+  - azure
 articles:
   - authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
