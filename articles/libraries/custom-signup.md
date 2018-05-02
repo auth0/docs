@@ -17,7 +17,7 @@ Lock supports [custom fields signup](/libraries/lock/customization#additionalsig
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
-Lock's `additionalSignupFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
+Lock's `additionalSignUpFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
 
 ### Redirect to another page
 
