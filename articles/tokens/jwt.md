@@ -11,7 +11,7 @@ toc: true
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
-<%= include('../../_video', { id: 'dxfz716cw9' }) %>
+<%= include('../../_includes/_video', { id: 'dxfz716cw9' }) %>
 
 ## What is JSON Web Token?
 

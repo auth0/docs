@@ -53,11 +53,9 @@ There are different options to control the lifetime of a cookie:
 Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
 :::
 
-<%= include('../../_video', { id: 'paxlbixuya' }) %>
+<%= include('../../_includes/_video', { id: 'paxlbixuya' }) %>
 
 This video will show you how to handle session data when building a web app. It will help you understand how your application uses cookies and sessions to manage the state of an authenticated user. This video example uses Node.js with Passport, but the techniques apply to any traditional server-based web application.
-
-<div style="height: 50px"></div>
 
 #### Cookie Disadvantages
 
