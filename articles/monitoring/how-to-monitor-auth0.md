@@ -13,7 +13,7 @@ Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0
 
 You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
 
-### The test Endpoint
+### The test endpoint
 
 The `test` endpoint checks the status of the core Auth0 authentication service. If the status is up, the endpoint returns a `200` status code; if is is not, it will return a `5xx` status code.
 
@@ -32,7 +32,7 @@ Additionally, this endpoint returns a JSON object:
 }
 ```
 
-### The testall Endpoint
+### The testall endpoint
 
 The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
 
@@ -74,7 +74,7 @@ If you are seeing potential issues with your Auth0 service, but the monitoring e
 * [Twilio](https://status.twilio.com/)
 * [VM Ware](https://status.vmware-services.io/)
 
-## Monitor a Dedicated Deployment
+## Monitor a dedicated deployment
 
 Please see the [PSaaS Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 
