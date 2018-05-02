@@ -140,6 +140,8 @@ This works only for database connections (if you use social logins, see the next
 
     ![Preview Lock with consent flag](/media/articles/compliance/lock-db-consent-flag.png)
 
+Note that in this option we only set the flag and not the timestamp. Displaying the current time in the login widget is not optimal, that's why we didn't add an additional signup field. What you should do is set the timestamp in the background, with a rule that will check the value of `consentGiven` and set the additional `consentTimestamp` metadata to the current timestamp.
+
 ## Option 3: Redirect to another page
 
 If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). We will use that same rule to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
