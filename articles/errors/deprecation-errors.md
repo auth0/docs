@@ -16,16 +16,22 @@ There are two different ways to search for warning messages showing usage of dep
 If your application uses a deprecated feature, a Deprecation Notice message will show up in the Logs section of the [Dashboard](/${manage_url}).
 
 ::: note
-In order to not overwhelm the logs with repetetive messages, deprecation notes will only be shown once per hour (the first time it occurs within that hour) rather than for each authentication transaction involving the deprecated feature.
+In order to not overwhelm the logs with repetitive messages, deprecation notes will only be shown once per hour (the first time it occurs within that hour) rather than for each authentication transaction involving the deprecated feature.
 :::
 
 Navigate to the **Logs** screen in the Dashboard. Search for deprecation related messages by entering `type:depnote` in the query box.
 
-![Dashboard - Logs](/media/articles/errors/libraries/dashboard-logs.png)
+![Dashboard - Logs](/media/articles/errors/depnotes-logs.png)
 
 A list of deprecation related warning messages from your logs will be shown, if any exist.
 
 The **Description** field provides information on the particular deprecated feature used. Clicking on the link in the **Event** column for each item will show additional information such as the client id which identifies the client application using the deprecated feature.
+
+Clicking each item and selecting **Context Data** will give you details about the item:
+
+![Dashboard - Logs](/media/articles/errors/depnotes-legacy-lock-context-data.png)
+
+![Dashboard - Logs](/media/articles/errors/depnotes-ssodata-context-data.png)
 
 ### Search logs via the Management API
 
@@ -54,6 +60,8 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 
 ### up-idp-initiated
 
+![Management API - Legacy Lock Results](/media/articles/errors/depnotes-mgt-api-legacy-lock.png)
+
 **Error Description:** "Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
 
 | Cause | Resolution |
@@ -65,6 +73,8 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 | Calling the /usernamepassword/login endpoint directly. | Use the Lock or Auth0.js libraries instead. |
 
 ### ssodata
+
+![Management API - getSSOData Results](/media/articles/errors/depnotes-mgt-api-ssodata.png)
 
 **Error Description:** "SSOdata endpoint: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
 
