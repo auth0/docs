@@ -61,6 +61,8 @@ If you are currently implementing login in your application with Lock v8, v9, or
 
 However, those who are using Lock or Auth0.js embedded within their applications, however, are **required** to update, and applications which still use deprecated versions may cease to work at some point after the deadline.
 
+Libraries and SDKs not explicitly named here are not affected by this migration.
+
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ### Deprecating the usage of ID Tokens on the Auth0 Management API
