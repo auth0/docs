@@ -2,14 +2,13 @@
 description: Explains AD/LDAP Federation Support with Auth0, how to configure it, the flow, and auto-login with Lock.
 toc: true
 ---
-
 # Federating with Active Directory through the AD/LDAP Connector
 
 The AD/LDAP connector makes it easy for your users to authenticate when they are on a domain-joined machine within the corporate network.
 
 ## Configuration
 
-To activate this feature for Active Directory/LDAP, simply enable the option in the dashboard. You need to go to the **Connections/Enterprise/Active Directory / LDAP**, select the connection you want configure, and click the **Settings** icon.
+To activate this feature for Active Directory/LDAP, simply enable the option in the dashboard. You need to go to the **Connections/Enterprise/Active Directory/LDAP**, select the connection you want configure, and click the **Settings** icon.
 
 ![](/media/articles/connector/kerberos/connector-kerberos-configuration.png)
 
@@ -81,6 +80,7 @@ lock.$auth0.getSSOData(true, function(err, data) {
   }
 });
 ```
+
 ## Troubleshooting
 
 To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.
