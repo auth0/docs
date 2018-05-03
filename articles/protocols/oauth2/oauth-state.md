@@ -1,24 +1,26 @@
 ---
-title: The State Parameter
+title: State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks.
 ---
 
-# The State Parameter
+# State Parameter
 
 The `state` parameter is an authentication parameter used to help mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-A CSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
-
-For the most basic cases the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
-
-## How to use the state parameter
-
-By using the state parameter to hold a value for verification, malicious requests can be denied.
+A CSRF attack, also known as a one-click attack or session-riding, can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site upon which the user is currently authenticated. This type of attack targets state-changing requests as opposed to user data to initiate an action.
 
 ![](/media/articles/protocols/CSRF_Diagram.png)
 
 ::: note
-Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
+Depending on the application type or framework, this may be included for the developer. Also the exact structure of the requests may differ.
+:::
+
+## How to use the `state` parameter
+
+Deny malicious requests by setting the `state` parameter to hold a value for verification.
+
+::: Note
+For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
 :::
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
@@ -59,9 +61,9 @@ if(decodedString == auth0-authorize) {
 }
 ```
 
-### Getting the `state` value in a rule
+### How to get the `state` parameter value in a rule
 
-If you need to access the `state` value within a rule you must take in consideration that, depending on the type of connection used, it might come either in the body of the request or in the query string. Keeping that in mind, it can be accessed using the following:
+Accessing the `state` parameter value within a rule depends on the type of connection used; either in the body of the request or in the query string. You can obtain it using the following:
 
 ```js
 var state = context.request.query.state || context.request.body.state;
