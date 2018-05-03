@@ -1740,5 +1740,13 @@ module.exports = [
   {
     from: '/api-auth/dynamic-client-registration',
     to: '/api-auth/dynamic-application-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
   }
 ];
