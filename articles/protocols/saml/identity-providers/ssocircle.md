@@ -99,7 +99,7 @@ Click **“Submit”** to complete the configuration of the IDP.
 
 ## 4. Create an Auth0 Application to Test the Connection
 
-In this step, you will create a Application in Auth0 that uses your SSOCircle SAML Connection.
+In this step, you will create an application in Auth0 that uses your SSOCircle SAML Connection.
 
 While logged in to the [Auth0 Management Dashboard](${manage_url}), click **+ New Application** near the top right of the page.
 
