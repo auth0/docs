@@ -1,6 +1,6 @@
 # Multifactor Authentication
 
-The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well programmatically enroll and manage user authenticators.
+The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](#get-token), as well enroll and manage user authenticators.
 
 First, request a challenge based on the challenge types supported by the application and user. If you know that one-time password (OTP) is supported, you can skip the challenge request.
 
@@ -89,20 +89,25 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-This endpoint lets you request a challenge based on the challenge types supported by the application and the end user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
+Request a challenge based on the challenge types supported by the application and user.
 
-For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+The `challenge_type` is how the user will get the challenge and prove possession. Supported challenge types include:
+
+- `otp`: for one-time password (OTP)
+- `oob`: for SMS messages or out-of-band (OOB)
+
+If OTP is supported by the user and you don't want to request a different factor, you can skip the challenge request and [verify the multifactor authentication with a one-time password](#verify-with-one-time-password-otp-).
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `mfa_token` <br/><span class="label label-danger">Required</span> | Token got together with `mfa_required` error for Resource Owner Password flow. |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The token received from `mfa_required` error. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 | `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
-| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](/api/authentication#list-authenticators) below. |
+| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
 
 ### More information
 
@@ -110,12 +115,11 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 
 ### Remarks
 
-- If you already know that OTP is supported by the user and you don't want to request a different factor, you can skip this step an go directly to __Verify with one-time password (OTP)__ below.
+- This endpoint does not support enrollment; the user must be enrolled with the preferred method before requesting a challenge.
 - Auth0 chooses the challenge type based on the application's supported types and types the user is enrolled with.
 - An `unsupported_challenge_type` error is returned if your application does not support any of the challenge types the user has enrolled with.
-- This endpoint does not support enrollment; the user must be enrolled with the preferred method before requesting a challenge.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
-- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](/api/authentication#add-an-authenticator) below to see how to proceed.
+- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](#add-an-authenticator) below on how to proceed.
 
 ## Verify with one-time password (OTP)
 
@@ -177,7 +181,7 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-To verify multifactor authentication using an OTP code, prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request should have the collected OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
+To verify multifactor authentication using a one-time password (OTP), prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request must have the OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
 
 The response is the same as responses for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
 
@@ -188,7 +192,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from `mfa_required` error. |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
 ### More informationm
@@ -293,7 +297,7 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from the `mfa_required` error. |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
 
@@ -373,14 +377,10 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user.
 
 ## Add an authenticator
-
-::: warning
-This endpoint is still under development. It is available to customers with early access.
-:::
 
 ```http
 POST https://${account.namespace}/mfa/associate
@@ -472,7 +472,20 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-Adds a new authenticator for multifactor authentication.
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
+Associates or adds a new authenticator for multifactor authentication.
+
+If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
+
+If the user has active authenticators an Access Token with the `enroll` scope is required to add a new authenticator.
+
+After an authenticator is added it must be verified. To verify the authenticator, use the response values from the `/mfa/associate` request in place of the values returned from the `/mfa/challenge` endpoint and continue with the verification flow.
+
+A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multifactor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
+
 
 ### Request parameters
 
@@ -484,21 +497,11 @@ Adds a new authenticator for multifactor authentication.
 | `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"` or `"sms"`. Required if `authenticator_types` include `oob`. |
 | `phone_number` | The phone number to use for SMS. Required if `oob_channel` includes `sms`. |
 
-### Remarks
-
-- As long as there are no active authenticators, you can associate a new one using the MFA token. If there are already active authenticators, you need to use an access token with the `enroll` scope to associate new authenticators.
-- Once associated, you must verify the authenticator before Auth0 marks it as active. You can use the returned values in place of the ones returned from the `/mfa/challenge` endpoint to continue with the verification flow.
-- The first time an authenticator is associated, a `recovery_codes` field is included on the response. You can use these recovery codes to pass MFA as shown on [Verify with recovery code](/api/authentication#verify-with-recovery-code) above.
-
 ### More information
 
 - [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api)
 
 ## List authenticators
-
-::: warning
-This endpoint is still under development. It is available to customers with early access.
-:::
 
 ```http
 GET https://${account.namespace}/mfa/authenticators
@@ -576,21 +579,26 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-Returns a list of authenticators associated with your tenant.
-
-### Remarks
-
-- You need either an MFA token or an Access Token with scope `read:authenticators` to call this endpoint.
-
-#### More information
-
-- [Manage the Authenticators](/multifactor-authentication/api/manage)
-
-## Delete an authenticator
-
 ::: warning
 This endpoint is still under development. It is available to customers with early access.
 :::
+
+Returns a list of authenticators associated with your application.
+
+An [Access Token](/tokens/access-token) with the `read:authenticators` scope is required to use this endpoint. You can also use the `mfa_token` from the `mfa_required` error in place of an Access Token for this request.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `access_token` obtained during login. |
+
+
+#### More information
+
+- [Manage Authenticators: List Authenticators](/multifactor-authentication/api/manage#list-authenticators)
+
+## Delete an authenticator
 
 ```http
 DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
@@ -632,13 +640,24 @@ HTTP/1.1 204 OK
   "link": "#multifactor-authentication"
 }) %>
 
+::: warning
+This endpoint is still under development. It is available to customers with early access.
+:::
+
 Deletes an associated authenticator by its authenticator ID.
 
-### Remarks
+You can get authenticator IDs by [listing the authenticators](#list-authenticators).
 
-- You need an access token with scope `remove:authenticators` to call this endpoint.
-- You can get the authenticator ID by listing the authenticators as shown on [List authenticators](/api/authentication#list-authenticators).
+An [Access Token](/tokens/access-token) with the `remove:authenticators` scope is required to use this endpoint. You can also use the `mfa_token` from the `mfa_required` error in place of an Access Token for this request.
+
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `access_token` obtained during login. |
+| `AUTHENTICATOR_ID` <br/><span class="label label-danger">Required</span> | The ID of the authenticator to delete.
 
 ### More information
 
-- [Manage the Authenticators](/multifactor-authentication/api/manage)
+- [Manage Authenticators: Delete Authenticators](/multifactor-authentication/api/manage#delete-authenticators)
