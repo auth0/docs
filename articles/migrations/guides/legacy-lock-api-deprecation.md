@@ -107,7 +107,7 @@ Continued use of embedded login will require the use of [custom domains](/custom
 A few specific items are changing with the new versions / endpoints. If you use any of the following features, you might want to take a look at the corresponding section below.
 
 * [How to get user info](#how-to-get-user-info)
-* [How to check for an existing session](#how-to-check-for-an-existing-session)
+* [How to check for an existing session](#session-management)
 * [How to log users out](#how-to-log-users-out)
 
 ### How to get user info
@@ -118,7 +118,7 @@ For customers who are using the [/tokeninfo](/api/authentication#get-token-info)
 
 As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an [Access Token](/tokens/access-token#how-to-get-an-access-token) (obtained during login) instead of the [ID Token](/tokens/id-token) used by /tokeninfo.
 
-Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on scopes requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashbpard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
+Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on scopes requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashboard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
 
 ### Session management
 
@@ -140,7 +140,7 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 * The Auth0.js v9 `getSSOData()` function will continue to work, but it now [behaves differently than in the past](/libraries/auth0js/v9/migration-v8-v9#review-calls-to-getssodata-).
 * In Auth0.js v9, `getSSOData()` will check if a user has an existing session and perform a further check to determine if the user is the same one as in the last interactive authentication transaction. This supports Lock’s feature of showing the last logged-in user to facilitate subsequent logins.
-* Invoking the `getSSOData()` function will now trigger a call to the [/authorize](/) endpoint, which will in turn result in the execution of [rules](/rules).
+* Invoking the `getSSOData()` function will now trigger a call to the [/authorize](/api/authentication#authorize-client) endpoint, which will in turn result in the execution of [rules](/rules).
 
 ##### Polling for an existing session
 
@@ -152,9 +152,9 @@ The poll interval between checks to `checkSession()` should be at least 10 secon
 
 #### Web applications
 
-In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
+In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-client) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
 
-Customers with web applications who make server-side calls as part of the [Authorization Code Grant Flow](/), and use the `response_type = code`, should use this approach. Specifically, such applications should make an /authorize request to refresh the token, which effectively renews the application session.
+Customers with web applications who make server-side calls as part of the [Authorization Code Grant Flow](/api-auth/grant/authorization-code), and use the `response_type = code`, should use this approach. Specifically, such applications should make an /authorize request to refresh the token, which effectively renews the application session.
 
 ### How to log users out
 
@@ -186,7 +186,7 @@ Password login is disabled for clients using externally hosted login pages with 
 
 ### Fingerprinting error
 
-For any customers who have not quite finished migrating away from the above deprecated features, Auth0 has [implemented a temporary solution](/) to help mitigate the severity of the issues with the deprecated endpoints. This solution relies on "fingerprinting" checks on the successive calls in an authentication transaction.  
+For any customers who have not quite finished migrating away from the above deprecated features, Auth0 has [implemented a temporary solution](/cross-origin-authentication/fingerprinting) to help mitigate the severity of the issues with the deprecated endpoints. This solution relies on "fingerprinting" checks on the successive calls in an authentication transaction.  
 
 If any authentication requests are being rejected by the fingerprinting solution, they can be identified with the following query against logs:
 
