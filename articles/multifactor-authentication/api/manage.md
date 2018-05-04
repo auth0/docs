@@ -40,7 +40,7 @@ To get a list of the authenticators you've associated and can be used with your 
 	"url": "https://${account.namespace}/mfa/authenticators",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer MFA_API_ACCESS_TOKEN"
+		"value": "Bearer ACCESS_TOKEN"
 	}]
 }
 ```
@@ -79,7 +79,7 @@ To delete an authenticator you've associated, send a delete request to the `/mfa
 	"url": "https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer MFA_API_ACCESS_TOKEN"
+		"value": "Bearer ACCESS_TOKEN"
 	}]
 }
 ```

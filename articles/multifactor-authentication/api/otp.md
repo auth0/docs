@@ -7,16 +7,27 @@ description: Configure your application so users can self-associate one-time pas
 
 In this tutorial, you'll learn how to configure your application so users can self-associate one-time password (OTP) authenticators.
 
-## Before you start
-
-Before you can use the MFA APIs, you'll need to:
-
-* Enable the MFA grant type for your application. You can enable the MFA grant by going to [Applications > Your Application > Advanced Settings > Grant Types](${manage_url}/#/applications) and selecting MFA.
-* Create a rule that sets Guardian as the MFA provider. For more information, see [Guardian for Administrators](/multifactor-authentication/administrator).
+<%= include('./_authenticator-before-start') %>
 
 ## 1. Get the MFA Token
 
-When a user begins the authorization process without an active authenticator associated with their account, they will trigger the following MFA response when calling the `/oauth/token` endpoint:
+When a user begins the authorization process without an active authenticator associated with their account, they will trigger the an `mfa_required` error when calling the `/oauth/token` endpoint. For example:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+  }
+}
+```
+
+The `mfa_required` error will look like this:
 
 ```json
 {
@@ -26,11 +37,11 @@ When a user begins the authorization process without an active authenticator ass
 }
 ```
 
-In the next step, use the MFA token (`mfa_token`) instead of the standard access token to request association of a new authenticator.
+In the next step, use the `mfa_token` value instead of the standard Access Token to request association of a new authenticator.
 
 ## 2. Request association of the authenticator
 
-Next, make a `POST` request to the `/mfa/associate` endpoint to request association of your authenticator. Remember to use the MFA token from the previous step.
+Next, make a `POST` request to the `/mfa/associate` endpoint to request association of your authenticator. Remember to use the `mfa_token` from the previous step.
 
 To associate an authenticator where the challenge type is an OTP code the user provides, make the following `POST` request to the `/mfa/associate` endpoint. Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
@@ -40,7 +51,7 @@ To associate an authenticator where the challenge type is an OTP code the user p
 	"url": "https://${account.namespace}/mfa/associate",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer MFA_API_ACCESS_TOKEN"
+		"value": "Bearer ACCESS_TOKEN"
 	}],
 	"postData": {
 		"mimeType": "application/json",
