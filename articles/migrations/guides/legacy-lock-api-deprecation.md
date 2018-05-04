@@ -13,7 +13,7 @@ The purpose of this guide is to help you to select the best migration path for y
 
 If your applications match any of the following cases, you are affected:
 
-* Use of versions of Lock previous to v11 and versions of Auth0.js previous to v9
+* Use of versions of Lock previous to v11 and versions of Auth0.js previous to v9 in embedded login scenarios
 * Use of /usernamepassword/login endpoint directly from applications 
 * Use of /user/ssodata endpoint directly from applications
 
@@ -158,7 +158,7 @@ Customers with web applications who make server-side calls as part of the [Autho
 
 ### How to log users out
 
-The deprecation does not require any changes for [logout](/logout), but if a custom domain has been configured, the /logout endpoint should be invoked using the custom domain.
+The deprecation does not require any changes for [logout](/logout), but if a custom domain has been configured and is used when invoking authentication, the /logout endpoint should be invoked using the custom domain as well.
 
 ## Troubleshooting
 
@@ -190,7 +190,6 @@ For any customers who have not quite finished migrating away from the above depr
 
 If any authentication requests are being rejected by the fingerprinting solution, they can be identified with the following query against logs:
 
-`Log_type:"legacy_lock_consistency_fail"`
-`msg:”Unable to verify transaction consistency“`
+Description: "Unable to verify transaction consistency"
 
 Customers who have any transactions rejected by the fingerprinting checks should complete their upgrades to resolve the issue.
