@@ -17,7 +17,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 ::: warning
-Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process). Manually-generated tokens **cannot be revoked** so very long expiration times are **not recommended**.
+Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process). Keep in mind that these tokens **cannot be revoked** so long expiration times are **not recommended**.
 :::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
