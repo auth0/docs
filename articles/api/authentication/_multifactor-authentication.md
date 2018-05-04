@@ -109,10 +109,6 @@ If OTP is supported by the user and you don't want to request a different factor
 | `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
 | `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
 
-### More information
-
-- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/challenges)
-
 ### Remarks
 
 - This endpoint does not support enrollment; the user must be enrolled with the preferred method before requesting a challenge.
@@ -120,6 +116,10 @@ If OTP is supported by the user and you don't want to request a different factor
 - An `unsupported_challenge_type` error is returned if your application does not support any of the challenge types the user has enrolled with.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
 - **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](#add-an-authenticator) below on how to proceed.
+
+### More information
+
+- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/challenges)
 
 ## Verify with one-time password (OTP)
 
@@ -478,9 +478,9 @@ This endpoint is still under development. It is available to customers with earl
 
 Associates or adds a new authenticator for multifactor authentication.
 
-If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
+If the user has active authenticators, an [Access Token](/tokens/access-token) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
 
-If the user has active authenticators an Access Token with the `enroll` scope is required to add a new authenticator.
+If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
 
 After an authenticator is added it must be verified. To verify the authenticator, use the response values from the `/mfa/associate` request in place of the values returned from the `/mfa/challenge` endpoint and continue with the verification flow.
 
@@ -506,13 +506,13 @@ A `recovery_codes` field is included in the response the first time an authentic
 ```http
 GET https://${account.namespace}/mfa/authenticators
 Content-Type: application/json
-Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
+Authorization: Bearer ACCESS_TOKEN
 ```
 
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/mfa/authenticators' \
-  --header 'authorization: Bearer ACCESS_TOKEN or MFA_TOKEN' \
+  --header 'authorization: Bearer ACCESS_TOKEN' \
   --header 'content-type: application/json'
 ```
 
@@ -522,7 +522,7 @@ var request = require("request");
 var options = { method: 'GET',
   url: 'https://${account.namespace}/mfa/authenticators',
   headers: {
-    'authorization': 'Bearer TOKEN',
+    'authorization': 'Bearer ACCESS_TOKEN',
     'content-type': 'application/json'
   },
   json: true };
@@ -585,7 +585,7 @@ This endpoint is still under development. It is available to customers with earl
 
 Returns a list of authenticators associated with your application.
 
-An [Access Token](/tokens/access-token) with the `read:authenticators` scope is required to use this endpoint. You can also use the `mfa_token` from the `mfa_required` error in place of an Access Token for this request.
+An [Access Token](/tokens/access-token) with the `remove:authenticators` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
 
 ### Request Parameters
 
@@ -602,13 +602,13 @@ An [Access Token](/tokens/access-token) with the `read:authenticators` scope is 
 
 ```http
 DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
-Authorization: Bearer ACCESS_TOKEN or MFA_TOKEN
+Authorization: Bearer ACCESS_TOKEN
 ```
 
 ```shell
 curl --request DELETE \
   --url 'https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID' \
-  --header 'authorization: Bearer ACCESS_TOKEN or MFA_TOKEN' \
+  --header 'authorization: Bearer ACCESS_TOKEN' \
 ```
 
 ```javascript
@@ -617,7 +617,7 @@ var request = require("request");
 var options = { method: 'DELETE',
   url: 'https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID',
   headers: {
-    'authorization': 'Bearer TOKEN',
+    'authorization': 'Bearer ACCESS_TOKEN',
     'content-type': 'application/json'
   },
   json: true };
@@ -648,7 +648,7 @@ Deletes an associated authenticator by its authenticator ID.
 
 You can get authenticator IDs by [listing the authenticators](#list-authenticators).
 
-An [Access Token](/tokens/access-token) with the `remove:authenticators` scope is required to use this endpoint. You can also use the `mfa_token` from the `mfa_required` error in place of an Access Token for this request.
+An [Access Token](/tokens/access-token) with the `remove:authenticators` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
 
 
 ### Request Parameters
