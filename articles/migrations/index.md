@@ -53,7 +53,7 @@ Previously, these endpoints were planned to be removed from service on April 1, 
 
 Customers are still encouraged to migrate applications to the latest version of Lock 11 and Auth0.js 9 **as soon as possible** in order to ensure that applications continue to function properly. 
 
-Please refer to our migration guides for [Auth0.js](/libraries/auth0js/v9/migration-guide) and for [Lock](/libraries/lock/v11/migration-guide) for instructions on upgrading your Auth0 implementation prior to **July 16, 2018**.
+Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) for instructions on upgrading your Auth0 implementation prior to **July 16, 2018**.
 
 #### Am I affected by the change?
 
