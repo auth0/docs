@@ -164,7 +164,7 @@ The deprecation does not require any changes for [logout](/logout), but if a cus
 
 ### How to tell if you have deprecated usage
 
-Please take a look at the [Deprecation Error Reference](/) to assist with verifying that your application does, or does not, use deprecated features.
+Please take a look at the [Deprecation Error Reference](/articles/errors/deprecation-errors) to assist with verifying that your application does, or does not, use deprecated features.
 
 ### How to test whether you are ready before the removal of service date
 
