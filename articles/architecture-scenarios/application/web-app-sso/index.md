@@ -14,7 +14,7 @@ In this scenario, we will build a web application for a fictitious company named
 ::: panel TL;DR
 * Auth0 supports open standards such as OAuth 2.0 and OpenID Connect (OIDC) for authentication and authorization (see [Which protocol to use](/architecture-scenarios/application/web-app-sso/part-1#which-protocol-to-use))
 * OIDC supports several different authorization flows - the most appropriate one for Web Applications being the Authorization Code Flow (see [Authentication Flow](/architecture-scenarios/application/web-app-sso/part-1#authentication-flow))
-* Your application will be configured in Auth0 as a Application (see [Application](/architecture-scenarios/application/web-app-sso/part-2#application))
+* Your application will be configured in Auth0 as an application (see [Application](/architecture-scenarios/application/web-app-sso/part-2#application))
 * Identity Providers will be configured in Auth0 as a Connection (see [Connections](/architecture-scenarios/application/web-app-sso/part-2#connections))
 * Auth0 provides a Lock widget, which allow users to log in to the application (see [User Login](/architecture-scenarios/application/web-app-sso/part-3#user-login))
 * The web application needs to manage session state to keep track of the fact that the user is logged in. Along with this, Auth0 and the Identity Provider is also managing session information. (see [Session Management](/architecture-scenarios/application/web-app-sso/part-3#session-management))

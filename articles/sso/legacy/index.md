@@ -79,7 +79,7 @@ Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) rep
 
 ### Length of SSO Sessions
 
-If the SSO flag is set for a Application, Auth0 will maintain an SSO session for any user authenticating via that Application. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Application that created the session within the given timeframe.
+If the SSO flag is set for an application, Auth0 will maintain an SSO session for any user authenticating via that Application. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Application that created the session within the given timeframe.
 
 ## What is Single Log Out?
 

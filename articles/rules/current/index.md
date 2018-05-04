@@ -31,7 +31,7 @@ Among many possibilities, rules can be used to:
 
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 

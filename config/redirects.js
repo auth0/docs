@@ -511,7 +511,11 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-application-secret'
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -1736,5 +1740,13 @@ module.exports = [
   {
     from: '/api-auth/dynamic-client-registration',
     to: '/api-auth/dynamic-application-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
   }
 ];

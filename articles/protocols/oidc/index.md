@@ -21,7 +21,7 @@ Let's use the example we mentioned earlier, signing into Auth0 using your Google
 
 ## Access Tokens
 
-[Access Tokens](/tokens/access-token) are credentials that can be used by a application to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scopes that have been granted).
+[Access Tokens](/tokens/access-token) are credentials that can be used by an application to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scopes that have been granted).
 
 ## ID Tokens
 

@@ -221,7 +221,7 @@ This results in the following JSON representation of the user profile details:
 
 ### Updating `client_metadata`
 
-Application metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying a application object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
+Application metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying an application object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
 
 *Application Before*
 

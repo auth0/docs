@@ -61,13 +61,12 @@ Example:
 
 function (user, context, callback) {
   if (user.picture.indexOf('cdn.auth0.com') > -1) {
-    var url = require('url');
-    var u = url.parse(user.picture, true);
-    u.query.d = '<URL TO YOUR DEFAULT PICTURE HERE>';
+    const url = require('url');
+    const u = url.parse(user.picture, true);
+    u.query.d = 'URL_TO_YOUR_DEFAULT_PICTURE_HERE';
     delete u.search;
     user.picture = url.format(u);
   }
-
   callback(null, user, context);
 }
 

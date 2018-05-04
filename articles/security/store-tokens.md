@@ -47,6 +47,16 @@ There are different options to control the lifetime of a cookie:
 * Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
 * Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
 
+## Understanding Sessions and Cookies
+
+:::warning
+Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
+:::
+
+<%= include('../_includes/_video', { id: 'paxlbixuya' }) %>
+
+This video will show you how to handle session data when building a web app. It will help you understand how your application uses cookies and sessions to manage the state of an authenticated user. This video example uses Node.js with Passport, but the techniques apply to any traditional server-based web application.
+
 #### Cookie Disadvantages
 
 *  The max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token.

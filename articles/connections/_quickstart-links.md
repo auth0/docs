@@ -4,8 +4,8 @@ Now that you have a working connection, the next step is to configure your appli
 
 ::: next-steps
 * [Get started with our Quickstarts](/quickstarts)
-* [Configure your application using our Lock login form](/libraries/lock)
-* [Configure your application using our Auth0.js library and your own UI](/libraries/auth0js)
-* [Use our Authentication API to authenticate](/api/authentication)
-* [Read more about application authentication](/application-auth)
+* [Configure your application using our libraries](/libraries)
+* [Call our Authentication API](/api/authentication)
+* [Read more about client authentication](/application-auth)
+* [Re-prompt users for permissions](/connections/social/reprompt-permissions)
 :::

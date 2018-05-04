@@ -29,6 +29,7 @@ If you are implementing this from a regular web app, hosting your own form, then
         if (context.request.body.confirm === 'yes') {
           user.user_metadata = user.user_metadata || {};
           user.user_metadata.consentGiven = true;
+          user.user_metadata.consentTimestamp = Date.now();
 
           auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
             .then(function(){
