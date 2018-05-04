@@ -173,7 +173,7 @@ Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#log
 
 ## SAML Logout
 
-SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have a application with the SAML2 Web App addon).
+SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have an application with the SAML2 Web App addon).
 
 ### Logout for Auth0 as SAML Service Provider
 

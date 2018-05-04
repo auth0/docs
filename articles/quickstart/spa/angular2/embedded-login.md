@@ -40,7 +40,6 @@ import Auth0Lock from 'auth0-lock';
 export class AuthService {
 
   lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
-    oidcConformant: true,
     autoclose: true,
     auth: {
       redirectUrl: 'http://localhost:3000/callback',

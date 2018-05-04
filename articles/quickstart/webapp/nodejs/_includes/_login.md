@@ -53,10 +53,10 @@ app.use(passport.session());
 
 ## Trigger Authentication
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note
-You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible. 
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
@@ -66,15 +66,6 @@ Add a route called `/login`. Use the `env` object to set the following propertie
 * Callback URL
 
 The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the login page.
-
-You need to make sure you get an OIDC-conformant response. You can achieve it two ways:
-* set the audience. 
-* turn on the **OIDC conformant** switch in your Auth0 dashboard. 
-
-::: note
-The example below shows how to set the audience to get an OIDC-conformant response. 
-To turn on the **OIDC conformant** switch, in your [Application Settings](${manage_url}/#/applications/${account.applicationId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [new flows documentation](/api-auth/intro#how-to-use-the-new-flows).
-:::
 
 ```js
 // routes/index.js

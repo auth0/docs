@@ -7,7 +7,7 @@ toc: true
 
 ## Overview
 
-The Access Token is a credential that can be used by a application to access an API. 
+The Access Token is a credential that can be used by an application to access an API. 
 
 It can be any type of token (such as an opaque string or a JWT) and is meant for an API. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the **scope** that has been granted). 
 
@@ -163,7 +163,7 @@ Auth0 creates Access Tokens in JWT format for custom APIs. JWTs contain three pa
 
 ### Authorize Access Tokens
 
-Once a application has obtained an Access Token, it will include that token as a credential when making API requests.
+Once an application has obtained an Access Token, it will include that token as a credential when making API requests.
 
 ```text
 GET /calandar/v1/events

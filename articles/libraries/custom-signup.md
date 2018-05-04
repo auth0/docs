@@ -17,7 +17,7 @@ Lock supports [custom fields signup](/libraries/lock/customization#additionalsig
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
-Lock's `additionalSignupFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
+Lock's `additionalSignUpFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
 
 ### Redirect to another page
 
@@ -84,10 +84,11 @@ Send a POST request to the [/dbconnections/signup](/api/authentication/reference
 
 When your users sign up, the custom fields are sent as part of `user_metadata`. The limitations of this field are:
 
-* `user_metadata` must contain no more than 10 fields;
-* `user_metadata.field` must be a string;
-* `user_metadata.field.value.length` must be fewer than 500 characters;
-* `user_metadata.field.length` must be fewer than 100 characters.
+* `user_metadata` must contain no more than 10 fields
+* `user_metadata.field` must be a string
+* `user_metadata.field.value.length` must be fewer than 500 characters
+* `user_metadata.field.length` must be fewer than 100 characters
+* The current size limit for `user_metadata` is **16 MB**
 
 ## Redirect mode
 
