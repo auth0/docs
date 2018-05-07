@@ -5,7 +5,7 @@ description: Shows how to secure your API using the standard JWT middeware.
 budicon: 500
 ---
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   branch: 'master',
   repo: 'auth0-aspnetcore-webapi-samples',
@@ -18,7 +18,7 @@ budicon: 500
   ]
 }) %>
 
-<%= include('../../../../_includes/_api_auth_intro') %>
+<%= include('../../../_includes/_api_auth_intro') %>
 
 This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
 
@@ -28,7 +28,7 @@ If you want to follow along with this tutorial, you can download the [seed proje
 
 To see what the project looks like after each of the steps, check the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart).
 
-<%= include('../../_includes/_api_create_new_2') %>
+<%= include('../_includes/_api_create_new_2') %>
 
 Update the `appsettings.json` file in your project with the correct domain and API identifier for your API. See the example below:
 
@@ -41,7 +41,7 @@ Update the `appsettings.json` file in your project with the correct domain and A
 }
 ```
 
-<%= include('../../_includes/_api_auth_preamble') %>
+<%= include('../_includes/_api_auth_preamble') %>
 
 This example demonstrates:
 * How to check for a JSON Web Token (JWT) in the `Authorization` header of an incoming HTTP request
@@ -59,7 +59,7 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configure the Middleware
 
-<%= include('../../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
+<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 
@@ -136,7 +136,7 @@ public class ApiController : Controller
 
 The JWT middleware shown above verifies if the user's Access Token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
-<%= include('../../_includes/_api_scopes_access_resources') %>
+<%= include('../_includes/_api_scopes_access_resources') %>
 
 To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 

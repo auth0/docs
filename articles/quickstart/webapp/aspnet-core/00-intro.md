@@ -22,6 +22,6 @@ If you want to follow along with this quickstart guide, you can download the [se
 
 To see what the project looks like after each step, check the [Quickstart folder](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Quickstart) in the ASP.NET Core MVC Samples repository.
 
-<%= include('../../../../_includes/_new_app') %>
+<%= include('../../../_includes/_new_app') %>
 
-<%= include('../_includes/_setup') %>
+<%= include('./_includes/_setup') %>
