@@ -160,7 +160,7 @@ If you use [Lock](/libraries/lock), you can customize the error messages that wi
 
 ## Metadata
 
-Depending on your custom database script, you may return a user profile available to Auth0 apps. This profile includes the user metadata fields. However, the way you [handle metadata is a bit different with custom databases](/metadata#metadata-and-custom-databases).
+Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/metadata#metadata-and-custom-databases).
 
 ## Troubleshoot
 
