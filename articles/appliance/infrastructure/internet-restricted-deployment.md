@@ -17,19 +17,34 @@ The PSaaS Appliance is designed to mirror the solutions offered via the Auth0 Pu
 While we make an effort to create PSaaS Appliances that are encapsulated for normal operation, there are several features that require access to external resources for normal functionality. These resources are primarily located on the Auth0 Content Delivery Network (CDN).
 
 ::: warning
-The PSaaS Appliance must have access to the internet during [update periods](https://auth0.com/docs/appliance/infrastructure/ip-domain-port-list#external-connectivity).
+The PSaaS Appliance **must** have access to the internet during [update periods](https://auth0.com/docs/appliance/infrastructure/ip-domain-port-list#external-connectivity).
 :::
 
-If you choose to operate the PSaaS Appliance in an internet-restricted environment, you will not have acess to the following features/functionality:
+Operating the PSaaS Appliance in an internet-restricted environment results in the loss of the following features/functionality:
 
 * Management Dashboard
 * Lock
 * Management API Explorer
 * Authentication API Explorer
 * Quickstarts
+* Social Connections
+* Analytics (including usage statistics)
+
+### Management Dashboard
+
+The browser that you are using to manage your PSaaS Appliance requires internet access to navigate to the Management Dashboard (located at **manage.your-domain**). 
+
+You may, however, restrict server-side access to the Management Dashboard.
+
+To properly render the Dashboard, it accesses the following sites:
+
+* **cdn.auth0.com**: resources loaded from this CDN are well-known and include CSS, JavaScript, and images
+* **fonts.googleapis.com**: resources loaded include CSS and font files
+* **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service
+* **fast.fonts.net**: resources include CSS files for font support.
 
 ## Summary
 
-While the PSaaS Appliance is somewhat encapsulated for normal operation, it requires access to specific external resources for normal functionality. These resources are primarily located on the Auth0 CDN.
+The PSaaS Appliance requires access to specific external resources for normal functionality, and we do not recommend restricting access to these resources for optimal function. These resources are primarily located on the Auth0 CDN.
 
 Currently, there are no plans to reduce the reliance of the PSaaS Appliance on the Auth0 CDN.
