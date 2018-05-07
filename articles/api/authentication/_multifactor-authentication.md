@@ -91,6 +91,8 @@ Content-Type: application/json
 
 Request a challenge based on the challenge types supported by the application and user.
 
+An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+
 The `challenge_type` is how the user will get the challenge and prove possession. Supported challenge types include:
 
 - `otp`: for one-time password (OTP)
@@ -181,7 +183,11 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-To verify multifactor authentication using a one-time password (OTP), prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request must have the OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
+Verifies multifactor authentication (MFA) using a one-time password (OTP).
+
+An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+
+To verify MFA with an OTP, prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request must have the OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
 
 The response is the same as responses for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
 
@@ -281,7 +287,11 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-To verify multifactor authentication using an out-of-band (OOB) challenge (either Push notifications or SMS) your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
+Verifies multifactor authentication (MFA) using an out-of-band (OOB) challenge (either Push notification or SMS).
+
+An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+
+To verify MFA using an OOB challenge your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
 The response to this request depends on the status of the underlying challenge verification:
 - If the challenge has been accepted and verified: it will be the same as `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
@@ -365,6 +375,10 @@ Content-Type: application/json
   "path": "/oauth/token",
   "link": "#multifactor-authentication"
 }) %>
+
+Verifies multifactor authentication (MFA) using a recovery code.
+
+An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
 
 Some multifactor authentication (MFA) providers (such as Guardian) support using a recovery code to login. Use this method to authenticate when the user's enrolled device is unavailable, or the user cannot receive the challenge or accept it due to connectivity issues.
 
