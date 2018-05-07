@@ -298,24 +298,13 @@ As shown above, the `client.userInfo` method can be called passing the returned 
 
 ```json
 {
-    "email_verified": "false",
-    "email": "test@example.com",
-    "clientID": "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH",
-    "updated_at": "2017-02-07T20:50:33.563Z",
-    "name": "tester9@example.com",
+    "sub": "auth0|123456789012345678901234",
+    "nickname": "johnfoo",
+    "name": "johnfoo@gmail.com",
     "picture": "https://gravatar.com/avatar/example.png",
-    "user_id": "auth0|123456789012345678901234",
-    "nickname": "tester9",
-    "identities": [
-        {
-            "user_id": "123456789012345678901234",
-            "provider": "auth0",
-            "connection": "Username-Password-Authentication",
-            "isSocial": "false"
-        }
-    ],
-    "created_at": "2017-01-20T20:06:05.008Z",
-    "sub": "auth0|123456789012345678901234"
+    "updated_at": "2018-05-07T14:16:52.013Z",
+    "email": "johnfoo@gmail.com",
+    "email_verified": "false"
 }
 ```
 
