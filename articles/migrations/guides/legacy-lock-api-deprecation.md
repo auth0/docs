@@ -34,7 +34,7 @@ Because of these [cross-origin authentication issues](/cross-origin-authenticati
 1. [Migrate to Universal Login](#1-migrate-to-universal-login). Universal Login will work with or without [custom domains](/custom-domains), and will work from most application types as well. It requires the least application code to implement and is the most secure option. 
 
 2. [Continue to use embedded login and migrate to newer library versions](#2-continue-to-use-embedded-login-and-migrate). A crucial part of this implementation is employing a custom domain to prevent cross-origin issues. The following caveats apply:
-    * Only one custom domain can be applied per Auth0 tenant, so all applications on the tenant will use the same custom domain. 
+    * Only one custom domain can be applied per Auth0 tenant, so all applications on the tenant will use the same custom domain (they will need to use the same top-level domain as well).
     * This option may not be viable for customers who are not eligible to use custom domains, or who choose not to do so. In those cases, Universal Login is the best approach.
 
 If neither of these recommendations (Universal Login or embedded + custom domains) seem to work for your situation, please visit our [Support Center](${env.DOMAIN_URL_SUPPORT}) and file a support ticket or a community post for further guidance.
@@ -132,7 +132,7 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 ##### checkSession
 
-* The Auth0.js `checkSession()` function only checks whether or not a user has an existing session in Auth0.
+* The Auth0.js `checkSession()` function can be used to check whether or not a user has an existing session in Auth0.
 * Invoking the `checkSession()` function will trigger an /authorize call, which will in turn result in the execution of [rules](/rules).
 * The new `checkSession()` function is more lightweight and should be used as a replacement for `getSSOData()` unless `getSSOData()` features are needed.
 
@@ -148,13 +148,13 @@ In some multi-application scenarios, where a user logging out of one application
 
 Instead of doing this, applications should now use `checkSession()` instead of `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
 
-The poll interval between checks to `checkSession()` should be at least 10 seconds between calls to avoid any issues in the future with rate limiting of this call.
+The poll interval between checks to `checkSession()` should be at least 15 minutes between calls to avoid any issues in the future with rate limiting of this call.
 
 #### Web applications
 
 In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-client) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
 
-Customers with web applications who make server-side calls as part of the [Authorization Code Grant Flow](/api-auth/grant/authorization-code), and use the `response_type = code`, should use this approach. Specifically, such applications should make an /authorize request to refresh the token, which effectively renews the application session.
+Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/refresh-token/current#use-a-refresh-token) to renew their token.
 
 ### How to log users out
 
@@ -168,9 +168,9 @@ Please take a look at the [Deprecation Error Reference](/articles/errors/depreca
 
 ### How to test whether you are ready before the removal of service date
 
-Auth0 has provided a toggle in the tenant settings in the [Dashboard](${manage_url}) to allow customers to simulate what will stop working on the deprecation deadline of July 16, 2018. Navigate to the tenant settings screen, **Advanced** tab and scroll down to the block of migration toggles.
+Auth0 has provided a toggle in the tenant settings in the [Dashboard](${manage_url}) to allow customers to turn off the legacy endpoints manually for their tenant ahead of the deprecation deadline of July 16, 2018. Navigate to the tenant settings screen, **Advanced** tab and scroll down to the block of migration toggles.
 
-Turn off the **Legacy Lock API** toggle to simulate what will stop working on the removal of service date.
+Turn off the **Legacy Lock API** toggle to stop your tenant from being able to use those endpoints. This toggle allows you to test the removal of the deprecated endpoints with the ability to turn them back on if you encounter issues.
 
 ::: note
 Tenants created after Dec 27, 2017 were not allowed to begin usage of these deprecated features, and therefore do not have the Legacy Lock API toggle.
