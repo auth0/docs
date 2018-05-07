@@ -18,4 +18,4 @@ This action cannot be undone.
 
 ![](/media/articles/subscriptions/danger-zone.png)
 
-This process deletes only one tenant -- if you have other tenants that need to be removed, you will need to manually delete them as well.
+This process deletes only one tenant. If you have other tenants that need to be removed, you will need to manually delete them as well.
