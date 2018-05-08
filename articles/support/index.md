@@ -151,7 +151,7 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Defect Severity Level | Standard Target Reponse Time | Enterprise Target Response Time | Preferred Target Response Time | Solution Definition (one or more of the following) |
+| Defect Severity Level & Business Impact| Standard Target Reponse Time | Enterprise Target Response Time | Preferred Target Response Time | Solution Definition (one or more of the following) |
 | --- | --- | --- | --- | --- |
 | **1 (Urgent)**<br>Emergency Issue | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | **2 (High)**<br>Significant Business Impact | 4 business hours<br>6AM to 6PM, Mon to Fri (local time) | 2 hours<br>24 hours a day, Mon to Fri (local time) | 1 hour<br>24 hours a day, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
