@@ -151,13 +151,12 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Target Response Time & Program Hours|
 | Defect Severity Level | Standard | Enterprise | Preferred | Solution Definition (one or more of the following) |
 | --- | --- | --- | --- | --- |
-| **1 (Urgent)**<br>Emergency | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| **1 (Urgent)**<br>Emergency Issue | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
 | **2 (High)**<br>Significant Business Impact | 4 business hours<br>6AM to 6PM, Mon to Fri (local time) | 2 hours<br>6AM to 6PM, Mon to Fri (local time) | 1 hour<br>6AM to 6PM, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| **3 (Normal)**<br>Minor Feature, Function, or General Question | 1 business day<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>6AM to 6PM, Mon to Fri (local time) | 8 hours<br>6AM to 6PM, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| **4 (Low)**<br>Minor Problem or Enhancement Request | 2 business days<br>6AM to 6PM, Mon to Fri (local time) | 24 hours<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>6AM to 6PM, Mon to Fri (local time) | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+| **3 (Normal)**<br>Minor Feature / Function Issue, General Question | 1 business day<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>6AM to 6PM, Mon to Fri (local time) | 8 hours<br>6AM to 6PM, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
+| **4 (Low)**<br>Minor Problem, Enhancement Request | 2 business days<br>6AM to 6PM, Mon to Fri (local time) | 24 hours<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>6AM to 6PM, Mon to Fri (local time) | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
