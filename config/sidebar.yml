@@ -539,6 +539,26 @@ articles:
             url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
 
+      - title: "API"
+        url: "/multifactor-authentication/api"
+        hidden: true
+        children:
+          - title: "Manual Challenge"
+            url: "/multifactor-authentication/api/challenges"
+            hidden: true
+          - title: "One-Time Password Challenge"
+            url: "/multifactor-authentication/api/otp"
+            hidden: true
+          - title: "SMS Message Challenge"
+            url: "/multifactor-authentication/api/oob"
+            hidden: true
+          - title: "Manage Authenticators"
+            url: "/multifactor-authentication/api/manage"
+            hidden: true
+          - title: "FAQ"
+            url: "/multifactor-authentication/api/faq"
+            hidden: true
+
   - title: "Security"
     url: "/security"
     children:
