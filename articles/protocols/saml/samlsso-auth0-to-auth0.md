@@ -1,5 +1,6 @@
 ---
-description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so!
+description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
+toc: true
 ---
 
 # SAML SSO with Auth0 as Service Provider and as an Identity Provider
@@ -35,7 +36,7 @@ You can switch back and forth between the tenants by going to the upper right co
 
 ## 2. Set up the Auth0 IDP (tenant 2)
 
-In this section you will configure one Auth0 tenant (tenant 2) to serve as an Identity Provider.  You will do this by registering a application, but in this case, the 'application' you register is really a representation of tenant 1, the SAML Service Provider.
+In this section you will configure one Auth0 tenant (tenant 2) to serve as an Identity Provider.  You will do this by registering an application, but in this case, the 'application' you register is really a representation of tenant 1, the SAML Service Provider.
 
 Log into **Tenant 2**
 
@@ -43,7 +44,7 @@ Log into **Tenant 2**
 
 1. Click on **"Applications"** link at left.
 
-2. Click on the red **"+ CREATE CLIENT"** button on the right.
+2. Click on the red **"+ CREATE APPLICATION"** button on the right.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-02.png)
 
@@ -104,7 +105,7 @@ In the **"Create SAMLP Identity Provider"** connection window, enter the followi
 **Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  Make sure the test user you created in section 2 has an email address with email domain that matches what you enter here.
 
-**Sign In URL:** enter the **"SAML Protocol URL"** field that you copied in section 2 above. (From tenant 2 dashboard, Apps/APIs link, Settings tab, Advanced Settings, ENDPOINTS section, SAML tab, "SAML Protocol URL" field.)
+**Sign In URL:** enter the **SAML Protocol URL** field that you copied in section 2 above (from tenant 2, go to: **Dashboard > Applications > Settings > Advanced Settings > ENDPOINTS section > SAML tab > SAML Protocol URL field**).
 
 **Sign Out URL:** enter the same URL as for the Sign In URL above.
 
@@ -303,7 +304,7 @@ The **Auth0 Lock** widget should appear with one login option.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-18.png)
 
-If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the application in the Tenant 1 Auth0 dashboard.  (__Apps/APIs -> Settings__)
+If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the application in the Tenant 1 Auth0 dashboard  (__Applications > Settings__).
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-19.png)
 

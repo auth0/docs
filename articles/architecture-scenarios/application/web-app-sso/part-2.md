@@ -14,7 +14,7 @@ The Auth0 configuration part starts with registering the timesheets app at the A
 The term "application" does not imply any particular implementation characteristics. An application can be a web app, a mobile app or an SPA. In the case of ExampleCo it is a ASP.NET Core web app.
 :::
 
-The main characteristics of a Application in Auth0 are:
+The main characteristics of an application in Auth0 are:
 - __Name__: The canonical name of the application. This is used to identify the application at the portal, emails, logs, and more.
 - __Client ID__ (read-only): The unique identifier for the application. This is the ID used in the application when setting up authentication with Auth0. It is an auto-generated alphanumeric string.
 - __Client secret__ (read-only): A string used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.

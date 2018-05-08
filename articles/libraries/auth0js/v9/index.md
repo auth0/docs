@@ -298,24 +298,13 @@ As shown above, the `client.userInfo` method can be called passing the returned 
 
 ```json
 {
-    "email_verified": "false",
-    "email": "test@example.com",
-    "clientID": "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH",
-    "updated_at": "2017-02-07T20:50:33.563Z",
-    "name": "tester9@example.com",
+    "sub": "auth0|123456789012345678901234",
+    "nickname": "johnfoo",
+    "name": "johnfoo@gmail.com",
     "picture": "https://gravatar.com/avatar/example.png",
-    "user_id": "auth0|123456789012345678901234",
-    "nickname": "tester9",
-    "identities": [
-        {
-            "user_id": "123456789012345678901234",
-            "provider": "auth0",
-            "connection": "Username-Password-Authentication",
-            "isSocial": "false"
-        }
-    ],
-    "created_at": "2017-01-20T20:06:05.008Z",
-    "sub": "auth0|123456789012345678901234"
+    "updated_at": "2018-05-07T14:16:52.013Z",
+    "email": "johnfoo@gmail.com",
+    "email_verified": "false"
 }
 ```
 
@@ -404,8 +393,23 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0. 
 
+The call to `checkSession` can use get a new token for the API that was specified as the audience when `webAuth` was initialized:
+
 ```js
 webAuth.checkSession({}, function (err, authResult) {
+  // err if automatic parseHash fails
+  ...
+});
+```
+
+Or, the token can be acquired for a different API than the one used when initializing `webAuth` by specifying an `audience` and `scope`:
+
+```js
+webAuth.checkSession(
+  {
+    audience: `https://mydomain/another-api/˜`,
+    scope: 'read:messages'
+  }, function (err, authResult) {
   // err if automatic parseHash fails
   ...
 });

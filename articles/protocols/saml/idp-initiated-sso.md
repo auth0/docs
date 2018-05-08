@@ -7,6 +7,8 @@ description: How to setup SAML Identity Provider initiated SSO.
 
 **Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
 
+<%= include('../../_includes/_deprecate-impersonation.md') %>
+
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
 ![](/media/articles/protocols/saml/idp-init-sso.png)

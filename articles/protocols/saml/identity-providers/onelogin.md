@@ -69,6 +69,8 @@ The **Try** button only works for users logged in to Auth0 dashboard. You can't 
 
 **Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
 
+<%= include('../../../_includes/_deprecate-impersonation.md') %>
+
 OneLogin has an Application Portal / Launcher for their users. If you want to support that, you will have to change the **SAML Consumer URL** in OneLogin dashboard to be:
 
 * SAML Consumer URL: `https://${account.namespace}/login/callback?connection=onelogin-customer`

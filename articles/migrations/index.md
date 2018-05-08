@@ -57,9 +57,13 @@ Please refer to our migration guides for [Auth0.js](/libraries/auth0js/v9/migrat
 
 #### Am I affected by the change?
 
-If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you will be affected by these changes. We **recommend** that applications using [universal login](/hosted-pages/login) update. 
+If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you will be affected by these changes. 
 
-However, those who are using Lock or Auth0.js embedded within their applications, however, are **required** to update, and applications which still use deprecated versions may cease to work at some point after the deadline.
+We **recommend** that applications using [universal login](/hosted-pages/login) update. 
+
+However, those who are using Lock or Auth0.js embedded within their applications are **required** to update, and applications which still use deprecated versions will cease to work after the removal of service date.
+
+Libraries and SDKs not explicitly named here are not affected by this migration.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
@@ -110,7 +114,7 @@ Support was introduced for [Resource Owner Password](/api/authentication#resourc
 
 #### Am I affected by the change?
 
-If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will be able to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead once migration guides are available.
+If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application can be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint. For details on how to make this transition, see the [Migration Guide for Resource Owner Password Credentials Exchange](/migrations/guides/migration-oauthro-oauthtoken).
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
