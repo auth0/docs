@@ -19,12 +19,19 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
-* Database and Social connections
-* Lock 11 with Cross Origin Authentication
-* SAML Connections and Applications
+* Database and social connections
+* Lock 11 with cross-origin authentication
+* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* Google Apps connections
+* SAML connections and applications
+* WS-Fed clients (Auth0 as IDP aka WS-Fed Add-on)
+* Azure AD connections
+* ADFS connections
+* AD/LDAP connections (without Kerberos support)
+* AD/LAP connections (with Kerberos support)
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
