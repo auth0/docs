@@ -328,6 +328,7 @@ def requires_auth(f):
         # If it fails, it could be because the JWKS key expired, so we retrieve it
         # from the JWKS endpoint and try decoding again.
 
+        payload = None
         try:
             payload = decode_jwt(token, rsa_key)
         except AuthError as ex:
