@@ -58,12 +58,10 @@ To call an API, you will need to specify the API identifier as the `audience` pa
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-        {
-            auth: {
-                audience: 'https::/mydomain.com/api',
-            }
-        }
-    );
+  auth: {
+    audience: 'https::/mydomain.com/api',
+  }
+});
 ```
 
 If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in ID Tokens or from `/userinfo` will be OIDC conformant. If your application is using any non-standard claim from the user profile, it will break. For more information on how to deal with this issue, refer to the [User Profiles](#user-profiles) section.

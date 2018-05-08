@@ -114,7 +114,7 @@ Support was introduced for [Resource Owner Password](/api/authentication#resourc
 
 #### Am I affected by the change?
 
-If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application will be able to be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint instead once migration guides are available.
+If you are currently implementing the [/oauth/ro](/api/authentication#resource-owner) endpoint your application can be updated to use the [/oauth/token](/api/authentication#authorization-code) endpoint. For details on how to make this transition, see the [Migration Guide for Resource Owner Password Credentials Exchange](/migrations/guides/migration-oauthro-oauthtoken).
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
