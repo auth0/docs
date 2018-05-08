@@ -91,14 +91,14 @@ Content-Type: application/json
 
 Request a challenge based on the challenge types supported by the application and user.
 
-An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
-
 The `challenge_type` is how the user will get the challenge and prove possession. Supported challenge types include:
 
 - `otp`: for one-time password (OTP)
 - `oob`: for SMS messages or out-of-band (OOB)
 
 If OTP is supported by the user and you don't want to request a different factor, you can skip the challenge request and [verify the multifactor authentication with a one-time password](#verify-with-one-time-password-otp-).
+
+<%= include('./_mfa/_token-requirements') %>
 
 ### Request Parameters
 
@@ -185,11 +185,11 @@ Content-Type: application/json
 
 Verifies multifactor authentication (MFA) using a one-time password (OTP).
 
-An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
-
 To verify MFA with an OTP, prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request must have the OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
 
 The response is the same as responses for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
+
+<%= include('./_mfa/_token-requirements') %>
 
 ### Request parameters
 
@@ -289,8 +289,6 @@ Content-Type: application/json
 
 Verifies multifactor authentication (MFA) using an out-of-band (OOB) challenge (either Push notification or SMS).
 
-An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
-
 To verify MFA using an OOB challenge your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
 The response to this request depends on the status of the underlying challenge verification:
@@ -299,6 +297,8 @@ The response to this request depends on the status of the underlying challenge v
 - If the challenge verification is still pending (meaning it has not been accepted nor rejected) you will get an `authorization_pending` error, meaning that you must retry the same request a few seconds later. If you request too frequently you will get a `slow_down` error.
 
 When the challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a usually a 6 digit number (similar to an OTP) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario the response will be immediate; you will receive an `invalid_grant` or an `access_token` as response.
+
+<%= include('./_mfa/_token-requirements') %>
 
 ### Request parameters
 
@@ -378,11 +378,11 @@ Content-Type: application/json
 
 Verifies multifactor authentication (MFA) using a recovery code.
 
-An [Access Token](/tokens/access-token) with the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
-
 Some multifactor authentication (MFA) providers (such as Guardian) support using a recovery code to login. Use this method to authenticate when the user's enrolled device is unavailable, or the user cannot receive the challenge or accept it due to connectivity issues.
 
 To verify MFA using a recovery code your app must prompt the user for the recovery code, and then make a request to `oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code`. Include the collected recovery code and the `mfa_token` from the `mfa_required` error. If the recovery code is accepted the response will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types. It might also include a `recovery_code` field, which the application must display to the end-user to be stored securely for future use.
+
+<%= include('./_mfa/_token-requirements') %>
 
 ### Request parameters
 
@@ -500,7 +500,6 @@ After an authenticator is added it must be verified. To verify the authenticator
 
 A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multifactor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
 
-
 ### Request parameters
 
 | Parameter        | Description |
@@ -599,7 +598,7 @@ This endpoint is still under development. It is available to customers with earl
 
 Returns a list of authenticators associated with your application.
 
-An [Access Token](/tokens/access-token) with the `remove:authenticators` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+<%= include('./_mfa/_token-requirements') %>
 
 ### Request Parameters
 
