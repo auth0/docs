@@ -10,7 +10,7 @@ This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Manag
 
 For some use cases you could use [ID Tokens](/tokens/id-token) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use [Access Tokens](/tokens/access-token) in all cases.
 
-The grace period for this migration starts on **March 31, 2018** and ends on **March 31, 2019**. From that day forward you will no longer be able to use ID Tokens to link or unlink accounts.
+The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will **not** be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
 This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use [scopes](/scopes) to get tokens with different access rights, and how you can use them in the account linking process.
 
