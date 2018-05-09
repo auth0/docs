@@ -32,6 +32,10 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_saml-sso') %>
 </div>
 
