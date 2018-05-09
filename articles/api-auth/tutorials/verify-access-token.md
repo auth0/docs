@@ -95,7 +95,7 @@ If the verification fails you will get a `invalid signature` error.
 Once the API verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
 
 - _Token expiration_: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp). If not, the request must be rejected.
-- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`. If you are using the [custom domains](/custom-domains) feature, the value will instead be in the following format: `https://<YOUR-CUSTOM-DOMAIN>/`.
 - _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
 
 ::: panel Token issuance

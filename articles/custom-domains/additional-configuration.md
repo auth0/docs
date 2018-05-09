@@ -163,8 +163,10 @@ If you want to use Azure AD connections with your custom domain, you must update
 
 The process is the same as [setting up the ADFS connection normally](/connections/enterprise/adfs) except that your callback URL needs to be changed from this format `https://<TENANT>.auth0.com/login/callback` to this one use `https://<YOUR-CUSTOM-DOMAIN>/login/callback`.
 
-## Configure AD/LAP connections
+## Configure AD/LDAP connections
 
-In order to use AD/LAP connections with Kerberos support and custom domains, you will need to update the ticket endpoint to work with the custom domain. [As mentioned in the [Auth0 AD/LAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed from this format `https://<TENANT>.auth0.com/p/ad/jUG0dN0R/info` to `https://<CUSTOM DOMAIN>/p/ad/jUG0dN0R/info`.
+If Kerberos support is not needed, AD/LDAP connections should not require further configuration.
+
+In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed from this format `https://<TENANT>.auth0.com/p/ad/jUG0dN0R/info` to `https://<CUSTOM DOMAIN>/p/ad/jUG0dN0R/info`.
 
 Once this change is saved, be sure to restart the AD/LDAP Connector service.

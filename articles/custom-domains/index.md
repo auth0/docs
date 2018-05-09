@@ -30,8 +30,7 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * WS-Fed clients (Auth0 as IDP aka WS-Fed Add-on)
 * Azure AD connections
 * ADFS connections
-* AD/LDAP connections (without Kerberos support)
-* AD/LAP connections (with Kerberos support)
+* AD/LDAP connections
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
