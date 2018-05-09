@@ -1,7 +1,17 @@
 ## Whitelist IP Addresses
 
-When using [Custom Database Connections](/connections/database/custom-db), [Rules](/rules), and [Hooks](/hooks), you will want to whitelist inbound and outbound Auth0 IP addresses to ensure proper functionality.
+If you are using any of the following features, you will need to whitelist the appropriate Auth0 IP addresses to ensure proper functionality:
 
-Please refer to the Management Dashboard for the region-specific set of IP addresses you should whitelist.
+* [Custom Database Connections](/connections/database/custom-db)
+* [Hooks](/hooks)
+* [Rules](/rules)
 
-To see the specific set of IP addresses that you need to whitelist, you can check the Dashboard. The full list is provided when you create your new [Custom Database Connection](${manage_url}/#/connections/database), [Hook](${manage_url}/#/hooks), or [Rule](${manage_url}/#/rules/create).
+Please refer to the Dashboard for the **region-specific** set of IP addresses you should whitelist. The specific set of IP addresses is provided when you create your new [Custom Database Connection](${manage_url}/#/connections/database), [Hook](${manage_url}/#/hooks), or [Rule](${manage_url}/#/rules/create).
+
+### Outbound Calls
+
+When making outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT.
+
+### Inbound Calls
+
+IP addresses related to inbound calls to Auth0 may be variable due to the lack of fixed IP addresses on the load balancers.
