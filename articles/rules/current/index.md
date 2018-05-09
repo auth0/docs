@@ -296,6 +296,8 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
     ![Try this Rule](/media/articles/rules/try-rule.png)
 
+    Please note that this feature functions outside the context of a specific client. That is, it uses a default **All Applications** client application. Because you are unable to configure parameters for this default application, y ou may run into issues if your rule depends on data that would otherwise be provided when called from an actual application.
+
 1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions. For more info see [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
 1. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
