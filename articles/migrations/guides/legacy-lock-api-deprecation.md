@@ -178,11 +178,7 @@ Tenants created after Dec 27, 2017 were not allowed to begin usage of these depr
 
 ### Bookmarking the login page
 
-Bookmarking the Universal Login page is not supported. If a user bookmarks the login page and attempts to initiate authentication by going directly to the bookmarked URL instead of starting from the application, the following error message will be shown:
-
-```
-Password login is disabled for clients using externally hosted login pages with oidc_conformant flag set
-```
+Bookmarking the Universal Login page is not supported. If a user bookmarks the login page and attempts to initiate authentication by going directly to the bookmarked URL instead of starting from the application, the following error message will be shown: `Password login is disabled for clients using externally hosted login pages with oidc_conformant flag set`.
 
 ### Fingerprinting error
 
