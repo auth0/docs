@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
 ::: note
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
@@ -187,7 +187,7 @@ public class AccountController : Controller
         {
             // Indicate here where Auth0 should redirect the user after a logout.
             // Note that the resulting absolute Uri must be whitelisted in the 
-            // **Allowed Logout URLs** settings for the client.
+            // **Allowed Logout URLs** settings for the app.
             RedirectUri = Url.Action("Index", "Home")
         });
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -199,7 +199,7 @@ ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You nee
 
 When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API. The user is logged out of Auth0.
 
-If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
+If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 In the `Startup.cs` file, update the call to `AddOpenIdConnect` with the following code:
 

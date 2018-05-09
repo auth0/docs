@@ -5,7 +5,7 @@ description: Instructions on acquiring development keystores/key hashes during A
 ---
 # Android Development Keystores and Key Hashes
 
-When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value.
+When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Application's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value.
 
 Locate the certificate you're using to sign your application. If you don't have one you can generate it. For production applications, you should do this.
 
@@ -47,8 +47,8 @@ Certificate fingerprints:
 
 ## Using your key hashes
 
-Once you have your key hashes output, copy the resulting SHA256 value and go to your client's settings in the [Auth0 Dashboard](${manage_url}/#/clients). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
+Once you have your key hashes output, copy the resulting SHA256 value and go to your application's settings in the [Auth0 Dashboard](${manage_url}/#/applications). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
 
 ::: warning
-If you don't add the Callback URL to the client settings nor the Key Hashes to the client's mobile settings, the Auth0 server won't return the call result to your application.
+If you don't add the Callback URL to the application settings nor the Key Hashes to the application's mobile settings, the Auth0 server won't return the call result to your application.
 :::

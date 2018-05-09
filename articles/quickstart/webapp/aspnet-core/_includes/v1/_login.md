@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using universal login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
 ::: note
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/v1/Samples/custom-login).
@@ -197,7 +197,7 @@ var options = new OpenIdConnectOptions("Auth0")
 
 This will ensure that when `SignOutAsync` is called for the OIDC Middleware, that the `/v2/logout` endpoint of the Auth0 Authentication API is called to log the user out of Auth0. 
 
-It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your Client in the Auth0 Dashboard.
+It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your application in the Auth0 Dashboard.
 
 ## Add Login and Logout Links
 

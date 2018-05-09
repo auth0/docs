@@ -19,7 +19,7 @@ This tutorial shows you how to access protected resources in your API.
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 ## Before You Start
 
@@ -121,4 +121,4 @@ client.newCall(request).enqueue(new Callback() {
 });
 ```
 
-You need to configure your backend application to protect your API endpoints with the key for your Auth0 client, API identifier and API scopes. In this example, you can use the user's Access Token issued by Auth0 to call your own APIs.
+You need to configure your backend application to protect your API endpoints with the key for your Auth0 application, API identifier and API scopes. In this example, you can use the user's Access Token issued by Auth0 to call your own APIs.

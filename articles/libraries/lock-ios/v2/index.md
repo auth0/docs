@@ -43,7 +43,7 @@ import Lock
 
 ### Auth0 Credentials
 
-In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](${manage_url}), under your Client's settings.
+In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](${manage_url}), under your Application's settings.
 
 In your application bundle you can add a `plist` file named `Auth0.plist` that will include your credentials with the following format.
 
@@ -117,7 +117,7 @@ Check out the [Auth0.Swift Library Documentation](/libraries/auth0-swift) for mo
 
 ## Specify Connections
 
-Lock will automatically load the connections configured for your client. If you wish to override the default behavior, you can manually specify which connections it should display to users as authentication options. This can be done by calling the method and supplying a closure that can specify the connection(s).
+Lock will automatically load the connections configured for your application. If you wish to override the default behavior, you can manually specify which connections it should display to users as authentication options. This can be done by calling the method and supplying a closure that can specify the connection(s).
 
 Adding a database connection:
 

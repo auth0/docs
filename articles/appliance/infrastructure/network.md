@@ -40,11 +40,13 @@ Each PSaaS Appliance VM needs connectivity to the Internet. At a minimum, the VM
 
 Since the PSaaS Appliance is delivered as a subscription-based managed service, Auth0 will need access to specified endpoints to provide proactive monitoring.
 
+Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
+
 ## DNS Records
 
 DNS records are required for all PSaaS Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires four DNS entries for the following:
 
-* **Management Dashboard**: the Management Dashboard is the web interface that acts as a client for the configuration and application tenants on the PSaaS Appliance;
+* **Management Dashboard**: the Management Dashboard is the web interface that acts as an application for the configuration and application tenants on the PSaaS Appliance;
 * **Root Tenant Authority**: the tenant on the PSaaS Appliance that controls PSaaS Appliance settings, configuration, and local Dashboard Admin users;
 * **webtask**: webtask DNS is used for web extensions and to use Webtasks externally;
 * **App Tenant**: the tenant on the PSaaS Appliance created for your apps. It manages settings for your apps, user profiles, rules, and so on. This is the tenant you will interact with primarily through the Management Dashboard and the API.

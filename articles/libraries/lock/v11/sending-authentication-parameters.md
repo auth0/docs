@@ -41,7 +41,7 @@ If you don't specify at least the above scope when initializing Lock, and you ar
 
 `Consent required. When using getSSOData, the user has to be authenticated with the following scope: openid profile email`
 
-That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party clients](/api-auth/user-consent#skipping-consent-for-first-party-clients) document.
+That will not happen when you run your application in production or if you specify the `openid profile email` scope. You can read more about this in the [User consent and third-party applications](/api-auth/user-consent#skipping-consent-for-first-party-applications) document.
 :::
 
 For more information about scopes, see the [scopes documentation page](/scopes).

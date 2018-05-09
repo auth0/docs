@@ -14,7 +14,7 @@ The Connector supports authentication based on the following:
 
 * [LDAP](/protocols/ldap);
 * [Kerberos](/connector/kerberos);
-* [Client Certificates](/connector/client-certificates).
+* [Application Certificates](/connector/application-certificates).
 
 ## Cache
 

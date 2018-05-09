@@ -79,7 +79,7 @@ module.exports = [
   },
   {
     from: '/firebaseapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/ionic-tutorial',
@@ -167,15 +167,15 @@ module.exports = [
   },
   {
     from: '/salesforcesandboxapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/salesforceapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/sapapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/servicestack-tutorial',
@@ -477,6 +477,49 @@ module.exports = [
   {
     from: '/connections/passwordless/ios-sms',
     to: '/connections/passwordless/ios-sms-objc'
+  },
+
+/* --- Clients --- */
+
+  {
+    from: '/clients',
+    to: '/applications'
+  },
+  {
+    from: '/clients/addons',
+    to: '/applications/addons'
+  },
+  {
+    from: '/clients/client-grant-types',
+    to: '/applications/application-grant-types'
+  },
+  {
+    from: '/clients/client-types',
+    to: '/applications/application-types'
+  },
+  {
+    from: '/clients/connections',
+    to: '/applications/connections'
+  },
+  {
+    from: '/clients/enable-android-app-links',
+    to: '/applications/enable-android-app-links'
+  },
+  {
+    from: '/clients/enable-universal-links',
+    to: '/applications/enable-universal-links'
+  },
+  {
+    from: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/clients/client-settings',
+    to: '/applications/application-settings'
   },
 
   /* --- Scenarios to Tutorials --- */
@@ -889,10 +932,6 @@ module.exports = [
   {
     from: '/metadata/apiv2',
     to: '/metadata/management-api'
-  },
-  {
-    from: '/applications',
-    to: '/clients'
   },
   {
     from: '/saml-apps',
@@ -1407,10 +1446,6 @@ module.exports = [
     to: '/support/troubleshooting-with-har-files',
   },
   {
-    from: '/tutorials/custom-mfa-rules',
-    to: '/multifactor-authentication/custom-mfa-rules',
-  },
-  {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
   },
@@ -1448,7 +1483,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/clients/how-to-update-client-secret',
+    to: '/applications/how-to-update-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1580,7 +1615,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -1687,8 +1722,28 @@ module.exports = [
     to: '/integrations/sso/zoom'
   },
   {
-    from: `/guides/login/centralized-vs-embedded`,
-    to: `/guides/login/universal-vs-embedded`
+    from: '/guides/login/centralized-vs-embedded',
+    to: '/guides/login/universal-vs-embedded'
+  },
+  {
+    from: '/guides/login/migration-embedded-centralized',
+    to: '/guides/login/migration-embedded-universal'
+  },
+  {
+    from: '/api/management/v2/user-search',
+    to: '/users/search/v2'
+  },
+  {
+    from: '/api/management/v2/query-string-syntax',
+    to: '/users/search/v2/query-syntax'
+  },
+  {
+    from: '/api-auth/dynamic-client-registration',
+    to: '/api-auth/dynamic-application-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
   },
   {
     from: `/guides/login/migration-embedded-centralized`,
@@ -1697,5 +1752,9 @@ module.exports = [
   {
     from: `/link-accounts/auth-api`,
     to: `/link-accounts`
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
   }
 ];

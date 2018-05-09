@@ -7,16 +7,16 @@ Auth0 can help radically simplify the authentication process for SharePoint Apps
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
-## 1. Register your client in Auth0
+## 1. Register your application in Auth0
 
-Just register a new client in Auth0 as you would normally do: __Clients > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
+Just register a new application in Auth0 as you would normally do: __Applications > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
 
-## 2. Create a Package for your client
+## 2. Create a package for your application
 
-You need to obtain a __Client ID__ and a __Client Secret__ for your client. There are many ways of registering your client depending on the expected usage.
+You need to obtain a __Client ID__ and a __Client Secret__ for your application. There are many ways of registering your application depending on the expected usage.
 
 ::: note
-[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your client in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
+[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your application in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
 :::
 
 ### Open SharePoint Online

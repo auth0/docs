@@ -1,5 +1,6 @@
 title: Cordova
-community: true
+author:
+  community: true
 language:
   - Javascript
 framework:

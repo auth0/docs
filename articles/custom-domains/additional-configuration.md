@@ -23,17 +23,34 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
 | You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
-| You want to use SAML clients with your custom domain | [Configure your SAML clients](#configure-your-saml-clients) |
+| You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
 | You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis)
 
 ## Universal login
 
-If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. The changes are in the initializing of Lock and you can see them at the following sample script.
+If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
+
+If you are using [Lock](/libraries/lock), the additional values required in the initialization can be seen in the following sample script:
 
 ```js
 var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   //code omitted for brevity
   configurationBaseUrl: config.clientConfigurationBaseUrl,
+  overrides: {
+  	__tenant: config.auth0Tenant,
+  	__token_issuer: config.auth0Domain
+  },
+  //code omitted for brevity
+});
+```
+
+If you use [Auth0.js](/libraries/auth0js) on the hosted login page, you need to set the `overrides` option like this:
+
+```js
+var webAuth = new new auth0.WebAuth({
+  clientID: config.clientID, 
+  domain: config.auth0Domain, 
+  //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
   	__token_issuer: config.auth0Domain
@@ -81,7 +98,7 @@ Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/cust
 
 ## Configure social identity providers
 
-If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/clients/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
+If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/applications/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
@@ -92,20 +109,25 @@ You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom d
 If you want to use SAML identity providers (IdPs) with your custom domain, you must get the service provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata?connection=YOUR-CONNECTION-NAME`). This includes updated **Assertion Consumer Service (ACS) URLs**. Then, you have to manually update this value in your IdP(s). This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
 
 Alternatively, you can use signed requests to fulfill this requirement:
+
 - Once your custom domain is set up, go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains) and download the certificate from the link under the **Sign Request** toggle
 - Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
 - The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
 - Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
 
-Once this is done, and you start using your custom domain, the IdP will receive that custom domain in your signed request. Because your application is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours to confirm whether this is supported or not.
+Once this is done, and you start using your custom domain when you initiate an authentication request in your application, the IdP will receive that custom domain in your signed request. Because your application’s signed request is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours to confirm whether this is supported or not.
 
-If this is supported, it will prevent you from having to change one or many IdP settings all at the same time, and allow you to prepare them to accept your signed requests ahead of time. You can then at a later date have the IdPs change the ACS URL as well.
+If this is supported, it will prevent you from having to change one or many IdP settings all at the same time, and allow you to prepare them to accept your signed requests ahead of time, one by one. You can then at a later date have the IdPs change the statically configured ACS URL as well.
 
-Something else to keep in mind, is that if your Identity Provider is configured to use custom domains, the **Try** button in the Dashboard will **not** work.
+Note that if your Identity Provider is configured to use the Auth0 custom domains, testing the connection via the **Try** button in the Dashboard will **not** work and the default links for downloading metadata from Auth0 will always show the default domain, not the custom domain.
 
-## Configure your SAML clients
+If you have an IdP-initiated authentication flow, you will need to update the IdP(s) and your application(s) at the same time to use the custom domain.
 
-If you want to use SAML clients with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+## Configure your SAML applications
+
+If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID for the assertion returned by Auth0 will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+
+If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/saml/<CLIENTID>` you should use `https://<CNAME>/saml/<CLIENTID>`.
 
 ## APIs
 

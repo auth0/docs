@@ -27,7 +27,7 @@ These scenarios describe the different type of technology architectures your app
     <article>
       <img src="/media/articles/architecture-scenarios/server-api.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
-        <h3>Server Client + API</h3>
+        <h3>Server Application + API</h3>
         <p>Server to server communication where a server needs to make secure calls to an API.</p>
       </div>
     </article>

@@ -37,7 +37,7 @@ AWS API Gateway provides several different methods to secure your APIs:
 
 Using API keys is typically appropriate for a service-to-service interaction, as illustrated below. However, there are several downsides to this approach:
 
-* Placing a secret with a long lifetime on the client is risky (clients are easier to compromise);
+* Placing a secret with a long lifetime on the application is risky (applications are easier to compromise);
 * Creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
 
 This section of the tutorial will utilize [IAM roles and policies](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html) to secure your API in API Gateway, but you can also choose to do so using [user pools in Amazon Cognito](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html). See detailed instructions on doing so [here](/integrations/aws-api-gateway/secure-api-with-cognito).
@@ -50,17 +50,17 @@ For example, the IDP could specify the IAM role based on group membership (for e
 
 #### Configure Auth0
 
-Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Client**, which is located in the top right corner of the page.
+Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Application**, which is located in the top right corner of the page.
 
 ![Auth0 Management Dashboard](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
 
-Name your new client *AWS API Gateway*, and indicate that this Client is going to be a *Single Page Application*. Click **Create**.
+Name your new application *AWS API Gateway*, and indicate that this Application is going to be a *Single Page Application*. Click **Create**.
 
-![Create Client](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
+![Create Application](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
 
-Navigate to the *Addons* tab for your newly-created Client. Using the appropriate slide, enable *Amazon Web Services*. This turns on AWS Delegation.
+Navigate to the *Addons* tab for your newly-created Application. Using the appropriate slide, enable *Amazon Web Services*. This turns on AWS Delegation.
 
-![Enable AWS for Client](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
+![Enable AWS for Application](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
 
 #### Configure AWS
 
@@ -242,5 +242,5 @@ Save the downloaded zip file for later use.
 
 <%= include('./_stepnav', {
  prev: ["1. Setup", "/integrations/aws-api-gateway/delegation/part-1"],
- next: ["3. Building the Client Application", "/integrations/aws-api-gateway/delegation/part-3"]
+ next: ["3. Building the Application", "/integrations/aws-api-gateway/delegation/part-3"]
 }) %>

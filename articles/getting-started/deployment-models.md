@@ -169,9 +169,9 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong><a href="/custom-domains">Custom Domains</a></strong></th>
             <td>Yes</td>
-            <td>Yes <sup>**</sup></td>
-            <td>Yes <sup>**</sup></td>
-            <td>Yes <sup>**</sup></td>
+            <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td>
+            <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td>
+            <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td> 
         </tr>
         <tr>
             <th class="info"><strong>Shared Resources Among Multiple Customers</strong></th>
@@ -208,4 +208,4 @@ The following tables describe operational and feature differences between these 
 
 <sup>**</sup>See [PSaaS Appliance Custom Domains](/appliance/custom-domains) for details. If your PSaaS Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
-<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment (except during [update periods](/appliance/infrastructure/ip-domain-port-list#external-connectivity)). If you do so, you will **not** have access to extensions, Lock (requires access to the CDN hosting Lock), Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers), or Quickstarts (requires access to GitHub).
+<sup>***</sup>You may choose to [operate the PSaaS Appliance in an Internet-restricted environment](/appliance/infrastructure/internet-restricted-deployment) (except during [update periods](/appliance/infrastructure/ip-domain-port-list#external-connectivity)).

@@ -17,6 +17,10 @@ budicon: 500
   ]
 }) %>
 
+::: panel-warning OWIN 4 Incompatibility
+Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is only compatible with **System.IdentityModel.Tokens.Jwt 4.x** and the **OWIN 3.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with newer versions of those packages will result in compiler errors.
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET (OWIN) Web API.
@@ -184,6 +188,6 @@ public class ApiController : ApiController
 
 ## Further Reading
 
-* To learn how you can call your API from clients, please refer to the [Using your API section](/quickstart/backend/webapi-owin/02-using).
+* To learn how you can call your API from applications, please refer to the [Using your API section](/quickstart/backend/webapi-owin/02-using).
 
 * If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/webapi-owin/03-troubleshooting).

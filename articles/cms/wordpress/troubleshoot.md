@@ -10,11 +10,11 @@ If you get this error, make sure you are requesting an email from each provider 
 
 ## I'm getting a "Failed cross origin authentication" or "No verifier returned from client" error in my error logs or when logging in.
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Client settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Application settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
 ## The Auth0 settings page in WordPress displays the warning: "The current user is not authorized to manage the Auth0 account...".
 
-If you updated your plugin to version 2 or configured the plugin without following the Quick Start Guide, you may need to provide an API token that the plugin will use to update your account settings. You can [generate a new token](/api/v2) and enter it into the **App Token** field of the the **Basic** settings page of the plugin. (The required scopes for the token are listed there.) You can also ignore this warning. Some operations will not be available from the plugin (like enabling rules or SSO). You will need to make these configuration changes manually in the [Auth0 dashboard](${manage_url}/#/clients).
+If you updated your plugin to version 2 or configured the plugin without following the Quick Start Guide, you may need to provide an API token that the plugin will use to update your account settings. You can [generate a new token](/api/v2) and enter it into the **App Token** field of the the **Basic** settings page of the plugin. (The required scopes for the token are listed there.) You can also ignore this warning. Some operations will not be available from the plugin (like enabling rules or SSO). You will need to make these configuration changes manually in the [Auth0 dashboard](${manage_url}/#/applications).
 
 ## I have two accounts for the same user in WordPress.
 

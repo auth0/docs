@@ -21,19 +21,19 @@ This article shows you how to implement OIDC-compliant Single Sign On via [Silen
 ## Configure the Sample Application
 
 ::: warning
-This document assumes that you're using port `3000` when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the `auth0-variables.js`, `callback.html`, and `index.js` files) and configure your Auth0 Client.
+This document assumes that you're using port `3000` when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the `auth0-variables.js`, `callback.html`, and `index.js` files) and configure your Auth0 Application.
 :::
 
-If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one.
+If you don't already have an Auth0 Application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one.
 
-1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
-2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
-3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
-4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the **Advanced Settings** section. Under the **OAuth** tab, enable the **OIDC Conformant** Flag under the **OAuth** area of **Advanced Settings**.
+1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
+2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
+3. Navigate to the [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+4. Scroll to the bottom of the [Settings](${manage_url}/#/applications/${account.clientId}/settings) page, where you'll find the **Advanced Settings** section. Under the **OAuth** tab, enable the **OIDC Conformant** Flag under the **OAuth** area of **Advanced Settings**.
 
-Now that you've configured your Auth0 Client, you can continue configuring your sample.
+Now that you've configured your Auth0 Application, you can continue configuring your sample.
 
-1. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${account.clientId}/settings).
+1. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Application you're using. These values can be found in your [Auth0 Application's Settings page](${manage_url}/#/applications/${account.clientId}/settings).
 2. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
 3. Browse to `http://localhost:3000` to view the client side of the sample.
 
@@ -43,13 +43,13 @@ Please feel free to [download the sample](https://github.com/auth0-samples/oidc-
 
 ## Silent Authentication
 
-Because client applications cannot query Auth0 directly to determine if users are logged in via SSO, the apps must redirect users to Auth0 for SSO authentication. However, because users find redirection disruptive, you should avoid doing so. One way of doing this is via [Silent Authentication](/api-auth/tutorials/silent-authentication), which allows you to implement an authentication flow where Auth0 replies only with redirects and never presents a login page to your users.
+Because applications cannot query Auth0 directly to determine if users are logged in via SSO, the apps must redirect users to Auth0 for SSO authentication. However, because users find redirection disruptive, you should avoid doing so. One way of doing this is via [Silent Authentication](/api-auth/tutorials/silent-authentication), which allows you to implement an authentication flow where Auth0 replies only with redirects and never presents a login page to your users.
 
 ### Configure Silent Authentication
 
 To bypass displaying the Lock screen when logging in a user, you must:
 
-* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients/${account.clientId}/settings);
+* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Application's settings page](${manage_url}/#/applications/${account.clientId}/settings);
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
 * Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
   * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);

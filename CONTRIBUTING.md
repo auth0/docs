@@ -170,6 +170,8 @@ Try to keep the list length to a minimum (up to 5 links).
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
+The library we use is [HTTP Snippet](https://github.com/Kong/httpsnippet).
+
 **NOTE:** You need to set the language type to `har` for this to work. View this raw markdown document for an example.
 
 ```har

@@ -35,6 +35,6 @@ After authentication is done, it will redirect to the `/callback` url as in the 
 
 3. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing universal login in web applications for different technologies in our [Quickstarts](/quickstart/webapps).
+You can find complete examples of implementing universal login in web applications for different technologies in our [Quickstarts](/quickstart/webapp).
 
 <%= include('_customizing-login-page') %>

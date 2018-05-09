@@ -1,5 +1,6 @@
 title: Ruby API
-community: true
+author:
+  community: true
 alias:
   - ruby
 languages:

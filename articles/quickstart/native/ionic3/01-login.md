@@ -241,8 +241,8 @@ Don't be alarmed if you _cannot authenticate_ successfully yet at this stage! Th
 
 1. After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
 2. Make note of IP address URLs from any `<allow-navigation>` tags.
-3. In your [Auth0 Dashboard](https://manage.auth0.com), go to your Ionic app client's **Settings**.
-4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 client and click the **Save Changes** button.
+3. In your [Auth0 Dashboard](https://manage.auth0.com), go to your Ionic app's **Settings**.
+4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 application and click the **Save Changes** button.
 
 You should now be able to log into your app!
 

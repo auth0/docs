@@ -1,5 +1,5 @@
 ---
-description: Recommendations on how you can improve your Auth0 Client prior to production deployment
+description: Recommendations on how you can improve your Auth0 Application prior to production deployment
 ---
 
 # Pre-Deployment Tests: Recommended Fixes
@@ -19,5 +19,5 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | [Email Templates](/email/custom) Configured | [Configure custom email templates](${manage_url}/#/emails) with your application specific details and corporate branding |
 | Enable [MFA for Tenant Administrators](/tutorials/manage-dashboard-admins) | [Enable multifactor authentication](${manage_url}/#/account/admins) for tenant administrators |
 | [Guardian Multifactor](/multifactor-authentication) or other Multifactor Authentication Providers | Consider [multifactor authentication](${manage_url}/#/guardian) as part of the authentication strategy |
-| [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Clients |
+| [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Applications |
 | Use RS256 Instead of HS256 | Set the JSONWebToken [Signature Algorithm](/apis#signing-algorithms) to RS256 instead of HS256 |

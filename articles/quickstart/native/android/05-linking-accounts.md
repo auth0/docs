@@ -16,7 +16,7 @@ This tutorial shows you how to link two different accounts for the same user usi
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>__
+}) %>
 
 ## Before You Start
 

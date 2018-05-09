@@ -2,8 +2,6 @@
 
 ## Get User Info
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/userinfo
 Authorization: 'Bearer {ACCESS_TOKEN}'
@@ -20,7 +18,7 @@ curl --request GET \
 // Script uses auth0.js. See Remarks for details.
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  // Initialize the Auth0 client
+  // Initialize the Auth0 application
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'

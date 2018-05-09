@@ -58,7 +58,7 @@ description: Learn about working with users in Auth0
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/users/migrations/custom-db">Automatic User Migration with Custom Database Connections</a>
+        <i class="icon icon-budicon-695"></i><a href="/users/migrations/automatic">Automatic User Migration with Custom Database Connections</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/users/migrations/bulk-import">Bulk User Migration with the Management API</a>
@@ -106,7 +106,15 @@ description: Learn about working with users in Auth0
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/search">User Search</a>
     <p>
-        Learn the best practices to use when retrieving users with API endpoints.
+        Learn how to search for users using the Management API.
     </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/search/query-syntax">Learn how you can use the query string syntax to build custom queries</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/search/best-practices">Learn about the Auth0 best practices for user search</a>
+      </li>
+    </ul>
   </li>
 </ul>

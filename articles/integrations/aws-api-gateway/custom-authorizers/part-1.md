@@ -4,7 +4,7 @@ desc: Configure Auth0 for use with AWS API Gateway
 
 # AWS API Gateway Tutorial, Part 1: Create an Auth0 API
 
-You will need to configure the APIs consumed by the clients that successfully authorize. You can do so using the [APIs section of the Management Dashboard](${manage_url}/#/apis).
+You will need to configure the APIs consumed by the applications that successfully authorize. You can do so using the [APIs section of the Management Dashboard](${manage_url}/#/apis).
 
 Click **Create API** to create a new API for your integration.
 
@@ -26,7 +26,7 @@ You can refer to the **Settings** page for the details of your newly-created API
 
 ![](/media/articles/integrations/aws-api-gateway-2/api-3.png)
 
-Creating an API also creates a Non Interactive Client for use with the API. You can see this client listed as **Authorized** under the **Non Interactive Clients** tab. Additionally, you might want to make note of the Client ID, since you will need it in [Part 3](/integrations/aws-api-gateway/custom-authorizers/part-3) of this tutorial.
+Creating an API also creates a Machine to Machine Application for use with the API. You can see this application listed as **Authorized** under the **Machine to Machine Application** tab. Additionally, you might want to make note of the Client ID, since you will need it in [Part 3](/integrations/aws-api-gateway/custom-authorizers/part-3) of this tutorial.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/integrations/aws-api-gateway/custom-authorizers"],

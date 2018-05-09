@@ -87,14 +87,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   </thead>
   <tbody>
   <tr>
-      <td>Client Grants</td>
+      <td>Application Grants</td>
       <td>/client-grants</td>
       <td>/client-grants</td>
       <td>/client-grants/{id}</td>
       <td>/client-grants/{id}</td>
   </tr>
   <tr>
-      <td>Clients</td>
+      <td>Applications</td>
       <td>/client <br />/client/{id}</td>
       <td>/client</td>
       <td>/client/{id}</td>
@@ -230,6 +230,13 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>User ID and IP</td>
     <td>All</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
+  </tr>
+  <tr>
+    <td>Get Passwordless Code or Link</td>
+    <td>/passwordless/start</td>
+    <td>IP</td>
+    <td>All</td>
+    <td>50 requests per hour</td>
   </tr>
   <tr>
     <td>Get Token</td>

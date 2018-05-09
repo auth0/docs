@@ -7,9 +7,9 @@ image: /media/platforms/vue.png
 tags:
   - quickstart
 snippets:
-  dependencies: client-platforms/vuejs/dependencies
-  setup: client-platforms/vuejs/setup
-  use: client-platforms/vuejs/use
+  dependencies: application-platforms/vuejs/dependencies
+  setup: application-platforms/vuejs/setup
+  use: application-platforms/vuejs/use
 alias:
   - vue
   - vuejs

@@ -1,6 +1,7 @@
 title: Relay API
 thirdParty: false
-community: true
+author:
+  community: true
 alias:
   - relay
 languages:
