@@ -98,8 +98,6 @@ The `challenge_type` is how the user will get the challenge and prove possession
 
 If OTP is supported by the user and you don't want to request a different factor, you can skip the challenge request and [verify the multifactor authentication with a one-time password](#verify-with-one-time-password-otp-).
 
-<%= include('./_mfa/_token-requirements') %>
-
 ### Request Parameters
 
 | Parameter        | Description |
@@ -188,8 +186,6 @@ Verifies multifactor authentication (MFA) using a one-time password (OTP).
 To verify MFA with an OTP, prompt the user to get the OTP code, then make a request to the `/oauth/token` endpoint. The request must have the OTP code, the `mfa_token` you received (from the `mfa_required` error), and the `grant_type` set to `http://auth0.com/oauth/grant-type/mfa-otp`.
 
 The response is the same as responses for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
-
-<%= include('./_mfa/_token-requirements') %>
 
 ### Request parameters
 
@@ -298,8 +294,6 @@ The response to this request depends on the status of the underlying challenge v
 
 When the challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a usually a 6 digit number (similar to an OTP) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario the response will be immediate; you will receive an `invalid_grant` or an `access_token` as response.
 
-<%= include('./_mfa/_token-requirements') %>
-
 ### Request parameters
 
 | Parameter        | Description |
@@ -381,8 +375,6 @@ Verifies multifactor authentication (MFA) using a recovery code.
 Some multifactor authentication (MFA) providers (such as Guardian) support using a recovery code to login. Use this method to authenticate when the user's enrolled device is unavailable, or the user cannot receive the challenge or accept it due to connectivity issues.
 
 To verify MFA using a recovery code your app must prompt the user for the recovery code, and then make a request to `oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code`. Include the collected recovery code and the `mfa_token` from the `mfa_required` error. If the recovery code is accepted the response will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types. It might also include a `recovery_code` field, which the application must display to the end-user to be stored securely for future use.
-
-<%= include('./_mfa/_token-requirements') %>
 
 ### Request parameters
 
@@ -500,6 +492,10 @@ After an authenticator is added it must be verified. To verify the authenticator
 
 A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multifactor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
 
+To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+- `scope`: `enroll`
+- `audience`: `https://${account.namespace}/mfa`
+
 ### Request parameters
 
 | Parameter        | Description |
@@ -598,7 +594,9 @@ This endpoint is still under development. It is available to customers with earl
 
 Returns a list of authenticators associated with your application.
 
-<%= include('./_mfa/_token-requirements') %>
+To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+- `scope`: `read:authenticators`
+- `audience`: `https://${account.namespace}/mfa`
 
 ### Request Parameters
 
@@ -657,11 +655,13 @@ HTTP/1.1 204 OK
 This endpoint is still under development. It is available to customers with early access.
 :::
 
-Deletes an associated authenticator by its authenticator ID.
+Deletes an associated authenticator using its ID.
 
 You can get authenticator IDs by [listing the authenticators](#list-authenticators).
 
-An [Access Token](/tokens/access-token) with the `remove:authenticators` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+- `scope`: `remove:authenticators`
+- `audience`: `https://${account.namespace}/mfa`
 
 
 ### Request Parameters
