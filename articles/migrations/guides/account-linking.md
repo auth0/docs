@@ -46,9 +46,14 @@ There are several ways you can link and unlink accounts. Some change, some remai
       <td><a href="#link-current-user-accounts-with-the-api">Link current user accounts with the API</a></td>
     </tr>
     <tr>
-      <td>You link user accounts with the <a href="/api/management/v2#!/Users/post_identities">Link a user account</a> endpoint of the Management API, you send an Access Token in the <code>Authorization</code> header, and the secondary account's <code>user_id</code> in the payload</td>
+      <td>You link user accounts with the <a href="/api/management/v2#!/Users/post_identities">Link a user account</a> endpoint of the Management API, you send an Access Token (with scope `update:users`) in the <code>Authorization</code> header, and the secondary account's <code>user_id</code> in the payload</td>
       <td><div class="label label-default">No change</div></td>
       <td>N/A</td>
+    </tr>
+    <tr>
+      <td>You link user accounts with the <a href="/api/management/v2#!/Users/post_identities">Link a user account</a> endpoint of the Management API, you send an Access Token (with scope `update:current_user_identities`) in the <code>Authorization</code> header, and the secondary account's <code>user_id</code> in the payload</td>
+      <td><div class="label label-warning">Affected</div></td>
+      <td><a href="#link-current-user-accounts-with-the-api">Link current user accounts with the API</a></td>
     </tr>
     <tr>
       <td>You link user accounts with the <a href="/api/management/v2#!/Users/post_identities">Link a user account</a> endpoint of the Management API, you send an Access Token in the <code>Authorization</code> header, and the secondary account's ID Token in the payload</td>
@@ -61,9 +66,14 @@ There are several ways you can link and unlink accounts. Some change, some remai
       <td><a href="#link-current-user-accounts-with-auth0-js">Link current user accounts with Auth0.js</a></td>
     </tr>
     <tr>
-      <td>You link user accounts with the <a href="/auth0js#user-management">Auth0.js library</a>, and you use an Access Token to instantiate <code>auth0.Management</code></td>
+      <td>You link user accounts with the <a href="/auth0js#user-management">Auth0.js library</a>, and you use an Access Token (with scope `update:users`) to instantiate <code>auth0.Management</code></td>
       <td><div class="label label-default">No change</div></td>
       <td>N/A</td>
+    </tr>
+    <tr>
+      <td>You link user accounts with the <a href="/auth0js#user-management">Auth0.js library</a>, and you use an Access Token (with scope `update:current_user_identities`) to instantiate <code>auth0.Management</code></td>
+      <td><div class="label label-warning">Affected</div></td>
+      <td><a href="#link-current-user-accounts-with-auth0-js">Link current user accounts with Auth0.js</a></td>
     </tr>
     <tr>
       <td>You unlink user accounts with the <a href="/api/management/v2#!/Users/delete_provider_by_user_id">Unlink a user identity</a> endpoint of the Management API, and you send the primary account's ID Token in the <code>Authorization</code> header</td>
