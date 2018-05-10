@@ -1,5 +1,8 @@
 ---
 description: This article explains how to install and configure the Facebook Analytics for Auth0 integration.
+tags:
+  - facebook
+  - analytics
 ---
 # Facebook Analytics for Auth0
 

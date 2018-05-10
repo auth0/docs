@@ -1,6 +1,9 @@
 ---
 description: How to set up a Client Credentials Grant using the Auth0 Dashboard
 crews: crew-2
+tags:
+  - client-credentials
+  - api-authorization
 ---
 
 # Set up a Client Credentials Grant using the Dashboard

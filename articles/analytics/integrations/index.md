@@ -3,6 +3,8 @@ url: /analytics/integrations
 section: articles
 classes: topic-page
 title: Analytics Integrations
+tags:
+  - analytics
 ---
 
 <div class="topic-page-header">

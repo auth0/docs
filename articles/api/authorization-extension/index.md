@@ -1,6 +1,10 @@
 ---
 title: Authorization Extension API Explorer
 fullWidth: true
+tags:
+    - authorization
+    - api
+    - api-authorization
 ---
 
 <div class="api-section" data-section="none">

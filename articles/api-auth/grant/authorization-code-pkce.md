@@ -1,5 +1,9 @@
 ---
-description: Describes the call APIs from mobile apps using the  Authentication Code Grant (PKCE).
+description: Describes the call APIs from mobile apps using the Authentication Code Grant (PKCE).
+tags:
+  - authentication-code
+  - pkce
+  - api-authorization
 ---
 # Calling APIs from Mobile Apps
 

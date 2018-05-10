@@ -1,5 +1,8 @@
 ---
 description: Describes how to call APIs from server processes using the Client Credentials Grant.
+tags:
+  - client-credentials
+  - api-authorization
 ---
 # Calling APIs from a Service
 
