@@ -162,6 +162,8 @@ If you use [Lock](/libraries/lock), you can customize the error messages that wi
 
 Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/metadata#metadata-and-custom-databases).
 
+<%= include('../../_includes/_ip_whitelist') %>
+
 ## Troubleshoot
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
