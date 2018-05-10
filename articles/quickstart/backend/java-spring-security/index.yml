@@ -7,10 +7,6 @@ author:
 alias:
   - spring security
   - spring
-author:
-  name: Luciano Balmaceda
-  email: luciano.balmaceda@auth0.com
-  community: false
 languages:
   - Java
 framework:
