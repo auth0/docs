@@ -1,6 +1,6 @@
 ## Whitelist IP Addresses
 
-If you are using any of the following features, you will need to whitelist the appropriate Auth0 IP addresses to ensure proper functionality:
+The use of the following features requires whitelisting of the appropriate Auth0 IP addresses to ensure proper functionality:
 
 * [Custom Database Connections](/connections/database/custom-db)
 * [Hooks](/hooks)
