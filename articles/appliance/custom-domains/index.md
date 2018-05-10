@@ -60,7 +60,7 @@ Suppose that we want the following domain to map to `auth.example.com`:
 auth.site2.com
 ```
 
-The custom domains has its own certificate, which is stored separately.
+The custom domain has its own certificate, which is stored separately.
 
 ## Configuring Custom Domains
 
