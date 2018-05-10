@@ -22,9 +22,14 @@ You have already configured and verified your custom domain. If not, see [How to
 | You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
+| You want to use Google Apps connections with your custom domain | [Configure Google Apps connections](#configure-google-apps-connections) |
+| You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
 | You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
 | You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
-| You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis)
+| You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
+| You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
+| You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
+| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-lap-connections) |
 
 ## Universal login
 
@@ -103,6 +108,21 @@ If you want to use social identity providers with your custom domain, you must u
 ::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
+  
+## Configure Google Apps connections
+
+If you want to use Google Apps connections with your custom domain, you must update the Authorized redirect URI in your OAuth Client Settings. In the Google Developer Console, go to **Credentials**, choose your OAuth client in the list, and you will see a settings page with the app Client ID, secret, and other fields. In the **Authorized redirect URIs** field, add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
+
+## APIs
+
+If you use Auth0 with a custom domain to issue Access Tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if you use the [express-jwt](https://github.com/auth0/express-jwt) middleware, you must do the following change.
+
+```js
+app.use(jwt({ 
+  issuer: 'https://YOUR-CUSTOM-DOMAIN',
+  //code omitted for brevity
+}));
+```
 
 ## Configure SAML identity providers
 
@@ -129,15 +149,24 @@ If you want to use SAML applications with your custom domain, you must update yo
 
 If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/saml/<CLIENTID>` you should use `https://<CNAME>/saml/<CLIENTID>`.
 
-## APIs
-
-If you use Auth0 with a custom domain to issue Access Tokens for your APIs, then you must validate the JWT issuer(s) against your custom domains. For example, if you use the [express-jwt](https://github.com/auth0/express-jwt) middleware, you must do the following change.
-
-```js
-app.use(jwt({ 
-  issuer: 'https://YOUR-CUSTOM-DOMAIN',
-  //code omitted for brevity
-}));
-```
-
 If you use the Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://${account.namespace}/userinfo` and `https://${account.namespace}/api/v2/`)
+
+## Configure your WS-Fed Clients
+
+If you want to use your WS-Fed applications with your custom domain with Auth0 as the IDP, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://<CUSTOM DOMAIN>/wsfed/FederationMetadata/2007-06/FederationMetadata.xml`).
+
+## Configure Azure AD connections
+
+If you want to use Azure AD connections with your custom domain, you must update the Allowed Reply URL in your Azure AD settings. In your Azure Active Directory, go to **Apps registrations** and select your app. Then click **Settings -> Reply URLs** and add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
+
+## Configure ADFS connections
+
+The process is the same as [setting up the ADFS connection normally](/connections/enterprise/adfs) except that your callback URL needs to be changed from this format `https://<TENANT>.auth0.com/login/callback` to this one use `https://<YOUR-CUSTOM-DOMAIN>/login/callback`.
+
+## Configure AD/LDAP connections
+
+If Kerberos support is not needed, AD/LDAP connections should not require further configuration.
+
+In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed from this format `https://<TENANT>.auth0.com/p/ad/jUG0dN0R/info` to `https://<CUSTOM DOMAIN>/p/ad/jUG0dN0R/info`.
+
+Once this change is saved, be sure to restart the AD/LDAP Connector service.
