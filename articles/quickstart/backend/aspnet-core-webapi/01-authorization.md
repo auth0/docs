@@ -7,7 +7,7 @@ github:
     path: Quickstart/01-Authorization
 ---
 
-<%= include('../../../../_includes/_api_auth_intro') %>
+<%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
