@@ -1,8 +1,8 @@
-title: ASP.NET Core Web API v2.0
+title: ASP.NET Core Web API v1.1
 alias:
   - asp.net core webapi
   - aspnet core webapi
-    - asp.net core webapi 2.0
+  - asp.net core webapi 1.1
 language:
   - C#
 framework:

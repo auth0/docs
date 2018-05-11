@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the standard OpenID Connect 
 budicon: 448
 ---
 
-<%= include('../../../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/01-Login',
@@ -16,4 +16,4 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_login') %>
+<%= include('./_includes/_login') %>
