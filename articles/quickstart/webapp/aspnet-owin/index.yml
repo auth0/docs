@@ -26,20 +26,6 @@ requirements:
   - Microsoft Visual Studio 2017
   - Auth0-ASPNET-Owin NuGet Package v2.3.0 and up
 next_steps:
-  - path: 01-login
-    list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about options for storing tokens
-      icon: 345
-      href: "/security/store-tokens"
   - path: 03-user-profile
     list:
     - text: Learn about the user profile structure
