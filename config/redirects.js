@@ -1746,6 +1746,14 @@ module.exports = [
     to: '/rules/current#video-using-rules'
   },
   {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
+  },
+  {
+    from: `/link-accounts/auth-api`,
+    to: `/link-accounts`
+  },
+  {
     from: '/videos/session-and-cookies',
     to: '/security/store-tokens#understanding-sessions-and-cookies'
   }
