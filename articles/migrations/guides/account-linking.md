@@ -96,9 +96,9 @@ In order to link accounts you can either call directly the [Link a user account]
 
 A common use case is to allow the logged-in user to link their various accounts using your app. 
 
-Until now you could use the primary user's ID Token (which contained the `update:current_user_identities` scope) in order to authenticate with the Management API and use the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. The payload of the request was the ID Token of the secondary user.
+Until now you could use the primary user's ID Token or Access Token (which contained the `update:current_user_identities` scope) in order to authenticate with the Management API and use the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint.
 
-With this migration, you must get an Access Token (which must contain the `update:current_user_identities` scope) and use that to authenticate with the API and use the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. The payload remains the same (the ID Token of the secondary user).
+With this migration, you must get an Access Token (which must contain the `update:current_user_identities` scope) and use that to authenticate with the API and use the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. The payload must be the ID Token of the secondary user.
 
 First, you must get an Access Token with the `update:current_user_identities` scope. 
 
