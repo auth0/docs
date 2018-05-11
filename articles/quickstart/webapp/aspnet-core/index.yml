@@ -58,5 +58,5 @@ next_steps:
     - text: Learn about rules
       icon: 345
       href: "/rules"
-  sample_download_required_data:
+sample_download_required_data:
   - client
