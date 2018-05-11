@@ -39,7 +39,7 @@ next_steps:
     - text: Learn about options for storing tokens
       icon: 345
       href: "/security/store-tokens"
-  - path: 02-user-profile.md
+  - path: 02-user-profile
     list:
     - text: Learn about the user profile structure
       icon: 345

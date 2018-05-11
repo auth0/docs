@@ -40,7 +40,7 @@ next_steps:
     - text: Learn about options for storing tokens
       icon: 345
       href: "/security/store-tokens"
-  - path: 03-user-profile.md
+  - path: 03-user-profile
     list:
     - text: Learn about the user profile structure
       icon: 345
@@ -51,7 +51,7 @@ next_steps:
     - text: In-depth details about user profile
       icon: 345
       href: "/user-profile/user-profile-details"
-  - path: 04-authorization.md
+  - path: 04-authorization
     list:
     - text: Learn about scopes
       icon: 345
