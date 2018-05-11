@@ -5,6 +5,10 @@ crews: crew-2
 
 # Account Linking Using Client Side Code
 
+::: warning
+We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
+:::
+
 Auth0 supports the linking of user accounts from various identity providers. 
 
 One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
