@@ -44,10 +44,10 @@ Configuring your application for cross-origin authentication is a process that r
 
 There are some cases when third party cookies will not be available. Certain browser versions do not support third party cookies and, if they do, there will be times that they will be disabled in a user's settings. You can use **auth0.js** in your application on a dedicated page to properly handle cases when third-party cookies are disabled. **This page must be served over SSL**.
 
-::: note
-Note that using `crossOriginVerification` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome**, **Opera** and **Safari¹** (Desktop & Mobile versions), when third party cookies are disabled, cross-origin authentication will not work at all unless you enable [Custom Domains](/custom-domains).
+Using `crossOriginVerification` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome**, **Opera**, and **Safari**, when third party cookies are disabled, cross-origin authentication will not work at all unless you enable [Custom Domains](/custom-domains).
 
-¹ ***Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) to prevent 3rd party cookies from being useful in authentication scenarios.* 
+::: note
+**Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) to prevent 3rd party cookies from being useful in authentication scenarios.
 :::
 
 Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
@@ -159,7 +159,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr>
       <td>iOS (iPad)</td>
       <td>Chrome</td>
-      <td class="success text-center">No</td>
+      <td class="danger text-center">No</td>
     </tr>
     <tr>
       <td>Android Galaxy S7</td>
