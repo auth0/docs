@@ -19,7 +19,6 @@ snippets:
 seo_alias: android
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login
   - 03-session-handling
   - 04-user-profile

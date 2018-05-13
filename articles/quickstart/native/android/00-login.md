@@ -7,7 +7,9 @@ github:
   path: 00-Login
 ---
 
-This tutorial shows you how to integrate Auth0 in your Android project and present the login box.
+<%= include('../_includes/_getting_started', { library: 'Android', callback: 'demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
 <%= include('_includes/_auth0') %>
 
