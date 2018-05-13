@@ -32,7 +32,7 @@ export class AuthService {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+## Handle Authentication Tokens
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app. Use the `inject` decorator to inject `Router`.
 
@@ -158,7 +158,7 @@ export class Callback {
 This example assumes some kind of loading spinner is available in the `assets` directory. See the downloadable sample for a demonstration.
 :::
 
-## Configure Routing
+### Configure Routing
 
 Add routing configuration using `configureRouter` to the application's main module.
 

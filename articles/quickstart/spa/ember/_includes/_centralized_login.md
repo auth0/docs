@@ -127,7 +127,7 @@ The file now includes several other methods for handling authentication.
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and log out.
 
@@ -180,7 +180,7 @@ export default Route.extend({
 });
 ```
 
-## Create a Protected Route
+### Create a Protected Route
 
 After a user authenticates and returns to your application, you may wish to send them to a protected route. The transition logic is demonstrated above in the `transitionTo` call after authentication. Add a new route called `protected` and check whether the user is authenticated before allowing them to see it.
 

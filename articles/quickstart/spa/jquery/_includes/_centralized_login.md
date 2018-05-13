@@ -129,7 +129,7 @@ $('document').ready(function() {
 });
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 

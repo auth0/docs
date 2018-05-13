@@ -44,7 +44,7 @@ export default class AuthService {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+## Handle Authentication Tokens
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app. 
 
@@ -142,7 +142,7 @@ When the **Log In** button is clicked, the user will be redirected to login page
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 Using universal login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
