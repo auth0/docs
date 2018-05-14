@@ -6,4 +6,8 @@ github:
   path: 01-Login
 ---
 
+::: note
+The preferred way to integrate Auth0 in iOS apps is using Swift. Read about it in the [iOS Swift Quickstart](/quickstart/native/ios-swift). 
+:::
+
 <%= include('_includes/_login_centralized') %>
