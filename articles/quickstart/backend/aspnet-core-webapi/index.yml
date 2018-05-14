@@ -17,7 +17,7 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnetcore-webapi-samples

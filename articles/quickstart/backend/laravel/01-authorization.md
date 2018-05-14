@@ -202,7 +202,7 @@ Route::get('/private', function (Request $request) {
 
 This route is now only accessible if an `access_token` is included in the `Authorization` header of the incoming request.
 
-## Configure the Scopes
+### Configure the Scopes
 
 The middleware defined above that the `access_token` in the incoming HTTP request is valid, however it does not include a mechanism to check if the `access_token` has sufficient **scope** to access the requested resource.
 
