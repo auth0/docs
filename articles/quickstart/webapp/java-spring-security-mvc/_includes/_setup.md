@@ -1,4 +1,4 @@
-## Configure your application to use Auth0 
+## Configure Spring Security to Use Auth0 
 
 ### Setup Dependencies
 

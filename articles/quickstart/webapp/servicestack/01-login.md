@@ -31,7 +31,7 @@ public class HomeController : Controller
 }
 ```
 
-## Configure your application to use Auth0 
+## Configure ServiceStack to use Auth0 
 
 We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications.
 
@@ -177,7 +177,3 @@ Add a section to display the `UserInfo`:
      <pre><code id="userInfo">Not logged in</code></pre>
 </div>
 ```
-
-### Run the app
-
-You can now run the application, and click on the **Log In** button. After successful authentication, the user profile will be displayed on the page.

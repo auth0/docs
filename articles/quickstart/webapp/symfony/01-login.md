@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure your application to use Auth0 
+## Configure Symfony to Use Auth0 
 
 ### Using HWIOAuthBundle for Authentication
 
@@ -124,7 +124,7 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
 }
 ```
 
-## Configure the Resource Owner
+### Configure the Resource Owner
 
 Add this to your `app/config/config.yml`
 

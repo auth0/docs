@@ -58,7 +58,7 @@ public ActionResult Login(string returnUrl)
 }
 ```
 
-## Access User Information
+## Display User Information
 
 When the user logs in to the application, a `ClaimsPrincipal` class is generated. You can access it through the `Current` property:
 
@@ -104,7 +104,7 @@ In `web.config`, configure the following:
 
 In the above example, we are redirecting to the `Login` action in an `Account` controller, which in turn redirects to Auth0's `/authorize` endpoint for authentication, as described in [#4](#4-authenticating-the-user).
 
-### Set up logout
+### Set up Logout
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
@@ -133,20 +133,6 @@ The destination URL is stored in the `returnTo` value.
 The destination URL must be on the`Allowed Logout URLs` list. Read more about redirecting users after they log out in the [Logout](/logout#redirecting-users-after-logout) article.
 :::
 
-### Link accounts
-
-To allow users to link accounts from different providers, read the [Linking User Accounts](/link-accounts) article.
-
-To link accounts, you need the logged-in user's Access Token. You can get it from:
-
-```
-${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
-```
-
 ### Flow the user's identity to a WCF service
 
 If you want to flow the logged-in user's identity to a WCF service or an API, use the `responseType: 'token'` parameter on the login widget constructor. When the parameter is sent, Auth0 generates an ID Token. You can send the ID Token to your service or use it to generate an `ActAs` token. The ID Token is a [JSON Web Token](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06).
-
-### Manage the dev, test and production environments
-
-We recommend that you create one application per environment. For each environment, use a different client ID and secret. To learn more, read about [using Auth0 with Microsoft Azure](/azure-tutorial).

@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 
-## Configure your application to use Auth0 
+## Configure PHP to Use Auth0 
 
 ### Add the Dependencies
 

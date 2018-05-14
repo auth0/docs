@@ -28,7 +28,7 @@ def callback
 end
 ```
 
-## Logout Action
+## Clear Session on Logout
 
 Use the following command to create the controller that will handle user logout:
 

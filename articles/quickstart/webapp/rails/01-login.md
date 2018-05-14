@@ -8,7 +8,7 @@ github:
 
 <%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/oauth2/callback' }) %>
 
-## Configure your application to use Auth0 
+## Configure Rails to Use Auth0 
 
 ### Install the Dependencies
 

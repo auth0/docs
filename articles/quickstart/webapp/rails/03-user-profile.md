@@ -6,7 +6,7 @@ github:
   path: 03-User-Profile
 ---
 
-## Process the Callback Hash
+## Process the Callback
 
 After receiving a successful callback at `/auth/oauth2/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
 

@@ -8,7 +8,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure your application to use Auth0 
+## Configure Flask to Use Auth0 
 
 ### Add the Dependencies
 
@@ -26,7 +26,7 @@ authlib
 six
 ```
 
-## Initialize Authlib
+### Initialize Authlib
 
 Create a file named `server.py`, and instantiate an application with your client keys, scopes, and OAuth endpoints.
 
@@ -121,27 +121,7 @@ Create a `home.html` file in a `/template` folder. Add a link to the `/login` ro
 </div>
 ```
 
-## Logout
-
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our logout documentation](/logout).
-
-```python
-# /server.py
-
-@app.route('/logout')
-def logout():
-    # Clear session stored data
-    session.clear()
-    # Redirect user to logout endpoint
-    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
-    return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
-```
-
-::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
-:::
-
-## Check if the user is authenticated
+### Check if the user is authenticated
 
 Add the following decorator to your `Flask` app. Use it to decorate methods that require authentication.
 
@@ -163,7 +143,7 @@ def requires_auth(f):
   return decorated
 ```
 
-## Show the User Profile
+## Display User Information
 
 Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session.
 
