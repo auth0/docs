@@ -33,7 +33,7 @@ Here is a sample request:
 curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
-with the **auth-oidc-connection.json** file containing:
+with the **auth0-oidc-connection.json** file containing:
 
 ```js
 {
