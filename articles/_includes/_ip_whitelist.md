@@ -8,6 +8,10 @@ The use of the following features requires whitelisting of the appropriate Auth0
 
 ### Outbound Calls
 
+::: warning
+Please note that IP addresses are subject to change at any time.
+:::
+
 When making outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT. The **region-specific** set of IP addresses are as follows:
 
 #### United States
