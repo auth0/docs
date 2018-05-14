@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to integrate the Auth0 Login in your iOS Swift project to present a hosted Lock page.
+description: This tutorial demonstrates how to add use login to your Objective-C application with Auth0.
 budicon: 448
 github:
   path: 00-Login

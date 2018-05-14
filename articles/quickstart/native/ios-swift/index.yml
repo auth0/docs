@@ -19,7 +19,6 @@ snippets:
   use: native-platforms/ios-swift/use
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login
   - 03-user-sessions
   - 04-calling-apis

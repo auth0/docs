@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will show you how to integrate the Auth0 Universal Login in your Android project in order to present the login box.
+description: This tutorial demonstrates how to add user login to your Android application with Auth0.
 seo_alias: android
 budicon: 448
 github:
