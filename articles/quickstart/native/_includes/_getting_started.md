@@ -4,5 +4,4 @@
 
 <%= include('../../../_includes/_new_app') %>
 
-<%= include('../../../_includes/_callback_url') %>
 
