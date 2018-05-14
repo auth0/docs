@@ -1,4 +1,4 @@
-<%= include('../_includes/_getting_started', { library: 'Objective-C') %>
+<%= include('../../_includes/_getting_started', { library: 'Objective-C') %>
 
 Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
 
@@ -17,7 +17,7 @@ Add your credentials in the `Auth0.plist` file. If the file does not exist in yo
 </plist>
 ```
 
-<%= include('../../../_includes/_callback_url') %>
+<%= include('../../../../_includes/_callback_url') %>
 
 In your application's `Info.plist` file, register your iOS Bundle identifier as a custom scheme:
 
