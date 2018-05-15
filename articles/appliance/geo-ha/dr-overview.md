@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: Descriptions of PSaaS Appliance Geo HA Failure and Disaster Recovery
+tags:
+    - appliance
+    - geo-ha
+    - disaster-recovery
 ---
 
 <!-- markdownlint-disable MD033 -->

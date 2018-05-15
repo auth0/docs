@@ -1,5 +1,10 @@
 ---
 title: OIDC-conformant Refresh Token use
+tags:
+  - api-authentication
+  - oidc
+  - tokens
+  - refresh tokens
 ---
 
 # OIDC-conformant Refresh Tokens

@@ -1,5 +1,11 @@
 ---
 description: API Authentication and Authorization FAQ
+tags:
+  - api-authentication
+  - oidc
+  - user-consent
+  - resource-servers
+  - applications
 ---
 
 # API Authentication and Authorization FAQ

@@ -2,6 +2,10 @@
 url: /appliance/cli
 section: appliance
 description: How to use the PSaaS Appliance CLI
+tags:
+    - appliance
+    - cli
+    - backups
 ---
 
 # Private SaaS (PSaaS) Appliance Command Line Interface

@@ -1,5 +1,11 @@
 ---
 description: This document covers blacklists vs. grants when it comes handling tokens.
+tags:
+  - api-authentication
+  - oidc
+  - security
+  - blacklists
+  - application-grants
 ---
 
 # Blacklists and Application Grants

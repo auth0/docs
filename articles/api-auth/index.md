@@ -3,6 +3,9 @@ url: /api-auth
 section: articles
 classes: topic-page
 title: API Authorization
+tags:
+  - api-authentication
+  - oidc
 ---
 
 <div class="topic-page-header">

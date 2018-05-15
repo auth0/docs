@@ -1,5 +1,9 @@
 ---
   description: Writing rules to restrict user/client access to an API
+  tags:
+  - api-authentication
+  - oidc
+  - scopes
 ---
 
 # Restrict Application or User Requests for API Scopes

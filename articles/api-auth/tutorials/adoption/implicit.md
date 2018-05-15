@@ -1,5 +1,9 @@
 ---
 title: OIDC-conformant Implicit grant
+tags:
+  - api-authentication
+  - oidc
+  - implicit
 ---
 
 # Implicit grant

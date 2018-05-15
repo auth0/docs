@@ -1,7 +1,7 @@
 ---
 description: Describes how to call APIs from regular web apps using the Authentication Code Grant.
 tags:
-  - authentication-code
+  - authorization-code
   - api-authorization
 ---
 # Calling APIs from Server-side Web Apps

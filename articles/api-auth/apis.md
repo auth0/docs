@@ -4,6 +4,10 @@ toc: true
 title: APIs Overview
 description: Learn the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
 crews: crew-2
+tags:
+  - api-authentication
+  - oidc
+  - apis
 ---
 # APIs
 

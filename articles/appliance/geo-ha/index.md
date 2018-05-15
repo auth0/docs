@@ -2,6 +2,10 @@
 url: /appliance/geo-ha
 section: appliance
 description: Descriptions of Appliance Geo HA
+tags:
+    - appliance
+    - geo-ha
+    - disaster-recovery
 ---
 
 # Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)

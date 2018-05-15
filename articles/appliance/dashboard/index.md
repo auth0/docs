@@ -3,6 +3,9 @@ section: appliance
 description: >
   Learn how to use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
 url: /appliance/dashboard
+tags:
+    - appliance
+    - dashboard
 ---
 
 # Private SaaS (PSaaS) Appliance Management Dashboard

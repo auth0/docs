@@ -1,5 +1,9 @@
 ---
 title: User consent and third-party applications
+tags:
+  - api-authentication
+  - oidc
+  - user-consent
 ---
 
 # User Consent and Third-Party Applications

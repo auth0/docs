@@ -1,5 +1,10 @@
 ---
 description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant
+tags:
+  - api-authentication
+  - oidc
+  - implicit
+  - nonce
 ---
 
 # Mitigate replay attacks when using the Implicit Grant

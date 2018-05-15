@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: How to invite additional administrators to your PSaaS Appliance
+tags:
+    - appliance
+    - coadmins
 ---
 
 # PSaaS Appliance Administration: Inviting Co-Administrators

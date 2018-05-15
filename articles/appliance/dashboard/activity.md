@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Activity page
+tags:
+    - appliance
+    - dashboard
 ---
 
 # PSaaS Appliance Dashboard: Activity

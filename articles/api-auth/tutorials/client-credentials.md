@@ -2,6 +2,10 @@
 title: How to implement the Client Credentials Grant
 description: How to call an API from a server process using OAuth 2.0 and the Client Credentials grant
 toc: true
+tags:
+  - api-authentication
+  - oidc
+  - client-credentials
 ---
 # How to Implement the Client Credentials Grant
 

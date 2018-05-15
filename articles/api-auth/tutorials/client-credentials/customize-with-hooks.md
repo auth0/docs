@@ -2,6 +2,11 @@
 description: How to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.
 crews: crew-2
 toc: true
+tags:
+  - api-authentication
+  - oidc
+  - client-credentials
+  - hooks
 ---
 
 # Using Hooks with Client Credentials Grant

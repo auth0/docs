@@ -2,6 +2,9 @@
 url: /appliance/custom-domains
 section: appliance
 description: How to set up custom domains for your PSaaS Appliance
+tags:
+    - appliance
+    - custom-domains
 ---
 
 # Private SaaS (PSaaS) Appliance: Custom Domains

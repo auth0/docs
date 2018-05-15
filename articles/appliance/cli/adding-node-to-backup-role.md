@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: How to add an PSaaS Appliance node in the backup node
+tags:
+    - appliance
+    - backups
+    - cli
+    - nodes
 ---
 
 # PSaaS Appliance: Adding a Node to the Backup Role

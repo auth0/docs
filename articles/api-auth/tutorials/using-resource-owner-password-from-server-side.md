@@ -2,6 +2,10 @@
 title: Using resource owner password from the server side
 description: How to use Resource Owner Password Grant from the server side together with anomaly detection.
 toc: true
+tags:
+  - api-authentication
+  - oidc
+  - resource-owner-password
 ---
 
 # Using Resource Owner Password from Server side

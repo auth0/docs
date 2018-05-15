@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard CLI page
+tags:
+    - appliance
+    - dashboard
+    - cli
 ---
 
 # PSaaS Appliance Dashboard: CLI

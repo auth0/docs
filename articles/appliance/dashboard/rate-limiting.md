@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Rate Limiting page
+tags:
+    - appliance
+    - dashboard
+    - rate-limiting
 ---
 
 # Auth0 Appliance Dashboard: Rate Limiting

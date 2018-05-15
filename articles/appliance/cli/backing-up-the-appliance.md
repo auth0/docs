@@ -2,6 +2,10 @@
 section: appliance
 description: How to back up the PSaaS Appliance using its CLI
 toc: true
+tags:
+    - appliance
+    - cli
+    - backups
 ---
 
 # How to Back Up the PSaaS Appliance Using the CLI

@@ -1,5 +1,9 @@
 ---
-  description: How to use multiple APIs and represent them as a single API in Auth0.
+description: How to use multiple APIs and represent them as a single API in Auth0.
+tags:
+  - api-authentication
+  - oidc
+  - apis
 ---
 
 # How to Represent Multiple APIs Using a Single Auth0 API

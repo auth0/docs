@@ -1,5 +1,9 @@
 ---
 description: OIDC-conformant Authorization Code grant
+tags:
+  - api-authentication
+  - oidc
+  - authorization-code
 ---
 
 # Authorization Code grant

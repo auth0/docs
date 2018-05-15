@@ -2,6 +2,10 @@
 title: How to implement the Implicit Grant
 description: How to execute an Implicit Grant flow from a SPA Client application.
 toc: true
+tags:
+  - api-authentication
+  - oidc
+  - implicit
 ---
 # How to implement the Implicit Grant
 

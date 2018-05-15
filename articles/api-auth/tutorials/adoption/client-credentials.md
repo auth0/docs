@@ -1,5 +1,9 @@
 ---
 title: Client Credentials exchange
+tags:
+  - api-authentication
+  - oidc
+  - client-credentials
 ---
 
 # Client Credentials exchange

@@ -1,6 +1,10 @@
 ---
 title: Why you should always use Access Tokens to secure an API
 description: Explains the differences between Access Token and ID Token and why the latter should never be used to secure an API.
+tags:
+  - api-authentication
+  - oidc
+  - access-tokens
 ---
 # Why you should always use Access Tokens to secure an API
 
