@@ -21,6 +21,6 @@ You can manage your Hooks using:
 
 You can create Hooks for the following [extensibility points](/hooks/extensibility-points):
 
-- credentials-exchange
-- pre-user-registration
-- post-user-registration
+- [Credentials Exchange](/hooks/extensibility-points/credentials-exchange)
+- [Pre-User Registration](/hooks/extensibility-points/pre-user-registration)
+- [Post-User Registration](/hooks/extensibility-points/post-user-registration)
