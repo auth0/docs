@@ -363,6 +363,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | --- | --- | --- |
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
+| `username` | required\* | (String) User's desired username. \*Required only if using `Username-Password-Authentication` and you have enabled "Requires Username" for the connection |
 | `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
 | `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
 
