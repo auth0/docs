@@ -115,11 +115,50 @@ One common signup customization is to add a `username` to the signup.
 
 To enable this feature, turn on the `Requires Username` setting on the [Connections > Database](${manage_url}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
 
-Once this has been set, when a user is created manually in the Auth0 dashboard, the screen where users enter their information will prompt them for both an email and a username.
+Capture the `username` field in your custom form, and add the `username` to your request body.
 
-Similarly, the Lock widget in sign up mode will prompt for a username, email and password.
+```html
+<form id="signup">
+  <fieldset>
+    <legend>Sign up</legend>
+    <p>
+      <input type="email" id="signup-email" placeholder="Email" required/>
+    </p>
+    <p>
+      <input type="password" id="signup-password" placeholder="Password"
+             required/>
+    </p>
+    <p>
+      <input type="text" id="username" placeholder="username" required/>
+    </p>
+    <input type="submit" value="Sign up"/>
+  </fieldset>
+</form>
+```
 
-Then users can log in with Username and Password.
+```har
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://${account.namespace}/dbconnections/signup",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded"
+  },
+  "data": {
+    "client_id": "${account.clientId}",
+    "email": $('#email').val(),
+    "password": $('#password').val(),
+    "connection": "Username-Password-Authentication",
+    "username": $('#username').val()
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
 
 ## Optional: Verifying password strength
 
