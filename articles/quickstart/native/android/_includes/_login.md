@@ -1,4 +1,4 @@
-## Start the Authentication
+## Add Authentication with Auth0
 
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 

@@ -1,10 +1,6 @@
 ## How to Login with Auth0
 
-### Configure Callback URLs
-
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your applications's **Allowed Callback URLs** for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
-
-Go to your [Applications's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that **Allowed Callback URLs** contains the following for each platform you are supporting.
+<%= include('../../../_includes/_callback_url') %>
 
 #### iOS Callback
 
@@ -13,7 +9,6 @@ Go to your [Applications's Dashboard](${manage_url}/#/applications/${account.cli
 ```
 
 Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
-
 
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project the value is:
 

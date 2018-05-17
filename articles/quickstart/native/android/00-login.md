@@ -28,7 +28,6 @@ If you are following along with the sample project you downloaded from the top o
 
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
-
 <%= include('_includes/_auth0') %>
 
 <%= include('_includes/_login') %>
