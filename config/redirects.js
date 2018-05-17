@@ -1738,8 +1738,8 @@ module.exports = [
     to: '/users/search/v2/query-syntax'
   },
   {
-    from: '/api-auth/dynamic-client-registration',
-    to: '/api-auth/dynamic-application-registration'
+    from: '/api-auth/dynamic-application-registration',
+    to: '/api-auth/dynamic-client-registration'
   },
   {
     from: '/videos/rules',

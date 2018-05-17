@@ -148,9 +148,9 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/dynamic-application-registration">Dynamic Application Registration</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/dynamic-application-registration">Dynamic Client Registration</a>
     <p>
-      Learn how to allow third party developers to create applications under your tenant following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Application Registration specification</a>.
+      Learn how to allow third party developers to create applications under your tenant following the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration specification</a>.
     </p>
   </li>
   <li>
