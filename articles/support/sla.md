@@ -1,51 +1,37 @@
 ---
-description: Details on SLA for enabled subscribers.
+title: Auth0 Service Level Description
+description: Details on the Auth0 Service Level Description
 ---
+# Auth0 Service Level Description
 
-# SLA
-
-Auth0 guarantees a monthly uptime percentage of **99.9%**. 
-
-::: note
-At additional cost, Auth0 offers a __99.95%__ uptime service level agreement guarantee to subscribers enabling it in their subscription.
+::: warning
+For full details, please see your Service Level Description
 :::
 
-The specifics of the Auth0 SLA are below:
+The average Availability of the Auth0 Platform in each month will be at least 99.90% (or a higher percentage, if specified in the Sales Order), excluding any Force Majeure Events that result in Downtime, as measured and monitored from Auth0’s facilities.
 
 ## Definitions
-* "Downtime" is period of at least 1 minute in which there is more than a five percent authentication error rate, as measured by a 3rd party service monitoring service such as Pingdom. Downtime is measured based on the backend server side error rate.
-* "Monthly Uptime Percentage" means total number of minutes in a calendar month minus the number of minutes of Downtime suffered in a calendar month (other than Permitted Downtime), divided by the total number of minutes in a calendar month.
-* “Permitted Downtime” has the meaning set forth in Section III on this Schedule.
-* “Non-Permitted Downtime” means any downtime that is not Permitted Downtime.
-* “SLC” means service level credits (calculated as set forth below) that Auth0 will credit at the end of the Service term, at no charge to Subscriber.
+
+For the purposes of this Service Level Description, the following capitalized words and phrases are ascribed the following meanings:
+
+| Term | Definition |
+| - | - |
+| Available | The Auth0 Platform, in the form provided by Auth0, is capable of responding to incoming requests from Users to process and display compatible data |
+| Defect | A failure of the Auth0 Platform, in the form provided by Auth0, to conform to its applicable specifications set forth in the Documentation. A Defect includes a failure of one or more components of the environment or infrastructure provided by Auth0 or AWS to perform in accordance with their applicable documentation or specifications |
+| Downtime | Any period of time in which the Auth0 Platform is not Available |
+| Force Majeure Event |  |
+| Monthly Subscription Fees | Annual subscription Fees specified in the applicable Sales Order, pro-rated on a monthly basis |
 
 ## Subscription Services Availability
 
-During the Term of the Agreement, the Subscription Services will be operational and available to Subscriber at least 99.9% of the time in minutes in any calendar month (referred to as “Availability”).
+If Auth0 fails to meet the Availability Service Level during any given month and Customer requests a Service Level Credit, then Auth0 will provide Customer with a Service Level Credit equal to the percentage of the Monthly Subscription Fees for the month in which the service level failure occurred, corresponding to the Auth0 Platform Availability Level specified in the “Availability Service Level Credits” table below. Each Service Level Credit will be paid by Auth0 to Customer by way of a credit on the next invoice submitted by Auth0 to Customer. If any credits are unutilized upon expiration or termination of the Subscription Term, than Auth0 will apply such credits to any other Fees or expenses payable by Customer to Auth0. If there are no such other Fees or expenses, then Auth0 will pay Customer the credit amount. 
 
-If Auth0 fails to meet its Availability service level due to circumstances not listed within one of the exception in Section III below, and if Subscriber meets its obligations under the Agreement, Subscriber shall be eligible to receive service level credits (“SLCs”) as set forth in Section IV below.
+| Auth0 Platform Availability Level | Service Level Credit |
+| - | - |
+| < 99.9% - >= 99.0% | 10.0% of the Monthly Subscription Fee applicable to month in which failure occurred |
+| < 99.0% - >= 95.0% | 20.0% of the Monthly Subscription Fee applicable to month in which failure occurred |
+| < 95% | 50.0% of the Monthly Subscription Fee applicable to month in which failure occurred |
 
-Auth0 will publish a monthly report describing Service availability on [uptime.auth0.com](http://uptime.auth0.com/749624).
-
-## Exceptions
-
-Subscriber shall receive no SLCs in connection with any unavailability of the Subscription Services caused by any one or more of the following (referred to as “Permitted Downtime”):
-
-* Circumstances beyond Auth0’s reasonable control, including the Force Majeure Events;
-* Defects in software or hardware owned or controlled by Subscriber causing downtime.
-
-## Service Level Credits
-
-Auth0 shall apply the following Service Level Credits
-
-| Monthly Uptime Percentage | Days of Service added to the end of the Service term, at no charge to Customer |
-| :---: | :---: |
-| < 99.9% - >= 99.0% | 3 |
-| < 99.0%  - >= 95.0% | 7 |
-| < 95.0% | 15 |
-
-Availability is calculated as follows:
-
-![](/media/articles/sla/availability.svg)
+Auth0 publishes [status](https://status.auth0.com) and [uptime](http://uptime.auth0.com) monthly reports.
 
 If you require a different SLA or a dedicated instance of Auth0 in your own IT environment [contact sales](https://auth0.com/?contact=true).
