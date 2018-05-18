@@ -123,10 +123,6 @@ var options = new OpenIdConnectOptions("Auth0")
 };
 ```
 
-For more information on storing and saving the `access_token` to use later when calling the API, see the [Storing Tokens step](/quickstart/webapp/aspnet-core/03-storing-tokens).
-
-For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
-
 ## Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`. 
@@ -251,6 +247,51 @@ Now, when you run the application you can select the Login link to log into the 
 7. Finally the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
 :::
 
-## Next Steps
+## Storing the Tokens
 
-Continue to the [Storing Tokens step](/quickstart/webapp/aspnet-core/v1/02-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
+The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`. This means that inside any of the actions in your controllers you can simply use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of a particular claim.
+
+The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
+
+Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `access_token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property of `OpenIdConnectOptions` to true. This will save the tokens to the `AuthenticationProperties`:
+
+```csharp
+// Startup.cs
+
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
+    IOptions<Auth0Settings> auth0Settings)
+{
+    // Some code was omitted for brevity...
+
+    var options = new OpenIdConnectOptions("Auth0")
+    {
+        [...]
+
+        // Saves tokens to the AuthenticationProperties
+        SaveTokens = true,
+
+        Events = new OpenIdConnectEvents
+        {
+            // handle the logout redirection
+            OnRedirectToIdentityProviderForSignOut = [...] // omitted for brevity
+        }
+    };
+    options.Scope.Clear();
+    options.Scope.Add("openid");
+    app.UseOpenIdConnectAuthentication(options);
+}
+```
+
+To subsequently retrieve either of the tokens you can call `GetAuthenticateInfoAsync` to retrieve the `AuthenticateInfo`. The tokens will be available in the `Properties` of the `AuthenticateInfo` object, stored in the format `.Token.<token name>`:
+
+```csharp
+// Inside one of your controller actions
+if (User.Identity.IsAuthenticated)
+{
+    var authenticateInfo = await HttpContext.Authentication.GetAuthenticateInfoAsync("Auth0");
+    string accessToken = authenticateInfo.Properties.Items[".Token.access_token"];
+    string idToken = authenticateInfo.Properties.Items[".Token.id_token"];
+}
+```
+
+For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).

@@ -12,6 +12,5 @@ default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login
-  - 02-storing-tokens
-  - 03-user-profile
-  - 04-authorization
+  - 02-user-profile
+  - 03-authorization
