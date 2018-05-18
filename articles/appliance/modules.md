@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: For security reasons, rules and custom database connections for PSaaS Appliance run in a JavaScript sandbox. You can use the full power of the ECMAScript 5 language and a few selected libraries.
+tags:
+    - appliance
+    - js-modules
+    - sandbox
 ---
 
 # Node.js Modules Available in Rules and Custom Database Connections

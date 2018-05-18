@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: Overview of using the authenticated endpoint with the PSaaS Appliance
+tags:
+    - appliance
+    - monitoring
+    - testing
 ---
 
 # PSaaS Appliance: Using Authenticated Testing Endpoints

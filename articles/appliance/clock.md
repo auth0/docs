@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: How to manage the time on PSaaS Appliance
+tags:
+    - appliance
+    - time-sync
 ---
 # Time Synchronization
 

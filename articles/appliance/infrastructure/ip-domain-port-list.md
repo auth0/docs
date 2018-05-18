@@ -1,6 +1,12 @@
 ---
 description: PSaaS Appliance infrastructure information about IP/Domain and Port Usage
 section: appliance
+tags:
+    - appliance
+    - infrastructure
+    - ip-addressses
+    - domains
+    - ports
 ---
 
 <!-- markdownlint-disable MD033 -->

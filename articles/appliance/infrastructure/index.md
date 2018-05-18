@@ -3,6 +3,9 @@ title: PSaaS Appliance Infrastructure Requirements
 url: /appliance/infrastructure
 section: appliance
 description: This document contains information about the PSaaS Appliance and its infrastructure requirements.
+tags:
+    - appliance
+    - infrastructure
 ---
 
 # Private SaaS (PSaaS) Appliance Infrastructure Requirements

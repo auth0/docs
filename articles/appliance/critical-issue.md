@@ -2,6 +2,9 @@
 sitemap: false
 section: appliance
 description: Outlines additional support procedure information for enterprise subscription customers with an Auth0 PSaaS Appliance.
+tags:
+    - appliance
+    - support
 ---
 
 # Critical Support Issue Guidance for Appliance Customers

@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about virtual machines
+tags:
+    - appliance
+    - infrastructure
+    - virtual-machines
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Virtual Machines

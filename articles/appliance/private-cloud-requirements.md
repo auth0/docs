@@ -2,6 +2,10 @@
 section: appliance
 description: This document details the requirements for the Auth0 Dedicated Cloud Service.
 toc: true
+tags:
+    - appliance
+    - private-cloud
+    - requirements
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 

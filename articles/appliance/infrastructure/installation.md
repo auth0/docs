@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about installation
+tags:
+    - appliance
+    - infrastructure
+    - installation
 ---
 
 <!-- markdownlint-disable MD033 -->

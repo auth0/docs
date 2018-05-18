@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: This document covers the software used for Instrumentation.
+tags:
+    - appliance
+    - instrumentation
 ---
 
 # PSaaS Appliance: Instrumentation Components

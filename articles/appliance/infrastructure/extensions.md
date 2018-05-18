@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about enabling Webtasks and Extensions
+tags:
+    - appliance
+    - infrastructure
+    - extensions
 ---
 # Enable Webtasks, Extensions, and User Search
 

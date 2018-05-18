@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: This document details who is responsible for what aspects of a given PSaaS Appliance installation.
+tags:
+    - appliance
+    - raci
 ---
 
 # PSaaS Appliance: Roles and Responsibilities

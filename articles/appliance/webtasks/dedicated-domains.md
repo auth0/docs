@@ -3,6 +3,10 @@ section: appliance
 title: Configure Webtask with Dedicated Domains
 description: How to use dedicated domains with your PSaaS Appliance Webtask
 toc: true
+tags:
+    - appliance
+    - webtask
+    - domains
 ---
 # PSaaS Appliance: Webtask with Dedicated Domains
 
