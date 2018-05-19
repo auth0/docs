@@ -73,13 +73,7 @@ module LogoutHelper
       client_id: client_id
     }
 
-    URI::HTTPS.build(host: domain, path: '/v2/logout', query: to_query(request_params))
-  end
-
-  private
-
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+    URI::HTTPS.build(host: domain, path: '/v2/logout', query: request_params.to_query)
   end
 end
 ```
