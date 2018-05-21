@@ -4,7 +4,6 @@ connection: custom
 image: /media/connections/mysql.svg
 description: Learn how to authenticate users using your database as an identity provider.
 crews: crew-2
-toc: true
 ---
 # Authenticate Users Using Your Database
 

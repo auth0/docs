@@ -1,4 +1,9 @@
-## Troubleshoot
+---
+title: Troubleshooting Errors when using Custom Databases
+description: Learn how to troubleshoot errors when using your database as an identity provider.
+crews: crew-2
+---
+# Troubleshoot Errors When Using Custom Databases
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 

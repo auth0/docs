@@ -1,4 +1,9 @@
-## Error Handling
+---
+title: Custom Database Error Handling
+description: Learn how to handle errors when using your database as an identity provider.
+crews: crew-2
+---
+# Custom Database Error Handling
 
 There are three different errors you can return from a database connection:
 
