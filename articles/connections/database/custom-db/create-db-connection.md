@@ -14,51 +14,61 @@ useCase:
     - customize-connections
 ---
 
-# Authenticate Users Using Your Database
+# # Configure Auth0 to Use a Database as an Identity Provider
 
-If you have your own user database, you can use that database as an identity provider in Auth0 to authenticate users. To set up and use your database for authentication you'll need to:
+In this article, we will show you how to configure Auth0 to use your database as an identity provider. You will need to:
 
-* Create a [database connection](/connections/database) on the [Auth0 dashboard](${manage_url}).
-* Ensure your database has fields to populate user profiles such as: `id`, `nickname`, `email`, and `password`. See [Auth0 Normalized User Profile](/user-profile/normalized) for details on Auth0's user profile schema and expected fields.
-* Provide database action scripts to configure the database as an identity provider.
+1. Create an Auth0 database connection
+2. Create database action scripts
+3. Add configuration parameters
 
-In this tutorial you'll learn how to connect your user database to Auth0 and configure it as an identity provider.
+## Step 1: Create an Auth0 database connection
 
-## Before You Begin
+The first thing you will do is create a database connection in Auth0. To do so, follow these steps:
 
-Here are some things to know before you start this process.
+1. In the Dashboard, navigate to [Connections > Database](${manage_url}/#/connections/database).
 
-* Database action scripts are written in Javascript and run in a [Webtask](https://webtask.io/) environment. In the environment you can use the full JavaScript language and [these Node.js libraries](https://tehsis.github.io/webtaskio-canirequire/).
-* Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
-* You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
-* The [Update Users Using Your Database](/user-profile/customdb) article has information on updating user profile fields.
+2. Click **+ Create DB Connection**.
 
-## Create the database connection
+3. Configure the connection's **settings** as requested.
 
-To create the database connection for your database, follow these steps.
+| **Parameter** | **Definition** |
+| - | - |
+| **Name** | The name of the connection. The name must start and end with an alphanumeric character, contain only alphanumeric characters and dashes, and not exceed 35 characters. |
+| **Requires Username** | Forces users to provide a username *and* email address during registration. |
+| **Username length** | Sets the minimum and maximum length for a username. |
+| **Disable Sign Ups** | Prevents sign ups to your application. You will still be able to create users with your API credentials or via the Dashboard, however. |
 
-1. Navigate to [Connections > Database](${manage_url}/#/connections/database) on the Auth0 dashboard.
-2. Click the **+ Create DB Connection** button.
-3. Provide a name for the database and configure the available options.
+4. Click **Create** to proceed.
 
 ![Database connections](/media/articles/connections/database/database-connections.png)
 
-3. Navigate to the **Custom Database** tab.
-4. Toggle on the **Use my own database** switch.
+Once Auth0 creates your connection, you'll have the following tabs (in addition to the **Settings** tab):
+
+  * Password Policy
+  * Custom Database
+  * Applications
+  * Try Connection
+
+4. Switch over to the **Custom Database** tab.
+
+5. Toggle the **Use my own database** switch to enable this feature.
 
 ![Custom database tab](/media/articles/connections/database/custom-database.png)
 
-## Create database action scripts
+## Step 2: Create database action scripts
 
-Create scripts in the **Database Action Scripts** section to configure how authentication works when using your database.
+Toggling the **Use my own database** switch enables the **Database Action Scripts** area. This is where you will create scripts to configure how authentication works when using your database.
 
-A Login script is required. Additional scripts for user functionality, such as password resets, are optional. You can write your own scripts or select a template from the **Templates** dropdown and adjust it to your requirements.
+You **must** configure a login script; additional scripts for user functionality, such as password resets, are optional.
 
-The available actions are:
+You can write your own database action scripts or you can begin by selecting a template from the **Templates** dropdown and modifying it as necessary.
+
+The available database actions are as follows.
 
 Name | Description | Parameters
 -------|-------------|-----------
-Login (Required) | Executes each time a user attempts to log in. | `email`, `password`
+Login <br/><span class="label label-danger">Required</span> | Executes each time a user attempts to log in. | `email`, `password`
 Create | Executes when a user signs up. | `user.email`, `user.password`
 Verify | Executes after a user follows the verification link. | `email`
 Change Password | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
@@ -66,7 +76,7 @@ Get User | Retrieves a user profile from your database without authenticating th
 Delete | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 
 ::: note
-When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure that you have implemented both.
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
 :::
 
 ### Create the Login script
@@ -121,7 +131,7 @@ function login(email, password, callback) {
 
 The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. Note that `id` returned by Login script is used to construct `user_id` attribute of user profile. If you are using multiple custom database connections then value of `id` must be unique across all the custom database connections to avoid and `user_id` collisions. Our recommendation is to prefix the value of `id` with connection name without any whitespace in the resulting value.
 
-## Add configuration parameters
+## Step 3: Add configuration parameters
 
 You can store parameters, like the credentials required to connect to your database, in the Settings section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
 
