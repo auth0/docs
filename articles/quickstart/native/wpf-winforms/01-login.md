@@ -11,7 +11,9 @@ budicon: 448
   path: 'Quickstart/00-Starter-Seed',
   requirements: [
     'Microsoft Visual Studio 2017',
-    '.NET Framework 4.5.2'
+    '.NET Framework 4.5.2',
+    'Auth0.OidcClient.WPF 2.0.0',
+    'Auth0.OidcClient.WinForms 2.0.0'
   ]
 }) %>
 
