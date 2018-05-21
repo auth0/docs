@@ -1,6 +1,9 @@
 ---
 description: Explains what Connections are and how they are associated with Auth0 Applications.
 crews: crew-2
+tags:
+  - applications
+  - connections
 ---
 # Application Connections
 

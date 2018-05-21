@@ -2,6 +2,9 @@
 description: Application settings for Native
 url: /applications/application-settings/native
 toc: true
+tags:
+  - applications
+  - native-apps
 ---
 
 # Application Settings: Native

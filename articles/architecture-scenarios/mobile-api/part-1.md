@@ -1,6 +1,12 @@
 ---
 description: Solutions Overview for the Mobile + API architecture scenario
 toc: true
+tags:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
 ---
 
 # Mobile + API: Solutions Overview

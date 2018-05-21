@@ -2,6 +2,9 @@
 title: Application Types
 description: Read about the the different applications types: public vs confidential, and first vs third-party
 toc: true
+tags:
+  - applications
+  - application-types
 ---
 # Application Types
 

@@ -1,5 +1,11 @@
 ---
 description: Conclusion for the Mobile + API architecture scenario
+tags:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
 ---
 
 # Mobile + API: Conclusion

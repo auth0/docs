@@ -1,5 +1,9 @@
 ---
 description: How to enable Android App Links support for your Auth0 application
+tags:
+  - applications
+  - android
+  - app-links
 ---
 
 # Enable Android App Links Support for your Auth0 Application

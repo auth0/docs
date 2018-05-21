@@ -2,6 +2,9 @@
 classes: topic-page
 title: Application Authentication
 description: Introduction to the various application authentication flows.
+tags:
+  - authentication
+  - oauth2
 ---
 
 # Application Authentication

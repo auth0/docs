@@ -1,6 +1,12 @@
 ---
 description: API and Mobile Configuration for the Mobile + API architecture scenario
 toc: true
+tags:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
 ---
 
 # Mobile + API: API and Mobile Configuration

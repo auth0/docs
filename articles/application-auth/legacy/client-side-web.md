@@ -1,6 +1,11 @@
 ---
 description: Explains how to authenticate users in a Client-side Web application.
 toc: true
+tags:
+  - spa
+  - authentication
+  - oauth2
+  - implicit
 ---
 # Authentication for Client-side Web Apps
 

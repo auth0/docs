@@ -1,5 +1,9 @@
 ---
 description: How to enable Universal Links support for your Auth0 app in Xcode
+tags:
+  - applications
+  - ios
+  - universal-links
 ---
 
 # Enable Universal Links Support for your Auth0 Application in Xcode
