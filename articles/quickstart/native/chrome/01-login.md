@@ -258,7 +258,7 @@ When loading your application as an unpacked extension, a unique ID will be gene
 In the **Allowed Callback URLs** section, whitelist your callback URL.
 
 ```bash
-https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
+https://<YOUR_EXTENSION_ID>.chromiumapps.org/auth0
 ```
 
 In the **Allowed Origins** section, whitelist your chrome extension as an origin.
