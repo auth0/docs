@@ -1,0 +1,21 @@
+## Error Handling
+
+There are three different errors you can return from a database connection:
+
+* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
+* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
+* `new Error(<message>)`: simple errors (no error code).
+
+To return an error, call the callback with an error as the first parameter:
+
+```js
+callback(error);
+```
+
+For example:
+
+```js
+callback(new ValidationError('email-too-long', 'Email is too long.'));
+```
+
+If you use [Lock](/libraries/lock), you can customize the error messages that will be displayed by adding them to the dictionary. For more info, see [Customizing Lock Error Messages](libraries/lock/customizing-error-messages).
