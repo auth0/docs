@@ -1,6 +1,5 @@
 ---
 description: Application settings for Machine to Machine Applications
-url: /applications/application-settings/non-interactive
 toc: true
 ---
 
