@@ -2,6 +2,13 @@
 title: "SPA + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 toc: true
+tags:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
+    - nodejs
 ---
 # SPA + API: Node.js Implementation for the API
 

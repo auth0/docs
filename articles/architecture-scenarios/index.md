@@ -2,6 +2,10 @@
 title: Architecture Scenarios
 classes: topic-page
 description: Learn about the common architecture scenarios that you will use to solve the authorization and authentication needs of your application.
+tags:
+    - architecture
+    - api-auth
+    - authorization-code
 ---
 # Architecture Scenarios
 

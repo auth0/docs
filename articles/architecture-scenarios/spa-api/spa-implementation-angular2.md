@@ -2,6 +2,13 @@
 title: "SPA + API: Angular 2 Implementation for the SPA"
 description: The Angular 2 implementation of the SPA for the SPA + API architecture scenario
 toc: true
+tags:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
+    - angular2
 ---
 
 # SPA + API: Angular 2 Implementation for the SPA

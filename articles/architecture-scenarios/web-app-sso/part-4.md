@@ -1,6 +1,12 @@
 ---
 description: Regular web app scenario conclusion
 toc: true
+tags:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
 ---
 # SSO for Regular Web Apps: Conclusion
 

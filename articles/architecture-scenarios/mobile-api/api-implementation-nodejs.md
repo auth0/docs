@@ -1,6 +1,13 @@
 ---
 description: The Node.js implementation of the API for the Mobile + API architecture scenario
 toc: true
+tags:
+  - mobile-apps
+  - api-auth
+  - nodejs
+  - architecture
+  - authorization-code
+  - pkce
 ---
 
 # Mobile + API: Node.js Implementation for the API

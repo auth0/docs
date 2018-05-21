@@ -1,6 +1,13 @@
 ---
 title: "Server Client + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the Server Client + API architecture scenario
+tags:
+    - architecture
+    - server-apps
+    - api-auth
+    - authorization-code
+    - client-credentials
+    - nodejs
 ---
 # Server Client + API: Node.js Implementation for the API
 

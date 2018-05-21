@@ -5,6 +5,12 @@ image: /media/articles/architecture-scenarios/b2c.png
 extract: Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
 description: Explains the architecture scenario B2C with an eCommerce or SAAS application.
 beta: true
+tags:
+    - b2c
+    - architecture
+    - db-connections
+    - passwordless
+    - saml
 ---
 
 # Business to Consumer Identity Scenarios
