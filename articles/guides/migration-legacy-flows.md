@@ -59,7 +59,7 @@ To call an API, you will need to specify the API identifier as the `audience` pa
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   auth: {
-    audience: 'https::/mydomain.com/api',
+    audience: 'https://mydomain.com/api',
   }
 });
 ```
