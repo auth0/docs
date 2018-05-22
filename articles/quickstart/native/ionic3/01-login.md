@@ -7,7 +7,7 @@ github:
   path: 01-Login
 ---
 
-<%= include('../../_includes/_getting_started', { library: 'Swift') %>
+<%= include('../_includes/_getting_started', { library: 'Swift') %>
 
 To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm.
 
