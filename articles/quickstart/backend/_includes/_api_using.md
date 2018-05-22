@@ -14,7 +14,7 @@ You can call the API from your application by passing an Access Token in the `Au
 
 ## Obtaining an Access Token
 
-If you are calling the API from a Single Page Application or a Mobile/Native application, after the authentication flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+If you are calling the API from a Single Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
 
 * [Single Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
