@@ -10,7 +10,38 @@ alias:
 seo_alias: aspnet-core
 default_article: dashboard-default
 articles:
-  - 00-intro
   - 01-login
   - 02-user-profile
   - 03-authorization
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-mvc-samples
+  branch: master
+requirements:
+  - .NET Core SDK 2.0
+  - .NET Core 2.0
+  - ASP.NET Core 2.0
+  - Microsoft Visual Studio 2017 Update 3 or .NET core command line tools
+next_steps:
+  - path: 03-user-profile
+    list:
+    - text: Learn about the user profile structure
+      icon: 345
+      href: "/user-profile/normalized/oidc"
+    - text: Learn about scopes
+      icon: 345
+      href: "/scopes"
+    - text: In-depth details about user profile
+      icon: 345
+      href: "/user-profile/user-profile-details"
+  - path: 04-authorization
+    list:
+    - text: Learn about scopes
+      icon: 345
+      href: "/scopes"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
+sample_download_required_data:
+  - client

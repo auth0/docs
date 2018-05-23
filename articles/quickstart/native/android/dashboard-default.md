@@ -2,18 +2,9 @@
 title: Getting started
 description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
+github:
+  path: 00-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '00-Login',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Sample Projects
 

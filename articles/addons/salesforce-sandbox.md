@@ -1,6 +1,6 @@
 ---
 addon: Salesforce (sandbox)
-thirdParty: true
+third_party: true
 url: /addons/salesforce-sandbox
 alias:
   - salesforce

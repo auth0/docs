@@ -2,18 +2,9 @@
 title: Getting Started
 description: Short Introduction to the Auth0 iOS Objective-C Quickstarts.
 budicon: 715
+github:
+    path: 00-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '01-Login',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ::: note
 It is recommend in order to make the most of all the features in the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit to start with the [iOS Swift QuickStart](/quickstart/native/ios-swift)

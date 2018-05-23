@@ -3,23 +3,13 @@ title: Calling APIs
 description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
 seo_alias: android
 budicon: 546
+github:
+    path: 06-Calling-APIs
 ---
 
 You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 This tutorial shows you how to access protected resources in your API.
-
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '06-Calling-APIs',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before You Start
 

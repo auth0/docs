@@ -1,18 +1,13 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
+github:
+  path: 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'AngularJS 1.6'
-  ]
-}) %>
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>

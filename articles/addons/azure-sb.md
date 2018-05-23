@@ -1,6 +1,6 @@
 ---
 addon: Azure Service Bus
-thirdParty: true
+third_party: true
 url: /addons/azure-sb
 alias:
   - Azure Service Bus

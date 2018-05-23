@@ -16,3 +16,23 @@ default_article: 01-login
 articles:
   - 01-login
   - 02-user-profile
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-nodejs-webapp-sample
+  branch: master
+requirements:
+  - NodeJS 4.3 or higher
+  - Express 4.16
+next_steps:
+  - path: 02-user-profile
+    list:
+    - text: Learn about the user profile structure
+      icon: 345
+      href: "/user-profile/normalized/oidc"
+    - text: Learn about scopes
+      icon: 345
+      href: "/scopes"
+    - text: In-depth details about user profile
+      icon: 345
+      href: "/user-profile/user-profile-details"

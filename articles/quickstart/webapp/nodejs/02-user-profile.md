@@ -1,20 +1,11 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch and update user profile information
+description: This tutorial demonstrates how to fetch and update user profile information.
 budicon: 292
+github: 
+  path: 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-nodejs-webapp-sample',
-  path: '02-User-Profile',
-  requirements: [
-    'NodeJS 4.3 or higher',
-    'Express 4.16'
-  ]
-}) %>
-
-## User Profile
+## Specify a `profile` Scope
 
 After the user has authenticated, every express request has a `user` object with the entire user profile. 
 By default, it is a minimal profile. Add the `profile` scope to the authentication scopes to get additional profile information. 
@@ -38,10 +29,9 @@ router.get(
     res.redirect('/');
   }
 );
-
 ```
 
-## Show the User Profile
+## Display User Information
 
 Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
 

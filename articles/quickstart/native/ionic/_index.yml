@@ -17,3 +17,10 @@ seo_alias: ionic
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-ionic-samples
+requirements:
+  - Ionic 1.x
+  - AngularJS 1.5+

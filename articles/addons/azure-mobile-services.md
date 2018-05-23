@@ -1,6 +1,6 @@
 ---
 addon: Azure Mobile Services
-thirdParty: true
+third_party: true
 url: /addons/azure-mobile-services
 image: /media/platforms/azure.png
 snippets:

@@ -3,35 +3,27 @@ title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 Cycle.js driver to add authentication and authorization to your web app.
 budicon: 448
+github:
+  path: 01-Login
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-cycle-samples',
-  path: '04-User-Profile',
-  requirements: [
-    'NodeJS 6.3',
-    'npm 3.10.3',
-    '@cycle/xstream-run 3.0.3',
-    'cyclejs-auth0 3.0.0'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Cycle.js', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../_callback') %>
+## Integrate Auth0 in your application
 
-## 1. Install the `cyclejs-auth0` Package
+### Install the `cyclejs-auth0` Package
 
 To install `cyclejs-auth0` from the command line, run:
 
 ${snippet(meta.snippets.dependencies)}
 
-## 2. Instantiate the Driver and Configure Auth0Lock
+### Instantiate the Driver and Configure Auth0Lock
 
 In your main application file, you can now setup the `auth0Driver` and feed it your `clientID` and `domain`:
 
 ${snippet(meta.snippets.setup)}
 
-## 3. Implement the Login
+## Implement the Login
 
 Now that everything is set, you can activate authentication on some of your components. Activating authentication on a component is as simple as calling the `protect` function on that component.
 Let's assume you have a `Todos` component and you want to ensure the user is logged in to see it.
@@ -40,7 +32,7 @@ ${snippet(meta.snippets.use)}
 
 Now if the user is not logged in when the component is instantiated, the Auth0 form will show up.
 
-## 4. Configuring the Login Form
+### Configuring the Login Form
 
 You may want to configure the behavior of the Auth0 login form. To achieve that, you can use the `auth0ShowParams` options on the `protect` function:
 
@@ -59,7 +51,7 @@ All the available configurable parameters are supported, see [User configurable 
 
 After authentication, the `protect` function will handle the token parsing and store it to `localStorage`.
 
-## 4. Retrieve and display the User's Information
+## Retrieve and display the User's Information
 
 Once a component is protected, it is given a `props` object that contains a `tokens$` stream that can be used to either:
 - be decoded to get some basic information about your user (sub, nickname ... depending on your `authParams.scope` setting);
@@ -73,7 +65,7 @@ ${snippet(meta.snippets.query)}
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 5. Implement the Logout
+## Implement the Logout
 
 To log out, you simply need to send the `logout` action to the Auth0 driver.
 

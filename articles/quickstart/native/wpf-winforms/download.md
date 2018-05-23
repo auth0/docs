@@ -1,0 +1,1 @@
+Open the WPFSample.sln or WindowsFormsSample.sln solution in [Visual Studio 2017](https://www.visualstudio.com/vs/). Click the **Start** button (the green play button), or select the **Debug | Start Debugging** option from the main menu.
