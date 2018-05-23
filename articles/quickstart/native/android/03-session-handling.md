@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to login and maintain a session’s connectivity.
+description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 seo_alias: android
 budicon: 280
 github:

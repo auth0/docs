@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 Cycle.js driver to add authentication and authorization to your web app.
+description:  This tutorial demonstrates how to add user login to a CycleJS application using Auth0.
 budicon: 448
 github:
   path: 01-Login

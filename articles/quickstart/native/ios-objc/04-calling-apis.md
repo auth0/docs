@@ -1,6 +1,6 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls, using NSURLSession.
 budicon: 546
 github:
     path: 04-Calling-APIs

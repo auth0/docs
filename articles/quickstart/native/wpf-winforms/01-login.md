@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
+description: 3description: This tutorial demonstrates how to add user login to a Windows Forms C# application using Auth0.
 budicon: 448
 github:
     path: Quickstart/00-Starter-Seed

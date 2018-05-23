@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
 budicon: 448
 github:
   path: 01-Login

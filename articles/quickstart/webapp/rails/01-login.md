@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates add authentication and authorization to your Ruby on Rails app.
+description: This tutorial demonstrates how to add user login to a Ruby on Rails application.
 budicon: 448
 github:
   path: 01-Login

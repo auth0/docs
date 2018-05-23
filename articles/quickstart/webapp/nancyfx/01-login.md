@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Nancy FX application.
 budicon: 448
 github:
   path: 00-Starter-Seed

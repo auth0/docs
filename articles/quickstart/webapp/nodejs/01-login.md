@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add authentication to a Node.js and Express web app.
+description: This tutorial demonstrates how to add user login to a Node.js and Express application.
 budicon: 448
 github:
     path: 01-Login

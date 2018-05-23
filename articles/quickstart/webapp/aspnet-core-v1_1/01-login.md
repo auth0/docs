@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
+description: This tutorial demonstrates how to add user login to an ASP.NET Core 1.x application.
 budicon: 448
 github:
   path: Quickstart/01-Login

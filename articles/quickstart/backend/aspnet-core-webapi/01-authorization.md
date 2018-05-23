@@ -1,7 +1,7 @@
 ---
 title: Authorization
-name: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
-description: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
+name: This tutorial demonstrates how to add authorization to your ASP.NET Core Web API using the standard JWT middleware.
+description: This tutorial demonstrates how to add authorization to an ASP.NET Core Web API using the standard JWT middleware.
 budicon: 500
 github:
     path: Quickstart/01-Authorization

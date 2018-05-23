@@ -1,7 +1,7 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your ASP.NET OWIN API using Auth0.
-name: Shows how to secure your API using the standard OWIN JWT middleware
+description: This tutorial demonstrates how to add authorization to an ASP.NET OWIN API using the standard JWT middleware.
+name: This tutorial demonstrates how to add authorization to a ASP.NET OWIN API using the standard JWT middleware.
 budicon: 500
 github:
     path: Quickstart/01-Authorization

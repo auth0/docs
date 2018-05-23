@@ -1,7 +1,7 @@
 ---
 title: Authorization
 name: Shows how to secure your API using the standard JWT middleware.
-description: Shows how to secure your API using the standard JWT middleware.
+description: This tutorial demonstrates how to add authorization to an ASP.NET Core 1.x Web API using the standard JWT middleware.
 budicon: 500
 github:
     path: Quickstart/01-Authorization

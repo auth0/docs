@@ -1,7 +1,7 @@
 ---
 title: Authorization
 name: How to secure your Spring Security API with Auth0
-description: This tutorial demonstrates how to add authorization to your Spring Security API using Auth0.
+description: This tutorial demonstrates how to add authorization to a Spring Security API.
 budicon: 500
 github:
     path: 01-Authorization

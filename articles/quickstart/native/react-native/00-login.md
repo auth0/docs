@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add authentication and authorization to your React Native app.
+description: This tutorial demonstrates how to add user login to a React Native application using Auth0.
 budicon: 448
 github:
   path: 00-Login

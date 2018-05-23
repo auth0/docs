@@ -1,6 +1,6 @@
 ---
 title: Touch ID Authentication
-description: This tutorial will show you how to utilise Touch ID and the Credentials Manager.
+description: This tutorial will show you how to use Touch ID and the Credentials Manager.
 budicon: 345
 github:
   path: 08-Credentials-TouchID

@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a PHP application.
 budicon: 448
 github:
   path: 00-Starter-Seed

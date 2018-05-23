@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how integrate Auth0 with a Django Web Application.
+description: This tutorial demonstrates how to add user login to a Django application using Auth0.
 budicon: 448
 github:
   path: 01-Login

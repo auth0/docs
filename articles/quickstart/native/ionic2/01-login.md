@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2+ app.
+description: This tutorial demonstrates how to add user login to an Ionic 2+ application using Auth0.
 budicon: 448
 github:
   path: 01-Login

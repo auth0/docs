@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to your application with Auth0.
+description: This tutorial demonstrates how to add user login to a Vue.JS application using Auth0.
 budicon: 448
 github:
   path: 01-Login

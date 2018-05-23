@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to your Android application with Auth0.
+description: This tutorial demonstrates how to add user login to an Android application using Auth0.
 seo_alias: android
 budicon: 448
 github:
