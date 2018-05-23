@@ -1,22 +1,15 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0
+description: This tutorial demonstrates how to fetch a user's information from Auth0.
 budicon: 292
 topics:
   - quickstarts
   - spa
   - jquery
   - user-profile
+github:
+  path: 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '02-User-Profile',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
 
 <%= include('../_includes/_user_profile_preamble') %>
 

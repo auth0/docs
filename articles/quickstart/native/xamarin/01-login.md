@@ -7,19 +7,9 @@ topics:
   - quickstarts
   - native
   - xamarin
+github:
+    path: Quickstart/01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-xamarin-oidc-samples',
-  path: 'Quickstart/01-Login',
-  requirements: [
-    'Visual Studio 2017 (Version 15.7) or Visual Studio for Mac (Version 7.5)',
-    'Xamarin for Visual Studio 4.10',
-    'Auth0.OidcClient.Android 2.0.0',
-    'Auth0.OidcClient.iOS 2.0.0'
-  ]
-}) %>
 
 This tutorial explains how to integrate the Auth0 OIDC Application with a Xamarin application.
 

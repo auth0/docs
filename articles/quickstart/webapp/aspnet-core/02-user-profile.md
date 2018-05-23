@@ -7,19 +7,9 @@ topics:
   - webapp
   - aspnet-core
   - user-profile
+github:
+  path: Quickstart/03-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/02-User-Profile',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.1.300',
-    '.NET Core 2.1.0',
-    'ASP.NET Core 2.1.0'
-  ]
-}) %>
 
 ## Get the Profile
 

@@ -14,3 +14,12 @@ seo_alias: java spring
 default_article: dashboard-default
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-spring-mvc-sample
+  branch: master
+requirements:
+  - Java 7 and up
+  - Gradle 3.3 and up
+  - Spring Boot 1.5.3 or above

@@ -16,3 +16,9 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-ruby-api-samples
+requirements:
+  - Ruby 2.3.0

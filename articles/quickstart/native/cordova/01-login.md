@@ -6,17 +6,9 @@ topics:
   - quickstarts
   - native
   - cordova
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-cordova-samples',
-  path: '01-Login',
-  requirements: [
-    'NodeJS 5',
-    'Cordova 5.4+'
-  ]
-}) %>
 
 <%= include('../_includes/_cordova_setup') %>
 

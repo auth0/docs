@@ -7,16 +7,9 @@ topics:
   - spa
   - angular
   - tokens
+github:
+  path: 05-Token-Renewal
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'Angular 1.6'
-  ]
-}) %>
 
 <%= include('../_includes/_token_renewal_preamble') %>
 

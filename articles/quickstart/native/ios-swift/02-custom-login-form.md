@@ -7,19 +7,10 @@ topics:
   - native
   - ios
   - swift
+github:
+  path: 02-Custom-Login-Form
+  branch: embedded-login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ## Implement the Login
 

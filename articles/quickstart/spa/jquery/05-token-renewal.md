@@ -7,16 +7,9 @@ topics:
   - spa
   - jquery
   - tokens
+github:
+  path: 05-Token-Renewal
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
 
 <%= include('../_includes/_token_renewal_preamble') %>
 

@@ -14,3 +14,11 @@ seo_alias: aspnet
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: aspnet-samples
+  branch: master
+requirements:
+  - Microsoft Visual Studio 2017
+  - Auth0-ASPNET v2.1.0

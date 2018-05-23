@@ -9,19 +9,9 @@ topics:
   - windows
   - wpf
   - winforms
+github:
+    path: Quickstart/00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-WinFormsWPF-oidc-samples',
-  path: 'Quickstart/00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2017',
-    '.NET Framework 4.5.2',
-    'Auth0.OidcClient.WPF 2.0.0',
-    'Auth0.OidcClient.WinForms 2.0.0'
-  ]
-}) %>
 
 This tutorial explains how to integrate Auth0 with a WPF or Windows Forms application. The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 

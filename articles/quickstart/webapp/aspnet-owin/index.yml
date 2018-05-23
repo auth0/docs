@@ -16,3 +16,11 @@ articles:
   - 01-login
   - 02-user-profile
   - 03-authorization
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnet-owin-mvc-samples
+  branch: master
+requirements:
+  - Microsoft Visual Studio 2017
+  - Auth0-ASPNET-Owin NuGet Package v2.3.0 and up

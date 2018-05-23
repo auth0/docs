@@ -1,12 +1,12 @@
 title: Spring Security Java API
 thirdParty: false
-alias:
-  - spring security
-  - spring
 author:
   name: Luciano Balmaceda
   email: luciano.balmaceda@auth0.com
   community: false
+alias:
+  - spring security
+  - spring
 languages:
   - Java
 framework:
@@ -27,3 +27,10 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-spring-security-api-sample
+requirements:
+  - Java 8 or above
+  - Maven 3.0.x or above

@@ -7,16 +7,9 @@ topics:
   - webapp
   - login
   - golang
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-web-app',
-  path: '01-Login',
-	requirements: [
-		'Go 1.5.3 and up'
-	]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
 

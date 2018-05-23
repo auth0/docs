@@ -8,17 +8,9 @@ topics:
   - webapp
   - login
   - nancyfx
+github:
+  path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-nancyfx-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2015',
-    '.NET Framework 4.5.2'
-  ]
-}) %>
 
 ## Install the Dependencies
 

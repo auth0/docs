@@ -8,18 +8,9 @@ topics:
   - webapp
   - login
   - laravel
+github:
+    path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-php-web-app',
-  path: '01-Login',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5'
-  ]
-}) %>
 
 ## Install and Configure Laravel 5.5
 

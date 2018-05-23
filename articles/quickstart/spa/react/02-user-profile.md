@@ -7,16 +7,9 @@ topics:
   - spa
   - react
   - user-profile
+github:
+  path: 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '02-User-Profile',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
 
 <%= include('../_includes/_user_profile_preamble') %>
 

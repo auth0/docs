@@ -1,0 +1,27 @@
+title: Socket.io
+author:
+  community: true
+alias:
+  - socket.io
+language:
+  - Javascript
+framework:
+  - socket.io
+image: /media/platforms/socketio.svg
+tags:
+  - quickstart
+snippets:
+  dependencies: application-platforms/socket-io/dependencies
+  setup: application-platforms/socket-io/setup
+  use: application-platforms/socket-io/use
+seo_alias: socket-io
+default_article: 01-login
+articles:
+  - 01-login
+show_steps : false
+github:
+  org: auth0-community
+  repo: auth0-socket.io-samples
+  branch: master
+requirements:
+  - Socket.IO 1.7.3

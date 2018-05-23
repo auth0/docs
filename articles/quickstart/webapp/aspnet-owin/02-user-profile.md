@@ -7,13 +7,9 @@ topics:
   - webapp
   - aspnet-owin
   - user-profile
+github:
+  path: Quickstart/03-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-samples',
-  path: 'Quickstart/02-User-Profile'
-}) %>
 
 ## Getting the profile
 

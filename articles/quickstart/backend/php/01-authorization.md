@@ -1,21 +1,13 @@
 ---
 title: Authentication
-description: This tutorial demonstrates how to add authentication and authorization to a PHP API
+description: This tutorial demonstrates how to add authentication and authorization to a PHP API.
 topics:
     - quickstart
     - backend
     - php
+github:
+  path: 01-Authenticate-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-php-api-samples',
-  path: '01-Authenticate-RS256',
-  requirements: [
-    'PHP v5',
-    'Composer 1.0',
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

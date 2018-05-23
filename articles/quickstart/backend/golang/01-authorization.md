@@ -5,16 +5,9 @@ topics:
     - quickstart
     - backend
     - golang
+github:
+  path: 01-Authorization-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'Go 1.8.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

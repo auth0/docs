@@ -24,3 +24,10 @@ seo_alias: wpf-winforms
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-WinFormsWPF-oidc-samples
+requirements:
+  - Microsoft Visual Studio 2017
+  - .NET Framework 4.5.2

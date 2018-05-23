@@ -21,3 +21,10 @@ articles:
   - 03-calling-an-api
   - 04-authorization
   - 05-token-renewal
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-angular-samples
+  branch: master
+requirements:
+  - Angular 2+

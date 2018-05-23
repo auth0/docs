@@ -17,3 +17,11 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-express-api-sample
+requirements:
+  - express.js 4.4.0
+  - express-jwt 5.1.0
+  - express-jwt-authz 1.0.0 

@@ -2,7 +2,7 @@ title: ASP.NET Core Web API v2.0
 alias:
   - asp.net core webapi
   - aspnet core webapi
-    - asp.net core webapi 2.0
+  - asp.net core webapi 2.0
 language:
   - C#
 framework:
@@ -17,3 +17,12 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-webapi-samples
+  branch: master
+requirements:
+  - .NET Core 2.0
+  - ASP.NET Core 2.0
+  - Visual Studio 2017 or Visual Studio Code (Optional)

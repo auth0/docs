@@ -1,0 +1,32 @@
+title: Cycle
+author:
+  community: true
+alias:
+  - cyclejs
+language:
+  - JavaScript
+framework:
+  - Cycle.js
+image: /media/platforms/cyclejs.svg
+tags:
+  - quickstart
+snippets:
+  dependencies: application-platforms/cyclejs/dependencies
+  setup: application-platforms/cyclejs/setup
+  configure: application-platforms/cyclejs/configure
+  securize: application-platforms/cyclejs/securize
+  query: application-platforms/cyclejs/query
+  use: application-platforms/cyclejs/use
+  logout: application-platforms/cyclejs/logout
+seo_alias: cyclejs
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-cyclejs-samples
+  branch: master
+requirements:
+  - cycle/xstream-run 3.0.3
+  - cyclejs-auth0 3.0.0

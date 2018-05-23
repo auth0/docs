@@ -7,16 +7,9 @@ topics:
   - spa
   - react
   - tokens
+github:
+  path: 05-Token-Renewal
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
 
 <%= include('../_includes/_token_renewal_preamble') %>
 

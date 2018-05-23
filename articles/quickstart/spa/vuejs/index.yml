@@ -18,3 +18,10 @@ seo_alias: vuejs
 default_article: dashboard-default
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-vue-samples
+  branch: master
+requirements:
+  - Vue 2.0 

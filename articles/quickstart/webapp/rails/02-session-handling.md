@@ -7,17 +7,9 @@ topics:
   - webapp
   - login
   - sessions
+github:
+  path: 02-Session-Handling
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '02-Session-Handling',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
 
 ## Store Session Data on Login
 

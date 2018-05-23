@@ -7,18 +7,8 @@ topics:
   - webapp
   - aspnet-core
   - login
+github:
+  path: Quickstart/01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/01-Login',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.1.300',
-    '.NET Core 2.1.0',
-    'ASP.NET Core 2.1.0'
-  ]
-}) %>
 
 <%= include('./_includes/_login') %>

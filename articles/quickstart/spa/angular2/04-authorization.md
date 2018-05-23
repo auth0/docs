@@ -1,22 +1,15 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to your application.
 budicon: 546
 topics:
   - quickstarts
   - spa
   - angular2
   - authorization
+github:
+  path: 04-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '04-Authorization',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
 
 <%= include('../_includes/_authz_preamble') %>
 

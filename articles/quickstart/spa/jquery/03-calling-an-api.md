@@ -1,22 +1,15 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
 topics:
   - quickstarts
   - spa
   - jquery
   - api
+github:
+  path: 03-Calling-an-API
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
 
 <%= include('../_includes/_calling_api_preamble') %>
 

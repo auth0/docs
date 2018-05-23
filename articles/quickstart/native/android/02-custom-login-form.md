@@ -7,21 +7,10 @@ topics:
   - quickstarts
   - native
   - android
+github:
+    path: 02-Custom-Login-Form
+    branch: embedded-login
 ---
-
-This quickstart will show you how to add Auth0 login capabilities while using a customized login form.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before Starting
 
