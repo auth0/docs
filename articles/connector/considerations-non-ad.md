@@ -1,5 +1,8 @@
 ---
 description: How to configure the Connector for OpenLDAP and other directories that are not AD.
+tags:
+  - connector
+  - openldap
 ---
 
 # Considerations for OpenLDAP and non-AD directories

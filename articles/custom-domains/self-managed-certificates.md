@@ -2,6 +2,9 @@
 title: Configure Custom Domains with Self-Managed Certificates
 description: How to create custom domains with self-managed certificates
 toc: true
+tags:
+  - custom-domains
+  - certificates
 ---
 # Custom Domains with Self-Managed Certificates
 

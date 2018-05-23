@@ -1,5 +1,9 @@
 ---
 description: How to setup authentication using client certificates.
+tags:
+  - connector
+  - ad/ldap
+  - client-certificates
 ---
 
 # Client Certificate Support
