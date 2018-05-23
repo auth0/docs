@@ -2,6 +2,8 @@
 title: Design Your Auth0 Implementation
 description: Guidance for designing your Auth0 implementation
 classes: topic-page
+tags:
+  - design
 ---
 
 <div class="topic-page-header">

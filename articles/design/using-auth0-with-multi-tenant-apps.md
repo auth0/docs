@@ -2,6 +2,9 @@
 description: This articles discusses how you can use Auth0 with multi-tenant applications.
 crews: crew-2
 toc: true
+tags:
+  - design
+  - multi-tenancy
 ---
 # Using Auth0 with Multi-Tenant Applications
 

@@ -1,5 +1,8 @@
 ---
 description: How to add and remove tenant admins in the Auth0 dashboard.
+tags:
+  - dashboard
+  - admins
 ---
 # Manage Admins in the Dashboard
 
