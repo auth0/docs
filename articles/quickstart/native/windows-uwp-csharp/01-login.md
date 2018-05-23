@@ -12,7 +12,7 @@ budicon: 448
   requirements: [
     'Microsoft Visual Studio 2017',
     'Windows 10 SDK (10.0.10586.0)',
-    'Auth0.OidcClient.UWP 1.0.0'
+    'Auth0.OidcClient.UWP 2.0.0'
   ]
 }) %>
 
