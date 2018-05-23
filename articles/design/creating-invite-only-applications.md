@@ -46,7 +46,7 @@ Since this application needs to access the [Management API](/api/v2), you'll nee
 * Use the **down arrow** to open up the scopes selection area. Select the following scopes: `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
 * Click **Update**.
 
-![Authorize Application](/media/articles/invite-only/invite-only-authorize-application.png)
+![Authorize Application](/media/articles/invite-only/invite-only-authorize-client.png)
 
 ### Import Users
 
