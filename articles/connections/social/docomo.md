@@ -5,6 +5,10 @@ image: /media/connections/daccount.png
 seo_alias: docomo
 description: How to obtain a Client ID and Client Secret for Docomo dAccount.
 toc: true
+tags:
+  - connections
+  - social
+  - docomo
 ---
 
 # Connect your app to Docomo dAccount

@@ -1,5 +1,8 @@
 ---
 description: How to test a partner connection.
+tags:
+  - connections
+  - troubleshootin
 ---
 # Testing a partner connection
 

@@ -1,6 +1,11 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on SPA
 description: Learn how to authenticate users with a one-time-code using email in a Single Page Application (SPA).
+tags:
+    - connections
+    - passwordless
+    - spa
+    - email
 ---
 # Using Passwordless Authentication in SPA with Email
 

@@ -2,6 +2,11 @@
 title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
 description: How to authenticate users with a one-time code via email in a traditional web app that runs on the server
 toc: true
+tags:
+    - connections
+    - web-apps
+    - passwordless
+    - email
 ---
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 

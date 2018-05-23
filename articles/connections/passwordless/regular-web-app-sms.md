@@ -2,6 +2,11 @@
 title: Using Passwordless Authentication in a Regular Web App with SMS
 description: How to authenticate users with a one-time code via SMS in a traditional web app that runs on the server
 toc: true
+tags:
+    - connections
+    - web-apps
+    - passwordless
+    - sms
 ---
 # Authenticate users with a one-time code via SMS in a Regular Web App
 

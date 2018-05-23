@@ -5,6 +5,10 @@ image: /media/connections/oauth2.png
 seo_alias: oauth2
 index: 13
 description: You can add any OAuth2 provider using the Auth0 Custom Social Connections extension.
+tags:
+  - connections
+  - social
+  - oauth2
 ---
 # Add a generic OAuth2 Authorization Server to Auth0
 

@@ -1,5 +1,9 @@
 ---
 description: Caveats you need to be aware of when using Auth0 Dev Keys for social providers.
+tags:
+  - connections
+  - social
+  - dev-keys
 ---
 
 # Test Social Connections with Auth0 Developer Keys

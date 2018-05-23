@@ -5,6 +5,10 @@ image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 seo_alias: yammer
 toc: true
+tags:
+  - connections
+  - social
+  - yammer
 ---
 
 # Connect your app to Yammer

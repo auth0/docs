@@ -1,5 +1,10 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
+tags:
+    - connections
+    - passwordless
+    - email
+    - spa
 ---
 # Authenticate users with a Magic Link via e-mail on SPA
 

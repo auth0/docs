@@ -6,6 +6,10 @@ seo_alias: wordpress
 index: 11
 description: How to obtain a Client Id and Client Secret for WordPress
 toc: true
+tags:
+  - connections
+  - social
+  - wordpress
 ---
 
 # Connect your App to WordPress

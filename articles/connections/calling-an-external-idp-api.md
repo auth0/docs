@@ -3,6 +3,11 @@ title: Call an Identity Provider API
 description: How to call an Identity Provider API
 toc: true
 crews: crew-2
+tags:
+  - connections
+  - social
+  - access-tokens
+  - api
 ---
 # Call an Identity Provider API
 

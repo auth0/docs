@@ -5,6 +5,10 @@ image: /media/connections/box.png
 seo_alias: box
 description: How to obtain a Client Id and Client Secret for Box.
 toc: true
+tags:
+  - connections
+  - social
+  - box
 ---
 
 # Connect your app to Box

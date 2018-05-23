@@ -6,6 +6,10 @@ image:
 alias:
   - sms
 seo_alias: sms
+tags:
+    - connections
+    - passwordless
+    - sms
 ---
 
 # Authenticate users with a one-time code via SMS

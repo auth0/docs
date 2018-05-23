@@ -1,5 +1,9 @@
 ---
 title: Using Passwordless Authentication on a Regular Web Application
+tags:
+    - connections
+    - web-apps
+    - passwordless
 ---
 # Using Passwordless Authentication on a Regular Web App
 

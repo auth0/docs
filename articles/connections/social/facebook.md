@@ -6,6 +6,10 @@ image: /media/connections/facebook.png
 seo_alias: facebook
 description: This article shows you how to connect your app to Facebook
 toc: true
+tags:
+  - connections
+  - social
+  - facebook
 ---
 # Connect your app to Facebook
 

@@ -5,6 +5,12 @@ languages:
     url: swift
   - name: Objective-C
     url: objc
+tags:
+    - connections
+    - passwordless
+    - email
+    - ios
+    - swift
 ---
 # Using Passwordless on iOS with Email
 

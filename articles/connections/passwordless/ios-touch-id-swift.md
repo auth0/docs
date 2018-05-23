@@ -11,6 +11,12 @@ languages:
     url: swift
   - name: Objective-C
     url: objc
+tags:
+    - connections
+    - passwordless
+    - touchid
+    - ios
+    - swift
 ---
 # Using Passwordless on iOS with TouchID
 

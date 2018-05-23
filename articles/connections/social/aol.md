@@ -4,6 +4,10 @@ connection: AOL Reader
 image: /media/connections/aol.png
 seo_alias: aol
 description: How to obtain a Client Id and Client Secret for AOL Reader.
+tags:
+  - connections
+  - social
+  - aol
 ---
 
 # Connect your app to AOL Reader

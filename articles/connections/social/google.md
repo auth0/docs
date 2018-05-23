@@ -10,6 +10,10 @@ alias:
  - google-oauth2
 seo_alias: google
 toc: true
+tags:
+  - connections
+  - social
+  - google
 ---
 # Connect your App to Google
 

@@ -6,6 +6,10 @@ seo_alias: github
 index: 7
 description: How to add GitHub login to your app and access their API
 toc: true
+tags:
+  - connections
+  - social
+  - github
 ---
 # Connect your app to GitHub
 

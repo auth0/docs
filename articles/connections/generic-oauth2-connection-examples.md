@@ -1,6 +1,9 @@
 ---
 description: This document covers generic OAuth 1.0/2.0 examples.
 toc: true
+tags:
+  - connections
+  - oauth2
 ---
 
 # Generic OAuth 1.0 and 2.0 Examples
