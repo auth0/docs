@@ -1760,5 +1760,57 @@ module.exports = [
   {
     from: '/support/sla',
     to: '/support/sld'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api',
+    to: '/architecture-scenarios/mobile-api'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api',
+    to: '/architecture-scenarios/server-api'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api',
+    to: '/architecture-scenarios/spa-api'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso',
+    to: '/architecture-scenarios/web-app-sso'
+  },
+  {
+    from: '/architecture-scenarios/application/web-saml',
+    to: '/architecture-scenarios/web-saml'
+  },
+  {
+    from: '/architecture-scenarios/business/b2b-b2e',
+    to: '/architecture-scenarios/b2b-b2e'
+  },,
+  {
+    from: '/architecture-scenarios/business/b2b',
+    to: '/architecture-scenarios/b2b'
+  },
+  {
+    from: '/architecture-scenarios/business/b2c',
+    to: '/architecture-scenarios/b2c'
+  },
+  {
+    from: '/architecture-scenarios/business/b2e',
+    to: '/architecture-scenarios/b2e'
+  },
+  {
+    from: '/architecture-scenarios/implementations/mobile-api',
+    to: '/architecture-scenarios/mobile-api'
+  },
+  {
+    from: '/architecture-scenarios/implementations/server-api',
+    to: '/architecture-scenarios/server-api'
+  },
+  {
+    from: '/architecture-scenarios/implementations/spa-api',
+    to: '/architecture-scenarios/spa-api'
+  },
+  {
+    from: '/architecture-scenarios/implementations/web-app-sso',
+    to: '/architecture-scenarios/web-app-sso'
   }
 ];
