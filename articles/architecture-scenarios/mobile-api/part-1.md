@@ -5,9 +5,9 @@ toc: true
 
 # Mobile + API: Solutions Overview
 
-<%= include('../../_includes/_api-overview-of-solution.md') %>
+<%= include('../_includes/_api-overview-of-solution.md') %>
 
-<%= include('../../_includes/_api-authentication-and-authorization.md') %>
+<%= include('../_includes/_api-authentication-and-authorization.md') %>
 
 ## Proof Key for Code Exchange (PKCE)
 
