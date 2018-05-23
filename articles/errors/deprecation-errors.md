@@ -67,9 +67,6 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 | Cause | Resolution |
 | --- | --- |
 | You are using a legacy version of embedded Lock or Auth0.js SDK. | [Migrate to Universal Login](/guides/login/migration-embedded-universal) if possible or [upgrade to Lock v11 / Auth0.js v9](/migrations#introducing-lock-v11-and-auth0-js-v9) (Reference guide for [Lock v11](/libraries/lock/v11) and for [Auth0.js v9](/libraries/auth0js/v9)). |
-| Calling /login endpoint directly. | Migrate to use a form of the [/authorize endpoint](/api/authentication?http#login) as the start of authentication transactions. |
-| Users bookmarking the login URL and trying to initiate login from that bookmarked link at a later time. | Educate users to bookmark instead the place in your app to which they want to return (such as the home page). Depending on your design choices, and if there's no valid session for the user in the app, the app will either start the authorization process or show a login button. |
-| Users hitting the back button in the middle of a login transaction. | Educate users to start the login transaction again, starting from the initial login button/link, rather than using the back or forward button. |
 | Calling the /usernamepassword/login endpoint directly. | Use the Lock or Auth0.js libraries instead. |
 
 ### ssodata
