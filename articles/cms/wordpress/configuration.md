@@ -49,6 +49,8 @@ First, we'll check for the Application created for your WordPress site.
     Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
     :::
 
+1. If SSO is needed, make sure that **Use Auth0 instead of the IdP to do Single Sign On** is turned on.
+
 1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 
 1. Turn off **OIDC Conformant**.
