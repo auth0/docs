@@ -10,8 +10,8 @@ budicon: 448
   repo: 'auth0-xamarin-oidc-samples',
   path: 'Quickstart/01-Login',
   requirements: [
-    'Visual Studio 2017 or Visual Studio for Mac',
-    'Xamarin for Visual Studio 4.5',
+    'Visual Studio 2017 (Version 15.7) or Visual Studio for Mac (Version 7.5)',
+    'Xamarin for Visual Studio 4.10',
     'Auth0.OidcClient.Android 2.0.0',
     'Auth0.OidcClient.iOS 2.0.0'
   ]
@@ -52,11 +52,11 @@ Go to your [Application's Dashboard](${manage_url}/#/applications/${account.clie
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
+To integrate Auth0 login into your application, instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
 
 ${snippet(meta.snippets.setup)}
 
-You can then call the `LoginAsync` method which will redirect the user to the Auth0 Hosted Lock screen.
+Then, call the `LoginAsync` method which will redirect the user to the login screen. You will typically do this in the event handler for a UI control such as a Login button.
 
 ```cs
 var loginResult = await client.LoginAsync();
@@ -68,7 +68,7 @@ After a user has logged in, they will be redirected back to your application at 
 
 ### Android
 
-Register an intent which will handle this callback URL. An easy way to do this is to registed the intent on the same activity from which you called the `LoginAsync` method to initiate the authentication flow.
+Register an intent which will handle this callback URL. An easy way to do this is to register the intent on the same activity from which you called the `LoginAsync` method to initiate the authentication flow.
 
 ```csharp
 [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon",
@@ -124,11 +124,26 @@ This is an example of the XML representation of your `info.plist` file after you
 </array>
 ```
 
+You need to handle the Callback URL in the `OpenUrl` event in your `AppDelegate` class.  You need to notify the Auth0 OIDC Client to finish the authentication flow by calling the `Send` method of the `ActivityMediator` singleton, pass along the URL that was sent in:
+
+```csharp
+using Auth0.OidcClient;
+
+[Register("AppDelegate")]
+public class AppDelegate : UIApplicationDelegate
+{
+    public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+    {
+        ActivityMediator.Instance.Send(url.AbsoluteString);
+
+        return true;
+    }
+}
+```
+
 ## Run the application
 
 With the above code in place, a user can log in to your application using Auth0.
-
-<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-android.png" alt="Lock UI"></div>
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-ios.png" alt="Lock UI"></div>
 
@@ -171,7 +186,7 @@ if (!loginResult.IsError)
 
 On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
 
-To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
+To obtain information about the user, you can query the claims. You can, for example, obtain the user's name and email address from the `name` and `email` claims:
 
 ```csharp
 if (!loginResult.IsError)
