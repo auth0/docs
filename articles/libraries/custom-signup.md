@@ -63,7 +63,13 @@ There is currently no way to validate user-supplied custom fields when signing u
 
 ### 2. Send the Form Data
 
-Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
+Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0. 
+
+You will need to send:
+- Your application's `client_id`
+- The `email` and `password` of the user being signed up
+- The name of the database `connection` to store your user's data
+- Any custom fields as part of `user_metadata`
 
 ```har
 {
@@ -75,7 +81,7 @@ Send a POST request to the [/dbconnections/signup](/api/authentication/reference
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"user_metadata\": {\"name\": \"john\",\"color\": \"red\"}}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"connection\": \"YOUR_CONNECTION_NAME\",\"user_metadata\": {\"name\": \"john\",\"color\": \"red\"}}"
   }
 }
 ```
