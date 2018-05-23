@@ -6,6 +6,9 @@ seo_alias: bankid
 description: Connecting Norwegian BankID with Auth0 through the Criipto Verify service
 toc: true
 crews: crew-2
+tags:
+    - connections
+    - criipto
 ---
 
 # Log in with Norwegian BankID through Auth0

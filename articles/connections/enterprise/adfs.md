@@ -8,6 +8,13 @@ alias:
 seo_alias: adfs
 description: How to connect ADFS with Auth0.
 crews: crew-2
+tags:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+    - ad-fs
 ---
 # Connect your app to ADFS
 

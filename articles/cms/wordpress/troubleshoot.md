@@ -1,5 +1,8 @@
 ---
 description: This page explains common troubleshooting issues with WordPress.
+tags:
+    - wordpress
+    - cms
 ---
 
 # WordPress Troubleshooting

@@ -12,6 +12,13 @@ alias:
 seo_alias: azure-active-directory-native
 description: How to setup native Azure Active Directory applications with Auth0 for a Resource Owner.
 crews: crew-2
+tags:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+    - native-apps
 ---
 
 # Native Azure Active Directory applications with Auth0 (Resource Owner flow)

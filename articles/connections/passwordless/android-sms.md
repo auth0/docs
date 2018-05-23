@@ -1,5 +1,11 @@
 ---
 title: Using Passwordless Authentication on Android with SMS
+tags:
+    - connections
+    - passwordless
+    - android
+    - sms
+    - mobile
 ---
 # Authenticate users with a one-time code via SMS
 

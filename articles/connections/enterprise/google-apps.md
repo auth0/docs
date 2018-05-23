@@ -6,6 +6,11 @@ seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
 crews: crew-2
 toc: true
+tags:
+    - connections
+    - enterprise
+    - google
+    - google-apps
 ---
 
 # Connect Your Google App with Auth0

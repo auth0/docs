@@ -5,6 +5,10 @@ image: /media/connections/wsfed.png
 public: true
 seo_alias: ws-fed
 description: Connecting WS-Federation Providers with Auth0
+tags:
+    - connections
+    - enterprise
+    - ws-fed
 ---
 
 # Connecting WS-Federation Providers with Auth0

@@ -2,6 +2,9 @@
 title: "GDPR: Right to access, correct, and erase data"
 description: This article discusses which Auth0 features can help customers comply with the GDPR requirements on the user's right to access, correct, and erase their personal data
 toc: true
+tags:
+    - compliance
+    - gdpr
 ---
 # GDPR: Right to access, correct, and erase data
 

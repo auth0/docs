@@ -1,5 +1,8 @@
 ---
 description: How to install Auth0 onto your Joomla platform.
+tags:
+    - joomla
+    - cms
 ---
 
 # Joomla Installation

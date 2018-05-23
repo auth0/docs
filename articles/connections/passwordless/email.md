@@ -4,6 +4,10 @@ connection: Email
 alias:
   - email
 seo_alias: email
+tags:
+    - connections
+    - passwordless
+    - email
 ---
 
 # Authenticate users with using Passwordless Authentication via Email

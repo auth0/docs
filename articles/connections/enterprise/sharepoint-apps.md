@@ -7,6 +7,10 @@ alias:
   - sharepoint
 seo_alias: sharepoint-apps
 description: About connecting SharePoint Apps with Auth0.
+tags:
+    - connections
+    - enterprise
+    - sharepoint
 ---
 
 # Connect your app to SharePoint Apps

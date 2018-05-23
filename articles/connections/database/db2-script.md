@@ -1,6 +1,10 @@
 ---
 title: Login Script for IBM DB2
 description: A custom callback script for those integrating with IBM DB2
+tags:
+    - connections
+    - custom-database
+    - ibm-db2
 ---
 
 # Login Script for IBM DB2

@@ -2,6 +2,9 @@
 title: Compliance
 description: Information about Auth0 Compliance and Certifications
 classes: topic-page
+tags:
+    - compliance
+    - gdpr
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

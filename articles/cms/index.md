@@ -1,6 +1,10 @@
 ---
 url: /cms
 description: Explains CMS Identity Plugins such as WordPress and Joomla.
+tags:
+    - wordpress
+    - joomla
+    - cms
 ---
 
 # CMS Identity Plugins

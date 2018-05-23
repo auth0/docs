@@ -2,6 +2,9 @@
 title: "GDPR: Conditions for Consent"
 description: This article discusses which Auth0 features can help customers comply with the Conditions for Consent GDPR requirements
 toc: true
+tags:
+    - compliance
+    - gdpr
 ---
 # GDPR: Conditions for Consent
 

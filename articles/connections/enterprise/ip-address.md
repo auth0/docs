@@ -9,6 +9,10 @@ alias:
 seo_alias: ip-address
 description: How to use IP Address Authentication with Auth0.
 crews: crew-2
+tags:
+    - connections
+    - enterprise
+    - ip-addresses
 ---
 # Configure IP Address Authentication
 

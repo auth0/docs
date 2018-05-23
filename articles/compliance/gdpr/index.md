@@ -2,6 +2,9 @@
 title: Auth0 and General Data Protection Regulation
 description: How Auth0 complies with the EU's General Data Protection Regulation (GDPR)
 classes: topic-page
+tags:
+    - compliance
+    - gdpr
 ---
 
 <div class="topic-page-header">
