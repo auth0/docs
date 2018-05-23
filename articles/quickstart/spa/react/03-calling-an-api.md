@@ -2,16 +2,9 @@
 title: Calling an API
 description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
+github:
+  path: 03-Calling-an-API
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
 
 <%= include('../_includes/_calling_api_preamble') %>
 

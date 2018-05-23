@@ -18,3 +18,10 @@ seo_alias: ionic3
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-ionic3-sample
+requirements:
+  - Ionic 3.x
+  - Angular 4+ 

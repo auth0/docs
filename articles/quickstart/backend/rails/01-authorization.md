@@ -1,17 +1,9 @@
 ---
 title: Authentication
-description: This tutorial demonstrates how to add authentication to Ruby on Rails API
+description: This tutorial demonstrates how to add authorization to Ruby on Rails API.
+github:
+  path: 01-Authentication-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-api-samples',
-  path: '01-Authentication-RS256',
-  requirements: [
-    'Ruby 2.1.8',
-    'Rails 4.2.5.1'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

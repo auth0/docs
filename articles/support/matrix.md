@@ -510,11 +510,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/webapp/apache">Apache</a></td>
-      <td class="text-center"></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
       <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-nancyfx-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
@@ -601,11 +596,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/backend/falcor">Falcor</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-falcor-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/backend/relay">Relay</a></td>
-      <td class="text-center"></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>

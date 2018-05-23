@@ -15,3 +15,10 @@ seo_alias: emberjs
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-ember-samples
+  branch: master
+requirements:
+  - Ember 2.x

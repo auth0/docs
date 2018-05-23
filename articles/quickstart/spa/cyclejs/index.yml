@@ -22,3 +22,11 @@ seo_alias: cyclejs
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-cyclejs-samples
+  branch: master
+requirements:
+  - cycle/xstream-run 3.0.3
+  - cyclejs-auth0 3.0.0

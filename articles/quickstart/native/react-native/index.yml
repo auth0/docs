@@ -23,3 +23,10 @@ seo_alias: react-native
 default_article: dashboard-default
 articles:
   - 00-login
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-react-native-sample
+requirements:
+  - React Native 0.26.0
+  - NodeJS 4.3

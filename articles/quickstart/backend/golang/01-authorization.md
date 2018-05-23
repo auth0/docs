@@ -1,16 +1,9 @@
 ---
 title: Authorization
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
+github:
+  path: 01-Authorization-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'Go 1.8.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

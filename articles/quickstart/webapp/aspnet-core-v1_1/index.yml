@@ -14,3 +14,13 @@ articles:
   - 01-login
   - 02-user-profile
   - 03-authorization
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-mvc-samples
+  branch: v1
+requirements:
+  - .NET Core SDK 1.x
+  - .NET Core 1.x
+  - ASP.NET Core 1.x
+  - Microsoft Visual Studio 2017 Update 3 or .NET core command line tools

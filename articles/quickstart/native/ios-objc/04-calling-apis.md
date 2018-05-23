@@ -2,20 +2,11 @@
 title: Calling APIs
 description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
 budicon: 546
+github:
+    path: 04-Calling-APIs
 ---
 
 You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '04-Calling-APIs',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 

@@ -1,18 +1,10 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch and update user profile information
+description: This tutorial demonstrates how to fetch and update user profile information.
 budicon: 292
+github: 
+  path: 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-nodejs-webapp-sample',
-  path: '02-User-Profile',
-  requirements: [
-    'NodeJS 4.3 or higher',
-    'Express 4.16'
-  ]
-}) %>
 
 ## User Profile
 

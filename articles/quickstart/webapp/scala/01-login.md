@@ -1,20 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+  path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-scala-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Scala 2.11.7',
-    'Typesafe Activator 1.3.7',
-    'Play framework 2.4.6'
-  ]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 

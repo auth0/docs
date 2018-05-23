@@ -1,21 +1,11 @@
 ---
 title: Authorization
-name: Shows how to secure your API using the standard OWIN JWT middeware
 description: This tutorial demonstrates how to add authorization to your ASP.NET OWIN API using Auth0.
+name: Shows how to secure your API using the standard OWIN JWT middeware
 budicon: 500
+github:
+    path: Quickstart/01-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-webapi-samples',
-  path: 'Quickstart/01-Authorization',
-  requirements: [
-    'Microsoft Visual Studio 2015 Update 3',
-    'Microsoft.Owin.Security.Jwt NuGet Package V3.0.1',
-    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2',
-    'Auth0.OpenIdConnectSigningKeyResolver NuGet Package v1.0.0'
-  ]
-}) %>
 
 ::: panel-warning OWIN 4 Incompatibility
 Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is only compatible with **System.IdentityModel.Tokens.Jwt 4.x** and the **OWIN 3.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with newer versions of those packages will result in compiler errors.

@@ -3,18 +3,9 @@ title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
 budicon: 448
+github:
+    path: Quickstart/00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-uwp-oidc-samples',
-  path: 'Quickstart/00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2017',
-    'Windows 10 SDK (10.0.10586.0)',
-    'Auth0.OidcClient.UWP 1.0.0'
-  ]
-}) %>
 
 This tutorial explains how to integrate the Auth0 OIDC Application with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 

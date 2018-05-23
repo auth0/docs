@@ -1,25 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how integrate Auth0 with a Django Web Applcation.
+description: This tutorial demonstrates how integrate Auth0 with a Django Web Application.
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-You can get started by either downloading the complete project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-django-web-app',
-  path: '01-Login',
-  requirements: [
-    'python 2.7, 3.0 and up',
-    'django 1.11 and up',
-    'social-auth-app-django 1.2.0 and up',
-    'python-jose 1.3.2 and up',
-    'six 1.10.0 and up',
-    'python-dotenv 0.6.5 and up'
-  ]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 

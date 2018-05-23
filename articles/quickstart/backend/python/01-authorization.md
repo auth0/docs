@@ -1,20 +1,9 @@
 ---
 title: Authorization
-description: This tutorial will show you how to use the Auth0 to add authorization to your Python API.
+description:  This tutorial demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/).
+github:
+  path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-python-api-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'python 2.7, 3.3 and up',
-    'flask 0.11.1',
-    'python-jose-cryptodome 1.3.2',
-    'flask-cors 3.0.2',
-    'six 1.10.0'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

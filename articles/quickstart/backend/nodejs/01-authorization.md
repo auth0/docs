@@ -1,18 +1,9 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to an Express.js API
+description: This tutorial demonstrates how to add authentication and authorization to an Express.js API.
+github:
+  path: 01-Authorization-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-express-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'express.js 4.4.0',
-    'express-jwt 5.1.0',
-    'express-jwt-authz 1.0.0'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

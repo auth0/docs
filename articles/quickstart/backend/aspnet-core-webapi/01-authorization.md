@@ -1,22 +1,11 @@
 ---
 title: Authorization
-name: Shows how to secure your API using the standard JWT middeware
-description: Shows how to secure your API using the standard JWT middeware.
+name: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
+description: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
 budicon: 500
+github:
+    path: Quickstart/01-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  branch: 'master',
-  repo: 'auth0-aspnetcore-webapi-samples',
-  path: 'Quickstart/01-Authorization',
-  requirements: [
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0',
-    'Visual Studio 2017 (Optional)',
-    'Visual Studio Code (Optional)'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

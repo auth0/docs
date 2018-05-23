@@ -3,23 +3,9 @@ title: Login
 default: true
 description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with the Flask framework.
 budicon: 448
+github:
+    path: 01-Login
 ---
-
-You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-python-web-app',
-  path: '01-Login',
-   requirements: [
-    'Python 2.7, 3.0 and up',
-    'Flask 0.10.1 and up',
-    'Python-dotenv 0.6.5 and up',
-    'Requests 2.3.0 and up',
-    'Authlib 0.6',
-    'Six 1.10.0 and up'
-  ]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 

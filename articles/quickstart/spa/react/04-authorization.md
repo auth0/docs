@@ -2,16 +2,9 @@
 title: Authorization
 description: This tutorial demonstrates how to add authorization and access control to your application
 budicon: 546
+github:
+  path: 04-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '04-Authorization',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
 
 <%= include('../_includes/_authz_preamble') %>
 

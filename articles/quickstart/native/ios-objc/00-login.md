@@ -1,18 +1,9 @@
 ---
 title: Login
-description: This tutorial will show you how to integrate the Auth0 Login in your iOS ObjectiveC project in order to present a login screen.
+description: This tutorial demonstrates how to add user login to your Objective-C application with Auth0.
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '01-Login',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 <%= include('_includes/_login_centralized') %>

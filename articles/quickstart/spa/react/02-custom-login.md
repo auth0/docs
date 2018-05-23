@@ -1,17 +1,10 @@
 ---
 title: Custom Login
-description: This tutorial demonstrates how to use the auth0.js library to add custom authentication and authorization to your ReactJS web application
+description: This tutorial demonstrates how to use the auth0.js library to add custom authentication and authorization to your ReactJS web application.
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-sample',
-  path: '02-Custom-Login',
-  requirements: [
-    'React 15.3'
-  ]
-}) %>
 
 In the [previous step](/quickstart/spa/react/01-login), we enabled login with Auth0's Lock widget. You can also build your own UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 

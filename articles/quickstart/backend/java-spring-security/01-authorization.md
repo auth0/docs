@@ -3,17 +3,9 @@ title: Authorization
 name: How to secure your Spring Security API with Auth0
 description: This tutorial demonstrates how to add authorization to your Spring Security API using Auth0.
 budicon: 500
+github:
+    path: 01-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-spring-security-api-sample',
-  path: '01-Authorization',
-  requirements: [
-    'Java 8 or above',
-    'Maven 3.0.x or above'
-  ]
-}) %>
 
 This tutorial shows you how to protect your Spring Security API endpoints and limit access to resources in your API.
 

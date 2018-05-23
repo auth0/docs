@@ -20,3 +20,10 @@ articles:
   - 03-calling-an-api
   - 04-authorization
   - 05-token-renewal
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-jquery-samples
+  branch: master
+requirements:
+  - jQuery 3.2.1

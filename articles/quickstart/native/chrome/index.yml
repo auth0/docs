@@ -18,3 +18,10 @@ seo_alias: chrome-extension
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-chrome-sample
+requirements:
+  - auth0-chrome 0.1.2
+  - jwt-decode 2.1.0 

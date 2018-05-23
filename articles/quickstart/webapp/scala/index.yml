@@ -1,5 +1,6 @@
 title: Play 2 Scala
-community: true
+author:
+ community: true
 image: /media/platforms/play.png
 tags:
   - quickstart
@@ -11,3 +12,12 @@ seo_alias: scala
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-scala-samples
+  branch: master
+requirements:
+  - Scala 2.11.7
+  - Typesafe Activator 1.3.7
+  - Play framework 2.4.6 

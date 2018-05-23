@@ -1,18 +1,10 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension
+description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension.
 budicon: 448
+github:
+  path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-chrome-sample',
-  path: '00-Starter-Seed',
-  requirements: [
-    'auth0-chrome 0.1.2',
-    'jwt-decode 2.1.0'
-  ]
-}) %>
 
 This quickstart demonstrates how to add authentication to a Chrome extension with Auth0. The tutorial is based on a sample application which uses Auth0's hosted Lock widget and Chrome's `launchWebAuthFlow`.
 

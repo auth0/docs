@@ -1,20 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 PHP SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+  path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-php-web-app',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Apache 2.4.4',
-    'PHP 5.6.14 and up',
-    'Auth0-PHP 5.0 and up'
-  ]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 

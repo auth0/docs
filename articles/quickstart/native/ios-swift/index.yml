@@ -65,3 +65,11 @@ next_steps:
     - text: Learn about rules
       icon: 345
       href: "/rules"
+show_steps: false
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-sample
+requirements:
+  - CocoaPods 1.2.1
+  - Version 8.3.2 (8E2002)
+  - iPhone 7 - iOS 10.3 (14E269)

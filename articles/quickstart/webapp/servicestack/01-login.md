@@ -1,19 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 ServiceStack SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 ServiceStack SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+    path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-servicestack-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2015',
-    '.NET Framework 4.5.2'
-  ]
-}) %>
 
 At the end of this tutorial, you will have a working website that calls a ServiceStack API with authenticated users.
 

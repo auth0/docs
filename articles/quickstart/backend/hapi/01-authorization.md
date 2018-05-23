@@ -1,17 +1,9 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to a Hapi.js API
+description: This tutorial demonstrates how to add authorization to a Hapi.js API.
+github:
+  path: 01-Authenticate-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-hapi-api-samples',
-  path: '01-Authenticate-RS256',
-  requirements: [
-    'Hapi.js 16.0.0',
-    'hapi-auth-jwt2 7.2.4'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

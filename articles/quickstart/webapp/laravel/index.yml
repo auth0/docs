@@ -2,6 +2,10 @@ title: PHP (Laravel)
 image: /media/platforms/php.png
 tags:
   - quickstart
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 snippets:
   dependencies: server-platforms/laravel/dependencies
   setup: server-platforms/laravel/setup
@@ -10,3 +14,12 @@ seo_alias: laravel
 default_article: 01-login
 articles:
   - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-laravel-php-web-app
+  branch: master
+requirements:
+  - Composer 1.5
+  - PHP 7.0
+  - Laravel 5.5 

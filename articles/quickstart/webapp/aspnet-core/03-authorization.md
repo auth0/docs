@@ -2,19 +2,9 @@
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 budicon: 546
+github:
+  path: Quickstart/04-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/04-Authorization',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.0',
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0'
-  ]
-}) %>
 
 ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application. 
 

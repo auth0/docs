@@ -2,16 +2,9 @@
 title: Login
 description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-web-app',
-  path: '01-Login',
-	requirements: [
-		'Go 1.5.3 and up'
-	]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
 

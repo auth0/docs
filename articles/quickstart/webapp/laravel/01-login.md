@@ -3,18 +3,9 @@ title: Login
 default: true
 description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+    path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-php-web-app',
-  path: '01-Login',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5'
-  ]
-}) %>
 
 ## Install and Configure Laravel 5.5
 

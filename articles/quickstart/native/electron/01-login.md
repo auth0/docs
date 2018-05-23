@@ -2,17 +2,9 @@
 title: Login
 description: This tutorial will show you how to use the Auth0 Electron SDK to add authentication and authorization to your app.
 budicon: 448
+github:
+  path: 01-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-electron-samples',
-  path: '01-Login',
-  requirements: [
-    'NodeJS 5.0.0',
-    'Electron 1.4.3'
-  ]
-}) %>
 
 ## Configure the Callback URL
 

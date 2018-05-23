@@ -18,3 +18,11 @@ seo_alias: windows-uwp-csharp
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-uwp-oidc-samples
+requirements:
+  - Microsoft Visual Studio 2017
+  - Windows 10 SDK (10.0.10586.0)
+  - Auth0.OidcClient.UWP 1.0.0

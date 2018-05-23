@@ -1,19 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+  path: Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'aspnet-samples',
-  path: 'Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample/',
-  requirements: [
-    'Microsoft Visual Studio 2017',
-    'Auth0-ASPNET v2.1.0'
-  ]
-}) %>
 
 ## Install the Auth0-ASPNET NuGet Package
 

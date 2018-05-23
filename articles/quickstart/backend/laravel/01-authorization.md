@@ -1,19 +1,9 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
+description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0.
+github:
+   path: 01-Authorization-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5',
-    'laravel-auth0 5.0.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

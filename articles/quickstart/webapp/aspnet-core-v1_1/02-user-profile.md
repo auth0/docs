@@ -2,19 +2,9 @@
 title: User Profile
 description: This tutorial will show you how to display get the user's profile and display it.
 budicon: 292
+github:
+  path: Quickstart/03-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  branch: 'v1',
-  path: 'Quickstart/03-User-Profile',
-  requirements: [
-    '.NET Core 1.1.0',
-    'ASP.NET Core 1.1.1',
-    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
-  ]
-}) %>
 
 ## Getting the Profile
 

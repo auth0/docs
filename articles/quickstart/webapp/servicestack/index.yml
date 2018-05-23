@@ -1,5 +1,6 @@
 title: ServiceStack
-community: true
+author:
+ community: true
 image: /media/platforms/service-stack.png
 tags:
   - quickstart
@@ -11,3 +12,11 @@ seo_alias: servicestack
 default_article: 01-login
 articles:
   - 01-login
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-servicestack-samples
+  branch: master
+requirements:
+  - Microsoft Visual Studio 2015 and up
+  - .NET Framework 4.5.2

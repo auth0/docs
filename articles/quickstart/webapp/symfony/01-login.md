@@ -1,19 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Symfony SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 Symfony SDK to add authentication and authorization to your web app.
 budicon: 448
+github:
+    path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-symfony-php-web-app',
-  path: '00-Starter-Seed',
-  requirements: [
-    'PHP 5.6, 7.0',
-    'Symfony 3.3'
-  ]
-}) %>
 
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 

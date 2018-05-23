@@ -3,20 +3,9 @@ title: Session Handling
 description: This tutorial will show you how to login and maintain a session’s connectivity.
 seo_alias: android
 budicon: 280
+github:
+    path: 03-Session-Handling
 ---
-
-This tutorial shows you how to let users log in and maintain an active session with Auth0.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '03-Session-Handling',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 

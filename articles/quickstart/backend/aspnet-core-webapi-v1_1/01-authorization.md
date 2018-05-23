@@ -1,23 +1,11 @@
 ---
 title: Authorization
-name: Shows how to secure your API using the standard JWT middeware
-description: Shows how to secure your API using the standard JWT middeware.
+name: Shows how to secure your API using the standard JWT middleware.
+description: Shows how to secure your API using the standard JWT middleware.
 budicon: 500
+github:
+    path: Quickstart/01-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  branch: 'v1',
-  repo: 'auth0-aspnetcore-webapi-samples',
-  path: 'Quickstart/01-Authorization',
-  requirements: [
-    '.NET Core 1.1',
-    'ASP.NET Core 1.1',
-    'Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1',
-    'Visual Studio 2017 (Optional)',
-    'Visual Studio Code (Optional)'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 

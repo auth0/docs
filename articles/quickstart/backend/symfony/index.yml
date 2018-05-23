@@ -18,3 +18,10 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+show_steps: false
+github:
+  org: auth0-community
+  repo: auth0-symfony-api-samples
+requirements:
+  - PHP 5.5
+  - Symfony 3.2 

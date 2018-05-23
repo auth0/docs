@@ -1,17 +1,9 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to a Symfony API
+description: This tutorial demonstrates how to add authentication and authorization to a Symfony API.
+github:
+    path: 01-Authorization-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-symfony-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'PHP 5.5',
-    'Symfony 3.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
