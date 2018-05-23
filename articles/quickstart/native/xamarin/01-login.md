@@ -64,7 +64,7 @@ var loginResult = await client.LoginAsync();
 
 ## Handing the callback URL
 
-After a user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. In Android, this is handled as an **Intent** and in iOS by registering a **URL Type**.
+After a user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. In both Android and iOS you need to handle this callback to complete the authentication flow.
 
 ### Android
 
