@@ -5,7 +5,7 @@ toc: true
 
 # Mobile + API: API and Mobile Configuration
 
-<%= include('../../_includes/_api-implement.md') %>
+<%= include('../_includes/_api-implement.md') %>
 
 ## Implement the Mobile App
 

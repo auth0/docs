@@ -22,9 +22,9 @@ You will be required to supply the following details for your API:
 
 Fill in the required information and click the __Create__ button.
 
-<%= include('../../_includes/_api-signing-algorithms.md') %>
+<%= include('../_includes/_api-signing-algorithms.md') %>
 
-<%= include('../../_includes/_api-configure-scopes.md') %>
+<%= include('../_includes/_api-configure-scopes.md') %>
 
 ## Create the Application
 
