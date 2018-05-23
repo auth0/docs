@@ -164,6 +164,7 @@ The user search engine v2 will be deprecated soon, so we recommend migrating use
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
 * You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
+* The `_missing_` filter is not supported, consider using `NOT _exists_:...` instead.
 
 ### Queries to migrate
 
