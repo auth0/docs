@@ -484,7 +484,7 @@ This endpoint is still under development. It is available to customers with earl
 
 Associates or adds a new authenticator for multifactor authentication.
 
-If the user has active authenticators, an [Access Token](/tokens/access-token) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa` is required to use this endpoint.
+If the user has active authenticators, an [Access Token](/tokens/access-token) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa/` is required to use this endpoint.
 
 If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
 
@@ -494,7 +494,7 @@ A `recovery_codes` field is included in the response the first time an authentic
 
 To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
 - `scope`: `enroll`
-- `audience`: `https://${account.namespace}/mfa`
+- `audience`: `https://${account.namespace}/mfa/`
 
 ### Request parameters
 
@@ -596,7 +596,7 @@ Returns a list of authenticators associated with your application.
 
 To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
 - `scope`: `read:authenticators`
-- `audience`: `https://${account.namespace}/mfa`
+- `audience`: `https://${account.namespace}/mfa/`
 
 ### Request Parameters
 
@@ -661,7 +661,7 @@ You can get authenticator IDs by [listing the authenticators](#list-authenticato
 
 To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
 - `scope`: `remove:authenticators`
-- `audience`: `https://${account.namespace}/mfa`
+- `audience`: `https://${account.namespace}/mfa/`
 
 
 ### Request Parameters
