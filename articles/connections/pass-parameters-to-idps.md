@@ -16,38 +16,23 @@ To pass static parameters per connection, you can use the `upstream_params` elem
 
 As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)). To continue, you should already have a working Wordpress connection; to learn how to configure one, see [Connect Your App to WordPress](https://auth0.com/docs/connections/social/wordpress).
 
-Let's assume that you want to always request that users have access to the `myblog.wordpress.com` blog when logging in using WordPress. To accomplish this, you will map WordPress's `blog` parameter to the existing accepted parameter of `access_type` and assign it a default value of `myblog.wordpress.com`:
-
-```json
-{
-  "name": "WordPressConn",
-  "strategy": "wordpress",
-  "options": {
-    "upstream_params": {
-      "blog": {
-        "alias": "access_type",
-        "value": "myblog.wordpress.com"
-      }
-    }
-  }
-}
-```
+Let's assume that you want to always request that users have access to the `myblog.wordpress.com` blog when logging in using WordPress. To accomplish this, you will assign WordPress's `blog` parameter a default value of `myblog.wordpress.com`:
 
 ```har
 {
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_ACCESS_TOKEN"
-  },{
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"blog\": {\"alias\": \"access_type\",\"value\": \"myblog.wordpress.com\"}}, \"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\",\"scope\": \"auth\"}}"
-  }
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections/",
+	"headers": [{
+			"name": "Authorization",
+			"value": "Bearer YOUR_ACCESS_TOKEN"
+		}, {
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"name\": \"WPConn\",\"strategy\": \"wordpress\",\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"blog\": {\"value\": \"myblog.wordpress.com\"}},\"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\"}}"
+	}
 }
 ```
 
