@@ -1,5 +1,8 @@
 ---
 public: true
+tags:
+  - errors
+  - tokens
 ---
 
 # Errors with code 'invalid_token'

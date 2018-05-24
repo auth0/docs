@@ -1,6 +1,8 @@
 ---
 description: How to edit Hooks using the Auth0 Command-Line Interfance
 beta: true
+    - hooks
+    - cli
 ---
 
 # Edit Existing Hooks Using the Auth0 Command-Line Interface

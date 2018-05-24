@@ -1,6 +1,9 @@
 ---
 description: How to create/delete Hooks using the Auth0 Command-Line Interfance
 beta: true
+tags:
+    - hooks
+    - cli
 ---
 
 # Create/Delete Hooks Using the Auth0 Command-Line Interface

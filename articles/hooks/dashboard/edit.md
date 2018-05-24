@@ -1,6 +1,9 @@
 ---
 description: How to edit Hooks using the Management Dashboard
 beta: true
+tags:
+    - hooks
+    - dashboard
 ---
 
 # Edit Existing Hooks Using the Dashboard

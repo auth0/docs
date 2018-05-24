@@ -3,6 +3,12 @@ section: libraries
 title: Migrating from Legacy Authentication Flows
 description: How to migrate from Legacy Authentication Flows
 toc: true
+tags:
+    - migrations
+    - lock
+    - auth0js
+    - tokens
+    - user-profiles
 ---
 # Migrating from Legacy Authentication Flows
 

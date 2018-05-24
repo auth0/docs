@@ -1,5 +1,8 @@
 ---
 description: This page explains how to setup and manage the Authorization Extension v1.
+tags:
+  - extensions
+  - authorization_v1
 ---
 
 # Auth0 Authorization Extension v1

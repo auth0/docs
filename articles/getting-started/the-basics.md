@@ -2,6 +2,9 @@
 title: Learn the Basics
 description: Learn the basics of Auth0 and familiarize yourself with the terminology
 toc: true
+tags:
+  - auth0-101
+  - auth0-basics
 ---
 # Learn the Basics
 

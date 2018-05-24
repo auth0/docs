@@ -1,5 +1,8 @@
 ---
 description: This page explains the Auth0 AD/LDAP Connector Health Monitor Extension and how to install and configure it.
+tags:
+  - extensions
+  - ad/ldap-connector
 ---
 
 # Auth0 Extension: Auth0 AD/LDAP Connector Health Monitor

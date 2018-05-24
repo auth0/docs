@@ -2,6 +2,9 @@
 title: Installing the Authorization Extension
 description: How to install the Authorization Extension
 toc: true
+tags:
+  - extensions
+  - authorization_v2
 ---
 # Authorization Extension: Installation
 

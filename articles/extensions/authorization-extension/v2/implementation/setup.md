@@ -2,6 +2,9 @@
 title: Setting Up the Authorization Extension
 description: How to set up the Authorization Extension
 toc: true
+tags:
+  - extensions
+  - authorization_v2
 ---
 
 # Authorization Extension: Setup

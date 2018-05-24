@@ -1,6 +1,9 @@
 ---
 title: Importing Data Into and Exporting Data from the Authorization Extension
 description: How to import/export Authorization Extension Data
+tags:
+  - extensions
+  - authorization_v2
 ---
 
 # Authorization Extension: Import/Export Data

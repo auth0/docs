@@ -1,6 +1,9 @@
 ---
 title: Enabling API Access to the Authorization Extension
 description: How to enable API access to the Authorization Extension
+tags:
+  - extensions
+  - authorization_v2
 ---
 # Authorization Extension: API Access
 

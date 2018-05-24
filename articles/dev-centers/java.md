@@ -2,6 +2,8 @@
 title: Java Developer Center
 description: Resources and documentation for Java developers
 logo: java
+tags:
+  - java
 ---
 
 # Java SDK Developer Center

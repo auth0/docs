@@ -2,6 +2,8 @@
 classes: topic-page
 title: Development Lifecycle
 description: Introduction to development lifecycle in Auth0.
+tags:
+  - dev-tools
 ---
 
 <div class="topic-page-header">

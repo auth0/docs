@@ -1,6 +1,9 @@
 ---
 description: How to configure a Custom Social Connection to your Auth0 app.
 toc: true
+tags:
+  - extensions
+  - custom-social-connections
 ---
 
 # Auth0 Extension: Custom Social Connections

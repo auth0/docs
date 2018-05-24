@@ -1,5 +1,9 @@
 ---
 description: This page explains how to configure and use Auth0's extension for Auth0 Logs to Azure Blob Storage.
+tags:
+  - extensions
+  - azure
+  - blob-storage
 ---
 
 # Auth0 Logs to Azure Blob Storage

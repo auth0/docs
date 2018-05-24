@@ -1,5 +1,8 @@
 ---
 description: How to install and configure the Auth0 Management API Webhooks Extension. 
+tags:
+  - extensions
+  - management-api-webhooks
 ---
 
 # Auth0 Extension: Auth0 Management API Webhooks

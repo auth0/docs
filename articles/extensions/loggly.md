@@ -1,5 +1,8 @@
 ---
 description: How to install and configure the Auth0 Logs to Loggly Extension.
+tags:
+  - extensions
+  - loggly
 ---
 # Auth0 Logs to Loggly
 

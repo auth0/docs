@@ -1,5 +1,8 @@
 ---
 description: This page explains how to configure and install Auth0's Logs to Application Insights extension.
+tags:
+  - extensions
+  - application-insights
 ---
 
 # Auth0 Logs to Application Insights

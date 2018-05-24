@@ -1,6 +1,9 @@
 ---
 toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
+tags:
+  - extensions
+  - account-linking
 ---
 # Account Link
 

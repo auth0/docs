@@ -2,6 +2,9 @@
 title: Auth0 Deployment Models
 description: Read about the four different deployment models that Auth0 offers and the differences between them
 toc: true
+tags:
+  - auth0-101
+  - deployment-models
 ---
 # Auth0 Deployment Models
 

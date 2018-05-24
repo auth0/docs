@@ -1,5 +1,8 @@
 ---
 description: Use multiple Auth0 tenants to manage various environments.
+tags:
+    - dev-tools
+    - local-env
 ---
 # Set Up Multiple Environments
 

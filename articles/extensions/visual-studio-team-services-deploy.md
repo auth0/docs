@@ -1,5 +1,8 @@
 ---
 description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from Visual Studio Team Services to Auth0.
+tags:
+  - extensions
+  - vs-team-services-deployments
 ---
 
 # Visual Studio Team Services Deployments

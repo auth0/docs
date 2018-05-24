@@ -1,5 +1,8 @@
 ---
 description: How to develop and test Auth0 applications.
+tags:
+    - dev-tools
+    - local-env
 ---
 # Work with Auth0 Locally
 

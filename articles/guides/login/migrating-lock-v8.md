@@ -2,6 +2,10 @@
 title: Moving Applications using Lock 8 to Universal Login 
 description: Learn how to migrate from Applications using Lock 8 to Universal Login
 toc: true
+tags:
+  - lock
+  - migrations
+  - universal-login
 ---
 # Migrating Applications using Lock 8 to Universal Login
 
