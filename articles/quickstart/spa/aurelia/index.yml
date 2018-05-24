@@ -19,10 +19,11 @@ seo_alias: aurelia
 default_article: dashboard-default
 articles:
   - 01-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-community
   repo: auth0-aurelia-samples
   branch: master
 requirements:
   - Aurelia 1.1
+  

@@ -63,7 +63,7 @@ The screenshot below shows the following information:
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
-If your token is signed with the HS256 alrgorithm, the middleware needs to be configured in the following way:
+If your token is signed with the HS256 algorithm, the middleware needs to be configured in the following way:
 
 ```csharp
 var options = new JwtBearerOptions

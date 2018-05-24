@@ -5,7 +5,6 @@ description: This tutorial demonstrates how to use the Auth0 OAuth2 middleware t
 github:
   path: Quickstart/01-Login
 ---
-
 <%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>

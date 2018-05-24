@@ -20,7 +20,7 @@ snippets:
   setup: native-platforms/reactnative/setup
   use: native-platforms/reactnative/use
 seo_alias: react-native
-default_article: dashboard-default
+default_article: 00-login
 articles:
   - 00-login
 show_steps: false

@@ -1,26 +1,32 @@
 ---
 title: Authorization
 name: How to secure your Spring Security API with Auth0
-description: This tutorial demonstrates how to add authorization to your Spring Security API using Auth0.
+description: This tutorial demonstrates how to add authorization to a Spring Security API.
 budicon: 500
 github:
     path: 01-Authorization
 ---
 
-This tutorial shows you how to protect your Spring Security API endpoints and limit access to resources in your API.
+<%= include('../../../_includes/_api_auth_intro') %>
 
-## Create an API
+<%= include('../_includes/_api_create_new') %>
 
-Create a new API in the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard.
+<%= include('../_includes/_api_auth_preamble') %>
 
-Enter a name and an identifier for the API. These values represent the `auth0.apiAudience` value in the configuration file.
+## Configure the Sample Project
 
-Select the signing algorithm. In the **Settings** tab,  you can change the token expiration time and allow to refresh a token for that API.
-In the **Scopes** tab, add scopes you will use later to limit access to resources in your API.
+The sample project has a `/src/main/resources/auth0.properties` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
-<%= include('../_includes/_api_scopes_access_resources') %>
+${snippet(meta.snippets.setup)}
 
-## Install the Dependencies
+| Attribute | Description|
+| --- | --- |
+| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.apiAudience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`.|
+
+## Validate Access Tokens
+
+### Install dependencies
 
 Add the `auth0-spring-security-api` dependency.
 
@@ -32,30 +38,9 @@ If you are using Gradle, add the dependency to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
-## Configure Your Spring Security API
+### Configure JSON Web Token signature algorithm
 
-Your Spring Security API needs some information to authenticate against your Auth0 account.
-
-The sample project you can download from the top of this page comes with a configuration file. You may need to update some of the entries with the values for your API. The filename is `/src/main/resources/auth0.properties` and it contains the following:
-
-${snippet(meta.snippets.setup)}
-
-| Attribute | Description|
-| --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.apiAudience` | The unique identifier for your API. You can find the correct value in the [APIs](${manage_url}/#/apis) section in your Auth0 dashboard. |
-
-::: note
-If you download the sample project, the `issuer` attribute is filled out for you. You must manually set the `apiAudience` attribute.
-:::
-
-## Configure JSON Web Token Signature Algorithm
-
-Configure your API to use the RS256 signing algorithm.
-
-::: note
-If you download the sample project, the signing algorithm is set to `RS256` by default.
-:::
+Configure your API to use the RS256 signing algorithm. 
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -78,13 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-## Configure the Protected Endpoints
-
-The example below shows how to implement secure API methods.
-
-In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
+## Protect API Endpoints
 
 <%= include('../_includes/_api_endpoints') %>
+
+The example below shows how to implement secure API methods. In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -111,7 +94,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-## Create the API Controller
+### Create the API Controller
 
 Create a new class called `APIController` to handle each request to the endpoints.
 
@@ -154,7 +137,6 @@ public class APIController {
                 .put("message", "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
                 .toString();
     }
-
 }
 ```
 

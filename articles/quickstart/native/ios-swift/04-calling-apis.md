@@ -1,12 +1,10 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls.
 budicon: 546
 github:
   path: 04-Calling-APIs
 ---
-
-You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 

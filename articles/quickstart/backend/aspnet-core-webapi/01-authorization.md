@@ -1,7 +1,7 @@
 ---
 title: Authorization
-name: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
-description: This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
+name: This tutorial demonstrates how to add authorization to your ASP.NET Core Web API using the standard JWT middleware.
+description: This tutorial demonstrates how to add authorization to an ASP.NET Core Web API using the standard JWT middleware.
 budicon: 500
 github:
     path: Quickstart/01-Authorization
@@ -9,17 +9,13 @@ github:
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-This tutorial shows you how to use Access Tokens from Auth0 to secure your ASP.NET Core Web API.
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
-## Before You Start
+<%= include('../_includes/_api_auth_preamble') %>
 
-If you want to follow along with this tutorial, you can download the [seed project](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart/00-Starter-Seed). The seed project is a basic ASP.NET Web API with a simple controller and some NuGet packages. It also contains an `appSettings.json` file where you can configure the Auth0-related settings for your application.
+## Configure the sample project
 
-To see what the project looks like after each of the steps, check the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart).
-
-<%= include('../_includes/_api_create_new_2') %>
-
-Update the `appsettings.json` file in your project with the correct domain and API identifier for your API. See the example below:
+The sample code has an `appsettings.json` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page while logged in, it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
 ```json
 {
@@ -29,14 +25,9 @@ Update the `appsettings.json` file in your project with the correct domain and A
   }
 }
 ```
+## Validate Access Tokens
 
-<%= include('../_includes/_api_auth_preamble') %>
-
-This example demonstrates:
-* How to check for a JSON Web Token (JWT) in the `Authorization` header of an incoming HTTP request
-* How to check if the token is valid with the standard ASP.NET Core JWT middleware
-
-## Install Dependencies
+### Install dependencies
 
 The seed project references the new ASP.NET Core metapackage (`Microsoft.AspNetCore.All`), which includes all the NuGet packages that are a part of the ASP.NET Core 2.0 framework.
 
@@ -46,9 +37,7 @@ If you are not using the `Microsoft.AspNetCore.All` metapackage, add the `Micros
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-## Configure the Middleware
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
+### Configure the middleware
 
 The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 
@@ -98,34 +87,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
-
-To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
-
-```csharp
-// Controllers/ApiController.cs
-
-[Route("api")]
-public class ApiController : Controller
-{
-    [HttpGet]
-    [Route("private")]
-    [Authorize]
-    public IActionResult Private()
-    {
-        return Json(new
-        {
-            Message = "Hello from a private endpoint! You need to be authenticated to see this."
-        });
-    }
-}
-```
-
-## Configure the Scopes
-
-The JWT middleware shown above verifies if the user's Access Token included in the request is valid. The middleware doesn't check if the token has the sufficient scope to access the requested resources.
-
-<%= include('../_includes/_api_scopes_access_resources') %>
+### Validate scopes
 
 To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
@@ -202,7 +164,32 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To secure the API endpoint, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
+## Protect API Endpoints
+
+The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
+
+To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
+
+```csharp
+// Controllers/ApiController.cs
+
+[Route("api")]
+public class ApiController : Controller
+{
+    [HttpGet]
+    [Route("private")]
+    [Authorize]
+    public IActionResult Private()
+    {
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated to see this."
+        });
+    }
+}
+```
+
+To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
 
 ```csharp
 // Controllers/ApiController.cs

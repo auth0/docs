@@ -19,7 +19,7 @@ articles:
   - 01-login
   - 02-session-handling
   - 03-user-profile
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-rubyonrails-sample

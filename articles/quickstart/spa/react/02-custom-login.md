@@ -5,7 +5,6 @@ budicon: 448
 github:
   path: 01-Login
 ---
-
 In the [previous step](/quickstart/spa/react/01-login), we enabled login with Auth0's Lock widget. You can also build your own UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
 ::: panel Version Requirements

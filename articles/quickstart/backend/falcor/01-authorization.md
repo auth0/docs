@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: This tutorial will show you how to use the Auth0 to add authorization to your Falcor API.
+description: This tutorial will show you how to add authorization to a Falcor API.
 github:
   path: 01-Authorization-RS256
 ---
@@ -11,25 +11,23 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Add the Dependencies
+## Validate Access Tokens
+
+### Add dependencies
 
 Add **express-jwt**, **express-jwt-authz**, **falcor-express**, **falcor-router**, and **falcor-http-datasource** to your project.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configuration
-
-<%= include('../_includes/_api_jwks_description_no_link') %>
+### Configuration
 
 Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 account.
 
 ${snippet(meta.snippets.setup)}
 
-## Configure the Scopes
+## Protect API Endpoints
 
-<%= include('../_includes/_api_scopes_access_resources') %>
-
-## Secure your API
+<%= include('../_includes/_api_endpoints') %>
 
 To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` express-jwt middleware.
 

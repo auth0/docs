@@ -10,11 +10,10 @@ alias:
 seo_alias: aspnet-core
 default_article: dashboard-default
 articles:
-  - 00-intro
   - 01-login
   - 02-user-profile
   - 03-authorization
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnetcore-mvc-samples

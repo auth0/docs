@@ -10,7 +10,7 @@ seo_alias: python
 default_article: 01-login
 articles:
   - 01-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-python-web-app
@@ -21,4 +21,4 @@ requirements:
   - Python-dotenv 0.6.5 and up
   - Requests 2.3.0 and up
   - Flask-oauthlib 0.9.4 and up
-  - Six 1.10.0 and up 
+  - Six 1.10.0 and up

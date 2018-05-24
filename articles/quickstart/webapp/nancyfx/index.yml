@@ -12,11 +12,11 @@ seo_alias: nancyfx
 default_article: 01-login
 articles:
   - 01-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-community
   repo: auth0-nancyfx-samples
   branch: master
 requirements:
   - Microsoft Visual Studio 2015 and up
-  - .NET Framework 4.5.2 
+  - .NET Framework 4.5.2

@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
+description: This tutorial demonstrates how to add authorization to a Go API.
 github:
   path: 01-Authorization-RS256
 ---
@@ -11,9 +11,9 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `go-jwt-middleware` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+## Validate Access Tokens
 
-## Install the Dependencies
+### Install dependencies
 
 The [**dgrijalva/jwt-go**](https://github.com/dgrijalva/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
 
@@ -24,7 +24,9 @@ go get "github.com/codegangsta/negroni"
 go get "github.com/gorilla/mux"
 ```
 
-## Configuration
+### Create a middleware to validate Access Tokens
+
+The access token validation will be done in the  `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
 
 Setup **go-jwt-middleware** middleware to verify `access_token` from incoming requests.
 
@@ -94,7 +96,7 @@ func main() {
 }
 ```
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description') %>
 
 Create the function to get the remote JWKS for your Auth0 account and return the certificate with the public key in PEM format.
 
@@ -176,13 +178,9 @@ func responseJSON(message string, w http.ResponseWriter, statusCode int) {
 }
 ```
 
-## Configuring Scopes
+### Validate scopes
 
 The `go-jwt-middleware` middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
-
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
-
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
 Let's create a function to check and ensure the `access_token` has the correct scope before returning a successful response.
 

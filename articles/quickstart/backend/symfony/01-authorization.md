@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to a Symfony API.
+description: This tutorial demonstrates how to add authorization to a Symfony API.
 github:
     path: 01-Authorization-RS256
 ---
@@ -11,7 +11,9 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
+
+### Install dependencies
 
 Protecting a Symfony API with Auth0 requires the **jwt-auth-bundle** package. Install it using **composer**.
 
@@ -25,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 `v3.x.x` of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
 :::
 
-## Add the Bundle to AppKernel.php
+### Add the bundle to AppKernel.php
 
 ```php
 // app/AppKernel.php
@@ -46,13 +48,13 @@ class AppKernel extends Kernel
     }
 ```
 
-## Add Configuration Values
+### Add configuration values
 
 Add your Auth0 domain and API audience to the `config.yml` file located in `app/config`.
 
 ${snippet(meta.snippets.setup)}
 
-## Set Up the User and UserProvider
+### Set up the User and UserProvider
 
 Create your `User` and `UserProvider`.
 
@@ -75,7 +77,7 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-## Set Up the SecurityProvider
+### Set up the SecurityProvider
 
 Modify the `security.yml` file located in `app/config` such that it contains the following:
 
@@ -85,7 +87,9 @@ Modify the `security.yml` file located in `app/config` such that it contains the
 
 ${snippet(meta.snippets.use)}
 
-## Set Up a Protected Route
+## Protect API endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 ```php
 // src/AppBundle/Controller/SecuredController.php
@@ -124,10 +128,4 @@ class SecuredController extends Controller
 }
 ```
 
-## Configuring Scopes
-
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**. The route defined above expects a scope of `read:messages` to be present in the payload of the `access_token`.
-
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
-
-With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+With this configuration in place, only Access Tokens which have a scope of `read:messages` will be allowed to access this endpoint.

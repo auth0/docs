@@ -22,7 +22,7 @@ articles:
   - 03-calling-an-api
   - 04-authorization
   - 05-token-renewal
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-angularjs-samples
