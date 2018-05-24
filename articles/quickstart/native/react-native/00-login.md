@@ -48,10 +48,6 @@ How to install the React Native Auth0 module.
 npm install react-native-auth0 --save
 ```
 
-::: note
-For more information about npm usage, check [their official documentation](https://docs.npmjs.com/).
-:::
-
 ### yarn
 
 ```bash

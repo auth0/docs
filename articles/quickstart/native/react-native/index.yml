@@ -23,7 +23,7 @@ seo_alias: react-native
 default_article: 00-login
 articles:
   - 00-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-react-native-sample
