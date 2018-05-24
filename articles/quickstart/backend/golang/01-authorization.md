@@ -138,7 +138,7 @@ func getPemCert(token *jwt.Token) (string, error) {
 }
 ```
 
-## Protect Individual Endpoints
+## Protect API Endpoints
 
 To protect individual routes pass the instance of `go-jwt-middleware` defined above to the `negroni` handler.
 

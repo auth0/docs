@@ -172,7 +172,7 @@ def requires_scope(required_scope):
     return False
 ```
 
-## Protect API endpoints
+## Protect API Endpoints
 
 <%= include('../_includes/_api_endpoints') %>
 
