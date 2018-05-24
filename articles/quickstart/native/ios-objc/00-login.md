@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to a Objective-C application using Auth0.
+description: This tutorial demonstrates how to add user login to an Objective-C application using Auth0.
 budicon: 448
 github:
   path: 01-Login

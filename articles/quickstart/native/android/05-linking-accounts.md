@@ -7,8 +7,6 @@ github:
     path: 05-Linking-Accounts
 ---
 
-This tutorial shows you how to link two different accounts for the same user using Auth0.
-
 ## Before You Start
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:

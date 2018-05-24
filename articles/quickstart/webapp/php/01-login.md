@@ -14,6 +14,10 @@ github:
 
 ${snippet(meta.snippets.dependencies)}
 
+::: note
+This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs. Then, it installs them in your project.
+:::
+
 ### Configure Auth0 PHP SDK
 
 Configure the Auth0 PHP SDK for each page that will use it.

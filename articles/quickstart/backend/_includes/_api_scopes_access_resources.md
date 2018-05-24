@@ -7,4 +7,3 @@ You can add the required scopes in the **Scopes** tab of the Auth0 Dashboard's [
 ::: note
 This example uses the `read:messages` scope.
 :::
-

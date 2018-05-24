@@ -3,7 +3,7 @@ alias:
   - owin
 languages:
   - C#
-third_party: false
+thirdParty: false
 framework:
   - OWIN
 image: /media/platforms/asp.png

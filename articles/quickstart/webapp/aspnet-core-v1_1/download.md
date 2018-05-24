@@ -4,7 +4,6 @@ To run the example:
 dotnet restore
 dotnet run
 ```
-
 To run it from the docker image:
 
 ```bash

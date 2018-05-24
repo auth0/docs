@@ -1,8 +1,7 @@
 ---
 title: Login
 default: true
-description:
-This tutorial will show you how to add user login to an ASP.NET application using the Auth0 ASP.NET SDK.
+description: This tutorial will show you how to add user login to an ASP.NET application using the Auth0 ASP.NET SDK.
 budicon: 448
 github:
   path: Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample

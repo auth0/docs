@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: his tutorial demonstrates how to add user login to an Ionic application using Auth0.
+description: This tutorial demonstrates how to add user login to an Ionic application using Auth0.
 budicon: 448
 github:
   path: 01-Login

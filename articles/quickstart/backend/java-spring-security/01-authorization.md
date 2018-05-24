@@ -139,3 +139,5 @@ public class APIController {
     }
 }
 ```
+
+To build and run the seed project, use the command: `mvn spring-boot:run`.

@@ -7,8 +7,6 @@ github:
     path: 03-Session-Handling
 ---
 
-This tutorial shows you how to let users log in and maintain an active session with Auth0.
-
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
 * `accessToken`: Access Token used by the Auth0 API. To learn more, see the [Access Token documentation](/tokens/access-token).

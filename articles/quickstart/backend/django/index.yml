@@ -3,7 +3,7 @@ alias:
   - Django
 languages:
   - Python
-third_party: false
+thirdParty: false
 image: /media/platforms/django.png
 tags:
   - quickstart
