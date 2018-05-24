@@ -26,4 +26,4 @@ github:
   repo: auth0-cordova-samples
 requirements:
   - NodeJS 5
-  - Cordova 5.4+'
+  - Cordova 5.4+
