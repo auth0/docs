@@ -11,7 +11,7 @@ You can use [rules](/rules) with the Authorization Extension to do things like:
 * Add [custom claims](/scopes/current#custom-claims) to the issued token
 * Determining the user's group membership, roles and permissions
 * Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
-* Adding the user's groups, roles and permissions to the [outgoing token]((/extensions/authorization-extension/v2/configuration#token-contents)) (which can be requested via the `openid groups permissions roles` scope)
+* Adding the user's groups, roles and permissions to the [outgoing token](/extensions/authorization-extension/v2/configuration#token-contents)) (which can be requested via the `openid groups permissions roles` scope)
 
 Because the above logic is part of a rule, it will only be executed in the context of a login. If users are added to or removed from a group, this change will only be reflected in Auth0 after the user's next login.
 
