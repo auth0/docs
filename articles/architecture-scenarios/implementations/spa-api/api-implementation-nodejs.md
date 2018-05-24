@@ -58,7 +58,7 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **express-jwt**: This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier. For more information refer to the [express-jwt GitHub repository](https://github.com/auth0/express-jwt).
 
-- **body-parser**: This is a Node.js body parsing middleware. It extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with.For more information and several alternatives refer to the body-parser GitHub repository.
+- **body-parser**: This is a Node.js body parsing middleware. It extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with. For more information and several alternatives refer to the body-parser GitHub repository.
 
 To install these dependencies run the following:
 
