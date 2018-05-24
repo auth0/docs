@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: 3description: This tutorial demonstrates how to add user login to a Windows Forms C# application using Auth0.
+description: This tutorial demonstrates how to add user login to a Windows Forms C# application using Auth0.
 budicon: 448
 github:
     path: Quickstart/00-Starter-Seed
