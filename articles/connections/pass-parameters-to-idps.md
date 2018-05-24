@@ -14,9 +14,9 @@ Some Identity Providers do not support parameters. Check your desired Identity P
 
 To pass static parameters per connection, you can use the `upstream_params` element of the `options` attribute when configuring a connection via the Management API. Each time your connection is used, the specified parameters will be sent to the Identity Provider.
 
-As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)). Let's assume that you want to always request that users have access to the `myblog.wordpress.com` blog when logging in using WordPress.
+As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)). To continue, you should already have a working Wordpress connection; to learn how to configure one, see [Connect Your App to WordPress](https://auth0.com/docs/connections/social/wordpress).
 
-To accomplish this, you will map WordPress's `blog` parameter to the existing accepted parameter of `access_type` and assign it a default value of `myblog.wordpress.com`:
+Let's assume that you want to always request that users have access to the `myblog.wordpress.com` blog when logging in using WordPress. To accomplish this, you will map WordPress's `blog` parameter to the existing accepted parameter of `access_type` and assign it a default value of `myblog.wordpress.com`:
 
 ```json
 {
@@ -46,7 +46,7 @@ To accomplish this, you will map WordPress's `blog` parameter to the existing ac
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"options\": {\"client_id\": \"...\",\"client_secret\": \"...\",\"upstream_params\": {\"blog\": {\"alias\": \"access_type\",\"value\": \"myblog.wordpress.com\"}}, \"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\",\"scope\": \"auth\"}}"
+    "text": "{\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"blog\": {\"alias\": \"access_type\",\"value\": \"myblog.wordpress.com\"}}, \"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\",\"scope\": \"auth\"}}"
   }
 }
 ```
@@ -58,37 +58,25 @@ You can test out your code and see other available attributes in our [Management
 
 Sometimes you may want to configure parameters per user. To do this, use the `upstream_params` element of the `options` attribute to specify a mapping between one of the existing accepted parameters to the parameter accepted by the Identity Provider. Then, when authorizing the user, dynamically add parameters to the authorization query.
 
-As an example, let's use Twitter, which allows you to pass an optional `screen_name` parameter to its OAuth authorization endpoint (for more information, see [Twitter's API reference](https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize)). Twitter's `screen_name` parameter pre-fills the username input box of the login screen with the given value, so we want to map it to the existing accepted parameter of `login_hint`.
+As an example, let's use Twitter, which allows you to pass an optional `screen_name` parameter to its OAuth authorization endpoint (for more information, see [Twitter's API reference](https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize)). To continue, you should already have a working Twitter connection; to learn how to configure one, see [Connect Your App to Twitter](https://auth0.com/docs/connections/social/twitter).
 
-```json
-{
-  "name": "TwitterConn",
-  "strategy": "twitter",
-  "options": {
-    "upstream_params": {
-      "screen_name": {
-        "alias": "login_hint"
-      }
-    }
-  }
-}
-```
+Twitter's `screen_name` parameter pre-fills the username input box of the login screen with the given value, so we want to map it to the existing accepted parameter of `login_hint`.
 
 ```har
 {
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/connections/CONNECTION-ID",
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_ACCESS_TOKEN"
-  }, {
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"options\": {\"client_id\": \"...\",\"client_secret\": \"...\",\"upstream_params\": {\"screen_name\": {\"alias\": \"login_hint\"}},\"authorizationURL\": \"https://api.twitter.com/oauth/authorize\",\"tokenURL\": \"https://api.twitter.com/oauth/request_token\"}}"
-  }
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections/",
+	"headers": [{
+			"name": "Authorization",
+			"value": "Bearer YOUR_ACCESS_TOKEN"
+		}, {
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"name\": \"TwitterConn\",\"strategy\": \"twitter\",\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"screen_name\": {\"alias\": \"login_hint\"}},\"authorizationURL\": \"https://api.twitter.com/oauth/authorize\",\"tokenURL\": \"https://api.twitter.com/oauth/request_token\"}}"
+	}
 }
 ```
 
@@ -110,4 +98,3 @@ https://api.twitter.com/oauth/authorize
   ?oauth_token=YOUR_TOKEN
   &screen_name=john@gmail.com
 ```
-

@@ -11,10 +11,10 @@ articles:
     children:
       - title: Auth0 Overview
         url: /getting-started/overview
-      
+
       - title: The Basics
         url: /getting-started/the-basics
-      
+
       - title: Dashboard Overview
         url: /getting-started/dashboard-overview
 
@@ -40,13 +40,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/application/web-app-sso/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/application/web-app-sso/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/application/web-app-sso/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/application/web-app-sso/part-4
 
@@ -55,13 +55,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/application/server-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/application/server-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/application/server-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/application/server-api/part-4
 
@@ -70,13 +70,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/application/spa-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/application/spa-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/application/spa-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/application/spa-api/part-4
 
@@ -85,13 +85,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/application/mobile-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/application/mobile-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/application/mobile-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/application/mobile-api/part-4
 
@@ -108,7 +108,7 @@ articles:
       #   url: /architecture-scenarios/business/b2c
 
       # - title: B2E
-      #   url: /architecture-scenarios/business/b2e 
+      #   url: /architecture-scenarios/business/b2e
 
   - title: "Applications"
     url: "/applications"
@@ -132,13 +132,13 @@ articles:
 
       - title: "Server-side App"
         url: "/application-auth/current/server-side-web"
-      
+
       - title: "Client-side App"
         url: "/application-auth/current/client-side-web"
-        
+
       - title: "Mobile App"
         url: "/application-auth/current/mobile-desktop"
-      
+
       - title: "Legacy"
         url: "/application-auth/legacy"
         hidden: true
@@ -146,16 +146,16 @@ articles:
           - title: "Server-side App"
             url: "/application-auth/legacy/server-side-web"
             hidden: true
-      
+
           - title: "Client-side App"
             url: "/application-auth/legacy/client-side-web"
             hidden: true
-        
+
           - title: "Mobile App"
             url: "/application-auth/legacy/mobile-desktop"
             hidden: true
-            
-        
+
+
   - title: "APIs"
     url: "/apis"
     children:
@@ -208,12 +208,12 @@ articles:
       - title: "Social/Enterprise"
         url: "/identityproviders"
         children:
-        
+
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
-            
-          - title: "Passing Parameters to IdPs"
-            url: "/connections/passing-parameters-to-idps"
+
+          - title: "Pass Parameters to IdPs"
+            url: "/connections/pass-parameters-to-idps"
 
       - title: "Your Database"
         url: "/connections/database/custom-db"
@@ -256,7 +256,7 @@ articles:
 
       - title: "Password Reset Page"
         url: "/hosted-pages/password-reset"
-      
+
       - title: "Guardian MFA"
         url: "/hosted-pages/guardian"
 
@@ -278,7 +278,7 @@ articles:
 
       - title: "Use the Management API in rules"
         url: "/rules/current/management-api"
-      
+
       - title: "Using C# in Rules"
         url: "/rules/current/csharp"
 
@@ -438,7 +438,7 @@ articles:
           - title: "Installation"
             url: "/extensions/authorization-extension/v2/implementation/installation"
             hidden: true
-          
+
           - title: "Setup"
             url: "/extensions/authorization-extension/v2/implementation/setup"
             hidden: true
@@ -446,7 +446,7 @@ articles:
           - title: "Configuration"
             url: "/extensions/authorization-extension/v2/implementation/configuration"
             hidden: true
-          
+
           - title: "API Access"
             url: "/extensions/authorization-extension/v2/api-access"
             hidden: true
@@ -541,14 +541,14 @@ articles:
 
       - title: "Yubikey NEO Example"
         url: "/multifactor-authentication/yubikey"
-        
+
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
           - title: "Step-up Authentication for Web Apps"
             url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
             hidden: true
-          
+
           - title: "Step-up Authentication for APIs"
             url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
@@ -563,30 +563,30 @@ articles:
           - title: "CVE 2018-6874"
             url: "/security/bulletins/cve-2018-6874"
             hidden: true
-            
+
           - title: "CVE 2018-6873"
             url: "/security/bulletins/cve-2018-6873"
             hidden: true
-            
+
           - title: "CVE 2018-7307"
             url: "/security/bulletins/cve-2018-7307"
             hidden: true
-            
+
           - title: "CVE 2017-16897"
             url: "/security/bulletins/cve-2017-16897"
             hidden: true
-            
+
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
       - title: "Where to Store Tokens"
         url: "/security/store-tokens"
         hidden: true
-      
+
       - title: "Common Threats"
         url: "/security/common-threats"
         hidden: true
-      
+
       - title: "Blacklist User Attributes"
         url: "/security/blacklisting-attributes"
         hidden: true
@@ -732,7 +732,7 @@ articles:
         - title: "The State Parameter"
           url: "/protocols/oauth2/oauth-state"
           hidden: true
-          
+
       - title: "OpenID Connect"
         url: "/protocols/oidc"
 
@@ -741,10 +741,10 @@ articles:
 
       - title: "WS-Fed"
         url: "/protocols/ws-fed"
-        
+
       - title: "LDAP"
         url: "/protocols/ldap"
-        
+
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
@@ -763,29 +763,29 @@ articles:
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
         hidden: true
-      
+
       - title: "Extensibility and Node.js v8"
         url: "/migrations/guides/extensibility-node8"
         hidden: true
-        
+
   - title: "Data Privacy"
     url: "/compliance"
-    children:   
+    children:
       - title: "GDPR"
         url: "/compliance/gdpr"
-        children:        
+        children:
           - title: "Terminology"
             hidden: true
             url: "/compliance/gdpr/definitions"
-            
+
           - title: "Summary"
             hidden: true
             url: "/compliance/gdpr/gdpr-summary"
-             
+
           - title: "Roles and Responsibilities"
             hidden: true
             url: "/compliance/gdpr/roles-responsibilities"
-          
+
           - title: "Auth0 Data Processing"
             hidden: true
             url: "/compliance/gdpr/data-processing"
@@ -793,16 +793,16 @@ articles:
           - title: "How Auth0 can help"
             url: "/compliance/gdpr/features-aiding-compliance"
             children:
-          
+
               - title: "User Consent"
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/user-consent"
                 children:
-              
+
                   - title: "Track Consent with Lock"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
-                  
+
                   - title: "Track Consent with custom UI"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
@@ -822,11 +822,11 @@ articles:
               - title: "Protect and secure user data"
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
-              
+
           - title: "Security Advice"
             hidden: true
             url: "/compliance/gdpr/security-advice-for-customers"
-      
+
   - title: "Support"
     url: "/support"
     children:
@@ -847,13 +847,13 @@ articles:
 
       - title: "Operational Policies"
         url: "/policies"
-    
+
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
       - title: Useful Tips
         url: /pre-deployment/prelaunch-tips
-      
+
       - title: Run Tests
         url: /pre-deployment/how-to-run-test
 
@@ -865,7 +865,7 @@ articles:
 
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
-      
+
       - title: "Performance and Scalability"
         url: "/services/performance-scalability"
 
@@ -877,7 +877,7 @@ articles:
 
       - title: "Pair Programming"
         url: "/services/pair-programming"
-      
+
       - title: "Private SaaS reconfiguration"
         url: "/services/private-saas-configuration"
 
@@ -1161,7 +1161,7 @@ appliance:
         children:
           - title: Troubleshoot
             url: /appliance/dashboard/troubleshoot
-        
+
       - title: Monitoring Tools
         url: /appliance/monitoring
         children:
@@ -1171,7 +1171,7 @@ appliance:
             url: /appliance/monitoring/testall
           - title: Authenticated testing endpoints
             url: /appliance/monitoring/authenticated-endpoints
-        
+
       - title: Command-Line Interface Tools
         url: /appliance/cli
       - title: Automatic Tenant Creation
