@@ -24,3 +24,18 @@ github:
 requirements:
   - NodeJS 4.3 or higher
   - Express 4.16
+next_steps:
+  - path: 02-user-profile
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
