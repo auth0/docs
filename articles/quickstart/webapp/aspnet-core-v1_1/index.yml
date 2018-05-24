@@ -25,3 +25,18 @@ requirements:
   - Microsoft Visual Studio 2017 Update 3 or .NET core command line tools
 sample_download_required_data:
   - client
+next_steps:
+  - path: 03-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

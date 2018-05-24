@@ -26,7 +26,7 @@ articles:
   - 06-calling-apis
   - 07-authorization
 next_steps:
-  - path: 00-login
+  - path: 07-authorization
     list:
     - text: Configure other identity providers
       icon: 345
@@ -37,32 +37,6 @@ next_steps:
     - text: Learn about anomaly detection
       icon: 345
       href: "/anomaly-detection"
-  - path: 03-session-handling
-    list:
-    - text: Learn about refresh tokens
-      icon: 345
-      href: "/tokens/refresh-tokens"
-  - path: 04-user-profile
-    list:
-    - text: Learn about the user profile structure
-      icon: 345
-      href: "/user-profile/normalized/oidc"
-    - text: Learn about scopes
-      icon: 345
-      href: "/scopes"
-    - text: In-depth details about user profile
-      icon: 345
-      href: "/user-profile/user-profile-details"
-  - path: 06-calling-apis
-    list:
-    - text: Learn about custom APIs
-      icon: 345
-      href: "/api"
-    - text: Introduction to API authorization
-      icon: 345
-      href: "/api-auth"
-  - path: 07-authorization
-    list:
     - text: Learn about rules
       icon: 345
       href: "/rules"

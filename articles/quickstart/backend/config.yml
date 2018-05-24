@@ -1,14 +1,2 @@
-next_steps:
-  - path: 01-authorization
-    list:
-    - text: Learn about custom APIs
-      icon: 345
-      href: "/api"
-    - text: Learn about scopes
-      icon: 345
-      href: "/scopes"
-    - text: Introduction to API Authorization
-      icon: 345
-      href: "/api-auth"
 sample_download_required_data:
   - api
