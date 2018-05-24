@@ -19,3 +19,5 @@ next_steps:
     - text: In-depth details about user profile
       icon: 345
       href: "/user-profile/user-profile-details"
+sample_download_required_data:
+  - client

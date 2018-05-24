@@ -10,3 +10,5 @@ next_steps:
     - text: Introduction to API Authorization
       icon: 345
       href: "/api-auth"
+sample_download_required_data:
+  - api

@@ -42,3 +42,5 @@ next_steps:
     - text: Learn about token renewal
       icon: 345
       href: "/api-auth/tutorials/silent-authentication"
+sample_download_required_data:
+  - client

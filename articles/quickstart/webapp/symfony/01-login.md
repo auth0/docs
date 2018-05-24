@@ -201,4 +201,3 @@ Set the following in `app/resources/views/index.html.twig`
     <a href="/connect/auth0"><button>Login</button></a>
 {% endif %}
 ```
-

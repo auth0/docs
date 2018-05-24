@@ -7,6 +7,5 @@
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, **Callback URL** should be set to
-`${callback}`.
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Callback URL** to `${callback}`.
 :::
