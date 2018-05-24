@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Nancy FX application.
 budicon: 448
 topics:
   - quickstarts
@@ -11,14 +11,17 @@ topics:
 github:
   path: 00-Starter-Seed
 ---
+<%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3000/callback' }) %>
 
-## Install the Dependencies
+## Configure your application to use Auth0 
+
+### Install the Dependencies
 
 Install Auth0 NancyFX dependency with `NuGet`
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configure Auth0
+### Configure Auth0
 
 In your Nancy self-hosted application add the following to your BootStrapper:
 
@@ -39,7 +42,7 @@ The `UserIdentifier` lets you set an identifier for the user. Currently, here ar
 Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
 :::
 
-## Add Auth0 Configuration
+### Add Auth0 Configuration
 
 You need to configure your Auth0 keys in the `app.config`
 
@@ -53,7 +56,7 @@ You need to configure your Auth0 keys in the `app.config`
 </appSettings>
 ```
 
-## Block all Unauthenticated Requests
+### Block all Unauthenticated Requests
 
 After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests with the following code.
 

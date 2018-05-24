@@ -15,9 +15,10 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
-show_steps: false
+  - 03-troubleshooting
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-golang-api-samples
 requirements:
-  - Go 1.8.2 
+  - Go 1.8.2

@@ -22,7 +22,7 @@ seo_alias: cyclejs
 default_article: 01-login
 articles:
   - 01-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-community
   repo: auth0-cyclejs-samples

@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0.
+description: This tutorial demonstrates how to add authorization to a Laravel API.
 topics:
     - quickstart
     - backend
@@ -15,9 +15,11 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
 
-Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
+### Install dependencies
+
+Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -27,7 +29,7 @@ Install `laravel-auth0` using **Composer**.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Enable the Provider
+### Enable the provider
 
 The `laravel-auth0` package comes with a provider called `LoginServiceProvider`. Add this to the list of application `providers`.
 
@@ -64,7 +66,7 @@ public function register()
 }
 ```
 
-## Configure the Plugin
+### Configure the plugin
 
 The **laravel-auth0** plugin comes with a configuration file that can be generated using `artisan`. Generate the file and complete the details found within.
 
@@ -74,7 +76,7 @@ php artisan vendor:publish
 
 After the file is generated, it will be located at `config/laravel-auth0.php`.
 
-## Configure Apache
+### Configure Apache
 
 By default, Apache doesn't parse `Authorization` headers from incoming HTTP requests. To enable this, add a `mod_rewrite` to your `.htaccess` file.
 
@@ -83,7 +85,7 @@ RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 ```
 
-## Define a User and User Provider
+### Define a User and User Provider
 
 The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a **User Object** given by a **User Provider**. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the **User Provider** indirectly by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
@@ -104,7 +106,9 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 ],
 ```
 
-## Protect the API Routes
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 Define a middleware to check and verify Access Token in the `Authorization` header of an incoming HTTP request.
 
@@ -202,7 +206,7 @@ Route::get('/private', function (Request $request) {
 
 This route is now only accessible if an Access Token is included in the `Authorization` header of the incoming request.
 
-## Configure the Scopes
+### Configure the Scopes
 
 The middleware defined above that the Access Token in the incoming HTTP request is valid, however it does not include a mechanism to check if the Access Token has sufficient **scope** to access the requested resource.
 
@@ -314,7 +318,9 @@ Route::get('/private-scoped', function (Request $request) {
 
 This route is now only accessible if an Access Token with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
 
-## Extend the `Auth0UserRepository` Class
+## Optional Steps
+
+### Extend the `Auth0UserRepository` class
 
 There may be situations where you need to customize the `Auth0UserRepository` class. For example, you may want to use the default `User` model and store the user profile in your database. If you need a more advanced custom solution such as this, you can extend the `Auth0UserRepository` class with your own custom class.
 
@@ -397,8 +403,6 @@ public function register()
 
 }
 ```
-
-## Optional Steps
 
 ### Configure CORS
 

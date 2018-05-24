@@ -12,7 +12,7 @@ seo_alias: scala
 default_article: 01-login
 articles:
   - 01-login
-show_steps: false
+show_steps: true
 github:
   org: auth0-community
   repo: auth0-scala-samples
@@ -20,4 +20,4 @@ github:
 requirements:
   - Scala 2.11.7
   - Typesafe Activator 1.3.7
-  - Play framework 2.4.6 
+  - Play framework 2.4.6

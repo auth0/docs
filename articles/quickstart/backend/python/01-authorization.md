@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description:  This tutorial demonstrates how to add authorization to your Python [Flask](http://flask.pocoo.org/) API.
+description:  This tutorial demonstrates how to add authorization to a Python API built with [Flask](http://flask.pocoo.org/).
 topics:
     - quickstart
     - backend
@@ -15,9 +15,11 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
 
-This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to your `requirements.txt`:
+### Install dependencies
+
+ Add the following dependencies to your `requirements.txt`:
 
 ```python
 # /requirements.txt
@@ -29,9 +31,9 @@ flask-cors
 six
 ```
 
-## Create the Flask APP
+### Create a Flask application
 
-Create a `server.py` file and initializate the Flask App. Set the domain, audience and the error handling.
+Create a `server.py` file and initialize the Flask application. Set the domain, audience and the error handling.
 
 ```python
 # /server.py
@@ -63,9 +65,7 @@ def handle_auth_error(ex):
     return response
 ```
 
-## Create the JWT Validation Decorator
-
-<%= include('../_includes/_api_jwks_description_no_link') %>
+### Create the JWT validation decorator
 
 Add a decorator which verifies the Access Token against your JWKS.
 
@@ -150,13 +150,7 @@ def requires_auth(f):
     return decorated
 ```
 
-## Use this Decorator in your Methods
-
-You can now use the decorator in any routes that require authentication.
-
-${snippet(meta.snippets.use)}
-
-## Protect individual endpoints
+### Validate scopes
 
 Individual routes can be configured to look for a particular `scope` in the Access Token by using the following:
 
@@ -178,23 +172,10 @@ def requires_scope(required_scope):
     return False
 ```
 
-Then, establish what scopes are needed in order to access the route. In this case `read:messages` is used:
+## Protect API endpoints
 
-```python
-# /server.py
+<%= include('../_includes/_api_endpoints') %>
 
-@APP.route("/api/private-scoped")
-@cross_origin(headers=["Content-Type", "Authorization"])
-@cross_origin(headers=["Access-Control-Allow-Origin", "*"])
-@requires_auth
-def private_scoped():
-    """A valid Access Token and an appropriate scope are required to access this route
-    """
-    if requires_scope("read:messages"):
-        response = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
-        return jsonify(message=response)
-    raise AuthError({
-        "code": "Unauthorized",
-        "description": "You don't have access to this resource."
-    }, 403)
-```
+You can use the decorators and functions define above in the corresponding endpoints.
+
+${snippet(meta.snippets.use)}

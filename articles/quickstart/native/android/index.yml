@@ -19,7 +19,6 @@ snippets:
 seo_alias: android
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login
   - 03-session-handling
   - 04-user-profile
@@ -67,7 +66,7 @@ next_steps:
     - text: Learn about rules
       icon: 345
       href: "/rules"
-show_steps: false
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-android-sample

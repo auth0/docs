@@ -1,4 +1,4 @@
-## Install the Middleware Dependencies
+## Configure Node to Use Auth0 
 
 Install the necessary middleware.
 
@@ -10,7 +10,7 @@ npm install passport passport-auth0 connect-ensure-login --save
 yarn add passport passport-auth0 connect-ensure-login
 ```
 
-## Configure the Middleware
+### Configure the Middleware
 
 Create a new instance of the `Auth0Strategy` strategy. 
 Enter your Auth0 application details as configuration values. Tell `passport` to use this strategy. 

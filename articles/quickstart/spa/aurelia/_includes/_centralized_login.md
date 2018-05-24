@@ -1,6 +1,6 @@
-<%= include('../../_includes/_login_preamble', { library: 'Aurelia' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Aurelia', embeddedLoginLink:'https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth-service.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -32,7 +32,7 @@ export class AuthService {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+## Handle Authentication Tokens
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app. Use the `inject` decorator to inject `Router`.
 
@@ -103,7 +103,7 @@ The service now includes several other methods for handling authentication.
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
@@ -119,7 +119,7 @@ When the **Log In** button is clicked, the user will be redirected to the login 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
@@ -196,7 +196,3 @@ After authentication, users will be taken to the `/callback` route for a brief t
 ::: note
 This example assumes you are using path-based routing with `config.options.pushState = true`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
 :::
-
-## Embedded Login
-
-Auth0's Universal Login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login).

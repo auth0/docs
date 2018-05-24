@@ -18,7 +18,6 @@ snippets:
   setup: native-platforms/ios-objc/setup_wrapper
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login
   - 03-user-sessions
   - 04-calling-apis
@@ -70,4 +69,4 @@ github:
 requirements:
   - CocoaPods 1.2.1
   - Version 8.3.2 (8E2002)
-  - iPhone 7 - iOS 10.3 (14E269) 
+  - iPhone 7 - iOS 10.3 (14E269)

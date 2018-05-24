@@ -8,9 +8,8 @@ topics:
   - vanillajs
   - user-profile
 github:
-  path: 02-User-Profile
+    path: 02-User-Profile
 ---
-
 <%= include('../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope

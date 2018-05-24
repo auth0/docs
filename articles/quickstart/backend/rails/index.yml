@@ -17,10 +17,11 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
-show_steps: false
+  - 03-troubleshooting
+show_steps: true
 github:
   org: auth0-samples
   repo: auth0-rubyonrails-api-samples
 requirements:
   - Ruby 2.1.8
-  - Rails 4.2.5 
+  - Rails 4.2.5

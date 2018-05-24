@@ -10,7 +10,6 @@ topics:
 github:
   path: Quickstart/01-Login
 ---
-
 <%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>

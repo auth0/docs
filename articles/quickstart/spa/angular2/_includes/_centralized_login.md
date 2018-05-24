@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'Angular 2+', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
 
@@ -108,7 +108,7 @@ export class AuthService {
 }
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 
@@ -157,7 +157,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 When you use Universal Login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 

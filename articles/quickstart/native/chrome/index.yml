@@ -24,4 +24,4 @@ github:
   repo: auth0-chrome-sample
 requirements:
   - auth0-chrome 0.1.2
-  - jwt-decode 2.1.0 
+  - jwt-decode 2.1.0

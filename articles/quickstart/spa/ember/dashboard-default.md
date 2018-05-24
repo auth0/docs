@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to your application with Auth0.
+description: This tutorial demonstrates how to add user login to an Ember application with Auth0.
 topics:
   - quickstarts
   - spa
@@ -9,7 +9,6 @@ topics:
 github:
   path: 01-Login
 ---
-
 <%= include('../../../_includes/_callback_url') %>
 
 If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to

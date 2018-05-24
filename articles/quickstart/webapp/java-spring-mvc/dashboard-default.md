@@ -10,7 +10,6 @@ topics:
 github:
   path: 01-Login
 ---
-
 <%= include('../../../_includes/_new_app') %>
 
 <%= include('_includes/_setup') %>

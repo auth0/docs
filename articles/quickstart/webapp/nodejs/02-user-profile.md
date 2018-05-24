@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch and update user profile information.
+description: This tutorial demonstrates how to get the user's profile and display it.
 budicon: 292
 topics:
   - quickstarts
@@ -9,8 +9,7 @@ topics:
 github: 
   path: 02-User-Profile
 ---
-
-## User Profile
+## Specify a `profile` Scope
 
 After the user has authenticated, every express request has a `user` object with the entire user profile. 
 By default, it is a minimal profile. Add the `profile` scope to the authentication scopes to get additional profile information. 
@@ -34,10 +33,9 @@ router.get(
     res.redirect('/');
   }
 );
-
 ```
 
-## Show the User Profile
+## Display User Information
 
 Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
 
