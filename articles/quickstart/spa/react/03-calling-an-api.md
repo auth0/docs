@@ -1,6 +1,6 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
 topics:
   - quickstarts
