@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to a React application
+description: This tutorial demonstrates how to add authorization and access control to a React application.
 budicon: 546
 github:
   path: 04-Authorization
