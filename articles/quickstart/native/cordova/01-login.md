@@ -7,7 +7,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Cordova') %>
 
-<%= include('../../_includes/_callback_url') %>
+<%= include('../../../_includes/_callback_url') %>
 
 The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
 
