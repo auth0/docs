@@ -8,9 +8,11 @@ topics:
   - vanillajs
   - apis
 github:
-  path: 03-Calling-an-API
+    path: 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
 ---
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>

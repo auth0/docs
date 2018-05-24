@@ -16,3 +16,5 @@ next_steps:
     - text: Learn about scopes
       icon: 345
       href: "/scopes"
+sample_download_required_data:
+  - client

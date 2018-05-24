@@ -23,3 +23,5 @@ requirements:
   - .NET Core 1.x
   - ASP.NET Core 1.x
   - Microsoft Visual Studio 2017 Update 3 or .NET core command line tools
+sample_download_required_data:
+  - client

@@ -9,8 +9,10 @@ topics:
   - authorization
 github:
   path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
 ---
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
