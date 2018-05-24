@@ -13,7 +13,7 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Configure the sample project
+## Configure the Sample project
 
 The sample code has an `appsettings.json` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page while logged in, it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 

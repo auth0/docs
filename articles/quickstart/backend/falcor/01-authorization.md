@@ -98,7 +98,7 @@ Individual routes can be configured to look for a particular `scope` by setting 
 
 ${snippet(meta.snippets.use)}
 
-## Optional steps
+## Optional Steps
 
 ### Configuring CORS
 

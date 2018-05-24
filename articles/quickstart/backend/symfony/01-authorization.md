@@ -87,7 +87,7 @@ Modify the `security.yml` file located in `app/config` such that it contains the
 
 ${snippet(meta.snippets.use)}
 
-## Protect API endpoints
+## Protect API Endpoints
 
 <%= include('../_includes/_api_endpoints') %>
 
