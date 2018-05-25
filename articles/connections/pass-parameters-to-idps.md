@@ -18,16 +18,47 @@ You can configure static parameters per connection with the Connections endpoint
 
 When you [create](/api/management/v2#!/Connections/post_connections) or [update](/api/management/v2#!/Connections/patch_connections_by_id) a connection, use the `upstream_params` element of the `options` attribute.
 
-As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)). 
+As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)).
 
-To continue, you should already have a working Wordpress connection; to learn how to configure one, see [Connect Your App to WordPress](/connections/social/wordpress).
+Let's assume that you have a working WordPress connection and you want to always request that users have access to the `myblog.wordpress.com` blog when logging in with it. To do this, assign WordPress's `blog` parameter a default value of `myblog.wordpress.com`.
 
-Let's assume that you want to always request that users have access to the `myblog.wordpress.com` blog when logging in using WordPress. To accomplish this, you will assign WordPress's `blog` parameter a default value of `myblog.wordpress.com`.
+First, we will use the [Get Connection](/api/management/v2#!/Connections/get_connections_by_id) endpoint, to retrieve the existing values of the `options` object. This is mandatory since the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint, which we will use next, overrides this object will be overridden, so is parameters are missing they will be lost after the update.
 
 ```har
 {
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/connections/",
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/connections/YOUR-WORDPRESS-CONNECTION-ID",
+  "headers": [
+    {
+      "name": "Authorization",
+      "value": "Bearer YOUR_ACCESS_TOKEN"
+    },
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    }
+  ]
+}
+```
+
+Let's say that the `options` contents for our wordpress connection are the following:
+
+```text
+{
+  "options": {
+    "client_id": "", 
+    "profile": true, 
+    "scope": ["profile"]
+  }
+}
+```
+
+Now we can send the update request, copying the existing `options` contents and adding also the `blog` parameter.
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/connections/YOUR-WORDPRESS-CONNECTION-ID",
   "headers": [
     {
       "name": "Authorization",
@@ -40,12 +71,12 @@ Let's assume that you want to always request that users have access to the `mybl
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\": \"WPConn\",\"strategy\": \"wordpress\",\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"blog\": {\"value\": \"myblog.wordpress.com\"}},\"authorizationURL\": \"https://public-api.wordpress.com/oauth2/authorize\",\"tokenURL\": \"https://public-api.wordpress.com/oauth2/token\"}}"
+    "text": "{\"options\":{\"client_id\":\"\",\"profile\":true,\"scope\":[\"profile\"],\"upstream_params\":{\"blog\":{\"value\":\"myblog.wordpress.com\"}}}}"
   }
 }
 ```
 
-You can test out your code and see other available attributes in our [Management API Explorer](/api/management/v2#!/Connections/post_connections).
+Now every time a user authenticates with this connection the request to Wordpress will include the query parameter `blog=myblog.wordpress.com`.
 
 ## Dynamic parameters
 
