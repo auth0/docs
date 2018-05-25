@@ -1,7 +1,7 @@
 ---
 title: Authorization
 name: Shows how to secure your API using the standard JWT middleware.
-description: Shows how to secure your API using the standard JWT middleware.
+description: This tutorial demonstrates how to add authorization to an ASP.NET Core 1.x Web API using the standard JWT middleware.
 budicon: 500
 github:
     path: Quickstart/01-Authorization
@@ -9,17 +9,13 @@ github:
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET Core Web API.
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v1/Samples/hs256' }) %>
 
-## Seed and Samples
+<%= include('../_includes/_api_auth_preamble') %>
 
-If you would like to follow along with this Quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v1/Quickstart/00-Starter-Seed). The seed project is just a basic ASP.NET Web API with a simple controller and some of the NuGet packages which will be needed included. It also contains an `appSettings.json` file where you can configure the various Auth0-related settings for your application.
+## Configure the Sample Project
 
-The final project after each of the steps is also available in the [Quickstart folder of the Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v1/Quickstart). You can find the final result for each step in the relevant folder inside the repository.
-
-<%= include('../_includes/_api_create_new_2') %>
-
-Also, update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, such as
+The sample code has an `appsettings.json` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page while logged in, it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
 ```json
 {
@@ -30,13 +26,9 @@ Also, update the `appsettings.json` file in your project with the correct **Doma
 }
 ```
 
-<%= include('../_includes/_api_auth_preamble') %>
+## Validate Access Tokens
 
-This example demonstrates:
-* How to check for a JSON Web Token (JWT) in the `Authorization` header of an incoming HTTP request
-* How to check if the token is valid with the standard ASP.NET Core JWT middleware
-
-## Install Dependencies
+### Install dependencies
 
 To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
@@ -44,9 +36,7 @@ To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Ad
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-## Configuration
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v1/Samples/hs256' }) %>
+### Configure the middleware
 
 The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `access_token` signature.
 
@@ -71,32 +61,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
-
-```csharp
-// Controllers/ApiController.cs
-
-[Route("api")]
-public class ApiController : Controller
-{
-    [HttpGet]
-    [Route("private")]
-    [Authorize]
-    public IActionResult Private()
-    {
-        return Json(new
-        {
-            Message = "Hello from a private endpoint! You need to be authenticated to see this."
-        });
-    }
-}
-```
-
-## Configuring Scopes
-
-The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
-
-<%= include('../_includes/_api_scopes_access_resources') %>
+### Validate scopes
 
 To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
@@ -153,7 +118,30 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To secure the API endpoint, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
+## Protect API Endpoints
+
+The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
+
+```csharp
+// Controllers/ApiController.cs
+
+[Route("api")]
+public class ApiController : Controller
+{
+    [HttpGet]
+    [Route("private")]
+    [Authorize]
+    public IActionResult Private()
+    {
+        return Json(new
+        {
+            Message = "Hello from a private endpoint! You need to be authenticated to see this."
+        });
+    }
+}
+```
+
+To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
 
 ```csharp
 // Controllers/ApiController.cs
@@ -173,9 +161,3 @@ public class ApiController : Controller
     }
 }
 ```
-
-## Further Reading
-
-* To learn how you can call your API from applications, please refer to the [Using your API section](/quickstart/backend/aspnet-core-webapi/v1/02-using).
-
-* If your experience problems with your API, please refer to the [Troubleshooting section](/quickstart/backend/aspnet-core-webapi/v1/03-troubleshooting).

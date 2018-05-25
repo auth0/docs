@@ -17,10 +17,26 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
-show_steps: false
+  - 03-troubleshooting
+show_steps: true
 github:
   org: auth0-community
   repo: auth0-falcor-api
 requirements:
   - Falcor 0.1.17
   - Express 4.15.2
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

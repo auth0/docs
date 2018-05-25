@@ -5,7 +5,6 @@ budicon: 292
 github:
   path: Quickstart/03-User-Profile
 ---
-
 ## Getting the profile
 
 The Auth0 OAuth2 middleware will automatically retrieve the user's information from Auth0 and add it as claims to the `ClaimsIdentity`. The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.

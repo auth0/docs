@@ -12,7 +12,6 @@ alias:
 seo_alias: aspnet-owin
 default_article: dashboard-default
 articles:
-  - 00-intro
   - 01-login
   - 02-storing-tokens
   - 03-user-profile
@@ -25,3 +24,18 @@ github:
 requirements:
   - Microsoft Visual Studio 2017
   - Auth0-ASPNET-Owin NuGet Package v2.3.0 and up
+next_steps:
+  - path: 04-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

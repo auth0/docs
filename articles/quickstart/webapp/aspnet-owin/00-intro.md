@@ -4,16 +4,6 @@ name: Introduction to the quickstart guide and configuring the environment
 description: This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
 budicon: 715
 ---
-
-::: panel System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Microsoft Visual Studio 2017
-* Auth0-ASPNET-Owin NuGet Package v2.3.0
-:::
-
-This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
-
 ## Sample Projects
 
 If you would like to follow along with this quickstart, you can download a blank starter [seed project](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Quickstart/00-Starter-Seed). This is just a regular ASP.NET MVC application with a home page and a `web.config` file where you can configure the various Auth0-related settings for your application.

@@ -1,12 +1,11 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your Java Spring MVC app.
+description: This tutorial demonstrates how to add user login to a Java Spring MVC application.
 budicon: 448
 github:
   path: 01-Login
 ---
-
-<%= include('../../../_includes/_new_app') %>
+<%= include('../_includes/_getting_started', { library: 'Java Spring MVC', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('_includes/_setup') %>
 

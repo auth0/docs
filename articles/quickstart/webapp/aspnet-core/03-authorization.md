@@ -5,8 +5,7 @@ budicon: 546
 github:
   path: Quickstart/04-User-Profile
 ---
-
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application. 
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
 
 ::: note
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).

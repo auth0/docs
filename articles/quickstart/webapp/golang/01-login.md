@@ -1,14 +1,15 @@
 ---
 title: Login
-description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
 budicon: 448
 github:
   path: 01-Login
 ---
-
 <%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
 
-## Add Dependencies
+## Configure Go to Use Auth0 
+
+### Add Dependencies
 
 Install the following dependencies using `go get`.
 
@@ -18,7 +19,7 @@ ${snippet(meta.snippets.dependencies)}
 This example uses `mux` for routing but you can use whichever router you want.
 :::
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
@@ -112,8 +113,7 @@ Remember to set this handler to the `/callback` path:
 
 ${snippet(meta.snippets.setup)}
 
-
-## Triggering the Login
+## Trigger Authentication
 
 Create a file called `login.go` in the `routes/login` folder, and add `LoginHandler` function to handle `/login` route.
 
@@ -199,7 +199,7 @@ Add a link to `/login` route in the `index.html` template.
 </div>
 ```
 
-## Accessing User Information
+## Display User Information
 
 You can access the user information via the `profile` you stored in the session previously.
 
@@ -294,9 +294,9 @@ $(document).ready(function() {
 This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) to cookie handling. You need to add `js.cookie.js` file in the `public` folder to use it.
 :::
 
-## Optional Steps
+### Optional Steps
 
-### Checking if the User is Authenticated
+#### Checking if the User is Authenticated
 
 We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
 

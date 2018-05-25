@@ -1,11 +1,10 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0
+description: This tutorial demonstrates how to fetch a user's information from Auth0.
 budicon: 292
 github:
   path: 02-User-Profile
 ---
-
 <%= include('../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope

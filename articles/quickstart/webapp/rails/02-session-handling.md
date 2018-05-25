@@ -5,7 +5,6 @@ budicon: 448
 github:
   path: 02-Session-Handling
 ---
-
 ## Store Session Data on Login
 
 Upon successful authentication, **OmniAuth** sets the authentication hash of a request to `/auth/oauth2/callback`. To handle this request, add a new route in your routes file.
@@ -29,7 +28,7 @@ def callback
 end
 ```
 
-## Logout Action
+## Clear Session on Logout
 
 Use the following command to create the controller that will handle user logout:
 

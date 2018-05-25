@@ -1,11 +1,10 @@
 ---
 title: User Profile
-description: This tutorial will show you how to display get the user's profile and display it.
+description: This tutorial will show you how to get the user's profile and display it.
 budicon: 292
 github:
   path: Quickstart/03-User-Profile
 ---
-
 ## Get the Profile
 
 The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.

@@ -5,7 +5,6 @@ description: This tutorial demonstrates how to use Auth0 to add authentication a
 github:
   path: 01-Login
 ---
-
 <%= include('../../../_includes/_callback_url') %>
 
 If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to

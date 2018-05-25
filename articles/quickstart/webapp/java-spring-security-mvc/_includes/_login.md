@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 The Login project sample has the following structure:
 
 ```text
@@ -40,7 +40,7 @@ The project contains also five Controllers:
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
 
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations.
 

@@ -7,23 +7,29 @@ github:
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-<%= include('../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-php-api-samples/tree/master/02-Authenticate-HS256' }) %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+## Validate Access Tokens
 
-## Install the Dependencies
+### Install dependencies
 
-The **auth0-PHP** library and its `JWTVerifier` class can be used to verify incoming JWTs. The **router** library can be used to create simple routes. Install the libraries with **composer**.
+In this example token validation is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. 
+
+The **router** library can be used to create simple routes. 
+
+Install the libraries with **composer**.
 
 ```bash
 composer require bramus/router:dev-master auth0/auth0-php:~5.0
 ```
 
-## Configuration
+::: note
+**[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+:::
 
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-php-api-samples/tree/master/02-Authenticate-HS256' }) %>
+### Configure JWT Validation
 
 Create an instance of `JWTVerifier` and pass your API identifier to `valid_audiences` and your Auth0 domain to `authorized_iss`. You can also create a function which will be called to return a message when a request is made to a protected endpoint.
 
@@ -75,7 +81,9 @@ class Main {
 }
 ```
 
-## Configure Authenticated Routes
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 The `before` hook from the **router** package can be used to configure which routes are to be protected. For example, you may wish to protect all routes under a URL of `/api/private`.
 
@@ -165,7 +173,7 @@ $router->get('/api/private', function() use ($app){
 });
 ```
 
-## Configure the Scopes
+### Protect endpoints with specific scopes
 
 To add authorization you need to define the method `checkScope` to check for a particular scope in the `access_token`.
 

@@ -6,15 +6,13 @@ github:
   path: 03-User-Profile
 ---
 
-## The OmniAuth Auth Hash
+## Process the Callback
 
 After receiving a successful callback at `/auth/oauth2/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
 
 ::: note
 The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
 :::
-
-## Retrieve the Auth Hash
 
 In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for **OmniAuth** to start the **OmniAuth-Auth0** strategy and for **OmniAuth** to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
 
@@ -34,7 +32,7 @@ def callback
 end
 ```
 
-## Display the User Profile Data
+## Display the User Profile
 
 The auth hash built by the **OmniAuth** Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/user-profile/normalized).
 

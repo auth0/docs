@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'React', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
 
@@ -50,7 +50,7 @@ auth.login();
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish the Service
+## Handle Authentication Tokens
 
 Add more methods to the `Auth` service to handle authentication in the app.
 
@@ -123,7 +123,7 @@ import createHistory from 'history/createBrowserHistory'
 export default createHistory()
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
@@ -137,7 +137,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
 
@@ -176,7 +176,7 @@ export default Callback;
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
 

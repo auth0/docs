@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'Angular 2+', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
 
@@ -108,7 +108,7 @@ export class AuthService {
 }
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 
@@ -157,7 +157,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 When you use universal login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 
@@ -183,7 +183,7 @@ To display a loading indicator, you need a loading spinner or another indicator 
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
-## Process the Authentication Result
+## Handle Authentication Tokens
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `AuthService` service processes the hash. 
 

@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 
 The Login project sample has the following structure:
 
@@ -35,8 +35,7 @@ The project contains also four servlets:
 
 Lastly, the project defines a helper class: the `AuthenticationControllerProvider.java` which will be in charge of creating new instances of `AuthenticationController`. Because this controller is very simple and doesn't keep any context it can be safely reused. You can also choose to create a new one every time it's needed.
 
-
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our application properties and create a new instance of this controller:
 
@@ -83,7 +82,6 @@ public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExce
 ::: note
 It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
-
 
 ## Display the Home Page
 

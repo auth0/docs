@@ -1,4 +1,4 @@
-## Add Authentication with Auth0
+## Configure your application to use Auth0 
 
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
 
@@ -6,7 +6,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-## Install and Configure Auth0 OAuth2 Middleware
+### Install and Configure Auth0 OAuth2 Middleware
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
 
@@ -73,7 +73,7 @@ It is important that you register both the cookie middleware and the Auth0 middl
 We are passing the Auth0 tenant's user info endpoint as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](/api-auth/intro).
 :::
 
-## Add Login and Logout Methods
+## Trigger Authentication
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
@@ -146,7 +146,7 @@ internal class ChallengeResult : HttpUnauthorizedResult
 }
 ```
 
-## Add Login and Logout Links
+### Add Login and Logout Links
 
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -181,7 +181,3 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
     </div>
 </div>
 ```
-
-## Run the Application
-
-Now when you run the application you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.

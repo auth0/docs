@@ -5,7 +5,6 @@ budicon: 280
 github:
   path: Quickstart/02-Storing-Tokens
 ---
-
 The Auth0 OAuth2 middleware can automatically add the `id_token` and `access_token` as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`. 
 
 You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a `refresh_token` by requesting the `offline_access` scope.
