@@ -3,6 +3,12 @@ title: Universal Login
 description: How to use Universal Login
 toc: true
 crews: crew-2
+tags:
+  - login
+  - universal-login
+  - auth0js
+  - lock
+  - hosted-pages
 ---
 # Universal Login
 

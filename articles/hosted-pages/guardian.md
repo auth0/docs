@@ -1,5 +1,9 @@
 ---
 description: Guide on how to use the hosted Guardian MFA page
+tags:
+  - mfa
+  - guardian
+  - hosted-pages
 ---
 # Guardian Multifactor Login Page
 

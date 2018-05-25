@@ -1,5 +1,11 @@
 ---
 description: How to use Lock Passwordless with Universal Login
+tags:
+  - login
+  - universal-login
+  - passwordless
+  - hosted-pages
+  - lock
 ---
 # Universal Login with Lock Passwordless
 

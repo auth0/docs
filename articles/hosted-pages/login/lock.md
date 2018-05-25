@@ -1,5 +1,10 @@
 ---
 description: How to use Lock with Universal Login
+tags:
+  - lock
+  - login
+  - universal-login
+  - hosted-pages
 ---
 # How to Use Lock with Universal Login
 

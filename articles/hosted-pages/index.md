@@ -1,5 +1,13 @@
 ---
 description: Overview of hosted pages with Auth0, and how to use them
+tags:
+  - login
+  - universal-login
+  - password-reset
+  - guardian
+  - mfa
+  - error-pages
+  - hosted-pages
 ---
 
 # Auth0 Hosted Pages

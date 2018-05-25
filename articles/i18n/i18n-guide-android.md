@@ -1,6 +1,9 @@
 ---
 title: Android guide to i18n
 description: Links to the Android guide on how to localize resource files.
+tags:
+    - i18n
+    - android
 ---
 # Android guide to i18n
 

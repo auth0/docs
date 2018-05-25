@@ -1,6 +1,9 @@
 ---
 description: Guide on how to use the hosted error pages for authorization error events
 crews: crew-2
+tags:
+  - error-pages
+  - hosted-pages
 ---
 
 # Error Pages
