@@ -1,5 +1,9 @@
 ---
-desc: Configure Auth0 for use with AWS API Gateway
+description: Configure Auth0 for use with AWS API Gateway
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 
 # AWS API Gateway Tutorial, Part 1: Create an Auth0 API

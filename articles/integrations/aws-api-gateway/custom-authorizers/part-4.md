@@ -1,5 +1,9 @@
 ---
 description: How to set your API methods to use your custom authorizer
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 
 # AWS API Gateway Tutorial, Part 4: Secure the API Using Custom Authorizers

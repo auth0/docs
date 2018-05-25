@@ -1,6 +1,10 @@
 ---
 title: Amazon API Gateway Tutorial - Flowing Identity
 description: Step 5 of Amazon API Gateway Tutorial
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 # AWS API Gateway Tutorial
 

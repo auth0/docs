@@ -2,6 +2,9 @@
 classes: topic-page
 title: Amazon Web Services (AWS)
 url: /integrations/aws
+tags:
+  - integrations
+  - aws
 ---
 
 <div class="topic-page-header">

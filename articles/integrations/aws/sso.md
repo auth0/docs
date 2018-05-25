@@ -1,6 +1,10 @@
 ---
 description: How to use SSO with AWS
 toc: true
+tags:
+  - integrations
+  - aws
+  - sso
 ---
 
 # Enable SSO to the AWS Console

@@ -1,6 +1,10 @@
 ---
 title: Amazon API Gateway Tutorial Introduction
 description: How to build a serverless application using Token-based Authentication with AWS API Gateway and Lambda.
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 
 # Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda

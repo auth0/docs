@@ -1,6 +1,10 @@
 ---
 description: Step 2 of Amazon API Gateway Tutorial
 toc: true
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 
 # AWS API Gateway Tutorial, Part 2: Import and Deploy the API Gateway API

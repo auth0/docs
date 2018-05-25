@@ -1,6 +1,10 @@
 ---
 title: Amazon API Gateway Tutorial - Adding Security and Deploying
 description: Step 2 of Amazon API Gateway Tutorial
+tags:
+  - integrations
+  - aws
+  - api-gateway
 ---
 # AWS API Gateway Tutorial
 

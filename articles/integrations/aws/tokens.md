@@ -1,6 +1,10 @@
 ---
 description: How to call AWS APIs and Resources Using Tokens
 toc: true
+tags:
+  - integrations
+  - aws
+  - tokens
 ---
 # Call AWS APIs and Resources Securely with Tokens
 
