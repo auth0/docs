@@ -31,9 +31,9 @@ The documents below describe all the changes that you should be aware of when mi
 * [Migrating from Lock v8](/libraries/lock/v11/migration-v8-v11)
 * [Migrating from Lock v8 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v8)
 
-:::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
-:::
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Disabling legacy Lock API
 
@@ -64,3 +64,5 @@ Legacy Lock API: This feature is being deprecated. Please refer to our documenta
 ```
 
 These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in.
+
+Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.

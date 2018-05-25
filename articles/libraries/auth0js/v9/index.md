@@ -150,7 +150,9 @@ webAuth.popup.authorize({
 
 ### webAuth.login()
 
-The `login` method allows for [cross-origin authentication](/cross-origin-authentication) using database connections, using `/co/authenticate`.
+<%= include('../../../_includes/_embedded_login_warning') %>
+
+The `login` method allows for [cross-origin authentication](/cross-origin-authentication) for database connections, using `/co/authenticate`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -248,7 +250,7 @@ If sending a code, you will then need to prompt the user to enter that code. You
 As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: note
-In order to use `passwordlessLogin`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
+In order to use `passwordlessLogin`, the options `redirectUri` and `responseType` must be specified when first initializing WebAuth.
 :::
 
 ```js
