@@ -90,10 +90,22 @@ To continue, you should already have a working Twitter connection; to learn how 
 
 Twitter's `screen_name` parameter pre-fills the username input box of the login screen with the given value, so we want to map it to the existing accepted parameter of `login_hint`.
 
+Let's assume that you already retrieved the contents of the `options` object (like we did in the previous paragraph) and they are the following:
+
+```text
+"options": {
+  "client_id": "thisismyid",
+  "client_secret": "thisismysecret",
+  "profile": true
+}
+```
+
+Send the update request, copying the existing `options` contents and adding also the `screen_name` parameter.
+
 ```har
 {
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/connections/",
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/connections/YOUR-TWITTER-CONNECTION-ID",
   "headers": [
     {
       "name": "Authorization",
@@ -106,12 +118,12 @@ Twitter's `screen_name` parameter pre-fills the username input box of the login 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\": \"TwitterConn\",\"strategy\": \"twitter\",\"options\": {\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"upstream_params\": {\"screen_name\": {\"alias\": \"login_hint\"}},\"authorizationURL\": \"https://api.twitter.com/oauth/authorize\",\"tokenURL\": \"https://api.twitter.com/oauth/request_token\"}}"
+    "text": "{\"options\": {\"client_id\": \"thisismyid\", \"client_secret\": \"thisismysecret\", \"profile\": true, \"upstream_params\": {\"screen_name\": {\"alias\": \"login_hint\"}}}}"
   }
 }
 ```
 
-Now, when you call the [/authorize endpoint](/api/authentication#authorize-client) for a specific user, you can pass their email address in the `login_hint` parameter.
+Now, when you call the [Authorize endpoint](/api/authentication#authorize-client) for a specific user, you can pass their email address in the `login_hint` parameter.
 
 ```text
 https://${account.namespace}/authorize
