@@ -22,7 +22,7 @@ As an example, let's use WordPress, which allows you to pass an optional `blog` 
 
 Let's assume that you have a working WordPress connection and you want to always request that users have access to the `myblog.wordpress.com` blog when logging in with it. To do this, assign WordPress's `blog` parameter a default value of `myblog.wordpress.com`.
 
-First, we will use the [Get Connection](/api/management/v2#!/Connections/get_connections_by_id) endpoint, to retrieve the existing values of the `options` object. This is mandatory since the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint, which we will use next, overrides this object will be overridden, so is parameters are missing they will be lost after the update.
+First, we will use the [Get Connection](/api/management/v2#!/Connections/get_connections_by_id) endpoint, to retrieve the existing values of the `options` object. This is mandatory since the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint, which we will use next, overrides this object will be overridden, so if parameters are missing they will be lost after the update.
 
 ```har
 {
