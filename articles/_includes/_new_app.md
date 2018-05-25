@@ -1,5 +1,4 @@
 ## Configure Auth0
-
 ### Get Your Application Keys
 
 When you signed up for Auth0, a new application was created for you, or you could have created a new one.
@@ -11,7 +10,7 @@ You need the following information:
 * **Domain** 
 
 ::: note
-If you download the sample from the top of this page while being logged in, these details are filled out for you. If not, refer to the Github's repository's README.MD for instructions on how to properly configure it. 
+If you download the sample from the top of this page these details are filled out for you. 
 
 If you have more than one application in your account, the sample comes with the values for your **Default App**. 
 :::
