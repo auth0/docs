@@ -220,6 +220,9 @@ articles:
           - title: "FAQ"
             url: "/connections/passwordless/faq"
 
+      - title: "Send extra parameters"
+        url: "/connections/pass-parameters-to-idps"
+
   - title: "Hosted Pages"
     url: "/hosted-pages"
     children:
