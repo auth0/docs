@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
+[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
 ::: note
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
@@ -151,10 +151,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-For more information on saving and storing the Access Token, see the [Storing Tokens](/quickstart/webapp/aspnet-core/v2/03-storing-tokens) step.
-
-For general information on using APIs with web applications, see the [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code) article.
-
 ## Add the `Login` and `Logout` Methods
 
 Add the `Login` and `Logout` actions to `AccountController`. 
@@ -300,3 +296,58 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and Access Tokens.
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
 9. The OIDC middleware returns a successful authentication response and a cookie which indicates that the user is authenticated. The cookie contains claims with the user's information. The cookie is stored, so that the cookie middleware will automatically authenticate the user on any future requests. The OIDC middleware receives no more requests, unless it is explicitly challenged.
+
+## Store the Tokens
+
+The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`. This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
+
+The seed project contains a controller action and view that display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
+
+You may want to Access Tokens received from Auth0. For example, you can use the Access Token to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
+
+```csharp
+// Startup.cs
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // Add authentication services
+    services.AddAuthentication(options => {
+        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    })
+    .AddCookie()
+    .AddOpenIdConnect("Auth0", options => {
+        // ...
+
+        // Saves tokens to the AuthenticationProperties
+        options.SaveTokens = true;
+
+        options.Events = new OpenIdConnectEvents
+        {
+            // handle the logout redirection 
+            OnRedirectToIdentityProviderForSignOut = (context) =>
+            {
+                //...
+            }
+        };   
+    });
+}
+```
+
+To retrieve the tokens, you can call `GetTokenAsync`:
+
+```csharp
+// Inside one of your controller actions
+
+if (User.Identity.IsAuthenticated)
+{
+    string accessToken = await HttpContext.GetTokenAsync("access_token");
+    string idToken = await HttpContext.GetTokenAsync("id_token");
+
+    // Now you can use them. For more info on when and how to use the 
+    // access_token and id_token, see https://auth0.com/docs/tokens
+}
+```
+
+For general information on using APIs with web applications, see the [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code) article.

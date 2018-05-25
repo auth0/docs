@@ -25,24 +25,6 @@ Unless your server-side application allows the generation of artificial sessions
 
 For a high-level overview of how to do this, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code). For detailed implementation instructions, see [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant).
 
-## Log In as a User for Testing
-
-If you need to simulate the user login process to your application, but you don't have access to a set of user credentials, you can use the [impersonation endpoint](/api/authentication/reference#impersonation) to generate a link allowing you to log in as a specific user.
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/users/{user_id}/impersonate",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"protocol\": \"PROTOCOL\",\"impersonator_id\": \"IMPERSONATOR_ID\", \"client\": \"CLIENT_ID\", \"additionalParameters\": [\"response_type\": \"CODE\",\"state\": \"STATE\"]}"
-  }
-}
-```
-
 ## Use Local Domains with Auth0
 
 If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as callback URLs.

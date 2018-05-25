@@ -12,11 +12,11 @@ Most options are the default values. You will just need to press __Next__ in mos
 * __HTTP-Redirect__ binding for SAML Request
 * __HTTP-POST__ binding for SAML Response
 
-::: note
-If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
+If you want **IdP-Initiated SSO** make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
 **Beginning with auth0.js v9.3.4, you must also [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
-:::
+
+<%= include('../../../_includes/_deprecate-impersonation.md') %>
 
 ### 1. Download Auth0 Metadata File
 

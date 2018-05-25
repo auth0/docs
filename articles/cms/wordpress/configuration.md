@@ -1,5 +1,5 @@
 ---
-description: How to configure WordPress as a application with Auth0.
+description: How to configure WordPress as an application with Auth0.
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
@@ -8,7 +8,7 @@ By default, new installations of Login by Auth0 run the Setup Wizard and ask for
 
 * Creating a new Application using your site name with the correct app type and URLs 
 * Creating a database Connection for this Application for storing users
-* Creating a Application grant for the system Auth0 Management API
+* Creating an application grant for the system Auth0 Management API
 * Creating a new user for the WordPress administrator running the wizard
 
 Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
@@ -25,11 +25,11 @@ You'll need to be logged into your Auth0 account before starting the steps below
 
 First, we'll check for the Application created for your WordPress site. 
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an Application that is similar to your site name; if you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking Create Application**, entering a name for the Application, selecting **Regular Web Applications**, then clicking **Create**. 
+1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**. 
     
     ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
-1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
+1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
@@ -48,6 +48,8 @@ First, we'll check for the Application created for your WordPress site.
     ::: note
     Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
     :::
+
+1. If SSO is needed, make sure that **Use Auth0 instead of the IdP to do Single Sign On** is turned on.
 
 1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 

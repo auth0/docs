@@ -6,7 +6,7 @@ toc: true
 ---
 # The Auth0 Management APIv2 Token
 
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a application API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with an application API key and secret for the entire tenant.
 
 There are two ways to get a Management APIv2 Token:
 - [get one manually using the Dashboard](#get-a-token-manually), or
@@ -17,7 +17,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 ::: warning
-Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process).
+Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process). Keep in mind that these tokens **cannot be revoked** so long expiration times are **not recommended**.
 :::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.

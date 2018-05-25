@@ -19,12 +19,18 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
-* Database and Social connections
-* Lock 11 with Cross Origin Authentication
-* SAML Connections and Applications
+* Database and social connections
+* Lock 11 with cross-origin authentication
+* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* Google Apps connections
+* SAML connections and applications
+* WS-Fed clients (Auth0 as IDP using WS-Fed Add-on)
+* Azure AD connections
+* ADFS connections
+* AD/LDAP connections
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -148,3 +154,9 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 ```text
 "0 issue \"letsencrypt.org\""
 ```
+
+### "Service not found"
+
+If your application issues an `/authorize` request with `audience=https://login.northwind.com/userinfo`, the server will return a `Service not found: https://login.northwind.com/userinfo` error. This is because even if you set a custom domain the API identifier for the `/userinfo` endpoint remains `https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. 
+
+To fix this your app should instead use `audience=https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. You can also remove this `audience=[...]/userinfo` parameter altogether if your application is flagged as **OIDC-Conformant** in the **OAuth2** tab of the application's **Advanced Settings**.

@@ -1,4 +1,5 @@
 ---
+title: "SPA + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 url: /architecture-scenarios/application/spa-api/api-implementation-nodejs
 toc: true
@@ -57,7 +58,7 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **express-jwt**: This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier. For more information refer to the [express-jwt GitHub repository](https://github.com/auth0/express-jwt).
 
-- **body-parser**: This is a Node.js body parsing middleware. It extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with.For more information and several alternatives refer to the body-parser GitHub repository.
+- **body-parser**: This is a Node.js body parsing middleware. It extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with. For more information and several alternatives refer to the body-parser GitHub repository.
 
 To install these dependencies run the following:
 
@@ -164,9 +165,9 @@ In order to test the working scenario as well we need to:
 - Get an Access Token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
-## 3. Check the Client permissions
+## 3. Check the application permissions
 
-In this step we will add to our implementation the ability to check if the client has permissions (or `scope`) to use our endpoint in order to create a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
+In this step we will add to our implementation the ability to check if the application has permissions (or `scope`) to use our endpoint in order to create a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
 
 In order to do this we will make use of the `express-jwt-authz` Node.js package, so go ahead and add that to your project:
 
@@ -232,7 +233,8 @@ For more information on namespaced claims, refer to [User profile claims and sco
 Next, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 
 ```js
-app.get('/timesheets', checkJwt, jwtAuthz(['read:timesheets']), function(req, res) {
+app.post('/timesheets', checkJwt, jwtAuthz(['create:timesheets']), function(req, res){
+
   var timesheet = req.body;
 
   // Associate the timesheet entry with the current user

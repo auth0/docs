@@ -48,7 +48,7 @@ Also include following permission:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
+Finally, open the Dashboard and make sure the Allowed Callback URLs for your application contains a URL with the following format:
 
 `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`
 
@@ -57,7 +57,7 @@ Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 ## Initiate Authentication and Authorization
 
-First create an instance of Auth0 with your client information:
+First create an instance of Auth0 with your application information:
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");

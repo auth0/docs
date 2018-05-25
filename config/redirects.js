@@ -511,7 +511,11 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-application-secret'
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -1734,7 +1738,23 @@ module.exports = [
     to: '/users/search/v2/query-syntax'
   },
   {
-    from: '/api-auth/dynamic-client-registration',
-    to: '/api-auth/dynamic-application-registration'
+    from: '/api-auth/dynamic-application-registration',
+    to: '/api-auth/dynamic-client-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
+  },
+  {
+    from: `/link-accounts/auth-api`,
+    to: `/link-accounts`
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
   }
 ];

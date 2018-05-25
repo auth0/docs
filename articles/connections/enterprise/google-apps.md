@@ -57,6 +57,10 @@ Google may show an "unverified app" screen before displaying the consent screen 
     * **Authorized JavaScript origins:** `https://${account.namespace}`
     * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
 
+    ::: note
+    If you are using the [custom domains](/custom-domains) feature, you will need to use your custom domain in the redirect URI in the following format: `https://<YOUR_CUSTOM_DOMAIN>/login/callback`.
+    :::
+
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
   ![OAuth Client ID and Secret](/media/articles/connections/social/google/oauth-client-info.png)

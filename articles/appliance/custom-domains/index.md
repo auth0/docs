@@ -48,20 +48,19 @@ You may do so by utilizing the PSaaS Appliance's custom domains feature, which s
 
 ## Certificates Required for Custom Domains
 
-Custom domains map one or more external DNS to a tenant that follows the standard naming convention.
+Custom domains map one external DNS to a tenant that follows the standard naming convention.
 
 Suppose that we have a tenant with the following domain:
 
 `auth.example.com`
 
-Suppose that we want the following domains to map to `auth.example.com`:
+Suppose that we want the following domain to map to `auth.example.com`:
 
 ```text
-auth.site1.example.com
 auth.site2.com
 ```
 
-Each of the custom domains (in this example, there are two) has its own certificate, which is stored separately.
+The custom domain has its own certificate, which is stored separately.
 
 ## Configuring Custom Domains
 

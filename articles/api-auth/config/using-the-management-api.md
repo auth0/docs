@@ -110,8 +110,12 @@ Sample response:
 }
 ```
 
-## 3. That's it!
+That's it, you are done! Now that all the elements are in place, you can request Access Tokens for your API from Auth0.
 
-Now that all the elements are in place, you can request Access Tokens for your API from Auth0.
+## Keep reading
 
-For details on how to do so, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials).
+:::next-steps
+* [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials)
+* [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+* [How to add custom claims to a token using Rules](/scopes#custom-claims)
+:::

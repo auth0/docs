@@ -195,9 +195,7 @@ If Auth0 is serving as a SAML Service Provider, the "Mappings" tab for a SAML co
 
 `Connections -> Enterprise -> SAMLP -> {Name of Connection} -> Settings -> Mappings`
 
-If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application AddOns is used to map attributes from the Auth0 User Profile to attributes in the SAML Assertion sent back to the Service Provider.
-
-`Apps/APIs -> {name of app} - Addons -> SAML2 Web App -> Settings`
+If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application AddOns is used to map attributes from the Auth0 User Profile to attributes in the SAML Assertion sent back to the Service Provider: **[Dashboard](${manage_url}) > Applications > name of your app > Addons > SAML2 Web App > Settings**.
 
 ## User Profile with Account Linking
 
