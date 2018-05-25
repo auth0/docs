@@ -14,7 +14,7 @@ Click on any scenario to get more information.
 These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those.
 
 <div class="architecture-scenarios-container">
-  <a href="/architecture-scenarios/application/web-app-sso" class="architecture-scenarios-card">
+  <a href="/architecture-scenarios/web-app-sso" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/web-oidc.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
@@ -23,7 +23,7 @@ These scenarios describe the different type of technology architectures your app
       </div>
     </article>
   </a>
-  <a href="/architecture-scenarios/application/server-api" class="architecture-scenarios-card">
+  <a href="/architecture-scenarios/server-api" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/server-api.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
@@ -32,7 +32,7 @@ These scenarios describe the different type of technology architectures your app
       </div>
     </article>
   </a>
-  <a href="/architecture-scenarios/application/spa-api" class="architecture-scenarios-card">
+  <a href="/architecture-scenarios/spa-api" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/spa-api.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
@@ -41,7 +41,7 @@ These scenarios describe the different type of technology architectures your app
       </div>
     </article>
   </a>
-  <a href="/architecture-scenarios/application/mobile-api" class="architecture-scenarios-card">
+  <a href="/architecture-scenarios/mobile-api" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/mobile-api.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
@@ -57,7 +57,7 @@ These scenarios describe the different type of technology architectures your app
 These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses (B2C, B2B, B2E), and how Auth0 can help in each of these scenarios.
 
 <div class="architecture-scenarios-container">
-  <a href="/architecture-scenarios/application/web-saml" class="architecture-scenarios-card">
+  <a href="/architecture-scenarios/web-saml" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/web-saml.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
@@ -66,7 +66,7 @@ These scenarios are under construction and will soon be updated. Some describe t
       </div>
     </article>
   </a>
-  <% cache.find('articles/architecture-scenarios/business', {sort: 'order'}).forEach(article => { %>
+  <% cache.find('articles/architecture-scenarios/under-construction', {sort: 'order'}).forEach(article => { %>
     <a href="<%- article.url %>" class="architecture-scenarios-card">
       <article>
         <img src="<%- article.image %>" alt="Architecture Diagram">

@@ -1779,23 +1779,23 @@ module.exports = [
   },
   {
     from: '/architecture-scenarios/application/web-saml',
-    to: '/architecture-scenarios/web-saml'
+    to: '/architecture-scenarios/under-construction/web-saml'
   },
   {
     from: '/architecture-scenarios/business/b2b-b2e',
-    to: '/architecture-scenarios/b2b-b2e'
+    to: '/architecture-scenarios/under-construction/b2b-b2e'
   },,
   {
     from: '/architecture-scenarios/business/b2b',
-    to: '/architecture-scenarios/b2b'
+    to: '/architecture-scenarios/under-construction/b2b'
   },
   {
     from: '/architecture-scenarios/business/b2c',
-    to: '/architecture-scenarios/b2c'
+    to: '/architecture-scenarios/under-construction/b2c'
   },
   {
     from: '/architecture-scenarios/business/b2e',
-    to: '/architecture-scenarios/b2e'
+    to: '/architecture-scenarios/under-construction/b2e'
   },
   {
     from: '/architecture-scenarios/implementations/mobile-api',
