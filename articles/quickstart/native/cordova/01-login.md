@@ -38,8 +38,6 @@ Please note that Cordova authentication requires testing on either an emulated o
 
 ${snippet(meta.snippets.setup)}
 
-## Integrate Auth0 in your Application
-
 ### Set Up URL Redirects
 
 Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.

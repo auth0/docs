@@ -167,7 +167,7 @@ and then register a URL type entry using the value of `CFBundleIdentifier` as th
 The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the default for apps created with React Native CLI, you may have a different value.
 :::
 
-## Add Authentication with Auth0
+### Add Authentication with Auth0
 
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
