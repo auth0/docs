@@ -6,7 +6,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Voice
 
-* Address the reader directly: "you". Use "we" only for Auth0's recommendations. 
+* Address the reader directly: "you." Use "we" only for Auth0's recommendations. 
 * Use active voice. 
 * For instructions, use imperative mood. 
 
@@ -15,7 +15,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | User authentication data should be saved.| Save user authentication data. |
 | Saving user authentication data is recommended. | We recommend that you save user authentication data. | 
 
-* Use gender-neutral pronouns: "they", "their". 
+* Use gender-neutral pronouns: "they," "their." 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -25,7 +25,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Saving User Authentication Data | Save User Authentication Data |
+| Saving User Authentication Data. | Save User Authentication Data. |
 | Setting up the authorization process requires an ID token and a valid access token. | To set up the authorization process, you need an ID token and a valid access token. | 
 
 ## Body text
@@ -35,8 +35,8 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
-| In this way, setting up a session for the user on the client side is simply a matter of saving the `access_token`, `id_token`, and a time that the `access_token` expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
+| Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server. | Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about the user's session is stored on your server. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the `access_token,` `id_token,` and a time that the `access_token` expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token,` `id_token,` `expires_in.` |
 
 * When mentioning several elements, use bulleted lists. 
 * Subheads are not independent statements. Repeat the information from the subhead in the paragraph. 
@@ -64,7 +64,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 ## Punctuation
 
 * Use colons to introduce code or examples: "Install the dependencies using yarn: `code_snippet`"
-* Use hyphens between adjectives and the verbs they modify. Don't use a hyphen if the adjective ends with "ly". 
+* Use hyphens between adjectives and the verbs they modify. Don't use a hyphen if the adjective ends with "ly." 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -74,10 +74,15 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 * When you are quoting something in a sentence, keep the punctuation inside the quotation marks. 
 * When you are quoting code, do not add any punctuation inside the quotation marks. 
 
+| **Incorrect** | **Correct** |
+| --- | --- |
+| A reader asks, “How scalable is .NET”? | A reader asks, “How scalable is .NET?” |
+| /*Declare the string to have length of “constant+1.*/" | /*Declare the string to have length of “constant+1”.*/ |
+
 ## Formatting
 
-* Use title case for first-level headings: "Log In with a Social Identity"
-* Use sentence case for subheads: "About the login process"
+* Use title case for first-level headings: "Log In with a Social Identity."
+* Use sentence case for subheads: "About the login process."
 * Use **Bold** for UI elements, such as menu items and field names. 
 
 | **Incorrect** | **Correct** |
@@ -104,14 +109,16 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| December 21 | Dec. 21|
+| Updates will be made in Dec. | Updates will be made in December |
+| December 21 | Dec. 21 |
 | 21. December 2018 | Dec. 21, 2048 |
 | Dec. 2048 | December 2048 |
 | Mar. 15 | March 15 |
 | 15 March 2048 | March 15, 2048 |
 
 * Spell out whole numbers from zero to nine. 
-* Write numerically numbers from 10 up and fractions. 
+* Write whole numbers greater than or equal to 10 numerically.
+* Write fractions numerically. 
 * Spell out any number that starts a sentence. 
 * If one number follows another immediately, spell out the first number. 
 
@@ -119,6 +126,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | --- | --- |
 | Save 3 items. | Save three items. |
 | The password must contain at least twelve characters. | The password must contain at least 12 characters. |
+| More than one half of the users changed their passwords. | More than 1/2 of the users changed their passwords. |
 | 14 plugins are available. | Fourteen plugins are available. |
 | Configure 12 50GB drives | Configure twelve 50GB drives. |
 
@@ -129,18 +137,18 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Vocabulary
 
-* If an action is required, use "must". 
-* If an action is available, use "can". 
-* If an action is optional, use "may". 
+* If an action is required, use "must."
+* If an action is available, use "can." 
+* If an action is optional, use "may."
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | To limit access to your resources, you should use scopes. | To limit access to your resources, you must use scopes. |
-| You might want to use scopes to limit access to your resources. | To limit access to your resources, use scopes. |
-| Creating more access roles is possible. | You may want to create more access roles. |
+| Creating more access roles is possible. | You can create more access roles using scopes. |
+| If you want you can use scopes to limit resource access. | You may want to limit access to your resources using scopes. |
 
-* Use "log in" and "log out" as verbs. Do not use "log into". 
-* Use "login" and "logout" as nouns. Do not use "login to". 
+* Use "log in" and "log out" as verbs. Do not use "log into." 
+* Use "login" and "logout" as nouns. Do not use "login to." 
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -148,35 +156,40 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Click the **Logout** button to activate the log-out action. | Click the **Log out** button to activate the logout action. |
 
 * Use "set up" as a verb or "setup" as a noun.
-* Use "roll out" as a verb or "rollout" as a noun. Do not use "roll-out".
+* Use "roll out" as a verb or "rollout" as a noun. Do not use "roll-out."
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Setup the login screen. | Set up the login screen. |
-| Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. |
+| Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. 
 
-* Use "multifactor authentication" instead of "multi-factor authentication".
-* Use "email address" instead of "e-mail address". 
-* Use "website" instead of "web site".
+* Use "multifactor authentication" instead of "multi-factor authentication."
+* Use "email address" instead of "e-mail address." 
+* Use "website" instead of "web site."
 * Use "click on" when referring to text links in a webpage or UI. Use "click" when referring to a button.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Select **Save**.| Click **Save**. |
-| Click  **Go to Settings** at the bottom of the page to access the settings section. | Click on **Go to Settings** at the bottom of the page to access the settings section. |
+| The log in requires multi factor authentication.| The log in requires multifactor authentication. |
+| Enter your e-amil address. | Enter your email address. |
+| Instructions are on our web site.| Instructions are on our website. |
+| Click on **Save** | Click **Save** |
+| Click  **Go to Settings** at the bottom of the page. | Click on **Go to Settings** at the bottom of the page. |
 
-* Depending on the situation, the reader can "gain access", "grant access", or "allow access".
-* Refer to the developer's customer as the "user". 
-* If you need to use the name of a fictional company, use "ExampleCo".
-* When you use a group of nouns as an adjective, use a hyphen.
+* When referring to the time an app is running, be consistant. The debate continues over which is correct, when in fact run time, run-time, runtime, and running time can all be considered accurate. Consistency is the issue, so pick one and stick with it. 
+* Refer to the developer's customer as the "user." 
+* If you need to use the name of a fictional company, use "ExampleCo."
+* Logged in, logged-in, log in, login: As the past tense of the verb use logged in, "I logged in this morning." As an adjectival phrase, depending on the placement, use either logged in or logged-in, for example "Here is a list of users who are logged in." vs. "Here is a list of logged-in users." Use log in, two words, only as a verb/action. Use login, one word, only as a noun/thing or an adjective.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| The method is executed at runtime. | The method is executed at run time. |
-| The run-time engine must be running to execute the application.  | The runtime engine must be running to execute the application. |
-| Write code for the client-side. | Write code for the client side. |
-| Write the client side code. | Write the client-side code. |
+| The method is executed at runtime. | The method is executed at runtime. |
+| The customer changed the password. | The user changed the password. |
+| BadExampleCo took the upgrade. | ExampleCo took the upgrade. |
 | Save the logged in user's access token. | Save the logged-in user's access token. |
+| I logged-in yesterday. | I logged in yesterday, and I'm logged-in right now. |
+| You need to log-in. | You need to log in. |
+| Here are your log in credentials. | Here are your login credentials. |
 
 ### The dashboard
 
