@@ -102,5 +102,3 @@ Implementation of token renewal will depend on the type of application and frame
 * [jQuery](/quickstart/spa/jquery/05-token-renewal)
 * [React](/quickstart/spa/react/05-token-renewal)
 * [Angular](/quickstart/spa/angular2/05-token-renewal)
-* [ASP.NET Core MVC](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/silent-auth)
-
