@@ -43,23 +43,23 @@ These scenarios are under construction and will soon be updated. Some describe t
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-saml">Regular Web App (using SAML)</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/under-construction/web-saml">Regular Web App (using SAML)</a>
     <p>Traditional web application which needs to authenticate users using SAML2.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/under-construction/b2b">Business to Business Identity Scenarios</a>
     <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/under-construction/b2c">Business to Consumer Identity Scenarios</a>
     <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Enterprise Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/under-construction/b2e">Business to Enterprise Identity Scenarios</a>
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
     <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b-b2e">Business to Business + Enterprise Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/under-construction/b2b-b2e">Business to Business + Enterprise Identity Scenarios</a>
     <p>Hybrid implementation involving aspects of the B2B and B2E scenarios.</p>
   </li>
 </ul>
