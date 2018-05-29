@@ -1,8 +1,8 @@
 ---
-title: Associate a New Authenticator for Use with Multifactor Authentication
-description: How to associate a new authenticator for use with MFA using the new MFA API endpoints
+title: Trigger MFA using the API
+description: How to trigger MFA challenges for enrolled authenticators using the MFA API
 ---
-# Multifactor Authentication Challenges
+# Trigger MFA using the API
 
 You can trigger MFA challenges for enrolled authenticators by calling the `/mfa/challenge` endpoint.
 
