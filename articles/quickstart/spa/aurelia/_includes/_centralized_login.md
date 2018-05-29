@@ -32,7 +32,7 @@ export class AuthService {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Handle Authentication Tokens
+## Handle Tokens
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app. Use the `inject` decorator to inject `Router`.
 

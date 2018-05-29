@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Handle Authentication Tokens
+## Handle Tokens
 
 Add more functions to the `app.js` file to handle authentication in the app.
 

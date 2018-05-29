@@ -183,7 +183,7 @@ To display a loading indicator, you need a loading spinner or another indicator 
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
-## Handle Authentication Tokens
+## Handle Tokens
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `AuthService` service processes the hash. 
 

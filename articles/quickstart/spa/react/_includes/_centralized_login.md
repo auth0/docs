@@ -50,7 +50,7 @@ auth.login();
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Handle Authentication Tokens
+## Handle Tokens
 
 Add more methods to the `Auth` service to handle authentication in the app.
 

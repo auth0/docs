@@ -117,7 +117,7 @@ Create a service and provide a `login` method that calls the `authorize` method 
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Handle Authentication Tokens
+## Handle Tokens
 
 Add more methods to the `authService` service to handle authentication in the app.
 
