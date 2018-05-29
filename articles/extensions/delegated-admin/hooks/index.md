@@ -113,14 +113,6 @@ var request = require('request');
 }
 ```
 
-<<<<<<< HEAD
-::: panel-warning Using Special Characters
-Do not use single quotes, double quotes, or any other special characters (such as `+` or `-`) in any term on which you'll want to filter. This might cause issues with the Lucene query.
-:::
-
-If you do not configure this Hook, the search returns **all users**.
-
-<<<<<<< HEAD
 ### The Hook contract:
 
  - `ctx`: The context object
