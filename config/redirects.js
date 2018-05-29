@@ -1756,5 +1756,9 @@ module.exports = [
   {
     from: '/videos/session-and-cookies',
     to: '/security/store-tokens#understanding-sessions-and-cookies'
+  },
+  {
+    from: '/support/sla',
+    to: '/support/sld'
   }
 ];
