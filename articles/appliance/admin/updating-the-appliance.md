@@ -7,9 +7,17 @@ description: How to update the PSaaS Appliance
 
 To ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis. You should not exceed **90 days** without updating the PSaaS Appliance.
 
-::: note
+## Releases
+
 For more information about PSaaS Appliance Releases, please see the [Change Log](https://auth0.com/changelog/appliance).
-:::
+
+## Types of Updates
+
+There are two types of updates: **major** and **minor** releases.
+
+**Major releases** can be identified by changes in the PSaaS Appliance version number (i.e. from **14591.X** to **15838.X**). These updates include new features and/or changes in existing functionality.
+
+**Minor releases** (or patch releases) can be identified by changes in the *decimal* value of the version number (i.e. **15838.35** is a minor update to **15838.31**). Patches are cumulative; that is, patch **15838.85** includes changes included in all prior patches (**15838.75**, **15838.43**, **15838.36**, **15838.35**, and **15838.31**). You do *not* need to install all released patches, but we recommend doing so since patches typically include things like bug and security fixes.
 
 ## Best Practices
 
