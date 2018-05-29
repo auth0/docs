@@ -1756,5 +1756,9 @@ module.exports = [
   {
     from: '/videos/session-and-cookies',
     to: '/security/store-tokens#understanding-sessions-and-cookies'
+  },
+  {
+    from: '/applications/application-settings/non-interactive',
+    to: '/applications/application-settings/machine-to-machine'
   }
 ];

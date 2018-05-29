@@ -5,9 +5,9 @@ versioning:
     - native
     - single-page-app
     - regular-web-app
-    - non-interactive
+    - machine-to-machine
   defaultArticles:
     native: index
     single-page-app: index
     regular-web-app: index
-    non-interactive: index
+    machine-to-machine: index
