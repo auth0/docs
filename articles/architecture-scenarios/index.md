@@ -8,6 +8,8 @@ description: Learn about the common architecture scenarios that you will use to 
 
 This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0.
 
+![Sample Architecture Scenario](/media/articles/architecture-scenarios/mobile-api.png)
+
 ## Application Configurations
 
 These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those.
