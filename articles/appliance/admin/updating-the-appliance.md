@@ -15,9 +15,17 @@ For more information about PSaaS Appliance Releases, please see the [Change Log]
 
 There are two types of updates: **major** and **minor** releases.
 
+### Major Releases
+
 **Major releases** can be identified by changes in the PSaaS Appliance version number (i.e. from **14591.X** to **15838.X**). These updates include new features and/or changes in existing functionality.
 
-**Minor releases** (or patch releases) can be identified by changes in the *decimal* value of the version number (i.e. **15838.35** is a minor update to **15838.31**). Patches are cumulative; that is, patch **15838.85** includes changes included in all prior patches (**15838.75**, **15838.43**, **15838.36**, **15838.35**, and **15838.31**). You do *not* need to install all released patches, but we recommend doing so since patches typically include things like bug and security fixes.
+### Minor Releases
+
+**Minor releases** (or patch releases) can be identified by changes in the *decimal* value of the version number (i.e. **15838.35** is a minor update to **15838.31**).
+
+Patches are cumulative; that is, patch **15838.85** includes changes included in all prior patches (**15838.75**, **15838.43**, **15838.36**, **15838.35**, and **15838.31**).
+
+You do *not* need to install all released patches, but we recommend doing so since patches typically include things like bug and security fixes.
 
 ## Best Practices
 
