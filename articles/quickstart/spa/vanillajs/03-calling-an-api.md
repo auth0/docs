@@ -19,7 +19,7 @@ sample_download_required_data:
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope in `auth0.WebAuth`
+## Configure your Application
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
 Add your scopes to the `scope` key.

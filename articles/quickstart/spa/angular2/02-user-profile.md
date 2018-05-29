@@ -25,7 +25,7 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-## Make a Call for the User's Information
+## Retrieve User Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
@@ -56,7 +56,7 @@ public getProfile(cb): void {
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
+## Display the User Profile
 
 Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
 

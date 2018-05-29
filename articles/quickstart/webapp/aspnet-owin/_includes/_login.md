@@ -69,10 +69,6 @@ public void Configuration(IAppBuilder app)
 
 It is important that you register both the cookie middleware and the Auth0 middleware, as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
-::: note
-We are passing the Auth0 tenant's user info endpoint as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication responses are [OIDC Conformant](/api-auth/intro).
-:::
-
 ## Trigger Authentication
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.

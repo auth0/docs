@@ -1,4 +1,4 @@
-### Access Control in Single Page Applications
+## Access Control in Single Page Applications
 
 In Single Page Applications you use Access Control to define what different users can see, and which routes they can access.
 With Auth0, you can implement access control by using scopes granted to users.

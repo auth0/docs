@@ -19,7 +19,7 @@ sample_download_required_data:
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope
+## Configure your Application
 
 In the `angularAuth0Provider.init` call, enter your API identifier as the value for `audience`. Set the scopes in the `scope` parameter.
 
@@ -91,7 +91,7 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 })();
 ```
 
-## Make Authenticated Calls with `$http`
+## Call the API
 
 With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls. 
 When you make `$http` calls, your protected API resources become accessible to the user. 

@@ -44,7 +44,7 @@ private void login() {
 }
 ```
 
-## Capture the Result
+### Capture the Result
 
 Whitelist the callback URL for your app in the **Allowed Callback URLs** section in [Application settings](${manage_url}/#/applications). In that section, enter the following URL: 
 
