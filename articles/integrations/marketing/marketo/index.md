@@ -2,6 +2,9 @@
 title: Marketo Integration
 description: Learn how to import your Auth0 user data into Marketo.
 toc: true
+tags:
+    - marketing
+    - marketo
 ---
 
 # Marketo Integration

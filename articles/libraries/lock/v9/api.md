@@ -3,6 +3,9 @@ section: libraries
 description: Lock V9 API Reference
 title: Lock 9 API Reference
 toc: true
+tags:
+  - libraries
+  - lock
 ---
 # Lock 9: API Reference
 

@@ -3,6 +3,10 @@ section: libraries
 title: Migrating to from Auth0.js v8 to v9
 description: How to migrate from Auth0.js v8 to v9
 toc: true
+tags:
+  - libraries
+  - auth0js
+  - migrations
 ---
 # Migrating from Auth0.js v8 to v9
 

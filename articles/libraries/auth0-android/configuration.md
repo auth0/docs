@@ -2,6 +2,9 @@
 section: libraries
 toc: true
 description: How to configure Auth0.Android to meet your application's needs
+tags:
+  - libraries
+  - android
 ---
 # Auth0.Android Configuration Options
 

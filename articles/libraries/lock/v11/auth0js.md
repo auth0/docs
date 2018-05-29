@@ -1,6 +1,10 @@
 ---
 section: libraries
 description: How to use Lock v11 with auth0.js v9
+tags:
+  - libraries
+  - lock
+  - auth0js
 ---
 # Using Lock With auth0.js
 

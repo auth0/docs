@@ -4,6 +4,9 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+tags:
+  - libraries
+  - lock
 ---
 # Lock v11 for Web
 

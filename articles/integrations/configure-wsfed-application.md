@@ -1,5 +1,8 @@
 ---
 description: How to configure a WS-Fed application to use Auth0 as an identity provider.
+tags:
+  - integrations
+  - ws-fed
 ---
 
 # How to configure a WS-Fed application

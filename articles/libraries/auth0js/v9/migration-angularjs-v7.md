@@ -3,6 +3,11 @@ section: libraries
 title: Migrating Angular 1.x Applications From auth0.js v7 to v9
 description: How to migrate Angular 1.x Applications From auth0.js v7 to v9
 toc: true
+tags:
+  - libraries
+  - auth0js
+  - migrations
+  - angular
 ---
 # Migrating Angular 1.x applications from Auth0.js v7 to v9
 

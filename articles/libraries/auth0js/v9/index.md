@@ -3,6 +3,9 @@ section: libraries
 toc: true
 title: Auth0.js v9 Reference
 description: How to install, initialize and use auth0.js v9
+tags:
+  - libraries
+  - auth0js
 ---
 # Auth0.js v9 Reference
 

@@ -2,6 +2,9 @@
 title: Watson Campaign Automation Integration
 description: Learn how to import your Auth0 user data into Watson Campaign Automation.
 toc: true
+tags:
+    - marketing
+    - watson-campaign
 ---
 
 # Watson Campaign Automation Integration

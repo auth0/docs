@@ -2,6 +2,10 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android to manage users
+tags:
+  - libraries
+  - android
+  - users
 ---
 # Use Auth0.Android to Manage Users
 

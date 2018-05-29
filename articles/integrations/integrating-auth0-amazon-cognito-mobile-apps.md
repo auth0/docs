@@ -1,5 +1,10 @@
 ---
 description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect Provider.
+tags:
+  - integrations
+  - amazon
+  - cognito
+  - oidc
 ---
 # Integrate Auth0 with Amazon Cognito
 

@@ -1,5 +1,8 @@
 ---
 description: How to authenticate and authorize a Tessel device with Auth0.
+tags:
+  - integrations
+  - tessel
 ---
 # Authenticating & Authorizing a Tessel device with Auth0
 

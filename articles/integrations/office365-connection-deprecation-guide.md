@@ -1,5 +1,12 @@
 ---
 description: Details migrating Office365 connections to Windows Azure AD.
+tags:
+  - integrations
+  - microsoft
+  - office-365
+  - windows
+  - azure-ad
+  - active-directory
 ---
 
 # Migrate Office365 Connections to Windows Azure AD

@@ -2,6 +2,11 @@
 section: libraries
 title: Migrating React Applications to Auth0.js v9
 description: How to migrate React applications to Auth0.js v9
+tags:
+  - libraries
+  - auth0js
+  - migrations
+  - react
 ---
 # Migrating React Applications to Auth0.js v9
 

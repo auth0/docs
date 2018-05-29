@@ -2,6 +2,10 @@
 title: Salesforce Marketing Cloud Integration
 description: Learn how to import your Auth0 user data into Salesforce Marketing Cloud.
 toc: true
+tags:
+    - marketing
+    - salesforce
+    - marketing-cloud
 ---
 
 # Salesforce Marketing Cloud Integration

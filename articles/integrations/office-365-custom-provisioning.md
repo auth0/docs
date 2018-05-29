@@ -1,5 +1,9 @@
 ---
 description: How to setup Microsoft Office 365 custom provisioning.
+tags:
+  - integrations
+  - microsoft
+  - office-365
 ---
 
 # Office 365 Custom Provisioning

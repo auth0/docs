@@ -1,6 +1,9 @@
 ---
 section: libraries
 description: Customizing how Lock with CSS and Javascript
+tags:
+  - libraries
+  - lock
 ---
 # Lock: Customize the look and feel
 

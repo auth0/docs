@@ -2,6 +2,10 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android with database connections
+tags:
+  - libraries
+  - android
+  - db-connections
 ---
 # Auth0.Android Database Authentication
 

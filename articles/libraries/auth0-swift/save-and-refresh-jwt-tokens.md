@@ -1,6 +1,10 @@
 ---
 section: libraries
 description: Keeping your user logged in with Auth0.swift
+tags:
+  - libraries
+  - swift
+  - tokens
 ---
 
 # Auth0.swift Saving and Renewing Tokens

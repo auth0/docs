@@ -2,6 +2,10 @@
 section: libraries
 toc: true
 description: User Management with Auth0.Swift
+tags:
+  - libraries
+  - swift
+  - users
 ---
 # User Management with Auth0.Swift
 

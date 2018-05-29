@@ -2,6 +2,9 @@
 section: libraries
 toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+tags:
+  - libraries
+  - lock
 ---
 # Lock: Configuration Options
 
