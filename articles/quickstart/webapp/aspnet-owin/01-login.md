@@ -11,5 +11,3 @@ budicon: 448
 }) %>
 
 <%= include('_includes/_login') %>
-
-Continue to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/02-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
