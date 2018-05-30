@@ -2,6 +2,11 @@
 section: libraries
 title: Using Lock with Swift
 description: How to use Swift with Lock iOS.
+tags:
+  - libraries
+  - lock
+  - ios
+  - swift
 ---
 
 # Lock iOS: Using Swift

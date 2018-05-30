@@ -1,6 +1,12 @@
 ---
 title: Lock Android v1 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
+tags:
+  - libraries
+  - lock
+  - android
+  - passwordless
+  - magic-link
 ---
 # Lock Android: Passwordless Magic link
 

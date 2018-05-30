@@ -3,6 +3,11 @@ section: libraries
 title: Migrating Angular 1.x Applications to from Lock v8 to Lock v11
 description: How to migrate Angular 1.x Applications from Lock v8 to v11
 toc: true
+tags:
+  - libraries
+  - lock
+  - migrations
+  - angular
 ---
 # Migrating Angular 1.x Applications from Lock v8 to v11
 

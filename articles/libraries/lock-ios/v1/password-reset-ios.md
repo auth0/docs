@@ -2,6 +2,11 @@
 section: libraries
 title: Password Reset
 description: All you need to know about password reset with Lock for iOS.
+tags:
+  - libraries
+  - lock
+  - ios
+  - passwords
 ---
 # Lock iOS: Password Reset
 

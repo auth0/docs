@@ -2,6 +2,11 @@
 section: libraries
 title: Delegation API
 description: Integrate with third-party apps with the delegation API.
+tags:
+  - libraries
+  - lock
+  - ios
+  - delegation
 ---
 
 # Lock iOS: Delegation API

@@ -2,6 +2,12 @@
 section: libraries
 title: Lock Android v2 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
+tags:
+  - libraries
+  - lock
+  - android
+  - passwordless
+  - magic-link
 ---
 # Lock Android: Passwordless with Magic Link
 

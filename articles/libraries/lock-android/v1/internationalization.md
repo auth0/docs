@@ -2,6 +2,11 @@
 section: libraries
 title: Lock Android v1 Internationalization
 description: Internationalization support in Lock for Android
+tags:
+  - libraries
+  - lock
+  - i18n
+  - android
 ---
 # Lock Android: Internationalization
 

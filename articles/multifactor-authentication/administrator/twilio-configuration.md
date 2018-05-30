@@ -1,5 +1,9 @@
 ---
 description: Configuring Twilio for Guardian
+tags:
+  - mfa
+  - guardian
+  - twilio
 ---
 
 # Configuring Twilio for Guardian SMS

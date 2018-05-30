@@ -2,6 +2,11 @@
 section: libraries
 title: Internationalization in Lock v2 for iOS
 description: Internationalization support in Lock v2 for iOS
+tags:
+  - libraries
+  - lock
+  - ios
+  - i18n
 ---
 
 # Internationalization

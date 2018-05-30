@@ -1,6 +1,9 @@
 ---
 title: Multifactor Authentication API
 description: Overview of available multifactor authentication APIs
+tags:
+  - mfa
+  - mfa-api
 ---
 
 # Multifactor Authentication API

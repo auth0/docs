@@ -2,6 +2,11 @@
 section: libraries
 title: Saving and Refreshing JWT Tokens
 description: Keeping your user logged in
+tags:
+  - libraries
+  - lock
+  - ios
+  - tokens
 ---
 
 # Lock iOS: Saving and Refreshing JWT Tokens

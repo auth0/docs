@@ -1,6 +1,8 @@
 ---
 description: How to log out a user and optionally redirect them to an authorized URL.
 toc: true
+tags:
+  - logout
 ---
 
 # Logout

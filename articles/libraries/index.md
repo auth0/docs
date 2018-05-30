@@ -3,6 +3,10 @@ section: libraries
 classes: topic-page
 title: Auth0 Libraries
 description: Overview of the Auth0 Libraries and SDKs
+tags:
+  - libraries
+  - lock
+  - auth0js
 ---
 
 <div class="topic-page-header">

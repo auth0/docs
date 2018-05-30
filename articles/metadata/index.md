@@ -2,6 +2,8 @@
 description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
 crews: crew-2
 toc: true
+tags:
+  - metadata
 ---
 # Metadata
 

@@ -1,5 +1,9 @@
 ---
 description: Guardian Logging
+tags:
+  - mfa
+  - guardian
+  - logging
 ---
 # Tracking your Users' MFA Events
 

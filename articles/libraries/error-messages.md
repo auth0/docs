@@ -1,6 +1,11 @@
 ---
 section: libraries
 description: Common errors that you might get when you authenticate users using Auth0 libraries
+tags:
+  - libraries
+  - lock
+  - auth0js
+  - error-messages
 ---
 # Common Authentication Errors
 

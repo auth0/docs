@@ -2,6 +2,8 @@
 description: How to view log data, lists log event types.
 url: /logs
 crews: crew-2
+tags:
+  - logs
 ---
 
 # Logs

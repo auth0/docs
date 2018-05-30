@@ -2,6 +2,11 @@
 section: libraries
 title: Lock Objective-C API
 description: Description of the Lock Objective-C API
+tags:
+  - libraries
+  - lock
+  - ios
+  - objective-c
 ---
 <!-- markdownlint-disable MD026 -->
 # Lock Objective-C API

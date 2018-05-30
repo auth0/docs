@@ -2,6 +2,12 @@
 section: libraries
 title: Native Social Authentication
 description: How to enable native login for some the supported social social connections.
+tags:
+  - libraries
+  - lock
+  - ios
+  - native
+  - social-connections
 ---
 
 # Lock iOS: Native Social Authentication

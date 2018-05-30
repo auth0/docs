@@ -1,5 +1,8 @@
 ---
 description: Guardian for Select Users
+tags:
+  - mfa
+  - guardian
 ---
 # Customize MFA for Select Users
 

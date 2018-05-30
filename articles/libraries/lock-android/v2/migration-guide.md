@@ -2,6 +2,11 @@
 section: libraries
 title: Lock Android v2 Migration Guide
 description: A reference for changed option names and behaviors in Lock for Android v2
+tags:
+  - libraries
+  - lock
+  - android
+  - migrations
 ---
 # Lock Android: Migration Guide
 

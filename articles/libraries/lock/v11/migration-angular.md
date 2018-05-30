@@ -2,6 +2,11 @@
 section: libraries
 title: Migrating Angular applications to Lock v11
 description: How to migrate Angular applications to Lock v11
+tags:
+  - libraries
+  - lock
+  - migrations
+  - angular
 ---
 # Migrating Angular Applications to Lock v11
 

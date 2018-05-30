@@ -1,6 +1,12 @@
 ---
 title: Lock Android v1 Refreshing JWT Tokens
 description: Keeping your user logged in
+tags:
+  - libraries
+  - lock
+  - android
+  - passwordless
+  - tokens
 ---
 # Lock Android: Refreshing JWT Tokens
 

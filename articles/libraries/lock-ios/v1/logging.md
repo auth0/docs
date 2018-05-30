@@ -2,6 +2,10 @@
 section: libraries
 title: Logging
 description: Learn how to debug Lock by enabling logging.
+tags:
+  - libraries
+  - lock
+  - ios
 ---
 
 # Lock iOS: Logging

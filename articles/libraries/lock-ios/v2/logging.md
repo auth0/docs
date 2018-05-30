@@ -2,6 +2,11 @@
 section: libraries
 title: Logging in Lock for iOS v2
 description: Logging in Lock for iOS v2
+tags:
+  - libraries
+  - lock
+  - ios
+  - logs
 ---
 # Logging in Lock for iOS v2
 

@@ -4,6 +4,11 @@ toc: true
 url: /libraries/lock-ios/v2/migration
 title: Migrating from v1 to v2 of Lock for iOS
 description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
+tags:
+  - libraries
+  - lock
+  - ios
+  - migrations
 ---
 # Migrating from Lock iOS v1 to v2
 

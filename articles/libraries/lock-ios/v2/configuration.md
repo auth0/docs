@@ -4,6 +4,10 @@ toc: true
 url: /libraries/lock-ios/v2/configuration
 title: Lock for iOS v2 Configuration Options
 description: Behavior configuration options available with Lock v2 for iOS
+tags:
+  - libraries
+  - lock
+  - ios
 ---
 
 # Lock v2 for iOS - Configuration Options

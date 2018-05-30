@@ -1,6 +1,9 @@
 ---
 description: How to read and update user metadata with Lock.
 crews: crew-2
+tags:
+  - metadata
+  - lock
 ---
 
 # How to use Metadata with Lock Library

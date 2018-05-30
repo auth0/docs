@@ -3,6 +3,8 @@ title: Linking User Accounts
 description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile
 crews: crew-2
 toc: true
+tags:
+  - account-linking
 ---
 # Linking User Accounts
 

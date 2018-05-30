@@ -1,6 +1,9 @@
 ---
 title: Multifactor Authentication API FAQ
 description: Frequently asked questions about MFA and its API
+tags:
+  - mfa
+  - mfa-api
 ---
 
 # FAQ: MFA and the MFA API

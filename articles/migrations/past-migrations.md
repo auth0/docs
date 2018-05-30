@@ -1,6 +1,8 @@
 ---
 toc: true
 description: List of Auth0 migrations that have already been enabled for all customers
+tags:
+  - migrations
 ---
 # Past Migrations
 

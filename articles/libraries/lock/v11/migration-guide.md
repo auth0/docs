@@ -2,6 +2,10 @@
 section: libraries
 title: Migrating to Lock v11
 description: How to migrate to Lock v11
+tags:
+  - libraries
+  - lock
+  - migrations
 ---
 # Migrating to Lock v11
 

@@ -2,6 +2,8 @@
 toc: true
 title: Auth0 Migrations
 description: List of all the changes made on Auth0 platform that might affect customers
+tags:
+  - migrations
 ---
 
 # Migrations
