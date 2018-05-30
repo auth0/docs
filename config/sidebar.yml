@@ -546,7 +546,7 @@ articles:
         url: "/multifactor-authentication/api"
         hidden: true
         children:
-          - title: "Manual Challenge"
+          - title: "Trigger MFA"
             url: "/multifactor-authentication/api/challenges"
             hidden: true
           - title: "One-Time Password Challenge"
