@@ -119,7 +119,7 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ### More information
 
-- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api/challenges)
+- [Trigger MFA using the API](/multifactor-authentication/api/challenges)
 
 ## Verify with one-time password (OTP)
 
@@ -307,7 +307,7 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 
 ### More informationm
 
-- [Associate an OTP Authenticator](/multifactor-authentication/api/oob)
+- [Associate an Out-of-Band Authenticator](/multifactor-authentication/api/oob)
 
 ## Verify with recovery code
 
@@ -508,7 +508,7 @@ To access this endoint you must set an [Access Token](/tokens/access-token) at t
 
 ### More information
 
-- [Associate a New Authenticator for Use with Multifactor Authentication](/multifactor-authentication/api)
+- [Multifactor Authentication API](/multifactor-authentication/api)
 
 ## List authenticators
 

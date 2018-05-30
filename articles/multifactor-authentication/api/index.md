@@ -17,7 +17,7 @@ We have expanded MFA support on the Token endpoints to cover the following use c
 
 ### More information
 
-* [Manually triggering MFA challenges](/multifactor-authentication/api/challenges)
+* [Trigger MFA using the API](/multifactor-authentication/api/challenges)
 * [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
 * [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
 * [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
@@ -37,5 +37,4 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 ## Limitations
 
 * The MFA API is designed to work with the Guardian Provider. Support for other providers will be provided in future releases.
-
 * Support for authenticator selection is currently limited to the Token Endpoint. Auth0 is working to extend support to  [Hosted MFA Pages](/hosted-pages/guardian). If users have more than one authenticator enrolled, the most-recently enrolled option will be used by the Hosted MFA Pages.
