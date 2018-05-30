@@ -144,6 +144,8 @@ Set the following configuration variables:
 
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
+- **SEARCH_ENGINE** (optional): Almost all tenants should use the default.  If you know you are using the non-standard search engine, you can specify it here.
+
 Once done, click **Install**. Your extension is now ready to use!
 
 If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that the extension automatically created an additional application called `auth0-delegated-admin`.

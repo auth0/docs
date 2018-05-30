@@ -15,7 +15,7 @@ The Write Hook will run anytime a user is updated if you are using custom fields
 ## The Hook Contract
 
  - **ctx**: The context object.
-   - **request.originalUser**: The current user's values where the ***payload** is the new set of fields.  Only available when the method is **update**
+   - **request.originalUser**: The current user's values where the **payload** is the new set of fields.  Only available when the method is **update**
    - **payload**: The payload object
      - **memberships**: An array of memberships that were selected in the UI when creating the user
      - **email**: The email address of the user
