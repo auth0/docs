@@ -41,8 +41,11 @@ function(ctx, callback) {
     - **dict.menuName**: The name to set for the upper right-hand dropdown menu
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
 - **css**: A string URL for CSS to import
+- **altcss**: A string URL for CSS to import, you can use this second CSS as a way to specify a second accessibility CSS for larger fonts.  A menu item will be presented to the user for toggling to this second setting.
 - **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
+- **errorTranslator**: A function that can take error messages and translate them to a different localization.
+    - Example: `(function (error, languageDictionary) { return languageDictionary.customErrors[error] || error; }).toString()`
 
 ## Custom Fields
 
@@ -73,14 +76,16 @@ userFields: [
             "type": "text || select || password",
             "component": "InputText || Input Combo || InputMultiCombo || InputSelectCombo",
             "options": Array(string) || Array ({ "value": string, "label": string }),
-            "disabled": true,
+            "disabled": true || false,
+            "validationFunction": function.toString()
         },
         "create": false || {
             "display": true || function.toString()
             "type": "text || select || password",
             "component": "InputText || Input Combo || InputMultiCombo || InputSelectCombo",
             "options": Array(string) || Array ({ "value": string, "label": string }),
-            "disabled": true,
+            "disabled": true || false,
+            "validationFunction": function.toString()
         }
     },
     ...
@@ -95,7 +100,7 @@ userFields: [
     - if `true` will just return `user.<property>`
     - Default: if `false` this value will not be displayed on any page (unless overridden in search, edit, or create)
     - if stringified function, will execute that function to get the value to display
-        - Example: `(function display(user, value) { return moment(value).fromNow(); }).toString()`
+        - Example: `(function display(user, value, languageDictionary) { return moment(value).fromNow(); }).toString()`
 - **search**: false || object => This describes how this field will behave on the search page
     - Default: if `false` will not show up in the search table
     - **search.display**: This will override the default display value
@@ -106,7 +111,7 @@ userFields: [
 - **edit**: false || object => This describes whether the field shows up on the edit dialogs.  If not a default field and set to an object, this will show up in the `Change Profile` page on the User Actions dropdown on the user page.
     - Default: if `false` will not show up on any edit/update page
     - **edit.display**: This will override the default display value
-    - **edit.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value.  Default is false.
+    - **edit.required**: set to true to fail if it does not have a value.  Default is false.
     - **edit.type** **required**: text || select || password
     - **edit.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
         - Default: **InputText**: A simple text box
@@ -117,12 +122,13 @@ userFields: [
         - **Array(string)**: A simple array of values, label and value will be set to the same
         - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the Write hook.
     - **edit.disabled**: true if the component should be read only, default is false
-    - **edit.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
-        - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
+    - **edit.validateFunction**: stringified function for checking the validation
+        - Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
+        - NOTE: This validation function will run on the server side as well as the client side for validation
 - **create**: false || object => This describes whether the field shows up on the create dialog.
     - Default: if `false` will not show up on the create page
     - **create.display**: This will override the default display value
-    - **create.required**: NOT IMPLEMENTED YET set to true to fail if it does not have a value.  Default is false.
+    - **create.required**: set to true to fail if it does not have a value.  Default is false.
     - **create.type** **required**: text || select || password
     - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
         - Default: **InputText**: A simple text box.  Default for type text and password.
@@ -133,8 +139,9 @@ userFields: [
         - **Array(string)**: A simple array of values, label and value will be set to the same
         - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
     - **create.disabled**: true if component should be read only, default is false
-    - **create.validateFunction**: NOT IMPLEMENTED YET stringified function for checking the validation
-        - Example: `(function validate(form, value, cb) { if (value...) return cb(new ValidationError('something went wrong')); cb(null, value); }).toString()`
+    - **create.validateFunction**: stringified function for checking the validation
+        - Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
+        - NOTE: This validation function will run on the server side as well as the client side for validation
 
 ## Pre-Defined Fields
 
