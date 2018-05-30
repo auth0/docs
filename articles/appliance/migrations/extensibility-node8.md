@@ -6,13 +6,13 @@ description: This article covers the Auth0 PSaaS Appliance features/modules affe
 
 Auth0 announced that it will be making the Webtask Node 8 runtime available for Public Cloud customers beginning 2018 April 17.
 
-The Auth0 PSaaS Appliance team is working to port these changes to the Appliance environment, and we expect to have the work completed and ready for deployment in early May.
+The Auth0 PSaaS Appliance team is working to port these changes to the Appliance environment, and we expect to have the work completed and ready for deployment in early June.
 
 We will notify all PSaaS Appliance customers once the PSaaS Appliance Node 8 release is available.
 
 ## Background
 
-The Webtask engine powering Auth0 extensibility points currently utilizes Node.js v4. On 30 April 2018, Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.
+The Webtask engine powering Auth0 extensibility points currently utilizes Node.js v4. On 30 April 2018, Node.js v4 went out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.
 
 Continuing to use this version of Node.js could potentially expose your extensibility code to security vulnerabilities.
 
@@ -31,7 +31,7 @@ Many of your existing scripts will continue to run without any modifications req
 
 ## Scheduling your update
 
-Once we have a firm date on the Node.js v8 PSaaS Appliance release, our Appliance Services team will begin working with you to schedule upgrades for your environments.
+Beginning June 4th, 2018, our Appliance Services PM or your Customer Success Manager will begin working with you to schedule upgrades for your environments.
 
 While we are not aware of any security vulnerabilities resulting from the continued use of Node.js v4, we strongly recommend that you schedule updates to your Development and Production PSaaS Appliance environments as soon as possible.
 
