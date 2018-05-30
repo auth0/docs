@@ -38,4 +38,4 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
 * The MFA API is designed to work with the Guardian Provider. Support for other providers will be provided in future releases.
 
-* Support for authenticator selection is currently limited to the Token Endpoint. Auth0 is working to extend support to  [Hosted MFA Pages](/hosted-pages/guardian. If users have more than one authenticator enrolled, the most-recently enrolled option will be used by the Hosted MFA Pages.
+* Support for authenticator selection is currently limited to the Token Endpoint. Auth0 is working to extend support to  [Hosted MFA Pages](/hosted-pages/guardian). If users have more than one authenticator enrolled, the most-recently enrolled option will be used by the Hosted MFA Pages.
