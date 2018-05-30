@@ -17,7 +17,7 @@ We have expanded MFA support on the Token endpoints to cover the following use c
 
 ### More information
 
-* [Manually triggering MFA challenges](/multifactor-authentication/api/challenges)
+* [Trigger MFA using the API](/multifactor-authentication/api/challenges)
 * [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
 * [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
 * [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
