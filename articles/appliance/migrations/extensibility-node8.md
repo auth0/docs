@@ -1,6 +1,7 @@
 ---
 title: Migration Guide - Extensibility and Node 8
 description: This article covers the Auth0 PSaaS Appliance features/modules affected, as well as recommendations to ensure a smooth migration process.
+toc: true
 ---
 # PSaaS Appliance Migration Guide: Extensibility and Node 8
 
@@ -45,10 +46,26 @@ Based on the results of our tests in the Cloud environment, most customers shoul
 
 Some built-in modules (that is, modules that you do not explicitly `require()`) were not forward-compatible with Node.js v8. If you are using such modules, please be aware that there are new versions available.
 
-More information on these changes and how to migrate between versions of Node.js can be found in this section of our migration guide.
-
-The full list of affected modules can be found here.
+The full list of affected modules can be found [here](/migrations/guides/extensibility-node8#affected-modules).
 
 ### Auth0 Extensions
 
 All officially-supported Auth0 Extensions will be updated to run on Node.js v8 prior to the rollout of new PSaaS Appliance deployments.
+
+## Enable Node.js v8 in the PSaaS Appliance
+
+The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
+
+1. Navigate to the [Sandbox configuration page](${manage_url}/configuration#/sandbox).
+
+![](/media/articles/appliance/migrations/sandbox.png)
+
+2. Switch the value for **Node Version** from **4** to **8**. 
+
+![](/media/articles/appliance/migrations/node-version.png)
+
+3. Scroll to the bottom and click **Save**.
+
+After you save, the PSaaS Appliance will take some time to reconfigure itself to use Node.js v8.
+
+Be sure to test your existing Rules, Hooks, and Webtask to ensure they function correctly.
