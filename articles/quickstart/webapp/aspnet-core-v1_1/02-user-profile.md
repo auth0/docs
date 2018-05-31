@@ -8,7 +8,7 @@ budicon: 292
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   branch: 'v1',
-  path: 'Quickstart/03-User-Profile',
+  path: 'Quickstart/02-User-Profile',
   requirements: [
     '.NET Core 1.1.0',
     'ASP.NET Core 1.1.1',
