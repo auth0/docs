@@ -345,6 +345,8 @@ function query(db, cb){
 
 Notice that the code sandbox in which Rules run on, can be recycled at any time. So your code __must__ always check `global` to contain what you expect.
 
+<%= include('../../_includes/_ip_whitelist') %>
+
 ## Available modules
 
 For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.

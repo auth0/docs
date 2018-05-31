@@ -24,3 +24,5 @@ You can create Hooks for the following [extensibility points](/hooks/extensibili
 - [Credentials Exchange](/hooks/extensibility-points/credentials-exchange)
 - [Pre-User Registration](/hooks/extensibility-points/pre-user-registration)
 - [Post-User Registration](/hooks/extensibility-points/post-user-registration)
+
+<%= include('../_includes/_ip_whitelist') %>
