@@ -37,7 +37,7 @@ function(ctx, callback) {
 
 If you need to override the search engine, you can specify it in the response.
 
-```
+```js
   // Return the lucene query.
   return callback(null, { query: 'app_metadata.department:"' + department + '"', searchEngine: 'v2' });
 ```
