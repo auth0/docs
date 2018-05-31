@@ -67,7 +67,7 @@ For additional information on gathering testing information, please see [PSaaS A
 :::
 
 * Update the Development/Test environment prior to upgrading Production. This allows you to test the new version to identify any issues before you apply it to Production. We recommend performing this test for a one-week period.
-* Ensure that the PSaaS Appliance is able to access the internet during the update process, as well as the outbound IP addresses listed in the ["Updates" column](/appliance/infrastructure/ip-domain-port-list#external-connectivity). The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates.
+* Ensure that the PSaaS Appliance is able to access the internet during the update process, as well as the outbound IP addresses listed in the ["Updates" column](/appliance/infrastructure/ip-domain-port-list#external-connectivity). The update is [triggered via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates.
 
 #### After the update
 
