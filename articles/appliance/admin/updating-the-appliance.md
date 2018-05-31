@@ -60,13 +60,14 @@ To ensure the update process goes as smoothly as possible, we recommend followin
 * Complete the pre-check test **one hour** prior the start of the update.
   * Please be sure that your infrastructure engineer has administrative access to the Dashboard (specifically the Root Tenant Authority).
   * Ensure that all [Health Checks](/appliance/dashboard/troubleshoot#health-check) are okay.
+* For multi-node clusters, check the **Enable Sequential Updates** box if you want to reduce downtime during the update.
 
 ::: note
 For additional information on gathering testing information, please see [PSaaS Appliance Monitoring](/appliance/monitoring).
 :::
 
 * Update the Development/Test environment prior to upgrading Production. This allows you to test the new version to identify any issues before you apply it to Production. We recommend performing this test for a one-week period.
-* Ensure that the PSaaS Appliance is able to access the internet during the update process, as well as the outbound IP addresses listed in the ["Updates" column](/appliance/infrastructure/ip-domain-port-list#external-connectivity). The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates. The update takes between 60 minutes (for a single Development node) to 90 minutes (for a three-node Production cluster).
+* Ensure that the PSaaS Appliance is able to access the internet during the update process, as well as the outbound IP addresses listed in the ["Updates" column](/appliance/infrastructure/ip-domain-port-list#external-connectivity). The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates.
 
 #### After the update
 
