@@ -65,7 +65,7 @@ This step connects your WordPress user with an Auth0 user that authorizes you to
 
 ### Option 2: User Migration Setup
 
-This will create and configure an Application and a database connection plus data migration from your WordPress database. This requires an inbound connection from Auth0 servers and cannot be changed later without losing data. [More information here](https://auth0.com/docs/cms/wordpress/how-does-it-work#scenario-data-migration).
+This will create and configure an Application and a database connection plus data migration from your WordPress database. This requires an inbound connection from Auth0 servers and cannot be changed later without losing data. [More information here](/cms/wordpress/how-does-it-work#scenario-data-migration).
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/auth0-authorize-app.png)
 
@@ -73,7 +73,7 @@ Once the setup process is complete, log out of your WordPress site and attempt t
 
 ### Option 3: Manual Setup
 
-This will skip the automatic setup and allow you to create and configure your own Application and database connection ([see below](/cms/wordpress/installation#manual-setup)). This should be used if you want this site to use an existing Application or database connection. 
+This will skip the automatic setup and allow you to create and configure your own Application and database connection ([see below](#manual-setup)). This should be used if you want this site to use an existing Application or database connection. 
 
 ## Setup complete
 
@@ -98,8 +98,7 @@ wizard, have been through the setup process before, or want to share a database 
 
 1. In your Auth0 [Dashboard](${manage_url}), click **Applications** then **Create Application**
 1. Give your Application a descriptive name, select **Regular Web Applications**, then **Create**
-1. Follow the [Application setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in 
-WordPress" section to configure the application for your WordPress installation
+1. Follow the [Application setup instructions](/cms/wordpress/configuration) closely through the "Update Auth0 settings in WordPress" section to configure the application for your WordPress installation
 
 Once the steps above are complete, your site will be configured and ready to use!
 

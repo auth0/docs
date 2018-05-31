@@ -9,7 +9,7 @@ WordPress plugins can be extended to fit your specific requirements by using act
 
 ## Actions
 
-Actions in WordPress run custom code at specific points during processing. [Learn more about actions here](https://developer.wordpress.org/plugins/hooks/actions/). These exmaples are maintained [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-core-actions.php).
+Actions in WordPress run custom code at specific points during processing. [Learn more about actions here](https://developer.wordpress.org/plugins/hooks/actions/). These examples are maintained [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-core-actions.php).
 
 ### auth0_before_login
 
@@ -97,7 +97,7 @@ add_action( 'wpa0_user_created', 'auth0_theme_hook_wpa0_user_created', 10, 5 );
 
 ## Filters
 
-Filters in WordPress also run custom code at specific points during processing but always return a modified value of the same type that was passed in. [Learn more about filters here](https://developer.wordpress.org/plugins/hooks/filters/). These exmaples are maintained [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-core-filters.php).
+Filters in WordPress also run custom code at specific points during processing but always return a modified value of the same type that was passed in. [Learn more about filters here](https://developer.wordpress.org/plugins/hooks/filters/). These examples are maintained [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-core-filters.php).
 
 ### auth0_get_wp_user
 
@@ -342,7 +342,7 @@ function auth0_theme_render_custom_basic_opt_name( $args ) {
 
 ### auth0_auth_scope
 
-This filter allows developers to add or change the scope requested during login. This can be used to add [custom claims](https://auth0.com/docs/api-auth/tutorials/adoption/scope-custom-claims#custom-claims) or request a refresh token. 
+This filter allows developers to add or change the scope requested during login. This can be used to add [custom claims](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims) or request a refresh token. 
 
 ```
 /**
