@@ -33,6 +33,15 @@ function(ctx, callback) {
 }
 ```
 
+### Override search engine
+
+If you need to override the search engine, you can specify it in the response.
+
+```js
+  // Return the lucene query.
+  return callback(null, { query: 'app_metadata.department:"' + department + '"', searchEngine: 'v2' });
+```
+
 ## Notes
 
 Do not use single quotes, double quotes, or any other special characters (such as **+** or **-**) in terms on which you'll want to filter. This may cause issues with the Lucene query.
