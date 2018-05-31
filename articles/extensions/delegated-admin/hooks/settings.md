@@ -246,15 +246,13 @@ function(ctx, callback) {
 
 ## Localization
 
-Beginning with version 3.0 of the Delegated Admin Extension, you can provide a language dictionary for use with localization. The language dictionary is used only for static page content -- for field level content, you must use **userFields** labels.
+Beginning with version 3.0 of the Delegated Admin Extension, you can provide a language dictionary for use with localization. The language dictionary is used only for static page content - for field level content, you must use **userFields** labels.
 
 ::: note
 Localization is aimed at those working with non-administrative functions when managing users. Auth0 currently does not support localization on any of the Configuration pages.
 :::
 
-::: path change
-To specify the locale, you can use the path.  For example: https://<your-tenant>.us.webtask.io/auth0-delegated-admin/en/users will set context.locale to 'en' in the settings query.
-:::
+To specify the locale, you can use the path.  For example: https://${account.tenant}.us.webtask.io/auth0-delegated-admin/en/users will set context.locale to `en` in the settings query.
 
 The **languageDictionary** is set as part of the settings query, which allows you to:
 
@@ -297,7 +295,8 @@ function(ctx, callback) {
 }
 ```
 
-### Example: Providing a Language Dictionary Object:
+### Example: Providing a Language Dictionary Object
+
 ```js
 function(ctx, callback) {
   var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
