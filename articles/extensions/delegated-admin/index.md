@@ -152,7 +152,7 @@ Set the following configuration variables:
 
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
-- **SEARCH_ENGINE** (optional): Almost all tenants should use the default.  If you know you are using the non-standard search engine, you can specify it here.
+- **SEARCH_ENGINE** (optional): Most tenants should use the default search engine; if you're not, you can specify you choice here.
 
 Once done, click **Install**. Your extension is now ready to use!
 
