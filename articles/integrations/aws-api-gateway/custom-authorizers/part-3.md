@@ -159,7 +159,7 @@ Now that you've configured your custom authorizer for your environment and teste
 | - | - |
 | **Name** | A name for your Lambda function, such as `jwtRsaCustomAuthorizer` |
 | **Description** | A description for your Lambda function (optional) |
-| **Runtime** | Select `Node.js 4.3` |
+| **Runtime** | Select `Node.js 8.10` |
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-14.png)
 
