@@ -54,6 +54,22 @@ You will also need to configure the **Allowed Logout URLs**:
 | Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin` |
 
+For those who have [migrated to Node.js v8](/migrations/guides/extensibility-node8), the URLs are slightly different:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
+
+You will also need to configure the **Allowed Logout URLs**:
+ 
+| Location | Allowed Logout URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
+
 Copy the **Client ID** value.
 
 Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
