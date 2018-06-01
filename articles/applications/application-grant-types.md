@@ -29,7 +29,7 @@ OAuth 2.0 is a protocol that allows you to grant limited access to your resource
 OAuth 2.0 supports several types of grants, which are methods by which you can gain Access Tokens (string values that represent the permissions granted). Different grant types allow different types of access, and based on the needs of your app, some grant types are more appropriate than others. Auth0 allows you to indicate which sets of permissions are appropriate based on the `grant_type` property.
 
 ::: note
-Not sure which non-legacy grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
+Not sure which grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
 :::
 
 ## Grant Types Available
@@ -91,7 +91,7 @@ Switch to the **Grant Types** tab and enable or disable the respective grants fo
 
 ### Use the Management API
 
-In addition to setting the `grant_types` value using the Dasbhoard, you can make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
+In addition to setting the `grant_types` value using the Dashboard, you can make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
 
 ### Errors
 

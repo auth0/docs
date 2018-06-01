@@ -8,7 +8,7 @@ contentType:
     - index
     - how-to
 ---
-
+ 
 # Application Settings: Machine to Machine Application
 
 ::: version-warning
@@ -24,17 +24,3 @@ If your app is a CLI, daemon, or a service running on the backend, you'll want t
 ## Settings
 
 <%= include('../_settings') %>
-
-- **Application Type**: The type of application you are implementing. Select **Machine to Machine Application**.
-
-<%= include('../_token-endpoint-auth-method') %>
-
-<%= include('../_settings-pt2') %>
-
-### Advanced Settings
-
-<%= include('../_adv-settings') %>
-
-<%= include('../_trust-token-endpoint-ip-header') %>
-
-<%= include('../_adv-settings-pt2') %>

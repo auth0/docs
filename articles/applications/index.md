@@ -13,45 +13,23 @@ contentType:
 
 An Auth0 **application** represents your application and allows use of Auth0 for authentication. The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
-## Application Types
-
 ::: note
 Auth0 differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
 :::
 
-There are four application types in Auth0. Depending on which type you choose, you'll see [different settings you can configure](/applications/application-settings).
+## Application Types
 
-- **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native).
+There are four application types in Auth0. 
 
-- **Single Page Web Applications**: Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. For a complete listing of the SDKs Auth0 offers for SPAs refer to: [Single Page App SDKs](/quickstart/spa).
+- [Native](/applications/native): Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. 
 
-- **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp).
+- [Single Page Web Applications](/applications/spa): Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. 
 
-- **Machine to Machine Applications**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
+- [Regular Web Applications](/applications/webapps): Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. 
 
-## How to configure an Application
+- [Machine to Machine Applications](/applications/machine-to-machine): Used for server to server applications like command-line tools, daemons, IoT devices, or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
 
-Navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. By default, you should have one application named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Application** button.
-
-The *Create Application* windows pops open. Set a descriptive name for your application and select the application type. The application type should match your application.
-
-![Create Application window](/media/articles/applications/create-client-popup.png)
-
-After you set the name and application type, click **Create**.
-
-A new application will be created and you will be redirected to this application's view that has four tabs:
-
-- [Quick Start](${manage_url}/#/applications/${account.clientId}/quickstart): Lists all available Quick Starts, filtered by your application's type.
-
-- [Settings](${manage_url}/#/applications/${account.clientId}/settings): Lists all the available settings for your application.
-
-  ::: note
-  Please see [Application Settings](/applications/application-settings) for detailed information.
-  :::
-
-- [Addons](${manage_url}/#/applications/${account.clientId}/addons): Add-ons are extensions associated with applications. They are typically third-party APIs used by the application(s) for which Auth0 generates Access Tokens. For more details refer to: [Addons](/applications/addons).
-
-- [Connections](${manage_url}/#/applications/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different applications. For more details refer to: [Connections](/applications/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
+Follow the links above to get more information on how to configure each one.
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).

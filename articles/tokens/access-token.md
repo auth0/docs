@@ -114,7 +114,7 @@ Content-Type: application/json
 
 In order to obtain this Access Token, the application must first have permission to access the geocoding API. This is typically done by requesting access from the administrator of the geocoding API.
 
-For details on how to set up a Client Credentials Grant in Auth0, refer to [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+For details on how to set up a Client Grant in Auth0, refer to [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ## Add custom claims
 
