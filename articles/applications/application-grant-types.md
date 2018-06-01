@@ -13,14 +13,14 @@ contentType:
 
 Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/api-auth/grant/authorization-code-pkce), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](api-auth/grant/implicit).
 
-However, you might want to limit the use of certain flows (which we'll refer to as "grant types" in this doc) depending on the type of app you're securing. You can set and manage these limitations using the `grant_types` property that each Client has.
+However, you might want to limit the use of certain flows (which we'll refer to as "grant types" in this doc) depending on the type of app you're securing. You can set and manage these limitations using the `grant_types` property that each Application has.
 
 In this doc, we'll talk about:
 
 * What grant types are
 * The grant types available
-* How to set the Client's `grant_type` property
-* What grant types are available based on the Client's `grant_type` property value
+* How to set the Applications's `grant_type` property
+* What grant types are available based on the Applications's `grant_type` property value
 
 ## What Grant Types Are
 
@@ -65,9 +65,9 @@ The following are legacy grant types:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## How to Edit the Client `grant_types` Property
+## How to Edit the Application's `grant_types` Property
 
-You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
+You can set the the `grant_types` property for your Auth0 Application using the Management Dashboard.
 
 ::: warning
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.
@@ -77,25 +77,25 @@ Begin by navigating to the [Applications page](${manage_url}/#/applications) of 
 
 ![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
 
-Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Client you're interested in to launch its settings page.
+Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Application you're interested in to launch its settings page.
 
-![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
+![Auth0 Application Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
 Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 
-![Auth0 Client Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
+![Auth0 Application Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
 
-Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
+Switch to the **Grant Types** tab and enable or disable the respective grants for this application. Click **Save Changes**.
 
-![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
+![Auth0 Application Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
 ### Use the Management API
 
-In addition to setting the `grant_types` value using the Dashboard, you can make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
+In addition to setting the `grant_types` value using the Dashboard, you can make a [`PATCH` call to the Update an Application endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
 
 ### Errors
 
-Attempting to use any flow with a client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
+Attempting to use any flow with a Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.
@@ -103,7 +103,7 @@ Grant type `grant_type` not allowed for the client.
 
 ## Information for Existing and New Auth0 Customers
 
-As of 8 June 2017, all Auth0 applications have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Client or a new customer.
+As of 8 June 2017, all Auth0 Applications have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Application or a new customer.
 
 ### Existing Applications
 
@@ -111,20 +111,20 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Applications
 
-Depending on whether a newly-created Client is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Client will have varying access to grant types. Trusted first-party applications have access to additional grant types.
+Depending on whether a newly-created Application is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Application will have varying access to grant types. Trusted first-party applications have access to additional grant types.
 
 #### Public Applications
 
 Public Applications, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
 
 ::: panel Token Endpoint Authentication Method
-The `Token Endpoint Authentication Method` defines how a client authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
+The `Token Endpoint Authentication Method` defines how a Application authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
 
-* `None`, for a public client without a client secret
-* `Post`, for a client using HTTP POST parameters
-* `Basic`, for a client using HTTP Basic parameters 
+* `None`, for a public application without a client secret
+* `Post`, for a application using HTTP POST parameters
+* `Basic`, for a application using HTTP Basic parameters 
 
-You can find this field at the [Client Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
+You can find this field at the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
 :::
 
 By default, Public Applications are created with the following `grant_types`:
@@ -134,12 +134,12 @@ By default, Public Applications are created with the following `grant_types`:
 * `refresh_token`
 
 ::: note
-Public applications **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
+Public Applications **cannot** utilize the `client_credentials` grant type. To add this grant type to a Application using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Application is confidential, not public.
 :::
 
 #### Confidential Applications
 
-Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
+Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Application where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
@@ -157,7 +157,7 @@ Trusted first-party applications can additionally use the following `grant_types
 * `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
 ::: note
-If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, note that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type on your client. You cannot select these individually.
+If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, note that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type on your Application. You cannot select these individually.
 :::
 
 ## Secure Alternatives to the Legacy Grant Types
@@ -182,4 +182,4 @@ Those implementing Passwordless Authentication should use [Universal Login](/hos
 As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their applications. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types).
 :::
 
-To enable a legacy grant type, you will need to update the `grant_types` property for you client appropriately. For details on how to do so, refer to [Edit the grant_types Property](#edit-available-grant_types).
+To enable a legacy grant type, you will need to update the `grant_types` property for you Application appropriately. For details on how to do so, refer to [Edit the grant_types Property](#edit-available-grant_types).

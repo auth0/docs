@@ -1,13 +1,16 @@
 Navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Clicking the **+ Create Application** button.
 
+The *Create Application* window opens. Set a descriptive name for your application and select ${application_type}.
+
 ![Create Application window](/media/articles/applications/create-client-popup.png)
 
 After you set the name and application type, click **Create**.
 
-
+A new ${application_type} application will be created and you will be redirected to this application's view that has four tabs:
 
 ## Quick Start
 
+The Quick Start tab shows all the available examples for ${application_type} applications.
 
 ## Addons
 
