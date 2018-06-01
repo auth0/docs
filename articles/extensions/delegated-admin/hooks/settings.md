@@ -11,8 +11,8 @@ The **Settings Query** allows you to customize the look and feel of the Delegate
 ## The Hook Contract
 
  - **ctx**: The context object
-     - **request.user**: the logged in user
-     - **locale**: the locale from the path. The `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/en/users` will set to `en`.
+     - **request.user**: The user currently logged in
+     - **locale**: The locale (as inferred from the URL) -- `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/en/users` will set  **locale** to `en`.
  - **callback(error, settings)**: The callback to which you can return an error and a settings object
 
 ## Sample Usage
@@ -46,11 +46,11 @@ function(ctx, callback) {
 <<<<<<< HEAD
     - **dict.logoutUrl**: An alternate URL for the logout menu option
 - **userFields**: An array of user fields (see [Custom Fields](#custom-fields))
-- **css**: A string URL for CSS to import
-- **altcss**: A string URL for CSS to import, you can use this second CSS as a way to specify a second accessibility CSS for larger fonts.  A menu item will be presented to the user for toggling to this second setting
+- **css**: A string URL to import CSS
+- **altcss**: A string URL to import a second set of CSS. You can use this to specify things like accessibility CSS for larger fonts. The user will be presented with a menu item allowing them to toggle this set of CSS on/off
 - **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
-- **errorTranslator**: A function that can take error messages and translate them to a different localization. Example: `(function (error, languageDictionary) { return languageDictionary.customErrors[error] || error; }).toString()`
+- **errorTranslator**: A function that translates error messages based on localization. Example: `(function (error, languageDictionary) { return languageDictionary.customErrors[error] || error; }).toString()`
 
 ## Custom Fields
 
@@ -97,13 +97,13 @@ userFields: [
 ]
 ```
 
-- **property** (**required**): This is the property name of the ctx.payload object for the Write hook. The `"property": "app_metadata.dbId"` will get set in `ctx.payload.app_metadata.dbId` in the Write hook
+- **property** (**required**): The property name of the **ctx.payload** object for the Write hook. In the Write hook, `"property": "app_metadata.dbId"` sets `ctx.payload.app_metadata.dbId`
 - **label**: The label that will be used when adding a label to the field on the user info page, create page, edit profile page, or search page
 - **sortProperty**: If sorting by a different field than this for the search table, use this field.  Dot notation is allowed.
 - **display**: true || false || stringified => This is the default display value.  If not overridden in search, edit, or create, it will use this value.
     - if `true` will just return `user.<property>`
     - Default: if `false` this value will not be displayed on any page (unless overridden in search, edit, or create)
-    - if stringified function, will execute that function to get the value to display. Example: `(function display(user, value, languageDictionary) { return moment(value).fromNow(); }).toString()`
+    - if stringified function: executes function to get the value to display. Example: `(function display(user, value, languageDictionary) { return moment(value).fromNow(); }).toString()`
 - **search**: false || object => This describes how this field will behave on the search page
     - Default: if `false` will not show up in the search table
     - **search.display**: This will override the default display value
@@ -122,29 +122,29 @@ userFields: [
         - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
         - **InputSelectCombo**: A select dropdown of options
     - **edit.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
-        - **Array(string)**: An array of values, label and value will be set to the same
-        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. Note that this will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the Write hook.
-        - Note that the server side validation will ensure that any value specified for this field is in the options array
-    - **edit.disabled**: `true` if the component should be read only, default is false
-    - **edit.validateFunction**: stringified function for checking the validation. Note that this validation function will run on the server side as well as the client side for validation. Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
+        - **Array(string)**: An array of values (the label and value fields will be set to the same value)
+        - **Array({ "value": string, "label": string })**: Allows you to set separate values for the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
+        - Server-side validation will ensure that any value specified for this field appears in the options array
+    - **edit.disabled**: `true` if the component should be read only; default is false
+    - **edit.validateFunction**: stringified function for validation. Note that this validation function will run on both the server- and client-side. Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
 - **create**: false || object => This describes whether the field shows up on the create dialog.
     - Default: if `false` will not show up on the create page
     - **create.display**: This will override the default display value
     - **create.required**: set to true to fail if it does not have a value.  Default is false.
     - **create.type** **required**: text || select || password
     - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
-        - **InputText** (default): A text box.  Default for type text and password.
+        - **InputText** (default): A text box. Default for type text and password.
         - **InputCombo**: A searchable dropdown, single value only
         - **InputMultiCombo**: A searchable dropdown, with multiple values allowed
         - **InputSelectCombo**: A select dropdown of options
     - **create.options**: if component is one of InputCombo, InputMultiCombo, InputSelectCombo, the option values need to be specified.
         - **Array(string)**: A simple array of values, label and value will be set to the same
-        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. Note that this will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
+        - **Array({ "value": string, "label": string })**: Allows you to set separate values for both the value and label. NOTE: This will result in the value in the write hook having the same value, but it can be trimmed down to just the value in the write hook.
         - The server side validation will ensure that any value specified for this field is in the options array.
     - **create.disabled**: true if component should be read only, default is false
     - **create.validateFunction**: stringified function for checking the validation
         - Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
-        - This validation function will run on the server side as well as the client side for validation
+        - This validation function will run on both the server- and client-side.
 
 ## Pre-Defined Fields
 
