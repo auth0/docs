@@ -269,7 +269,7 @@ add_filter( 'auth0_login_css', 'auth0_theme_hook_auth0_login_css' );
 
 Filters the template used for the Auth0 login form. This should return a path to a file containing HTML that replaces what is in `wp-content/plugins/auth0/templates/auth0-login-form.php`. The standard Lock initiation JS looks for an ID attribute of `auth0-login-form` to instantiate the login form so make sure that's present or replace the `wp-content/plugins/auth0/assets/js/lock-init.js` file with your own. 
 
-```
+```php
 /**
  * Override the Lock login form template.
  *
@@ -289,7 +289,7 @@ add_filter( 'auth0_login_form_tpl', 'auth0_theme_hook_auth0_login_form_tpl', 10,
 
 This filter is used to modify an existing form field or to add a new one. This should return a modified `$options` array with your changes or additions. New fields must have a field callback, as shown below. 
 
-```
+```php
 /**
  * Modify existing or add new settings fields.
  *
@@ -344,7 +344,7 @@ function auth0_theme_render_custom_basic_opt_name( $args ) {
 
 This filter allows developers to add or change the scope requested during login. This can be used to add [custom claims](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims) or request a refresh token. 
 
-```
+```php
 /**
  * Add or modify requested access token scopes during login.
  *
