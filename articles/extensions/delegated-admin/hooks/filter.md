@@ -35,9 +35,9 @@ function(ctx, callback) {
 }
 ```
 
-### Override search engine
+### Search Engine Override
 
-If you need to override the search engine, you can specify it in the response.
+You can override the default search engine by specifying your choice in the response.
 
 ```js
   // Return the lucene query.
