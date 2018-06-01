@@ -11,21 +11,17 @@ contentType:
 ---
 # Applications
 
-An Auth0 **application** represents your application and allows use of Auth0 for authentication. The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
-
-::: note
-Auth0 differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
-:::
+An Auth0 **Application** represents your application in Auth0, and allows you to add authentication to it. The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
 ## Application Types
 
-There are four application types in Auth0. 
+There are four application types in Auth0:
 
-- [Native](/applications/native): Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. 
+- [Native](/applications/native): Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, iOS, Ionic, Windows, OS/X.
 
 - [Single Page Web Applications](/applications/spa): Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. 
 
-- [Regular Web Applications](/applications/webapps): Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. 
+- [Regular Web Applications](/applications/webapps): Used for traditional web applications that run on a server, like ASP .NET, Java, Ruby on Rails or Node.js. 
 
 - [Machine to Machine Applications](/applications/machine-to-machine): Used for server to server applications like command-line tools, daemons, IoT devices, or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
 
@@ -33,6 +29,10 @@ Follow the links above to get more information on how to configure each one.
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
+:::
+
+::: note
+Auth0 also differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
 :::
 
 ## How to Delete an Application
