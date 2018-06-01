@@ -18,7 +18,7 @@ The Write Hook will run anytime a user is updated if you are using custom fields
 ## The Hook Contract
 
  - **ctx**: The context object.
-   - **request.originalUser**: The current user's values where the **payload** is the new set of fields.  Only available when the method is **update**
+   - **request.originalUser**: The current user's values where the **payload** is the new set of fields. Only available when the method is **update**
    - **payload**: The payload object
      - **memberships**: An array of memberships that were selected in the UI when creating the user
      - **email**: The email address of the user
@@ -76,6 +76,7 @@ function(ctx, callback) {
 <%= include('./_stepnav', {
  prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
+<<<<<<< HEAD
 =======
 description:
 =======
@@ -174,3 +175,5 @@ Auth0 only supports user creation with Database Connections.
  prev: ["Delegated Admin: Hooks", "/extensions/delegated-admin/hooks"]
 }) %>
 >>>>>>> Add nav
+=======
+>>>>>>> Remove extra space
