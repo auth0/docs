@@ -26,8 +26,8 @@ You can search for users using the following fields:
     * Booleans
     * Numeric (integer or double)
     * Text
-    * Objects. In order to search a scalar value nested in another object, use the path to the field, e.g. `app_metadata.subscription.plan:"gold"`
-    * Arrays. Fields in objects nested arrays can be searched by using the path to the field, ignoring the array level, e.g. `user_metadata.addresses.city:"Paris"`
+    * Objects. In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
+    * Arrays. In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
 
 Range and wildcard searches are not available on [user metadata](/metadata) fields.
 
