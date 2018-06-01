@@ -66,7 +66,7 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 
 | Cause | Resolution |
 | --- | --- |
-| You are using a legacy version of embedded Lock or Auth0.js SDK. | [Migrate to Universal Login](/guides/login/migration-embedded-universal) if possible or [upgrade to Lock v11 / Auth0.js v9](/migrations#introducing-lock-v11-and-auth0-js-v9) (Reference guide for [Lock v11](/libraries/lock/v11) and for [Auth0.js v9](/libraries/auth0js/v9)). |
+| You are using a legacy version of embedded Lock or Auth0.js SDK. | [Migrate away from the deprecated library versions](/migrations/guides/legacy-lock-api-deprecation) as soon as possible. |
 | Calling the /usernamepassword/login endpoint directly. | Use the Lock or Auth0.js libraries instead. |
 
 ### ssodata
