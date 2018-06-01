@@ -14,6 +14,5 @@ This document covers factors PSaaS Appliance administrators should be aware of w
 * [Inviting/Adding Co-Administrators](/appliance/admin/inviting-coadmins)
 * [Backing up the PSaaS Appliance](/appliance/admin/backing-up-the-appliance-instances);
 * [Monitoring & Performing Health Checks on Load Balancers](/appliance/admin/monitoring);
-* [Limiting SSH Access](/appliance/admin/limiting-ssh-access);
 * [Updating the PSaaS Appliance](/appliance/admin/updating-the-appliance);
 * [Configuring Custom Error Pages](/hosted-pages/custom-error-pages).

@@ -1160,8 +1160,6 @@ appliance:
             url: /appliance/admin/backing-up-the-appliance-instances
           - title: Monitoring
             url: /appliance/admin/monitoring
-          - title: Limiting SSH Access
-            url: /appliance/admin/limiting-ssh-access
           - title: Updating
             url: /appliance/admin/updating-the-appliance
 
