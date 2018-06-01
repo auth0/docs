@@ -20,4 +20,5 @@ You need to define a Native application if you want to integrate Auth0 in a mobi
 
 <%= include('./application-settings/_adv-settings') %>
 
-<%= include('./application-settings/_adv-settings-pt2') %>
+<%= include('./application-settings/_adv-settings-mobile') %>
+

@@ -8,4 +8,16 @@ You need to define a Single Page Application if you want to integrate Auth0 in f
 
 <%= include('./_configure', { application_type: 'Single Page Web', application_type_create: 'Single Page Web Applications' }) %>
 
-<%= include('./application-settings/single-page-app/index') %>
+## Settings
+
+<%= include('./application-settings/_settings') %>
+
+- **Application Type**: The type of application you are implementing. For apps with a JavaScript front-end that utilizes an API, create an SPA.
+
+<%= include('./application-settings/_settings-pt2') %>
+
+### Advanced Settings
+
+<%= include('./application-settings/_adv-settings') %>
+
+
