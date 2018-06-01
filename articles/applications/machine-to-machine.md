@@ -18,7 +18,7 @@ To create a new Machine to Machine application:
 
 ![Select an API](/media/articles/applications/m2m-select-api.png)
 
-If you haven't created an API yet, learn [how to configure an API in Auth0)(/apis#how-to-configure-an-api-in-auth0).
+If you haven't created an API yet, learn [how to configure an API in Auth0](/apis#how-to-configure-an-api-in-auth0).
 
 ::: note
 There will already be an `Auth0 Management API` that represents Auth0's APIv2. You can authorize applications to request tokens from this API as well.
