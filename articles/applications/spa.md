@@ -6,5 +6,6 @@ toc: true
 
 You need to define a Single Page Application if you want to integrate Auth0 in front-end apps that run on a browser, like Angular, jQuery or React. 
 
+<%= include('./_configure', { application_type: 'Single Page' }) %>
 
 <%= include('./application-settings/single-page-app/index') %>

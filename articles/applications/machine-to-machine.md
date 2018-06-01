@@ -4,7 +4,7 @@ toc: true
 ---
 # Machine to Machine Applications
 
-Machine to Machine applications are used when you want to invoke an API from a non-interactive application like a service, a command line tool, IoT device, etc. They use the [OAuth 2.0 Client Credentials Grant](/api-auth/grant/client-credentials).
+Machine to Machine applications are used when you want to invoke an API from a non-interactive application like a service, a command line tool, IoT device, etc., using the [OAuth 2.0 Client Credentials Grant](/api-auth/grant/client-credentials).
 
 To create a new Machine to Machine application:
 
@@ -18,7 +18,7 @@ To create a new Machine to Machine application:
 
 ![Select an API](/media/articles/applications/m2m-select-api.png)
 
-If you haven't created an API yet, learn [how to configure an API in Auth0)[/apis#how-to-configure-an-api-in-auth0].
+If you haven't created an API yet, learn [how to configure an API in Auth0)(/apis#how-to-configure-an-api-in-auth0).
 
 ::: note
 There will already be an `Auth0 Management API` that represents Auth0's APIv2. You can authorize applications to request tokens from this API as well.
@@ -34,18 +34,20 @@ A scope is a claim that may be issued as part of the Access Token. With this inf
 
 ![Select Scopes](/media/articles/applications/m2m-quickstart.png)
 
-hThe quickstart tab will show you how to call your API using different programming languages. 
+The quickstart tab will show you how to call your API using different programming languages. 
 
 To know how to accept and validate Access Tokens in your API implementation, check the [Backend Quickstarts](/quickstarts/backend).
 
 ## Settings
 
+The Settings tab lets you edit different application settings:
+
 <%= include('./application-settings/_settings') %>
 
 ## APIs
 
-The APIs tab lists all available APIs for the tenant, shows the ones that the Machine to Machine application is authorize it to call, and let you authorize more APIs for the application.
+The APIs tab lists all available APIs for the tenant, shows the ones that the Machine to Machine application is authorized to call, and let you authorize more APIs.
 
 ![Select Scopes](/media/articles/applications/m2m-select-api.png)
 
-For example, you can authorize the same Machine to Machine application to call your API and the Management API, with a restricted set of scopes that you want the application to access.
+For example, you can authorize the same Machine to Machine application to call your own API and the Management API, with a restricted set of scopes that you want the application to access.
