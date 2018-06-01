@@ -14,9 +14,9 @@ The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://too
 
 Before beginning this tutorial, please:
 
-* Make sure you that your application has the `Client Credentials` [grant type](/applications/application-grant-types) enabled. Regular Web Applications and Machine to Machine Applications have it enabled by default.
+* Make sure you that your application has the `Client Credentials` [grant type enabled](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property). Regular web applications and machine to machine applications have it enabled by default.
 
-* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0.
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required scopes.
 
 * Authorize the application to call the API by creating a Client Grant either [using the Dashboard](/api-auth/config/using-the-auth0-dashboard) or [using the Management API](/api-auth/config/using-the-management-api).
 

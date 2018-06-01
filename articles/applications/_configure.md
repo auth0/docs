@@ -6,7 +6,7 @@ The *Create Application* window opens. Set a descriptive name for your applicati
 
 After you set the name and application type, click **Create**.
 
-A new ${application_type} application will be created and you will be redirected to this application's view that has four tabs:
+A new ${application_type} application will be created and you will be redirected to this application's view that has the four tabs described below.
 ## Quick Start
 
 The Quick Start tab shows all the available examples for ${application_type} applications.

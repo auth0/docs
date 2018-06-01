@@ -34,7 +34,7 @@ A scope is a claim that may be issued as part of the Access Token. With this inf
 
 ![Select Scopes](/media/articles/applications/m2m-quickstart.png)
 
-The quickstart tab will show you how to call your API using different programming languages. 
+The Quick Start tab will show you how to call your API using different programming languages. 
 
 To know how to accept and validate Access Tokens in your API implementation, check the [Backend Quickstarts](/quickstart/backend).
 
@@ -48,6 +48,6 @@ The Settings tab lets you edit different application settings:
 
 The APIs tab lists all available APIs for the tenant, shows the ones that the Machine to Machine application is authorized to call, and let you authorize more APIs.
 
-![Select Scopes](/media/articles/applications/m2m-select-api.png)
+![Select Scopes](/media/articles/applications/m2m-apis.png)
 
-For example, you can authorize the same Machine to Machine application to call your own API and the Management API, with a restricted set of scopes that you want the application to access.
+For example, you can authorize the same Machine to Machine application to call both your own API and the Auth0 Management API.
