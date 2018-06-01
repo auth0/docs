@@ -36,7 +36,7 @@ A scope is a claim that may be issued as part of the Access Token. With this inf
 
 The quickstart tab will show you how to call your API using different programming languages. 
 
-To know how to accept and validate Access Tokens in your API implementation, check the [Backend Quickstarts](/quickstarts/backend).
+To know how to accept and validate Access Tokens in your API implementation, check the [Backend Quickstarts](/quickstart/backend).
 
 ## Settings
 
