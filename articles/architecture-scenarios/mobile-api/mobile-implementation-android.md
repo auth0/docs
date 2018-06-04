@@ -1,6 +1,5 @@
 ---
 description: The Android implementation of the API for the Mobile + API architecture scenario
-url: /architecture-scenarios/application/mobile-api/mobile-implementation-android
 toc: true
 ---
 

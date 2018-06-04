@@ -1779,38 +1779,51 @@ module.exports = [
   },
   {
     from: '/architecture-scenarios/application/web-saml',
-    to: '/architecture-scenarios/under-construction/web-saml'
+    to: '/architecture-scenarios/web-saml'
   },
   {
     from: '/architecture-scenarios/business/b2b-b2e',
-    to: '/architecture-scenarios/under-construction/b2b-b2e'
+    to: '/architecture-scenarios/b2b-b2e'
   },,
   {
     from: '/architecture-scenarios/business/b2b',
-    to: '/architecture-scenarios/under-construction/b2b'
+    to: '/architecture-scenarios/b2b'
   },
   {
     from: '/architecture-scenarios/business/b2c',
-    to: '/architecture-scenarios/under-construction/b2c'
+    to: '/architecture-scenarios/b2c'
   },
   {
     from: '/architecture-scenarios/business/b2e',
-    to: '/architecture-scenarios/under-construction/b2e'
+    to: '/architecture-scenarios/b2e'
   },
   {
-    from: '/architecture-scenarios/implementations/mobile-api',
-    to: '/architecture-scenarios/mobile-api'
+    from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
   },
   {
-    from: '/architecture-scenarios/implementations/server-api',
-    to: '/architecture-scenarios/server-api'
+    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+    to: ''
   },
   {
-    from: '/architecture-scenarios/implementations/spa-api',
-    to: '/architecture-scenarios/spa-api'
+    from: '',
+    to: ''
   },
   {
-    from: '/architecture-scenarios/implementations/web-app-sso',
-    to: '/architecture-scenarios/web-app-sso'
+    from: '',
+    to: ''
+  },
+  {
+    from: '',
+    to: ''
+  },
+  {
+    from: '',
+    to: ''
+  },
+  {
+    from: '',
+    to: ''
   }
+ 
 ];
