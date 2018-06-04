@@ -26,6 +26,7 @@ Operating the PSaaS Appliance in an internet-restricted environment results in t
 * Lock
 * Management API Explorer
 * Authentication API Explorer
+* [Extensions](https://auth0.com/docs/extensions)
 * Quickstarts
 * Social Connections
 * Analytics (including usage statistics)
