@@ -22,13 +22,14 @@ The PSaaS Appliance **must** have access to the internet during [update periods]
 
 Operating the PSaaS Appliance in an internet-restricted environment results in the loss of the following features/functionality:
 
-* Management Dashboard
+* Analytics (including usage statistics)
+* Authentication API Explorer
+* [Extensions](/extensions)
 * Lock
 * Management API Explorer
-* Authentication API Explorer
+* Management Dashboard
 * Quickstarts
 * Social Connections
-* Analytics (including usage statistics)
 
 ### Management Dashboard
 
@@ -42,6 +43,17 @@ To properly render the Dashboard, it accesses the following sites:
 * **fonts.googleapis.com**: resources loaded include CSS and font files
 * **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service
 * **fast.fonts.net**: resources include CSS files for font support.
+
+### Multifactor Authentication (MFA)
+
+When using multifactor authentication (MFA), you will need internet access for Guardian MFA (both SMS and push notifications require internet connectivity).
+
+For limited connectivity options, you may choose from:
+
+* Guardian MFA TOTP
+* Google Authenticator
+* A custom MFA implementation using redirect rules
+* Duo (on-premise versions only)
 
 ## Summary
 
