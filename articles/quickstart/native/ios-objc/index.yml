@@ -16,7 +16,7 @@ alias:
 seo_alias: ios-objc
 snippets:
   setup: native-platforms/ios-objc/setup_wrapper
-default_article: dashboard-default
+default_article: 00-login
 articles:
   - 00-login
   - 03-user-sessions

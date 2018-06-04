@@ -17,7 +17,7 @@ seo_alias: swift
 snippets:
   setup: native-platforms/ios-swift/setup
   use: native-platforms/ios-swift/use
-default_article: dashboard-default
+default_article: 00-login
 articles:
   - 00-login
   - 03-user-sessions

@@ -8,7 +8,7 @@ alias:
   - aspnetcore-1.1
   - aspnetcore
 seo_alias: aspnet-core-1.1
-default_article: dashboard-default
+default_article: 01-login
 articles:
   - 01-login
   - 02-user-profile

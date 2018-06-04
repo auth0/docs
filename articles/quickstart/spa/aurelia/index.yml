@@ -16,7 +16,7 @@ snippets:
   setup: application-platforms/aurelia/setup
   use: application-platforms/aurelia/use
 seo_alias: aurelia
-default_article: dashboard-default
+default_article: 01-login
 articles:
   - 01-login
 show_steps: true

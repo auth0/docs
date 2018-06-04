@@ -14,7 +14,7 @@ snippets:
   setup: application-platforms/angular2/setup
   use: application-platforms/angular2/use
 seo_alias: angular2
-default_article: dashboard-default
+default_article: 01-login
 articles:
   - 01-login
   - 02-user-profile

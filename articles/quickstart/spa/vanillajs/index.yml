@@ -17,7 +17,7 @@ alias:
   - backendless
   - javascript-app
 seo_alias: vanillajs
-default_article: dashboard-default
+default_article: 01-login
 articles:
   - 01-login
   - 02-user-profile
