@@ -1800,30 +1800,5 @@ module.exports = [
   {
     from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
     to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
-  },
-  {
-    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
-    to: ''
-  },
-  {
-    from: '',
-    to: ''
-  },
-  {
-    from: '',
-    to: ''
-  },
-  {
-    from: '',
-    to: ''
-  },
-  {
-    from: '',
-    to: ''
-  },
-  {
-    from: '',
-    to: ''
-  }
- 
+  } 
 ];
