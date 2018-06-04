@@ -1800,5 +1800,29 @@ module.exports = [
   {
     from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
     to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
-  } 
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+    to: '/architecture-scenarios/mobile-api/mobile-implementation-android'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/server-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/cron-implementation-python',
+    to: '/architecture-scenarios/server-api/cron-implementation-python'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
+    to: '/architecture-scenarios/spa-api/spa-implementation-angular2'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/spa-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
+    to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
+  }
 ];
