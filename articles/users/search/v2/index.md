@@ -7,7 +7,7 @@ toc: true
 # User Search
 
 ::: version-warning
-This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
+User search v2 will be deprecated on <b>November 13rd 2018</b>. Also, new tenants starting <b>June 4th 2018</b> cannot use this version anymore. We recommend you use [user search v3](href="https://auth0.com/docs/users/search/v3").
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
