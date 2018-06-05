@@ -1,5 +1,9 @@
 ---
 description: Describes the Data Transfer Policy which governs requests for transfer of data from one Auth0 tenant to another.
+tags:
+    - auth0-policies
+    - data
+    - data-transfer
 ---
 
 # Data Transfer Policy

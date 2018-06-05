@@ -1,6 +1,10 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
 toc: true
+tags:
+  - mfa
+  - guardian
+  - push-notifications
 ---
 
 # Guardian for Administrators

@@ -1,6 +1,9 @@
 ---
 sitemap: false
 description: An overview of Auth0’s onboarding program for enterprise customers.
+tags:
+  - appliance
+  - onboarding
 ---
 # Auth0 Sprint Onboarding
 

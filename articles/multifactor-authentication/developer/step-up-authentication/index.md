@@ -1,6 +1,9 @@
 ---
 title: Step-up Authentication
 description: Describes using acr_values and acr claims to perform step-up authentication with Auth0
+tags:
+  - mfa
+  - step-up-authentication
 ---
 # Step-up Authentication
 

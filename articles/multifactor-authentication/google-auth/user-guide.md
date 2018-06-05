@@ -1,5 +1,9 @@
 ---
 description: How to sign-up and login using the Google Authenticator app.
+tags:
+  - mfa
+  - google
+  - google-autheticator
 ---
 
 # How to Use Google Authenticator

@@ -1,5 +1,10 @@
 ---
 description: Recommendations on how you can improve your Auth0 Application prior to production deployment
+tags:
+    - pre-deployment
+    - pre-deployments-tests
+    - tests
+    - recommendations
 ---
 
 # Pre-Deployment Tests: Recommended Fixes

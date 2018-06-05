@@ -1,6 +1,8 @@
 ---
 description: How to implement Multifactor Authentication Using YubiKey NEO.
-toc: true
+toc: truetags:
+    - mfa
+    - yubikey
 ---
 # Multifactor Authentication with YubiKey NEO
 

@@ -1,5 +1,8 @@
 ---
 description:  Information for how to use Duo Security for administrators.
+tags:
+  - mfa
+  - duo
 ---
 
 # Duo for Administrators

@@ -1,5 +1,10 @@
 ---
 description: Fixes you must make to your Auth0 Application prior to production deployment
+tags:
+    - pre-deployment
+    - pre-deployments-tests
+    - tests
+    - requirements
 ---
 
 # Pre-Deployment Tests: Required Fixes

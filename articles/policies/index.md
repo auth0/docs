@@ -1,6 +1,8 @@
 ---
 url: /policies
 description: This page lists all of Auth0's established operational policies.
+tags:
+    - auth0-policies
 ---
 # Operational Policies
 

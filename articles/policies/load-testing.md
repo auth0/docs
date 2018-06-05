@@ -1,5 +1,9 @@
 ---
 description: This page details Auth0's Load Testing Policy.
+tags:
+    - auth0-policies
+    - load-testing
+    - testing
 ---
 
 # Load Testing Policy

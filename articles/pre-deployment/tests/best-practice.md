@@ -1,5 +1,10 @@
 ---
 description: Checks to ensure that your Applications comply with Auth0 best practices
+tags:
+    - pre-deployment
+    - pre-deployments-tests
+    - tests
+    - best-practices
 ---
 
 # Pre-Deployment Tests: Best Practices

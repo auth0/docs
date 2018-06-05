@@ -1,6 +1,10 @@
 ---
 title: Auth0 Guardian
 description: Links to Guardian documentation for each type of Guardian user role.
+tags:
+  - mfa
+  - guardian
+  - push-notifications
 ---
 
 # Auth0 Guardian

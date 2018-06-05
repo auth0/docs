@@ -1,5 +1,8 @@
 ---
 description: Details about the LDAP protocol and how it is used by Auth0.
+tags:
+    - protocols
+    - ldap
 ---
 
 # LDAP

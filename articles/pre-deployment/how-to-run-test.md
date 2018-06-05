@@ -1,5 +1,9 @@
 ---
 description: How to run the Auth0 Pre-Deployment Tests to ensure that your Applications are production-ready
+tags:
+    - pre-deployment
+    - pre-deployments-tests
+    - tests
 ---
 
 # How to Run the Pre-Deployment Test
