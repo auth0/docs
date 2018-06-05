@@ -92,17 +92,15 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 ### Database Connection setup
 
-Database Connections enable the typical username and password login seen on most sites. This type of Connection is 
-not required and can be skipped if you're using passwordless or social logins only. 
+Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using passwordless or social logins only. 
 
-1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new  
-Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
+1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
     ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
 1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
-1. Now click the **Applications** tab and activate the Application created above.
+1. Click the **Applications** tab and activate the Application created above.
 
     ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
