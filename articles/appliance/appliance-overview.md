@@ -74,7 +74,7 @@ If Auth0 is managing a dedicated environment for you, Auth0 will obtain your con
 
 ### Connectivity
 
-During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can block Internet access to the PSaaS Appliance.
+During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can [continue to operate with limited internet access](/appliance/infrastructure/internet-restricted-deployment).
 
 For normal maintenance, Auth0 will access the Management Dashboard (either over a temporary SSH connection or through remote control software) to apply the update. Auth0 will also need SSH access in the event that updates to the PSaaS Appliance are necessary. If you expose API endpoints to be used for monitoring, Auth0 will collect this information to proactively monitor PSaaS Appliance behavior for you.
 
