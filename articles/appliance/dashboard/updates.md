@@ -11,9 +11,7 @@ description: Overview of the PSaaS Appliance Dashboard Updates page
 
 The Updates page of the PSaaS Appliance configuration area allows you to make the required/selected updates to your PSaaS Appliance instance.
 
-::: note
 In certain circumstances, you may not be able to roll back an update. Auth0 recommends taking VM snapshots and backups in the event that you need to revert to an earlier version.
-:::
 
 ![](/media/articles/appliance/dashboard/updates.png)
 

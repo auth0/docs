@@ -1162,6 +1162,8 @@ appliance:
             url: /appliance/admin/monitoring
           - title: Updating
             url: /appliance/admin/updating-the-appliance
+          - title: Migrating to Node.js v8
+            url: /appliance/extensibility-node8
 
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
