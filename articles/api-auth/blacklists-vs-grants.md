@@ -4,7 +4,7 @@ description: This document covers blacklists vs. grants when it comes handling t
 
 # Blacklists and Application Grants
 
-Let's say that you're using a non-interactive [application](/application) to access your API. You have a partner that calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. As such, you now want to remove your partner's access to your API. The issue, however, is that you've given your partner an [Access Token](/tokens/access-token) that lasts for a month.
+Let's say that you're using a machine-to-machine [application](/application) to access your API. You have a partner that calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. As such, you now want to remove your partner's access to your API. The issue, however, is that you've given your partner an [Access Token](/tokens/access-token) that lasts for a month.
 
 * What can you do in this situation?
 * How might you configure your Auth0 environment to make such situations easier to handle in the future?

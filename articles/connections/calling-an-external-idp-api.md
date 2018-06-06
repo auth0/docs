@@ -45,7 +45,7 @@ This will create a new application and grant **all scopes of the Management API*
 ::: panel Can't see the button?
 If you don't see this button, it means that you have at least one authorized application already. In this case you can either update the scopes of an existing application and use that, or create a new one following these steps:
 1. Go to [Dashboard > Applications](${manage_url}/#/applications)
-2. Click **+ Create Application**, select **Non Interactive Applications** and click **Create**
+2. Click **+ Create Application**, select **Machine-to-Machine Applications** and click **Create**
 3. At the **Select an API** dropdown select `Auth0 Management API`
 4. Click **Navigate to the API and Authorize**
 5. Set the toggle to **Authorized** and enable the required scopes
@@ -53,7 +53,7 @@ If you don't see this button, it means that you have at least one authorized app
 
 It is recommended, for security reasons, that you only assign the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from an application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
+You can grant or remove scopes from an application, at the [Dashboard > APIs > Auth0 Management API > Machine-to-Machine Applications tab](${manage_url}/#/apis/management/authorized-applications).
 
 ![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 

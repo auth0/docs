@@ -132,7 +132,7 @@ Public applications **cannot** utilize the `client_credentials` grant type. To a
 
 #### Confidential Applications
 
-Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
+Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine-to-Machine Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
