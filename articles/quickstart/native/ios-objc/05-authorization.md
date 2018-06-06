@@ -2,6 +2,11 @@
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to perform certain actions in the app.
 budicon: 500
+tags:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
 ---
 
 <%= include('../../../_includes/_package', {

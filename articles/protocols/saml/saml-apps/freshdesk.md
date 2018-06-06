@@ -1,6 +1,10 @@
 ---
 title: Freshdesk SAML Configuration
 description: Freshdesk SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - freshdesk
 ---
 
 ${include('./_header')}

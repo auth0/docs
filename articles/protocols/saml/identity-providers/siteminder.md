@@ -1,6 +1,10 @@
 ---
 title: SiteMinder
 description: How to configure SiteMinder as an identity provider.
+tags:
+    - saml
+    - identity-providers
+    - siteminder
 ---
 # Configuring SiteMinder as an Identity Provider
 

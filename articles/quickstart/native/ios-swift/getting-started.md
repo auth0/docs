@@ -2,6 +2,11 @@
 title: Getting Started
 description: Initial steps to integrate Auth0 in an iOS Swift application.
 budicon: 448
+tags:
+  - quickstarts
+  - native
+  - ios
+  - swift
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your iOS Swift apps.

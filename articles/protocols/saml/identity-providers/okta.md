@@ -2,6 +2,10 @@
 title: Okta
 description: How to configure Okta for use as an identity provider.
 toc: true
+tags:
+    - saml
+    - identity-providers
+    - okta
 ---
 
 # Configure Okta as an Identity Provider

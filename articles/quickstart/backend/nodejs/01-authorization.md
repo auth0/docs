@@ -1,6 +1,10 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to an Express.js API
+tags:
+    - quickstart
+    - backend
+    - nodejs
 ---
 
 <%= include('../../../_includes/_package', {

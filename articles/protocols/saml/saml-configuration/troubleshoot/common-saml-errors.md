@@ -1,5 +1,9 @@
 ---
 description: Common SAML errors and troubleshooting steps
+  tags:
+    - saml
+    - sso
+    - errors
 ---
 
 # Common SAML Errors

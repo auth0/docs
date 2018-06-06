@@ -1,6 +1,9 @@
 ---
 title: SAML
 description: SAML Identity Provider Configuration
+tags:
+  - saml
+  - samlp
 ---
 
 # SAML Identity Provider Configuration

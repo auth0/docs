@@ -1,6 +1,10 @@
 ---
 title: Tableau Server SAML Configuration
 description: Tableau Server SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - tableau
 ---
 
 ${include('./_header')}

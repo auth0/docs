@@ -1,6 +1,10 @@
 ---
 title: Pluralsight SAML Configuration
 description: Pluralsight SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - pluralsight
 ---
 
 ${include('./_header')}

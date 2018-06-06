@@ -1,6 +1,10 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - datadog
 ---
 
 ${include('./_header')}

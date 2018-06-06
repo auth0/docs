@@ -1,6 +1,10 @@
 ---
 title: Authentication
 description: This tutorial will show you how to use the Auth0 to add authentication to your Falcor API.
+tags:
+    - quickstart
+    - backend
+    - falcor
 ---
 
 <%= include('../../../_includes/_package', {

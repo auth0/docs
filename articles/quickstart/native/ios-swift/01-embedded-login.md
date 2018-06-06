@@ -2,6 +2,11 @@
 title: Embedded Login
 description: This tutorial demonstrates how to integrate Embedded Login in your iOS Swift project in order to present a login widget.
 budicon: 448
+tags:
+  - quickstarts
+  - native
+  - ios
+  - swift
 ---
 
 <%= include('../../../_includes/_package', {

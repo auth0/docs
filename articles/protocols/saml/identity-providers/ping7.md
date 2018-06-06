@@ -1,6 +1,10 @@
 ---
 title: PingFederate
 description: How to configure PingFederate 7 as an identity provider.
+tags:
+    - saml
+    - identity-providers
+    - pingfederate
 ---
 # Configuring PingFederate 7 as an Identity Provider
 

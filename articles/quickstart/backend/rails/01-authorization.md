@@ -1,6 +1,10 @@
 ---
 title: Authentication
 description: This tutorial demonstrates how to add authentication to Ruby on Rails API
+tags:
+    - quickstart
+    - backend
+    - rails
 ---
 
 <%= include('../../../_includes/_package', {

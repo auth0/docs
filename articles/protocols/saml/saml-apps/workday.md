@@ -1,6 +1,10 @@
 ---
 title: Workday SAML Configuration
 description: Workday SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - workday
 ---
 
 ${include('./_header')}

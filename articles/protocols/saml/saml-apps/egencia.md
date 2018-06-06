@@ -1,6 +1,10 @@
 ---
 title: Egencia SAML Configuration
 description: Egencia SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - egencia
 ---
 
 ${include('./_header')}

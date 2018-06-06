@@ -1,5 +1,8 @@
 ---
 description: An overview of the SAML configuration process
+tags:
+  - saml
+  - saml-configuration
 ---
 
 # SAML Configuration

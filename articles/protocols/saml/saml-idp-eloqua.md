@@ -1,5 +1,9 @@
 ---
 description: How to configure Auth0 to serve as an Identity Provider for Oracle Eloqua.
+tags:
+  - saml
+  - oracle
+  - eloqua
 ---
 
 # Configure Auth0 as Identity Provider for Oracle Eloqua

@@ -1,5 +1,7 @@
 ---
-  description: How to configure Auth0 for use as a SAML service AND identity provider
+description: How to configure Auth0 for use as a SAML service AND identity provider
+  tags:
+    - saml  
 ---
 
 # Configure Auth0 as a Service and Identity Provider

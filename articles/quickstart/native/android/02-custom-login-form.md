@@ -3,6 +3,10 @@ title: Custom Login Form
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login form.
 seo_alias: android
 budicon: 448
+tags:
+  - quickstarts
+  - native
+  - android
 ---
 
 This quickstart will show you how to add Auth0 login capabilities while using a customized login form.

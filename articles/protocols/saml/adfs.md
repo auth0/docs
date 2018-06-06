@@ -1,6 +1,9 @@
 ---
 description: How to Set up an Auth0 SAML Connection Against ADFS
 toc: true
+tags:
+  - saml
+  - adfs
 ---
 
 # ADFS SAML Connection

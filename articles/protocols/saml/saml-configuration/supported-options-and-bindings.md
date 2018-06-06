@@ -1,5 +1,8 @@
 ---
-  description: Supported SAML bindings and options
+description: Supported SAML bindings and options
+tags:
+  - saml
+  - saml-bindings
 ---
 
 # Supported SAML Bindings and Options

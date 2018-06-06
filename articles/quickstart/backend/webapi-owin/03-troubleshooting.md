@@ -3,6 +3,10 @@ title: Troubleshooting
 name: Shows how to troubleshoot the JWT middeware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
+tags:
+    - quickstart
+    - backend
+    - webapi-owin
 ---
 
 If you configured the JWT middleware correctly, you will be able to get proper responses from your API when you make requests. However, in the case where you get a 401 (Unauthorized) response from your API, it is because the configuration of your JWT middleware does not match with the JWT which was passed.

@@ -1,6 +1,10 @@
 ---
 title: Google Apps SAML Configuration
 description: Google Apps SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - google-apps
 ---
 
 ${include('./_header')}

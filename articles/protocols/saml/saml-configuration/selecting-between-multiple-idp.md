@@ -1,5 +1,8 @@
 ---
-  description: How to use Home Realm Discovery with SAML
+description: How to use Home Realm Discovery with SAML
+tags:
+  - saml
+  - home-realm-discovery
 ---
 
 # Select from Multiple Identity Providers

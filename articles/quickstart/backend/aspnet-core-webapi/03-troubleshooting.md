@@ -3,6 +3,11 @@ title: Troubleshooting
 name: Shows how to troubleshoot the JWT middeware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
+tags:
+    - quickstart
+    - backend
+    - aspnetcore
+    - web-api
 ---
 
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.

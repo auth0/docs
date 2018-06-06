@@ -2,6 +2,11 @@
 title: Calling APIs
 description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
 budicon: 546
+tags:
+  - quickstarts
+  - native
+  - ios
+  - swift
 ---
 
 You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).

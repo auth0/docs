@@ -2,6 +2,11 @@
 title: User Sessions
 description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 budicon: 280
+tags:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
 ---
 
 <%= include('../../../_includes/_package', {

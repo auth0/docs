@@ -1,6 +1,9 @@
 ---
 description: How to troubleshoot SAML-related configuration issues when Auth0 is the service provider
 toc: true
+  tags:
+    - saml
+    - sso
 ---
 
 # Troubleshooting SAML when Auth0 is the Service Provider

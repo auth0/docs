@@ -2,6 +2,11 @@
 title: Getting Started
 description: Short Introduction to the Auth0 iOS Swift Quickstarts.
 budicon: 715
+tags:
+  - quickstarts
+  - native
+  - ios
+  - swift
 ---
 
 <%= include('../../../_includes/_package', {

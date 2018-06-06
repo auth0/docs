@@ -3,6 +3,10 @@ title: Session Handling
 description: This tutorial will show you how to login and maintain a session’s connectivity.
 seo_alias: android
 budicon: 280
+tags:
+  - quickstarts
+  - native
+  - android
 ---
 
 This tutorial shows you how to let users log in and maintain an active session with Auth0.

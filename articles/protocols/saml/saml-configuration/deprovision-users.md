@@ -1,5 +1,7 @@
 ---
-  description: Best practices on deprovision users of your SAML integration
+description: Best practices on deprovision users of your SAML integration
+tags:
+  - saml
 ---
 
 # Deprovision Users

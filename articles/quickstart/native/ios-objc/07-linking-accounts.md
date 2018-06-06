@@ -2,6 +2,11 @@
 title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 budicon: 345
+tags:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
 ---
 
 <%= include('../../../_includes/_package', {

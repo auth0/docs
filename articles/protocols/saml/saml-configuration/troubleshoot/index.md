@@ -1,6 +1,9 @@
 ---
 description: How to troubleshoot SAML-related configuration issues
 toc: true
+  tags:
+    - saml
+    - sso
 ---
 
 # Troubleshooting

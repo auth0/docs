@@ -1,6 +1,10 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to a Symfony API
+tags:
+    - quickstart
+    - backend
+    - symfony
 ---
 
 <%= include('../../../_includes/_package', {

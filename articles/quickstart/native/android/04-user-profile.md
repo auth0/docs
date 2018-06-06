@@ -3,6 +3,10 @@ title: User Profile
 description: This tutorial will show you how to get and modify the user's profile data.
 seo_alias: android
 budicon: 292
+tags:
+  - quickstarts
+  - native
+  - android
 ---
 
 This tutorial shows you how to get and modify the user's profile data with Auth0 in your Android apps.

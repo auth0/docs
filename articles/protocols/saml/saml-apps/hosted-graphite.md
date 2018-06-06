@@ -1,6 +1,10 @@
 ---
 title: Hosted Graphite SAML Configuration
 description: Hosted Graphite SAML Configuration
+tags:
+    - saml
+    - identity-providers
+    - hosted-graphite
 ---
 
 ${include('./_header')}

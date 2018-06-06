@@ -3,6 +3,10 @@ title: Authorization
 name: Shows how to secure your API using the standard OWIN JWT middeware
 description: This tutorial demonstrates how to add authorization to your ASP.NET OWIN API using Auth0.
 budicon: 500
+tags:
+    - quickstart
+    - backend
+    - webapi-owin
 ---
 
 <%= include('../../../_includes/_package', {

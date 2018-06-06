@@ -1,5 +1,8 @@
 ---
 description: The WS-Federation protocol and how it is used in Auth0.
+tags:
+  - saml
+  - ws-federation
 ---
 # WS-Federation
 

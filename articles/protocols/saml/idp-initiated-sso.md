@@ -1,6 +1,9 @@
 ---
 title: IdP-Initiated SSO
 description: How to setup SAML Identity Provider initiated SSO.
+tags:
+  - saml
+  - sso
 ---
 
 # IdP-Initiated SSO

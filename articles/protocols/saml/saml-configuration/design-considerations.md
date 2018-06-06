@@ -1,5 +1,7 @@
 ---
-  description: Things to consider when designing your SAML integration
+description: Things to consider when designing your SAML integration
+tags:
+  - saml
 ---
 
 # SAML Design Considerations

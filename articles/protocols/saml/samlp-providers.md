@@ -1,5 +1,7 @@
 ---
 description: List of Identity Provider services known to support the SAML protocol.
+tags:
+  - saml
 ---
 # List of SAML-P Identity Providers
 

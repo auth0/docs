@@ -2,6 +2,10 @@
 title: Login
 description: This tutorial demonstrates how to integrate the Auth0 React Native SDK to add authentication and authorization to your mobile app.
 budicon: 448
+tags:
+  - quickstarts
+  - native
+  - react-native
 ---
 
 <%= include('../../../_includes/_package', {

@@ -2,6 +2,12 @@
 title: Touch ID Authentication
 description: This tutorial will show you how to utilise Touch ID and the Credentials Manager
 budicon: 345
+tags:
+  - quickstarts
+  - native
+  - ios
+  - swift
+  - touch-id
 ---
 
 <%= include('../../../_includes/_package', {

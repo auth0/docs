@@ -1,6 +1,10 @@
 ---
 title: Authentication
 description: This tutorial demonstrates how to add authentication and authorization to a PHP API
+tags:
+    - quickstart
+    - backend
+    - php
 ---
 
 <%= include('../../../_includes/_package', {
