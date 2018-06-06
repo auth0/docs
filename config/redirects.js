@@ -1762,6 +1762,7 @@ module.exports = [
     to: '/support/sld'
   },
   {
+<<<<<<< HEAD
     from: '/architecture-scenarios/application/mobile-api',
     to: '/architecture-scenarios/mobile-api'
   },
@@ -1824,5 +1825,9 @@ module.exports = [
   {
     from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
-  }
+  },
+  {
+     from: '/applications/application-settings/non-interactive',
+     to: '/applications/application-settings/machine-to-machine'
+   }
 ];
