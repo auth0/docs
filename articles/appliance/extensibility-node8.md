@@ -56,7 +56,7 @@ All officially-supported Auth0 Extensions will be updated to run on Node.js v8 p
 
 The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
 
-1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://<CustomerManageDomain>/configuration#/sandbox**).
+1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://CustomerManageDomain/configuration#/sandbox**).
 
 ![](/media/articles/appliance/migrations/sandbox.png)
 
