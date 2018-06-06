@@ -10,9 +10,9 @@ budicon: 448
   path: 'Quickstart/01-Login',
   branch: 'master',
   requirements: [
-    '.NET Core SDK 2.0',
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0'
+    '.NET Core SDK 2.1.300',
+    '.NET Core 2.1.0',
+    'ASP.NET Core 2.1.0'
   ]
 }) %>
 

@@ -26,6 +26,13 @@ In the code sample below, only the `openid` scope is requested.
 
 public void ConfigureServices(IServiceCollection services)
 {
+    services.Configure<CookiePolicyOptions>(options =>
+    {
+        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+        options.CheckConsentNeeded = context => true;
+        options.MinimumSameSitePolicy = SameSiteMode.None;
+    });
+
     // Add authentication services
     services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -83,7 +90,8 @@ public void ConfigureServices(IServiceCollection services)
     });
 
     // Add framework services.
-    services.AddMvc();
+    services.AddMvc()
+        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
 ```
 
@@ -101,9 +109,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     else
     {
         app.UseExceptionHandler("/Home/Error");
+        app.UseHsts();
     }
 
+    app.UseHttpsRedirection();
     app.UseStaticFiles();
+    app.UseCookiePolicy();
 
     app.UseAuthentication();
 
@@ -129,6 +140,8 @@ In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedire
 
 public void ConfigureServices(IServiceCollection services)
 {
+    // Some code omitted for brevity...
+
     services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -201,10 +214,11 @@ In the `Startup.cs` file, update the call to `AddOpenIdConnect` with the followi
 
 ```csharp
 // Startup.cs
-// some code was omitted for brevity...
 
 public void ConfigureServices(IServiceCollection services)
 {
+    // Some code omitted for brevity...
+
     // Add authentication services
     services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -310,6 +324,8 @@ You may want to Access Tokens received from Auth0. For example, you can use the 
 
 public void ConfigureServices(IServiceCollection services)
 {
+    // Some code omitted for brevity...
+
     // Add authentication services
     services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;

@@ -11,9 +11,10 @@ budicon: 500
   repo: 'auth0-aspnetcore-webapi-samples',
   path: 'Quickstart/01-Authorization',
   requirements: [
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0',
-    'Visual Studio 2017 (Optional)',
+    '.NET Core SDK 2.1.300',
+    '.NET Core 2.1.0',
+    'ASP.NET Core 2.1.0',
+    'Visual Studio 2017 15.7 (Optional)',
     'Visual Studio Code (Optional)'
   ]
 }) %>
