@@ -33,10 +33,6 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/spa-api">SPA + API</a>
-    <p>Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
-  </li>
-  <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/mobile-api">Mobile + API</a>
     <p>Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
   </li>
