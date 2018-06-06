@@ -1183,7 +1183,7 @@ appliance:
         url: /appliance/cli
       - title: Automatic Tenant Creation
         url: /appliance/admin/creating-tenants
-      - title: Node Module Availibility
+      - title: Node Module Availability
         url: /appliance/modules
       - title: Webtasks
         url: /appliance/webtasks
