@@ -13,7 +13,7 @@ We will notify all PSaaS Appliance customers once the PSaaS Appliance Node 8 rel
 
 ## Background
 
-The Webtask engine powering Auth0 extensibility currently utilizes Node.js v4. On 30 April 2018, Node.js v4 went out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.
+The Webtask engine powering Auth0 extensibility currently utilizes Node.js v4. On 30 April 2018, [Node.js v4 went out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.
 
 Continuing to use this version of Node.js could potentially expose your extensibility code to security vulnerabilities.
 
@@ -56,7 +56,7 @@ All officially-supported Auth0 Extensions will be updated to run on Node.js v8 p
 
 The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
 
-1. Navigate to the [Sandbox configuration page](${manage_url}/configuration#/sandbox).
+1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://CustomerManageDomain/configuration#/sandbox**).
 
 ![](/media/articles/appliance/migrations/sandbox.png)
 
