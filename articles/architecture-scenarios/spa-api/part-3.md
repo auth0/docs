@@ -208,5 +208,5 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 :::
 
 <%= include('./_stepnav', {
- prev: ["2. Auth0 Configuration", "/architecture-scenarios/application/spa-api/part-2"], next: ["Conclusion", "/architecture-scenarios/application/spa-api/part-4"]
+ prev: ["2. Auth0 Configuration", "/architecture-scenarios/spa-api/part-2"], next: ["Conclusion", "/architecture-scenarios/spa-api/part-4"]
 }) %>

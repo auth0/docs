@@ -40,5 +40,5 @@ It is required that only authorized users and applications are allowed access to
 Two kinds of users will use this SPA: employees and managers. The employees should be able to read, create and delete their own timesheet entries, while the managers should be able to approve timesheets as well.
 
 <%= include('./_stepnav', {
- next: ["1. Solution Overview", "/architecture-scenarios/application/spa-api/part-1"]
+ next: ["1. Solution Overview", "/architecture-scenarios/spa-api/part-1"]
 }) %>

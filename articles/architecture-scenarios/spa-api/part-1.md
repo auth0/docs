@@ -41,5 +41,5 @@ Since this covers our business case we will not create any Groups.
 The Authorization Extension will create a [Rule](/rules) which will read the Roles, Groups, and Permissions assigned to a user and add this information to the [User profile](/rules/current#rule-syntax) during the authentication flow. We can use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed. We can later on proceed to customize our app, like disabling the Approve Timesheets functionality if the user does not have the required permission to do so.
 
 <%= include('./_stepnav', {
- prev: ["Introduction", "/architecture-scenarios/application/spa-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/application/spa-api/part-2"]
+ prev: ["Introduction", "/architecture-scenarios/spa-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/spa-api/part-2"]
 }) %>

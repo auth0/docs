@@ -197,5 +197,5 @@ The response will include the new `access_token`:
 :::
 
 <%= include('./_stepnav', {
- prev: ["2. Auth0 Configuration", "/architecture-scenarios/application/mobile-api/part-2"], next: ["Conclusion", "/architecture-scenarios/application/mobile-api/part-4"]
+ prev: ["2. Auth0 Configuration", "/architecture-scenarios/mobile-api/part-2"], next: ["Conclusion", "/architecture-scenarios/mobile-api/part-4"]
 }) %>

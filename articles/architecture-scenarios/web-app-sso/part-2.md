@@ -100,6 +100,6 @@ If you enable Kerberos then you need to make some changes to the AD/LDAP's confi
 Now that we have designed our solution and discussed the configurations needed on Auth0 side, we can proceed with integrating Auth0 with our timesheets web app. That's what the next paragraph is all about, so keep reading!
 
 <%= include('./_stepnav', {
- prev: ["1. Solution Overview", "/architecture-scenarios/application/web-app-sso/part-1"],
- next: ["3. Application Implementation", "/architecture-scenarios/application/web-app-sso/part-3"]
+ prev: ["1. Solution Overview", "/architecture-scenarios/web-app-sso/part-1"],
+ next: ["3. Application Implementation", "/architecture-scenarios/web-app-sso/part-3"]
 }) %>

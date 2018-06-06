@@ -15,5 +15,5 @@ We used Node.js for the API implementation and Android for the mobile applicatio
 Don't forget to check back for new business cases and more complex architecture scenarios!
 
 <%= include('./_stepnav', {
- prev: ["3. API + Mobile Implementation", "/architecture-scenarios/application/mobile-api/part-3"]
+ prev: ["3. API + Mobile Implementation", "/architecture-scenarios/mobile-api/part-3"]
 }) %>

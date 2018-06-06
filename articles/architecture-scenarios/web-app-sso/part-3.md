@@ -166,6 +166,6 @@ See the implementation in [ASP.NET Core](/architecture-scenarios/application/web
 :::
 
 <%= include('./_stepnav', {
- prev: ["2. Auth0 Configuration", "/architecture-scenarios/application/web-app-sso/part-2"],
- next: ["4. Conclusion", "/architecture-scenarios/application/web-app-sso/part-4"]
+ prev: ["2. Auth0 Configuration", "/architecture-scenarios/web-app-sso/part-2"],
+ next: ["4. Conclusion", "/architecture-scenarios/web-app-sso/part-4"]
 }) %>

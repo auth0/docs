@@ -42,5 +42,5 @@ Hence the company has decided to develop a single Timesheets API which will be u
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
 <%= include('./_stepnav', {
- next: ["1. Solution Overview", "/architecture-scenarios/application/mobile-api/part-1"]
+ next: ["1. Solution Overview", "/architecture-scenarios/mobile-api/part-1"]
 }) %>

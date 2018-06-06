@@ -164,5 +164,5 @@ Rules execute in the order they are displayed on the Rules page, so ensure that 
 ![Rules](/media/articles/architecture-scenarios/spa-api/rules-2.png)
 
 <%= include('./_stepnav', {
- prev: ["1. Solution Overview", "/architecture-scenarios/application/spa-api/part-1"], next: ["3. API + SPA Implementation", "/architecture-scenarios/application/spa-api/part-3"]
+ prev: ["1. Solution Overview", "/architecture-scenarios/spa-api/part-1"], next: ["3. API + SPA Implementation", "/architecture-scenarios/spa-api/part-3"]
 }) %>

@@ -33,5 +33,5 @@ ExampleCo wants to build a flexible solution. At the moment only an automated pr
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
 <%= include('./_stepnav', {
- next: ["1. Solution Overview", "/architecture-scenarios/application/server-api/part-1"]
+ next: ["1. Solution Overview", "/architecture-scenarios/server-api/part-1"]
 }) %>

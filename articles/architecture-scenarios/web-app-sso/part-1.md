@@ -89,6 +89,6 @@ If you store ID Tokens on your server, you must do so securely.
 :::
 
 <%= include('./_stepnav', {
- prev: ["Introduction", "/architecture-scenarios/application/web-app-sso"],
- next: ["2. Auth0 Configuration", "/architecture-scenarios/application/web-app-sso/part-2"]
+ prev: ["Introduction", "/architecture-scenarios/web-app-sso"],
+ next: ["2. Auth0 Configuration", "/architecture-scenarios/web-app-sso/part-2"]
 }) %>

@@ -11,5 +11,5 @@ We started by describing the business case and the requirements and went on expl
 We used ASP .NET Core for the sample web app implementation, hopefully though after going through this document you are able to build such a web app using the framework you prefer.
 
 <%= include('./_stepnav', {
- prev: ["3. Application Implementation", "/architecture-scenarios/application/web-app-sso/part-3"]
+ prev: ["3. Application Implementation", "/architecture-scenarios/web-app-sso/part-3"]
 }) %>

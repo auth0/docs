@@ -14,5 +14,5 @@ We started by describing the business case and the requirements and went on expl
 We used Node.js for the API implementation and Python for the non interactive server process, hopefully though after going through this document you are able to build this using the technologies you prefer.
 
 <%= include('./_stepnav', {
- prev: ["3. Application Implementation", "/architecture-scenarios/application/server-api/part-3"]
+ prev: ["3. Application Implementation", "/architecture-scenarios/server-api/part-3"]
 }) %>

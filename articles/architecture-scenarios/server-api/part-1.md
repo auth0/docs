@@ -24,5 +24,5 @@ For situations like this where there is no user interaction involved, the Client
 1. The Application can use the `access_token` to call the Resource Server on behalf of itself.
 
 <%= include('./_stepnav', {
- prev: ["Introduction", "/architecture-scenarios/application/server-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/application/server-api/part-2"]
+ prev: ["Introduction", "/architecture-scenarios/server-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/server-api/part-2"]
 }) %>

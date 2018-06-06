@@ -87,5 +87,5 @@ Now that we have designed our solution and discussed the configurations needed o
 
 
 <%= include('./_stepnav', {
- prev: ["1. Solution Overview ", "/architecture-scenarios/application/server-api/part-1"], next: ["3. Application Implementation", "/architecture-scenarios/application/server-api/part-3"]
+ prev: ["1. Solution Overview ", "/architecture-scenarios/server-api/part-1"], next: ["3. Application Implementation", "/architecture-scenarios/server-api/part-3"]
 }) %>

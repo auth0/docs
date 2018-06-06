@@ -113,5 +113,5 @@ Rules execute in the order they are displayed on the Rules page, so ensure that 
 ![Rules](/media/articles/architecture-scenarios/mobile-api/rules-2.png)
 
 <%= include('./_stepnav', {
- prev: ["1. Solution Overview", "/architecture-scenarios/application/mobile-api/part-1"], next: ["3. API + Mobile Implementation", "/architecture-scenarios/application/mobile-api/part-3"]
+ prev: ["1. Solution Overview", "/architecture-scenarios/mobile-api/part-1"], next: ["3. API + Mobile Implementation", "/architecture-scenarios/mobile-api/part-3"]
 }) %>

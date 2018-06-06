@@ -133,5 +133,5 @@ In order to do so we will:
 :::
 
 <%= include('./_stepnav', {
- prev: ["2. Auth0 Configuration", "/architecture-scenarios/application/server-api/part-2"], next: ["Conclusion", "/architecture-scenarios/application/server-api/part-4"]
+ prev: ["2. Auth0 Configuration", "/architecture-scenarios/server-api/part-2"], next: ["Conclusion", "/architecture-scenarios/server-api/part-4"]
 }) %>
