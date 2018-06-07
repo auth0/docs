@@ -8,9 +8,7 @@ http://localhost:3000/callback
 ```bash
 http://localhost:3000
 ```
-3. Open a command prompt window
-4. Change the directory to where the quickstart was uncompressed.
-5. Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands:
+3. Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the directory of the sample:
 ```bash
 npm install
 npm start
