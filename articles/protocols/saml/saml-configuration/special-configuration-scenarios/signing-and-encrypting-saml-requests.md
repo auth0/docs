@@ -62,6 +62,15 @@ If Auth0 is the SAML **identity provider**, it can received requests signed with
 
 To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
 
+The configuration should look like this:
+
+```json
+{
+  [...], // other settings
+  "signingCert": "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n"
+}
+```
+
 ## Receive Signed SAML Authentication Responses
 
 If Auth0 is the SAML **service provider**, all SAML responses from your identity provider should be signed to indicate it hasn't been tampered with by an unauthorized third-party.
