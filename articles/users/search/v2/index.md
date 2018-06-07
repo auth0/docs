@@ -3,11 +3,10 @@ description: This page lists several examples of user search queries using query
 crews: crew-2
 toc: true
 ---
-
 # User Search
 
 ::: version-warning
-User search v2 will be deprecated on **November 13th 2018**. Also, new tenants starting **June 6th 2018** cannot use this version anymore. We recommend you use [user search v3](/users/search/v3).
+User Search v2 is deprecated as of **June 6th 2018**, and new tenants will no longer have the option of using it. User Search v2 will be removed from service on **November 13th 2018**. We recommend that you use [User Search v3](/users/search/v3) instead.
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
