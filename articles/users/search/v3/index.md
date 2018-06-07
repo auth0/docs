@@ -158,7 +158,7 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 
 ## Migrate from search engine v2 to v3
 
-The user search engine v2 is deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there's a few things you should know:
+The user search engine v2 is deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there's a few things you should know:
 
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
