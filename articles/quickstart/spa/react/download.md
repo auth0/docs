@@ -1,11 +1,15 @@
-To run the example you need [Node.JS LTS](https://nodejs.org/en/download/) installed, and to run the following commands:
+To run the example you need [Node.JS LTS](https://nodejs.org/en/download/) installed, and follow these steps:
+
+- Open a command prompt window.
+- Go to the directory where the quickstart was downloaded.
+- Execute the following commands:
 
 ```bash
 npm install
 npm start
 ```
 
-The example includes a [Docker](https://www.docker.com) image ready to run with the following command:
+You can also run it as a [Docker](https://www.docker.com) image with the following commands:
 
 ```bash
 # In Linux / OSX
