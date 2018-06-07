@@ -2,6 +2,11 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to use Auth0 to add authentication and authorization to your web app
+tags:
+  - quickstarts
+  - spa
+  - vanillajs
+  - login
 ---
 
 <%= include('../../../_includes/_package', {

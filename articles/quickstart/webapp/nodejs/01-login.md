@@ -2,6 +2,11 @@
 title: Login
 description: This tutorial demonstrates how to add authentication to a Node.js and Express web app
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - nodejs
 ---
 
 <%= include('../../../_includes/_package', {

@@ -2,6 +2,11 @@
 title: User Profile
 description: Access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - user-profile
 ---
 
 <%= include('../../../_includes/_package', {

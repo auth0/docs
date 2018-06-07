@@ -2,6 +2,11 @@
 title: Session Handling
 description: Learn how to store user data in your session and clean it up upon logout.
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - sessions
 ---
 
 <%= include('../../../_includes/_package', {

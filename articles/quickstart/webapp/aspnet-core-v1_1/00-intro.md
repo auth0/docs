@@ -3,6 +3,10 @@ title: Introduction
 name: Introduction to the quickstart guide and configuring the environment
 description: Introduction to the quickstart guide and configuring the environment.
 budicon: 715
+tags:
+  - quickstarts
+  - webapp
+  - aspnet-core
 ---
 
 ::: panel System Requirements

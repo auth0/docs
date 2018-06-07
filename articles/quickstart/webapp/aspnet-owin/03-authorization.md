@@ -2,6 +2,11 @@
 title: Authorization
 description: This tutorial demonstrates how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 budicon: 500
+tags:
+  - quickstarts
+  - webapp
+  - aspnet-owin
+  - authorization
 ---
 
 <%= include('../../../_includes/_package', {

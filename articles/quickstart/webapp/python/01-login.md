@@ -3,6 +3,12 @@ title: Login
 default: true
 description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with the Flask framework.
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - python
+  - flask
 ---
 
 You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.

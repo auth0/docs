@@ -2,6 +2,11 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your Java Servlet web app
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - java
 ---
 
 <%= include('../../../_includes/_package', {

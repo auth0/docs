@@ -2,6 +2,11 @@
 title: Login
 description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - golang
 ---
 
 <%= include('../../../_includes/_package', {

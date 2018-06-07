@@ -2,6 +2,11 @@
 title: Login
 description: Ruby on Rails Login with Auth0
 budicon: 448
+tags:
+  - quickstarts
+  - webapp
+  - login
+  - rails
 ---
 
 <%= include('../../../_includes/_package', {
