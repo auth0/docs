@@ -67,7 +67,7 @@ The configuration should look like this:
 ```json
 {
   [...], // other settings
-  "signingCert": "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n"
+  "signingCert": "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
 }
 ```
 
