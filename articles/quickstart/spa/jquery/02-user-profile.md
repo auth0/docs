@@ -2,6 +2,11 @@
 title: User Profile
 description: This tutorial demonstrates how to fetch a user's information from Auth0
 budicon: 292
+tags:
+  - quickstarts
+  - spa
+  - jquery
+  - user-profile
 ---
 
 <%= include('../../../_includes/_package', {

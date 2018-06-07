@@ -2,6 +2,10 @@
 title: Login
 description: This tutorial demonstrates how to add user login to your application with Auth0
 budicon: 448
+tags:
+  - quickstarts
+  - spa
+  - aurelia
 ---
 
 <%= include('../../../_includes/_package', {

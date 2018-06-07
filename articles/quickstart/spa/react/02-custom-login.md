@@ -2,6 +2,11 @@
 title: Custom Login
 description: This tutorial demonstrates how to use the auth0.js library to add custom authentication and authorization to your ReactJS web application
 budicon: 448
+tags:
+  - quickstarts
+  - spa
+  - react
+  - login
 ---
 
 <%= include('../../../_includes/_package', {

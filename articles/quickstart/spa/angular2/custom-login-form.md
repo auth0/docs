@@ -2,6 +2,11 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to add a custom login form to an Angular 2+ application with Auth0
 budicon: 448
+tags:
+  - quickstarts
+  - spa
+  - angular2
+  - login
 ---
 
 <%= include('../../../_includes/_package', {

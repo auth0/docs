@@ -2,6 +2,11 @@
 title: Embedded Login
 description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
 budicon: 448
+tags:
+  - quickstarts
+  - spa
+  - angular2
+  - login
 ---
 
 <%= include('../../../_includes/_package', {

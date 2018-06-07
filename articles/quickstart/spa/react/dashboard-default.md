@@ -2,6 +2,11 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to add user login to your application with Auth0
+tags:
+  - quickstarts
+  - spa
+  - react
+  - login
 ---
 
 <%= include('../../../_includes/_package', {

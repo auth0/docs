@@ -2,6 +2,10 @@
 title: Auth0 AngularJS Tutorial
 default: true
 description: This tutorial demonstrates how to use the Auth0 with AngularJS applications
+tags:
+  - quickstarts
+  - spa
+  - angular
 ---
 
 <%= include('../../../_includes/_package', {

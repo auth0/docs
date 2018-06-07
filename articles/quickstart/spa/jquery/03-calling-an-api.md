@@ -2,6 +2,11 @@
 title: Calling an API
 description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
+tags:
+  - quickstarts
+  - spa
+  - jquery
+  - api
 ---
 
 <%= include('../../../_includes/_package', {

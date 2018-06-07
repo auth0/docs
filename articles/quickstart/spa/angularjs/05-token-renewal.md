@@ -2,6 +2,11 @@
 title: Token Renewal
 description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
 budicon: 448
+tags:
+  - quickstarts
+  - spa
+  - angular
+  - tokens
 ---
 
 <%= include('../../../_includes/_package', {

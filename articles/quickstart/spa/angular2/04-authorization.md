@@ -2,6 +2,11 @@
 title: Authorization
 description: This tutorial demonstrates how to add authorization and access control to your application
 budicon: 546
+tags:
+  - quickstarts
+  - spa
+  - angular2
+  - authorization
 ---
 
 <%= include('../../../_includes/_package', {
