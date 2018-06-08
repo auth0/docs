@@ -173,7 +173,7 @@ This should allow you to prompt your users to enter their email address, receive
 
 ## Custom Domains and Universal Login
 
-Before you can use [custom domains](/custom-domains) with a universal login page that you have customized, you'll need to update the code to use your [custom domain](/custom-domains/additional-configuration#universal-login).
+Before you can use [custom domains](/custom-domains) with a universal login page that you have customized, you'll need to [update the code to use your custom domain](/custom-domains/additional-configuration#universal-login).
 
 ## Next Steps
 
