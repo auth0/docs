@@ -30,7 +30,7 @@ The load testing request must include the following information:
 * The Auth0 tenant to be used during the test
 * The requested duration of the test (2 hour maximum)
 * The Auth0 features, such as rules, email, used during the test
-* The Auth0 API endpoints to be used
+* The Auth0 API methods and endpoints to be used eg. GET `/api/v2/clients`
 * The types of Auth0 connections involved in the test
 * Which Auth0 Rules, if any, will execute during the test
 * Which Custom DB, if any, will be used
