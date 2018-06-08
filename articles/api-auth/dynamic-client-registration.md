@@ -38,12 +38,12 @@ Alternatively, you can update this flag using the [Update tenant settings endpoi
   "method": "PATCH",
   "url": "https://${account.namespace}/api/v2/tenants/settings",
   "headers": [
-    { "name": "Content-Type", "value": "client/json" },
+    { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
     { "name": "Cache-Control", "value": "no-cache" }
   ],
   "postData": {
-      "mimeType": "client/json",
+      "mimeType": "application/json",
       "text" : "{ \"flags\": { \"enable_dynamic_client_registration\": true } }"
   }
 }
@@ -62,12 +62,12 @@ You can promote a connection to domain level using the [Update a Connection endp
   "method": "PATCH",
   "url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
   "headers": [
-    { "name": "Content-Type", "value": "client/json" },
+    { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
     { "name": "Cache-Control", "value": "no-cache" }
   ],
   "postData": {
-      "mimeType": "client/json",
+      "mimeType": "application/json",
       "text" : "{ \"is_domain_connection\": true }"
   }
 }
@@ -135,10 +135,10 @@ To create an client with the name `My Dynamic Client` and the callback URLs `htt
   "method": "POST",
   "url": "https://${account.namespace}/oidc/register",
   "headers": [
-    { "name": "Content-Type", "value": "client/json" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-    "mimeType": "client/json",
+    "mimeType": "application/json",
     "text": "{\"client_name\":\"My Dynamic Client\",\"redirect_uris\": [\"https://client.example.com/callback\", \"https://client.example.com/callback2\"]}"
   }
 }
@@ -154,7 +154,7 @@ The response includes the basic client information.
 
 ```json
 HTTP/1.1 201 Created
-Content-Type: client/json
+Content-Type: application/json
 {
   "client_name": "My Dynamic Client",
   "client_id": "8SXWY6j3afl2CP5ntwEOpMdPxxy49Gt2",
