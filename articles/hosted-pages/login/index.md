@@ -75,6 +75,10 @@ You can customize the login page at will right from the editor. If you use Lock,
 
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the application or connection. Remember that the login page customizations are per **tenant** rather than per application. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
+::: warning
+By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, errors will result if you do not make sure that the `state` and `_csrf` parameters are included.
+:::
+
 #### Parameters for the Authorize Endpoint
 
 If you initiate universal login via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the login page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
