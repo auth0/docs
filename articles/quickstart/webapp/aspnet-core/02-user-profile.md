@@ -10,9 +10,9 @@ budicon: 292
   path: 'Quickstart/02-User-Profile',
   branch: 'master',
   requirements: [
-    '.NET Core SDK 2.0',
-    '.NET Core 2.0',
-    'ASP.NET Core 2.0'
+    '.NET Core SDK 2.1.300',
+    '.NET Core 2.1.0',
+    'ASP.NET Core 2.1.0'
   ]
 }) %>
 
@@ -65,6 +65,8 @@ You must update the list of scopes to request the `profile` scope. The user's pr
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
+    // Some code omitted for brevity...
+
     // Add authentication services
     services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
