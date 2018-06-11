@@ -123,7 +123,7 @@ JWT_AUTH = {
 
 ## Add a Django Remote User
 
-You need to define a way to map the username from the `access_token` payload to the Django authentication system user.
+You need to define a way to map the username from the `Access Token` payload to the Django authentication system user.
 
 Add [`RemoteUserMiddleware`](https://docs.djangoproject.com/en/1.11/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware) middleware component after `AuthenticationMiddleware` to middleware list.
 
@@ -194,9 +194,9 @@ To configure scopes, click the Scopes section of the [Dashboard's APIs section](
 This example uses the read:messages scopes.
 :::
 
-API endpoints can be configured to look for a particular `scope` in the `access_token`.
+API endpoints can be configured to look for a particular `scope` in the `Access Token`.
 
-Add the following methods to the `views.py` file to extract the granted scopes from the `access_token`.
+Add the following methods to the `views.py` file to extract the granted scopes from the `Access Token`.
 
 ```python
 # auth0authorization/views.py

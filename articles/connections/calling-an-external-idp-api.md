@@ -6,7 +6,7 @@ crews: crew-2
 ---
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
 You can retrieve and use this token to call the IdP's API.
 
@@ -22,9 +22,9 @@ The process you will follow differs, depending on whether your code runs in the 
 
 ## From the backend
 
-Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
-Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile.
 
 The steps to follow are:
 
@@ -63,7 +63,7 @@ To do so, go to the [Test tab](${manage_url}/#/apis/management/test). There you 
 
 Pick your application using the dropdown at the top, and choose your language of preference for the snippet.
 
-Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
+Copy and run the snippet. Extract the `Access Token` property from the response. This is what you will use to access the Management API.
 
 ::: panel More info on the snippets
 The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
@@ -106,10 +106,10 @@ Replace these values:
 
 ### Step 3: Extract the IdP Access Token
 
-Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
+Within the user's `identities` array, there will be an `Access Token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
+For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `Access Token` for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
@@ -153,7 +153,7 @@ Make sure that you don't expose the IdP tokens to your client-side application! 
 :::
 
 ::: note
-For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+For more information on how to request specific scopes for an Identity Provider `Access Token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
 :::
 
 ## From the frontend

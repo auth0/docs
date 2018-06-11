@@ -80,7 +80,7 @@ function (user, context, callback) {
 
 In the last step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
-1. The Salesforce REST API uses an OAuth `access_token`. We are using the OAuth2 `Resource Owner Password Credential Grant` to obtain such `access_token`. This is the `getToken` function hat uses credentials as input as opposed to an `API-KEY` as the previous rules.
+1. The Salesforce REST API uses an OAuth `Access Token`. We are using the OAuth2 `Resource Owner Password Credential Grant` to obtain such `Access Token`. This is the `getToken` function hat uses credentials as input as opposed to an `API-KEY` as the previous rules.
 2. We are just recording the user name and a fixed company name. We would of course us anything available in the enriched user profile we obtained in step 2, to record more information and have better context for the sales representative.
 3. If everything went well, we use a __persistent__ property: `user.signedUp` and set it to `true`. So next time this same users logs in, none of these rules will do anything.
 
@@ -89,7 +89,7 @@ function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,callback);
 
-  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD, 
+  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD,
             function(e,r){
                     if( e ) return callback(e);
 
@@ -100,10 +100,10 @@ function (user, context, callback) {
                         return callback(null,user,context);
                     });
                 });
-  
+
   function createLead(url,access_token, callback){
 
-    //Just a few fields. The Lead object is much richer 
+    //Just a few fields. The Lead object is much richer
     var data = {
         LastName: user.name,
         Company: 'Web channel signups'

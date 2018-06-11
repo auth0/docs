@@ -39,7 +39,7 @@ The Settings page is used to provide the information required to set up the soci
 - __Client ID__: The provider's client ID;
 - __Client Secret__: The provider's client secret;
 - __Authorization URL__: The URL where the transaction begins and authorization occurs;
-- __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
+- __Token URL__: The URL used to exchange the code generated from the information you provide for an Access Token;
 - __Scope__: The scope parameters for which you want access rights;
 - __Fetch User Profile Script__: The JS function that returns the user profile and associated information. It will be auto-generated with the appropriate fields depending on the chosen provider.
 - __Custom Headers__: An optional JSON object that lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
@@ -85,7 +85,7 @@ Lock does not currently support displaying buttons for custom social connections
 
 ## Optional: Set up Basic Authentication
 
-By default, when invoking the __Token URL__ to exchange the authentication code for an access_token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header.
+By default, when invoking the __Token URL__ to exchange the authentication code for an Access Token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header.
 
 If the identity provider requires Basic Authentication, you can be use the __Custom Headers__ setting with a JSON object like this:
 

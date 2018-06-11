@@ -66,16 +66,16 @@ This feature is disabled by default for new tenants as of 8 June 2017. Please se
 
 :::
 
-Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
+Given the social provider's `Access Token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `Access Token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `access_token` <br/><span class="label label-danger">Required</span> | The social provider's `access_token`. |
+| `access_token` <br/><span class="label label-danger">Required</span> | The social provider's `Access Token`. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your app. |
-| `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
+| `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `Access Token` will be returned. |
 
 ### Test with Postman
 
@@ -169,7 +169,7 @@ curl --request POST \
 This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
+Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `Access Token` and `id_token`.
 
 ### Request Parameters
 
@@ -179,7 +179,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `username` <br/><span class="label label-danger">Required</span> | Username/email of the user to login |
 | `password` <br/><span class="label label-danger">Required</span> | Password of the user to login |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
-| `scope` | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
+| `scope` | Set to `openid` to retrieve also an `id_token`, leave null to get only an `Access Token` |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password` to authenticate using username/password or `urn:ietf:params:oauth:grant-type:jwt-bearer` to authenticate using an `id_token` (used to [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)) |
 | `device` | String value. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |

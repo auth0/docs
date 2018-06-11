@@ -53,7 +53,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [audience](#audience-string-) | The API which will be consuming your `Access Token` |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
@@ -450,7 +450,7 @@ var options = {
 
 ### audience {String}
 
-The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+The `audience` option indicates the API which will be consuming the `Access Token` that is received after authentication.
 
 ```js
 var options = {

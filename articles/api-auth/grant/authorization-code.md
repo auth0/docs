@@ -13,7 +13,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview of the flow
 
-The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a flow where the browser receives an Authorization Code from Auth0 and sends this to the web app. The web app will then interact with Auth0 and exchange the Authorization Code for an [access_token](/tokens/access-token), and optionally an [id_token](/tokens/id-token) and a [refresh_token](/tokens/refresh_token). The web app can now use this `access_token` to call the API on behalf of the user.
+The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a flow where the browser receives an Authorization Code from Auth0 and sends this to the web app. The web app will then interact with Auth0 and exchange the Authorization Code for an [Access Token](/tokens/access-token), and optionally an [id_token](/tokens/id-token) and a [refresh_token](/tokens/refresh_token). The web app can now use this `Access Token` to call the API on behalf of the user.
 
 ![Authorization Code Grant](/media/articles/api-auth/authorization-code-grant.png)
 
@@ -23,11 +23,11 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 1. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
 
-1. The web app sends the Authorization Code to Auth0 and asks to exchange it with an `access_token` (and optionally an `id_token` and a `refresh_token`). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0, using the Client Id and Client Secret.
+1. The web app sends the Authorization Code to Auth0 and asks to exchange it with an `Access Token` (and optionally an `id_token` and a `refresh_token`). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0, using the Client Id and Client Secret.
 
 1. Auth0 authenticates the web app, validates the Authorization Code and responds back with the token.
 
-1. The web app can use the `access_token` to call the API on behalf of the user.
+1. The web app can use the `Access Token` to call the API on behalf of the user.
 
 ::: note
 In OAuth 2.0 terms, the web app is the application, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.

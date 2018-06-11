@@ -42,7 +42,7 @@ Click __Create__.
 
 You will need to ensure that the Authorization Extension is installed for your tenant. You can refer to the [Authorization Extension documentation](/extensions/authorization-extension#how-to-install) for details on how to do this.
 
-### Define Permissions 
+### Define Permissions
 
 You will need to define Permissions which correlates with the scopes you have already defined. In the Authorization Extension, click the _Permissions_ tab, and then click on the **Create Permission** button. In the dialog, capture the details for each permission. Ensure that the name of the permission is exactly the same as the corresponding scope:
 
@@ -80,7 +80,7 @@ Ensure that you have enabled **Permissions** and then click the **Publish Rule**
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule which will validate that the scopes contained in an `access_token` is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the `access_token`.
+The final step in this process is to create a Rule which will validate that the scopes contained in an `Access Token` is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the `Access Token`.
 
 In your Auth0 Dashboard, go to the _Rules_ tab. You should see the Rule created by the Authorization Extension:
 
@@ -93,7 +93,7 @@ function (user, context, callback) {
   if (context.clientName !== 'Timesheets SPA') {
     return callback(null, user, context);
   }
-  
+
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {

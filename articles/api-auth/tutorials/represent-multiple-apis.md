@@ -126,7 +126,7 @@ Next, Auth0 authenticates the user. If this is the first time the user goes thro
 
 ![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 
-If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `Access Token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
 
 ```js
 function getParameterByName(name) {
@@ -139,7 +139,7 @@ function getAccessToken() {
 }
 ```
 
-The app can then use the `access_token` to call the API on behalf of the user.
+The app can then use the `Access Token` to call the API on behalf of the user.
 
 After logging in, you can see buttons that allow you to call either of your APIs.
 

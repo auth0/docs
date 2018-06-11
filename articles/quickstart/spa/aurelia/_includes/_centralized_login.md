@@ -95,9 +95,9 @@ export class AuthService {
 The service now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
+* `setSession` - sets the user's `Access Token`, `id_token`, and a time at which the `Access Token` will expire
 * `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+* `isAuthenticated` - checks whether the expiry time for the `Access Token` has passed
 
 ### About the Authentication Service
 

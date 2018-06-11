@@ -45,7 +45,7 @@ Create a file named `server.py`, and instantiate an application with your client
 
 ```python
 # /server.py
-    
+
 from functools import wraps
 import json
 from os import environ as env
@@ -61,7 +61,7 @@ from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 import requests
-    
+
 app = Flask(__name__)
 
 oauth = OAuth(app)
@@ -81,9 +81,9 @@ auth0 = oauth.register(
 
 ## Add the Auth0 Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
+This handler exchanges the `code` that Auth0 sends to the callback URL for an `Access Token` and an `id_token`.
 
-The `access_token` will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
+The `Access Token` will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # /server.py
@@ -172,7 +172,7 @@ def requires_auth(f):
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)
-    
+
   return decorated
 ```
 

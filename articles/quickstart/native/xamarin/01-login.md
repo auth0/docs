@@ -27,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Set Up the Auth0 Callback URL
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, `access_token` and `refresh_token`.
+Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, `Access Token` and `refresh_token`.
 
 Since callback URLs can be manipulated, you will need to add your application's URL to your application's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
@@ -170,7 +170,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the `id_token` and `Access Token` in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);

@@ -23,7 +23,7 @@ interface AuthConfig {
   callbackURL: string;
   apiUrl: string;
 }
- 
+
 export const AUTH_CONFIG: AuthConfig = {
   clientID: '',
   domain: '',
@@ -124,9 +124,9 @@ The service includes several methods for handling authentication.
 
 - __login__: calls `authorize` from auth0.js which initiates [Universal Login](/hosted-pages/login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- __setSession__: sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
+- __setSession__: sets the user's `Access Token`, `id_token`, and a time at which the `Access Token` will expire
 - __logout__: removes the user's tokens from browser storage
-- __isAuthenticated__: checks whether the expiry time for the `access_token` has passed
+- __isAuthenticated__: checks whether the expiry time for the `Access Token` has passed
 
 ### Process the Authentication Result
 
@@ -157,7 +157,7 @@ export class AppComponent {
 ### Add the Callback Component
 
 Using Universal Login means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
- 
+
 You can choose to have users return to any URL in your application that you like; however, it is recommended that you create a dedicated callback route to serve as a central location that the user will be returned to upon successful authentication. Having a single callback route is beneficial for two main reasons:
 
 - It prevents the need to whitelist multiple (and sometimes unknown) callback URLs
@@ -182,10 +182,10 @@ After authentication, users will be taken to the `/callback` route for a brief t
 ## 3. Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the `access_token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+This section shows how to retrieve the user info using the `Access Token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
 :::
 
-To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's `access_token` from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
+To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's `Access Token` from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
 
 ```js
 // Existing code from the AuthService class is omitted in this code sample for brevity
@@ -395,7 +395,7 @@ npm install --save angular2-jwt
 yarn add angular2-jwt
 ```
 
-Create a factory function with some configuration values for `angular2-jwt` and add it to the `providers` array in your application's `@NgModule`. The factory function should have a `tokenGetter` functon which fetches the `access_token` from local storage.
+Create a factory function with some configuration values for `angular2-jwt` and add it to the `providers` array in your application's `@NgModule`. The factory function should have a `tokenGetter` function which fetches the `access_token` from local storage.
 
 ```js
 import { Http, RequestOptions } from '@angular/http';
@@ -449,7 +449,7 @@ export class TimesheetsService {
 
 ## 6. Renew the Access Token
 
-Renewing the user's `access_token` requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Renewing the user's `Access Token` requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
 public renewToken() {

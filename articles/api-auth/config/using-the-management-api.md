@@ -26,7 +26,7 @@ The following restrictions apply to the identifier:
 
 We recommend using your public API endpoint as an identifier.
 
-To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers) with an `access_token` that has the resource server scope (`scope:resource_server`).
+To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers) with an `Access Token` that has the resource server scope (`scope:resource_server`).
 
 The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
 
@@ -78,7 +78,7 @@ Note the following:
 
 Now that the API and the Application are defined in Auth0, you can create a trust relationship between them. To do so, authorize the Application to access the API, while defining the scopes that should be given to the Application (meaning the actions the Application will be able to perform on the API).
 
-To authorize your Application send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `access_token` that has the create application grants scope (`create:client_grantss`).
+To authorize your Application send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `Access Token` that has the create application grants scope (`create:client_grantss`).
 
 The following example authorizes the Application with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
 

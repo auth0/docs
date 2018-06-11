@@ -222,7 +222,7 @@ The Authorization Code flow with PKCE can only be used for Applications whose ty
 
 ## 5. Call the API
 
-Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the `Access Token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -237,7 +237,7 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
 
 ## 6. Verify the Token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer `Access Token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
@@ -249,7 +249,7 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Sample application
 
-For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario. 
+For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a mobile app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 

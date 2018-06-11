@@ -602,7 +602,7 @@ To access this endoint you must set an [Access Token](/tokens/access-token) at t
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `access_token` obtained during login. |
+| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `Access Token` obtained during login. |
 
 
 #### More information
@@ -668,7 +668,7 @@ To access this endoint you must set an [Access Token](/tokens/access-token) at t
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `access_token` obtained during login. |
+| `ACCESS_TOKEN` <br/><span class="label label-danger">Required</span> | The `Access Token` obtained during login. |
 | `AUTHENTICATOR_ID` <br/><span class="label label-danger">Required</span> | The ID of the authenticator to delete.
 
 ### More information

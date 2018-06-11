@@ -62,7 +62,7 @@ class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
-    
+
 @APP.errorhandler(AuthError)
 def handle_auth_error(ex):
     response = jsonify(ex.error)
@@ -74,7 +74,7 @@ def handle_auth_error(ex):
 
 <%= include('../_includes/_api_jwks_description_no_link') %>
 
-Add a decorator which verifies the `access_token` against your JWKS.
+Add a decorator which verifies the `Access Token` against your JWKS.
 
 ```python
 # /server.py
@@ -88,9 +88,9 @@ def get_token_auth_header():
         raise AuthError({"code": "authorization_header_missing",
                         "description":
                             "Authorization header is expected"}, 401)
-    
+
     parts = auth.split()
-    
+
     if parts[0].lower() != "bearer":
         raise AuthError({"code": "invalid_header",
                         "description":
@@ -165,7 +165,7 @@ ${snippet(meta.snippets.use)}
 
 ## Protect individual endpoints
 
-Individual routes can be configured to look for a particular `scope` in the `access_token` by using the following:
+Individual routes can be configured to look for a particular `scope` in the `Access Token` by using the following:
 
 ```python
 # /server.py

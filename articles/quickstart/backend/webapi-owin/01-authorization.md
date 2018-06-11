@@ -46,7 +46,7 @@ Also update the `web.config` file in your project with the correct **Domain** an
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET (OWIN) JWT middleware. 
+This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET (OWIN) JWT middleware.
 
 ## Install Dependencies
 
@@ -120,7 +120,7 @@ public class ApiController : ApiController
 
 ## Configuring Scopes
 
-The JWT middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The JWT middleware above verifies that the `Access Token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
@@ -137,7 +137,7 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
     {
         this.scope = scope;
     }
-    
+
     public override void OnAuthorization(HttpActionContext actionContext)
     {
         base.OnAuthorization(actionContext);
@@ -147,7 +147,7 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
 
         // Get the claim principal
         ClaimsPrincipal principal = actionContext.ControllerContext.RequestContext.Principal as ClaimsPrincipal;
-            
+
         // Get the scope clain. Ensure that the issuer is for the correcr Auth0 domain
         var scopeClaim = principal?.Claims.FirstOrDefault(c => c.Type == "scope" && c.Issuer == domain);
         if (scopeClaim != null)

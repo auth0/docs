@@ -55,11 +55,11 @@ In the settings for your API, go to the **Scopes** tab. In this section you can 
 
 ## Create the Application
 
-There are four application types in Auth0: 
-- __Native__ (used by mobile or desktop apps), 
-- __Single Page Web Applications__, 
-- __Regular Web Applications__ and 
-- __Machine to Machine Applications__ (used by CLIs, Daemons, or services running on your backend). 
+There are four application types in Auth0:
+- __Native__ (used by mobile or desktop apps),
+- __Single Page Web Applications__,
+- __Regular Web Applications__ and
+- __Machine to Machine Applications__ (used by CLIs, Daemons, or services running on your backend).
 
 For this scenario we want to create a new Application for our SPA, hence we will use Single Page Application as the application type.
 
@@ -77,13 +77,13 @@ That's it for now. When we are done with the SPA implementation we will revisit 
 
 You will need to ensure that the Authorization Extension is installed for your tenant. You can refer to the [Authorization Extension documentation](/extensions/authorization-extension#how-to-install) for details on how to do this.
 
-### Define Permissions 
+### Define Permissions
 
 You will now define the required Permissions, according to the scopes you have already defined: `read:timesheets`, `create:timesheets`, `delete:timesheets`, and `approve:timesheets`.
 
-In the Authorization Extension, click the **Permissions** tab, and then click on the **Create Permission** button. 
+In the Authorization Extension, click the **Permissions** tab, and then click on the **Create Permission** button.
 
-In the dialog, capture the details for each permission. 
+In the dialog, capture the details for each permission.
 
 Ensure that the name of the permission is exactly the same as the corresponding scope:
 
@@ -97,7 +97,7 @@ Proceed to create the permissions for all the remaining scopes:
 
 Next let's configure the two Roles: employee and manager.
 
-Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application. 
+Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application.
 
 Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
 
@@ -109,9 +109,9 @@ Next, follow the same process to create a `Manager` role, and ensure that you ha
 
 ### Assign Users to Roles
 
-You need to assign all users to either the `Manager` or the `Employee` role. 
+You need to assign all users to either the `Manager` or the `Employee` role.
 
-You can do this by going to the **Users** tab in the Authorization Extension and selecting a user. 
+You can do this by going to the **Users** tab in the Authorization Extension and selecting a user.
 
 On the user information screen, go to the **Roles** tab. Click **Add Role to User**, and select the appropriate role.
 
@@ -119,7 +119,7 @@ On the user information screen, go to the **Roles** tab. Click **Add Role to Use
 
 ### Configuring the Authorization Extension
 
-You will also need to ensure that the Rule for the Authorization Extension is published. 
+You will also need to ensure that the Rule for the Authorization Extension is published.
 
 To do so, click on your user avatar in the top right of the Authorization Extension, and select **Configuration**.
 
@@ -131,7 +131,7 @@ Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule which will validate that the scopes contained in an `access_token` is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the `access_token`.
+The final step in this process is to create a Rule which will validate that the scopes contained in an `Access Token` is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the `Access Token`.
 
 In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
@@ -144,7 +144,7 @@ function (user, context, callback) {
   if (context.clientName !== 'Timesheets SPA') {
     return callback(null, user, context);
   }
-  
+
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {
