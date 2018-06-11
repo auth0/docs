@@ -4,6 +4,7 @@ description: List of breaking changes for OIDC-conformant applications
 tags:
   - api-authentication
   - oidc
+articleType: discussion
 ---
 
 # OIDC-conformant applications

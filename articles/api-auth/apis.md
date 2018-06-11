@@ -8,6 +8,7 @@ tags:
   - api-authentication
   - oidc
   - apis
+articleType: discussion
 ---
 # APIs
 

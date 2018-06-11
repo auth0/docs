@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - client-credentials
+articleType: discussion
 ---
 
 # Client Credentials exchange

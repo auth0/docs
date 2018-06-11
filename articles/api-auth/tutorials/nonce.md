@@ -5,6 +5,7 @@ tags:
   - oidc
   - implicit
   - nonce
+articleType: tutorial
 ---
 
 # Mitigate replay attacks when using the Implicit Grant

@@ -5,6 +5,7 @@ tags:
   - api-authentication
   - oidc
   - authorization-code
+articleType: tutorial
 ---
 # Execute an Authorization Code Grant Flow
 

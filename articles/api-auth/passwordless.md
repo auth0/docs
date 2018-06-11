@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - passwordless
+articleType: discussion
 ---
 
 # OIDC Conformant Passwordless Authentication

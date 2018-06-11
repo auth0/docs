@@ -6,6 +6,7 @@ title: API Authorization
 tags:
   - api-authentication
   - oidc
+articleType: index
 ---
 
 <div class="topic-page-header">

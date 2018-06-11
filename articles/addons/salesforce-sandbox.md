@@ -8,6 +8,8 @@ image: /media/addons/salesforce_sandbox_api.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce (Sandbox) services.
 tags:
   - salesforce
+  - addons
+articleType: how-to
 ---
 
 # Salesforce (Sandbox) Addon

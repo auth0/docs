@@ -8,6 +8,7 @@ tags:
   - scopes
   - api-authentication
   - oidc
+articleType: discussion
 ---
 # Call your APIs with Auth0 tokens
 

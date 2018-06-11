@@ -5,7 +5,8 @@ crews: crew-2
 tags:
     - management-api
     - authorization-api
-    - api
+    - apis
+articleType: reference
 ---
 
 # Auth0 APIs

@@ -5,6 +5,7 @@ tags:
   - api-authentication
   - oidc
   - access-tokens
+articleType: discussion
 ---
 # Why you should always use Access Tokens to secure an API
 

@@ -6,6 +6,7 @@ tags:
   - security
   - blacklists
   - application-grants
+articleType: how-to
 ---
 
 # Blacklists and Application Grants

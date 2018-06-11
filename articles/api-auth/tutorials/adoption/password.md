@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - resource-owner-password
+articleType: discussion
 ---
 # Resource Owner Password Credentials exchange
 

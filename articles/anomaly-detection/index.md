@@ -5,6 +5,7 @@ url: /anomaly-detection
 tags:
     - security
     - anomaly-detection
+articleType: index
 ---
 
 # Anomaly Detection

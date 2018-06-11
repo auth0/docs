@@ -5,6 +5,7 @@ classes: topic-page
 title: Analytics Integrations
 tags:
   - analytics
+articleType: index
 ---
 
 <div class="topic-page-header">

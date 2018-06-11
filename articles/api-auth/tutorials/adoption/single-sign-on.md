@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - sso
+articleType: discussion
 ---
 
 # Single sign-on

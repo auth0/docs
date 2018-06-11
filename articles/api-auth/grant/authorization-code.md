@@ -3,6 +3,7 @@ description: Describes how to call APIs from regular web apps using the Authenti
 tags:
   - authorization-code
   - api-authorization
+articleType: discussion
 ---
 # Calling APIs from Server-side Web Apps
 

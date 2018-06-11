@@ -4,6 +4,7 @@ title: OIDC Conformant Authentication Adoption Guide
 tags:
   - api-authentication
   - oidc
+articleType: discussion
 ---
 
 # OIDC Conformant Authentication Adoption Guide

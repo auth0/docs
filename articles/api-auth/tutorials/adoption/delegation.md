@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - delegation
+articleType: discussion
 ---
 
 # Delegation and the OIDC-conformant pipeline

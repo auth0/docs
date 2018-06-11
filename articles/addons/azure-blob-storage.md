@@ -9,8 +9,10 @@ image: /media/platforms/azure.png
 tags:
   - quickstart
   - azure
+  - addons
 articles:
   - authenticate
+articleType: how-to
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
 ---
 

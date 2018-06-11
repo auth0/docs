@@ -6,6 +6,7 @@ tags:
   - api-authentication
   - oidc
   - application-grants
+articleType: discussion
 ---
 
 # Which OAuth 2.0 flow should I use?

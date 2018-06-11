@@ -5,6 +5,7 @@ toc: true
 tags:
   - api-authentication
   - oidc
+articleType: discussion
 ---
 # Introducing OIDC Conformant Authentication
 

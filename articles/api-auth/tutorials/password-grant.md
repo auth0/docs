@@ -6,6 +6,7 @@ tags:
   - api-authentication
   - oidc
   - resource-owner-password
+articleType: tutorial
 ---
 # How to implement the Resource Owner Password Grant
 

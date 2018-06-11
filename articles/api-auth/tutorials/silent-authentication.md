@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - silent-authentication
+articleType: tutorial
 ---
 
 # Silent Authentication

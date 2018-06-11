@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - user-consent
+articleType: how-to
 ---
 
 # User Consent and Third-Party Applications

@@ -5,6 +5,7 @@ tags:
   - api-authentication
   - oidc
   - access-tokens
+articleType: tutorial
 ---
 # Verify Access Tokens for Custom APIs
 

@@ -6,6 +6,7 @@ tags:
   - scopes
   - user-profiles
   - claims
+articleType: discussion
 ---
 
 # User profile claims and scope

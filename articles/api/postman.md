@@ -4,7 +4,8 @@ section: apis
 tags:
     - management-api
     - authorization-api
-    - api
+    - apis
+articleType: how-to
 ---
 
 # Using the Auth0 API with our Postman Collections

@@ -3,6 +3,7 @@ description: Describes how to call APIs from server processes using the Client C
 tags:
   - client-credentials
   - api-authorization
+articleType: discussion
 ---
 # Calling APIs from a Service
 

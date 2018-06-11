@@ -5,7 +5,8 @@ crews: crew-2
 toc: true
 tags:
     - management-api
-    - api
+    - apis
+articleType: reference
 ---
 # Management API v1 vs v2
 

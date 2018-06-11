@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - authorization-code
+articleType: discussion
 ---
 
 # Authorization Code grant

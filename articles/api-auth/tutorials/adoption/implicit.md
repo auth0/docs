@@ -4,6 +4,7 @@ tags:
   - api-authentication
   - oidc
   - implicit
+articleType: discussion
 ---
 
 # Implicit grant

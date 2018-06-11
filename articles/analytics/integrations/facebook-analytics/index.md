@@ -3,6 +3,7 @@ description: This article explains how to install and configure the Facebook Ana
 tags:
   - facebook
   - analytics
+articleType: how-to
 ---
 # Facebook Analytics for Auth0
 

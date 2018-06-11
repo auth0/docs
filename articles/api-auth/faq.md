@@ -6,6 +6,7 @@ tags:
   - user-consent
   - resource-servers
   - applications
+articleType: discussion
 ---
 
 # API Authentication and Authorization FAQ

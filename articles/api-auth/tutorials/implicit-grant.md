@@ -6,6 +6,7 @@ tags:
   - api-authentication
   - oidc
   - implicit
+articleType: tutorial
 ---
 # How to implement the Implicit Grant
 

@@ -6,6 +6,7 @@ tags:
   - oidc
   - authorization-code
   - pkce
+articleType: tutorial
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 

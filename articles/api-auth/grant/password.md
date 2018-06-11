@@ -5,6 +5,7 @@ tags:
   - implicit
   - api-authorization
   - resource-owner-password
+articleType: discussion
 ---
 # Call APIs from Highly Trusted Applications
 

@@ -5,6 +5,7 @@ tags:
   - oidc
   - tokens
   - refresh tokens
+articleType: discussion
 ---
 
 # OIDC-conformant Refresh Tokens

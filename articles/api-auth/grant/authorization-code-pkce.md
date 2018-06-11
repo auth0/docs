@@ -4,6 +4,7 @@ tags:
   - authorization-code
   - pkce
   - api-authorization
+articleType: discussion
 ---
 # Calling APIs from Mobile Apps
 

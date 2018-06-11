@@ -3,6 +3,7 @@ description: This article explains how to install and configure the Google Analy
 tags:
   - google
   - analytics
+  articleType: how-to
 ---
 # Google Analytics for Auth0
 
