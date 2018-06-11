@@ -1,5 +1,5 @@
 ---
-description: Application settings for Machine to Machine Applications
+description: Application settings available when configuring for Machine to Machine Applications in Auth0
 toc: true
 ---
 
@@ -19,7 +19,7 @@ If your app is a CLI, daemon, or a service running on the backend, you'll want t
 
 <%= include('../_settings') %>
 
-- **Application Type**: The type of application you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Machine to Machine Application**.
+- **Application Type**: The type of application you are implementing. Select **Machine to Machine Application**.
 
 <%= include('../_token-endpoint-auth-method') %>
 
