@@ -40,7 +40,7 @@ Once the application is created you will see a **Client ID** (Consumer Key) and 
 
 ## 3. Set up the Connection in Auth0
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the **Yahoo!** connection.
 

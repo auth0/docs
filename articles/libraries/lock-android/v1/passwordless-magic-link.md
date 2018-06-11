@@ -155,7 +155,7 @@ Also notice that in case we'll only use one passwordless method (SMS or Email) y
 
 ### Usage
 
-As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropiate mode.
+As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropriate mode.
 
 If we would like to send app links by **Email**, just start `LockPasswordlessActivity` especifying the passwordless mode `MODE_EMAIL_MAGIC_LINK`:
 
