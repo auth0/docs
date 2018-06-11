@@ -10,9 +10,7 @@ com.auth0.ionic://${account.namespace}/cordova/com.auth0.ionic/callback
 http://localhost:8080
 ```
 3) Ensure that [Ionic 3](https://ionicframework.com/docs/intro/installation/) and [Cordova](https://ionicframework.com/docs/cli/#using-cordova) are installed.
-
-4) Check that mobile development environments are setup correctly for Android or iOS. Follow [these recommendations](https://ionicframework.com/docs/intro/deploying/) by the Ionic team on setting it all up for deployment on mobile.
-
+4) Check that mobile development environments [are setup correctly](https://ionicframework.com/docs/intro/deploying/).
 5) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample directory:
 ```bash
 npm install
