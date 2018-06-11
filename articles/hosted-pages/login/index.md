@@ -8,9 +8,9 @@ crews: crew-2
 
 ## About Universal Login
 
-Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock/v10) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js/v8) for authentication.
+Auth0's Universal Login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock/v10) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js/v8) for authentication.
 
-If you cannot use universal login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
+If you cannot use Universal Login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
@@ -30,7 +30,7 @@ If the incoming authentication request includes a `connection` parameter that us
 
 #### Single Sign-On (SSO)
 
-If you want to use single sign on, you should use universal login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login. 
+If you want to use single sign on, you should use Universal Login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login. 
 
 This behavior occurs without the need for any modification to the login page itself. This is a simple two step process:
 
@@ -43,9 +43,9 @@ For more details about how SSO works, see the [SSO documentation](/sso).
 
 ### Why Use Universal Login
 
-Why use universal login rather than embedding your login functionality within your application?
+Why use Universal Login rather than embedding your login functionality within your application?
 
-Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using universal login for the authentication process with Auth0 prevents that from ever being a concern. Additionally, universal login is very easy to implement, especially if a custom UI is not required in your login page.
+Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using Universal Login for the authentication process with Auth0 prevents that from ever being a concern. Additionally, Universal Login is very easy to implement, especially if a custom UI is not required in your login page.
 
 ### What Universal Login is Not Intended For
 
@@ -55,7 +55,7 @@ The login page is truly a single page constructed within the editor, so all cust
 
 ### Passwordless on Native Platforms
 
-Currently, universal login is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. So if your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use the universal login.
+Currently, Universal Login is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. So if your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use the Universal Login.
 
 ## How to Customize Your Login Page
 
