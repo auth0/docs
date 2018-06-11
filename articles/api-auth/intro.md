@@ -45,7 +45,7 @@ So far, third-party applications cannot be created from the dashboard. They must
 For more information, refer to [User consent and third-party applications](/api-auth/user-consent).
 :::
 
-### Calling APIs from a Service (machine-to-machine)
+### Calling APIs from a Service (machine to machine)
 
 We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
