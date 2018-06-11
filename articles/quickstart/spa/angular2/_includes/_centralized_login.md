@@ -157,7 +157,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 ## Add a Callback Component
 
-When you use universal login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
+When you use Universal Login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 
 ::: note
 This example assumes you are using the default Angular path-based routing. If you are using hash-based routing with `{ useHash: true }`, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
