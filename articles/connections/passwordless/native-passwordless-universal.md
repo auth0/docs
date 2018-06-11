@@ -1,12 +1,12 @@
 ---
 title: Passwordless Authentication in Native Applications with Universal Login
-description: Describes how to implement passwordless authentication in native applications, using universal login
+description: Describes how to implement passwordless authentication in native applications, using Universal Login
 ---
 # Passwordless Authentication in Native Applications with Universal Login
 
 [Universal Login](/hosted-pages/login) is the only recommended way to set up passwordless authentication in your native application. We recommend using the Auth0 login page for the best experience, security and the fullest array of features.
 
-If you implement passwordless with universal login, the user experience will be as follows:
+If you implement passwordless with Universal Login, the user experience will be as follows:
 
 1. A user clicks login and the Auth0 SDK redirects them to the login page on the web.
 1. At this point, Lock Passwordless will ask them for a phone number or email, whichever type you chose.
@@ -31,5 +31,5 @@ All that remains is to set up your application to call the login page. An easy t
 * [Android Quickstart](/quickstart/native/android/00-login)
 
 ::: note
-The process for invoking universal login from a native app is the same whether `lock-passwordless` will be used inside the login page or not.
+The process for invoking Universal Login from a native app is the same whether `lock-passwordless` will be used inside the login page or not.
 :::

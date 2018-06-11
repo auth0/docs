@@ -47,7 +47,7 @@ For more information, refer to [User consent and third-party applications](/api-
 
 ### Calling APIs from a Service (machine-to-machine)
 
-We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
+We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
 ::: note
 For more information on the Client Credentials grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
@@ -82,7 +82,7 @@ For more information, refer to [User profile claims and scope](/api-auth/tutoria
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [Universal Login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
 Support for SSO from applications is planned for a future release.
@@ -247,7 +247,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
+      <td>Not supported for Resource Owner grant. For the rest, Universal Login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>

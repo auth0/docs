@@ -59,7 +59,7 @@ Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legac
 
 If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you will be affected by these changes. 
 
-We **recommend** that applications using [universal login](/hosted-pages/login) update. 
+We **recommend** that applications using [Universal Login](/hosted-pages/login) update. 
 
 However, those who are using Lock or Auth0.js embedded within their applications are **required** to update, and applications which still use deprecated versions will cease to work after the removal of service date.
 

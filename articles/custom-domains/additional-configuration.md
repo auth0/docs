@@ -17,7 +17,7 @@ You have already configured and verified your custom domain. If not, see [How to
 
 | **Feature** | **Section to read** |
 |-|-|
-| You use [universal login](/hosted-pages/login) and you have customized the login page | [Universal login](#universal-login) |
+| You use [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
 | You use Lock embedded in your application | [Embedded Lock](#embedded-lock) |
 | You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
@@ -31,9 +31,9 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
 | You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-lap-connections) |
 
-## Universal login
+## Universal Login
 
-If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
+If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
 
 If you are using [Lock](/libraries/lock), the additional values required in the initialization can be seen in the following sample script:
 
