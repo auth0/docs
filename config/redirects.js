@@ -1762,7 +1762,6 @@ module.exports = [
     to: '/support/sld'
   },
   {
-<<<<<<< HEAD
     from: '/architecture-scenarios/application/mobile-api',
     to: '/architecture-scenarios/mobile-api'
   },
