@@ -53,7 +53,7 @@ If you are targeting mobile audiences, Auth0 recommends that you add the followi
 
 ### Bundling Dependencies
 
-If you are using browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you will need to bundle it with all its dependencies. Examples are available for [Browserify][example-browserify] and [webpack][example-webpack].
+If you are using Browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you will need to bundle it with all its dependencies. Examples are available for [Browserify][example-browserify] and [webpack][example-webpack].
 
 ## Usage
 
@@ -115,7 +115,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using [universal login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
+Embedding Lock within your application, rather than using [Universal Login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 
