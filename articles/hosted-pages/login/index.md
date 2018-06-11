@@ -14,7 +14,7 @@ If you cannot use universal login, you can embed the Lock widget or a custom log
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
-### How Does Universal Login Work
+### How does Universal Login work
 
 Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
 
@@ -37,31 +37,31 @@ This behavior occurs without the need for any modification to the login page its
 For more details about how SSO works, see the [SSO documentation](/sso).
 :::
 
-### Why Use Universal Login
+### Why use Universal Login
 
 Why use universal login rather than embedding your login functionality within your application?
 
 Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using universal login for the authentication process with Auth0 prevents that from ever being a concern. Additionally, universal login is very easy to implement, especially if a custom UI is not required in your login page.
 
-### What Universal Login is Not Intended For
+### What Universal Login is not intended for
 
 An important thing to remember is that the login page is intended to be only for signups and authentication. Attempting to host any significant amount of application logic in the login page is not advised.
 
 The login page is truly a single page constructed within the editor, so all custom styling and includes will need to be put into the single editor window. Hosting other files or images along with the login page is not possible, so those will need to be hosted in the application itself, or elsewhere.
 
-### Passwordless on Native Platforms
+### Passwordless on native platforms
 
 Currently, universal login is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. So if your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use the universal login.
 
-## How to Customize Your Login Page
+## How to customize your login page
 
-### 1. Enable Customization on the Login Page
+### 1. Enable customization on the login page
 
 In the [Dashboard](${manage_url}), you can enable a custom login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
 
 ![Login Page](/media/articles/hosted-pages/login.png)
 
-### 2. Choose a Technology
+### 2. Choose a technology
 
 In order to get started customizing the login page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
@@ -75,11 +75,11 @@ You can customize the login page at will right from the editor. If you use Lock,
 
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the application or connection. Remember that the login page customizations are per **tenant** rather than per application. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
-::: warning
+::: panel-warning Customization and deprecation notes
 By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, your tenant logs will show deprecation notes (`Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.`). Additionally, after **July 16, 2018**, the application will no longer work until the login page customizations are fixed.
 :::
 
-#### Parameters for the Authorize Endpoint
+#### Parameters for the authorize endpoint
 
 If you initiate universal login via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the login page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
 
@@ -105,7 +105,7 @@ webAuth.authorize({
 });
 ```
 
-## Configure Multiple Pages by Using Separate Tenants
+## Configure multiple pages by using separate tenants
 
 In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page. 
 
@@ -115,7 +115,7 @@ Creating a separate tenant is only really a viable option for an organization th
 
 Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
 
-### Creating New Tenants
+### Creating new tenants
 
 If your use case requires separate sets of custom pages, let's see how you would go about creating them.
 
@@ -131,6 +131,6 @@ To create a new tenant go to the [Dashboard](${manage_url}), and using the top r
 
 You can easily switch between tenants using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
 
-## Incorrect Implementations of the Login Page
+## Incorrect implementations
 
 The login page should not be implemented by calling its URL directly. This circumvents the Universal Login approach, does not allow for SSO (as the correct endpoint is not hit), and is not supported. Note that this also applies to users who bookmark the login page itself.
