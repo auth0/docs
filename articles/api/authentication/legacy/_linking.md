@@ -1,4 +1,4 @@
-Access Token# Account Linking
+# Account Linking
 
 ## Link
 
