@@ -5,13 +5,13 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 ---
 # Cross-Origin Authentication
 
-For most situations, Auth0 recommends that authentication transactions be handled via [universal login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
+For most situations, Auth0 recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/centralized-vs-embedded). However, it is understood that some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
 ## What is Cross-Origin Authentication? 
 
 When authentication requests are made from your application (via the Lock widget or a custom login form) to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack. 
 
-Auth0 provides a [cross-origin authentication flow](https://raw.githubusercontent.com/jaredhanson/draft-openid-connect-cross-origin-authentication/master/Draft-1.0.txt) which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a single sign-on experience with the Lock widget or a custom login form in your application and it also helps to create a secure login experience even if single sign-on is not the goal.
+Auth0 provides a [cross-origin authentication flow](https://raw.githubusercontent.com/jaredhanson/draft-openid-connect-cross-origin-authentication/master/Draft-1.0.txt) which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a single sign-on experience with the Lock widget or a custom login form in your application, and it also helps to create a secure login experience even if single sign-on is not the goal.
 
 ::: note
 Cross-origin authentication is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
@@ -26,7 +26,7 @@ There are two approaches you can follow to remediate the issue:
 - Enable [Custom Domains](/custom-domains) and host your web application in a domain that has the same top level domain as the Auth0 custom domain. This way the cookies are no longer third-party and are not blocked by browsers.
 - Provide a [Cross-Origin fallback page](#create-a-cross-origin-fallback-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
 
-These issues are another reason why the more practical solution is to use [universal login](/hosted-pages/login).
+These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
 
 ## Configure Your Client for Cross-Origin Authentication
 
