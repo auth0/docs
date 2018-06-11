@@ -3,7 +3,7 @@ description: How to use Lock Passwordless with Universal Login
 ---
 # Universal Login with Lock Passwordless
 
-Using Lock Passwordless in a universal login page is the easiest and most secure implementation of [passwordless authentication](/connections/passwordless) that can be achieved. Additionally, universal login is the **only** way to perform passwordless authentication with native applications at this time.
+Using Lock Passwordless in a Universal Login page is the easiest and most secure implementation of [passwordless authentication](/connections/passwordless) that can be achieved. Additionally, Universal Login is the **only** way to perform passwordless authentication with native applications at this time.
 
 ## Lock Passwordless Template
 
