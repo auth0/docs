@@ -13,7 +13,8 @@ Using custom domains with universal login is the most seamless and secure experi
 
 ## Prerequisites
 
-You'll need to register and own the domain name to which you're mapping your Auth0 domain.
+* This feature is not available for free plans. To configure a custom domain you have to [upgrade your account to any paid plan](${manage_url}/#/tenant/billing/subscription)
+* You must register and own the domain name to which you are mapping your Auth0 domain
 
 ## Features supporting use of custom domains
 
