@@ -171,9 +171,7 @@ For this example, replace the code in the login page editor with the following t
 
 This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify. Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
 
-## Custom Domains and Universal Login
-
-Before you can use [custom domains](/custom-domains) with a universal login page that you have customized, you'll need to [update the code to use your custom domain](/custom-domains/additional-configuration#universal-login).
+<%= include('./_custom-domains') %>
 
 ## Next Steps
 
