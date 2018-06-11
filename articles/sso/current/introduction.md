@@ -61,4 +61,4 @@ If an SSO cookie is present you can also sign the user in silently, (that is, wi
 
 ## SSO with Native Platforms
 
-Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
+Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the Universal Login for authentication. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of Universal Login for authentication from their respective platforms.
