@@ -144,7 +144,7 @@ When the **Log In** button is clicked, the user will be redirected to login page
 
 ## Add a Callback Component
 
-Using universal login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
+Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
 <%= include('../../_includes/_callback_component') %>
 
