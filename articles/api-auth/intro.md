@@ -1,21 +1,21 @@
 ---
 title: Introducing OIDC Conformant Authentication
-description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
+description: An overview of the OIDC Conformant authentication flows, why these changes were made, and how you can adopt them.
 toc: true
 ---
 # Introducing OIDC Conformant Authentication
 
 **Released Date**: May 10, 2017
 
-As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
+As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explains why they were made, and points you to other detailed tutorials to help you adopt these changes.
 
-We will start by reviewing the [new features](#what-s-new), continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
+We will start by reviewing the [new features](#what-s-new), then continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
 
 ## What should I read?
 
 If you are new to Auth0, go through the [What’s New](#what-s-new) section of this doc. There you can find all the cool new features we introduced, like the ability to create APIs, call them from services, or enable external parties or partners to access protected resources at your API in a secure way. Then head off to the [How to use the new flows](#how-to-use-the-new-flows) section and make sure that your new implementation follows our latest, and more secure, authentication pipeline.
 
-If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
+If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC-conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline to improve your app’s security.
 
 If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
 
@@ -57,7 +57,7 @@ We implemented the OAuth 2.0 Client Credentials grant which allows clients to au
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the client to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details, refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 ::: note
   For more information, refer to <a href="/api-auth/tutorials/adoption/api-tokens">Calling your APIs with Auth0 tokens</a>.
@@ -82,7 +82,7 @@ To customize the tokens, use Hooks for Client Credentials, and Rules for the res
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from client applications. This means that for SSO to work, you must be using [Universal Login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
   Support for SSO from client applications is planned for a future release.
@@ -246,7 +246,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
+      <td>Not supported for Resource Owner grant. For the rest, Universal Login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>
@@ -261,7 +261,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>Passwordless</strong></th>
       <td>Supported</td>
-      <td>Not supported at the moment, will be in future releases</td>
+      <td>Not supported at the moment, will be in future releases.</td>
     </tr>
     <tr>
       <th><strong>/tokeninfo endpoint</strong></th>
@@ -271,12 +271,12 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>/delegation endpoint</strong></th>
       <td>Supported</td>
-      <td>Should only be used to obtain third-party API tokens. A new mechanism will be provided  in future releases.</td>
+      <td>Should only be used to obtain third-party API tokens. A new mechanism will be provided in future releases.</td>
     </tr>
     <tr>
       <th><strong>/oauth/access_token endpoint</strong></th>
       <td>Supported</td>
-      <td>Disabled, an alternative will be added in future releases</td>
+      <td>Disabled, an alternative will be added in future releases.</td>
     </tr>
     <tr>
       <th><strong>/userinfo endpoint</strong></th>
