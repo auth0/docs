@@ -7,7 +7,7 @@ description: Passwordless with Magic Link with Lock Android
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [Universal Login](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link
@@ -28,7 +28,7 @@ You could find more information about App Links in the [Android docs](http://dev
 The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Andrdoi prior to 6.0, at least until the user chooses to always open the links with the app.
 :::
 
-In this article we'll show how Auth0 helps you set up your app to use app links to log in.
+In this article, we'll show how Auth0 helps you set up your app to use app links to log in.
 
 ### Auth0 account configuration
 
@@ -155,7 +155,7 @@ Also notice that in case we'll only use one passwordless method (SMS or Email) y
 
 ### Usage
 
-As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropiate mode.
+As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropriate mode.
 
 If we would like to send app links by **Email**, just start `LockPasswordlessActivity` especifying the passwordless mode `MODE_EMAIL_MAGIC_LINK`:
 
@@ -164,7 +164,7 @@ LockPasswordlessActivity.showFrom(MyActivity.this,
         LockPasswordlessActivity.MODE_EMAIL_MAGIC_LINK);
 ```
 
-and we'll see the **Email** login screen
+and we'll see the **Email** login screen:
 
 ![Email](/media/articles/libraries/lock-android/passwordless-magic-link/lock-android-pwdless-email.png)
 
@@ -175,7 +175,7 @@ LockPasswordlessActivity.showFrom(MyActivity.this,
         LockPasswordlessActivity.MODE_SMS_MAGIC_LINK);
 ```
 
-and we'll see the **SMS** login screen
+and we'll see the **SMS** login screen:
 
 ![SMS](/media/articles/libraries/lock-android/passwordless-magic-link/lock-android-pwdless-sms.png)
 
