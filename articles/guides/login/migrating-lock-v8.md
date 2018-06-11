@@ -5,7 +5,7 @@ toc: true
 ---
 # Migrating Applications using Lock 8 to Universal Login
 
-Lock v8 is very similar to Lock v9 from an API standpoints, so the guides for v9 give you all the information you need to migrate to universal login:
+Lock v8 is very similar to Lock v9 from an API standpoints, so the guides for v9 give you all the information you need to migrate to Universal Login:
 
 - [Migrating Web Applications using Lock 9](/guides/login/migrating-lock-v9-webapp)
 

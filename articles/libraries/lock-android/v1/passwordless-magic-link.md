@@ -7,7 +7,7 @@ description: Passwordless with Magic Link with Lock Android
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [Universal Login](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link

@@ -5,7 +5,7 @@ toc: true
 ---
 # Migrate Single Page Applications using Lock 9 to Universal Login
 
-This document explains how to migrate Web Applications using [Lock](/libraries/lock) to universal login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
+This document explains how to migrate Web Applications using [Lock](/libraries/lock) to Universal Login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
 When you use Lock v9 in a Web Application, your code does basically this:
 
@@ -47,7 +47,7 @@ function login() {
   }
 ```
 
-To use **universal login**, you need to use [auth0.js](/libraries/auth0js) to manage the authentication flow:
+To use **Universal Login**, you need to use [auth0.js](/libraries/auth0js) to manage the authentication flow:
 
 1. Initialize auth0.js, using the same parameters as when initializing Lock and also including the ones you use when you call lock.show():
 
@@ -83,6 +83,6 @@ function login() {
 
 4. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing universal login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
+You can find complete examples of implementing Universal Login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
 <%= include('_includes/_customizing-login-page') %>

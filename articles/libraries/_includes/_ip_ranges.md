@@ -4,4 +4,4 @@ In earlier versions of Lock, you could configure an IP range in an Active Direct
 
 ![SSO With Lock 10 and Windows IP Ranges](/media/articles/libraries/lock/lock-11-windows-authentication.png)
 
-This functionality has been removed from embedded login using Lock 11. There is no IP detection, and the user will need to type user and password in Lock. It is still available when using universal login.
+This functionality has been removed from embedded login using Lock 11. There is no IP detection, and the user will need to type user and password in Lock. It is still available when using Universal Login.

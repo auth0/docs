@@ -10,7 +10,7 @@ Single sign-on (SSO) occurs when a user logs in to one application and is then s
 
 In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not applications.
 
-This means that for SSO to happen, you must employ [universal login](/hosted-pages/login) and redirect users to the login page.
+This means that for SSO to happen, you must employ [Universal Login](/hosted-pages/login) and redirect users to the login page.
 
 We are planning on providing support for SSO from applications in future releases.
 
@@ -46,7 +46,7 @@ The following flows are request-based and are currently not capable of SSO:
 
 ## Custom domains
 
-When using universal login, the login page is by default hosted at an Auth0 domain, so any SSO will be performed at an Auth0 domain instead of your organization's domain.
+When using Universal Login, the login page is by default hosted at an Auth0 domain, so any SSO will be performed at an Auth0 domain instead of your organization's domain.
 
 This is only an aesthetic limitation and does not impact the security or functionality of SSO logins in any way.
 
