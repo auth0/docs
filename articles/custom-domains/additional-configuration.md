@@ -43,7 +43,7 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   configurationBaseUrl: config.clientConfigurationBaseUrl,
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: config.auth0Domain
+  	__token_issuer: 'YOUR_CUSTOM_DOMAIN'
   },
   //code omitted for brevity
 });
@@ -58,7 +58,7 @@ var webAuth = new new auth0.WebAuth({
   //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: config.auth0Domain
+  	__token_issuer: 'YOUR_CUSTOM_DOMAIN'
   },
   //code omitted for brevity
 });
