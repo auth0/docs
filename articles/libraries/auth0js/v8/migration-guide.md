@@ -57,9 +57,9 @@ The `login` method of version 7 was divided into several different methods in ve
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via [universal login](/hosted-pages/login), or via social connections, as exhibited below.
+The `authorize` method can be used for logging in users via [Universal Login](/hosted-pages/login), or via social connections, as exhibited below.
 
-For hosted login, one must call the authorize endpoint
+For hosted login, one must call the authorize endpoint:
 
 ```js
 webAuth.authorize({
@@ -67,7 +67,7 @@ webAuth.authorize({
 });
 ```
 
-For social logins, the connection will need to be specified
+For social logins, the connection will need to be specified:
 
 ```js
 webAuth.authorize({
@@ -79,7 +79,7 @@ webAuth.authorize({
 
 For popup authentication, the `popup.authorize` method can be used.
 
-Hosted login with popup
+Hosted login with popup:
 
 ```js
 webAuth.popup.authorize({
@@ -87,7 +87,7 @@ webAuth.popup.authorize({
 });
 ```
 
-And social login with popup
+And social login with popup:
 
 ```js
 webAuth.popup.authorize({
@@ -99,7 +99,7 @@ webAuth.popup.authorize({
 
 To login with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
 
-With redirect
+With redirect:
 
 ```js
 webAuth.redirect.loginWithCredentials({
@@ -112,7 +112,7 @@ webAuth.redirect.loginWithCredentials({
 
 ### webAuth.popup.loginWithCredentials()
 
-Or, popup authentication can be performed with `popup.loginWithCredentials`.
+Or, popup authentication can be performed with `popup.loginWithCredentials`:
 
 ```js
 webAuth.popup.loginWithCredentials({
@@ -125,7 +125,7 @@ webAuth.popup.loginWithCredentials({
 
 ### webAuth.client.login()
 
-The `client.login` method allows for non redirect auth using custom database connections, using /oauth/token.
+The `client.login` method allows for non redirect auth using custom database connections, using /oauth/token:
 
 ```js
 webAuth.client.login({
