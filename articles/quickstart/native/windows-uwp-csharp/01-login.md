@@ -91,7 +91,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `Access Token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the `id_token` and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 // MainPage.xaml.cs

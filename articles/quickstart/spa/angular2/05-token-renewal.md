@@ -84,7 +84,7 @@ export class AuthService {
 
 This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed.
 
-In the `setSession` method, add the function right after setting the `Access Token` and `id_token` into local storage.
+In the `setSession` method, add the function right after setting the Access Token and `id_token` into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts

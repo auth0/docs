@@ -120,7 +120,7 @@ public class ApiController : ApiController
 
 ## Configuring Scopes
 
-The JWT middleware above verifies that the `Access Token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The JWT middleware above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 

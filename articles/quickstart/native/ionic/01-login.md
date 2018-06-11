@@ -169,7 +169,7 @@ The `Auth` service is now accessible in the view and its `login` method can be c
 </button>
 ```
 
-The **Log In** button is only displayed if the user has an unexpired `Access Token` in local storage which is the indication that they are authenticated. The **Log Out** button is only displayed if the user isn't authenticated.
+The **Log In** button is only displayed if the user has an unexpired Access Token in local storage which is the indication that they are authenticated. The **Log Out** button is only displayed if the user isn't authenticated.
 
 ## Display Profile Data
 

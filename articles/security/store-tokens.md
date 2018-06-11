@@ -20,7 +20,7 @@ With token-based authentication, you are given the choice of where to store the 
 
 Commonly, the JWT is placed in the browsers local storage and this works well for most use cases.
 
-When logging in a user with a username and password, the response body contains the `Access Token` JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
+When logging in a user with a username and password, the response body contains the Access Token JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
 
 [Click here for an example using sessionStorage](https://github.com/auth0-blog/angular-token-auth/blob/master/auth.client.js#L31)
 

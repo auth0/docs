@@ -222,7 +222,7 @@ The Authorization Code flow with PKCE can only be used for Applications whose ty
 
 ## 5. Call the API
 
-Once you have the `Access Token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the Access Token, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -237,7 +237,7 @@ Once you have the `Access Token`, you can use it to make calls to the API, by pa
 
 ## 6. Verify the Token
 
-Once your API receives a request with a Bearer `Access Token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 

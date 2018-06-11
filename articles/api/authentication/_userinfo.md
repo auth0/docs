@@ -63,13 +63,13 @@ curl --request GET \
 
 Given the Auth0 [Access Token](/tokens/access-token) obtained during login, this endpoint returns a user's profile.
 
-This endpoint will work only if `openid` was granted as a scope for the `Access Token`.
+This endpoint will work only if `openid` was granted as a scope for the Access Token.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 `Access Token` obtained during login. |
+| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 Access Token obtained during login. |
 
 ### Test with Postman
 

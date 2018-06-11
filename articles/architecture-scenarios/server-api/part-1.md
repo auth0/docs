@@ -15,13 +15,13 @@ OAuth 2 provides several *grant types* for different use cases. In this particul
 
 The cron job is also not making the API calls on behalf of any user. Instead there is a machine-to-machine authorization and the application (the cron job) makes calls to the Resource Server (the API) on its own behalf.
 
-For situations like this where there is no user interaction involved, the Client Credentials Grant is ideal. With Client Credentials Grant (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) an Application can directly request an `Access Token` from the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Application itself.
+For situations like this where there is no user interaction involved, the Client Credentials Grant is ideal. With Client Credentials Grant (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) an Application can directly request an Access Token from the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Application itself.
 
 ![Client Credentials Grant Flow](/media/articles/architecture-scenarios/server-api/client-credentials-grant.png)
 
 1. The Application authenticates with the Authorization Server using its Client ID and Client Secret.
-1. The Authorization Server validates this information and returns an `Access Token`.
-1. The Application can use the `Access Token` to call the Resource Server on behalf of itself.
+1. The Authorization Server validates this information and returns an Access Token.
+1. The Application can use the Access Token to call the Resource Server on behalf of itself.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/architecture-scenarios/server-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/server-api/part-2"]

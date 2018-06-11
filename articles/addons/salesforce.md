@@ -23,7 +23,7 @@ community_url_section: 'members'
 ```
 
 ::: note
-  Under the hood, Auth0 uses <a href="https://help.salesforce.com/HTViewHelpDoc?id=remoteaccess_oauth_jwt_flow.htm&language=en_US">OAuth 2.0 JWT Bearer Token Flow</a> to obtain an <code>Access Token</code>. All details of construction of the right JWT are taken care of by Auth0.
+  Under the hood, Auth0 uses <a href="https://help.salesforce.com/HTViewHelpDoc?id=remoteaccess_oauth_jwt_flow.htm&language=en_US">OAuth 2.0 JWT Bearer Token Flow</a> to obtain an Access Token. All details of construction of the right JWT are taken care of by Auth0.
 :::
 
 ![Salesforce data flow](/media/articles/server-apis/salesforce-data-flow.png)

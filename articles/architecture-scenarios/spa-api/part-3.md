@@ -67,7 +67,7 @@ For retrieving the list of timesheets this is to ensure that we only return the 
 
 One of the standard JWT claims is the `sub` claim which identifies the principal that is the subject to the claim. In the case of the Implicit Grant flow this claim will contain the user's identity, which will be the unique identifier for the Auth0 user. You can use this to associate any information in external systems with a particular user.
 
-You can also use a custom claim to add another attribute of the user - such as their email address - to the `Access Token` and use that to uniquely identify the user.
+You can also use a custom claim to add another attribute of the user - such as their email address - to the Access Token and use that to uniquely identify the user.
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#4-determine-the-user-identity)
@@ -96,10 +96,10 @@ You need to pass the following configuration values:
 
 - __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
 - __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
-- __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an `Access Token` in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
+- __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an Access Token in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
 - __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url}/#/apis}) at the Dashboard.
 - __redirectUri__: The URL to which Auth0 should redirect to after the user has authenticated.
-- __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and `Access Token`. A scope of `openid profile` will return all the user profile information in the `id_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `Access Token` has these scopes.
+- __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and Access Token. A scope of `openid profile` will return all the user profile information in the `id_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the Access Token has these scopes.
 
 To initiate the authentication flow you can call the `authorize()` method:
 
@@ -112,10 +112,10 @@ After the authentication, Auth0 will redirect back to the __redirectUri__ you sp
 The contents of the authResult object returned by parseHash depend upon which authentication parameters were used. It may include the following:
 
 - __idToken__: An `id_token` JWT containing user profile information
-- __accessToken__: An `Access Token` for the API, specified by the __audience__.
-- __expiresIn__: A string containing the expiration time (in seconds) of the `Access Token`.
+- __accessToken__: An Access Token for the API, specified by the __audience__.
+- __expiresIn__: A string containing the expiration time (in seconds) of the Access Token.
 
-You also need to store the tokens returned by the authentication result in local storage to keep track of the fact that the user is logged in. You can also subsequently retrieve the `Access Token` from local storage when calling your API.
+You also need to store the tokens returned by the authentication result in local storage to keep track of the fact that the user is logged in. You can also subsequently retrieve the Access Token from local storage when calling your API.
 
 ```js
 this.auth0.parseHash((err, authResult) => {
@@ -137,7 +137,7 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 ### Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the `Access Token` and the [/userinfo endpoint](/api/authentication#get-user-info). To avoid this API call, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). If you need additional user information consider using [our Management API](/api/management/v2#!/Users/get_users_by_id) from your backend.
+This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). To avoid this API call, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). If you need additional user information consider using [our Management API](/api/management/v2#!/Users/get_users_by_id) from your backend.
 :::
 
 The `client.userInfo` method can be called passing the returned `authResult.accessToken` in order to retrieve the user's profile information.  It will make a request to the [/userinfo endpoint](/api/authentication#get-user-info) and return the `user` object, which contains the user's information, similar to the example below:
@@ -187,7 +187,7 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 
 ### Call the API
 
-To access secured resources from your API, the authenticated user's `Access Token` needs to be included in requests that are sent to it. This is accomplished by sending the `Access Token` in an `Authorization` header using the `Bearer` scheme.
+To access secured resources from your API, the authenticated user's Access Token needs to be included in requests that are sent to it. This is accomplished by sending the Access Token in an `Authorization` header using the `Bearer` scheme.
 
 ::: note
 See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#5-call-the-api)
@@ -195,11 +195,11 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 
 ### Renew the Access Token
 
-As a security measure, it is recommended that the lifetime of a user's `Access Token` be kept short. When you create an API in the Auth0 dashboard, the default lifetime is `7200` seconds (2 hours), but this can be controlled on a per-API basis.
+As a security measure, it is recommended that the lifetime of a user's Access Token be kept short. When you create an API in the Auth0 dashboard, the default lifetime is `7200` seconds (2 hours), but this can be controlled on a per-API basis.
 
-Once expired, an `Access Token` can no longer be used to access an API. In order to obtain access again, a new `Access Token` needs to be obtained.
+Once expired, an Access Token can no longer be used to access an API. In order to obtain access again, a new Access Token needs to be obtained.
 
-Obtaining a new `Access Token` can be done by repeating the authentication flow, used to obtain the initial `Access Token`. In a SPA this is not ideal, as you may not want to redirect the user away from their current task to complete the authentication flow again.
+Obtaining a new Access Token can be done by repeating the authentication flow, used to obtain the initial Access Token. In a SPA this is not ideal, as you may not want to redirect the user away from their current task to complete the authentication flow again.
 
 In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
 

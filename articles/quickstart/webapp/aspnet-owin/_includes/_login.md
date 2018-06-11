@@ -188,7 +188,7 @@ Now when you run the application you can select the Login link to log in to the 
 
 ## Store the Tokens
 
-The Auth0 OAuth2 middleware can automatically add the `id_token` and `Access Token` as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
 
 You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a `refresh_token` by requesting the `offline_access` scope.
 
@@ -244,7 +244,7 @@ public void Configuration(IAppBuilder app)
 
 To access these token from one of your controllers, simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
 
-The sample code below shows how you can extract the claims for the `Access Token`, `id_token` and `refresh_token` respectively:
+The sample code below shows how you can extract the claims for the Access Token, `id_token` and `refresh_token` respectively:
 
 ``` csharp
 // Controllers/AccountController.cs

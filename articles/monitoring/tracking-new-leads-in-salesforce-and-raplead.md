@@ -54,7 +54,7 @@ function (user, context, callback) {
 
 In this second step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
-1. The Salesforce REST API uses an OAuth `Access Token`. We are using the OAuth2 `Resource Owner Password Credential Grant` to obtain such `Access Token`. This is the `getToken` function that uses credentials as input as opposed to an `API-KEY` as the previous rule.
+1. The Salesforce REST API uses an OAuth Access Token. We are using the OAuth2 `Resource Owner Password Credential Grant` to obtain such Access Token. This is the `getToken` function that uses credentials as input as opposed to an `API-KEY` as the previous rule.
 2. We are just recording the user name and a fixed company name. We could of course use anything available in the enriched user profile we obtained in step 1, to record more information, and have better context for the sales representative.
 3. If everything went well, we use a __persistent__ property: `user.signedUp` and set it to `true`. So next time this same users logs in, these rules will be skipped.
 

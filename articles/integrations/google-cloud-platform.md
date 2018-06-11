@@ -187,7 +187,7 @@ You'll get the following response:
 
 Which is exactly what we want!
 
-Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the `Access Token`:
+Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the Access Token:
 
 ![Copy Token](/media/articles/tutorials/gce-copy-token.png)
 

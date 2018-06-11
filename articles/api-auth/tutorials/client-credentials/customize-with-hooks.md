@@ -64,7 +64,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
   ```
 
   This sample hook will:
-  - add an arbitrary claim (`https://foo.com/claim`) to the `Access Token`
+  - add an arbitrary claim (`https://foo.com/claim`) to the Access Token
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
@@ -121,7 +121,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
 
 ## Test your Hook
 
-To test the hook you just created you need to run a Client Credentials exchange, get the `Access Token`, decode it and review its contents.
+To test the hook you just created you need to run a Client Credentials exchange, get the Access Token, decode it and review its contents.
 
 To get a token, make a `POST` request at the `https://${account.namespace}/oauth/token` API endpoint, with a payload in the following format.
 
@@ -160,11 +160,11 @@ Content-Type: application/json
 }
 ```
 
-Copy the `Access Token`.
+Copy the Access Token.
 
 The easiest way to decode it and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
-Paste your `Access Token` at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
+Paste your Access Token at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
 
 ![Decode Token with JWT.io](/media/articles/api-auth/hooks/cc-decode-token.png)
 

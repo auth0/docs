@@ -25,7 +25,7 @@ Among many possibilities, rules can be used to:
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
 * Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
-* Modify tokens: Change the returned __scopes__ of the `Access Token` and/or add claims to it, and to the `id_token`.
+* Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the `id_token`.
 
 ## Video: Using rules
 
@@ -63,7 +63,7 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `Access Token`.
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or Access Token.
 
 ::: panel Namespace Identifiers
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -177,7 +177,7 @@ function(user, context, callback) {
 
 ### API Authorization: Modify Scope
 
-This will override the returned scopes of the `Access Token`. The rule will run after user authentication and before authorization.
+This will override the returned scopes of the Access Token. The rule will run after user authentication and before authorization.
 
 ```js
 function(user, context, callback) {
@@ -193,7 +193,7 @@ The user will be granted three scopes: `array`, `of`, and `strings`.
 
 ### API Authorization: Add Claims to Access Tokens
 
-This will add one custom namespaced claim at the `Access Token`.
+This will add one custom namespaced claim at the Access Token.
 
 ```js
 function(user, context, callback) {
@@ -205,7 +205,7 @@ function(user, context, callback) {
 }
 ```
 
-After this rule executes, the `Access Token` will contain one additional namespaced claim: `http://foo/bar=value`.
+After this rule executes, the Access Token will contain one additional namespaced claim: `http://foo/bar=value`.
 
 ### Using the Configuration Object
 

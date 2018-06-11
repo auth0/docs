@@ -124,9 +124,9 @@ The service includes several methods for handling authentication.
 
 - __login__: calls `authorize` from auth0.js which initiates [Universal Login](/hosted-pages/login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- __setSession__: sets the user's `Access Token`, `id_token`, and a time at which the `Access Token` will expire
+- __setSession__: sets the user's Access Token, `id_token`, and a time at which the Access Token will expire
 - __logout__: removes the user's tokens from browser storage
-- __isAuthenticated__: checks whether the expiry time for the `Access Token` has passed
+- __isAuthenticated__: checks whether the expiry time for the Access Token has passed
 
 ### Process the Authentication Result
 
@@ -182,10 +182,10 @@ After authentication, users will be taken to the `/callback` route for a brief t
 ## 3. Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the `Access Token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
 :::
 
-To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's `Access Token` from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
+To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's Access Token from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
 
 ```js
 // Existing code from the AuthService class is omitted in this code sample for brevity
@@ -449,7 +449,7 @@ export class TimesheetsService {
 
 ## 6. Renew the Access Token
 
-Renewing the user's `Access Token` requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Renewing the user's Access Token requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
 public renewToken() {

@@ -115,7 +115,7 @@ If silent authentication succeeds, however, the app stores the token and its exp
 
 ## Successful Authentication Response
 
-If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the `Access Token` from the hash fragment of the returned URL:
+If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the Access Token from the hash fragment of the returned URL:
 
 ```js
 function getParameterByName(name) {

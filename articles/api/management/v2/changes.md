@@ -90,7 +90,7 @@ Logs endpoints have not been implemented in Management API v2. Logs must first b
 
 ## Authentication mechanism
 
-Auth0's API v1 requires sending an `Access Token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `Access Token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
+Auth0's API v1 requires sending an Access Token obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
 Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 

@@ -62,7 +62,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 ## Modify scopes and claims
 
-You can change the scopes and add custom claims to the `Access Token` you got, using [Hooks](/hooks).
+You can change the scopes and add custom claims to the Access Token you got, using [Hooks](/hooks).
 
 Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
@@ -71,7 +71,7 @@ For more information and details on how to do that refer to [Using Hooks with Cl
 
 ## Verify the token
 
-Once your API receives a request with a Bearer `Access Token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 

@@ -74,7 +74,7 @@ def handle_auth_error(ex):
 
 <%= include('../_includes/_api_jwks_description_no_link') %>
 
-Add a decorator which verifies the `Access Token` against your JWKS.
+Add a decorator which verifies the Access Token against your JWKS.
 
 ```python
 # /server.py
@@ -165,7 +165,7 @@ ${snippet(meta.snippets.use)}
 
 ## Protect individual endpoints
 
-Individual routes can be configured to look for a particular `scope` in the `Access Token` by using the following:
+Individual routes can be configured to look for a particular `scope` in the Access Token by using the following:
 
 ```python
 # /server.py

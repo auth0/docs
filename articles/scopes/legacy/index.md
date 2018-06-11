@@ -8,7 +8,7 @@ description: Overview of scopes with a client-side authorization transaction.
 This document covers an outdated version of the Auth0 authentication pipeline and the way scopes should be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque `Access Token` will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
+When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque Access Token will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
 ## Example (implicit flow)
 
@@ -66,6 +66,6 @@ The `scope` parameter can be used in the same way when calling the [Resource Own
 
 ::: next-steps
 * [Sending a `scope` parameter with Lock](/libraries/lock/sending-authentication-parameters#scope-string-)
-* [Retrieving the full user profile with an `Access Token`](/api/authentication/reference#get-user-info)
+* [Retrieving the full user profile with an Access Token](/api/authentication/reference#get-user-info)
 * [Validating a JWT and obtaining the full user profile](/api/authentication/reference#get-token-info)
 :::

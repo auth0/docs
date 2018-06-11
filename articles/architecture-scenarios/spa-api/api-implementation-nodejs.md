@@ -211,7 +211,7 @@ The `express-jwt` middleware which is used to validate the JWT, also sets the `r
 
 In the case of the timesheets application however, we want to use the email address of the user as the unique identifier.
 
-The first thing we need to do is to write a rule which will add the email address of the user to the `Access Token`. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
+The first thing we need to do is to write a rule which will add the email address of the user to the Access Token. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
 
 You can give the rule a descriptive name, for example `Add email to Access Token`, and then use the following code for the rule:
 

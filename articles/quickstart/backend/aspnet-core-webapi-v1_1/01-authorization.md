@@ -60,7 +60,7 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 <%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/v1/Samples/hs256' }) %>
 
-The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `Access Token` signature.
+The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the Access Token signature.
 
 To add the JWT middleware to your application's middleware pipeline, go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
@@ -106,7 +106,7 @@ public class ApiController : Controller
 
 ## Configuring Scopes
 
-The JWT middleware above verifies that the `Access Token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The JWT middleware above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
@@ -165,7 +165,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To secure the API endpoint, we need to make sure that the correct scope is present in the `Access Token`. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
+To secure the API endpoint, we need to make sure that the correct scope is present in the Access Token. To do that, add the `Authorize` attribute to the `Scoped` action, passing `read:messages` as the `policy` parameter. 
 
 ```csharp
 // Controllers/ApiController.cs

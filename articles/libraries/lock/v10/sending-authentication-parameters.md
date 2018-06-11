@@ -36,7 +36,7 @@ var options = {
 
 There are different values supported for scope:
 
-* `scope: 'openid'`: _(default)_ It will return not only the `Access Token`, but also an `id_token` which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return not only the Access Token, but also an `id_token` which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
 * `scope: 'openid profile'`: will return all the user attributes in the token. Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`). When selecting specific attributes, the attributes chosen are from those available in the user's profile, which will vary from application to application.
 

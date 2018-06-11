@@ -36,7 +36,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
-| In this way, setting up a session for the user on the client side is simply a matter of saving the `Access Token`, `id_token`, and a time that the `Access Token` expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, `id_token`, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
 
 * When mentioning several elements, use bulleted lists.
 * Subheads are not independent statements. Repeat the information from the subhead in the paragraph.

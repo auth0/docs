@@ -73,7 +73,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Identifier**: A unique identifier for your API. This value is set upon API creation and cannot be modified afterwards. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all.
 
-- **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 `Access Token` expires.
+- **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 Access Token expires.
 
 - **Allow Skipping User Consent**: When a first party application requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your application's **callbackURL** is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 

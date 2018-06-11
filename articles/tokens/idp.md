@@ -8,7 +8,7 @@ Third-party [Access Tokens](/tokens/access-token) are issued by [Identity Provid
 
 ## Get an Identity Provider Access Token
 
-IdP Access Tokens can be obtained after the user has authenticated with the IdP by making an HTTP `GET` call to [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). To call this endpoint you will need a [Management API Access Token](/api/management/v2/tokens) that will include the `read:user_idp_tokens` [scope](/scopes). The `Access Token` for the IdP will be available in the `identities` array, under the element for the particular connection.
+IdP Access Tokens can be obtained after the user has authenticated with the IdP by making an HTTP `GET` call to [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). To call this endpoint you will need a [Management API Access Token](/api/management/v2/tokens) that will include the `read:user_idp_tokens` [scope](/scopes). The Access Token for the IdP will be available in the `identities` array, under the element for the particular connection.
 
 For a step-by-step guide on obtaining IdP Access Tokens, see [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 

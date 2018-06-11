@@ -102,7 +102,7 @@ Also note above that the list of scopes is cleared and only the `openid` scope i
 
 ### Obtaining an Access Token for calling an API
 
-You may want to call an API from your MVC application, in which case you need to obtain an `Access Token` which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint.
+You may want to call an API from your MVC application, in which case you need to obtain an Access Token which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint.
 
 If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`
 
@@ -242,7 +242,7 @@ Now, when you run the application you can select the Login link to log into the 
 2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challege this OIDC middleware to authenticate the user.)
 3. At this point the OIDC middleware is challenged, and it will redirect the user to the Auth0 `/authorize` endpoint, which will display Lock and require the user to log in - whether it be with username/password, social provider or any other Identity Provider.
 4. Once the user has logged in, Auth0 will call back to the `/signin-auth0` endpoint in your application and pass along an authorization code.
-5. The OIDC middleware will "listen" for any request made to the `/signin-auth0` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an `id_token` and `Access Token`.
+5. The OIDC middleware will "listen" for any request made to the `/signin-auth0` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an `id_token` and Access Token.
 6. The OIDC middleware will look at the `id_token` and extract the user information from the claims on the token.
 7. Finally the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
 :::
@@ -253,7 +253,7 @@ The OIDC middleware in ASP.NET Core will automatically Decode the ID Token retur
 
 The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
 
-Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `Access Token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property of `OpenIdConnectOptions` to true. This will save the tokens to the `AuthenticationProperties`:
+Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the Access Token to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property of `OpenIdConnectOptions` to true. This will save the tokens to the `AuthenticationProperties`:
 
 ```csharp
 // Startup.cs

@@ -31,6 +31,6 @@ ${snippet(meta.snippets.use)}
 
 ## Send an Access Token from your Front End
 
-When you send a request to the GraphQL endpoint, you need to include the user's `Access Token` as an `Authorization` header. This can be done by tapping into Relay's network layer and extending requests to include a header.
+When you send a request to the GraphQL endpoint, you need to include the user's Access Token as an `Authorization` header. This can be done by tapping into Relay's network layer and extending requests to include a header.
 
 ${snippet(meta.snippets.frontend)}

@@ -66,7 +66,7 @@ Create your `User` and `UserProvider`.
 
 The `UserProvider` must implement the `JWTUserProviderInterface` (see `/source/AppBundle/Security/A0UserProvider`). This class should implement two methods:
 
-- `loadUserByJWT`: receives the decoded JWT `Access Token` and returns a User.
+- `loadUserByJWT`: receives the decoded JWT Access Token and returns a User.
 
 - `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role `IS_AUTHENTICATED_ANONYMOUSLY`).
 
@@ -88,7 +88,7 @@ services:
 Modify the `security.yml` file located in `app/config` such that it contains the following:
 
 - The `UserProvider`
-- The secured area that you want to authenticate using an `Access Token`
+- The secured area that you want to authenticate using an Access Token
 - The `access_control` section with the roles needed for each route
 
 ${snippet(meta.snippets.use)}
@@ -134,8 +134,8 @@ class SecuredController extends Controller
 
 ## Configuring Scopes
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `Access Token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**. The route defined above expects a scope of `read:messages` to be present in the payload of the `Access Token`.
+Scopes provide a way for you to define which resources should be accessible by the user holding a given Access Token. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**. The route defined above expects a scope of `read:messages` to be present in the payload of the Access Token.
 
 To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
-With this configuration in place, only `Access Token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+With this configuration in place, only Access Tokens which have a scope of `read:messages` will be allowed to access this endpoint.

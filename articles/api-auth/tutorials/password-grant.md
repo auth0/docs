@@ -70,13 +70,13 @@ The response contains a [signed JSON Web Token](/jwt), the token's type (which i
 In case the scopes issued to the application differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
 ::: panel Password grant and standard scopes
-If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the `Access Token`.
+If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the Access Token.
 If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
 In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
 :::
 
 ::: panel How to get the user's claims
-If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the `Access Token` will now also include `/userinfo` as a valid audience. You can use this `Access Token` to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid audience. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
@@ -109,7 +109,7 @@ You can configure Auth0 Connections as realms, as long as they support active au
 
 ## Use the token
 
-Once the `Access Token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once the Access Token has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -124,7 +124,7 @@ Once the `Access Token` has been obtained it can be used to make calls to the Re
 
 ## Verify the token
 
-Once your API receives a request with a Bearer `Access Token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
