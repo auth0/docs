@@ -1,5 +1,8 @@
 ---
 description: Project to help customers analyze common design patterns.
+tags:
+  - professional services
+  - code-review
 ---
 
 # Advisory Sessions: Code Review

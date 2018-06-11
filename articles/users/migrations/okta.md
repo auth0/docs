@@ -3,6 +3,11 @@ title: Migrate Users from Okta to Auth0
 description: Auth0 supports automatic migration of users to Auth0 from external applications such as Okta. This feature adds your users to the Auth0 database as each person logs in and avoids asking your users to reset their passwords due to migration.
 crews: crew-2
 toc: true
+- tags:
+  - users
+  - user-management
+  - migrations
+  - okta
 ---
 
 # Migrate Users from Okta to Auth0

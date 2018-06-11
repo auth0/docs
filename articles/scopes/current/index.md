@@ -2,6 +2,8 @@
 title: Scopes
 description: Overview of scopes.
 toc: true
+tags:
+  - scopes
 ---
 
 # Scopes

@@ -1,5 +1,8 @@
 ---
 description: A training for advanced development on the Auth0 platform.
+tags:
+  - professional services
+  - auth0-training
 ---
 
 # Training: Auth0 Advanced Topics

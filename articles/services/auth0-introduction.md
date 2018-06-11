@@ -1,5 +1,8 @@
 ---
 description: Training covering fundamentals of the Auth0 service.
+tags:
+  - professional services
+  - auth0-101
 ---
 
 # Training: Auth0 Introduction

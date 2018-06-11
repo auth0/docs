@@ -3,6 +3,9 @@ title: Auth0 Product Support Matrix
 description: This doc covers what features, platforms, and software configurations Auth0 supports.
 toc: true
 classes: support-matrix-page
+tags:
+    - support
+    - support-matrix
 ---
 # Auth0 Product Support Matrix
 

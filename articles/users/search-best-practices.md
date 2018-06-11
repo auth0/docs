@@ -3,6 +3,10 @@ name: User Search Best Practices
 description: Best practices when searching for users in Auth0
 url: /users/search/best-practices
 toc: true
+- tags:
+  - users
+  - user-management
+  - search
 ---
 
 # User Search Best Practices

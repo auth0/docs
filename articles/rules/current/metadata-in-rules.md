@@ -1,6 +1,10 @@
 ---
 toc: true
 description: How to use metadata in rules.
+tags:
+  - rules
+  - extensibility
+  - metadata
 ---
 # User Metadata in Rules
 

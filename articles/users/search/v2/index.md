@@ -2,6 +2,10 @@
 description: This page lists several examples of user search queries using query string syntax.
 crews: crew-2
 toc: true
+- tags:
+  - users
+  - user-management
+  - search
 ---
 # User Search
 

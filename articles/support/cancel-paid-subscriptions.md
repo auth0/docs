@@ -1,6 +1,10 @@
 ---
 description: To cancel your Auth0 subscription, you can downgrade to a free subscription or delete your tenant.
 crews: crew-2
+tags:
+    - support
+    - subscriptions
+    - cancellation
 ---
 
 # Cancel your Auth0 Subscription

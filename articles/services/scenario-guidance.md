@@ -1,5 +1,10 @@
 ---
 description: Project to help customers address specific requirements related to a current project that is expected to use Auth0.
+tags:
+  - professional services
+  - product-lifecycle
+  - solutions-architecture
+  - architecture
 ---
 
 # Advisory Sessions: Scenario guidance

@@ -1,6 +1,9 @@
 ---
 title: Context Argument Properties in Rules
 description: Lists the properties that are available for the context argument when creating rules.
+tags:
+  - rules
+  - extensibility
 ---
 # Context Argument Properties in Rules
 

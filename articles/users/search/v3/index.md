@@ -2,6 +2,10 @@
 title: User Search
 description: Learn about Auth0's user search query string syntax and how to search for users then sort the results.
 toc: true
+- tags:
+  - users
+  - user-management
+  - search
 ---
 
 # User Search

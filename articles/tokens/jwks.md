@@ -3,6 +3,9 @@ url: /jwks
 title: JSON Web Key Set (JWKS)
 description: A JSON Web Key set is a JSON object which represents a set of JSON Web Keys (a JSON object that represents a cryptographic key).
 toc: true
+tags:
+  - tokens
+  - jwks
 ---
 # JSON Web Key Set (JWKS)
 

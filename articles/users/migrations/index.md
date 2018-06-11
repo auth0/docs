@@ -2,6 +2,10 @@
 classes: topic-page
 title: User Migration
 description: Overview of importing users from external applications into Auth0.
+- tags:
+  - users
+  - user-management
+  - migrations
 ---
 
 <!-- markdownlint-disable MD041 MD002 MD026 -->

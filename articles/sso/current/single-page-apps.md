@@ -1,6 +1,9 @@
 ---
 description: Tutorial on implementing client-side SSO on single page applications.
 toc: true
+tags:
+  - sso
+  - spa
 ---
 
 # Client-Side SSO on Single Page Applications

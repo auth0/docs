@@ -1,5 +1,10 @@
 ---
 description: This page details how Auth0 can help you implement progressive profiling in your website or application.
+tags:
+    - users
+    - user-management
+    - user-profiles
+    - progressive-profiling
 ---
 # Progressive Profiling
 

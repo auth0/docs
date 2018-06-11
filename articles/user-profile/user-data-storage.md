@@ -2,6 +2,15 @@
 title: User Data Storage Guidance
 description: Demonstrates the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
 toc: true
+tags:
+    - users
+    - user-management
+    - user-profiles
+    - data-storage
+    - swift
+    - ios
+    - nodejs
+    - api
 ---
 
 # User Data Storage Guidance

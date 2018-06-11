@@ -1,5 +1,9 @@
 ---
 description: A workshop designed to provide IT organizations with core Auth0 Private SaaS management concepts.
+tags:
+  - professional services
+  - psaas-appliance
+  - management
 ---
 
 # Training: Private SaaS Management Workshop

@@ -2,6 +2,14 @@
 classes: topic-page
 title: Guides
 description: Helpful docs for implementing Auth0
+tags:
+  - architecture
+  - tokens
+  - user-management
+  - users
+  - mfa
+  - email
+  - guides
 ---
 
 <div class="topic-page-header">

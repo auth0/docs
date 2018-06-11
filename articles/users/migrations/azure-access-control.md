@@ -2,6 +2,11 @@
 title: Migrate from Azure Access Control Service to Auth0
 description: How to migrate from Azure Access Control Service to Auth0.
 toc: true
+- tags:
+  - users
+  - user-management
+  - migrations
+  - azure
 ---
 
 # Migrate from Azure Access Control Service to Auth0

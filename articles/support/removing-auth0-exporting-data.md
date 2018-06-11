@@ -1,5 +1,9 @@
 ---
 description: How to export data out of Auth0.
+tags:
+    - support
+    - data
+    - data-export
 ---
 
 # Moving out of Auth0

@@ -2,6 +2,10 @@
 title: Using C# in Rules
 description: Learn how to use C# in Rules with Edge.js
 toc: true
+tags:
+  - rules
+  - extensibility
+  - csharp
 ---
 # Using C<span>#</span> in Rules
 

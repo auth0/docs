@@ -2,6 +2,9 @@
 classes: topic-page
 title: Users
 description: Learn about working with users in Auth0
+- tags:
+  - users
+  - user-management
 ---
 
 <div class="topic-page-header">

@@ -1,6 +1,9 @@
 ---
 description: Client-side SSO with single page applications.
 toc: true
+tags:
+  - sso
+  - spas
 ---
 # Client-side SSO (Single Page Apps)
 

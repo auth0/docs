@@ -1,5 +1,8 @@
 ---
 description: How to troubleshoot with HAR files and steps to generate a HAR file.
+tags:
+    - support
+    - har-files
 ---
 
 # Troubleshooting with HAR files

@@ -1,5 +1,8 @@
 ---
 description: This page explains an overview about Auth0 delegation tokens.
+tags:
+  - tokens
+  - delegation
 ---
 
 # Delegation Tokens

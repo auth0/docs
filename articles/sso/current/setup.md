@@ -1,6 +1,9 @@
 ---
 description: Tutorial on implementing Single Sign On (SSO) with Auth0.
 toc: true
+tags:
+  - sso
+  - sso-setup
 ---
 
 # Set Up Single Sign On with Auth0

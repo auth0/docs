@@ -1,6 +1,8 @@
 ---
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
+tags:
+  - sso
 ---
 # What is Single Sign On?
 

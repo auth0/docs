@@ -1,5 +1,10 @@
 ---
 description: How to manage your tenant
+tags:
+    - support
+    - delete-tenant
+    - reset-tenant
+    - tenants
 ---
 
 # Delete/Reset Your Tenant

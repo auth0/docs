@@ -1,6 +1,10 @@
 ---
 description: How to use the Management API in rules.
 toc: true
+tags:
+  - rules
+  - extensibility
+  - management-api
 ---
 # Use the Management API in rules
 

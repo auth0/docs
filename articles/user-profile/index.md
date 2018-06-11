@@ -1,6 +1,10 @@
 ---
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
 toc: true
+tags:
+    - users
+    - user-management
+    - user-profiles
 ---
 # User Profile
 

@@ -1,5 +1,11 @@
 ---
 description: A project to assist with design and deployment of a Private SaaS Auth0 environment.
+tags:
+  - professional services
+  - psaas-appliance
+  - design
+  - deployment
+  - configuration
 ---
 
 # Advisory Hours: Private SaaS reconfiguration

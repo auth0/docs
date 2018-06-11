@@ -1,5 +1,9 @@
 ---
 description: Project to establish a foundational set up of Auth0 platform architecture.
+tags:
+  - professional services
+  - architecture
+  - solutions-architecture
 ---
 
 # Architectural Design Sessions

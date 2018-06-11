@@ -3,6 +3,9 @@ url: /security
 classes: topic-page
 title: Auth0 Security
 description: Read about various security-related topics and keep up-to-date with released Auth0 security bulletins
+tags:
+  - security
+  - security-bulletins
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">

@@ -1,5 +1,10 @@
 ---
 description: Explains how to securely store tokens used in token-based authentication.
+tags:
+  - security
+  - security-bulletins
+  - tokens
+  - token storage
 ---
 # Where to Store Tokens
 
