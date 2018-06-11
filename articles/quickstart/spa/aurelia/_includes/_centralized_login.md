@@ -121,7 +121,7 @@ When the **Log In** button is clicked, the user will be redirected to the login 
 
 ## Add a Callback Component
 
-Using universal login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
+Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
 <%= include('../../_includes/_callback_component') %>
 
@@ -199,4 +199,4 @@ This example assumes you are using path-based routing with `config.options.pushS
 
 ## Embedded Login
 
-Auth0's universal login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login).
+Auth0's Universal Login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/auth0-aurelia-samples/tree/embedded-login/01-Embedded-Login).
