@@ -8,7 +8,7 @@ mobileimg: media/articles/libraries/lock-android.png
 # Lock Android: Getting Started
 
 ::: warning
-Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [universal login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
+Username/Email & Password authentication from native clients is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [Universal Login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Client Grant Types](/clients/client-grant-types) for more information.
 :::
 
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
@@ -21,11 +21,11 @@ Check out the [Lock.Android repository](https://github.com/auth0/Lock.Android) o
 
 ## Requirements
 
-To use Lock's UI or your own UI via the [Auth0.Android library](https://github.com/auth0/Auth0.Android) the minimum required Android API level is 15+.
+To use Lock's UI or your own UI via the [Auth0.Android library](https://github.com/auth0/Auth0.Android), the minimum required Android API level is 15+.
 
 ## Installation
 
-Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
+Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock*, add these lines to your `build.gradle` dependencies file:
 
 ```gradle
 compile 'com.auth0.android:lock:2.+'
@@ -59,7 +59,7 @@ You will need a [Keystore](https://developer.android.com/studio/publish/app-sign
 
 During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/v2/keystore).
 
-For a release keystore, replace the file, alias, store password and key password with your own values.
+For a release keystore, replace the file, alias, store password, and key password with your own values.
 
 ## Implementing Lock (Social, Database, Enterprise)
 
@@ -88,7 +88,7 @@ android {
 }
 ```
 
-It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+It's a good practice to define reusable resources like `@string/com_auth0_domain`, but you can also hard code the value to `${account.namespace}` in the file.
 
 Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNET` permission to allow Lock to make requests to the Auth0 API.
 
@@ -108,10 +108,10 @@ Add the `LockActivity`.
 ```
 
 ::: note
-In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0, as it's now done internally by the library for you.
+In versions 2.5.0 or lower of Lock.Android, you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0, as it's now done internally by the library for you.
 :::
 
-In case you are using an older version of Lock the **intent-filter** must be added to the `LockActivity` by you:
+In case you are using an older version of Lock, you must add the **intent-filter** to the `LockActivity`:
 
 ```xml
 <activity
@@ -160,7 +160,7 @@ For more information, please see the [OIDC adoption guide](/api-auth/tutorials/a
 
 ### Authentication callback
 
-You'll also need a `LockCallback` implementation. Here is an example which will notify you about Authentication events (logins).
+You'll also need a `LockCallback` implementation. Here is an example which will notify you about Authentication events (logins):
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
