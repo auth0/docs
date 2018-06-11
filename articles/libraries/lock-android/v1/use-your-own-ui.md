@@ -7,7 +7,7 @@ description: Customize the UI of Lock in your App
 <%= include('../_includes/_lock-version') %>
 
 :::note
-We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **uthentication failed**
+We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **authentication failed**.
 :::
 
 Add the following dependencies to your project:
@@ -17,7 +17,7 @@ compile 'com.auth0.android:core:1.+'
 compile 'de.greenrobot:eventbus:2.4.+'
 ```
 
-Create a new resource file named `auth0.xml` under `values` and add the following content, replacing the values with your Auth0 ClientId and Domain
+Create a new resource file named `auth0.xml` under `values` and add the following content, replacing the values with your Auth0 ClientId and Domain:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -27,7 +27,7 @@ Create a new resource file named `auth0.xml` under `values` and add the followin
 </resources>
 ```
 
-Create two classes `AuthenticationEvent` and `ErrorEvent` that will represent a successful authentication or a failed one
+Create two classes, `AuthenticationEvent` and `ErrorEvent`, that will represent a successful authentication or a failed one:
 
 ```java
 public class AuthenticationEvent {
@@ -62,14 +62,14 @@ public class ErrorEvent {
 }
 ```
 
-Then in your Login *Activity* add the following fields
+Then in your Login *Activity*, add the following fields:
 
 ```java
 private AuthenticationAPIClient client;
 private EventBus eventBus;
 ```
 
-In the same *Activity* `onCreate` method add the following lines to initialize **Auth0** and the fields we added earlier
+In the same *Activity* `onCreate` method, add the following lines to initialize **Auth0** and the fields we added earlier:
 
 ```java
 Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain_name));
@@ -77,7 +77,7 @@ this.client = auth0.newAuthenticationAPIClient();
 this.eventBus = new EventBus();
 ```
 
-When you need to login your user with email/password credentials, just paste the following code
+When you need to login your user with email/password credentials, just paste the following code:
 
 ```java
 String email = ... // Get email
@@ -104,10 +104,10 @@ client.login(email, password)
 ```
 
 ::: note
-For more details about the parameters you can check [this wiki page](/libraries/lock-android/sending-authentication-parameters).
+For more details about the parameters, you can check [this wiki page](/libraries/lock-android/sending-authentication-parameters).
 :::
 
-Finally handle both `AuthenticationEvent` and `ErrorEvent`
+Finally, handle both `AuthenticationEvent` and `ErrorEvent`:
 
 ```java
 @Override
@@ -146,13 +146,13 @@ compile 'com.auth0.android:lock-facebook:2.4.+'
 compile 'com.auth0.android:lock-googleplus:2.4.+'
 ```
 
-In your `auth0.xml` file add the following entry
+In your `auth0.xml` file, add the following entry:
 
 ```xml
 <string name="auth0_scheme">a0${account.clientId.toLowerCase()}</string>
 ```
 
-Configure your Login *Activity* adding the following intent filters in your `AndroidManifest.xml` file
+Configure your Login *Activity*, adding the following intent filters in your `AndroidManifest.xml` file:
 
 ```xml
 <intent-filter>
@@ -163,7 +163,7 @@ Configure your Login *Activity* adding the following intent filters in your `And
 </intent-filter>
 ```
 
-Create a new class that implements `IdentityProviderCallback`, that will handle social authentication (via native integration or using web browser) and post a new event either on success or failure
+Create a new class that implements `IdentityProviderCallback`, which will handle social authentication (via native integration or using web browser) and post a new event either on success or failure:
 
 ```java
 public class MyIdentityProviderCallback implements IdentityProviderCallback {
@@ -224,7 +224,7 @@ public class MyIdentityProviderCallback implements IdentityProviderCallback {
 }
 ```
 
-In your Login *Activity* add the following fields
+In your Login *Activity*, add the following fields:
 
 ```java
 private WebIdentityProvider webProvider;
@@ -233,7 +233,7 @@ private GooglePlusIdentityProvider googleplus;
 private FacebookIdentityProvider facebook;
 ```
 
-And implement the following methods
+And implement the following methods:
 
 ```java
 @Override
@@ -259,7 +259,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-In the method `onCreate` initialize Auth0 web provider and store it in a field
+In the method `onCreate`, initialize Auth0 web provider and store it in a field:
 
 ```java
 final MyIdentityProviderCallback callback = new MyIdentityProviderCallback(eventBus, client);
@@ -267,7 +267,7 @@ this.webProvider = new WebIdentityProvider(new CallbackParser(), auth0.getClient
 this.webProvider.setCallback(callback);
 ```
 
-Configure Facebook Native integration
+Configure Facebook Native integration:
 
 ```java
 this.facebook = new FacebookIdentityProvider(this);
@@ -275,10 +275,10 @@ this.facebook.setCallback(callback);
 ```
 
 :::note
-You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook
+You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook.
 :::
 
-Configure Google+ Native integrationApplication class)
+Configure Google+ Native integrationApplication class:
 
 ```java
 this.googleplus = new GooglePlusIdentityProvider(this);
@@ -286,24 +286,24 @@ this.googleplus.setCallback(callback);
 ```
 
 :::note
-Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
+Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started).
 :::
 
-To trigger Facebook authentication just add the following code:
+To trigger Facebook authentication, just add the following code:
 
 ```java
 identity = facebook;
 identity.start(this, Strategies.Facebook.getName());
 ```
 
-To trigger Google+ authentication just add the following code:
+To trigger Google+ authentication, just add the following code:
 
 ```java
 identity = googleplus;
 identity.start(this, Strategies.GooglePlus.getName());
 ```
 
-To trigger authentication with any IdP without native integration just add the following code:
+To trigger authentication with any IdP without native integration, just add the following code:
 
 ```java
 identity = webProvider;
