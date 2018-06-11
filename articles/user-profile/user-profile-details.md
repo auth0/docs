@@ -89,7 +89,7 @@ There are three other types of tokens that can be returned during authentication
 
 * an Auth0 Access Token;
 * a 3rd party provider Access Token;
-* a `refresh_token`.
+* a Refresh Token.
 
 For more information on tokens and claims see the [Token Overview](/tokens).
 

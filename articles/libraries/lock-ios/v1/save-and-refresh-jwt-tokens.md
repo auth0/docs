@@ -15,7 +15,7 @@ credentials again.
 We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
 :::
 
-First thing we need to do is store the `id_token` and `refresh_token` in the iOS Keychain after a successful authentication.
+First thing we need to do is store the `id_token` and Refresh Token in the iOS Keychain after a successful authentication.
 
 ```objc
 A0LockViewController *controller = ...;
@@ -79,7 +79,7 @@ if let token = keychain.stringForKey("id_token") {
 }
 ```
 
-## Using refresh_token
+## Using Refresh Token
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -91,7 +91,7 @@ A0APIClient *client = [lock apiClient];
     //Just got a new id_token!
 } failure:^(NSError *error) {
     [keychain clearAll]; //Cleaning stored values since they are no longer valid
-    //refresh_token is no longer valid.
+    //Refresh Token is no longer valid.
     //You should ask the user to login again!.
 }];
 ```
@@ -107,7 +107,7 @@ if let token = keychain.stringForKey("refresh_token") {
             //Just got a new id_token!
         }, failure: { error in
             keychain.clearAll() //Cleaning stored values since they are no longer valid
-            //refresh_token is no longer valid.
+            //Refresh Token is no longer valid.
             //You should ask the user to login again!.
     })
 }

@@ -190,7 +190,7 @@ Now when you run the application you can select the Login link to log in to the 
 
 The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
 
-You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a `refresh_token` by requesting the `offline_access` scope.
+You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
 
 Update the registration of the Auth0 middleware in your `Startup.cs` file as follows:
 
@@ -237,14 +237,14 @@ public void Configuration(IAppBuilder app)
             }
         }
     };
-    options.Scope.Add("offline_access"); // Request a refresh_token
+    options.Scope.Add("offline_access"); // Request a Refresh Token
     app.UseAuth0Authentication(options);
 }
 ```
 
 To access these token from one of your controllers, simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
 
-The sample code below shows how you can extract the claims for the Access Token, `id_token` and `refresh_token` respectively:
+The sample code below shows how you can extract the claims for the Access Token, `id_token` and Refresh Token respectively:
 
 ``` csharp
 // Controllers/AccountController.cs
@@ -257,7 +257,7 @@ public ActionResult Tokens()
     // Extract tokens
     string accessToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "access_token")?.Value;
     string idToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "id_token")?.Value;
-    string refreshToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "refresh_token")?.Value;
+    string refreshToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "Refresh Token")?.Value;
 
     // Now you can use the tokens as appropriate...
 }

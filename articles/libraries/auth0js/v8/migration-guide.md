@@ -195,8 +195,8 @@ Delegation is now done via the `delegation` method, which takes an `options` obj
 
 * __client_id__ (required): a string; the Auth0 application identifier
 * __grant_type__ (required): a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
-* __id_token__ (required): a string; either a valid id_token or a valid refresh_token is required
-* __refresh_token__: a string; either a valid refresh_token or a valid id_token is required
+* __id_token__ (required): a string; either a valid id_token or a valid Refresh Token is required
+* __refresh_token__: a string; either a valid Refresh Token or a valid id_token is required
 * __target__: a string; the target application id of the delegation
 * __scope__: a string; either `'openid'` or `'openid profile email'`
 * __api_type__: a string; the api to be called

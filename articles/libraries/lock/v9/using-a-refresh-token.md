@@ -26,7 +26,7 @@ lock.showSignin({
 });
 ````
 
-If using popup mode, use the `refresh_token` returned in the callback:
+If using popup mode, use the Refresh Token returned in the callback:
 
 ```js
 lock.showSignin({

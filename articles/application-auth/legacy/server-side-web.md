@@ -92,7 +92,7 @@ You application will need to handle the request to this callback URL, extract th
 }
 ```
 
-The response from `/oauth/token` contains an `access_token`, `id_token` and `token_type` values (and also potentially a `refresh_token`), for example:
+The response from `/oauth/token` contains an `access_token`, `id_token` and `token_type` values (and also potentially `refresh_token`), for example:
 
 ```json
 {

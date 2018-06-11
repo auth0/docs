@@ -77,7 +77,7 @@ The response should contain an Access Token and a Refresh Token.
 }
 ```
 
-If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications). 
+If you are requesting a Refresh Token for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications).
 
 ::: warning
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
@@ -91,7 +91,7 @@ If the response did not include a Refresh Token, check that you comply with the 
 
 ## Use a Refresh Token
 
-To refresh your token, using the `refresh_token` you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To refresh your token, using the Refresh Token you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ```har
 {

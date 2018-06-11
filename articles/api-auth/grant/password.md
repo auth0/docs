@@ -26,7 +26,7 @@ This grant type can eliminate the need for the application to store the user cre
 
  1. The end user enters the credentials into the application.
  1. The application forwards the credentials to Auth0.
- 1. Auth0 validates the information and returns an Access Token, and optionally a `refresh_token`.
+ 1. Auth0 validates the information and returns an Access Token, and optionally a Refresh Token.
  1. The application can use the Access Token to call the API on behalf of the end user.
 
 ::: note

@@ -6,7 +6,7 @@ During sign-up, the library will generate a key pair on the device, create a use
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-flow.png)
 
-The private key is stored in the keystore of the device. Each time a user initiates authentication with a valid fingerprint, *Touch ID* retrieves the private key from the keystore, creates a token, signs it with the private key and sends it to Auth0. Auth0 then returns an `id_token`, the user profile and, optionally, a `refresh_token`.
+The private key is stored in the keystore of the device. Each time a user initiates authentication with a valid fingerprint, *Touch ID* retrieves the private key from the keystore, creates a token, signs it with the private key and sends it to Auth0. Auth0 then returns an `id_token`, the user profile and, optionally, a Refresh Token.
 
 ::: note
 You can use Touch ID with an iPhone 5s or later, an iPad Air 2, or an iPad mini 3 or later.

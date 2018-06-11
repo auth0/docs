@@ -213,7 +213,7 @@ chrome.runtime.onMessage.addListener(function (event) {
 
     // scope
     //  - openid if you want an id_token returned
-    //  - offline_access if you want a refresh_token returned
+    //  - offline_access if you want a Refresh Token returned
     // device
     //  - required if requesting the offline_access scope.
     let options = {
