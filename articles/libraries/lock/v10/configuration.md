@@ -512,7 +512,7 @@ For more details about supported parameters check the [Authentication Parameters
 Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v10/popup-mode) is chosen.
 
 ::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. For more info refer to this [Auth0 Community thread](https://community.auth0.com/questions/9768/popup-login-window-is-not-closed-after-authenticat).
+There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. For more info, refer to this [Auth0 Community thread](https://community.auth0.com/questions/9768/popup-login-window-is-not-closed-after-authenticat).
 :::
 
 ```js
@@ -536,7 +536,7 @@ var options = {
 ```
 
 ::: note
-When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
+When the `redirectUrl` is provided (set to non-blank value), the `responseType` option will be defaulted to `code` if not manually set.
 :::
 
 #### responseMode {String}
@@ -567,7 +567,7 @@ var options = {
 
 #### sso {Boolean}
 
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant's settings.
 
 ::: warning
 Failing to set this to true will result in multifactor authentication not working correctly.
@@ -846,7 +846,7 @@ var options = {
 
 ### oidcConformant {Boolean}
 
-Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [universal login](/hosted-pages/login).
+Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [Universal Login](/hosted-pages/login).
 
 To enable OIDC conformant mode, pass a flag in the options object.
 
