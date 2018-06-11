@@ -76,7 +76,7 @@ You can customize the login page at will right from the editor. If you use Lock,
 All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the application or connection. Remember that the login page customizations are per **tenant** rather than per application. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
 ::: warning
-By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, errors will result if you do not make sure that the `state` and `_csrf` parameters are included.
+By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, your tenant logs will show deprecation notes (`Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.`). Additionally, after **July 16, 2018**, the application will no longer work until the login page customizations are fixed.
 :::
 
 #### Parameters for the Authorize Endpoint
