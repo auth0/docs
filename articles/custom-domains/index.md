@@ -8,7 +8,7 @@ toc: true
 
 Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login](/hosted-pages/login).
+Using custom domains with Universal Login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [Universal Login](/hosted-pages/login).
 
 ::: warning
 Custom Domains is a beta feature available only for paying public-cloud tenants [with their environment tag set as **Development**](/dev-lifecycle/setting-up-env).
@@ -109,7 +109,7 @@ If you have been using Auth0 for some time and decide to enable a custom domain,
 
 #### Configure the Login Page
 
-When using custom domains with [universal login](/hosted-pages/login), you will need to determine which of the following apply to you:
+When using custom domains with [Universal Login](/hosted-pages/login), you will need to determine which of the following apply to you:
 
 * If you're using the **default** login page without customization, you will not need to make any changes. Your custom domain will work right out of the box.
 * If you're using a **customized** login page, you'll need to update the code in your [Dashboard](${manage_url}) to use your custom domain. The changes that you'll need to make are regarding the initializing of Lock. The following code sample shows the lines reflecting the necessary changes.
