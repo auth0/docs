@@ -26,8 +26,8 @@ This grant type can eliminate the need for the application to store the user cre
 
  1. The end user enters the credentials into the application.
  1. The application forwards the credentials to Auth0.
- 1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
- 1. The application can use the `access_token` to call the API on behalf of the end user.
+ 1. Auth0 validates the information and returns an Access Token, and optionally a Refresh Token.
+ 1. The application can use the Access Token to call the API on behalf of the end user.
 
 ::: note
 In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
@@ -47,7 +47,7 @@ For more information on how to implement this extension grant refer to [Executin
 
 ## Scopes
 
-Due to the implied trust in these grants (a user providing his or her password to an application), the `access_token` returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
+Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
 ## Rules
 

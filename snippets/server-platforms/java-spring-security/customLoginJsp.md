@@ -47,7 +47,7 @@ ${'<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>'
                         sso: true,
                         connection: '<%= "${connection}" %>',
                         // change scopes to whatever you like
-                        // claims are added to JWT id_token - openid profile gives everything
+                        // claims are added to JWT ID Token - openid profile gives everything
                         scope: 'openid user_id name nickname email picture',
                         state: '<%= "${state}" %>'
                     }, function (err) {

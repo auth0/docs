@@ -491,12 +491,12 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using head-less library to do login without Lock
-3. Session Handling - How to store tokens, refresh tokens, and logout
+3. Session Handling - How to store tokens, Refresh Tokens, and logout
 4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
 10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
@@ -523,7 +523,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
 

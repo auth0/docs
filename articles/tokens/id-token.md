@@ -1,5 +1,5 @@
 ---
-description: How to obtain, use and renew an id_token.
+description: How to obtain, use and renew an ID Token.
 toc: true
 ---
 # ID Token
@@ -53,7 +53,7 @@ Remember that the ID Token is always a JWT, and the signature is created using i
 
 The most secure practice, and our recommendation, is to use `RS256`.
 
-To check or update the algorithm your Application uses go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
+To check or update the algorithm your Application uses go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
 
 ### Validate the Claims
 
@@ -67,7 +67,7 @@ Once the application verifies the token's signature, the next step is to validat
 
 ## Control the contents of an ID Token
 
-In order to retrieve an ID Token the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
+In order to retrieve an ID Token, the `responseType` should include the ID Token, both for client-side and server-side authentication flows.
 
 The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
@@ -134,9 +134,9 @@ The expiration time can be changed in the [Dashboard > Applications > Settings](
 
 There are cases where you might want to renew your ID Token. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
-When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the ID Token. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
+When performing the initial authorization flow, you can ask for a Refresh Token, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The Refresh Token is stored in session, alongside with the ID Token. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
-This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
+This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
 If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
 

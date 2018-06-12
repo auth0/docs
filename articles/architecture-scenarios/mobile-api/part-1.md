@@ -24,14 +24,14 @@ With PKCE, the Application creates, for every authorization request, a cryptogra
 1. The native app initiates the flow and redirects the user to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters.
 2. Auth0 redirects the user to the native app with an `authorization_code` in the querystring.
 3. The native app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0. This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-).
-4. Auth0 validates this information and returns an `access_token` (and optionally a `refresh_token`).
-5. The native app can use the `access_token` to call the API on behalf of the user.
+4. Auth0 validates this information and returns an Access Token (and optionally a Refresh Token).
+5. The native app can use the Access Token to call the API on behalf of the user.
 
 ## Authorization Extension
 
-The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users. 
+The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users.
 
-The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
+The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the Access Token issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/architecture-scenarios/mobile-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/mobile-api/part-2"]

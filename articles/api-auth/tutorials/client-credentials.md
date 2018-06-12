@@ -62,7 +62,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 ## Modify scopes and claims
 
-You can change the scopes and add custom claims to the `access_token` you got, using [Hooks](/hooks).
+You can change the scopes and add custom claims to the Access Token you got, using [Hooks](/hooks).
 
 Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
@@ -71,13 +71,13 @@ For more information and details on how to do that refer to [Using Hooks with Cl
 
 ## Verify the token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
 ## Sample application
 
-For an example implementation see the [Server Client + API](/architecture-scenarios/application/server-api) architecture scenario. 
+For an example implementation see the [Server Client + API](/architecture-scenarios/application/server-api) architecture scenario.
 
 This is a series of tutorials that describe a scenario for a fictitious company that wants to implement a Timesheets API and send timesheets entries from a server process using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 

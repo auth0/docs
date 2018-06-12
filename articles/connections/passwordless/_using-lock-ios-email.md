@@ -20,7 +20,7 @@
 
 <%= include('./_using-lock-email', { platform: 'ios' }) %>
 
-This code will call `onAuthenticationBlock`, where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
+This code will call `onAuthenticationBlock`, where the ID Token, Refresh Token, and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-ios.png)
 

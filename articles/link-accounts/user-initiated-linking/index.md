@@ -9,7 +9,7 @@ crews: crew-2
 We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
 :::
 
-Auth0 supports the linking of user accounts from various identity providers. 
+Auth0 supports the linking of user accounts from various identity providers.
 
 One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
 
@@ -41,11 +41,11 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
 */
 function linkPasswordAccount(connection) {
   localStorage.setItem('linking','linking');
- 
-  // Instantiates Lock, to get a token that will be then used to 
+
+  // Instantiates Lock, to get a token that will be then used to
   // link the account
 
-  var opts = { 
+  var opts = {
     rememberLastLogin: false,
     auth: {
       responseType: 'token id_token',
@@ -56,7 +56,7 @@ function linkPasswordAccount(connection) {
       }
     }
   };
-        
+
   if (connection) {
     opts.allowedConnections = [connection];
   }
@@ -95,9 +95,9 @@ function linkAccount(secondaryIdToken) {
   // At this point you could fetch the secondary account's user_metadata for merging with the primary account.
   // Otherwise, it will be lost after linking the accounts
 
-  // Uses the access_token of the primary user as a bearer token to identify the account
-  // which will have the account linked to, and the id_token of the secondary user, to identify
-  // the user that will be linked into the primary account. 
+  // Uses the Access Token of the primary user as a bearer token to identify the account
+  // which will have the account linked to, and the ID Token of the secondary user, to identify
+  // the user that will be linked into the primary account.
 
   var primaryAccessToken = localStorage.getItem('access_token');
   var primaryUserId = localStorage.getItem('user_id');
@@ -134,10 +134,10 @@ Call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/dele
 function unlinkAccount(secondaryProvider, secondaryUserId) {
   var primaryUserId = localStorage.getItem('user_id');
   var primaryAccessToken = localStorage.getItem('access_token');
-  
-  // Uses the access_token of the primary user as a bearer token to identify the account
+
+  // Uses the Access Token of the primary user as a bearer token to identify the account
   // which will have the account unlinked to, and the user id of the secondary user, to identify
-  // the user that will be unlinked from the primary account. 
+  // the user that will be unlinked from the primary account.
 
   $.ajax({
     type: 'DELETE',

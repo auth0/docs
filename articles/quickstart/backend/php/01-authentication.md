@@ -156,7 +156,7 @@ $router->before('GET', '/api/private.*', function() use ($app) {
 });
 ```
 
-With this configuration, any time an endpoint which includes `/api/private` is reached, a valid JWT `access_token` will be required before the resource can be released. With this in place, private routes can be defined.
+With this configuration, any time an endpoint which includes `/api/private` is reached, a valid JWT Access Token will be required before the resource can be released. With this in place, private routes can be defined.
 
 ```php
 // index.php
@@ -175,7 +175,7 @@ $router->get('/api/private', function() use ($app){
 
 ## Configure the Scopes
 
-To add authorization you need to define the method `checkScope` to check for a particular scope in the `access_token`.
+To add authorization you need to define the method `checkScope` to check for a particular scope in the Access Token.
 
 ```php
 // src/Main.php
@@ -204,7 +204,7 @@ public function privateScopedEndpoint() {
 }
 ```
 
-The function `privateScopedEndpoint` will return the message when a request is made from a protected endpoint, and the `access_token` has a scope of `read:messages`.
+The function `privateScopedEndpoint` will return the message when a request is made from a protected endpoint, and the Access Token has a scope of `read:messages`.
 
 Add a `before` hook to the router to configure routes that require the scope of `read:messages`.
 
@@ -229,4 +229,4 @@ $router->get('/api/private-scoped', function() use ($app){
 });
 ```
 
-The route `/api/private-scoped` will be accessible only if has a valid `access_token` with the scope `read:messages`.
+The route `/api/private-scoped` will be accessible only if has a valid Access Token with the scope `read:messages`.

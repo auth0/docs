@@ -41,11 +41,11 @@ Where:
 
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
-* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`.
+* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an Access Token, `id_token` to get only an ID Token (if you don't plan on accessing an API), or `id_token token` to get both an ID Token and an Access Token.
 
 * `client_id`: Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings). 
+* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The Access Token (and optionally an ID Token) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
   ::: warning
   Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments.
@@ -84,7 +84,7 @@ function getIdToken() {
 $(function () {
   var access_token = getAccessToken();
 
-  // Optional: an id_token will be returned by Auth0
+  // Optional: an ID Token will be returned by Auth0
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
@@ -130,7 +130,7 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 
 ## Sample application
 
-For an example implementation see the [SPA + API](/architecture-scenarios/application/spa-api) architecture scenario. 
+For an example implementation see the [SPA + API](/architecture-scenarios/application/spa-api) architecture scenario.
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 

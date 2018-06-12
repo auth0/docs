@@ -23,7 +23,7 @@ After the user has authenticated, Auth0 will redirect the browser back to the **
 The [ID Token](/tokens/id-token) can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
 ::: note
-You can potentially also receive an `access_token` which can be used to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs.
+You can potentially also receive an Access Token which can be used to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs.
 
 For more information on calling APIs from Client-side Web Apps, please see [Call APIs from Client-side Web Apps](/api-auth/grant/implicit)
 :::
@@ -32,7 +32,7 @@ For more information on calling APIs from Client-side Web Apps, please see [Call
 
 1. The Applications initiates the flow and redirects the user to the Authorization Server
 2. The user authenticates
-3. The Authorization Server redirects the user to the `redirect_uri` with an `id_token` in the hash fragment
+3. The Authorization Server redirects the user to the `redirect_uri` with an  in the hash fragment
 4. The Applications can now extract the token from the hash fragment.  
 
 ## Register your Applications
@@ -47,7 +47,7 @@ The **Create Applications** window will open, allowing you to enter the name of 
 
 Once the applications has been created you can navigate to the **Settings** tab of the applications and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
 
-This URL must be part of your application, as your application will need to extract the `id_token` from the hash fragment of this URL. 
+This URL must be part of your application, as your application will need to extract the  from the hash fragment of this URL.
 
 ![](/media/articles/client-auth/client-side-web/allowed-callback-url.png)
 
@@ -65,7 +65,7 @@ This endpoint supports the following query string parameters:
 
 | Parameter | Description |
 |:------------------|:---------|
-| response_type | The response type specifies the Grant Type you want to use. For client-side web applications using the Implicit Grant Flow this should be `id_token`. (If you also want to receive an `access_token` it should be set to `token id_token`.) |
+| response_type | The response type specifies the Grant Type you want to use. For client-side web applications using the Implicit Grant Flow, this should be `id_token`. (If you also want to receive an Access Token it should be set to `token id_token`.) |
 | client_id | The Client ID of the Applications you registered in Auth0. This can be found on the **Settings** tab of your Applications in the Auth0 Dashboard |
 | scope | Specifies the claims (or attributes) of the user you want the be returned in the [ID Token](/tokens/id-token). To obtain an [ID Token](/tokens/id-token) you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, such as `https://YOUR_APP/callback`|
@@ -85,13 +85,13 @@ After the user has authenticated, Auth0 will call back to the URL specified in t
 https://YOUR_APP/callback#id_token=eyJ0...
 ```
 
-The [ID Token](/tokens/id-token) will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the `id_token`.
+The [ID Token](/tokens/id-token) will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the ID Token.
 
 You will need to decode the [ID Token](/tokens/id-token) in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
 
 Once the JWT is decoded, you can extract the information about the user from the payload of the [ID Token](/tokens/id-token). This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
 
-The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you in decoding the JWT by calling the `parseHash` function, and then access the `id_token` values from the `idTokenPayload` property:
+The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you in decoding the JWT by calling the `parseHash` function, and then access the ID Token values from the `idTokenPayload` property:
 
 ```html
 <html>
@@ -128,7 +128,7 @@ The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you 
           if (authResult && authResult.idTokenPayload) {
             window.location.hash = '';
             alert('your user_id is: ' + authResult.idTokenPayload.sub);
-          } 
+          }
         });
       }
 
@@ -197,7 +197,7 @@ https://${account.namespace}/authorize
   &nonce=abc
 ```
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` passed as parameter in the hash fragment:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the  passed as parameter in the hash fragment:
 
 ```text
 ${account.callback}
@@ -230,7 +230,7 @@ https://${account.namespace}/authorize
   &nonce=abc
 ```
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` passed as parameter in the hash fragment:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the  passed as parameter in the hash fragment:
 
 ```text
 ${account.callback}
@@ -272,7 +272,7 @@ You can just as easily request a user log in with other social providers, like G
 - [Social Login using the Authentication API](/api/authentication#social)
 :::
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` passed as parameter in the hash fragment:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the  passed as parameter in the hash fragment:
 
 ```text
 ${account.callback}

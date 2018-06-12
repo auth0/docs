@@ -35,7 +35,7 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security f
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample)
 
 ::: panel Authorization Code Grant
-All three technologies displayed above, adopt the `Oauth2 / OIDC Authorization Code Grant` flow in which authentication results in a callback to the server-side application with a `code`. This is then exchanged for [id_token](/tokens/id_token) and [access_token](/tokens/access_token) on the server-side (as part of the callback), and once the tokens have been received by the application, then `UserProfile` information can also be retrieved via request with a valid Token.
+All three technologies displayed above, adopt the `Oauth2 / OIDC Authorization Code Grant` flow in which authentication results in a callback to the server-side application with a `code`. This is then exchanged for [ID Token](/tokens/id_token) and [Access Token](/tokens/access_token) on the server-side (as part of the callback), and once the tokens have been received by the application, then `UserProfile` information can also be retrieved via request with a valid Token.
 :::
 
 ## Java Spring Security API

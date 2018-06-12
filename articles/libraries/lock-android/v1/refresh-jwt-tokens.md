@@ -12,7 +12,7 @@ When an authentication is performed with the `offline_access` scope included, it
 Lock.Android will include the `offline_scope` scope by default.
 :::
 
-Before we start, we have to retreive `id_token` or `refresh_token` from the token when a the user logs in.
+Before we start, we have to retrieve ID Token or Refresh Token from the token when a the user logs in.
 
 ```java
 private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
@@ -21,17 +21,17 @@ private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
         Token token = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
         String idToken = token.getIdToken();
         String refreshToken = token.getRefreshToken();
-        // Store id_token or refresh_token in a secure storage
+        // Store ID Token or Refresh Token in a secure storage
     }
 };
 ```
 
-Then, we need to store `id_token` or `refresh_token` in a secure storage after the user is authenticated by Auth0. And finally, you can request a new `id_token` using either of them by calling to Auth0`s **delegation** endpoint.
+Then, we need to store ID Token or Refresh Token in a secure storage after the user is authenticated by Auth0. And finally, you can request a new ID Token using either of them by calling to Auth0`s **delegation** endpoint.
 
-## Using a non-expired id_token
+## Using a non-expired ID Token
 
 ```java
-String idToken = // Retrieve id_token from the secure storage
+String idToken = // Retrieve ID Token from the secure storage
 Lock lock = LockContext.getLock(this);
 AuthenticationAPIClient client = lock.getAuthenticationAPIClient();
 client.delegationWithIdToken(idToken).start(new RefreshIdTokenCallback() {
@@ -47,10 +47,10 @@ client.delegationWithIdToken(idToken).start(new RefreshIdTokenCallback() {
 });
 ```
 
-## Using refresh_token
+## Using Refresh Token
 
 ```java
-String refreshToken = // Retrieve refresh_token from the secure storage
+String refreshToken = // Retrieve Refresh Token from the secure storage
 Lock lock = LockContext.getLock(this);
 AuthenticationAPIClient client = lock.getAuthenticationAPIClient();
 client.delegationWithRefreshToken(refreshToken).start(new RefreshIdTokenCallback() {

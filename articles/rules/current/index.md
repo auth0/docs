@@ -11,7 +11,7 @@ toc: true
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
 1. The user authenticates successfully.
-1. The tokens ([id_token](/tokens/id-token) and/or [access_token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
+1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
 
 ## What can I use rules for?
 
@@ -25,7 +25,7 @@ Among many possibilities, rules can be used to:
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
 * Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
-* Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
+* Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
 
 ## Video: Using rules
 
@@ -45,7 +45,7 @@ A Rule is a function with the following arguments:
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard. 
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard.
 
 Select an empty rule to start from scratch, or use one of the templates. Name your rule, keeping in mind that it can only contain alphanumeric characters, spaces and '-', and cannot start, nor end, with '-' or spaces.
 
@@ -53,7 +53,7 @@ For more examples see our Github repo at [auth0/rules](https://github.com/auth0/
 
 ### Hello World
 
-This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
+This rule will add a `hello` claim (with the value `world`) to the ID Token that will be afterwards sent to the application.
 
 ```js
 function (user, context, callback) {
@@ -63,7 +63,7 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `access_token`.
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or Access Token.
 
 ::: panel Namespace Identifiers
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -101,7 +101,7 @@ At the beginning of the rules pipeline, John's `context` object will be:
 }
 ```
 
-After the rule executes, the `context` object will have the added namespaced claim as part of the `id_token`:
+After the rule executes, the `context` object will have the added namespaced claim as part of the ID Token:
 
 ```json
 {
@@ -117,7 +117,7 @@ After the rule executes, the `context` object will have the added namespaced cla
 }
 ```
 
-When your application receives the `id_token`, it will verify and decode it, in order to access this added custom claim. The payload of the decoded `id_token` will be similar to the following sample:
+When your application receives the ID Token, it will verify and decode it, in order to access this added custom claim. The payload of the decoded ID Token will be similar to the following sample:
 
 ```json
 {
@@ -135,7 +135,7 @@ When your application receives the `id_token`, it will verify and decode it, in 
 }
 ```
 
-For more information on the `id_token` refer to [ID Token](/tokens/id-token).
+For more information on the ID Token, refer to [ID Token](/tokens/id-token).
 
 ::: note
 Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
@@ -143,7 +143,7 @@ Properties added in a rule are __not persisted__ in the Auth0 user store. Persis
 
 ### Deny access based on a condition
 
-In addition to adding claims to the `id_token`, you can return an *access denied* error.
+In addition to adding claims to the ID Token, you can return an *access denied* error.
 
 ```js
 function (user, context, callback) {
@@ -163,12 +163,12 @@ Error reporting to the app depends on the protocol. OpenID Connect apps will rec
 
 ### Copy User Metadata to ID Token
 
-This will read the `favorite_color` user metadata, and add it as a namespaced claim at the `id_token`.
+This will read the `favorite_color` user metadata, and add it as a namespaced claim at the ID Token.
 
 ```js
 function(user, context, callback) {
 
-  // copy user metadata value in id_token
+  // copy user metadata value in ID Token
   context.idToken['http://fiz/favorite_color'] = user.user_metadata.favorite_color;
 
   callback(null, user, context);
@@ -177,7 +177,7 @@ function(user, context, callback) {
 
 ### API Authorization: Modify Scope
 
-This will override the returned scopes of the `access_token`. The rule will run after user authentication and before authorization.
+This will override the returned scopes of the Access Token. The rule will run after user authentication and before authorization.
 
 ```js
 function(user, context, callback) {
@@ -193,7 +193,7 @@ The user will be granted three scopes: `array`, `of`, and `strings`.
 
 ### API Authorization: Add Claims to Access Tokens
 
-This will add one custom namespaced claim at the `access_token`.
+This will add one custom namespaced claim at the Access Token.
 
 ```js
 function(user, context, callback) {
@@ -205,7 +205,7 @@ function(user, context, callback) {
 }
 ```
 
-After this rule executes, the `access_token` will contain one additional namespaced claim: `http://foo/bar=value`.
+After this rule executes, the Access Token will contain one additional namespaced claim: `http://foo/bar=value`.
 
 ### Using the Configuration Object
 

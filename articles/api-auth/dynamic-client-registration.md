@@ -9,7 +9,7 @@ toc: true
 
 <%= include('../_includes/_pipeline2') %>
 
-Dynamic Client Registration enables you to register clients dynamically. These clients can be either [first-party or third-party clients](/clients/client-types#first-vs-third-party-clients). 
+Dynamic Client Registration enables you to register clients dynamically. These clients can be either [first-party or third-party clients](/clients/client-types#first-vs-third-party-clients).
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 
@@ -203,9 +203,9 @@ Where:
   In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OpenID Connect claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
   :::
 
-- **response_type**: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`.
+- **response_type**: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an Access Token, or `id_token token` to get both an ID Token and an Access Token.
 - **client_id**: Your client's Client ID.
-- **redirect_uri**: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your client.
+- **redirect_uri**: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The Access Token (and optionally an ID Token) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your client.
 - **state**: An opaque value the clients add to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
 - **nonce**: A string value which will be included in the ID Token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 

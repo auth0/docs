@@ -40,7 +40,7 @@ The flow starts by collecting end-user credentials and sending them to Auth0, as
     "mfa_token": "eyJ0eXAiOiJKV1QiLCJhbGci....D3QCiQ"
   }
   ```
-  
+
 5. The Application will then make a request to the [MFA challenge](/api/authentication#resource-owner-password-and-mfa) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp), [OOB with binding method `prompt`](#challenge-type-oob-and-binding-method-prompt), and [OOB with no binding method](#challenge-type-oob-with-no-binding-method). If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this and the next steps an go directly to [Challenge Type `OTP`](#challenge-type-otp) below.
 
 6. Auth0 sends a response containing the `challenge_type` derived from the types supported by the Application and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
@@ -79,9 +79,9 @@ If you already know that the user supports OTP, then steps 5 and 6 above of the 
 
 9. The Application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 
-10. Auth0 validates the provided OTP and returns the `access_token` and the `refresh_token`.
+10. Auth0 validates the provided OTP and returns the Access Token and the Refresh Token.
 
-11. The Application can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the Access Token to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with Binding Method `prompt`
 
@@ -95,9 +95,9 @@ This challenge type, together with `prompt` binding method, indicates that the c
 
 9. The Application forwards the `binding_code` to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
-10. Auth0 validates the `binding_code` and `oob_code` and returns the `access_token` and the `refresh_token`.
+10. Auth0 validates the `binding_code` and `oob_code` and returns the Access Token and the Refresh Token.
 
-11. The Application can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the Access Token to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with No Binding Method
 
@@ -114,8 +114,8 @@ In this scenario, the challenge will be sent using a side channel, however, ther
     - `slow_down` error: if the polling is too frequent.
     - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
     - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
-  
-10. The Application can use the `access_token` to call the API on behalf of the end user.
+
+10. The Application can use the Access Token to call the API on behalf of the end user.
 
 ## Using Recovery Codes
 
@@ -139,9 +139,9 @@ Steps 1-4 are the same as above.
 
 8. The Application forwards the recovery code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
 
-9. Auth0 validates the recovery code and returns the `access_token` and the `refresh_token`.
+9. Auth0 validates the recovery code and returns the Access Token and the Refresh Token.
 
-10. The Application can use the `access_token` to call the API on behalf of the end user.
+10. The Application can use the Access Token to call the API on behalf of the end user.
 
 ## Samples
 

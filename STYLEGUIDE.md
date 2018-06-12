@@ -6,55 +6,55 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Voice
 
-* Address the reader directly: "you". Use "we" only for Auth0's recommendations. 
-* Use active voice. 
-* For instructions, use imperative mood. 
+* Address the reader directly: "you". Use "we" only for Auth0's recommendations.
+* Use active voice.
+* For instructions, use imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | User authentication data should be saved.| Save user authentication data. |
-| Saving user authentication data is recommended. | We recommend that you save user authentication data. | 
+| Saving user authentication data is recommended. | We recommend that you save user authentication data. |
 
-* Use gender-neutral pronouns: "they", "their". 
+* Use gender-neutral pronouns: "they", "their".
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | The user enters his password. | The user enters their password. |
 
-* Avoid gerunds in headings and main body. 
+* Avoid gerunds in headings and main body.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Saving User Authentication Data | Save User Authentication Data |
-| Setting up the authorization process requires an ID token and a valid access token. | To set up the authorization process, you need an ID token and a valid access token. | 
+| Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
 
-* Keep paragraphs short for internet reading. 
+* Keep paragraphs short for internet reading.
 * Provide only the information necessary to understand and perform the steps.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
-| In this way, setting up a session for the user on the client side is simply a matter of saving the `access_token`, `id_token`, and a time that the `access_token` expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, ID Token, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
 
-* When mentioning several elements, use bulleted lists. 
-* Subheads are not independent statements. Repeat the information from the subhead in the paragraph. 
+* When mentioning several elements, use bulleted lists.
+* Subheads are not independent statements. Repeat the information from the subhead in the paragraph.
 * Avoid abbreviations.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Don't hardcode paths in your application, e.g., the callback URL. | Don't hardcode paths in your application, for example, the callback URL. |
-| Save all the important credentials: the access token, the refresh token, etc. in a safe location. | Save all the important credentials, such as the access and refresh token, in a safe location. |
+| Save all the important credentials: the Access Token, the Refresh token, etc. in a safe location. | Save all the important credentials, such as the access and Refresh token, in a safe location. |
 
-* Avoid contractions. Use complete words to be more authoritative. 
+* Avoid contractions. Use complete words to be more authoritative.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Can't | Cannot |
 
 * Don't overuse adjectives. Never use more than two in a sentence.
-* Don't overuse adverbs. 
+* Don't overuse adverbs.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -64,21 +64,21 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 ## Punctuation
 
 * Use colons to introduce code or examples: "Install the dependencies using yarn: `code_snippet`"
-* Use hyphens between adjectives and the verbs they modify. Don't use a hyphen if the adjective ends with "ly". 
+* Use hyphens between adjectives and the verbs they modify. Don't use a hyphen if the adjective ends with "ly".
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | "an easy to remember rule" | "an easy-to-remember rule" |
 | "commonly-used adjectives" | "commonly used adjectives" |
 
-* When you are quoting something in a sentence, keep the punctuation inside the quotation marks. 
-* When you are quoting code, do not add any punctuation inside the quotation marks. 
+* When you are quoting something in a sentence, keep the punctuation inside the quotation marks.
+* When you are quoting code, do not add any punctuation inside the quotation marks.
 
 ## Formatting
 
 * Use title case for first-level headings: "Log In with a Social Identity"
 * Use sentence case for subheads: "About the login process"
-* Use **Bold** for UI elements, such as menu items and field names. 
+* Use **Bold** for UI elements, such as menu items and field names.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -90,17 +90,17 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Save the "idToken" value in your client properties. | Save the `idToken` value in your client properties. |
-| An `idToken` helps you identify the user. | An ID token helps you identify the user. |
+| An `idToken` helps you identify the user. | An ID Token helps you identify the user. |
 
-* The text of a link must include the title of the linked page. This helps the reader decide if they want to click on the link. 
+* The text of a link must include the title of the linked page. This helps the reader decide if they want to click on the link.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | You can read more about this feature [here](/rules). | Read more about this feature in the [Rules documentation](/rules). |
 
 * Use blockquotes only for quotes. Don't use them for component styles.
-* When you are referring to specific dates, abbreviate the following months: January (Jan.), February (Feb.), August (Aug.), September (Sept.), October (Oct.), November (Nov.), December (Dec.). 
-* When you are referring to a month alone or a month and a year, don't abbreviate the month. 
+* When you are referring to specific dates, abbreviate the following months: January (Jan.), February (Feb.), August (Aug.), September (Sept.), October (Oct.), November (Nov.), December (Dec.).
+* When you are referring to a month alone or a month and a year, don't abbreviate the month.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -110,10 +110,10 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Mar. 15 | March 15 |
 | 15 March 2048 | March 15, 2048 |
 
-* Spell out whole numbers from zero to nine. 
-* Write numerically numbers from 10 up and fractions. 
-* Spell out any number that starts a sentence. 
-* If one number follows another immediately, spell out the first number. 
+* Spell out whole numbers from zero to nine.
+* Write numerically numbers from 10 up and fractions.
+* Spell out any number that starts a sentence.
+* If one number follows another immediately, spell out the first number.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -129,9 +129,9 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Vocabulary
 
-* If an action is required, use "must". 
-* If an action is available, use "can". 
-* If an action is optional, use "may". 
+* If an action is required, use "must".
+* If an action is available, use "can".
+* If an action is optional, use "may".
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -139,8 +139,8 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | You might want to use scopes to limit access to your resources. | To limit access to your resources, use scopes. |
 | Creating more access roles is possible. | You may want to create more access roles. |
 
-* Use "log in" and "log out" as verbs. Do not use "log into". 
-* Use "login" and "logout" as nouns. Do not use "login to". 
+* Use "log in" and "log out" as verbs. Do not use "log into".
+* Use "login" and "logout" as nouns. Do not use "login to".
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -156,7 +156,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. |
 
 * Use "multifactor authentication" instead of "multi-factor authentication".
-* Use "email address" instead of "e-mail address". 
+* Use "email address" instead of "e-mail address".
 * Use "website" instead of "web site".
 * Use "click on" when referring to text links in a webpage or UI. Use "click" when referring to a button.
 
@@ -166,7 +166,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Click  **Go to Settings** at the bottom of the page to access the settings section. | Click on **Go to Settings** at the bottom of the page to access the settings section. |
 
 * Depending on the situation, the reader can "gain access", "grant access", or "allow access".
-* Refer to the developer's customer as the "user". 
+* Refer to the developer's customer as the "user".
 * If you need to use the name of a fictional company, use "ExampleCo".
 * When you use a group of nouns as an adjective, use a hyphen.
 
@@ -176,13 +176,13 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | The run-time engine must be running to execute the application.  | The runtime engine must be running to execute the application. |
 | Write code for the client-side. | Write code for the client side. |
 | Write the client side code. | Write the client-side code. |
-| Save the logged in user's access token. | Save the logged-in user's access token. |
+| Save the logged in user's Access Token. | Save the logged-in user's Access Token. |
 
 ### The dashboard
 
 * Dashboard: the [Auth0 management console](${manage_url})
-* The dashboard elements are called "section", "tab", "field". 
-* Dashboard-related terminology: 
+* The dashboard elements are called "section", "tab", "field".
+* Dashboard-related terminology:
 ![](/media/readme/structure.png)
 
 ### The application

@@ -31,11 +31,11 @@ function auth0_theme_hook_auth0_before_login( $user ) {
 	wp_die( 'Login process started!' );
 }
 add_action( 'auth0_before_login', 'auth0_theme_hook_auth0_before_login', 10, 1 );
-``` 
+```
 
-### auth0_user_login 
+### auth0_user_login
 
-This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully and logged into WordPress. It can be used to set specific meta values, send notifications, or ping other services. 
+This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully and logged into WordPress. It can be used to set specific meta values, send notifications, or ping other services.
 
 **Example:**
 
@@ -49,9 +49,9 @@ This action runs in `WP_Auth0_LoginManager` after a user has been authenticated 
  * @param integer  $user_id       - WordPress user ID for logged-in user
  * @param stdClass $userinfo      - user information object from Auth0
  * @param boolean  $is_new        - true if the user was created in WordPress, false if not
- * @param string   $id_token      - ID token for the user from Auth0
- * @param string   $access_token  - bearer access token from Auth0 (not used in implicit flow)
- * @param string   $refresh_token - refresh token from Auth0 (not used in implicit flow)
+ * @param string   $id_token      - ID Token for the user from Auth0
+ * @param string   $access_token  - Bearer Access Token from Auth0 (not used in implicit flow)
+ * @param string   $refresh_token - Refresh Token from Auth0 (not used in implicit flow)
  */
 function auth0_theme_hook_auth0_user_login( $user_id, $userinfo, $is_new, $id_token, $access_token, $refresh_token ) {
 	echo '<strong>WP user ID</strong>:<br>' . $user_id . '<hr>';
@@ -63,11 +63,11 @@ function auth0_theme_hook_auth0_user_login( $user_id, $userinfo, $is_new, $id_to
 	wp_die( 'Login successful! <a href="' . home_url() . '">Home</a>' );
 }
 add_action( 'auth0_user_login', 'auth0_theme_hook_auth0_user_login', 10, 6 );
-``` 
+```
 
-### wpa0_user_created 
+### wpa0_user_created
 
-This action runs in `WP_Auth0_Users` just after a WordPress user is successfully created. It can be used to change user values, set additional user metas, or trigger other new user actions. 
+This action runs in `WP_Auth0_Users` just after a WordPress user is successfully created. It can be used to change user values, set additional user metas, or trigger other new user actions.
 
 **Example:**
 
@@ -128,7 +128,7 @@ add_filter( 'auth0_get_wp_user', 'auth0_theme_hook_auth0_get_wp_user', 1, 2 );
 
 ### auth0_verify_email_page
 
-This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a user who is logging in needs to verify their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified before being displayed (see the `_default_wp_die_handler()` definition in core for more information). 
+This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a user who is logging in needs to verify their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified before being displayed (see the `_default_wp_die_handler()` definition in core for more information).
 
 **Example:**
 
@@ -154,7 +154,7 @@ add_filter( 'auth0_verify_email_page', 'auth0_theme_hook_auth0_verify_email_page
 
 ### auth0_get_auto_login_connection
 
-This filter is used in `WP_Auth0_LoginManager` to modify what connection is used for the auto-login process. The setting in wp-admin is pulled and then passed through this filter. 
+This filter is used in `WP_Auth0_LoginManager` to modify what connection is used for the auto-login process. The setting in wp-admin is pulled and then passed through this filter.
 
 **Example:**
 
@@ -196,7 +196,7 @@ add_filter( 'wp_auth0_get_option', 'auth0_theme_hook_wp_auth0_get_option', 10, 2
 
 ### auth0_migration_ws_authenticated
 
-This filter is used in `WP_Auth0_Routes` to alter the WP_User object that is JSON-encoded and returned to Auth0 during a user migration. 
+This filter is used in `WP_Auth0_Routes` to alter the WP_User object that is JSON-encoded and returned to Auth0 during a user migration.
 
 **Example:**
 
@@ -217,8 +217,8 @@ function auth0_theme_hook_auth0_migration_ws_authenticated( $user ) {
 
 ### wpa0_should_create_user
 
-This filter is used in `WP_Auth0_Users` when deciding whether a user should be created. The initial value passed in 
-is `TRUE`. If `FALSE` is returned for any reason, registration will be rejected and the registering user will see an 
+This filter is used in `WP_Auth0_Users` when deciding whether a user should be created. The initial value passed in
+is `TRUE`. If `FALSE` is returned for any reason, registration will be rejected and the registering user will see an
 error message (see `WP_Auth0_UsersRepo::create()`).
 
 **Example:**
@@ -226,7 +226,7 @@ error message (see `WP_Auth0_UsersRepo::create()`).
 ```php
 /**
  * Should a new user be created?
- * 
+ *
  * @param bool     $should_create - should the user be created, initialized as TRUE
  * @param stdClass $userinfo      - Auth0 user information
  *
@@ -241,7 +241,7 @@ add_filter( 'wpa0_should_create_user', 'auth0_theme_hook_wpa0_should_create_user
 
 ### auth0_login_css
 
-This filter is used to modify the CSS on the login page, including the login widget itself. This filter runs before 
+This filter is used to modify the CSS on the login page, including the login widget itself. This filter runs before
 CSS is retrieved from the wp-admin settings page.
 
 **Example:**
@@ -256,7 +256,7 @@ CSS is retrieved from the wp-admin settings page.
  */
 function auth0_theme_hook_auth0_login_css( $css ) {
 	$css .= '
-		body {background: radial-gradient(#01B48F, #16214D)} 
+		body {background: radial-gradient(#01B48F, #16214D)}
 		#login h1 {display: none}
 		.login form.auth0-lock-widget {box-shadow: none}
 	';
@@ -267,7 +267,7 @@ add_filter( 'auth0_login_css', 'auth0_theme_hook_auth0_login_css' );
 
 ### auth0_login_form_tpl
 
-Filters the template used for the Auth0 login form. This should return a path to a file containing HTML that replaces what is in `wp-content/plugins/auth0/templates/auth0-login-form.php`. The standard Lock initiation JS looks for an ID attribute of `auth0-login-form` to instantiate the login form so make sure that's present or replace the `wp-content/plugins/auth0/assets/js/lock-init.js` file with your own. 
+Filters the template used for the Auth0 login form. This should return a path to a file containing HTML that replaces what is in `wp-content/plugins/auth0/templates/auth0-login-form.php`. The standard Lock initiation JS looks for an ID attribute of `auth0-login-form` to instantiate the login form so make sure that's present or replace the `wp-content/plugins/auth0/assets/js/lock-init.js` file with your own.
 
 ```php
 /**
@@ -287,7 +287,7 @@ add_filter( 'auth0_login_form_tpl', 'auth0_theme_hook_auth0_login_form_tpl', 10,
 
 ### auth0_settings_fields
 
-This filter is used to modify an existing form field or to add a new one. This should return a modified `$options` array with your changes or additions. New fields must have a field callback, as shown below. 
+This filter is used to modify an existing form field or to add a new one. This should return a modified `$options` array with your changes or additions. New fields must have a field callback, as shown below.
 
 ```php
 /**
@@ -342,18 +342,18 @@ function auth0_theme_render_custom_basic_opt_name( $args ) {
 
 ### auth0_auth_scope
 
-This filter allows developers to add or change the scope requested during login. This can be used to add [custom claims](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims) or request a refresh token. 
+This filter allows developers to add or change the scope requested during login. This can be used to add [custom claims](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims) or request a Refresh Token.
 
 ```php
 /**
- * Add or modify requested access token scopes during login.
+ * Add or modify requested Access Token scopes during login.
  *
  * @param array $scopes - current array of scopes to add/delete/modify
  *
  * @return array
  */
 function auth0_theme_hook_auth0_auth_scope( $scopes ) {
-	// Add offline_access to include a refresh token.
+	// Add offline_access to include a Refresh Token.
 	// See auth0_theme_hook_auth0_user_login() for how this token can be used.
 	$scopes[] = 'offline_access';
 	return $scopes;
@@ -363,7 +363,7 @@ add_filter( 'auth0_auth_scope', 'auth0_theme_hook_auth0_auth_scope' );
 
 ## Additional Extensions
 
-Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php). 
+Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php).
 
 
 ## Keep Reading

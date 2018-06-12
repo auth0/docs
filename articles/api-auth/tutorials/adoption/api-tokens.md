@@ -1,4 +1,4 @@
----
+ID Token---
 title: Calling your APIs with Auth0 tokens
 description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
 ---
@@ -6,7 +6,7 @@ description: The OIDC-conformant pipeline and how this affects your use of Auth0
 
 <%= include('./_about.md') %>
 
-With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
+With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID Tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
 
 ## OIDC-conformant pipeline and tokens
 
@@ -81,13 +81,13 @@ With the OIDC-conformant pipeline, the **scope** parameter [behaves differently]
 The scope parameter in the OIDC-conformant pipeline determines:
 
 * The permissions that an authorized application should have for a given resource server
-* Which standard profile claims should be included in the ID token (if the user consents to provide this information to the application)
+* Which standard profile claims should be included in the ID Token (if the user consents to provide this information to the application)
 
 If you have multiple apps calling an API under a single client ID, you should represent each application with a single Auth0 application, each of which can interact with the resource server representing the API on which these apps depend.
 
 Similarly, if you use [delegation to exchange tokens obtained by one application for tokens for a different application](/tokens/delegation), you should also be using a multi-application solution, each authenticating to the same resource server.
 
-If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID tokens are:
+If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID Tokens are:
 
 * Processed only by the application
 * Not sent to any external services

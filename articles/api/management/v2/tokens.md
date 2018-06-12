@@ -118,7 +118,7 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
+From the above we can see that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
 ### 2. Use the Token
 
@@ -224,7 +224,7 @@ __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period. 
+You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period.
 Note that deleting the application grant will prevent *new tokens* from being issued to the application. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 application using the dashboard](${manage_url}/#/apis/management/authorized-applications).
 
 __My Client Secret was compromised! What should I do?__</br>

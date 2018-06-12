@@ -1,7 +1,7 @@
 # Get Token
 
 Use this endpoint to:
-- Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+- Get an Access Token in order to call an API. You can, optionally, retrieve an ID Token and a Refresh Token as well.
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
@@ -260,7 +260,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an Access Token by using the Client Credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 

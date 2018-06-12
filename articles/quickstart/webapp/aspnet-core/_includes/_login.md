@@ -9,11 +9,11 @@ You can also create a custom login for prompting the user for their username and
 ## Configure OpenID Connect Middleware
 
 To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
-Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method. 
+Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method.
 
 Next, configure the OIDC authentication handler. Add a call to `AddOpenIdConnect`. To configure the authentication scheme, pass "Auth0" as the `authenticationScheme` parameter. You will use this value later to challenge the OIDC middleware.
 
-Configure other parameters, such as `ClientId`, `ClientSecret` or `ResponseType`. 
+Configure other parameters, such as `ClientId`, `ClientSecret` or `ResponseType`.
 
 By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/v2/04-user-profile).
 
@@ -55,8 +55,8 @@ public void ConfigureServices(IServiceCollection services)
         options.Scope.Clear();
         options.Scope.Add("openid");
 
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
-        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
+        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
         options.CallbackPath = new PathString("/signin-auth0");
 
         // Configure the Claims Issuer to be Auth0
@@ -64,7 +64,7 @@ public void ConfigureServices(IServiceCollection services)
 
         options.Events = new OpenIdConnectEvents
         {
-            // handle the logout redirection 
+            // handle the logout redirection
             OnRedirectToIdentityProviderForSignOut = (context) =>
             {
                 var logoutUri = $"https://{Configuration["Auth0:Domain"]}/v2/logout?client_id={Configuration["Auth0:ClientId"]}";
@@ -166,15 +166,15 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Add the `Login` and `Logout` Methods
 
-Add the `Login` and `Logout` actions to `AccountController`. 
+Add the `Login` and `Logout` actions to `AccountController`.
 
 To add the `Login` action, call `ChallengeAsync` and pass "Auth0" as the authentication scheme. This will invoke the OIDC authentication handler you registered in the `ConfigureServices` method.
 
-After the OIDC middleware signs the user in, the user is also automatically signed in to the cookie middleware. This allows the user to be authenticated on subsequent requests. 
+After the OIDC middleware signs the user in, the user is also automatically signed in to the cookie middleware. This allows the user to be authenticated on subsequent requests.
 
 For the `Logout` action, you need to sign the user out of both middlewares.
 
-The `RedirectUri` passed in both instances indicates where the user is redirected after they log in or fail to log in. 
+The `RedirectUri` passed in both instances indicates where the user is redirected after they log in or fail to log in.
 
 ```cs
 // Controllers/AccountController.cs
@@ -195,7 +195,7 @@ public class AccountController : Controller
         await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties
         {
             // Indicate here where Auth0 should redirect the user after a logout.
-            // Note that the resulting absolute Uri must be whitelisted in the 
+            // Note that the resulting absolute Uri must be whitelisted in the
             // **Allowed Logout URLs** settings for the app.
             RedirectUri = Url.Action("Index", "Home")
         });
@@ -231,7 +231,7 @@ public void ConfigureServices(IServiceCollection services)
 
         options.Events = new OpenIdConnectEvents
         {
-            // handle the logout redirection 
+            // handle the logout redirection
             OnRedirectToIdentityProviderForSignOut = (context) =>
             {
                 var logoutUri = $"https://{Configuration["Auth0:Domain"]}/v2/logout?client_id={Configuration["Auth0:ClientId"]}";
@@ -297,15 +297,15 @@ Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views
 
 ## Run the Application
 
-When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain. 
+When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
 
 ### About the login flow
 
-1. The user clicks on the **Log In** button and is directed to the `Login` route. 
+1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
 3. The OIDC handler redirects the user to the Auth0 `/authorize` endpoint, which displays the Lock widget. The user can log in with their username and password, social provider or any other identity provider.
 4. Once the user has logged in, Auth0 calls back to the `/signin-auth0` endpoint in your application and passes along an authorization code.
-5. The OIDC handler intercepts requests made to the `/signin-auth0` path. 
+5. The OIDC handler intercepts requests made to the `/signin-auth0` path.
 6. The handler looks for the authorization code, which Auth0 sent in the query string.
 7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and Access Tokens.
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
@@ -341,7 +341,7 @@ public void ConfigureServices(IServiceCollection services)
 
         options.Events = new OpenIdConnectEvents
         {
-            // handle the logout redirection 
+            // handle the logout redirection
             OnRedirectToIdentityProviderForSignOut = (context) =>
             {
                 //...
@@ -361,8 +361,8 @@ if (User.Identity.IsAuthenticated)
     string accessToken = await HttpContext.GetTokenAsync("access_token");
     string idToken = await HttpContext.GetTokenAsync("id_token");
 
-    // Now you can use them. For more info on when and how to use the 
-    // access_token and id_token, see https://auth0.com/docs/tokens
+    // Now you can use them. For more info on when and how to use the
+    // Access Token and ID Token, see https://auth0.com/docs/tokens
 }
 ```
 
