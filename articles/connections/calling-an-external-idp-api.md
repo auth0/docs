@@ -63,7 +63,7 @@ To do so, go to the [Test tab](${manage_url}/#/apis/management/test). There you 
 
 Pick your application using the dropdown at the top, and choose your language of preference for the snippet.
 
-Copy and run the snippet. Extract the Access Token property from the response. This is what you will use to access the Management API.
+Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
 
 ::: panel More info on the snippets
 The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
