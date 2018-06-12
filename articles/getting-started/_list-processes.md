@@ -25,7 +25,7 @@
 <% } else if (screen === "mfa") { %>
   Use this page to configure Multifactor Authentication (MFA) for your apps. This way you can add an additional factor to conventional logins to prevent unauthorized access. You can use Push Notifications, SMS or both. [More info on MFA](/multifactor-authentication).
 <% } else if (screen === "hlp") { %>
-  Here you can create a login page where you can redirect to authenticate your users. The page can be customized with HTML and CSS and will be hosted by Auth0. By using centralized authentication, your app will be more secure and you will be able to implement SSO very easily. Except for the login, you can also add pages for the Password Reset process, MFA, and error pages. [More info on Hosted Pages](/hosted-pages).
+  Here you can create a login page where you can redirect to authenticate your users. The page can be customized with HTML and CSS and will be hosted by Auth0. By using centralized authentication, your app will be more secure and you will be able to implement SSO very easily. Other than the login, you can also add pages for the Password Reset process, MFA, and error pages. [More info on Hosted Pages](/hosted-pages).
 <% } else if (screen === "emails") { %>
   Here you can configure the email templates for verification emails, welcome emails, change password emails, and more. You can also configure a custom SMTP email provider which is a requirement for production purposes. Auth0 does offer a built-in email infrastructure but it should be used for testing purposes only. [More info on emails](/email).
 <% } else if (screen === "logs") { %>
