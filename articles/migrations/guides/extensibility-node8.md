@@ -53,7 +53,9 @@ Changing the runtime may break your existing Rules, Hooks, and Custom Database/S
 
 ## Whitelist the new URLs
 
-When you upgrade to Node 8, the URLs you use to access our extensions, change. The change is an `8` that is appened before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
+When you upgrade to Node 8, the URLs you use to access extensions and custom webtasks will change. The change is an `8` that is appended before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
+
+NOTE: The execution URLs will also change for custom webtasks in your Auth0 container. You will also need to update any external applications that call those webtasks.
 
 This is a breaking change for some extensions, that require whitelisting the URLs in order to properly work.
 
