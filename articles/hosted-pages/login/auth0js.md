@@ -1,5 +1,6 @@
 ---
-description: How to Use the Auth0.js with the Hosted Login Page 
+description: How to Use the Auth0.js with the Hosted Login Page
+toc: true
 ---
 # Using Auth0.js in the Hosted Login Page
 
