@@ -9,5 +9,5 @@ If the phone number matches an existing user, Auth0 just authenticates the user:
 ![](/media/articles/connections/passwordless/passwordless-authenticated-flow.png)
 
 <% if (isMobile) { %>
-On mobile platforms, your application will receive an `id_token`, the user profile and, optionally, a Refresh Token.
+On mobile platforms, your application will receive an ID Token, the user profile and, optionally, a Refresh Token.
 <% } %>

@@ -96,10 +96,10 @@ You need to pass the following configuration values:
 
 - __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
 - __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Application at the [Dashboard](${manage_url}/#/applications}).
-- __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an Access Token in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
+- __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part triggers the flow to return an Access Token in the URL fragment, while the `id_token` part triggers the flow to return an ID Token as well.
 - __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url}/#/apis}) at the Dashboard.
 - __redirectUri__: The URL to which Auth0 should redirect to after the user has authenticated.
-- __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and Access Token. A scope of `openid profile` will return all the user profile information in the `id_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the Access Token has these scopes.
+- __scope__: The [scopes](/scopes) which determine the information to be returned in the ID Token and Access Token. A scope of `openid profile` will return all the user profile information in the ID Token. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the Access Token has these scopes.
 
 To initiate the authentication flow you can call the `authorize()` method:
 
@@ -111,7 +111,7 @@ After the authentication, Auth0 will redirect back to the __redirectUri__ you sp
 
 The contents of the authResult object returned by parseHash depend upon which authentication parameters were used. It may include the following:
 
-- __idToken__: An `id_token` JWT containing user profile information
+- __idToken__: An ID Token JWT containing user profile information
 - __accessToken__: An Access Token for the API, specified by the __audience__.
 - __expiresIn__: A string containing the expiration time (in seconds) of the Access Token.
 
@@ -137,7 +137,7 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 ### Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). To avoid this API call, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). If you need additional user information consider using [our Management API](/api/management/v2#!/Users/get_users_by_id) from your backend.
+This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). To avoid this API call, you can just decode the ID Token [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). If you need additional user information consider using [our Management API](/api/management/v2#!/Users/get_users_by_id) from your backend.
 :::
 
 The `client.userInfo` method can be called passing the returned `authResult.accessToken` in order to retrieve the user's profile information.  It will make a request to the [/userinfo endpoint](/api/authentication#get-user-info) and return the `user` object, which contains the user's information, similar to the example below:

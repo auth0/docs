@@ -109,7 +109,7 @@ The response from `/oauth/token` contains `access_token`, `expires_in`, `id_toke
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the `id_token` in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+The `token_type` will be set to **Bearer** and the ID Token will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the  in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
 
 You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 
@@ -178,7 +178,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `code` for an ID Token. This is an example of the decoded payload of the `id_token` which will be returned:
+You can then exchange the `code` for an ID Token. This is an example of the decoded payload of the  which will be returned:
 
 ```json
 {
@@ -208,7 +208,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `code` for an ID Token. The profile attributes of the user, such as the name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
+You can then exchange the `code` for an ID Token. The profile attributes of the user, such as the name and profile picture will be available in the `name` and `picture` claims of the returned :
 
 ```json
 {

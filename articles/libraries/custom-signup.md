@@ -63,7 +63,7 @@ There is currently no way to validate user-supplied custom fields when signing u
 
 ### 2. Send the Form Data
 
-Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0. 
+Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0.
 
 You will need to send:
 - Your application's `client_id`
@@ -98,7 +98,7 @@ When your users sign up, the custom fields are sent as part of `user_metadata`. 
 
 ## Redirect mode
 
-After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
+After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (ID Token) in the query string.
 
 ::: note
 To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).

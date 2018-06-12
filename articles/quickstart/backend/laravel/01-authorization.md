@@ -202,7 +202,7 @@ Route::get('/public', function (Request $request) {
 });
 
 Route::get('/private', function (Request $request) {
-    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid Access Token to see this."]);
 })->middleware('jwt');
 ```
 
@@ -313,7 +313,7 @@ Apply the `check.scope` middleware to the route you want to protect.
 
 Route::get('/private-scoped', function (Request $request) {
     return response()->json([
-        "message" => "Hello from a private endpoint! You need to have a valid access token and a scope of read:messages to see this."
+        "message" => "Hello from a private endpoint! You need to have a valid Access Token and a scope of read:messages to see this."
     ]);
 })->middleware('check.scope:read:messages');
 ```

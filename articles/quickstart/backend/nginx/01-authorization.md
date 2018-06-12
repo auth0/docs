@@ -63,7 +63,7 @@ Click [here](https://github.com/auth0/nginx-jwt#usage) for more usage examples.
 
 ## Call Your API
 
-You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT ID Token.
 
 ```har
 {

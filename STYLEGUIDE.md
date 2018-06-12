@@ -26,7 +26,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Saving User Authentication Data | Save User Authentication Data |
-| Setting up the authorization process requires an ID token and a valid access token. | To set up the authorization process, you need an ID token and a valid access token. |
+| Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
 
@@ -36,7 +36,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
-| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, `id_token`, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, ID Token, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
 
 * When mentioning several elements, use bulleted lists.
 * Subheads are not independent statements. Repeat the information from the subhead in the paragraph.
@@ -45,7 +45,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Don't hardcode paths in your application, e.g., the callback URL. | Don't hardcode paths in your application, for example, the callback URL. |
-| Save all the important credentials: the access token, the refresh token, etc. in a safe location. | Save all the important credentials, such as the access and refresh token, in a safe location. |
+| Save all the important credentials: the Access Token, the Refresh token, etc. in a safe location. | Save all the important credentials, such as the access and Refresh token, in a safe location. |
 
 * Avoid contractions. Use complete words to be more authoritative.
 
@@ -90,7 +90,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Save the "idToken" value in your client properties. | Save the `idToken` value in your client properties. |
-| An `idToken` helps you identify the user. | An ID token helps you identify the user. |
+| An `idToken` helps you identify the user. | An ID Token helps you identify the user. |
 
 * The text of a link must include the title of the linked page. This helps the reader decide if they want to click on the link.
 
@@ -176,7 +176,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | The run-time engine must be running to execute the application.  | The runtime engine must be running to execute the application. |
 | Write code for the client-side. | Write code for the client side. |
 | Write the client side code. | Write the client-side code. |
-| Save the logged in user's access token. | Save the logged-in user's access token. |
+| Save the logged in user's Access Token. | Save the logged-in user's Access Token. |
 
 ### The dashboard
 

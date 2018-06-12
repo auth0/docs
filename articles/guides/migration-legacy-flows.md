@@ -120,7 +120,7 @@ Another approach to get the full user profile is to use the [Management API](/ap
 
 ## User Profile with Management API
 
-In the legacy flows, the [Management API](/api/management/v2) supported authentication with an `id_token`. This approach has been deprecated, and now you need to call it with an Access Token.
+In the legacy flows, the [Management API](/api/management/v2) supported authentication with an ID Token. This approach has been deprecated, and now you need to call it with an Access Token.
 
 To get an Access Token, you need to ask Auth0 for one using the `https://${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
 

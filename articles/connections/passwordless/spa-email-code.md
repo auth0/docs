@@ -56,7 +56,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will authenticate them and call the callback function where the ID Token and profile will be available.
 
 ### Use your own UI
 
@@ -70,7 +70,7 @@ You can perform passwordless authentication in your SPA with your own custom UI 
 
 <%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 
-Be sure to provide a `redirectUri` and to set the `responseType: 'token'`. 
+Be sure to provide a `redirectUri` and to set the `responseType: 'token'`.
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 

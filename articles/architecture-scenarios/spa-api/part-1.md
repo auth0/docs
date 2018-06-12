@@ -17,7 +17,7 @@ The SPA will use the OAuth 2.0 [Implicit Grant](/api-auth/grant/implicit) to do 
 
 The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the application receives an Access Token directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the Authorization Code Grant).
 
-Once the user authenticates, the application receives the `id_token` and Access Token in the hash fragment of the URI. The application can now use the `id_token` to obtain information about the user, and Access Token to call the API on behalf of the user.
+Once the user authenticates, the application receives the ID Token and Access Token in the hash fragment of the URI. The application can now use the ID Token to obtain information about the user, and Access Token to call the API on behalf of the user.
 
 ![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
@@ -25,7 +25,7 @@ Once the user authenticates, the application receives the `id_token` and Access 
 
 1. Auth0 authenticates the user. The first time the user goes through this flow, and if the application is a third party application, a consent page will be shown where the permissions, that will be given to the Client, are listed (for example, post messages, list contacts, and so forth).
 
-1. Auth0 redirects the user to the app with an Access Token (and optionally an `id_token`) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
+1. Auth0 redirects the user to the app with an Access Token (and optionally an ID Token) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
 
 1. The app can use the Access Token to call the API on behalf of the user.
 
