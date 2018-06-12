@@ -36,7 +36,7 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
       var accessToken = context.ProtocolMessage.AccessToken;
       if (!string.IsNullOrEmpty(accessToken))
       {
-        context.AuthenticationTicket.Identity.AddClaim(new Claim("Access Token", accessToken));
+        context.AuthenticationTicket.Identity.AddClaim(new Claim("access_token", accessToken));
       }
 
       return Task.FromResult(0);
