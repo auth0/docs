@@ -17,6 +17,8 @@ Choose `Lock Passwordless` to get started.
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock-passwordless.png)
 
+<%= include('./_custom-domains') %>
+
 ## Next Steps
 
 Are you looking for more information about Lock? Or are you ready to get started with your own login page?

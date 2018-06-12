@@ -101,7 +101,7 @@ protected String login(final HttpServletRequest req) {
 }
 ```
 
-After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *id_token* and set it to the `SecurityContextHolder`. You can modify this class to accept *access_token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
+After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *id_token* and set it to the `SecurityContextHolder`. You can modify this class to accept *Access Token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
 
 ```java
 @RequestMapping(value = "/callback", method = RequestMethod.GET)

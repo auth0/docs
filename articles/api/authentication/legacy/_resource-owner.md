@@ -68,7 +68,7 @@ request(options, function (error, response, body) {
 This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
+Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the Access Token and an `id_token`.
 
 ### Request Parameters
 

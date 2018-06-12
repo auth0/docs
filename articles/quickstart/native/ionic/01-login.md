@@ -30,7 +30,7 @@ angular.module('yourApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    
+
     // ...
     function handleUrl(url) {
       Auth0Cordova.onRedirectUri(url);
@@ -85,7 +85,7 @@ angular.module('starter.services', [])
     var expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
     return Date.now() < expiresAt;
   }
-  
+
   function getProfile(cb) {
     var accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
@@ -169,7 +169,7 @@ The `Auth` service is now accessible in the view and its `login` method can be c
 </button>
 ```
 
-The **Log In** button is only displayed if the user has an unexpired `access_token` in local storage which is the indication that they are authenticated. The **Log Out** button is only displayed if the user isn't authenticated. 
+The **Log In** button is only displayed if the user has an unexpired Access Token in local storage which is the indication that they are authenticated. The **Log Out** button is only displayed if the user isn't authenticated.
 
 ## Display Profile Data
 
@@ -190,7 +190,7 @@ angular.module('starter.controllers', [])
     if (Auth.userProfile) {
       $scope.profile = Auth.userProfile;
     } else {
-      
+
       Auth.getProfile(function(err, profile) {
         if (err) {
           return alert(err);
