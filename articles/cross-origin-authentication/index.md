@@ -104,7 +104,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr>
       <td>Windows</td>
       <td>Firefox</td>
-      <td class="success text-center">Yes</td>
+      <td class="danger text-center">No</td>
     </tr>
     <tr>
       <td>Windows</td>
@@ -124,7 +124,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr>
       <td>macOS</td>
       <td>Firefox</td>
-      <td class="success text-center">Yes</td>
+      <td class="danger text-center">No</td>
     </tr>
     <tr>
       <td>macOS</td>
@@ -169,7 +169,7 @@ This table lists which browsers can use cross-origin authentication when third-p
     <tr>
       <td>Android Galaxy S7</td>
       <td>Firefox</td>
-      <td class="success text-center">Yes</td>
+      <td class="danger text-center">No</td>
     </tr>    
   </tbody>
 </table>
