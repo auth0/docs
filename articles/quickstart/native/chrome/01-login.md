@@ -193,7 +193,7 @@ function main () {
 document.addEventListener('DOMContentLoaded', main);
 ```
 
-Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's `access_token` is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
+Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's Access Token is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
 
 The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's `id_token` is unexpired, or the default view if it is expired.
 

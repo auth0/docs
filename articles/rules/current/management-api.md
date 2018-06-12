@@ -26,5 +26,5 @@ function (user, context, callback) {
 ```
 
 ::: note
-The `access_token` for the Management API which is available through `auth0.accessToken` is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes you can [request a token using Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
+The Access Token for the Management API which is available through `auth0.accessToken` is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes you can [request a token using Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
 :::

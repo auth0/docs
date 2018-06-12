@@ -102,7 +102,7 @@ It is important to understand that the Authorization Code flow should only be us
 
 ## 3. Call the API
 
-Once the `access_token` has been obtained it can be used to make calls to the API by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once the Access Token has been obtained it can be used to make calls to the API by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -117,7 +117,7 @@ Once the `access_token` has been obtained it can be used to make calls to the AP
 
 ## 4. Verify the Token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 

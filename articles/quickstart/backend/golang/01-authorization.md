@@ -33,7 +33,7 @@ go get "github.com/gorilla/mux"
 
 ## Configuration
 
-Setup **go-jwt-middleware** middleware to verify `access_token` from incoming requests.
+Setup **go-jwt-middleware** middleware to verify Access Token from incoming requests.
 
 ```go
 // main.go
@@ -157,7 +157,7 @@ func main() {
         responseJSON(message, w, http.StatusOK)
     }))
 
-    // This route is only accessible if the user has a valid access_token
+    // This route is only accessible if the user has a valid Access Token
     // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
     // for a valid token.
     r.Handle("/api/private", negroni.New(
@@ -185,13 +185,13 @@ func responseJSON(message string, w http.ResponseWriter, statusCode int) {
 
 ## Configuring Scopes
 
-The `go-jwt-middleware` middleware above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `go-jwt-middleware` middleware above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
+Scopes provide a way for you to define which resources should be accessible by the user holding a given Access Token. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
 
 To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
-Let's create a function to check and ensure the `access_token` has the correct scope before returning a successful response.
+Let's create a function to check and ensure the Access Token has the correct scope before returning a successful response.
 
 ```go
 // main.go
@@ -227,7 +227,7 @@ func main() {
 
     // ...
 
-    // This route is only accessible if the user has a valid access_token with the read:messages scope
+    // This route is only accessible if the user has a valid Access Token with the read:messages scope
     // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
     // for a valid token and and scope.
     r.Handle("/api/private-scoped", negroni.New(

@@ -90,7 +90,7 @@ When adding custom claims to ID or Access Tokens, they must [conform to a namesp
 
 Suppose that:
 
-* The identity provider returns a `favorite_color` claim as part of the user's profile 
+* The identity provider returns a `favorite_color` claim as part of the user's profile
 * We've used the Auth0 Management API to set application-specific information for this user
 * We've saved the `preferred_contact` information as part of the `user_metadata`
 
@@ -108,9 +108,9 @@ This would be the profile stored by Auth0:
 }
 ```
 
-In order to add these claims to the `id_token`, we need to create a [rule](/rules) to: 
+In order to add these claims to the `id_token`, we need to create a [rule](/rules) to:
 
-* Customize the token 
+* Customize the token
 * Add these claims using namespaced format in the rule
 
 Sample Rule:
@@ -124,10 +124,10 @@ function (user, context, callback) {
 }
 ```
 
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. 
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used.
 
-::: warning 
-`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier. 
+::: warning
+`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
 :::
 
 The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
@@ -157,13 +157,13 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-Note the differences between the two examples. In the latest, we want to get an `access_token`, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
+Note the differences between the two examples. In the latest, we want to get an Access Token, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
 
 - `audience`: New parameter added for this example. Its value is the unique identifier of the API we want to get access to.
 
 - `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
 
-- `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an `access_token` as well, not only an `id_token`. The `access_token` will be sent to the API as credentials.
+- `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an `id_token`. The Access Token will be sent to the API as credentials.
 
 ### Define Scopes Using the Dashboard
 
@@ -190,4 +190,4 @@ An application can request any scope and the user will be prompted to approve th
 
 You can make use of the [Authorization Extension](/extensions/authorization-extension) in conjunction with a custom [Rule](/rules) to ensure that scopes are granted based on the permissions of a user.
 
-This approach is discussed in more depth in some of our [Architecture Scenarios](/architecture-scenarios). Specifically, you can review the entire [Configure the Authorization Extension](/architecture-scenarios/application/spa-api/part-2#configure-the-authorization-extension) section of our SPA+API Architecture Scenario which demonstrates how to configure the Authorization Extension, and also create a custom Rule which will ensure scopes are granted based on the permissions of a user. 
+This approach is discussed in more depth in some of our [Architecture Scenarios](/architecture-scenarios). Specifically, you can review the entire [Configure the Authorization Extension](/architecture-scenarios/application/spa-api/part-2#configure-the-authorization-extension) section of our SPA+API Architecture Scenario which demonstrates how to configure the Authorization Extension, and also create a custom Rule which will ensure scopes are granted based on the permissions of a user.

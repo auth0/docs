@@ -145,7 +145,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 ```
 
 ::: note
-You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
+You can use the Access Token to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
 ## The ID Token

@@ -27,9 +27,9 @@ With PKCE, the application creates, for every authorization request, a cryptogra
 
  3. The native app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0. This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-).
 
- 4. Auth0 validates this information and returns an `access_token` (and optionally a `refresh_token`).
+ 4. Auth0 validates this information and returns an Access Token (and optionally a `refresh_token`).
 
- 5. The native app can use the `access_token` to call the API on behalf of the user.
+ 5. The native app can use the Access Token to call the API on behalf of the user.
 
 ::: note
 In OAuth 2.0 terms, the native app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.

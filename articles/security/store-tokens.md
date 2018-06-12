@@ -1,5 +1,5 @@
 ---
-description: Explains how to securely store tokens used in token-based authentication. 
+description: Explains how to securely store tokens used in token-based authentication.
 ---
 # Where to Store Tokens
 
@@ -18,9 +18,9 @@ With token-based authentication, you are given the choice of where to store the 
 
 ### Web Storage (local storage/session storage)
 
-Commonly, the JWT is placed in the browsers local storage and this works well for most use cases. 
+Commonly, the JWT is placed in the browsers local storage and this works well for most use cases.
 
-When logging in a user with a username and password, the response body contains the `access_token` JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
+When logging in a user with a username and password, the response body contains the Access Token JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
 
 [Click here for an example using sessionStorage](https://github.com/auth0-blog/angular-token-auth/blob/master/auth.client.js#L31)
 
@@ -61,7 +61,7 @@ This video will show you how to handle session data when building a web app. It 
 
 *  The max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token.
 * Cookies can be vulnerable to cross-site request forgery (CSRF or XSRF) attacks. This type of attack occurs when a malicious web site causes a user’s web browser to perform an unwanted action on a trusted site where the user is currently authenticated. This is an exploit of how the browser handles cookies. Using a web app framework’s CSRF protection makes cookies a secure option for storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header.
-*  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent. 
+*  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent.
 
 ## How to implement
 

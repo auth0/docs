@@ -23,7 +23,7 @@ description: This tutorial demonstrates how to add authorization to your Laravel
 
 ## Install the Dependencies
 
-Protecting your Laravel API requires a middleware which will check for and verify an `access_token` in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
+Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -52,7 +52,7 @@ If you would like to use the `Auth0` [facade](http://laravel.com/docs/facades), 
 
 You will now be able to access user info with `Auth0::getUser()`.
 
-Finally, you need to bind a class that provides a user (your app model user) each time the user is logged in or an `access_token` is decoded. You can use the `Auth0UserRepository` provided by this package or you can build your own class.
+Finally, you need to bind a class that provides a user (your app model user) each time the user is logged in or an Access Token is decoded. You can use the `Auth0UserRepository` provided by this package or you can build your own class.
 
 To use `Auth0UserRepository`, add the following lines to your `AppServiceProvider`:
 
@@ -63,7 +63,7 @@ public function register()
 {
 
     $this->app->bind(
-        \Auth0\Login\Contract\Auth0UserRepository::class, 
+        \Auth0\Login\Contract\Auth0UserRepository::class,
         \Auth0\Login\Repository\Auth0UserRepository::class
     );
 
@@ -112,7 +112,7 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 
 ## Protect the API Routes
 
-Define a middleware to check and verify `access_token` in the `Authorization` header of an incoming HTTP request.
+Define a middleware to check and verify Access Token in the `Authorization` header of an incoming HTTP request.
 
 To create a middleware use the `make:middleware` Artisan command.
 
@@ -120,7 +120,7 @@ To create a middleware use the `make:middleware` Artisan command.
 php artisan make:middleware CheckJWT
 ```
 
-Implement `handle` method to check for an `access_token`, and if it is valid log the user in Laravel authentication system.
+Implement `handle` method to check for an Access Token, and if it is valid log the user in Laravel authentication system.
 
 ```php
 // /app/Http/Middleware/CheckJWT.php
@@ -206,15 +206,15 @@ Route::get('/private', function (Request $request) {
 })->middleware('jwt');
 ```
 
-This route is now only accessible if an `access_token` is included in the `Authorization` header of the incoming request.
+This route is now only accessible if an Access Token is included in the `Authorization` header of the incoming request.
 
 ## Configure the Scopes
 
-The middleware defined above that the `access_token` in the incoming HTTP request is valid, however it does not include a mechanism to check if the `access_token` has sufficient **scope** to access the requested resource.
+The middleware defined above that the Access Token in the incoming HTTP request is valid, however it does not include a mechanism to check if the Access Token has sufficient **scope** to access the requested resource.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-Define a middleware to look for a particular **scope** claim in the `access_token`.
+Define a middleware to look for a particular **scope** claim in the Access Token.
 
 To create a middleware use the `make:middleware` Artisan command.
 
@@ -222,7 +222,7 @@ To create a middleware use the `make:middleware` Artisan command.
 php artisan make:middleware CheckScope
 ```
 
-Implement `handle` method to check for an `access_token`, and if it is valid and have the appropriate scope log the user in Laravel authentication system.
+Implement `handle` method to check for an Access Token, and if it is valid and have the appropriate scope log the user in Laravel authentication system.
 
 ```php
 // /app/Http/Middleware/CheckScope.php
@@ -318,7 +318,7 @@ Route::get('/private-scoped', function (Request $request) {
 })->middleware('check.scope:read:messages');
 ```
 
-This route is now only accessible if an `access_token` with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
+This route is now only accessible if an Access Token with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
 
 ## Extend the `Auth0UserRepository` Class
 
@@ -397,8 +397,8 @@ public function register()
 {
 
     $this->app->bind(
-        \Auth0\Login\Contract\Auth0UserRepository::class, 
-        \App\Repository\MyCustomUserRepository::class 
+        \Auth0\Login\Contract\Auth0UserRepository::class,
+        \App\Repository\MyCustomUserRepository::class
     );
 
 }
