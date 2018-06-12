@@ -73,7 +73,7 @@ The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/htm
 
 - [Resource Owner Password Credentials](/api-auth/grant/password): used by trusted apps.
 
-- [Client Credentials](/api-auth/grant/client-credentials): used for machine-to-machine communication.
+- [Client Credentials](/api-auth/grant/client-credentials): used for machine to machine communication.
 
 The specification also provides an extensibility mechanism for defining additional types.
 

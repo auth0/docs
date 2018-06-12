@@ -52,7 +52,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 ```json
 {
   "iss": "https://${account.namespace}/",
-  "sub": "YOUR_NON_INTERACTIVE_CLIENT_ID@clients",
+  "sub": "YOUR_MACHINE_TO_MACHINE_APPLICATION_CLIENT_ID@clients",
   "aud": "YOUR_API_IDENTIFIER",
   "exp": 1489715431, // unix timestamp of the token's expiration date,
   "iat": 1489679431, // unix timestamp of the token's creation date,
