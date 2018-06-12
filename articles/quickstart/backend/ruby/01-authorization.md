@@ -1,4 +1,4 @@
-Access Token---
+---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to Ruby API
 ---
