@@ -224,8 +224,7 @@ For guidance and sample code on how to implement logout functionality in your ap
 * [Android](/quickstart/native/android/03-session-handling#log-out)
 * [Chrome Extension](/quickstart/native/chrome)
 * [Cordova](/quickstart/native/cordova)
-* [Ionic](/quickstart/native/ionic)
-* [Ionic 2+](/quickstart/native/ionic2)
+* [Ionic 3+](/quickstart/native/ionic3)
 * [iOS Objective-C](/quickstart/native/ios-objc/03-user-sessions#on-logout-clear-the-keychain)
 * [iOS Swift](/quickstart/native/ios-swift/03-user-sessions#on-logout-clear-the-keychain)
 
@@ -234,7 +233,6 @@ For guidance and sample code on how to implement logout functionality in your ap
 * [Angular 2+](/quickstart/spa/angular2)
 * [AngularJS](/quickstart/spa/angularjs)
 * [Aurelia](/quickstart/spa/aurelia)
-* [Cycle](/quickstart/spa/cyclejs#5-implement-the-logout)
 * [Ember](/quickstart/spa/ember)
 * [JavaScript](/quickstart/spa/vanillajs)
 * [React](/quickstart/spa/react)

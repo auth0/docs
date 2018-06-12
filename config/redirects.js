@@ -18,7 +18,6 @@ const apiNames = [
   'php',
   'python',
   'rails',
-  'relay',
   'ruby',
   'salesforce-sandbox',
   'salesforce',
@@ -1228,10 +1227,6 @@ module.exports = [
   {
     from: '/quickstart/backend/rails/00-getting-started',
     to: '/quickstart/backend/rails'
-  },
-  {
-    from: '/quickstart/backend/relay/00-getting-started',
-    to: '/quickstart/backend/relay'
   },
   {
     from: '/quickstart/backend/ruby/00-getting-started',
