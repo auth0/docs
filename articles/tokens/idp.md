@@ -8,7 +8,7 @@ Third-party [Access Tokens](/tokens/access-token) are issued by [Identity Provid
 
 ## Get an Identity Provider Access Token
 
-IdP Access Tokens can be obtained after the user has authenticated with the IdP by making an HTTP `GET` call to [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). To call this endpoint you will need a [Management API Access Token](/api/management/v2/tokens) that will include the `read:user_idp_tokens` [scope](/scopes). The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
+IdP Access Tokens can be obtained after the user has authenticated with the IdP by making an HTTP `GET` call to [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). To call this endpoint you will need a [Management API Access Token](/api/management/v2/tokens) that will include the `read:user_idp_tokens` [scope](/scopes). The Access Token for the IdP will be available in the `identities` array, under the element for the particular connection.
 
 For a step-by-step guide on obtaining IdP Access Tokens, see [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 
@@ -18,7 +18,7 @@ The contents of third-party Access Tokens will vary by the issuing IdP.
 
 ## Validity period
 
-Since these tokens are created and managed by a third-party (such as Facebook, GitHub, and so on) **the validity period for third-party tokens will vary by the issuing IdP**. If you believe these tokens have been compromised, you will need to revoke or reset them with the third-party that issued them. 
+Since these tokens are created and managed by a third-party (such as Facebook, GitHub, and so on) **the validity period for third-party tokens will vary by the issuing IdP**. If you believe these tokens have been compromised, you will need to revoke or reset them with the third-party that issued them.
 
 ## Renew the token
 
@@ -32,7 +32,7 @@ For certain Identity Providers, Auth0 will store a [Refresh Token](/tokens/refre
 * SharePoint
 * Azure AD
 
-IdP Refresh Tokens can be obtained the same way as Access Tokens, using [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). The `refresh_token` will be available in the `identities` array, under the element for the particular connection.
+IdP Refresh Tokens can be obtained the same way as Access Tokens, using [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). The Refresh Token will be available in the `identities` array, under the element for the particular connection.
 
 ## Terminate the token
 

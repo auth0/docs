@@ -24,7 +24,7 @@ The first question to answer before getting into the changes is why to migrate y
 
 There are often situations where your APIs will need to authorize limited access to users, servers, or servers on behalf of users. Managing these types of authorization flows and access to your APIs is much easier with Auth0. If you need to use these [API Auth](/api-auth) features, we recommend that you upgrade to [auth0.js v8](/libraries/auth0js/v8).
 
-Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
+Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or Access Token as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
 
 ::: note
 You can find detailed information about supported methods in the [Auth0.js v8](/libraries/auth0js) documentation, and generated documentation on all methods [here](http://auth0.github.io/auth0.js/global.html) for further reading.
@@ -195,8 +195,8 @@ Delegation is now done via the `delegation` method, which takes an `options` obj
 
 * __client_id__ (required): a string; the Auth0 application identifier
 * __grant_type__ (required): a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
-* __id_token__ (required): a string; either a valid id_token or a valid refresh_token is required
-* __refresh_token__: a string; either a valid refresh_token or a valid id_token is required
+* __id_token__ (required): a string; either a valid id_token or a valid Refresh Token is required
+* __refresh_token__: a string; either a valid Refresh Token or a valid id_token is required
 * __target__: a string; the target application id of the delegation
 * __scope__: a string; either `'openid'` or `'openid profile email'`
 * __api_type__: a string; the api to be called

@@ -166,7 +166,7 @@ In order to test the working scenario as well we need to:
 
 ## 3. Check the application permissions
 
-In this step we will add to our implementation the ability to check if the application has permissions (or `scope`) to use our endpoint in order to create a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
+In this step we will add to our implementation the ability to check if the application has permissions (or `scope`) to use our endpoint in order to create a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`.
 
 In order to do this we will make use of the `express-jwt-authz` Node.js package, so go ahead and add that to your project:
 
@@ -211,7 +211,7 @@ The `express-jwt` middleware which is used to validate the JWT, also sets the `r
 
 In the case of the timesheets application however, we want to use the email address of the user as the unique identifier.
 
-The first thing we need to do is to write a rule which will add the email address of the user to the `access_token`. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
+The first thing we need to do is to write a rule which will add the email address of the user to the Access Token. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
 
 You can give the rule a descriptive name, for example `Add email to Access Token`, and then use the following code for the rule:
 

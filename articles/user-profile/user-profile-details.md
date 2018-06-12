@@ -87,9 +87,9 @@ The claims within a JWT generally contain a subset of the information available 
 
 There are three other types of tokens that can be returned during authentication:
 
-* an Auth0 `access_token`;
+* an Auth0 Access Token;
 * a 3rd party provider Access Token;
-* a `refresh_token`.
+* a Refresh Token.
 
 For more information on tokens and claims see the [Token Overview](/tokens).
 
@@ -134,9 +134,9 @@ The [`/users`](/api/v2#!/Users/get_users) endpoint is used to retrieve informati
 
 There is also [an endpoint](/api/v2#!/Users/get_users_by_id) to retrieve information about one user based on the `user_id`. Note that the `user_id` is an internal identifier that consists of a connection name and a unique identifier for the user. The `user_id` is different from the `id_token`.
 
-In addition, two other endpoints are available to retrieve User Profile information based on either the Auth0 `access_token` or the Auth0 `id_token`.
+In addition, two other endpoints are available to retrieve User Profile information based on either the Auth0 Access Token or the Auth0 `id_token`.
 
-The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as input the Auth0 `access_token` and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
+The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as input the Auth0 Access Token and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
 
 The [`/tokeninfo`](/api/authentication/reference#get-token-info) endpoint takes as input the Auth0 `id_token` and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
 

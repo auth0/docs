@@ -36,7 +36,7 @@ Parameter | Description
 ----------|------------
 __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/applications).
 __audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
-__scope__ | The [scopes](/scopes) which determine the claims to be returned in the `id_token` and `access_token`. For example, a scope of `openid` will return an `id_token` in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a `refresh_token`, and return the user's `name`, `picture`, and `email` claims in the `id_token`.
+__scope__ | The [scopes](/scopes) which determine the claims to be returned in the `id_token` and Access Token. For example, a scope of `openid` will return an `id_token` in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a Refresh Token, and return the user's `name`, `picture`, and `email` claims in the `id_token`.
 __response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
 __code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
@@ -91,11 +91,11 @@ The response from the Token URL will contain:
 }
 ```
 
-- __access_token__: An `access_token` for the API, specified by the `audience`.
+- __access_token__: An Access Token for the API, specified by the `audience`.
 - __refresh_token__: A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
 - __id_token__: An `id_token` JWT containing user profile information.
 - __token_type__: A string containing the type of token, this will always be a Bearer token.
-- __expires_in__: The amount of seconds until the `access_token` expires.
+- __expires_in__: The amount of seconds until the Access Token expires.
 
 You will need to store the above credentials in local storage for use in calling your API and retrieving the user profile.
 
@@ -136,7 +136,7 @@ Based on the `scope` of the user, you may want to show or hide certain UI elemen
 
 ### Call the API
 
-To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme.
+To access secured resources from your API, the authenticated user's Access Token needs to be included in requests that are sent to it. This is accomplished by sending the Access Token in an `Authorization` header using the `Bearer` scheme.
 
 ::: note
 [See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#5-call-the-api)
@@ -148,7 +148,7 @@ To access secured resources from your API, the authenticated user's `access_toke
 Refresh Tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever. If Refresh Tokens are compromised or you no longer need them, you can revoke the Refresh Tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
 :::
 
-To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result.
+To refresh your Access Token, perform a `POST` request to the `/oauth/token` endpoint using the Refresh Token from your authorization result.
 
 A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
 
@@ -178,9 +178,9 @@ Parameter | Description
 ----------|------------
 __grant_type__ | This must be set to `refresh_token`.
 __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/applications).
-__refresh_token__ | the `refresh_token` to use, from the previous authentication result.
+__refresh_token__ | the Refresh Token to use, from the previous authentication result.
 
-The response will include the new `access_token`:
+The response will include the new Access Token:
 
 ```json
 {
