@@ -1,4 +1,4 @@
-Access Token---
+---
 section: libraries
 title: Lock Android v2 Migration Guide
 description: A reference for changed option names and behaviors in Lock for Android v2
