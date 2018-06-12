@@ -15,6 +15,8 @@ When you're done making changes to the code, click **Save** to persist the chang
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
+<%= include('./_custom-domains') %>
+
 ## Next Steps
 
 ::: next-steps

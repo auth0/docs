@@ -1,5 +1,6 @@
 ---
-description: How to Use the Auth0.js with the Hosted Login Page 
+description: How to Use the Auth0.js with the Hosted Login Page
+toc: true
 ---
 # Using Auth0.js in the Hosted Login Page
 
@@ -170,6 +171,8 @@ For this example, replace the code in the login page editor with the following t
 ```
 
 This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify. Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
+
+<%= include('./_custom-domains') %>
 
 ## Next Steps
 
