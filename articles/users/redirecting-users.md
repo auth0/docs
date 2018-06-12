@@ -6,13 +6,15 @@ description: How to redirect users to URLs that have not been whitelisted
 
 To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 redirects users back to your application after authentication.
 
+## How callback URLs work
+
 During a user's authentication, the `redirect_uri` request parameter is used as a callback URL. This is where your application will receive and process the response from Auth0, and where the users will be redirected, once the authentication is complete.
 
-Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the **Allowed Callback URLs** field of a [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) as valid.
+Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the **Allowed Callback URLs** field of an [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) as valid.
 
 However the callback URL is not necessarily the same URL to which you want users redirected after authentication.
 
-## Redirect users to a non-callback URL
+## How to redirect to a non-callback URL
 
 To redirect authenticated users to a URL that is *not* the callback URL, you can store the desired URL:
 
