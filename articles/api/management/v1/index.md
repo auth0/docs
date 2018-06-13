@@ -73,7 +73,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/refresh_tokens being used by the user.
+Gets all devices/Refresh Tokens being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices

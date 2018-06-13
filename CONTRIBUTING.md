@@ -491,7 +491,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using head-less library to do login without Lock
-3. Session Handling - How to store tokens, refresh tokens, and logout
+3. Session Handling - How to store tokens, Refresh Tokens, and logout
 4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
