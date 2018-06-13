@@ -94,7 +94,7 @@ If you are seeing errors, refer to the following troubleshooting steps.
 
 ### User’s email address is missing from retrieved user profile.
 
-If you are using Auth0 developer keys, this functionality will not work.
+If you are using Auth0 developer keys, this functionality will not work; you will need to use your Twitter Consumer Key and Consumer Secret.
 
 Otherwise, you must explicitly request permission to retrieve user email addresses for your Twitter app:
 
@@ -118,7 +118,7 @@ You must configure your Twitter app to let users sign in with Twitter:
 
 ### Login fails with message “Error retrieving email from Twitter”.
 
-You are using the Login by Auth0 WordPress plugin and have enabled the “Requires Verified Email” setting, but have not explicitly requested permission to retrieve user email addresses for your Twitter app. You will need to either configure your Twitter app to request email addresses from users or turn off the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin.
+You are using the Login by Auth0 WordPress plugin and have enabled the **Requires Verified Email** setting, but have not explicitly requested permission to retrieve user email addresses for your Twitter app. You will need to either configure your Twitter app to request email addresses from users or disable the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin.
 
 To configure your Twitter app to request email addresses from users:
 
@@ -129,11 +129,11 @@ To configure your Twitter app to request email addresses from users:
 1. Go to the **Permissions** tab, and select the **Request email addresses from users** option.
 1. Click **Update Settings**.
 
-To turn off the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin:
+To disable the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin:
 
 1. Login to your WordPress site's admin area (example: http://www.yoursite.com/wp-admin/).
 1. Choose your site, and go to **Auth0** > **Settings**.
-1. Go to the **Advanced** tab, and deselect the *Requires Verified Email** option.
+1. Go to the **Advanced** tab, and deselect the **Requires Verified Email** option.
 1. Click **Save Changes**.
 
 
