@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Twitter
+title: Connect Your App to Twitter
 connection: Twitter
 image: /media/connections/twitter.png
 description: This page shows you how to connect your Auth0 application to Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
@@ -7,7 +7,7 @@ seo_alias: twitter
 index: 8
 toc: true
 ---
-# Connect your app to Twitter
+# Connect Your App to Twitter
 
 To connect your Auth0 application to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
 
@@ -80,9 +80,62 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
     ![Test results](/media/articles/connections/social/twitter/twitter-api-10.png)
 
 ## 6. Access Twitter API
-  
-<%= include('../_call-api', {
-  "idp": "Twitter"
-}) %>
+
+<%= include('../_call-api', {"idp": "Twitter"}) %>
+
+
+::: panel Application-Specific Access Tokens
+Unlike many social identity providers, Twitter allows you to use application-specific access tokens for many API calls without requiring user access tokens. You can generate these tokens in [Twitter Application Management](https://apps.twitter.com). Using application-specific access tokens will limit your app to requests that do not require user context. For more information, see [Twitter Developer Documentation: Application-Only Authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html).
+:::
+
+## Troubleshooting
+
+If you are seeing errors, refer to the following troubleshooting steps.
+
+### User’s email address is missing from retrieved user profile.
+
+If you are using Auth0 developer keys, this functionality will not work.
+
+Otherwise, you must explicitly request permission to retrieve user email addresses for your Twitter app:
+
+1. Login to [Twitter Application Management](https://apps.twitter.com).
+1. Choose your app.
+1. Go to the **Settings** tab, and enter the appropriate links in the **Terms of Service URL** and **Privacy Policy URL** fields.
+1. Click **Update Settings**.
+1. Go to the **Permissions** tab, and select the **Request email addresses from users** option.
+1. Click **Update Settings**.
+
+
+### Users are presented with the Twitter authorization screen each time they log in.
+
+You must configure your Twitter app to let users sign in with Twitter:
+
+1. Login to [Twitter Application Management](https://apps.twitter.com).
+1. Choose your app.
+1. Go to the **Settings** tab, and select the **Allow this application to be used to Sign in with Twitter** option.
+1. Click **Update Settings**.
+
+
+### Login fails with message “Error retrieving email from Twitter”.
+
+You are using the Login by Auth0 WordPress plugin and have enabled the “Requires Verified Email” setting, but have not explicitly requested permission to retrieve user email addresses for your Twitter app. You will need to either configure your Twitter app to request email addresses from users or turn off the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin.
+
+To configure your Twitter app to request email addresses from users:
+
+1. Login to [Twitter Application Management](https://apps.twitter.com).
+1. Choose your app.
+1. Go to the **Settings** tab, and enter the appropriate links in the **Terms of Service URL** and **Privacy Policy URL** fields.
+1. Click **Update Settings**.
+1. Go to the **Permissions** tab, and select the **Request email addresses from users** option.
+1. Click **Update Settings**.
+
+To turn off the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin:
+
+1. Login to your WordPress site's admin area (example: http://www.yoursite.com/wp-admin/).
+1. Choose your site, and go to **Auth0** > **Settings**.
+1. Go to the **Advanced** tab, and deselect the *Requires Verified Email** option.
+1. Click **Save Changes**.
+
+
 
 <%= include('../_quickstart-links.md') %>
