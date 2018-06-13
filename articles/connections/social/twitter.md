@@ -7,6 +7,7 @@ seo_alias: twitter
 index: 8
 toc: true
 ---
+
 # Connect your app to Twitter
 
 To connect your Auth0 application to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
@@ -19,7 +20,7 @@ To connect your Auth0 application to Twitter, you will need to generate **Consum
 
     ![Create new Twitter app](/media/articles/connections/social/twitter/twitter-api-1.png)
 
-3. Provide the required information. For **Callback URL**, enter `https://${account.namespace}/login/callback`
+3. Provide the required information. For the **Callback URL**, enter `https://${account.namespace}/login/callback`. If you're using a [custom domain](/custom-domains), add the domain as another callback URL.
 
     ![Callback URL](/media/articles/connections/social/twitter/twitter-api-2.png)
 
