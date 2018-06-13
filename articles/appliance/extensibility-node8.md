@@ -66,6 +66,8 @@ The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of R
 
 3. Scroll to the bottom and click **Save**.
 
-After you save, the PSaaS Appliance will take some time to reconfigure itself to use Node.js v8.
+::: note
+After you save, the PSaaS Appliance will take some time to reconfigure itself to use Node.js v8. You can follow the process in the *Activity* section of the dashboard
+:::
 
 Be sure to test your existing Rules, Hooks, and Webtask to ensure they function correctly.
