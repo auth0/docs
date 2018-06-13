@@ -23,9 +23,10 @@ github:
   repo: auth0-aspnetcore-webapi-samples
   branch: master
 requirements:
-  - .NET Core 2.0
-  - ASP.NET Core 2.0
-  - Visual Studio 2017 or Visual Studio Code (Optional)
+  - .NET Core SDK 2.1.300
+  - .NET Core 2.1.0
+  - ASP.NET Core 2.1.0
+  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
 next_steps:
   - path: 01-authorization
     list:

@@ -17,6 +17,11 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+requirements:
+  - .NET Core SDK 1.1.0
+  - .NET Core 1.1.1
+  - Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1
+  - Visual Studio 2017 or Visual Studio Code (Optional)
 show_steps: true
 github:
   org: auth0-samples
