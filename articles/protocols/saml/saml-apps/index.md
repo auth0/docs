@@ -27,6 +27,7 @@ classes: topic-page
   'protocols/saml/saml-apps/litmos',
   'protocols/saml/saml-apps/pluralsight',
   'protocols/saml/saml-apps/sprout-video',
+  'protocols/saml/saml-apps/tableau-online',
   'protocols/saml/saml-apps/tableau-server',
   'protocols/saml/saml-apps/workday',
   'protocols/saml/saml-apps/workpath'
