@@ -92,7 +92,7 @@ Unlike many social identity providers, Twitter allows you to use application-spe
 
 If you are seeing errors, refer to the following troubleshooting steps.
 
-### User’s email address is missing from retrieved user profile.
+### User's email address is missing from retrieved user profile
 
 If you are using Auth0 developer keys, this functionality will not work; you will need to use your Twitter Consumer Key and Consumer Secret.
 
@@ -106,7 +106,7 @@ Otherwise, you must explicitly request permission to retrieve user email address
 1. Click **Update Settings**.
 
 
-### Users are presented with the Twitter authorization screen each time they log in.
+### Users are presented with the Twitter authorization screen each time they log in
 
 You must configure your Twitter app to let users sign in with Twitter:
 
@@ -116,7 +116,7 @@ You must configure your Twitter app to let users sign in with Twitter:
 1. Click **Update Settings**.
 
 
-### Login fails with message “Error retrieving email from Twitter”.
+### Login fails with message “Error retrieving email from Twitter”
 
 You are using the Login by Auth0 WordPress plugin and have enabled the **Requires Verified Email** setting, but have not explicitly requested permission to retrieve user email addresses for your Twitter app. You will need to either configure your Twitter app to request email addresses from users or disable the **Requires Verified Email** setting in the Login by Auth0 WordPress plugin.
 
