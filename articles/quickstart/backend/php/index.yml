@@ -22,7 +22,7 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-php-api-sample
+  repo: auth0-php-api-samples
 requirements:
   - PHP v5
   - Composer 1.0

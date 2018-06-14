@@ -8,7 +8,7 @@ topics:
   - ios
   - objective-c
 github:
-    path: 03-User-Session
+    path: 03-User-Sessions
 ---
 
 ## Before You Start

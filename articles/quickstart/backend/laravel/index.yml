@@ -25,7 +25,7 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-laravel-api-sample
+  repo: auth0-laravel-api-samples
 requirements:
   - Composer 1.5 
   - PHP 7.0

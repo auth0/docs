@@ -8,7 +8,7 @@ topics:
   - aspnet-owin
   - user-profile
 github:
-  path: Quickstart/03-User-Profile
+  path: Quickstart/02-User-Profile
 ---
 ## Getting the profile
 
