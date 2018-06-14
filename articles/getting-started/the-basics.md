@@ -30,7 +30,7 @@ Some characteristics:
 
 ## Domains
 
-As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API and the URL where users are redirected in order to authenticate.
+As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain** (you can also use [custom domains](#custom-domains)). It's the base URL you will be using to access our API and the URL where users are redirected in order to authenticate.
 
 Auth0 supports three regional subdomains: 
 - `auth0.com` for US
