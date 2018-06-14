@@ -1,7 +1,7 @@
 # Get Token
 
 Use this endpoint to:
-- Get an Access Token in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+- Get an Access Token in order to call an API. You can, optionally, retrieve an ID Token and a Refresh Token as well.
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:

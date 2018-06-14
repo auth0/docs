@@ -70,7 +70,7 @@ public void Configuration(IAppBuilder app)
 It is important that you register both the cookie middleware and the Auth0 middleware, as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
 ::: note
-We are passing the Auth0 tenant's user info endpoint as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](/api-auth/intro).
+We are passing the Auth0 tenant's user info endpoint as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication responses are [OIDC Conformant](/api-auth/intro).
 :::
 
 ## Add Login and Logout Methods
@@ -184,13 +184,13 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
 
 ## Run the Application
 
-Now when you run the application you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
+Now when you run the application, you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
 
 ## Store the Tokens
 
-The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+The Auth0 OAuth2 middleware can automatically add the ID Token and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
 
-You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a `refresh_token` by requesting the `offline_access` scope.
+You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
 
 Update the registration of the Auth0 middleware in your `Startup.cs` file as follows:
 
@@ -237,14 +237,14 @@ public void Configuration(IAppBuilder app)
             }
         }
     };
-    options.Scope.Add("offline_access"); // Request a refresh_token
+    options.Scope.Add("offline_access"); // Request a Refresh Token
     app.UseAuth0Authentication(options);
 }
 ```
 
 To access these token from one of your controllers, simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
 
-The sample code below shows how you can extract the claims for the Access Token, `id_token` and `refresh_token` respectively:
+The sample code below shows how you can extract the claims for the Access Token, `id_token` and Refresh Token respectively:
 
 ``` csharp
 // Controllers/AccountController.cs

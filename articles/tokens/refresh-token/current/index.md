@@ -72,18 +72,18 @@ The response should contain an Access Token and a Refresh Token.
 ```text
 {
   "access_token": "eyJz93a...k4laUWw",
-  "refresh_token": "GEbRxBN...edjnXbL",
+  "Refresh Token": "GEbRxBN...edjnXbL",
   "token_type": "Bearer"
 }
 ```
 
-If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications). 
+If you are requesting a Refresh Token for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications).
 
 ::: warning
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
+For more information on how to implement this using Authorization Code Grant, refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants, refer to [API Authorization](/api-auth).
 
 ::: note
 If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions) listed in this document.
@@ -91,7 +91,7 @@ If the response did not include a Refresh Token, check that you comply with the 
 
 ## Use a Refresh Token
 
-To refresh your token, using the `refresh_token` you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To refresh your token, using the Refresh Token you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ```har
 {
@@ -114,7 +114,7 @@ To refresh your token, using the `refresh_token` you already got during authoriz
 ```
 
 Where:
-- `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token use `refresh_token`.
+- `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token, use `refresh_token`.
 - `client_id`: Your application's Client ID.
 - `client_secret` (optional): Your application's Client Secret. Only required for [confidential applications](/applications/application-types#confidential-applications).
 - `refresh_token`: The Refresh Token to use.
@@ -137,7 +137,7 @@ You should only ask for a new token if the Access Token has expired or you want 
 
 ## Revoke a Refresh Token
 
-Since Refresh Tokens never expire it is important to be able to revoke them in case they get compromised.
+Since Refresh Tokens never expire, it is important to be able to revoke them in case they get compromised.
 
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries.
 Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
@@ -146,7 +146,7 @@ You can revoke a Refresh Token either by posting a request to [the Authenticatio
 
 ### Use the API
 
-To revoke a Refresh Token you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
+To revoke a Refresh Token, you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
 The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Note that each revocation request invalidates all the tokens that have been issued for the same authorization grant.
 

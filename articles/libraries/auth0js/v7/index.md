@@ -186,7 +186,7 @@ You can also request scopes that are not were not configured for the connection.
   });
 ```
 
-Trigger the login with offline mode support to get the `refresh_token`
+Trigger the login with offline mode support to get the Refresh Token
 
 ```js
 $('.login-dbconn').click(function () {
@@ -699,7 +699,7 @@ auth0.renewIdToken(current_id_token, function (err, delegationResult) {
 });
 ```
 
-If you want to refresh your existing (expired) token, if you have the refresh_token, you can call the following:
+If you want to refresh your existing (expired) token, if you have the Refresh Token, you can call the following:
 
 ```js
 auth0.refreshToken(refresh_token, function (err, delegationResult) {

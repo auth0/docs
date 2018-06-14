@@ -270,7 +270,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>10 requests per second</td>
   </tr>
   <tr>
-    <td>Json Web Token Keys</td>
+    <td>JSON Web Token Keys</td>
     <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>

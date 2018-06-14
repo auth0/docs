@@ -56,7 +56,7 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 * The results will match one of the messages + descriptions below.
 * The **Client ID** field in the results will indicate which application (client) on your tenant is using the deprecated feature.
 
-## Deprecation Messages 
+## Deprecation Log Messages 
 
 ### up-idp-initiated
 
@@ -80,3 +80,9 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 | Cause | Resolution |
 | --- | --- |
 | Either calling the /ssodata directly or using old versions of embedded Lock or Auth0.js SDK to call a function which called the /ssodata endpoint. | [Migrate to Universal Login](/guides/login/migration-embedded-universal) or [migrate to Lock v11 or Auth0.js v9](/migrations#introducing-lock-v11-and-auth0-js-v9). |
+
+## Legacy Lock API notice
+
+If you see the warning panel `Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated.` when you login to the Dashboard, it is because you have not turned off the Legacy Lock API switch in your [advanced settings](${manage_url}/#/tenant/advanced). If you are unaffected by the migration, or have completed it, you should be able to turn that setting off and remove the warning.
+
+If you are unsure if you are safely migrated yet, you can follow the [Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) to be sure.

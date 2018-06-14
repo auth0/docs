@@ -20,6 +20,10 @@ A Critical Issue is defined as an Auth0 issue severely impacting your live or in
 - the majority of users are adversely impacted;
 - there is no workaround
 
+::: note
+Please do *not* submit an Urgent ticket for non-production environments. Urgent (critical) tickets are reserved for production environments.
+:::
+
 ## Special procedures for critical issues impacting production applications for PSaaS Appliance customers
 
 PSaaS Appliance customers should use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) as a primary method of logging a critical support issue. As part of the onboarding procedure a cloud account should be created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
@@ -35,7 +39,7 @@ As a secondary point of escalation, PSaaS Appliance customers can also send an e
 1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
 2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
 3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your PSaaS Appliance installation.**
-4. In **Environment** indicate the specific installation having the problem (such as Production, QA).
+4. For **Environment**, select your Production environment.
 5. For **What can we help you with?** select `Auth0 Service Issue`.
 6. For **Severity** select `Urgent`
   ::: note
