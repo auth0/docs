@@ -8,8 +8,8 @@ budicon: 715
 ::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Microsoft Visual Studio 2017
-* Auth0-ASPNET-Owin NuGet Package v2.3.0
+* Microsoft Visual Studio 2017 15.7
+* Microsoft.Owin.Security.OpenIdConnect v4.0.0
 :::
 
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
