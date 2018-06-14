@@ -8,7 +8,7 @@ description: How to set up custom domains for your PSaaS Appliance
 
 If you are using **PSaaS Appliance Build 5XXX** or later, you may configure custom domains using the Management Dashboard.
 
-Custom domains allow you to expose one or more arbitrary DNS names for a tenant. Conventionally, the PSaaS Appliance uses a three-part domain name for access, and it is the first portion of the domain name that varies depending on the tenant.
+Custom domains allow you to expose one arbitrary DNS name for a tenant. Conventionally, the PSaaS Appliance uses a three-part domain name for access, and it is the first portion of the domain name that varies depending on the tenant.
 
 The root tenant authority (RTA) is a special domain that is configured when the PSaaS Appliance cluster(s) are first set up. It is a privileged tenant from which certain manage operations for the cluster are available. The RTA is sometimes called the configuration domain, and all users that have access to the Management Dashboard belong to an application in the RTA.
 
