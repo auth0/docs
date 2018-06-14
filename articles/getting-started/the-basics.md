@@ -28,18 +28,29 @@ Some characteristics:
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
 
-## Domain
+## Domains
 
-As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API (for example, to authenticate a user). The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
+As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain** (you can also use [custom domains](#custom-domains)). It's the base URL you will be using to access our API and the URL where users are redirected in order to authenticate.
 
-In our example, `Example-Co` picked the name `example-co`; hence their domain is `example-co.auth0.com`.
+Auth0 supports three regional subdomains: 
+- `auth0.com` for US
+- `eu.auth0.com` for Europe
+- `au.auth0.com` for Australia
 
-::: panel Custom Domains
-You can use a custom domain, such as `example-co.com`. This comes with an additional cost. This feature is in beta for **public-cloud tenants** (see the [Custom Domains](/custom-domains) documentation for details). If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
+When you create your tenant you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. So if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
+
+In our example, `Example-Co` picked the name `example-co` and Americas as their region. Therefore their domain is `example-co.auth0.com`.
+
+### Custom domains
+
+You can use a custom domain, such as `example-co.com`. This comes with an additional cost. 
+
+If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
 - The cloud managed by Auth0
 - A cloud managed by you
 - An [on-premise installation](/appliance)
-:::
+
+For more information, see [Custom Domains](/custom-domains). 
 
 ## Application
 
