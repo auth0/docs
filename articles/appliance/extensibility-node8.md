@@ -56,7 +56,9 @@ All officially-supported Auth0 Extensions will be updated to run on Node.js v8 p
 
 The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
 
-::: note For customer-hosted Appliances, please ensure that the Appliance VMs have internet access when you enable Node.js v8 the first time :::
+::: note
+For the customer-hosted PSaaS Appliance, please ensure that the VMs have internet access when enabling Node.js v8 for the first time.
+:::
 
 1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://CustomerManageDomain/configuration#/sandbox**).
 
@@ -68,8 +70,6 @@ The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of R
 
 3. Scroll to the bottom and click **Save**.
 
-::: note
-After you save, the PSaaS Appliance will take some time to reconfigure itself to use Node.js v8. You can follow the process in the *Activity* section of the dashboard
-:::
+**At this point, the PSaaS Appliance will take some time to reconfigure and begin using Node.js v8. You can check the status of this process using the *Activity* section of the Appliance dashboard.**
 
 Be sure to test your existing Rules, Hooks, and Webtask to ensure they function correctly.
