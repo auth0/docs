@@ -10,7 +10,11 @@ contentType: reference
 useCase: appliance
 applianceId: appliance61
 ---
-# Requirements for the Auth0 Dedicated Cloud Service
+# Auth0-Hosted PSaaS Appliance
+
+You can opt to host your PSaaS Appliance using Auth0's Dedicated (Private) Cloud Service.
+
+## Set Up and Configuration
 
 If your subscription agreement includes a Private SaaS (PSaaS) Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the PSaaS Appliance on your behalf.
 
@@ -32,7 +36,7 @@ You'll be asked for your preferred AWS regions, such as `AWS US-WEST-2`, `AWS US
 ## DNS Records
 
 ::: warning
-Please finalize  DNS names prior to PSaaS Appliance deployment.
+Please finalize DNS names prior to PSaaS Appliance deployment.
 :::
 
 Auth0 provides the domain names needed for your DNS zones/certificates. If you have Development and Production environments, your domain names will typically be formatted as follows:

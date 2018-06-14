@@ -1088,10 +1088,10 @@ libraries:
 
 appliance:
 
-  - title: "Introduction"
+  - title: "Home"
     url: "/appliance"
 
-  - title: "Appliance Overview"
+  - title: "Overview"
     url: "/appliance/overview"
 
   - title: Customer-Hosted PSaaS Appliance
