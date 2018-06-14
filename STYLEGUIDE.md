@@ -45,7 +45,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Don't hardcode paths in your application, e.g., the callback URL. | Don't hardcode paths in your application, for example, the callback URL. |
-| Save all the important credentials: the access token, the refresh token, etc. in a safe location. | Save all the important credentials, such as the access and refresh token, in a safe location. |
+| Save all the important credentials: the Access Token, the Refresh Token, etc. in a safe location. | Save all the important credentials, such as the Access and Refresh Token, in a safe location. |
 
 * Avoid contractions. Use complete words to be more authoritative.
 

@@ -79,7 +79,7 @@ If you already know that the user supports OTP, then steps 5 and 6 above of the 
 
 9. The Application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 
-10. Auth0 validates the provided OTP and returns the `access_token` and the `refresh_token`.
+10. Auth0 validates the provided OTP and returns the Access Token and the Refresh Token.
 
 11. The Application can use the Access Token to call the API on behalf of the end user.
 
@@ -95,7 +95,7 @@ This challenge type, together with `prompt` binding method, indicates that the c
 
 9. The Application forwards the `binding_code` to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
-10. Auth0 validates the `binding_code` and `oob_code` and returns the Access Token and the `refresh_token`.
+10. Auth0 validates the `binding_code` and `oob_code` and returns the Access Token and the Refresh Token.
 
 11. The Application can use the Access Token to call the API on behalf of the end user.
 
@@ -139,7 +139,7 @@ Steps 1-4 are the same as above.
 
 8. The Application forwards the recovery code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
 
-9. Auth0 validates the recovery code and returns the Access Token and the `refresh_token`.
+9. Auth0 validates the recovery code and returns the Access Token and the Refresh Token.
 
 10. The Application can use the Access Token to call the API on behalf of the end user.
 

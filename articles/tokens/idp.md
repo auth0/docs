@@ -32,7 +32,7 @@ For certain Identity Providers, Auth0 will store a [Refresh Token](/tokens/refre
 * SharePoint
 * Azure AD
 
-IdP Refresh Tokens can be obtained the same way as Access Tokens, using [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). The `refresh_token` will be available in the `identities` array, under the element for the particular connection.
+IdP Refresh Tokens can be obtained the same way as Access Tokens, using [the /api/v2/user/{user-id} endpoint](/api/management/v2#!/Users/get_users_by_id). The Refresh Token will be available in the `identities` array, under the element for the particular connection.
 
 ## Terminate the token
 

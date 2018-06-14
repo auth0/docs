@@ -14,7 +14,7 @@ Legacy applications used [Refresh Tokens](/tokens/refresh-token) and the `refres
 
 ```js
 function renewToken() {
-    // Assumes the refresh_token is stored in localStorage
+    // Assumes the Refresh Token is stored in localStorage
     refresh_token = localStorage.getItem('refresh_token');   
     auth0.refreshToken(refresh_token, function (err, delegationResult) {
         if (!err)
