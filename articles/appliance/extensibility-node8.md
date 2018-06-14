@@ -26,8 +26,6 @@ Migrating from Node.js v4 to Node.js v8 will impact all Auth0 extensibility solu
 * Custom Database Connections
 * Custom Social Connections
 
-While much of your existing scripts will run in Node 8 without modification, there is a subset of scripts that will require your action to convert to Node 8.
-
 Many of your existing scripts will continue to run without any modifications required, though some will require changes.
 
 ## Scheduling your update
