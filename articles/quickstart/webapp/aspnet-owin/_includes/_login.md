@@ -8,10 +8,10 @@ You can also create a custom login for prompting the user for their username and
 
 ### Install and Configure Auth0 OAuth2 Middleware
 
-The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
+The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware which is available in the `Microsoft.Owin.Security.OpenIdConnect` NuGet package, so install that first:
 
 ```bash
-Install-Package Auth0-ASPNET-Owin
+Install-Package Microsoft.Owin.Security.OpenIdConnect
 ```
 
 There is a bug in Microsoft's OWIN implementation for System.Web, which can cause cookies to disappear on some occasions. To work around this issue, you will also need to install the `Kentor.OwinCookieSaver` NuGet package:
@@ -31,6 +31,8 @@ public void Configuration(IAppBuilder app)
     string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
     string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
     string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
+    string auth0RedirectUri = ConfigurationManager.AppSettings["auth0:RedirectUri"];
+    string auth0PostLogoutRedirectUri = ConfigurationManager.AppSettings["auth0:PostLogoutRedirectUri"];
 
     // Enable the Cookie saver middleware to work around a bug in the OWIN implementation
     app.UseKentorOwinCookieSaver();
@@ -44,38 +46,63 @@ public void Configuration(IAppBuilder app)
     });
 
     // Configure Auth0 authentication
-    var options = new Auth0AuthenticationOptions()
+    app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
-        Domain = auth0Domain,
+        AuthenticationType = "Auth0",
+        
+        Authority = $"https://{auth0Domain}",
+
         ClientId = auth0ClientId,
         ClientSecret = auth0ClientSecret,
 
-        // If you want to request an Access Token to pass to an API, then replace the audience below to
-        // pass your API Identifier instead of the /userinfo endpoint
-        Provider = new Auth0AuthenticationProvider()
-        {
-            OnApplyRedirect = context =>
-            {
-                string userInfoAudience = $"https://{auth0Domain}/userinfo";
-                string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
+        RedirectUri = auth0RedirectUri,
+        PostLogoutRedirectUri = auth0PostLogoutRedirectUri,
 
-                context.Response.Redirect(redirectUri);
+        ResponseType = OpenIdConnectResponseType.CodeIdToken,
+        Scope = "openid profile",
+
+        TokenValidationParameters = new TokenValidationParameters
+        {
+            NameClaimType = "name"
+        },
+
+        Notifications = new OpenIdConnectAuthenticationNotifications
+        {
+            RedirectToIdentityProvider = notification =>
+            {
+                if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
+                {
+                    var logoutUri = $"https://{auth0Domain}/v2/logout?client_id={auth0ClientId}";
+
+                    var postLogoutUri = notification.ProtocolMessage.PostLogoutRedirectUri;
+                    if (!string.IsNullOrEmpty(postLogoutUri))
+                    {
+                        if (postLogoutUri.StartsWith("/"))
+                        {
+                            // transform to absolute
+                            var request = notification.Request;
+                            postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
+                        }
+                        logoutUri += $"&returnTo={ Uri.EscapeDataString(postLogoutUri)}";
+                    }
+
+                    notification.Response.Redirect(logoutUri);
+                    notification.HandleResponse();
+                }
+                return Task.FromResult(0);
             }
         }
-    };
-    app.UseAuth0Authentication(options);
+    });
 }
 ```
 
-It is important that you register both the cookie middleware and the Auth0 middleware, as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
+It is important that you register both the cookie middleware and the OpenID Connect middleware, as all of them are required for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
-## Trigger Authentication
+## Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
-The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate.
-
-For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](/logout) documentation.
+The `Login` action will challenge the OpenID Connect middleware to start the authentication flow. For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](/logout) documentation.
 
 ```cs
 // Controllers/AccountController.cs
@@ -84,17 +111,19 @@ public class AccountController : Controller
 {
     public ActionResult Login(string returnUrl)
     {
-        return new ChallengeResult("Auth0", returnUrl ?? Url.Action("Index", "Home"));
+        HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties
+            {
+                RedirectUri = returnUrl ?? Url.Action("Index", "Home")
+            },
+            "Auth0");
+        return new HttpUnauthorizedResult();
     }
 
     [Authorize]
     public void Logout()
     {
         HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-        HttpContext.GetOwinContext().Authentication.SignOut(new AuthenticationProperties
-        {
-            RedirectUri = Url.Action("Index", "Home")
-        }, "Auth0");
+        HttpContext.GetOwinContext().Authentication.SignOut("Auth0");
     }
 
     [Authorize]
@@ -105,44 +134,7 @@ public class AccountController : Controller
 }
 ```
 
-You will also need to add the following code for the `ChallengeResult` class to your project:
-
-```csharp
-// Controllers/AccountController.cs
-
-internal class ChallengeResult : HttpUnauthorizedResult
-{
-    private const string XsrfKey = "XsrfId";
-
-    public ChallengeResult(string provider, string redirectUri)
-        : this(provider, redirectUri, null)
-    {
-    }
-
-    public ChallengeResult(string provider, string redirectUri, string userId)
-    {
-        LoginProvider = provider;
-        RedirectUri = redirectUri;
-        UserId = userId;
-    }
-
-    public string LoginProvider { get; set; }
-    public string RedirectUri { get; set; }
-    public string UserId { get; set; }
-
-    public override void ExecuteResult(ControllerContext context)
-    {
-        var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
-        if (UserId != null)
-        {
-            properties.Dictionary[XsrfKey] = UserId;
-        }
-        context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
-    }
-}
-```
-
-### Add Login and Logout Links
+## Add Login and Logout Links
 
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -180,7 +172,8 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
 
 ### Store the Tokens
 
-The Auth0 OAuth2 middleware can automatically add the ID Token and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+!!!
+The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
 
 You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
 
@@ -191,46 +184,44 @@ Update the registration of the Auth0 middleware in your `Startup.cs` file as fol
 
 public void Configuration(IAppBuilder app)
 {
-    // Configure Auth0 parameters
-    string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
-    string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
-    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
-
-    // Set Cookies as default authentication type
-    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    app.UseCookieAuthentication(new CookieAuthenticationOptions
-    {
-        AuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
-        LoginPath = new PathString("/Account/Login")
-    });
+    // Some code omitted for brevity...
 
     // Configure Auth0 authentication
-    var options = new Auth0AuthenticationOptions()
+    app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
-        Domain = auth0Domain,
-        ClientId = auth0ClientId,
-        ClientSecret = auth0ClientSecret,
-
-        // Save the tokens to claims
-        SaveIdToken = true,
-        SaveAccessToken = true,
-        SaveRefreshToken = true,
-
-        // If you want to request an Access Token to pass to an API, then replace the audience below to
-        // pass your API Identifier instead of the /userinfo endpoint
-        Provider = new Auth0AuthenticationProvider()
+        //...
+        
+        ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
+        Scope = "openid profile",
+    
+        TokenValidationParameters = new TokenValidationParameters
         {
-            OnApplyRedirect = context =>
+            NameClaimType = "name"
+        },
+    
+        Notifications = new OpenIdConnectAuthenticationNotifications
+        {
+            SecurityTokenValidated = notification =>
             {
-                string userInfoAudience = $"https://{auth0Domain}/userinfo";
-                string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
-
-                context.Response.Redirect(redirectUri);
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token",notification.ProtocolMessage.IdToken));
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token",notification.ProtocolMessage.AccessToken));
+    
+                return Task.FromResult(0);
+            },
+            RedirectToIdentityProvider = notification =>
+            {
+                if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
+                {
+                    notification.ProtocolMessage.SetParameter("audience", "https://quickstarts/api");
+                }
+                else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
+                {
+                    //...
+                }
+                return Task.FromResult(0);
             }
         }
-    };
-    options.Scope.Add("offline_access"); // Request a Refresh Token
-    app.UseAuth0Authentication(options);
+    });
 }
 ```
 
