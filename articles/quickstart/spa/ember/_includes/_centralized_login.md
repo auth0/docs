@@ -42,7 +42,7 @@ export default Service.extend({
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Handle Tokens
+## Handle Authentication Tokens
 
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
