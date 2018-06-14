@@ -1,5 +1,4 @@
 ---
-title: Metadata and Custom Databases
 description: Learn how to work with metadata when using your database as an identity provider.
 crews: crew-2
 ---

@@ -1,5 +1,4 @@
 ---
-title: Custom Database Error Handling
 description: Learn how to handle errors when using your database as an identity provider.
 crews: crew-2
 ---
@@ -17,10 +16,10 @@ To return an error, call the callback with an error as the first parameter:
 callback(error);
 ```
 
-For example:
+**Example:**
 
 ```js
 callback(new ValidationError('email-too-long', 'Email is too long.'));
 ```
 
-If you use [Lock](/libraries/lock), you can customize the error messages that will be displayed by adding them to the dictionary. For more info, see [Customizing Lock Error Messages](libraries/lock/customizing-error-messages).
+If you use [Lock](/libraries/lock), you can [customize the error messages](libraries/lock/customizing-error-messages) that will be displayed by adding them to the dictionary.

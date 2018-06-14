@@ -3,7 +3,7 @@ title: Authenticate Users Using Your Database
 connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
-description: Learn how to authenticate users using your database as an identity provider.
+description: Learn how to configure your database for use with Auth0 as your identity provider.
 crews: crew-2
 toc: true
 topics:
@@ -13,10 +13,9 @@ contentType: tutorial
 useCase:
     - customize-connections
 ---
+# Configure Your Database for Use with Auth0 as An Identity Provider Auth0
 
-# # Configure Auth0 to Use a Database as an Identity Provider
-
-In this article, we will show you how to configure Auth0 to use your database as an identity provider. You will need to:
+In this article, we will show you how to configure your database for use with Auth0 as an identity provider. You will need to:
 
 1. Create an Auth0 database connection
 2. Create database action scripts
@@ -24,9 +23,9 @@ In this article, we will show you how to configure Auth0 to use your database as
 
 ## Step 1: Create an Auth0 database connection
 
-The first thing you will do is create a database connection in Auth0. To do so, follow these steps:
+The first thing you will do is create a database connection in Auth0:
 
-1. In the Dashboard, navigate to [Connections > Database](${manage_url}/#/connections/database).
+1. Log in to the Dashboard and navigate to [Connections > Database](${manage_url}/#/connections/database).
 
 2. Click **+ Create DB Connection**.
 
@@ -45,10 +44,10 @@ The first thing you will do is create a database connection in Auth0. To do so, 
 
 Once Auth0 creates your connection, you'll have the following tabs (in addition to the **Settings** tab):
 
-  * Password Policy
-  * Custom Database
-  * Applications
-  * Try Connection
+* Password Policy
+* Custom Database
+* Applications
+* Try Connection
 
 4. Switch over to the **Custom Database** tab.
 
@@ -126,20 +125,23 @@ function login(email, password, callback) {
 
   });
 }
-
 ```
 
-The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. Note that `id` returned by Login script is used to construct `user_id` attribute of user profile. If you are using multiple custom database connections then value of `id` must be unique across all the custom database connections to avoid and `user_id` collisions. Our recommendation is to prefix the value of `id` with connection name without any whitespace in the resulting value.
+The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`.
+
+With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`.
+
+This script assumes that you have a `users` table containing these columns. The `id` returned by Login script is used to construct `user_id` attribute of user profile. If you are using multiple custom database connections, then value of `id` must be unique across all the custom database connections to avoid and `user_id` collisions. Our recommendation is to prefix the value of `id` with connection name (without any whitespace).
 
 ## Step 3: Add configuration parameters
 
 You can store parameters, like the credentials required to connect to your database, in the Settings section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
 
-You can access parameter values using the `configuration` object in your database action scripts, for example: `configuration.MYSQL_PASSWORD`.
+You can access parameter values using the `configuration` object in your database action scripts (i.e. `configuration.MYSQL_PASSWORD`).
 
 ![Custom database settings](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
-Use the added parameters in your scripts to configure the connection. For example, in the MySQL Login template:
+Use the added parameters in your scripts to configure the connection. For example, you might add the following the MySQL Login template:
 
 ```js
 function login (username, password, callback) {

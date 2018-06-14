@@ -34,6 +34,4 @@ Here are some things to know before you begin the process of setting up your dat
 
   Essentially, you can connect to any kind of database or web service with a properly-configured custom script.
 
-* You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
-
 * [Update Users Using Your Database](/user-profile/customdb) has information on updating user profile fields.
