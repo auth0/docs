@@ -362,7 +362,7 @@ if (User.Identity.IsAuthenticated)
     string idToken = await HttpContext.GetTokenAsync("id_token");
 
     // Now you can use them. For more info on when and how to use the
-    // Access Token and id_token, see https://auth0.com/docs/tokens
+    // Access Token and ID Token, see https://auth0.com/docs/tokens
 }
 ```
 

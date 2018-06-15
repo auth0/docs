@@ -244,7 +244,7 @@ public void Configuration(IAppBuilder app)
 
 To access these token from one of your controllers, simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
 
-The sample code below shows how you can extract the claims for the Access Token, `id_token` and Refresh Token respectively:
+The sample code below shows how you can extract the claims for the Access Token, ID Token, and Refresh Token respectively:
 
 ``` csharp
 // Controllers/AccountController.cs

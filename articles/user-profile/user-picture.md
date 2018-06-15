@@ -38,7 +38,7 @@ For example, if your app provides a way to upload profile pictures, once the pic
 }
 ```
 
-If you want to ensure that the picture from the `user_metadata` is returned in the `id_token`, you will need to create a [Rule](/rules) which will check whether the `user.user_metadata.picture` attribute is present, and if so replace the `user.picture` attribute with that value. This will ensure that the picture from the `user_metadata` is returned in the `picture` claim of the `id_token`.
+If you want to ensure that the picture from the `user_metadata` is returned in the ID Token, you will need to create a [Rule](/rules) which will check whether the `user.user_metadata.picture` attribute is present, and if so replace the `user.picture` attribute with that value. This will ensure that the picture from the `user_metadata` is returned in the `picture` claim of the ID Token.
 
 Here is an example of the code you can use in your Rule:
 
@@ -46,14 +46,14 @@ Here is an example of the code you can use in your Rule:
 function (user, context, callback) {
   if (user.user_metadata.picture)
     user.picture = user.user_metadata.picture;
-  
+
   callback(null, user, context);
 }
 ```
 
 ## Change the default picture for all users
 
-If you want to change the default picture of all users who do not have a profile picture set, you can use a rule to do this. 
+If you want to change the default picture of all users who do not have a profile picture set, you can use a rule to do this.
 
 Example:
 

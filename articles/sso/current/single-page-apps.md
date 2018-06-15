@@ -134,7 +134,7 @@ function getIdToken() {
 $(function () {
   var access_token = getAccessToken();
 
-  // Optional: an id_token will be returned by Auth0
+  // Optional: an ID Token will be returned by Auth0
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 

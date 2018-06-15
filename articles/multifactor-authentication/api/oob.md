@@ -21,7 +21,7 @@ When a user begins the authorization process without an active authenticator ass
 }
 ```
 
-In the next step, use the MFA token (`mfa_token`) instead of the standard access token to request association of a new authenticator.
+In the next step, use the MFA token (`mfa_token`) instead of the standard Access Token to request association of a new authenticator.
 
 ## 2. Request association of the authenticator
 

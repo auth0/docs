@@ -27,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Set Up the Auth0 Callback URL
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, Access Token and Refresh Token.
+Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an ID Token, Access Token, and Refresh Token.
 
 Since callback URLs can be manipulated, you will need to add your application's URL to your application's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
@@ -170,7 +170,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
@@ -200,7 +200,7 @@ if (!loginResult.IsError)
 The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Application documentation.
 :::
 
-You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
 ```csharp
 if (!loginResult.IsError)

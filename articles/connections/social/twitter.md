@@ -88,7 +88,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 
 ::: panel Application-Specific Access Tokens
-Unlike many social identity providers, Twitter allows you to use application-specific access tokens for many API calls without requiring user access tokens. You can generate these tokens in [Twitter Application Management](https://apps.twitter.com). Using application-specific access tokens will limit your app to requests that do not require user context. For more information, see [Twitter Developer Documentation: Application-Only Authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html).
+Unlike many social identity providers, Twitter allows you to use application-specific Access Tokens for many API calls without requiring user Access Tokens. You can generate these tokens in [Twitter Application Management](https://apps.twitter.com). Using application-specific Access Tokens will limit your app to requests that do not require user context. For more information, see [Twitter Developer Documentation: Application-Only Authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html).
 :::
 
 ## Troubleshooting

@@ -203,7 +203,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
-| `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
+| `scope` | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
 
 ### Test with Postman
 

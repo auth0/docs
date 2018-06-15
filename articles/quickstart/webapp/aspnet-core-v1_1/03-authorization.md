@@ -16,7 +16,7 @@ budicon: 546
   ]
 }) %>
 
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's `id_token` by adding role information and then use that information inside your application to limit a user's access.
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's ID Token by adding role information and then use that information inside your application to limit a user's access.
 
 ::: note
 This tutorial assumes that you are familiar with [Rules](/rules/current).
@@ -57,7 +57,7 @@ For more information on custom claims please see [User profile claims and scope]
 
 ## Restrict an Action Based on a User's Roles
 
-Next you will need to configure the OIDC middleware registration inside your ASP.NET application to inform it which claim in the `id_token` contains the role information. Alter your OIDC middleware registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
+Next you will need to configure the OIDC middleware registration inside your ASP.NET application to inform it which claim in the ID Token contains the role information. Alter your OIDC middleware registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
@@ -77,7 +77,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
     Events = new OpenIdConnectEvents
     {
-      // handle the logout redirection 
+      // handle the logout redirection
       OnRedirectToIdentityProviderForSignOut = (context) =>
       {
           [...] // code omitted for brevity

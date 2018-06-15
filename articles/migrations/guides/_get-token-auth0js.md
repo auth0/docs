@@ -9,7 +9,7 @@
     <div id="coa-id-token" class="tab-pane active">
       <pre class="text hljs">
         <code>
-// get an ID token
+// get an ID Token
 var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
@@ -34,7 +34,7 @@ var auth0Manage = new auth0.Management({
     <div id="coa-access-token" class="tab-pane">
       <pre class="text hljs">
         <code>
-// get an access token
+// get an Access Token
 var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',

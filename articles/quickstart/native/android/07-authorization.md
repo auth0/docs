@@ -40,7 +40,7 @@ function (user, context, callback) {
   if (user.email && user.email.indexOf('@admin.com') > -1) {
       roles.push('admin');
   }
-  //Set the role claim in the id_token
+  //Set the role claim in the ID Token
   context.idToken[claimName] = roles;
 
   callback(null, user, context);
@@ -71,7 +71,7 @@ authenticationClient.userInfo(accessToken)
       public void onSuccess(UserProfile userInfo) {
         //Obtain the claim from the "extra info" of the user info
         List<String> roles = userInfo.getExtraInfo().containsKey("https://access.control/roles") ? (List<String>) userInfo.getExtraInfo().get("https://access.control/roles") : Collections.<String>emptyList();
-        
+
         if (!roles.contains("admin")) {
           // User is not authorized
         } else {

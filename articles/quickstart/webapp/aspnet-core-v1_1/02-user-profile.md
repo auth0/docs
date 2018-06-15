@@ -56,11 +56,11 @@ public IActionResult Profile()
 }
 ```
 
-The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the `id_token`, but this does not get automatically matched the the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
+The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID Token, but this does not get automatically matched the the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
 
-There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC middleware registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the `id_token` whenever you access the name of the user using the `User.Identity.Name` property.
+There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC middleware registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the ID Token whenever you access the name of the user using the `User.Identity.Name` property.
 
-You will also need to update the list of scopes to ensure that your request the `profile` scope. This will ensure the user's profile information is returned as claims in the `id_token`.
+You will also need to update the list of scopes to ensure that your request the `profile` scope. This will ensure the user's profile information is returned as claims in the ID Token.
 
 
 ```csharp
@@ -80,7 +80,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
     Events = new OpenIdConnectEvents
     {
-      // handle the logout redirection 
+      // handle the logout redirection
       OnRedirectToIdentityProviderForSignOut = (context) =>
       {
           [...] // code omitted for brevity
