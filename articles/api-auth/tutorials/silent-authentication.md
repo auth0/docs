@@ -79,6 +79,10 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 
 ## Renew expired tokens
 
+::: note
+Please review [our notes on token renewal for Safari users](/api-auth/token-renewal-in-safari).
+:::
+
 Access Tokens are opaque to applications. This means that applications are unable to inspect the contents of Access Tokens to determine their expiration date.
 
 There are two options to determine when an Access Token expires:

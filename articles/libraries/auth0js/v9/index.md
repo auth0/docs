@@ -424,6 +424,8 @@ Note that `checkSession()` triggers any [rules](/rules) you may have set up, so 
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
+However, the browser **must** have third-party cookies enabled. Otherwise, **checkSession()** is unable to access the current user's session (making it impossible to obtain a new token without displaying anything to the user). The same will happen if users have [Safari's ITP enabled](/api-auth/token-renewal-in-safari).
+
 Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 application in the [Dashboard](${manage_url}) under your application's **Settings**.
 
 ::: warning
