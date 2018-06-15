@@ -1,5 +1,5 @@
 ---
-title: Dashboard
+title: Working with the Dashboard
 description: Working with the Dashboard
 classes: topic-page
 ---
