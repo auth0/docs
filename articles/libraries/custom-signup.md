@@ -31,7 +31,7 @@ For further reference, here is our [documentation on progressive profiling](/use
 
 ## Using the API
 
-### 1. Create a Sign Up form to capture custom fields
+### 1. Create a sign up form to capture custom fields
 
 ```html
 <form id="signup">
@@ -61,7 +61,7 @@ The `name` and `color` are custom fields.
 There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom, **server-side** logic in your application.
 :::
 
-### 2. Send the Form Data
+### 2. Send the form data
 
 Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0. 
 
@@ -115,17 +115,56 @@ window.auth0 = new Auth0({
 
 Your server will then need to call APIv2 to add the necessary custom fields to the user's profile.
 
-## Add Username to Sign Up form
+## Add username to the sign up form
 
-One common signup customization is to add a `username` to the signup.
+One common signup customization is to add a username to the signup.
 
-To enable this feature, turn on the `Requires Username` setting on the [Connections > Database](${manage_url}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
+To enable this feature, turn on the **Requires Username** setting on the [Connections > Database](${manage_url}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
 
-Once this has been set, when a user is created manually in the Auth0 dashboard, the screen where users enter their information will prompt them for both an email and a username.
+Capture the `username` field in your custom form, and add the `username` to your request body.
 
-Similarly, the Lock widget in sign up mode will prompt for a username, email and password.
+```html
+<form id="signup">
+  <fieldset>
+    <legend>Sign up</legend>
+    <p>
+      <input type="email" id="signup-email" placeholder="Email" required/>
+    </p>
+    <p>
+      <input type="password" id="signup-password" placeholder="Password"
+             required/>
+    </p>
+    <p>
+      <input type="text" id="username" placeholder="username" required/>
+    </p>
+    <input type="submit" value="Sign up"/>
+  </fieldset>
+</form>
+```
 
-Then users can log in with Username and Password.
+```js
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://${account.namespace}/dbconnections/signup",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded"
+  },
+  "data": {
+    "client_id": "${account.clientId}",
+    "email": $('#email').val(),
+    "password": $('#password').val(),
+    "connection": "Username-Password-Authentication",
+    "username": $('#username').val()
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
 
 ## Optional: Verifying password strength
 
