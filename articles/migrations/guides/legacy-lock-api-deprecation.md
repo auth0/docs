@@ -146,7 +146,7 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 * The Auth0.js v9 `getSSOData()` function will continue to work, but it now [behaves differently than in the past](/libraries/auth0js/v9/migration-v8-v9#review-calls-to-getssodata-).
 * In Auth0.js v9, `getSSOData()` will check if a user has an existing session and perform a further check to determine if the user is the same one as in the last interactive authentication transaction. This supports Lock’s feature of showing the last logged-in user to facilitate subsequent logins.
-* Invoking the `getSSOData()` function will now trigger a call to the [/authorize](/api/authentication#authorize-client) endpoint, which will in turn result in the execution of [rules](/rules).
+* Invoking the `getSSOData()` function will now trigger a call to the [/authorize](/api/authentication#authorize-application) endpoint, which will in turn result in the execution of [rules](/rules).
 
 ##### Polling for an existing session
 
@@ -158,7 +158,7 @@ The poll interval between checks to `checkSession()` should be at least 15 minut
 
 #### Web applications
 
-In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-client) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
+In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-application) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
 
 Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/refresh-token/current#use-a-refresh-token) to renew their token.
 
