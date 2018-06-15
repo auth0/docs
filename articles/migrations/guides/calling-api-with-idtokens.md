@@ -62,13 +62,13 @@ The Access Tokens used to access the Management API **must hold only one value a
 In this section we will see the changes that are introduced in how you get a token for the aforementioned endpoints. We will see sample scripts side-by-side so you can identify the changes.
 
 There are several variations on how you authenticate a user and get tokens, depending on the technology and the [OAuth 2.0 flow you use to authenticate](/api-auth/which-oauth-flow-to-use):
-- Using the [Authorization endpoint](/api/authentication#authorize-client). This is where you redirect your users to login or sign up. You get your tokens from this endpoint if you authenticate users from a [single-page app](/api/authentication#implicit-grant) (running on the browser).
+- Using the [Authorization endpoint](/api/authentication#authorize-application). This is where you redirect your users to login or sign up. You get your tokens from this endpoint if you authenticate users from a [single-page app](/api/authentication#implicit-grant) (running on the browser).
 - Using the [Token endpoint](/api/authentication#get-token).You get your tokens from this endpoint if you authenticate users from a [web app](/api/authentication#authorization-code) (running on a server), a [mobile app](/api/authentication#authorization-code-pkce-), a [server process](/api/authentication#client-credentials), or a [highly trusted app](/api/authentication#resource-owner-password).
 - Using [Lock](/libraries/lock/v11#cross-origin-authentication) or [auth0.js](/libraries/auth0js/v9#configure-your-auth0-application-for-embedded-login) embedded in your application. In this case you are using [cross-origin authentication](/cross-origin-authentication) (used to authenticate users when the requests come from different domains). 
 
 ### The Authorization endpoint
 
-In this section we will use an example to showcase the differences in how you get a token with the [Authorization endpoint](/api/authentication#authorize-client). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
+In this section we will use an example to showcase the differences in how you get a token with the [Authorization endpoint](/api/authentication#authorize-application). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
 
 In the example below, we want to use the [GET User by ID endpoint](/api/management/v2#!/Users/get_users_by_id) to retrieve the full profile information of the logged-in user. To do so, first we will authenticate our user (using the [Implicit grant](/api/authentication?http#implicit-grant)) and retrieve the token(s).
 

@@ -123,7 +123,7 @@ Send the update request, copying the existing `options` contents and adding also
 }
 ```
 
-Now, when you call the [Authorize endpoint](/api/authentication#authorize-client) for a specific user, you can pass their email address in the `login_hint` parameter.
+Now, when you call the [Authorize endpoint](/api/authentication#authorize-application) for a specific user, you can pass their email address in the `login_hint` parameter.
 
 ```text
 https://${account.namespace}/authorize

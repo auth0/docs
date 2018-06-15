@@ -14,7 +14,7 @@ However, redirecting users away from your application is usually considered disr
 
 ## Initiate a Silent Authentication request
 
-To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-client).
+To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-application).
 
 For example:
 

@@ -17,10 +17,10 @@ The Access Token should be used as a **Bearer** credential and transmitted in an
 
 Auth0 currently generates Access Tokens in two formats: as opaque strings or as [JSON Web Tokens (JWTs)](/jwt).
 
-This depends on the value that the **audience** parameter has in the [authorization request](/api/authentication#authorize-client).
+This depends on the value that the **audience** parameter has in the [authorization request](/api/authentication#authorize-application).
 
 ::: panel What is the audience?
-The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token (in other words, which is the intended *audience* of this token). If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-application), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token (in other words, which is the intended *audience* of this token). If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
 * If the **audience** is set to `${account.namespace}/userinfo`, then the Access Token will be an opaque string.
@@ -38,7 +38,7 @@ Remember always that the application should not depend on the Access Token to be
 
 ## How to get an Access Token
 
-Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain Access Tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
+Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-application) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain Access Tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
 
 ### Using the Authentication API
 
@@ -56,7 +56,7 @@ Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/auth
 
 Access Tokens are typically obtained in order to access user-owned resources. For example, a Calendar application needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
 
-Such access is requested by the application and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-client).
+Such access is requested by the application and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-application).
 
 ```text
 https://${account.namespace}/authorize?
