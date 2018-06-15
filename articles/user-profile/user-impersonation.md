@@ -203,7 +203,13 @@ Replace the required values as follows:
 - `PROTOCOL_TO_USE`: the protocol to use against the identity provider, for example `oauth2`
 - `IMPERSONATOR_ID`: the `user_id` of the impersonator
 
-Upon successful authentication, a URL will be returned as response that will look like the following:
+A successful response returns a URL which can be used to authenticate as the user. The URL should look something like this:
+
+```text
+https://${account.namespace}/users/IMPERSONATOR_ID/impersonate?&abc=XYZ123
+```
+
+Perform a GET request on the URL you received to get a new URL with a `code` and `state` value. The response should look like the following:
 
 ```text
 ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
