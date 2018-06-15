@@ -136,7 +136,7 @@ Capture the `username` field in your custom form, and add the `username` to your
 </form>
 ```
 
-```har
+```js
 var settings = {
   "async": true,
   "crossDomain": true,
