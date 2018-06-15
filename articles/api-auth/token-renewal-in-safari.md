@@ -17,7 +17,7 @@ Recent versions of the Safari browser introduced a new featured called [Intellig
 
 By default, ITP is active. You can determine if the Safari version you're using has ITP by going to **Preferences > Privacy** tab and seeing if the **Prevent cross-site tracking** option is checked.
 
-![Safari privacy preferences pane](/media/articles/quickstarts/safari-privacy-preferences.png)
+![Safari privacy preferences pane](/media/articles/api-auth/safari-privacy-preferences.png)
 
 ## ITP and Browser Behavior
 
