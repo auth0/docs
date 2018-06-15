@@ -81,7 +81,7 @@ auth0 = oauth.register(
 
 ## Add the Auth0 Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL for an Access Token and an `id_token`.
+This handler exchanges the `code` that Auth0 sends to the callback URL for an Access Token and an ID Token.
 
 The Access Token will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
 

@@ -1,5 +1,5 @@
 ---
-description: How to obtain, use and renew an id_token.
+description: How to obtain, use, and renew an ID Token.
 toc: true
 ---
 # ID Token
@@ -67,7 +67,7 @@ Once the application verifies the token's signature, the next step is to validat
 
 ## Control the contents of an ID Token
 
-In order to retrieve an ID Token the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
+In order to retrieve an ID Token, the `responseType` should include `id_token`, both for client-side and server-side authentication flows.
 
 The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.

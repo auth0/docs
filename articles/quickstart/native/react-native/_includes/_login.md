@@ -108,7 +108,7 @@ Then present the hosted login screen, like this:
 
 ${snippet(meta.snippets.use)}
 
-Upon successful authentication the user's `credentials` will be returned, containing an Access Token, an `id_token` and an `expires_in` value.
+Upon successful authentication the user's `credentials` will be returned, containing an Access Token, an ID Token and an `expires_in` value.
 
 ::: note
 For more information on the `accessToken`, refer to [Access Token](/tokens/access-token).

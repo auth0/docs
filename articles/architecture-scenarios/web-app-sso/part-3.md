@@ -44,7 +44,7 @@ When talking about managing sessions, there are typically three layers of sessio
 When developing a web application, you will therefore need to keep track of the fact that the user has logged in to your Web application. You can do this by making use of a cookie-based session to keep track of the fact that the user has signed in, and also store any of the user related information or tokens.
 
 ::: panel How do I control the duration of the user's local application session? Can I drive that from Auth0?
-The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT `id_token` returned by Auth0 to control their session duration or ignore it completely. Some developers store the `id_token` itself in session state and end the user's session when it has expired.
+The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT ID Token returned by Auth0 to control their session duration or ignore it completely. Some developers store the ID Token itself in session state and end the user's session when it has expired.
 
 The reason why you would use the expiration of the token to determine the expiration of the local session is because it gives you centralized control of the duration of a user session from the Auth0 Dashboard.
 :::
@@ -64,7 +64,7 @@ Auth0 manages its own single-sign-on session. Applications can choose to honor o
 
 ![Lock Widget SSO](/media/articles/architecture-scenarios/web-app-sso/sso-login.png)
 
-If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
+If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new ID Token, which can be used to then manage the new local application session.
 :::
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#configure-the-cookie-and-oidc-middleware)**.
@@ -94,7 +94,7 @@ The logout flow (not including federated logout) is as follows:
 
 Authorization refers to the process of determining what actions a user can perform inside your application.
 
-You can either implement authorization directly inside your application, independently of Auth0, or use one of the available ways to retrieve the user authorization levels, put them as authorization claims inside the `id_token` and validate these claims inside your application, once you retrieve the token, to control access.
+You can either implement authorization directly inside your application, independently of Auth0, or use one of the available ways to retrieve the user authorization levels, put them as authorization claims inside the ID Token and validate these claims inside your application, once you retrieve the token, to control access.
 
 There are various ways in which you can retrieve and set the user authorization claims when using Auth0:
 - By configuring and using the [Auth0 Authorization Extension](/extensions/authorization-extension).

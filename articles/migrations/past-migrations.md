@@ -151,13 +151,13 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the ID Token being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 ### Am I affected by the change?
 
-If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
+If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the ID Token being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -169,7 +169,7 @@ You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` a
 | --- | --- | --- | --- |
 | Medium | 2016-07-11 | 2016-08-18 |
 
-The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
+The format of the user profile JSON object (ID Token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
 
 Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 

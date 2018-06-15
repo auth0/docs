@@ -496,7 +496,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
 10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
@@ -523,7 +523,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
 
