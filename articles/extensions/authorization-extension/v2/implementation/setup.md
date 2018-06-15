@@ -6,7 +6,7 @@ toc: true
 
 # Authorization Extension: Setup
 
-In this paragraph, we'll briefly cover the basics of users, groups, roles, and permissions.
+In this article we'll cover the basics of users, groups, roles, and permissions.
 
 Let's say that you have an application that is accessible to everyone within your corporation. The **users** are the individuals to whom you'd like to grant access to your application.
 
@@ -39,7 +39,7 @@ Rather than assigning both permissions to groups/users, you can roll the two (al
 
 ## Users
 
-The **Users** section lists all the current users of your applications. You can use this to search for and select a specific user to see their profile, view or edit their group affiliations, and view or edit their roles.
+The **Users** section lists all the current users of your applications. Here you can find a specific user, see their profile, change their group affiliations, and change their roles.
 
 ![Users Section](/media/articles/extensions/authorization/users.png)
 

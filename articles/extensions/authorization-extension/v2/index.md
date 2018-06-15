@@ -11,6 +11,8 @@ The Authorization Extension provides support for user authorization via Groups, 
 
 You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context.
 
+Currently, roles and permissions are set on a per-application basis. If you need the same roles or permissions on another application, you'll have to create them separately.
+
 ## Get Started
 
 Before you can use the extension, you'll need to install it, configure the rule controlling its behavior during login, and set up your user management.
