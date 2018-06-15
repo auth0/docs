@@ -1,6 +1,5 @@
 ---
 description: How to programatically generate and use a token for the Management API
-title: Programatically Generate and Use an Access Token for the Management API
 section: apis
 crews: crew-2
 toc: true
@@ -12,12 +11,12 @@ The [manual process](/api/management/v2/tokens/manually) for getting a token mig
 In this article, we will show you how you can generate tokens for use with the Management API.
 
 ::: panel Prerequisites
-Before you proceed with this tutorial, you must [create and authorize a Non Interactive Client](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you need to access.
+Before you proceed with this tutorial, you must [create and authorize a Machine to Machine Application](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you need to access.
 :::
 
 ## 1. Get a token
 
-To obtain an Access Token for the Management API, make a **POST** call to the **https://${account.namespace}/oauth/token** using the credentials of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). 
+To obtain an Access Token for the Management API, make a **POST** call to the **https://${account.namespace}/oauth/token** using the credentials of the Machine to Machine Application [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). 
 
 Your payload will look something like this:
 
@@ -40,8 +39,8 @@ The request parameters are as follows:
 | Parameter | Description | 
 | - | - |
 | **grant_type** | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use `client_credentials` |
-| **client_id** | This is the value of the __Client ID__ field of the Non Interactive Client you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
-| **client_secret** | This is the value of the __Client Secret__ field of the Non Interactive Client you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
+| **client_id** | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
+| **client_secret** | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](/api/management/v2/tokens/manually#1-create-and-authorize-a-client). You can find it on the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings) |
 | **audience** | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it on the [Settings tab of the API](${manage_url}/#/apis) |
 
 The response will contain a [signed JWT (JSON Web Token)](/jwt). The token includes information on when it expires, the scopes granted, and the token type.
@@ -104,9 +103,9 @@ Before you run it make sure that the following hold valid values:
 | Parameter | Description |
 | - | - |
 | AUDIENCE | The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis) |
-| DOMAIN | The __Domain__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
-| CLIENT_ID | The __Client ID__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
-| CLIENT_SECRET | The __Client Secret__ of the Non Interactive Client [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
+| DOMAIN | The __Domain__ of the Machine to Machine Application [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
+| CLIENT_ID | The __Client ID__ of the Machine to Machine Application [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
+| CLIENT_SECRET | The __Client Secret__ of the Machine to Machine Application [you created](/api/management/v2/tokens/manually#1-create-and-authorize-a-client) |
 
 ```python
 def main():

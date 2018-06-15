@@ -1,6 +1,5 @@
 ---
 description: How to manually generate and use a token for the Management API
-title: Manually Generate and Use an Access Token for the Management API
 section: apis
 crews: crew-2
 toc: true
@@ -20,15 +19,15 @@ To generate a token for use with the Management API, you will need to:
 You need to follow the steps to create and authorize a client only once.
 :::
 
-The first thing you need to do is create an authorize a Non Interactive Client.
+The first thing you need to do is create an authorize a Machine to Machine Application.
 
-We recommend creating a Non Interactive Client exclusively for authorizing access to the Management API instead of reusing one you might already have.
+We recommend creating a Machine to Machine Application exclusively for authorizing access to the Management API instead of reusing one you might already have.
 
-::: panel What is a Non Interactive Client?
-A Non Interactive Client represents a program that interacts with an API where there is no user involved. For example, you might have a server-side script that needs access to an API, which is a [machine-to-machine interaction](/api-auth/grant/client-credentials). In such instances, you must use a Non Interactive Client (instead of a Single Page or Native App client), since neither meet the security requirements for this type of flow.
+::: panel What is a Machine to Machine Application?
+A Machine to Machine Application represents a program that interacts with an API where there is no user involved. For example, you might have a server-side script that needs access to an API, which is a [machine to machine interaction](/api-auth/grant/client-credentials). In such instances, you must use a Machine to Machine Application (instead of a Single Page or Native App client), since neither meet the security requirements for this type of flow.
 :::
 
-To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+To create and authorize a Machine to Machine Application for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 Click the button __Create & Authorize a Test Client__.
 
@@ -38,7 +37,7 @@ That's it! A new client has been created for you, and it is authorized to access
 
 ### Scopes
 
-Please note that each Non Interactive Client that accesses an API has to be granted a set of scopes. The client that we just created has been granted **all** scopes needed to call the Management API endpoints -- in other words, token users can access all endpoints.
+Please note that each Machine to Machine Application that accesses an API has to be granted a set of scopes. The client that we just created has been granted **all** scopes needed to call the Management API endpoints -- in other words, token users can access all endpoints.
 
 ::: panel What are scopes?
 Scopes are permissions granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes.
@@ -49,15 +48,15 @@ If you need to read **and** create clients, then your token should include three
 :::
 
 ::: note
-If you have multiple apps needing access to the Management API, and each app needs a different set of scopes, we recommend creating a Non Interactive Client for each app.
+If you have multiple apps needing access to the Management API, and each app needs a different set of scopes, we recommend creating a Machine to Machine Application for each app.
 :::
 
 ### How to Set Scopes
 
-To set the scopes for the Non Interactive Clients that access the Management API:
+To set the scopes for the Machine to Machine Applications that access the Management API:
 
 1. Launch the [Auth0 Management API](${manage_url}/#/apis)
-2. Open the **Non Interactive Clients** tab
+2. Open the **Machine to Machine Applications** tab
 3. Find the client you're interested in configuring, and click the drop-down arrow located to the right of its name
 4. Select the scopes desired
 
