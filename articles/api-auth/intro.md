@@ -198,7 +198,7 @@ Native applications need to use Universal Login (with an Auth0-hosted login page
 To use the new pipeline, at least one of the following should apply:
 
 - The application is flagged as __OIDC Conformant__, or
-- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
+- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-application) or [/token](/api/authentication#get-token) endpoints
 
 If none of these applies, then the legacy flows will be used.
 
