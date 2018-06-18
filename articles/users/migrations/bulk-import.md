@@ -3,7 +3,7 @@ title: Bulk User Imports with the Management API
 description: How to perform bulk user imports with the Management API.
 crews: crew-2
 toc: true
-- tags:
+topics:
   - users
   - user-management
   - migrations

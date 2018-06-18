@@ -5,7 +5,7 @@ order: 3
 id: paxlbixuya
 asset_id: 8713e22d392cbad7798b01a8fec40761450c4d32
 description: This video will help you better understand how Auth0 works with sessions and cookies in a traditional web application.
-- tags:
+topics:
   - videos
   - sessions
   - cookies

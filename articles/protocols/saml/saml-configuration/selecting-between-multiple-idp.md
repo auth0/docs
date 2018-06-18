@@ -1,6 +1,6 @@
 ---
 description: How to use Home Realm Discovery with SAML
-tags:
+topics:
   - saml
   - home-realm-discovery
 ---

@@ -4,7 +4,7 @@ articles:
   - protocols
   - tokens
   - tokens/jwt
-tags:
+topics:
   - glossary
 ---
 

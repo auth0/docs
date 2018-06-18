@@ -2,7 +2,7 @@
 title: User-Initiated Multifactor Authentication (MFA)
 description: How to set up user-initiated multifactor authentication
 toc: true
-tags:
+topics:
     - mfa
 ---
 # User-Initiated Multifactor Authentication

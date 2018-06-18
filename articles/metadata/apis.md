@@ -3,7 +3,7 @@ title: How to Work With User Metadata Using the Auth0 APIs
 description: How to create and update metadata using the Auth0 APIs.
 crews: crew-2
 toc: true
-tags:
+topics:
   - metadata
   - apis
   - management-api

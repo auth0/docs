@@ -1,7 +1,7 @@
 ---
 title: Structure of the User Profile
 description: This page lists the attributes that are available on the Auth0 user profile
-tags:
+topics:
     - users
     - user-management
     - user-profiles

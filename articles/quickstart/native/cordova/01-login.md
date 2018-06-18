@@ -2,7 +2,7 @@
 title: Login
 description: This tutorial demonstrates how to use the Auth0 Cordova SDK to add authentication and authorization to your mobile app.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - cordova

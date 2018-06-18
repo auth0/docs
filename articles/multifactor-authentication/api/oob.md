@@ -1,7 +1,7 @@
 ---
 title: Associate an Out-of-Band Authenticator
 description: Configure your application so users can self-associate out-of-band (OOB) authenticators.
-tags:
+topics:
   - mfa
   - mfa-api
   - mfa-authenticators

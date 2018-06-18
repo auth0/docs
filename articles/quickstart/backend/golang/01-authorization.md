@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
-tags:
+topics:
     - quickstart
     - backend
     - golang

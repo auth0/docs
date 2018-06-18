@@ -1,6 +1,6 @@
 ---
 description: How to track sign-ups, enrich user profiles and generate new leads.
-tags:
+topics:
   - monitoring
   - marketing
 ---

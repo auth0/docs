@@ -1,6 +1,6 @@
 ---
 description: Project to help customers analyze common design patterns.
-tags:
+topics:
   - professional services
   - code-review
 ---

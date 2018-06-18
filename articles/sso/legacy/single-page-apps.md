@@ -1,7 +1,7 @@
 ---
 description: Client-side SSO with single page applications.
 toc: true
-tags:
+topics:
   - sso
   - spas
 ---

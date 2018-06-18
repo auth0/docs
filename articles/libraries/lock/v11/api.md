@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: Details on the Lock v11 API.
-tags:
+topics:
   - libraries
   - lock
 ---

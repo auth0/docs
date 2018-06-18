@@ -1,7 +1,7 @@
 ---
 description: How to obtain, use, and renew an ID Token.
 toc: true
-tags:
+topics:
   - tokens
   - id-tokens
 ---

@@ -3,7 +3,7 @@ title: Calling APIs
 description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
 seo_alias: android
 budicon: 546
-tags:
+topics:
   - quickstarts
   - native
   - android

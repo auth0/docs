@@ -2,7 +2,7 @@
 title: Access Token
 description: Learn what Access Tokens are and how you can use them with Auth0.
 toc: true
-tags:
+topics:
   - tokens
   - access-tokens
 ---

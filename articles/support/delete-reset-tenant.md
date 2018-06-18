@@ -1,6 +1,6 @@
 ---
 description: How to manage your tenant
-tags:
+topics:
     - support
     - delete-tenant
     - reset-tenant

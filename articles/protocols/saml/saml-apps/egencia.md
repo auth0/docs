@@ -1,7 +1,7 @@
 ---
 title: Egencia SAML Configuration
 description: Egencia SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - egencia

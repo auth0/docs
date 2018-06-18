@@ -1,6 +1,6 @@
 ---
 description: This page describes different types of cyber attacks and what steps can be taken to prevent them.
-tags:
+topics:
   - security
   - security-bulletins
   - prevention

@@ -2,7 +2,7 @@
 title: Getting Started
 description: Initial steps to integrate Auth0 in an iOS Objective-C application.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - ios

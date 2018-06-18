@@ -1,6 +1,6 @@
 ---
 description: Configuring Twilio for Guardian
-tags:
+topics:
   - mfa
   - guardian
   - twilio

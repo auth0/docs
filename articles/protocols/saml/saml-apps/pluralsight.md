@@ -1,7 +1,7 @@
 ---
 title: Pluralsight SAML Configuration
 description: Pluralsight SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - pluralsight

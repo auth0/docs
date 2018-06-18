@@ -2,7 +2,7 @@
 section: libraries
 title: Sending Authentication Parameters
 description: How to send authentication parameters, and what parameters are supported when using Lock iOS.
-tags:
+topics:
   - libraries
   - lock
   - ios

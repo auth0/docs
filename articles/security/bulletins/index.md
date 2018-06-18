@@ -2,7 +2,7 @@
 classes: topic-page
 title: Auth0 Security Bulletins
 description: List of bulletins addressing security vulnerabilities in Auth0 software, with info on how to fix them.
-tags:
+topics:
   - security
   - security-bulletins
 ---

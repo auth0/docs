@@ -3,7 +3,7 @@ section: libraries
 title: Migrating from Lock v10 to v11
 description: How to migrate from Lock v10 to v11
 toc: true
-tags:
+topics:
   - libraries
   - lock
   - migrations

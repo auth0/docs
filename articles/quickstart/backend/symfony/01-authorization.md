@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to a Symfony API
-tags:
+topics:
     - quickstart
     - backend
     - symfony

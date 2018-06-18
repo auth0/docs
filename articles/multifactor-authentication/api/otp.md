@@ -1,7 +1,7 @@
 ---
 title: Associate a One-Time Password Authenticator
 description: Configure your application so users can self-associate one-time password (OTP) authenticators.
-tags:
+topics:
   - mfa
   - mfa-api
   - mfa-authenticators

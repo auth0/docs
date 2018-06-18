@@ -2,7 +2,7 @@
 title: Getting Started
 description: Short Introduction to the Auth0 iOS Swift Quickstarts.
 budicon: 715
-tags:
+topics:
   - quickstarts
   - native
   - ios

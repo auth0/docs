@@ -1,7 +1,7 @@
 ---
 description: Describes the Billing policy which governs requests for billing mechanisms within the Auth0 dashboard
 crews: crew-2
-tags:
+topics:
     - auth0-policies
     - billing
 ---

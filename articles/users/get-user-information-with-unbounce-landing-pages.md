@@ -1,6 +1,6 @@
 ---
 description: How to get user information with one-click social authentication on Unbounce landing pages.
-- tags:
+topics:
   - users
   - user-management
   - search

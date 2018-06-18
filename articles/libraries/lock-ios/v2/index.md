@@ -4,7 +4,7 @@ toc: true
 title: Lock v2 for iOS
 description: A widget that provides a frictionless login and signup experience for your native iOS apps.
 mobileimg: media/articles/libraries/lock-ios.png
-tags:
+topics:
   - libraries
   - lock
   - ios

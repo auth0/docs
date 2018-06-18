@@ -2,7 +2,7 @@
 title: Rate Limit Policy For Auth0 APIs
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
 toc: true
-tags:
+topics:
     - auth0-policies
     - rate-limits
     - testing

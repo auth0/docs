@@ -2,7 +2,7 @@
 title: "Migration Guide: Management API and ID Tokens"
 description: Auth0 is deprecating the usage of ID Tokens as credentials for the Management API. This article will help you migrate your solution from the old implementation to the new one.
 toc: true
-tags:
+topics:
   - migrations
   - management-api
   - id-tokens

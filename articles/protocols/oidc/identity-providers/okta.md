@@ -1,7 +1,7 @@
 ---
 description: How to configure Okta for use as an OpenID Connect identity provider.
 toc: true
-tags:
+topics:
     - protocols
     - oidc
     - okta

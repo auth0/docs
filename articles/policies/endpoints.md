@@ -1,6 +1,6 @@
 ---
 description: Lists all the endpoints used by Auth0 public cloud service.
-tags:
+topics:
     - auth0-policies
     - endpoints
 ---

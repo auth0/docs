@@ -1,7 +1,7 @@
 ---
 title: Lock Android v1 Sending Authentication Parameters
 description: Sending Authentication parameters with Lock Android
-tags:
+topics:
   - libraries
   - lock
   - android

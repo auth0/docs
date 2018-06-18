@@ -2,7 +2,7 @@
 title: Login
 description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your Java Spring web app
 budicon: 448
-tags:
+topics:
   - quickstarts
   - webapp
   - login

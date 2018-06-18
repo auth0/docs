@@ -1,6 +1,6 @@
 ---
 description: How to SSO with Heroku.
-tags:
+topics:
     - saml
     - identity-providers
     - heroku

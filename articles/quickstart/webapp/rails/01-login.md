@@ -2,7 +2,7 @@
 title: Login
 description: Ruby on Rails Login with Auth0
 budicon: 448
-tags:
+topics:
   - quickstarts
   - webapp
   - login

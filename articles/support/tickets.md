@@ -1,6 +1,6 @@
 ---
 decription: How to open and manage tickets with Support Center.
-tags:
+topics:
     - support
     - support-tickets
     - tickets

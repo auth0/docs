@@ -2,7 +2,7 @@
 title: Monitoring Auth0
 description: Monitoring Your Auth0 Implementation
 classes: topic-page
-tags:
+topics:
   - monitoring
 ---
 

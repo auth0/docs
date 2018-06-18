@@ -1,6 +1,6 @@
 ---
 description: How to use OpenID Connect discovery with Auth0.
-tags:
+topics:
     - protocols
     - oidc
 ---

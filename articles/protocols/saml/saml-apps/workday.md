@@ -1,7 +1,7 @@
 ---
 title: Workday SAML Configuration
 description: Workday SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - workday

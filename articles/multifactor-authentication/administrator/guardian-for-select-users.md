@@ -1,6 +1,6 @@
 ---
 description: Guardian for Select Users
-tags:
+topics:
   - mfa
   - guardian
 ---

@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Android v2 Custom Authentication Providers
 description: Implementing custom authentication providers
-tags:
+topics:
   - libraries
   - lock
   - android

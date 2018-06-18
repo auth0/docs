@@ -1,7 +1,7 @@
 ---
 title: Hosted Graphite SAML Configuration
 description: Hosted Graphite SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - hosted-graphite

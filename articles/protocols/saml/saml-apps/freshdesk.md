@@ -1,7 +1,7 @@
 ---
 title: Freshdesk SAML Configuration
 description: Freshdesk SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - freshdesk

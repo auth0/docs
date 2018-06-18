@@ -1,6 +1,6 @@
 ---
 description: Best practices on deprovision users of your SAML integration
-tags:
+topics:
   - saml
 ---
 

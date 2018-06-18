@@ -2,7 +2,7 @@
 title: Manage the Authenticators for Multifactor Authentication
 description: How to manage your MFA authenticators
 beta: true
-tags:
+topics:
   - mfa
   - mfa-api
   - mfa-authenticators

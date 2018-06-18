@@ -2,7 +2,7 @@
 title: User Profile
 description: This tutorial will show you how to display get the user's profile and display it.
 budicon: 292
-tags:
+topics:
   - quickstarts
   - webapp
   - aspnet-core

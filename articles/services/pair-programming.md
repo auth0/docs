@@ -1,6 +1,6 @@
 ---
 description: Project to co-develop integration points with Auth0.
-tags:
+topics:
   - professional services
   - pair-programming
 ---

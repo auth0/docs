@@ -2,7 +2,7 @@
 title: User Sessions
 description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 budicon: 280
-tags:
+topics:
   - quickstarts
   - native
   - ios

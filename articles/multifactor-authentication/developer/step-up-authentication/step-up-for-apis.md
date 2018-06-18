@@ -1,7 +1,7 @@
 ---
 title: Step-up Authentication for APIs
 description: Describes how an API can check if a user has logged in with Multifactor Authentication by examining their Access Token
-tags:
+topics:
   - mfa
   - step-up-authentication
   - apis

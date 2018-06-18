@@ -2,7 +2,7 @@
 section: libraries
 title: Customization
 description: Learn how to customize the look and feel of Lock
-tags:
+topics:
   - libraries
   - lock
   - ios

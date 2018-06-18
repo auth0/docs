@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to use the Auth0 Nginx SDK to add authentication and authorization to your API.
-tags:
+topics:
     - quickstart
     - backend
     - nginx

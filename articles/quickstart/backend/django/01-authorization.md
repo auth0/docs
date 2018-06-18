@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to use Auth0 to add authorization to your Django REST Framework API.
-tags:
+topics:
     - quickstart
     - backend
     - django

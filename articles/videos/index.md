@@ -2,7 +2,7 @@
 url: /videos
 title: Auth0 Developer Videos
 description: A selection of videos showing developers how to perform common tasks with Auth0.
-- tags:
+topics:
   - videos
   - rules
   - sessions

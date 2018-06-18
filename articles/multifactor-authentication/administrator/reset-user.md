@@ -1,6 +1,6 @@
 ---
 description: Reset a User's MFA
-tags:
+topics:
   - mfa
   - guardian
   - user-management

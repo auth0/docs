@@ -2,7 +2,7 @@
 title: Multifactor Authentication in Auth0
 description: The basics of multifactor authentication and the different methods of implementing it with Auth0.
 url: /multifactor-authentication
-tags:
+topics:
     - mfa
 ---
 

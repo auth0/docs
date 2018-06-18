@@ -2,7 +2,7 @@
 title: Single Sign On (SSO) with Auth0
 description: Single Sign On (SSO) with Auth0
 classes: topic-page
-tags:
+topics:
   - sso
 ---
 <!-- markdownlint-disable MD041 MD002 -->

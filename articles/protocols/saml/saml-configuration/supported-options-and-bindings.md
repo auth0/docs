@@ -1,6 +1,6 @@
 ---
 description: Supported SAML bindings and options
-tags:
+topics:
   - saml
   - saml-bindings
 ---

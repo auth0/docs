@@ -1,6 +1,6 @@
 ---
   description: Setting up IdP-initiated SSO
-  tags:
+  topics:
     - saml
     - sso
 ---

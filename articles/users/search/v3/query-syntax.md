@@ -2,7 +2,7 @@
 title: User Search Query Syntax
 description: Learn about Auth0's user search query string syntax.
 toc: true
-- tags:
+topics:
   - users
   - user-management
   - search

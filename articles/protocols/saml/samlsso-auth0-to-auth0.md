@@ -1,7 +1,7 @@
 ---
 description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
 toc: true
-tags:
+topics:
   - saml
   - sso
 ---

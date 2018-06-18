@@ -1,6 +1,6 @@
 ---
 description: Describes how to configure Amazon SNS with Guardian Multifactor
-tags:
+topics:
   - mfa
   - guardian
   - amazon-sns

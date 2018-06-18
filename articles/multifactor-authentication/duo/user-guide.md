@@ -1,6 +1,6 @@
 ---
 description:  Information for how to use Duo Security for users.
-tags:
+topics:
   - mfa
   - duo
 ---

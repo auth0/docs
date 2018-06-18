@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: This tutorial demonstrates how to add authentication to Ruby on Rails API
-tags:
+topics:
     - quickstart
     - backend
     - rails

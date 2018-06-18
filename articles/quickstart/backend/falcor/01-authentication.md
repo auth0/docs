@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: This tutorial will show you how to use the Auth0 to add authentication to your Falcor API.
-tags:
+topics:
     - quickstart
     - backend
     - falcor

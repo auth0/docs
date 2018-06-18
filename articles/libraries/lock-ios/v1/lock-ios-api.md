@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Objective-C API
 description: Description of the Lock Objective-C API
-tags:
+topics:
   - libraries
   - lock
   - ios

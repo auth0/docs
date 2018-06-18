@@ -1,7 +1,7 @@
 ---
 sitemap: false
 description: An overview of Auth0’s onboarding program for enterprise customers.
-tags:
+topics:
   - appliance
   - onboarding
 ---

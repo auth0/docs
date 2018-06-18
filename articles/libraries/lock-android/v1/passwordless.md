@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Android v1 Passwordless
 description: Guide on implementing Passwordless authentication with Lock for Android
-tags:
+topics:
   - libraries
   - lock
   - android

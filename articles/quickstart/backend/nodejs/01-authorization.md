@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to an Express.js API
-tags:
+topics:
     - quickstart
     - backend
     - nodejs

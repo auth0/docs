@@ -1,7 +1,7 @@
 ---
 description: What is a Refresh Token and how you can use it.
 toc: true
-tags:
+topics:
   - tokens
   - refresh-tokens
 ---

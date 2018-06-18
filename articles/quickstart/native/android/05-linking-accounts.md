@@ -3,7 +3,7 @@ title: Linking Accounts
 description: This tutorial will show you how to link two different accounts for the same user.
 seo_alias: android
 budicon: 345
-tags:
+topics:
   - quickstarts
   - native
   - android

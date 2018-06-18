@@ -1,6 +1,6 @@
 ---
 description: Customize SMS Messages
-tags:
+topics:
   - mfa
   - guardian
   - sms

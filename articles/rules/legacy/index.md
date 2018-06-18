@@ -1,7 +1,7 @@
 ---
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
-tags:
+topics:
   - rules
   - extensibility
 ---

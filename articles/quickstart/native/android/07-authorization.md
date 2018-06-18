@@ -3,7 +3,7 @@ title: Authorization
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 budicon: 500
-tags:
+topics:
   - quickstarts
   - native
   - android

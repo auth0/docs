@@ -2,7 +2,7 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - ios

@@ -2,7 +2,7 @@
 title: User Profile
 description: This tutorial demonstrates how to fetch and update user profile information
 budicon: 292
-tags:
+topics:
   - quickstarts
   - webapp
   - user-profile

@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: This tutorial will show you how to use Auth0 to add authentication to your Relay API.
-tags:
+topics:
     - quickstart
     - backend
     - relay-api

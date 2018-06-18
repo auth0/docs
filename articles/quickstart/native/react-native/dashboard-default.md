@@ -2,7 +2,7 @@
 title: Getting Started
 description: Short Introduction to the Auth0 Rect Native Quickstarts.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - react-native

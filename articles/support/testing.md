@@ -1,7 +1,7 @@
 ---
 title: Testing Your Auth0 Implementation
 description: Guidelines for testing your Auth0 implementation prior to deployment to Production environments
-tags:
+topics:
     - support
     - testing
     - pre-deployment-testing

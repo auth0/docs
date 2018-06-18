@@ -2,7 +2,7 @@
 title: Scopes
 description: Overview of scopes.
 toc: true
-tags:
+topics:
   - scopes
 ---
 

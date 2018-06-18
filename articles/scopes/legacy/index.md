@@ -1,6 +1,6 @@
 ---
 description: Overview of scopes with a client-side authorization transaction.
-tags:
+topics:
   - scopes
 ---
 

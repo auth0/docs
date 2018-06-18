@@ -1,7 +1,7 @@
 ---
 title: Litmos SAML Configuration
 description: Litmos SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - litmos

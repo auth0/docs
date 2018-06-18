@@ -1,6 +1,6 @@
 ---
 description:  Using Google Authenticator with Auth0 for developers
-tags:
+topics:
   - mfa
   - google
   - google-autheticator

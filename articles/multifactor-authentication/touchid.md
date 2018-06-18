@@ -1,6 +1,6 @@
 ---
 description: Links to documentation for Touch ID.
-tags:
+topics:
     - touch-id
 ---
 # Touch ID Settings

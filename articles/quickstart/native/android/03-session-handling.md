@@ -3,7 +3,7 @@ title: Session Handling
 description: This tutorial will show you how to login and maintain a session’s connectivity.
 seo_alias: android
 budicon: 280
-tags:
+topics:
   - quickstarts
   - native
   - android

@@ -2,7 +2,7 @@
 title: SAML SSO with SSOCircle as an Identity Provider
 description: How to configure an application to use Auth0 for SAML Single Sign On (SSO), authenticating users against SSOCircle
 toc: true
-tags:
+topics:
     - saml
     - identity-providers
     - ssocircle

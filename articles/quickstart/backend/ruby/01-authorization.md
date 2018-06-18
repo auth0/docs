@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to Ruby API
-tags:
+topics:
     - quickstart
     - backend
     - ruby

@@ -2,7 +2,7 @@
 toc: true
 title: Lock for Android v1 Configuration
 description: Configuration options and methods for Lock for Android v1
-tags:
+topics:
   - libraries
   - lock
   - android

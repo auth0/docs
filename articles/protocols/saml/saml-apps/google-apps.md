@@ -1,7 +1,7 @@
 ---
 title: Google Apps SAML Configuration
 description: Google Apps SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - google-apps

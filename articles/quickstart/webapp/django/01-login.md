@@ -3,7 +3,7 @@ title: Login
 default: true
 description: This tutorial demonstrates how integrate Auth0 with a Django Web Applcation.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - webapp
   - login

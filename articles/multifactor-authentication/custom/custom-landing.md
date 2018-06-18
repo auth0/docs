@@ -2,7 +2,7 @@
 title: Configuring Custom Multifactor Authentication
 url: /multifactor-authentication/custom
 description: Examples for configuring custom MFA implementations.
-tags:
+topics:
   - mfa
   - custom-mfa
 ---

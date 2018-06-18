@@ -1,6 +1,6 @@
 ---
 description: How to log out of SAML providers
-tags:
+topics:
   - saml
   - logout
 ---

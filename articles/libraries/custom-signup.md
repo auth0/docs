@@ -2,7 +2,7 @@
 section: libraries
 description: How to customize the user sign-up form with additional fields using Lock or the Auth0 API.
 toc: true
-tags:
+topics:
   - libraries
   - lock
   - custom-signups

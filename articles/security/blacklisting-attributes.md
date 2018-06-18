@@ -2,7 +2,7 @@
 description: How to blacklist user attributes that you do not want to save in Auth0 databases
 toc: true
 crews: crew-2
-tags:
+topics:
   - security
   - security-bulletins
   - blacklisting

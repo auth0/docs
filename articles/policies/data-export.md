@@ -1,6 +1,6 @@
 ---
 description: Auth0 policies on exporting data.
-tags:
+topics:
     - auth0-policies
     - data 
     - data-exports

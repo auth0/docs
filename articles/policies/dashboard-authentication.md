@@ -1,7 +1,7 @@
 ---
 description: Describes the Dashboard Authentication Policy which governs requests for special authentication mechanisms for the Auth0 dashboard.
 crews: crew-2
-tags:
+topics:
     - auth0-policies
     - dashboard
 ---

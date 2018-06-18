@@ -1,6 +1,6 @@
 ---
 description: How to Customize the Guardian Widget
-tags:
+topics:
   - mfa
   - guardian
 ---

@@ -1,6 +1,6 @@
 ---
 description: How to send events to segment.io from Auth0
-tags:
+topics:
   - monitoring
   - segmentio
 ---

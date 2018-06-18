@@ -2,7 +2,7 @@
 title: Getting started
 description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
-tags:
+topics:
   - quickstarts
   - native
   - android

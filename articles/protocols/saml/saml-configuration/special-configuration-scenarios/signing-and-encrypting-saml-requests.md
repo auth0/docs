@@ -1,6 +1,6 @@
 ---
 description: Signing and encrypting SAML requests
-  tags:
+  topics:
     - saml
     - sso
 ---

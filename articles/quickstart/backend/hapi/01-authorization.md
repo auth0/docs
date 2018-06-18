@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authorization to a Hapi.js API
-tags:
+topics:
     - quickstart
     - backend
     - hapi

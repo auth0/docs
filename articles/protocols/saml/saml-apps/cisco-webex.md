@@ -1,7 +1,7 @@
 ---
 title: Cisco WebEx SAML Configuration
 description: Cisco WebEx SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - cisco

@@ -1,6 +1,6 @@
 ---
 description: Guardian for Select Applications
-tags:
+topics:
   - mfa
   - guardian
 ---

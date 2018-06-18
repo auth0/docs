@@ -2,7 +2,7 @@
 title: Login
 description: This tutorial demonstrates how to integrate the Auth0 Login in your iOS Swift project to present a hosted Lock page.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - ios

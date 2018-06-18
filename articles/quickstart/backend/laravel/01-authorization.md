@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
-tags:
+topics:
     - quickstart
     - backend
     - laravel

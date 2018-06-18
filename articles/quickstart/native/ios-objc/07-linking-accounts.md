@@ -2,7 +2,7 @@
 title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 budicon: 345
-tags:
+topics:
   - quickstarts
   - native
   - ios

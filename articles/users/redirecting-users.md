@@ -1,7 +1,7 @@
 ---
 title: Redirect Users After Login
 description: How to redirect users to URLs that have not been whitelisted
-- tags:
+topics:
   - users
   - user-management
   - redirection

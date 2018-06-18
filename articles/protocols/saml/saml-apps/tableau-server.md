@@ -1,7 +1,7 @@
 ---
 title: Tableau Server SAML Configuration
 description: Tableau Server SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - tableau

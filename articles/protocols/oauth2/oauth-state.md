@@ -1,7 +1,7 @@
 ---
 title: The State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks.
-tags:
+topics:
     - protocols
     - oauth
     - state-parameter

@@ -3,7 +3,7 @@ title: Migrate Users from Gigya to Auth0
 description: How to import users from Gigya to Auth0.
 crews: crew-2
 toc: true
-- tags:
+topics:
   - users
   - user-management
   - migrations

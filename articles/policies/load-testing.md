@@ -1,6 +1,6 @@
 ---
 description: This page details Auth0's Load Testing Policy.
-tags:
+topics:
     - auth0-policies
     - load-testing
     - testing

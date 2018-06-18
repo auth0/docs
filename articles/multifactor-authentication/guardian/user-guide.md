@@ -1,7 +1,7 @@
 ---
 description: How to sign-up and login using the Guardian app.
 toc: true
-tags:
+topics:
   - mfa
   - guardian
   - push-notifications

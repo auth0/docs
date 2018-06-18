@@ -2,7 +2,7 @@
 title: Login
 description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension
 budicon: 448
-tags:
+topics:
   - quickstarts
   - native
   - chrome

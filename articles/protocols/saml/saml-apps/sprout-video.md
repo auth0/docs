@@ -1,7 +1,7 @@
 ---
 title: Sprout Video SAML Configuration
 description: Sprout Video SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - sprout-video

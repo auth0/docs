@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: Customizing error messages with Lock v11
-tags:
+topics:
   - libraries
   - lock
   - error-messages

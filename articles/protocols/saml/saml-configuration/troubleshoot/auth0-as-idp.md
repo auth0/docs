@@ -1,7 +1,7 @@
 ---
 description: How to troubleshoot SAML-related configuration issues when Auth0 is the identity provider
 toc: true
-  tags:
+  topics:
     - saml
     - sso
 ---

@@ -1,6 +1,6 @@
 ---
 description: Describes how to create an enrollment ticket from API
-tags:
+topics:
   - mfa
   - step-up-authentication
   - api

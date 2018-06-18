@@ -2,7 +2,7 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to use Auth0 to add authentication and authorization to your web app
-tags:
+topics:
   - quickstarts
   - spa
   - jquery

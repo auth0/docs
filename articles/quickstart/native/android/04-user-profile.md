@@ -3,7 +3,7 @@ title: User Profile
 description: This tutorial will show you how to get and modify the user's profile data.
 seo_alias: android
 budicon: 292
-tags:
+topics:
   - quickstarts
   - native
   - android

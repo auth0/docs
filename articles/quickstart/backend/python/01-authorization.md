@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: This tutorial will show you how to use the Auth0 to add authorization to your Python API.
-tags:
+topics:
     - quickstart
     - backend
     - python

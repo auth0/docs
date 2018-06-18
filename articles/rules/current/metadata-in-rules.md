@@ -1,7 +1,7 @@
 ---
 toc: true
 description: How to use metadata in rules.
-tags:
+topics:
   - rules
   - extensibility
   - metadata

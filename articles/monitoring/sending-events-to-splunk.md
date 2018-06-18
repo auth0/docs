@@ -1,6 +1,6 @@
 ---
 description: How to send events from Auth0 to Spunk.
-tags:
+topics:
   - monitoring
   - splunk
 ---

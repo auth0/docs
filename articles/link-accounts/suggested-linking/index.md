@@ -2,7 +2,7 @@
 description: How to link user accounts using server-side code.
 crews: crew-2
 toc: true
-tags:
+topics:
   - account-linking
   - server-side
 ---

@@ -1,6 +1,6 @@
 ---
 description: A project to assist with design and deployment of a Private SaaS Auth0 environment.
-tags:
+topics:
   - professional services
   - psaas-appliance
   - design

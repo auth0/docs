@@ -1,7 +1,7 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
-tags:
+topics:
     - saml
     - identity-providers
     - datadog

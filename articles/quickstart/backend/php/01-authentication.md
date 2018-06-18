@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: This tutorial demonstrates how to add authentication and authorization to a PHP API
-tags:
+topics:
     - quickstart
     - backend
     - php

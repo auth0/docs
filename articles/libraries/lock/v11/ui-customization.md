@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: Customizing the appearance of your Lock widget can be important for branding and a cohesive UI, and this resource highlights the ways in which you can do so while implementing Lock in your project.
-tags:
+topics:
   - libraries
   - lock
   - lock-ui

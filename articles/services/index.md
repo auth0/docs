@@ -3,7 +3,7 @@ url: /services
 classes: topic-page
 title: Auth0 Professional Services
 description: Professional Services offered by Auth0.
-tags:
+topics:
   - professional services
 ---
 <!-- markdownlint-disable MD041 MD002 -->

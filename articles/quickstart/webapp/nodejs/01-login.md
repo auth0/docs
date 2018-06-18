@@ -2,7 +2,7 @@
 title: Login
 description: This tutorial demonstrates how to add authentication to a Node.js and Express web app
 budicon: 448
-tags:
+topics:
   - quickstarts
   - webapp
   - login

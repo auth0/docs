@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: When should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
-tags:
+topics:
   - libraries
   - lock
   - custom-ui

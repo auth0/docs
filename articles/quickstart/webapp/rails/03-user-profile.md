@@ -2,7 +2,7 @@
 title: User Profile
 description: Access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
-tags:
+topics:
   - quickstarts
   - webapp
   - login

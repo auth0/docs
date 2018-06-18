@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Passwordless for iOS
 description: Using Passwordless authentication with Lock for iOS v2
-tags:
+topics:
   - libraries
   - lock
   - ios

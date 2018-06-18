@@ -1,6 +1,6 @@
 ---
 description: Things to consider when designing your SAML integration
-tags:
+topics:
   - saml
 ---
 

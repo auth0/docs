@@ -2,7 +2,7 @@
 classes: topic-page
 title: Guides
 description: Helpful docs for implementing Auth0
-tags:
+topics:
   - architecture
   - tokens
   - user-management

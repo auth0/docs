@@ -2,7 +2,7 @@
 title: Using your API
 description: This tutorial will show you how to use your API
 budicon: 500
-tags:
+topics:
     - quickstart
     - backend
     - webapi-owin

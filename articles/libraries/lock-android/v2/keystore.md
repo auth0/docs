@@ -2,7 +2,7 @@
 section: libraries
 title: Android Development Keystores and Key Hashes
 description: Instructions on acquiring development keystores/key hashes during Android app development.
-tags:
+topics:
   - libraries
   - lock
   - android

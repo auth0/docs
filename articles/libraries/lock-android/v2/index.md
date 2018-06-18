@@ -4,7 +4,7 @@ toc: true
 title: Lock for Android v2
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
-tags:
+topics:
   - libraries
   - lock
   - android

@@ -2,7 +2,7 @@
 section: libraries
 title: Build your own UI
 description: Customize the UI of Lock in your App
-tags:
+topics:
   - libraries
   - lock
   - ios

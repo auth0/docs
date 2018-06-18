@@ -1,6 +1,6 @@
 ---
 description: Guardian Logging
-tags:
+topics:
   - mfa
   - guardian
   - logging

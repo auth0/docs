@@ -1,6 +1,6 @@
 ---
 description: Details on SLA for enabled subscribers.
-tags:
+topics:
     - sld
 ---
 

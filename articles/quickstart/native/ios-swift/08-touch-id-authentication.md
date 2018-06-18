@@ -2,7 +2,7 @@
 title: Touch ID Authentication
 description: This tutorial will show you how to utilise Touch ID and the Credentials Manager
 budicon: 345
-tags:
+topics:
   - quickstarts
   - native
   - ios

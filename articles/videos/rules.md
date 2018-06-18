@@ -5,7 +5,7 @@ order: 2
 id: g7dy1fpwc3
 asset_id: 27664359f517abb19f8f08b97b363232da66c072
 description: This video will show you to use Rules to customize and extend the Auth0 platform customize user profile, add authorization, and integrate with external services all with a few lines of JavaScript.
-- tags:
+topics:
   - videos
   - rules
 ---

@@ -1,6 +1,6 @@
 ---
 description: How to use Auth0 in a SAML2 web application.
-tags:
+topics:
   - saml
   - web-apps
 ---

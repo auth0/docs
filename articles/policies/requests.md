@@ -1,6 +1,6 @@
 ---
 description: The following is a list of requests Auth0 currently doesn't support.
-tags:
+topics:
     - auth0-policies
     - support
 ---

@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Android v2 Custom Theming
 description: Customizing the Lock for Android UI
-tags:
+topics:
   - libraries
   - lock
   - android

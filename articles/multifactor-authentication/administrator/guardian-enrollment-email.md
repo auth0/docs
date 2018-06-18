@@ -1,6 +1,6 @@
 ---
 description: Send an enrollment email (Guardian)
-tags:
+topics:
   - mfa
   - guardian
   - email

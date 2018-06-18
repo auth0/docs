@@ -1,7 +1,7 @@
 ---
 description: What is the OAuth 2.0 Authorization Framework and how it works.
 toc: true
-tags:
+topics:
     - protocols
     - oauth2
     - oauth

@@ -1,7 +1,7 @@
 ---
 description: This page explains how to impersonate a user, a feature often used for testing and troubleshooting purposes.
 toc: true
-tags:
+topics:
     - users
     - user-management
     - user-profiles

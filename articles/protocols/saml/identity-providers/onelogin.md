@@ -1,7 +1,7 @@
 ---
 title: OneLogin
 description: How to configure OneLogin as an identity provider.
-tags:
+topics:
     - saml
     - identity-providers
     - onelogin

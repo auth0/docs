@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Android v2 Custom Fields at Signup
 description: Adding additional fields to signups with Lock for Android
-tags:
+topics:
   - libraries
   - lock
   - android

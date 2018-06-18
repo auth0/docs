@@ -1,7 +1,7 @@
 ---
 description: How to read and update user metadata with Lock.
 crews: crew-2
-tags:
+topics:
   - metadata
   - lock
 ---

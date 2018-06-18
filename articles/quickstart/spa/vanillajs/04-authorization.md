@@ -2,7 +2,7 @@
 title: Authorization
 description: This tutorial demonstrates how to add authorization and access control to your application
 budicon: 546
-tags:
+topics:
   - quickstarts
   - spa
   - vanillajs

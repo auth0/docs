@@ -2,7 +2,7 @@
 section: libraries
 title: Lock Android v2 Refreshing JWTs
 description: Keeping your user logged in
-tags:
+topics:
   - libraries
   - lock
   - android

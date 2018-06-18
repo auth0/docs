@@ -2,7 +2,7 @@
 title: Calling APIs
 description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
 budicon: 546
-tags:
+topics:
   - quickstarts
   - native
   - ios

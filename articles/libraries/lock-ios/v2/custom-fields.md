@@ -2,7 +2,7 @@
 section: libraries
 title: Custom Fields at Signup
 description: Adding additional fields to signups with Lock v2 for iOS
-tags:
+topics:
   - libraries
   - lock
   - ios
