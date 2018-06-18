@@ -7,7 +7,7 @@ languages:
   - Ruby
 thirdParty: false
 image: /media/platforms/rails.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/ruby/dependencies

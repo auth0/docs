@@ -11,7 +11,7 @@ author:
   email: josh.cunningham@auth0.com
   community: false
 image: /media/platforms/php.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/php-laravel/dependencies

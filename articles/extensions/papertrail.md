@@ -1,5 +1,8 @@
 ---
 description: How to configure and retrieve information from the Auth0 Logs to Papertrail extension.
+topics:
+  - extensions
+  - papertrail
 ---
 
 # Auth0 Logs to Papertrail

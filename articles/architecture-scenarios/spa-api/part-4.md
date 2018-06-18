@@ -1,6 +1,12 @@
 ---
 description: Conclusion for the SPA + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
 ---
 
 # SPA + API: Conclusion

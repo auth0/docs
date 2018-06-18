@@ -1,5 +1,10 @@
 ---
 title: Client Credentials exchange
+topics:
+  - api-authentication
+  - oidc
+  - client-credentials
+contentType: discussion
 ---
 
 # Client Credentials exchange

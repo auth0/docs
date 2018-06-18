@@ -2,6 +2,8 @@
 title: Custom Domains
 description: How to map custom domains
 toc: true
+topics:
+  - custom-domains
 ---
 # Custom Domains
 

@@ -14,7 +14,7 @@ framework:
   - React Native
 hybrid: true
 image: /media/platforms/react.png
-tags:
+topics:
   - quickstart
 snippets:
   setup: native-platforms/reactnative/setup

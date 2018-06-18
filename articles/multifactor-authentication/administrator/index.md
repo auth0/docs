@@ -1,5 +1,10 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+  - sms
 ---
 
 # Guardian for Administrators 

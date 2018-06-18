@@ -5,7 +5,7 @@ languages:
   - Python
 thirdParty: false
 image: /media/platforms/django.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/django/dependencies

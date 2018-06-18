@@ -1,5 +1,9 @@
 ---
 description: This page details Auth0's deleted tenant restoration policy.
+topics:
+    - auth0-policies
+    - tenants
+    - tenant-restoration
 ---
 
 # Tenant Restoration Policy

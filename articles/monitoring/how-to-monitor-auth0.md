@@ -1,6 +1,8 @@
 ---
 description: How to use monitoring with an Auth0 account.
 toc: true
+topics:
+  - monitoring
 ---
 
 # Monitor Auth0

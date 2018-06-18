@@ -2,6 +2,10 @@
 title: Universal vs Embedded Login
 description: Read about the differences between Universal and Embedded login
 toc: true
+topics:
+  - universal-login
+  - embedded-login
+  - migrations
 ---
 # Universal vs Embedded Login
 

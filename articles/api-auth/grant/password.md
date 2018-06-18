@@ -1,6 +1,11 @@
 ---
 title: Call APIs from Highly Trusted Applications
 description: Describes how to call APIs from highly trusted applications using the Resource Owner Password Grant.
+topics:
+  - implicit
+  - api-authorization
+  - resource-owner-password
+contentType: discussion
 ---
 # Call APIs from Highly Trusted Applications
 

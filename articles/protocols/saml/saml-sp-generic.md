@@ -1,6 +1,8 @@
 ---
 description: How to configure Auth0 to serve as a Service Provider in a SAML federation.
 toc: true
+topics:
+  - saml
 ---
 
 # Auth0 as Service Provider

@@ -1,6 +1,9 @@
 ---
 sitemap: false
 description: An overview of the steps in the Cloud Sprint onboarding program.
+topics:
+  - appliance
+  - onboarding
 ---
 
 # Cloud Sprint

@@ -8,7 +8,7 @@ framework:
   - Ruby on Rails
 thirdParty: false
 image: /media/platforms/rails.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/rails/dependencies

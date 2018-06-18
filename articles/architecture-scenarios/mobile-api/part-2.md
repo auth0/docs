@@ -1,6 +1,12 @@
 ---
 description: Auth0 Configuration for the Mobile + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
 ---
 
 # Mobile + API: Auth0 Configuration

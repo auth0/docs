@@ -1,6 +1,10 @@
 ---
 description: Step 3 of Amazon API Gateway Tutorial
 toc: true
+topics:
+  - integrations
+  - aws
+  - api-gateway
 ---
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 

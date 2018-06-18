@@ -3,6 +3,10 @@ description: Describes the major differences between Auth0's Management API v1 a
 section: apis
 crews: crew-2
 toc: true
+topics:
+    - management-api
+    - apis
+contentType: reference
 ---
 # Management API v1 vs v2
 

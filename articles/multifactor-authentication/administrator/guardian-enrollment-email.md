@@ -1,5 +1,9 @@
 ---
 description: Send an enrollment email (Guardian)
+topics:
+  - mfa
+  - guardian
+  - email
 ---
 # Sending a Guardian Enrollment Email to a User
 

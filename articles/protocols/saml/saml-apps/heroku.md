@@ -1,5 +1,9 @@
 ---
 description: How to SSO with Heroku.
+topics:
+    - saml
+    - identity-providers
+    - heroku
 ---
 
 # Configure SSO with Heroku

@@ -1,6 +1,6 @@
 title: Node.js
 image: /media/platforms/node.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/nodejs/dependencies

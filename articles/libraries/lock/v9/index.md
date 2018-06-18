@@ -3,6 +3,9 @@ section: libraries
 description: Lock V9 documentation
 title: Lock 9 for Web
 toc: true
+topics:
+  - libraries
+  - lock
 ---
 # Lock 9 for Web
 

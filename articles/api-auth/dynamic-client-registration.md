@@ -3,6 +3,9 @@ title: Dynamic Client Registration
 description: How to dynamically register clients with Auth0 using the Management API
 crews: crew-2
 toc: true
+topics:
+  - applications
+contentType: how-to
 ---
 
 # Dynamic Client Registration

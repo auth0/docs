@@ -1,5 +1,7 @@
 ---
 description: How to modify AD/LDAP Connector settings in the console, Profile Mapper, or config file.
+topics:
+  - connector
 ---
 
 # Modify the AD/LDAP Connector Settings

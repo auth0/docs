@@ -1,5 +1,12 @@
 ---
+<<<<<<< HEAD
 description: A Refresh Token allows an application to request Auth0 to issue a new ID Token directly, without needing to re-authenticate the user.
+=======
+description: A Refresh Token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
+topics:
+  - tokens
+  - refresh-tokens
+>>>>>>> Tags, part 16
 ---
 
 # Refresh Token

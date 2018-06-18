@@ -1,6 +1,8 @@
 ---
 description: Explains the basics of creating and using Auth0 Applications.
 toc: true
+topics:
+  - applications
 ---
 # Applications
 

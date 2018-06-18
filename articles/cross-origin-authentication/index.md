@@ -2,6 +2,8 @@
 toc: true
 title: Cross-Origin Authentication
 description: An explanation of cross-origin authentication in Auth0 and its compatibility with browsers
+topics:
+  - cors
 ---
 # Cross-Origin Authentication
 

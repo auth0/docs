@@ -2,6 +2,9 @@
 section: libraries
 toc: true
 description: Details on the Lock V10 API.
+topics:
+  - libraries
+  - lock
 ---
 # Lock: API Reference
 

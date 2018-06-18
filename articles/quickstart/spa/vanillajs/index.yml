@@ -2,7 +2,7 @@ title: JavaScript
 language:
   - JavaScript
 image: /media/platforms/html5.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: application-platforms/vanillajs/dependencies

@@ -1,5 +1,8 @@
 ---
-  description: How to customize SAML assertions
+description: How to customize SAML assertions
+topics:
+  - saml
+  - saml-assertions
 ---
 
 # Customize SAML Assertions

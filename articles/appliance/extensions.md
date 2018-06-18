@@ -2,6 +2,9 @@
 url: /appliance/extensions
 section: appliance
 description: Explains implementation details for Extensions specific to the PSaaS Appliance.
+topics:
+    - appliance
+    - extensions
 ---
 
 # PSaaS Appliance: Extensions

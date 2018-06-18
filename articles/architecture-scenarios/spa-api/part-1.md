@@ -1,6 +1,12 @@
 ---
 description: Solution Overview for the SPA + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
 ---
 
 # SPA + API: Solution Overview

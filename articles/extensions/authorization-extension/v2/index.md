@@ -3,6 +3,9 @@ toc: true
 classes: topic-page
 title: Authorization Extension
 description: Control user authorization behavior during runtime with the Authorization Extension
+topics:
+  - extensions
+  - authorization_v2
 ---
 
 # Authorization Extension

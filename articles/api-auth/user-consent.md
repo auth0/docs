@@ -1,5 +1,10 @@
 ---
 title: User consent and third-party applications
+topics:
+  - api-authentication
+  - oidc
+  - user-consent
+contentType: how-to
 ---
 
 # User Consent and Third-Party Applications

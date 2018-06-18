@@ -1,5 +1,8 @@
 ---
 description: Special configuration scenarios when setting up a SAML Integration
+  topics:
+    - saml
+    - sso
 ---
 # Special Configuration Scenarios
 

@@ -7,7 +7,7 @@ framework:
   - Xamarin
 hybrid: false
 image: /media/platforms/xamarin.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/xamarin/dependencies

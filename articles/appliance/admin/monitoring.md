@@ -1,6 +1,9 @@
 ---
 section: appliance
 description: How to monitor the PSaaS Appliance
+topics:
+    - appliance
+    - monitoring
 ---
 
 # PSaaS Appliance Administration: Monitoring

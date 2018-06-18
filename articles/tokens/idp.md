@@ -1,6 +1,10 @@
 ---
 title: Identity Provider Access Tokens
 description: How to obtain Identity Provider Access Tokens
+topics:
+  - tokens
+  - idp
+  - access-tokens
 ---
 # Identity Provider Access Tokens
 

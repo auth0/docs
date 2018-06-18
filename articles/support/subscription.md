@@ -1,6 +1,9 @@
 ---
 title: Change or Upgrade Your Auth0 Subscription
 decription: How to upgrade or change your Auth0 subscription.
+topics:
+    - support
+    - subscriptions
 ---
 # Change or Upgrade Your Auth0 Subscription
 

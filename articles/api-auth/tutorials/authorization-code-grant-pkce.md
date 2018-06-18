@@ -1,6 +1,12 @@
 ---
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+contentType: tutorial
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 

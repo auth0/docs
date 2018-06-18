@@ -2,6 +2,10 @@
 title: Set up a Client Credentials Grant using the Management API
 description: How to set up a Client Credentials Grant using the Management API.
 crews: crew-2
+topics:
+  - client-credentials
+  - api-authorization
+contentType: how-to
 ---
 
 # Set up a Client Credentials Grant using the Management API

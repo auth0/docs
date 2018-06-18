@@ -1,5 +1,10 @@
 ---
 description: How to keep users logged in to your application
+topics:
+  - api-authentication
+  - oidc
+  - silent-authentication
+contentType: tutorial
 ---
 
 # Silent Authentication

@@ -1,6 +1,14 @@
 ---
 title: Calling your APIs with Auth0 tokens
 description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
+topics:
+  - tokens
+  - access-tokens
+  - id-tokens
+  - scopes
+  - api-authentication
+  - oidc
+contentType: discussion
 ---
 # Call your APIs with Auth0 tokens
 

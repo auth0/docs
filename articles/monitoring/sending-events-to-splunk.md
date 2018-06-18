@@ -1,5 +1,8 @@
 ---
 description: How to send events from Auth0 to Spunk.
+topics:
+  - monitoring
+  - splunk
 ---
 # Sending Events from Auth0 to Splunk
 

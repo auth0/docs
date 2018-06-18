@@ -1,5 +1,8 @@
 ---
 description: Signing and encrypting SAML requests
+  topics:
+    - saml
+    - sso
 ---
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests

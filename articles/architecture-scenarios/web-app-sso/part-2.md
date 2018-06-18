@@ -1,6 +1,12 @@
 ---
 description: Regular web app scenario configuration for Auth0
 toc: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
 ---
 # SSO for Regular Web Apps: Auth0 Configuration
 

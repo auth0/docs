@@ -2,6 +2,9 @@
 title: Developer Documentation for Guardian
 url: /multifactor-authentication/developer
 description: Developer Documentation for Guardian
+topics:
+  - mfa
+  - guardian
 ---
 
 # Developer Resources for Guardian

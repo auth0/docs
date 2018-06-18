@@ -1,5 +1,9 @@
 ---
 description: Explains why a user received a breached password email and general web security tips.
+topics:
+    - security
+    - passwords
+contentType: discussion
 ---
 
 # Breached Password Security

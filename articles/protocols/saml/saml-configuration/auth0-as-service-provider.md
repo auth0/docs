@@ -1,5 +1,7 @@
 ---
-  description: How to configure Auth0 for use as a SAML service provider
+description: How to configure Auth0 for use as a SAML service provider
+topics:
+  - saml
 ---
 
 # Configure Auth0 as a Service Provider

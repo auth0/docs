@@ -1,5 +1,10 @@
 ---
 description: How to track new leads in Salesforce and augment user profile with Rapleaf.
+topics:
+  - monitoring
+  - marketing
+  - salesforce
+  - rapleaf
 ---
 
 # Tracking new leads in Salesforce, augmenting user profile with RapLeaf

@@ -1,6 +1,9 @@
 ---
 title: OpenID Connect
 description: What is the OpenID Connect protocol and how it works
+topics:
+    - protocols
+    - oidc
 ---
 # OpenID Connect
 

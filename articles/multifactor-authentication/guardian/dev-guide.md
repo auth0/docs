@@ -1,5 +1,9 @@
 ---
 description: How to implement multifactor authentication with Guardian.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
 ---
 
 # Developer Guide to Configuring Guardian

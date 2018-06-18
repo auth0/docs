@@ -1,6 +1,12 @@
 ---
 description: Regular web app scenario application implementation
 toc: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
 ---
 # SSO for Regular Web Apps: Application Implementation
 

@@ -1,6 +1,9 @@
 ---
 section: libraries
 description: Getting and using a Refresh Token with Lock.
+topics:
+  - libraries
+  - lock
 ---
 # Lock: Refresh Tokens
 

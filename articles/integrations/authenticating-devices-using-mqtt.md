@@ -1,6 +1,9 @@
 ---
 description: How to authenticate and authorize devices using MQTT with Auth0.
 toc: true
+topics:
+  - integrations
+  - mqtt
 ---
 # Authenticating & Authorizing Devices using MQTT with Auth0
 

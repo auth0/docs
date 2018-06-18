@@ -1,5 +1,10 @@
 ---
   description: Writing rules to restrict user/client access to an API
+  topics:
+  - api-authentication
+  - oidc
+  - scopes
+contentType: how-to
 ---
 
 # Restrict Application or User Requests for API Scopes

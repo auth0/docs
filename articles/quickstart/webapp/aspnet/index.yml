@@ -1,6 +1,6 @@
 title: ASP.NET (System.Web)
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/aspnet/dependencies

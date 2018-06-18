@@ -1,3 +1,9 @@
+---
+title: Passwordless FAQ
+topics:
+    - connections
+    - passwordless
+---
 # Passwordless FAQ
 
 ## General Questions

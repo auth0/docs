@@ -1,6 +1,6 @@
 title: PHP
 image: /media/platforms/php.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/php/dependencies

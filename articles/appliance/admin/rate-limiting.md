@@ -1,6 +1,9 @@
 ---
 title: Rate Limiting in the PSaaS Appliance
 description: How to enable, configure, and test for rate limiting in the Appliance
+topics:
+    - appliance
+    - rate-limiting
 ---
 # PSaaS Appliance: Rate Limiting
 

@@ -1,6 +1,8 @@
 ---
 title: Single Sign On Integrations
 description: Overview of Auth0 Single Sign On (SSO) Integrations.
+topics:
+  - sso
 ---
 
 # Single Sign On Integrations

@@ -3,6 +3,11 @@ description: Describes what changed in the flow for generating Auth0 Management 
 section: apis
 crews: crew-2
 toc: true
+topics:
+  - apis
+  - management-api
+  - tokens
+contentType: discussion
 ---
 # Changes in Auth0 Management APIv2 Tokens
 

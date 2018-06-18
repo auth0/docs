@@ -3,6 +3,9 @@ url: /appliance/admin
 section: appliance
 description: >
   This document covers factors PSaaS Appliance administrators should be aware of when working with production PSaaS Appliance.
+topics:
+    - appliance
+    - administration
 ---
 
 # PSaaS Appliance: Administrator's Manual

@@ -9,7 +9,7 @@ author:
   community: false
 thirdParty: false
 image: /media/platforms/php.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/php/dependencies

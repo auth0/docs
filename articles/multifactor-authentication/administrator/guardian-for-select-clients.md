@@ -1,5 +1,8 @@
 ---
 description: Guardian for Select Applications
+topics:
+  - mfa
+  - guardian
 ---
 # Customize MFA for Select Applications
 

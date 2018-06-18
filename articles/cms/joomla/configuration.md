@@ -1,5 +1,8 @@
 ---
 description: How to configure your Joomla instance for use with Auth0.
+topics:
+    - joomla
+    - cms
 ---
 
 # Joomla Integration

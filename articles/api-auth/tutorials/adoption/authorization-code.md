@@ -1,5 +1,10 @@
 ---
 description: OIDC-conformant Authorization Code grant
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+contentType: discussion
 ---
 
 # Authorization Code grant

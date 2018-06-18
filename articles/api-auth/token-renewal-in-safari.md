@@ -1,11 +1,11 @@
 ---
 description: Issues with token renewal in Safari when ITP is enabled.
-tags:
+topics:
     - safari
     - tokens
     - token-renewal
     - custom-domains
-articleType: discussion
+contentType: discussion
 ---
 # Renew Tokens When Using Safari
 

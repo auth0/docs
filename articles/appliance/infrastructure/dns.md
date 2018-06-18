@@ -1,6 +1,10 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about DNS
+topics:
+    - appliance
+    - infrastructure
+    - dns
 ---
 
 <!-- markdownlint-disable MD033 -->

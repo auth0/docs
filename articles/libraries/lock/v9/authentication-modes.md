@@ -2,6 +2,9 @@
 section: libraries
 description: Lock v9 doc on the different types of authentication modes.
 toc: true
+topics:
+  - libraries
+  - lock
 ---
 # Lock: Authentication Modes
 

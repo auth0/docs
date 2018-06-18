@@ -1,5 +1,9 @@
 ---
 description: An overview of the Auth0 Management API v1 which has been deprecated.
+topics:
+  - apis
+  - management-api
+contentType: reference
 ---
 
 # Management API v1 (deprecated)

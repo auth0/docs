@@ -9,7 +9,7 @@ language:
 framework:
   - Aurelia
 image:
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: application-platforms/aurelia/dependencies

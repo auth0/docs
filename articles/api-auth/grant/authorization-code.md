@@ -1,5 +1,9 @@
 ---
-description: Describes how to call APIs from regular web apps using the  Authentication Code Grant.
+description: Describes how to call APIs from regular web apps using the Authentication Code Grant.
+topics:
+  - authorization-code
+  - api-authorization
+contentType: discussion
 ---
 # Calling APIs from Server-side Web Apps
 

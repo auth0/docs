@@ -1,6 +1,10 @@
 ---
 title: Sprout Video SAML Configuration
 description: Sprout Video SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - sprout-video
 ---
 
 ${include('./_header')}

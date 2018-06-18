@@ -1,6 +1,11 @@
 ---
 description: How to execute an Authorization Code Grant flow from a Regular Web application
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+contentType: tutorial
 ---
 # Execute an Authorization Code Grant Flow
 

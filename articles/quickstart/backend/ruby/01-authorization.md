@@ -1,6 +1,10 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authentication and authorization to Ruby API
+topics:
+    - quickstart
+    - backend
+    - ruby
 ---
 
 <%= include('../../../_includes/_package', {

@@ -1,6 +1,9 @@
 ---
 title: Auth0 Data Processing
 description: How Auth0 processes data in its possession
+topics:
+    - compliance
+    - gdpr
 ---
 # Auth0 Data Processing
 

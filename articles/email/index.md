@@ -1,6 +1,8 @@
 ---
 url: /email
 description: Auth0 built-in email services.
+topics:
+  - email
 ---
 
 # Emails in Auth0

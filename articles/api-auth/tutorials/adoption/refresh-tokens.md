@@ -1,5 +1,11 @@
 ---
 title: OIDC-conformant Refresh Token use
+topics:
+  - api-authentication
+  - oidc
+  - tokens
+  - refresh tokens
+contentType: discussion
 ---
 
 # OIDC-conformant Refresh Tokens

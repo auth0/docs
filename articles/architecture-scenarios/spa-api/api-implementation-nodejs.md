@@ -2,6 +2,13 @@
 title: "SPA + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
+    - nodejs
 ---
 # SPA + API: Node.js Implementation for the API
 
@@ -229,7 +236,7 @@ The `namespace` is used to ensure the claim has a unique name and does not clash
 For more information on namespaced claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
-Next, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
+Now, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 
 ```js
 app.post('/timesheets', checkJwt, jwtAuthz(['create:timesheets']), function(req, res){

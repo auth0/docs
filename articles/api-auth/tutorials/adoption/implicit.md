@@ -1,5 +1,10 @@
 ---
 title: OIDC-conformant Implicit grant
+topics:
+  - api-authentication
+  - oidc
+  - implicit
+contentType: discussion
 ---
 
 # Implicit grant

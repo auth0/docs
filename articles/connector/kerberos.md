@@ -1,6 +1,10 @@
 ---
 description: Explains AD/LDAP Federation Support with Auth0, how to configure it, the flow, and auto-login with Lock.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+  - kerberos
 ---
 # Federating with Active Directory through the AD/LDAP Connector
 

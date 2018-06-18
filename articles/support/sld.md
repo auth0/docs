@@ -1,6 +1,8 @@
 ---
 title: Auth0 Service Level Description
 description: Details on the Auth0 Service Level Description
+topics:
+    - sld
 ---
 # Auth0 Service Level Description
 

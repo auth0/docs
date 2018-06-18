@@ -1,5 +1,8 @@
 ---
 public: true
+topics:
+  - errors
+  - tokens
 ---
 
 # Errors with code 'invalid_token'

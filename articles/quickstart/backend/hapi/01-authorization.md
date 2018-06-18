@@ -1,6 +1,10 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authorization to a Hapi.js API
+topics:
+    - quickstart
+    - backend
+    - hapi
 ---
 
 <%= include('../../../_includes/_package', {

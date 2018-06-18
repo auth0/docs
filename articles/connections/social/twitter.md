@@ -6,6 +6,10 @@ description: This page shows you how to connect your Auth0 application to Twitte
 seo_alias: twitter
 index: 8
 toc: true
+topics:
+  - connections
+  - social
+  - twitter
 ---
 
 # Connect Your App to Twitter

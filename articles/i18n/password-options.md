@@ -1,5 +1,9 @@
 ---
 description: How to customize the translation of Lock password features.
+topics:
+    - i18n
+    - lock
+    - password
 ---
 # Password Options Translation
 

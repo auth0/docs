@@ -1,5 +1,8 @@
 ---
   description: Setting up IdP-initiated SSO
+  topics:
+    - saml
+    - sso
 ---
 
 # Special Configuration Scenarios: IdP Initiates SSO

@@ -7,7 +7,7 @@ thirdParty: false
 framework:
   - OWIN
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 articles:
   - 01-authorization

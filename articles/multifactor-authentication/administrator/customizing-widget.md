@@ -1,5 +1,8 @@
 ---
 description: How to Customize the Guardian Widget
+topics:
+  - mfa
+  - guardian
 ---
 # Customizing the Guardian Screen
 
