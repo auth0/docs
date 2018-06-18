@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - client-credentials
-articleType: discussion
+contentType: discussion
 ---
 
 # Client Credentials exchange

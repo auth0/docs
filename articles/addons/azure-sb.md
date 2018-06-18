@@ -11,7 +11,7 @@ topics:
   - addons
 articles:
   - authenticate
-articleType: how-to
+contentType: how-to
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
 ---
 

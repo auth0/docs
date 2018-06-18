@@ -7,7 +7,7 @@ topics:
   - oidc
   - mfa
   - resource-owner-password
-articleType: tutorial
+contentType: tutorial
 ---
 # Multifactor Authentication and the Resource Owner Password Grant
 

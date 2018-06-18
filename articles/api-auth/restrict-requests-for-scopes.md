@@ -4,7 +4,7 @@
   - api-authentication
   - oidc
   - scopes
-articleType: how-to
+contentType: how-to
 ---
 
 # Restrict Application or User Requests for API Scopes

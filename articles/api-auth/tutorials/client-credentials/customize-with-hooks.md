@@ -7,7 +7,7 @@ topics:
   - oidc
   - client-credentials
   - hooks
-articleType: tutorial
+contentType: tutorial
 ---
 
 # Using Hooks with Client Credentials Grant

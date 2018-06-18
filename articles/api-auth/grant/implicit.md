@@ -5,7 +5,7 @@ toc: true
 topics:
   - implicit
   - api-authorization
-articleType: discussion
+contentType: discussion
 ---
 # Call APIs from Client-side Web Apps
 

@@ -3,7 +3,7 @@ description: Explains why a user received a breached password email and general 
 topics:
     - security
     - passwords
-articleType: discussion
+contentType: discussion
 ---
 
 # Breached Password Security

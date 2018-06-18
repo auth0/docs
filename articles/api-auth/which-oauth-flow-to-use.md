@@ -6,7 +6,7 @@ topics:
   - api-authentication
   - oidc
   - application-grants
-articleType: discussion
+contentType: discussion
 ---
 
 # Which OAuth 2.0 flow should I use?

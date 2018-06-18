@@ -5,7 +5,7 @@ crews: crew-2
 toc: true
 topics:
   - applications
-articleType: how-to
+contentType: how-to
 ---
 
 # Dynamic Client Registration

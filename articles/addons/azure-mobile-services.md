@@ -16,7 +16,7 @@ topics:
   - azure
   - mobile
   - addons
-articleType: tutorial
+contentType: tutorial
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
 

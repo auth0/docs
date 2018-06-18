@@ -5,7 +5,7 @@ topics:
   - api-authentication
   - oidc
   - authorization-code
-articleType: tutorial
+contentType: tutorial
 ---
 # Execute an Authorization Code Grant Flow
 

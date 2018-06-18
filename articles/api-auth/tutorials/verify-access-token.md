@@ -5,7 +5,7 @@ topics:
   - api-authentication
   - oidc
   - access-tokens
-articleType: tutorial
+contentType: tutorial
 ---
 # Verify Access Tokens for Custom APIs
 

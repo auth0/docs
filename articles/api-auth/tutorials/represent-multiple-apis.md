@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - apis
-articleType: tutorial
+contentType: tutorial
 ---
 
 # How to Represent Multiple APIs Using a Single Auth0 API

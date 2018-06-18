@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - implicit
-articleType: discussion
+contentType: discussion
 ---
 
 # Implicit grant

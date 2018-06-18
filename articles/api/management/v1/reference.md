@@ -5,7 +5,7 @@ toc: true
 topics:
   - apis
   - management-api
-articleType: reference
+contentType: reference
 ---
 
 # Auth0 Management API Reference

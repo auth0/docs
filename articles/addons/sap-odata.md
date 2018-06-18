@@ -9,7 +9,7 @@ topics:
   - sap
   - addons
   - odata
-articleType: how-to
+contentType: how-to
 ---
 
 # SAP OData Addon

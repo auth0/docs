@@ -4,7 +4,7 @@ crews: crew-2
 topics:
   - client-credentials
   - api-authorization
-articleType: how-to
+contentType: how-to
 ---
 
 # Set up a Client Credentials Grant using the Dashboard

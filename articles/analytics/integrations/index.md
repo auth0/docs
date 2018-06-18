@@ -5,7 +5,7 @@ classes: topic-page
 title: Analytics Integrations
 topics:
   - analytics
-articleType: index
+contentType: index
 ---
 
 <div class="topic-page-header">

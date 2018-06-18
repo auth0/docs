@@ -6,7 +6,7 @@ topics:
   - security
   - blacklists
   - application-grants
-articleType: how-to
+contentType: how-to
 ---
 
 # Blacklists and Application Grants

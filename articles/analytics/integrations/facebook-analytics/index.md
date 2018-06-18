@@ -3,7 +3,7 @@ description: This article explains how to install and configure the Facebook Ana
 topics:
   - facebook
   - analytics
-articleType: how-to
+contentType: how-to
 ---
 # Facebook Analytics for Auth0
 

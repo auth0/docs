@@ -6,7 +6,7 @@ topics:
   - scopes
   - user-profiles
   - claims
-articleType: discussion
+contentType: discussion
 ---
 
 # User profile claims and scope

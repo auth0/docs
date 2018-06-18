@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - user-consent
-articleType: how-to
+contentType: how-to
 ---
 
 # User Consent and Third-Party Applications

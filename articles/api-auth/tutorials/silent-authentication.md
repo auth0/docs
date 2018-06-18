@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - silent-authentication
-articleType: tutorial
+contentType: tutorial
 ---
 
 # Silent Authentication

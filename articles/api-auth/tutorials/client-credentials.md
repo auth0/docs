@@ -6,7 +6,7 @@ topics:
   - api-authentication
   - oidc
   - client-credentials
-articleType: tutorial
+contentType: tutorial
 ---
 # How to Implement the Client Credentials Grant
 

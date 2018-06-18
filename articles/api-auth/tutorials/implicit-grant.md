@@ -6,7 +6,7 @@ topics:
   - api-authentication
   - oidc
   - implicit
-articleType: tutorial
+contentType: tutorial
 ---
 # How to implement the Implicit Grant
 

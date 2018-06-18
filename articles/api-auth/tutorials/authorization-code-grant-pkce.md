@@ -6,7 +6,7 @@ topics:
   - oidc
   - authorization-code
   - pkce
-articleType: tutorial
+contentType: tutorial
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 

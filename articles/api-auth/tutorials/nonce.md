@@ -5,7 +5,7 @@ topics:
   - oidc
   - implicit
   - nonce
-articleType: tutorial
+contentType: tutorial
 ---
 
 # Mitigate replay attacks when using the Implicit Grant

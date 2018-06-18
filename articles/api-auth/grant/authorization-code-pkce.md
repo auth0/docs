@@ -4,7 +4,7 @@ topics:
   - authorization-code
   - pkce
   - api-authorization
-articleType: discussion
+contentType: discussion
 ---
 # Calling APIs from Mobile Apps
 

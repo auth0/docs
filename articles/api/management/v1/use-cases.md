@@ -4,7 +4,7 @@ section: apis
 topics:
   - apis
   - management-api
-articleType: reference
+contentType: reference
 ---
 
 # Management API v1 Use Cases

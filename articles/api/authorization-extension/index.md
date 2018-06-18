@@ -5,7 +5,7 @@ topics:
     - authorization
     - apis
     - api-authorization
-articleType: reference
+contentType: reference
 ---
 
 <div class="api-section" data-section="none">

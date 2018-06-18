@@ -6,7 +6,7 @@ toc: true
 topics:
     - management-api
     - apis
-articleType: reference
+contentType: reference
 ---
 # Management API v1 vs v2
 

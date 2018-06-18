@@ -6,7 +6,7 @@ topics:
     - management-api
     - authorization-api
     - apis
-articleType: reference
+contentType: reference
 ---
 
 # Auth0 APIs

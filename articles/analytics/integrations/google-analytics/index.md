@@ -3,7 +3,7 @@ description: This article explains how to install and configure the Google Analy
 topics:
   - google
   - analytics
-  articleType: how-to
+  contentType: how-to
 ---
 # Google Analytics for Auth0
 

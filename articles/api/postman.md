@@ -5,7 +5,7 @@ topics:
     - management-api
     - authorization-api
     - apis
-articleType: how-to
+contentType: how-to
 ---
 
 # Using the Auth0 API with our Postman Collections
