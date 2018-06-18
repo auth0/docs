@@ -7,7 +7,11 @@ description: This tutorial demonstrates how to use the Auth0 OAuth2 middleware t
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-samples',
-  path: 'Quickstart/01-Login'
+  path: 'Quickstart/01-Login',
+  requirements: [
+    'Visual Studio 2017 v15.7',
+    'Microsoft.Owin.Security.OpenIdConnect v4.0.0'
+  ]
 }) %>
 
 <%= include('_includes/_setup') %>

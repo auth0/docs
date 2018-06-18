@@ -7,18 +7,22 @@ budicon: 500
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-samples',
-  path: 'Quickstart/03-Authorization'
+  path: 'Quickstart/03-Authorization',
+  requirements: [
+    'Visual Studio 2017 v15.7',
+    'Microsoft.Owin.Security.OpenIdConnect v4.0.0'
+  ]
 }) %>
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
+ASP.NET (OWIN) supports Role-based Authorization which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application.
 
 ::: note
 This tutorial assumes that you are familiar with [Rules](/rules/current).
 :::
 
-### Create a Rule to assign roles
+## Create a Rule to assign roles
 
-First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
+First, we will create a rule that assigns our users either an `admin` role or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
 
 ```js
 function (user, context, callback) {
@@ -43,58 +47,47 @@ function (user, context, callback) {
 
 Update the code to check for your own email domain, or match the condition according to your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
 
-This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g `https://schemas.YOUR_TENANT_NAME.com`
+This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g. `https://schemas.YOUR_TENANT_NAME.com`
 
 ## Restrict an action based on a user's roles
 
-As with the country property which was added in the previous step, you will also need to manually extract the roles from the user in the `OnAuthenticated` event and add the appropriate claims. For each role, you can add a role of the type `ClaimTypes.Role`.
-
-This will ensure proper integration with the existing role-based authorization in ASP.NET MVC and allow you to restrict access to a controller by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute
-
-So change the existing middleware registration in the `Startup` class to extract the roles and add the claims:
+Update the OpenID Connect middleware registration inside your `Startup` class to inform it which claim in the ID Token contains the role information by setting the `RoleClaimType` inside `TokenValidationParameters`. The value you specify must match the claim you used in your rule.
 
 ```csharp
 // Startup.cs
 
-var options = new Auth0AuthenticationOptions()
+app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 {
-  Domain = auth0Domain,
-  ClientId = auth0ClientId,
-  ClientSecret = auth0ClientSecret,
+    AuthenticationType = "Auth0",
+    
+    Authority = $"https://{auth0Domain}",
 
-  Provider = new Auth0AuthenticationProvider
-  {
-    OnApplyRedirect = context =>
+    ClientId = auth0ClientId,
+    ClientSecret = auth0ClientSecret,
+
+    RedirectUri = auth0RedirectUri,
+    PostLogoutRedirectUri = auth0PostLogoutRedirectUri,
+
+    ResponseType = OpenIdConnectResponseType.CodeIdToken,
+    Scope = "openid profile email",
+
+    TokenValidationParameters = new TokenValidationParameters
     {
-        string userInfoAudience = $"https://{auth0Domain}/userinfo";
-        string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
-
-        context.Response.Redirect(redirectUri);
+        NameClaimType = "name",
+        RoleClaimType = "https://schemas.quickstarts.com/roles"
     },
-    OnAuthenticated = context =>
+
+    Notifications = new OpenIdConnectAuthenticationNotifications
     {
-        // Get the user's roles
-        var rolesObject = context.User["https://schemas.quickstarts.com/roles"];
-        if (rolesObject != null)
-        {
-            string[] roles = rolesObject.ToObject<string[]>();
-            foreach (var role in roles)
-            {
-                context.Identity.AddClaim(new Claim(ClaimTypes.Role, role, ClaimValueTypes.String, context.Connection));
-            }
-        }
-
-
-        return Task.FromResult(0);
+        //...
     }
-  }
-};
-app.UseAuth0Authentication(options);
+});
+
 ```
 
 Now you can add a new action to your controller and restrict it by decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
-The sample code below will restrict the particular action only to the user who have the "admin" role:
+The sample code below will restrict the particular action to users who have the "admin" role:
 
 ```csharp
 // Controllers/AccountController.cs
