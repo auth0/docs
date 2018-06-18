@@ -176,7 +176,12 @@ Now when you run the application, you can select the Login link to log in to the
 
 ## Store the Tokens
 
+<<<<<<< HEAD
 The Auth0 OAuth2 middleware can automatically add the ID Token and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+=======
+!!!
+The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+>>>>>>> b887837263a8f7c245ab2157107916a8fb14e255
 
 You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
 
@@ -225,6 +230,10 @@ public void Configuration(IAppBuilder app)
             }
         }
     });
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b887837263a8f7c245ab2157107916a8fb14e255
 }
 ```
 
