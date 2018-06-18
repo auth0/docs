@@ -172,8 +172,16 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
 
 ### Store the Tokens
 
+<<<<<<< HEAD
 !!!
 The Auth0 OAuth2 middleware can automatically add the `id_token` and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+=======
+Now when you run the application, you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
+
+## Store the Tokens
+
+The Auth0 OAuth2 middleware can automatically add the ID Token and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+>>>>>>> Merge changes
 
 You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
 
@@ -222,6 +230,10 @@ public void Configuration(IAppBuilder app)
             }
         }
     });
+<<<<<<< HEAD
+=======
+    
+>>>>>>> Merge changes
 }
 ```
 
