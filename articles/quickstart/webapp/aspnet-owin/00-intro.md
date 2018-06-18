@@ -12,7 +12,7 @@ topics:
 ::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Microsoft Visual Studio 2017 15.7
+* Microsoft Visual Studio 2017 v15.7
 * Microsoft.Owin.Security.OpenIdConnect v4.0.0
 :::
 
