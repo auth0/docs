@@ -9,7 +9,7 @@ language:
 framework:
   - Ember
 image: /media/platforms/emberjs.png
-tags:
+topics:
   - quickstart
 seo_alias: emberjs
 default_article: 01-login

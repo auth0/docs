@@ -5,7 +5,7 @@ languages:
   - Python
 thirdParty: false
 image: /media/platforms/python.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/python/dependencies

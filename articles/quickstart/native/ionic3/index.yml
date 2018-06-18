@@ -10,7 +10,7 @@ framework:
   - Cordova
 hybrid: true
 image: /media/platforms/ionic.jpeg
-tags:
+topics:
   - quickstart
 snippets:
   use: native-platforms/ionic3/use

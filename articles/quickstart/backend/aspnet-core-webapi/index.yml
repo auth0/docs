@@ -9,7 +9,7 @@ framework:
   - ASP.NET Core
 thirdParty: false
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies

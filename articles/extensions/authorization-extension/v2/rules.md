@@ -2,7 +2,7 @@
 title: Using Rules with the Authorization Extension
 description: How to use information from the extension in rules
 toc: true
-tags:
+topics:
   - extensions
   - authorization_v2
 ---

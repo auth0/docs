@@ -8,7 +8,7 @@ alias:
 language:
   - C#
 image: /media/platforms/windows-8.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/windows-uwp-csharp/dependencies

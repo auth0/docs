@@ -2,7 +2,7 @@
 title: Login
 default: true
 description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
-tags:
+topics:
   - quickstarts
   - webapp
   - aspnet-core

@@ -10,7 +10,7 @@ author:
   email: luciano.balmaceda@auth0.com
   community: false
 image: /media/platforms/android.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/android/dependencies

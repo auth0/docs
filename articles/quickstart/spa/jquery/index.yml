@@ -6,7 +6,7 @@ language:
 framework:
   - jQuery
 image: /media/platforms/jquery.svg
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: application-platforms/jquery/dependencies

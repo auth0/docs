@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting the Authorization Extension
 description: How to troubleshoot the Authorization Extension
-tags:
+topics:
   - extensions
   - authorization_v2
 ---

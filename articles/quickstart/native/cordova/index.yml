@@ -7,7 +7,7 @@ framework:
   - Cordova
 hybrid: true
 image: /media/platforms/phonegap.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/cordova/dependencies

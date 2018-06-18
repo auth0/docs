@@ -9,7 +9,7 @@ framework:
   - WPF
   - WinForms
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/wpf-winforms/dependencies

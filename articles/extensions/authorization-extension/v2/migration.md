@@ -1,7 +1,7 @@
 ---
 title: Installing the Authorization Extension v2
 description: How to install the Authorization Extension v2
-tags:
+topics:
   - extensions
   - authorization_v2
 ---
