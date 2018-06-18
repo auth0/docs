@@ -1,6 +1,6 @@
 ---
 description: How to configure the Connector for OpenLDAP and other directories that are not AD.
-tags:
+topics:
   - connector
   - openldap
 ---

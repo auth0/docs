@@ -2,7 +2,7 @@
 url: /appliance/instrumentation
 section: appliance
 description: This document covers why and how to enable instrumentation in the PSaaS Appliance.
-tags:
+topics:
     - appliance
     - instrumentation
 ---

@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: How to configure the PSaaS Appliance CLI
-tags:
+topics:
     - appliance
     - cli
 ---

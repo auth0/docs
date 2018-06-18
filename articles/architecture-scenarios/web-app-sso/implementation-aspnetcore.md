@@ -1,7 +1,7 @@
 ---
 title: "SSO for Regular Web Apps: ASP.NET Core Implementation"
 description: The ASP.NET Core implementation for the SSO for Regular Web Apps architecture scenario
-tags:
+topics:
     - architecture
     - regular-web-apps
     - api-auth

@@ -1,7 +1,7 @@
 ---
 description: How an API can verify a bearer JWT Access Token
 toc: true
-tags:
+topics:
   - api-authentication
   - oidc
   - access-tokens

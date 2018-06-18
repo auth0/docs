@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Updates page
-tags:
+topics:
     - appliance
     - dashboard
     - updates

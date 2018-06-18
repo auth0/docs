@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: Getting and using a Refresh Token with Lock.
-tags:
+topics:
   - libraries
   - lock
 ---

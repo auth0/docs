@@ -2,7 +2,7 @@
 title: Dashboard
 description: Working with the Dashboard
 classes: topic-page
-tags:
+topics:
   - dashboard
 ---
 

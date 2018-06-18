@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: This document covers the metrics available when using Instrumentation.
-tags:
+topics:
     - appliance
     - instrumentation
 ---

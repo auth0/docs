@@ -1,6 +1,6 @@
 ---
 description: Lists all the prerequisites to installing and configuring the connector.
-tags:
+topics:
   - connector
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Using Passwordless Authentication on iOS
-tags:
+topics:
     - connections
     - passwordless
     - ios

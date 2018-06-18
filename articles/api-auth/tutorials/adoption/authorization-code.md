@@ -1,6 +1,6 @@
 ---
 description: OIDC-conformant Authorization Code grant
-tags:
+topics:
   - api-authentication
   - oidc
   - authorization-code

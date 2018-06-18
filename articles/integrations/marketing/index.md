@@ -2,7 +2,7 @@
 classes: topic-page
 title: Marketing Integrations
 description: Learn how to integrate Auth0 with marketing applications and services.
-tags:
+topics:
     - marketing
 ---
 <!-- markdownlint-disable MD041 MD002 MD026 -->

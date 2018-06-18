@@ -1,7 +1,7 @@
 ---
 description: Auth0 suggests that you disable sign-ups for the `Initial-Connection` database connection prior to going live in your production environments.
 section: appliance
-tags:
+topics:
     - appliance
     - signups
 ---

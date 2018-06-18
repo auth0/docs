@@ -2,7 +2,7 @@
 section: appliance
 description: How to update the PSaaS Appliance
 toc: true
-tags:
+topics:
     - appliance
     - updates
 ---

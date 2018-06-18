@@ -6,7 +6,7 @@ alias:
   - azure blob storage
   - azblob
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
   - azure
   - addons

@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: Using Auth0.Swift in Passwordless mode
-tags:
+topics:
   - libraries
   - swift
   - passwordless

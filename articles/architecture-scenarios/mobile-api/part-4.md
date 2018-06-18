@@ -1,6 +1,6 @@
 ---
 description: Conclusion for the Mobile + API architecture scenario
-tags:
+topics:
     - architecture
     - mobile-apps
     - api-auth

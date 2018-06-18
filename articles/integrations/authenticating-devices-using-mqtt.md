@@ -1,7 +1,7 @@
 ---
 description: How to authenticate and authorize devices using MQTT with Auth0.
 toc: true
-tags:
+topics:
   - integrations
   - mqtt
 ---

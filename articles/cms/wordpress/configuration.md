@@ -1,6 +1,6 @@
 ---
 description: How to configure WordPress as an application with Auth0.
-tags:
+topics:
     - wordpress
     - cms
 ---

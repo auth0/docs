@@ -1,7 +1,7 @@
 ---
 description: Explains how to authenticate users in a mobile or desktop application.
 toc: true
-tags:
+topics:
   - authentication
   - oauth2
   - mobile-apps

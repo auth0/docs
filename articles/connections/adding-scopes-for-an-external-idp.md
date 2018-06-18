@@ -1,6 +1,6 @@
 ---
 description: How to add scopes to your IdP connection.
-tags:
+topics:
   - connections
   - scopes
 ---

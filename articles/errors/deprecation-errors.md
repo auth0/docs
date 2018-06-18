@@ -2,6 +2,9 @@
 title: Deprecation Error Reference
 description: A listing of errors and descriptions relating to deprecations.
 toc: true
+topics:
+    - errors
+    - deprecation
 ---
 # Deprecation Error Reference
 

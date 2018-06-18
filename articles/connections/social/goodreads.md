@@ -4,7 +4,7 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
-tags:
+topics:
   - connections
   - social
   - goodreads

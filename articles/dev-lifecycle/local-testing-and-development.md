@@ -1,6 +1,6 @@
 ---
 description: How to develop and test Auth0 applications.
-tags:
+topics:
     - dev-tools
     - local-env
 ---

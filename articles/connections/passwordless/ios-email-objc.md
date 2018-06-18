@@ -5,7 +5,7 @@ languages:
     url: swift
   - name: Objective-C
     url: objc
-tags:
+topics:
     - connections
     - passwordless
     - email

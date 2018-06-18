@@ -2,7 +2,7 @@
 title: "SPA + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 toc: true
-tags:
+topics:
     - architecture
     - spa
     - api-auth

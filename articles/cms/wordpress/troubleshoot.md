@@ -1,6 +1,6 @@
 ---
 description: This page explains common troubleshooting issues with WordPress.
-tags:
+topics:
     - wordpress
     - cms
 ---

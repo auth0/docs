@@ -11,7 +11,7 @@ alias:
 seo_alias: microsoft-account
 description: How to configure your Auth0 app for an OAuth connection to Microsoft Account.
 toc: true
-tags:
+topics:
   - connections
   - social
   - microsoft

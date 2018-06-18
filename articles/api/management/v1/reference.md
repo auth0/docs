@@ -2,7 +2,7 @@
 description: Management API V1 reference page.
 section: apis
 toc: true
-tags:
+topics:
   - apis
   - management-api
 articleType: reference

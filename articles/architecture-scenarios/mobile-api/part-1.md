@@ -1,7 +1,7 @@
 ---
 description: Solutions Overview for the Mobile + API architecture scenario
 toc: true
-tags:
+topics:
     - architecture
     - mobile-apps
     - api-auth

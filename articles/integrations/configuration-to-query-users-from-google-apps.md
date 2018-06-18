@@ -1,6 +1,6 @@
 ---
 description: How to setup the configuration needed to query users from a Google Apps domain.
-tags:
+topics:
   - integrations
   - google-apps
 ---

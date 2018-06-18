@@ -1,7 +1,7 @@
 ---
 description: Regular web app scenario conclusion
 toc: true
-tags:
+topics:
     - architecture
     - regular-web-apps
     - api-auth

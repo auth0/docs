@@ -6,7 +6,7 @@ image: /media/connections/instagram.png
 seo_alias: instagram
 description: This article shows you how to connect your Auth0 app to Instagram. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
-tags:
+topics:
   - connections
   - social
   - instagram

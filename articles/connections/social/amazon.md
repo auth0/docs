@@ -9,7 +9,7 @@ seo_alias: amazon
 index: 9
 description: How to obtain a Client Id and Client Secret for Amazon.
 toc: true
-tags:
+topics:
   - connections
   - social
   - amazon

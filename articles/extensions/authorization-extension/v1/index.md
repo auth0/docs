@@ -1,6 +1,6 @@
 ---
 description: This page explains how to setup and manage the Authorization Extension v1.
-tags:
+topics:
   - extensions
   - authorization_v1
 ---

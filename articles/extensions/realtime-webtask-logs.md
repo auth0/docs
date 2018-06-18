@@ -1,6 +1,6 @@
 ---
 description: How to configure, use debug rules using the Real-time Webtask Logs extension.
-tags:
+topics:
   - extensions
   - realtime-webtask-logs
 ---

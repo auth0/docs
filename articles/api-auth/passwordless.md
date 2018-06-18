@@ -1,6 +1,6 @@
 ---
 title: Passwordless authentication (OIDC-conformant)
-tags:
+topics:
   - api-authentication
   - oidc
   - passwordless

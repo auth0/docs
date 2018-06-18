@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Descriptions of PSaaS Appliance Geo HA Failure Scenarios and Testing
-tags:
+topics:
     - appliance
     - geo-ha
 ---

@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android with passwordless connections
-tags:
+topics:
   - libraries
   - android
   - passwordless

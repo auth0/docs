@@ -1,6 +1,6 @@
 ---
 description: This page is themguide to internationalizing an iOS application.
-tags:
+topics:
     - i18n
     - ios
 ---

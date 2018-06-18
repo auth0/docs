@@ -1,6 +1,6 @@
 ---
 description: This page compares web applications to web APIs and cookies vs. Tokens.
-tags:
+topics:
   - design
   - web-apps
   - cookies

@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Overview of using the testall endpoint with the PSaaS Appliance
-tags:
+topics:
     - appliance
     - monitoring
     - testing

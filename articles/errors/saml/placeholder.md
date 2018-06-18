@@ -1,6 +1,6 @@
 ---
 public: false
-tags:
+topics:
   - errors
   - saml
 ---

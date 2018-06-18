@@ -7,7 +7,7 @@ alias:
 seo_alias: o365-deprecated
 description: How to obtain a ClientId and Client Secret for an Office 365 connection.
 toc: true
-tags:
+topics:
     - connections
     - enterprise
     - microsoft

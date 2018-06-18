@@ -1,7 +1,7 @@
 ---
 description: Step 2 of Amazon API Gateway Tutorial
 toc: true
-tags:
+topics:
   - integrations
   - aws
   - api-gateway

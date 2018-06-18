@@ -5,7 +5,7 @@ image: /media/connections/yandex.png
 seo_alias: yandex
 description: How to obtain an Application ID and Application Password for Yandex.
 toc: true
-tags:
+topics:
   - connections
   - social
   - yandex

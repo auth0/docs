@@ -3,7 +3,7 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
-tags:
+topics:
   - libraries
   - swift
 ---

@@ -1,7 +1,7 @@
 ---
 description: This page lists the API features that are only available in Management API v1.
 section: apis
-tags:
+topics:
   - apis
   - management-api
 articleType: reference

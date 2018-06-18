@@ -1,7 +1,7 @@
 ---
 description: The Android implementation of the API for the Mobile + API architecture scenario
 toc: true
-tags:
+topics:
   - mobile-apps
   - api-auth
   - android

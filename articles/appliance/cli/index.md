@@ -2,7 +2,7 @@
 url: /appliance/cli
 section: appliance
 description: How to use the PSaaS Appliance CLI
-tags:
+topics:
     - appliance
     - cli
     - backups

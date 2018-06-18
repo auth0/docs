@@ -1,7 +1,7 @@
 ---
 description: How to extend the Login by Auth0 WordPress Plugin with hooks, filters, and functions.
 toc: true
-tags:
+topics:
     - wordpress
     - cms
 ---

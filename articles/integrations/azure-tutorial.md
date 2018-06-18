@@ -1,7 +1,7 @@
 ---
 description: How to use Auth0 with Microsoft Azure.
 url: /azure-tutorial
-tags:
+topics:
   - integrations
   - microsoft
   - azure

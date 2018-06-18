@@ -2,7 +2,7 @@
 description: Learn about Auth0 advanced features
 toc: true
 public: false
-tags:
+topics:
   - auth0-101
   - auth0-basics
 ---

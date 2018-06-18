@@ -1,6 +1,6 @@
 ---
 title: Send one time codes via your own SMS Gateway
-tags:
+topics:
     - connections
     - passwordless
     - sms

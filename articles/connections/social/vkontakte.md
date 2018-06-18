@@ -5,7 +5,7 @@ image: /media/connections/vkontakte.png
 seo_alias: vkontakte
 description: How to connect your Auth0 app to vKontakte.
 toc: true
-tags:
+topics:
   - connections
   - social
   - vkontakte

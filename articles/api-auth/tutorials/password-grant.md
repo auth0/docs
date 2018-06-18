@@ -2,7 +2,7 @@
 title: How to implement the Resource Owner Password Grant
 description: Step-by-step guide on how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
-tags:
+topics:
   - api-authentication
   - oidc
   - resource-owner-password

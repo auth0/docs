@@ -1,6 +1,6 @@
 ---
 title: User profile claims and scope
-tags:
+topics:
   - api-authentication
   - oidc
   - scopes

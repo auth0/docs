@@ -4,7 +4,7 @@ connection: LDAP
 image: /media/connections/ldap.png
 seo_alias: ldap
 description: Using LDAP Authentication with Auth0.
-tags:
+topics:
     - connections
     - enterprise
     - ldap

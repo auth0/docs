@@ -1,7 +1,7 @@
 ---
 description: Auth0 Configuration for the SPA + API architecture scenario
 toc: true
-tags:
+topics:
     - architecture
     - spa
     - api-auth

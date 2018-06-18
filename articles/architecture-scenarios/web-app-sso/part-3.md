@@ -1,7 +1,7 @@
 ---
 description: Regular web app scenario application implementation
 toc: true
-tags:
+topics:
     - architecture
     - regular-web-apps
     - api-auth

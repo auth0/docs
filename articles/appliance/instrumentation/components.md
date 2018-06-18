@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: This document covers the software used for Instrumentation.
-tags:
+topics:
     - appliance
     - instrumentation
 ---

@@ -1,7 +1,7 @@
 ---
 description: How to set up a Client Credentials Grant using the Auth0 Dashboard
 crews: crew-2
-tags:
+topics:
   - client-credentials
   - api-authorization
 articleType: how-to

@@ -1,7 +1,7 @@
 ---
 description: How to create and test an Active Directory Domain Controller.
 toc: true
-tags:
+topics:
   - connector
   - ad/ldap
 ---

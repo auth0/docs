@@ -1,7 +1,7 @@
 ---
 description: Explains how to authenticate users in a Client-side Web application.
 toc: true
-tags:
+topics:
   - spa
   - authentication
   - oauth2

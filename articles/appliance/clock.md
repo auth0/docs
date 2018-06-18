@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: How to manage the time on PSaaS Appliance
-tags:
+topics:
     - appliance
     - time-sync
 ---

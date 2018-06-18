@@ -6,7 +6,7 @@ image:
 alias:
   - sms
 seo_alias: sms
-tags:
+topics:
     - connections
     - passwordless
     - sms

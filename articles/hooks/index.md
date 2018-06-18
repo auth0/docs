@@ -4,7 +4,7 @@ classes: topic-page
 title: Hooks
 description: Working with Hooks
 beta: true
-tags:
+topics:
     - hooks
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: Overview of hosted pages with Auth0, and how to use them
-tags:
+topics:
   - login
   - universal-login
   - password-reset

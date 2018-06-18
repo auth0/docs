@@ -5,7 +5,7 @@ url: /addons/azure-sb
 alias:
   - Azure Service Bus
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
   - azure
   - addons

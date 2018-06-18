@@ -1,7 +1,7 @@
 ---
 description: How to manage users in the Delegated Administration extension
 toc: true
-tags:
+topics:
   - extensions
   - delegated-admin
   - users

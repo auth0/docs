@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about DNS
-tags:
+topics:
     - appliance
     - infrastructure
     - dns

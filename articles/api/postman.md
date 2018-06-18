@@ -1,7 +1,7 @@
 ---
 desription: This page explains how to use Postman Collections to access Auth0 APIs.
 section: apis
-tags:
+topics:
     - management-api
     - authorization-api
     - apis

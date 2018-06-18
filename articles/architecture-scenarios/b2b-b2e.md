@@ -5,7 +5,7 @@ image: /media/articles/architecture-scenarios/b2b-b2e.png
 extract: This is essentially a hybrid between B2B and B2E where you have a larger SAAS application, like Zendesk for example, where users are grouped into companies.
 description: Explains the architecture scenario of a hybrid between B2B and B2E where you have a larger SAAS application.
 beta: true
-tags:
+topics:
     - b2b
     - b2e
     - architecture

@@ -2,7 +2,7 @@
 description: How to create and use a database connection using either the Auth0 user store or your own user store.
 crews: crew-2
 url: /connections/database
-tags:
+topics:
     - connections
     - database
     - db-connections

@@ -1,6 +1,6 @@
 ---
 description: This page explains how to use the Authentication API Debugger
-tags:
+topics:
   - extensions
   - auth-api-debugger
 ---

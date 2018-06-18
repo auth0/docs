@@ -1,7 +1,7 @@
 ---
 title: Amazon API Gateway Tutorial - Building the App
 description: Step 3 of Amazon API Gateway Tutorial
-tags:
+topics:
   - integrations
   - aws
   - api-gateway

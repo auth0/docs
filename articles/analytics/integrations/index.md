@@ -3,7 +3,7 @@ url: /analytics/integrations
 section: articles
 classes: topic-page
 title: Analytics Integrations
-tags:
+topics:
   - analytics
 articleType: index
 ---

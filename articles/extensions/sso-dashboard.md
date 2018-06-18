@@ -2,7 +2,7 @@
 title: "Auth0 Extension: Single Sign-On (SSO) Dashboard"
 description: This page explains how to configure and utilize the SSO Dashboard Extension.
 toc: true
-tags:
+topics:
   - extensions
   - sso-dashboard
 ---

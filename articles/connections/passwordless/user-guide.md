@@ -1,6 +1,6 @@
 ---
 title: Passwordless Authentication User Guide
-tags:
+topics:
     - connections
     - passwordless
 ---

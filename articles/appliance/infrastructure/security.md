@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about security
-tags:
+topics:
     - appliance
     - infrastructure
     - security

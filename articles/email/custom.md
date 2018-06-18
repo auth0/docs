@@ -1,7 +1,7 @@
 ---
 description: The Auth0 APIs provide endpoints that allow you to completely manage email flow, and control when and how emails are sent.
 toc: true
-tags:
+topics:
   - email
 ---
 # Custom Email Handling

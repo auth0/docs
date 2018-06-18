@@ -1,6 +1,6 @@
 ---
 description: This page explains the scenarios of how Auth0 integrates with WordPress.
-tags:
+topics:
     - wordpress
     - cms
 ---

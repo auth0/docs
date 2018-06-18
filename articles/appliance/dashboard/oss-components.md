@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard OSS Components page
-tags:
+topics:
     - appliance
     - dashboard
     - oss

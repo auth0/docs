@@ -1,7 +1,7 @@
 ---
 title: OIDC-conformant applications
 description: List of breaking changes for OIDC-conformant applications
-tags:
+topics:
   - api-authentication
   - oidc
 articleType: discussion

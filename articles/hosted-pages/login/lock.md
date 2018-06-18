@@ -1,6 +1,6 @@
 ---
 description: How to use Lock with Universal Login
-tags:
+topics:
   - lock
   - login
   - universal-login

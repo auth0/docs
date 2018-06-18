@@ -8,7 +8,7 @@ alias:
 seo_alias: 37signals
 description: How to obtain a Client Id and Client Secret for 37Signals.
 toc: true
-tags:
+topics:
   - connections
   - social
   - 37signals

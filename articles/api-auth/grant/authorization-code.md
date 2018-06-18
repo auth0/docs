@@ -1,6 +1,6 @@
 ---
 description: Describes how to call APIs from regular web apps using the Authentication Code Grant.
-tags:
+topics:
   - authorization-code
   - api-authorization
 articleType: discussion

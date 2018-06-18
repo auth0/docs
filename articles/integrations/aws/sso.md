@@ -1,7 +1,7 @@
 ---
 description: How to use SSO with AWS
 toc: true
-tags:
+topics:
   - integrations
   - aws
   - sso

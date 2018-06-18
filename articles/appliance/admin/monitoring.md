@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: How to monitor the PSaaS Appliance
-tags:
+topics:
     - appliance
     - monitoring
 ---

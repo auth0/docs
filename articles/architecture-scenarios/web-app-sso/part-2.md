@@ -1,7 +1,7 @@
 ---
 description: Regular web app scenario configuration for Auth0
 toc: true
-tags:
+topics:
     - architecture
     - regular-web-apps
     - api-auth

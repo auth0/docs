@@ -1,7 +1,7 @@
 ---
 description: This page answers several common questions regarding the PSaaS Appliance infrastructure.
 section: appliance
-tags:
+topics:
     - appliance
     - infrastructure
 ---

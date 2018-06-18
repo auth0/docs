@@ -2,7 +2,7 @@
 classes: topic-page
 title: Amazon Web Services (AWS)
 url: /integrations/aws
-tags:
+topics:
   - integrations
   - aws
 ---

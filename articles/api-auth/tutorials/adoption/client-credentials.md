@@ -1,6 +1,6 @@
 ---
 title: Client Credentials exchange
-tags:
+topics:
   - api-authentication
   - oidc
   - client-credentials

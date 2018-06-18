@@ -5,7 +5,7 @@ image: /media/articles/architecture-scenarios/web-oidc.png
 extract: Traditional web application which needs to authenticate users using OpenID Connect.
 description: Regular web app scenario which needs to authenticate users using OpenID Connect.
 toc: true
-tags:
+topics:
     - architecture
     - regular-web-apps
     - api-auth

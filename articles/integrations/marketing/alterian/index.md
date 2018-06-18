@@ -2,7 +2,7 @@
 title: Alterian Integration
 description: Learn how to import your Auth0 user data into Alterian.
 toc: true
-tags:
+topics:
     - marketing
     - alterian
 ---

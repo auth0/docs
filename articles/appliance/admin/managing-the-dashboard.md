@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: How to access and restrict access to the PSaaS Appliance Management Dashboard
-tags:
+topics:
     - appliance
     - dashboard
 ---

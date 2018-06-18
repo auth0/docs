@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about virtual machines
-tags:
+topics:
     - appliance
     - infrastructure
     - virtual-machines

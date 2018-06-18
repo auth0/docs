@@ -1,6 +1,6 @@
 ---
 description: How to enable and use the Logentries extension.
-tags:
+topics:
   - extensions
   - logentries
 ---

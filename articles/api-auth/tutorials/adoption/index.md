@@ -1,7 +1,7 @@
 ---
 url: /api-auth/tutorials/adoption
 title: OIDC Conformant Authentication Adoption Guide
-tags:
+topics:
   - api-authentication
   - oidc
 articleType: discussion

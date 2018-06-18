@@ -2,7 +2,7 @@
 title: Compliance
 description: Information about Auth0 Compliance and Certifications
 classes: topic-page
-tags:
+topics:
     - compliance
     - gdpr
 ---

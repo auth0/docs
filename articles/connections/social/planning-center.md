@@ -5,7 +5,7 @@ image: /media/connections/planning-center.png
 seo_alias: planning-center
 description: How to obtain a Client Id and Client Secret for Planning Center.
 toc: true
-tags:
+topics:
   - connections
   - social
   - planning-center

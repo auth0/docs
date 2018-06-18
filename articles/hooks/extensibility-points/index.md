@@ -2,7 +2,7 @@
 description: The extensibility points for use with Hooks
 url: /hooks/extensibility-points
 beta: true
-tags:
+topics:
     - hooks
     - extensibility-points
 ---

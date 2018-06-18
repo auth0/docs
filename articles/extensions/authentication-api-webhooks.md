@@ -1,6 +1,6 @@
 ---
 description: This page explains how to configure and install Auth0's Authentication API Webhooks extension.
-tags:
+topics:
   - extensions
   - auth-api-webhooks
 ---

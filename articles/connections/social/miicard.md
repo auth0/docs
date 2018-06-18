@@ -4,7 +4,7 @@ connection: miiCard
 image: /media/connections/miicard.png
 seo_alias: miicard
 description: How to obtain a Client Id and Client Secret for miiCard.
-tags:
+topics:
   - connections
   - social
   - miicard

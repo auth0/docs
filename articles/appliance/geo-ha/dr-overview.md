@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Descriptions of PSaaS Appliance Geo HA Failure and Disaster Recovery
-tags:
+topics:
     - appliance
     - geo-ha
     - disaster-recovery

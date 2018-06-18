@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: This document covers how to add new users to Grafana.
-tags:
+topics:
     - appliance
     - instrumentation
 ---

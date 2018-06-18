@@ -2,7 +2,7 @@
 description: Application settings for Single Page Apps
 url: /applications/application-settings/single-page-app
 toc: true
-tags:
+topics:
   - applications
   - spa
 ---

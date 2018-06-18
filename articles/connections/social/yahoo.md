@@ -6,7 +6,7 @@ seo_alias: yahoo
 index: 15
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 toc: true
-tags:
+topics:
   - connections
   - social
   - yahoo

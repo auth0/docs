@@ -1,6 +1,6 @@
 ---
 title: OIDC Single sign-on
-tags:
+topics:
   - api-authentication
   - oidc
   - sso

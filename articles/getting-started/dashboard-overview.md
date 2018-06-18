@@ -2,7 +2,7 @@
 title: Dashboard Overview
 description: Learn the basics of the Auth0 Dashboard
 toc: true
-tags:
+topics:
   - auth0-101
   - dashboard
 ---

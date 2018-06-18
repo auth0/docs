@@ -2,7 +2,7 @@
 title: Call APIs from Client-side Web Apps
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 toc: true
-tags:
+topics:
   - implicit
   - api-authorization
 articleType: discussion

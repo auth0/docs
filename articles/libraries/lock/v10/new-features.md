@@ -3,7 +3,7 @@ section: libraries
 title: New Features in Lock 10
 description: Describes the new features introduced at Lock v10
 toc: true
-tags:
+topics:
   - libraries
   - lock
 ---

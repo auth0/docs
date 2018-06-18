@@ -5,7 +5,7 @@ image: /media/connections/renren.png
 seo_alias: renren
 description: How to obtain an API Key and Secret Key for RenRen.
 toc: true
-tags:
+topics:
   - connections
   - social
   - renren

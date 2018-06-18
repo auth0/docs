@@ -1,7 +1,7 @@
 ---
 description: PSaaS Appliance infrastructure information about IP/Domain and Port Usage
 section: appliance
-tags:
+topics:
     - appliance
     - infrastructure
     - ip-addressses

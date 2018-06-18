@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Settings page
-tags:
+topics:
     - appliance
     - dashboard
     - settings

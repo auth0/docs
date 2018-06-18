@@ -2,7 +2,7 @@
 description: This page explains the basics of Auth0's Management and Authentication APIs.
 section: apis
 crews: crew-2
-tags:
+topics:
     - management-api
     - authorization-api
     - apis

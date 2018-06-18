@@ -1,6 +1,6 @@
 ---
 title: Using Passwordless Authentication on a Single Page Application
-tags:
+topics:
     - connections
     - passwordless
     - spa

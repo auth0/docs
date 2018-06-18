@@ -1,7 +1,7 @@
 ---
 description: Guide on how to use the hosted password reset page
 crews: crew-2
-tags:
+topics:
   - password-reset
   - hosted-pages
 ---

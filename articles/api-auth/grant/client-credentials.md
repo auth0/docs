@@ -1,6 +1,6 @@
 ---
 description: Describes how to call APIs from server processes using the Client Credentials Grant.
-tags:
+topics:
   - client-credentials
   - api-authorization
 articleType: discussion

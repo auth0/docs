@@ -2,7 +2,7 @@
 title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
-tags:
+topics:
   - api-authentication
   - oidc
 articleType: discussion

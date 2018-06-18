@@ -4,7 +4,7 @@ connection: Email
 alias:
   - email
 seo_alias: email
-tags:
+topics:
     - connections
     - passwordless
     - email

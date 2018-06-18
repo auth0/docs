@@ -1,7 +1,7 @@
 ---
 title: Migrating from Embedded to Universal Login
 description: Learn how to migrate from Embedded Login using Lock to Universal Login
-tags:
+topics:
   - lock
   - migrations
   - universal-login

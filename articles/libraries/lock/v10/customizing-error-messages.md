@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: Customizing error messages with Lock 10
-tags:
+topics:
   - libraries
   - lock
 ---

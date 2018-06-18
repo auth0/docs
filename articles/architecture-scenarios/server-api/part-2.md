@@ -1,7 +1,7 @@
 ---
 description: Auth0 Configuration for the Server + API architecture scenario
 toc: true
-tags:
+topics:
     - architecture
     - server-apps
     - api-auth

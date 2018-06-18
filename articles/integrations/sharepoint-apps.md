@@ -1,6 +1,6 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
-tags:
+topics:
   - integrations
   - sharepoint
 ---

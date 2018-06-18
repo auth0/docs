@@ -3,7 +3,7 @@ url: /api-auth
 section: articles
 classes: topic-page
 title: API Authorization
-tags:
+topics:
   - api-authentication
   - oidc
 articleType: index

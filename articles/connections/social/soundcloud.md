@@ -6,7 +6,7 @@ image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 description: How to obtain a Client Id and Client Secret for SoundCloud.
 toc: true
-tags:
+topics:
   - connections
   - social
   - soundcloud

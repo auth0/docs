@@ -1,7 +1,7 @@
 ---
 toc: true
 description: The GitHub Deployments extension allows you to deploy rules and database connection scripts from GitHub to Auth0.
-tags:
+topics:
   - extensions
   - github-deployments
 ---

@@ -1,6 +1,6 @@
 ---
 description: How to install multiple instances of the connector for higher availability.
-tags:
+topics:
   - connector
 ---
 

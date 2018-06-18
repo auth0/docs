@@ -2,7 +2,7 @@
 title: Authentication for Server-side Web Apps
 description: Explains how to authenticate users in a Server-side Web application.
 toc: true
-tags:
+topics:
   - oauth2
   - authentication
   - server-side-apps

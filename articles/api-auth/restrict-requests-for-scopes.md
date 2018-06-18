@@ -1,6 +1,6 @@
 ---
   description: Writing rules to restrict user/client access to an API
-  tags:
+  topics:
   - api-authentication
   - oidc
   - scopes

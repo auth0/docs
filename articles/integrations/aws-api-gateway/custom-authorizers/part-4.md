@@ -1,6 +1,6 @@
 ---
 description: How to set your API methods to use your custom authorizer
-tags:
+topics:
   - integrations
   - aws
   - api-gateway

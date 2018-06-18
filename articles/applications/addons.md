@@ -1,6 +1,6 @@
 ---
 description: Explains what Add-ons are and how they are associated with Auth0 Applications.
-tags:
+topics:
   - applications
   - add-ons
 ---

@@ -1,6 +1,6 @@
 ---
 description: How to setup authentication using client certificates.
-tags:
+topics:
   - connector
   - ad/ldap
   - client-certificates

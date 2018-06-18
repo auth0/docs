@@ -1,6 +1,6 @@
 ---
 description: How to work around the limitation of single-page application email redirects.
-tags:
+topics:
   - email
   - spa
 ---

@@ -1,7 +1,7 @@
 ---
 description: How to configure your own SMTP email provider.
 toc: true
-tags:
+topics:
   - email
   - smtp
 ---

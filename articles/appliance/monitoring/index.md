@@ -2,7 +2,7 @@
 url: /appliance/monitoring
 section: appliance
 description: Ways to monitor the PSaaS Appliance
-tags:
+topics:
     - appliance
     - monitoring
 ---

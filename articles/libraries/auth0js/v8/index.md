@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
-tags:
+topics:
   - libraries
   - auth0js
 ---

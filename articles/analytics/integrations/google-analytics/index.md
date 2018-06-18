@@ -1,6 +1,6 @@
 ---
 description: This article explains how to install and configure the Google Analytics for Auth0 integration.
-tags:
+topics:
   - google
   - analytics
   articleType: how-to

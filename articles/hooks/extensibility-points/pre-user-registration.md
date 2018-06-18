@@ -3,7 +3,7 @@ title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
 toc: true
 beta: true
-tags:
+topics:
     - hooks
     - extensibility-points
 ---

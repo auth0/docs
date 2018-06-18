@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about installation
-tags:
+topics:
     - appliance
     - infrastructure
     - installation

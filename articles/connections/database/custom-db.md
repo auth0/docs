@@ -6,7 +6,7 @@ seo_alias: mysql
 description: Learn how to authenticate users using your database as an identity provider.
 crews: crew-2
 toc: true
-tags:
+topics:
     - connections
     - custom-database
 ---

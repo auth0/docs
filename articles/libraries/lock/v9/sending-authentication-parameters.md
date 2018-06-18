@@ -1,7 +1,7 @@
 ---
 section: libraries
 description: Supported parameters that can be used with Lock V9.
-tags:
+topics:
   - libraries
   - lock
 ---

@@ -3,7 +3,7 @@ section: libraries
 title: Auth0.js v7 to v8 Migration Guide
 description: How to migrate from auth0.js v7 to auth0.js v8
 toc: true
-tags:
+topics:
   - libraries
   - auth0js
 ---

@@ -1,6 +1,6 @@
 ---
 description: Explains how to install the WordPress JWT Authentication and integration with the Auth0 plugin.
-tags:
+topics:
     - wordpress
     - cms
 ---

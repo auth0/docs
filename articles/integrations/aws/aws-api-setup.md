@@ -2,7 +2,7 @@
 description: How to Set Up AWS for Delegated Authentication
 url: /aws-api-setup
 toc: true
-tags:
+topics:
   - integrations
   - aws
 ---

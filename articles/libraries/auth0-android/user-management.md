@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android to manage users
-tags:
+topics:
   - libraries
   - android
   - users

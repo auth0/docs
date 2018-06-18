@@ -2,7 +2,7 @@
 title: Multifactor Authentication and Resource Owner Password
 description: How to use Multifactor Authentication with Resource Owner Password Grant.
 toc: true
-tags:
+topics:
   - api-authentication
   - oidc
   - mfa

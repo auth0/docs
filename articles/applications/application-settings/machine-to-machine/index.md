@@ -1,7 +1,7 @@
 ---
 description: Application settings for Machine to Machine Applications configured in Auth0
 toc: true
-tags:
+topics:
   - applications
   - machine-to-machine-apps
 ---

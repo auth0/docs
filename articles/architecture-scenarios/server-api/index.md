@@ -5,7 +5,7 @@ image: /media/articles/architecture-scenarios/server-api.png
 extract: Server to server communication where a server “Application” needs to make secure calls to an API (“Resource Server”), but on behalf of the application vs. a user.
 description: Explains the architecture scenario with server to server communication with secure calls to an API (“Resource Server”), but on behalf of the application vs. a user.
 toc: true
-tags:
+topics:
     - architecture
     - server-apps
     - api-auth

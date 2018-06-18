@@ -7,7 +7,7 @@ alias:
 seo_alias: active-directory
 description: How to connect to Active Directory with Auth0.
 crews: crew-2
-tags:
+topics:
     - connections
     - enterprise
     - azure

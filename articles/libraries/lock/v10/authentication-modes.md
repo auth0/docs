@@ -2,7 +2,7 @@
 section: libraries
 description: Details about Authentication Modes with Lock V10.
 toc: true
-tags:
+topics:
   - libraries
   - lock
 ---

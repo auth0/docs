@@ -2,7 +2,7 @@
 url: /appliance/geo-ha
 section: appliance
 description: Descriptions of Appliance Geo HA
-tags:
+topics:
     - appliance
     - geo-ha
     - disaster-recovery

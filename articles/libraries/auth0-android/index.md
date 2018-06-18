@@ -3,7 +3,7 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
-tags:
+topics:
   - libraries
   - android
 ---

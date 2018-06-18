@@ -1,6 +1,6 @@
 ---
 title: Passwordless FAQ
-tags:
+topics:
     - connections
     - passwordless
 ---

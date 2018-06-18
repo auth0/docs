@@ -1,6 +1,6 @@
 ---
 title: Using Passwordless Authentication on Android
-tags:
+topics:
     - connections
     - passwordless
     - android

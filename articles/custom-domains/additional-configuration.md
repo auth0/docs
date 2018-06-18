@@ -2,7 +2,7 @@
 title: Additional Configuration for Custom Domains
 description: Describes the configuration steps you might need to follow in order to set up custom domains, depending on the Auth0 features you are using
 toc: true
-tags:
+topics:
   - custom-domains
 ---
 # Additional Configuration for Custom Domains

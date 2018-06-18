@@ -1,6 +1,6 @@
 ---
 description: How to configure and retrieve information using the Auth0 Logs to Splunk extension.
-tags:
+topics:
   - extensions
   - splunk
 ---

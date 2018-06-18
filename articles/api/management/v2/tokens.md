@@ -3,7 +3,7 @@ description: Details on how to generate and use a token for the Auth0 Management
 section: apis
 crews: crew-2
 toc: true
-tags:
+topics:
   - apis
   - management-api
   - tokens

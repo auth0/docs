@@ -1,7 +1,7 @@
 ---
 title: Amazon API Gateway Tutorial - Using Multiple Roles
 description: Step 4 of Amazon API Gateway Tutorial
-tags:
+topics:
   - integrations
   - aws
   - api-gateway

@@ -2,7 +2,7 @@
 title: Using Passwordless Authentication with a magic link via email on Regular Web Apps
 description: How to authenticate users with a magic link via email in a traditional web app that runs on the server
 toc: true
-tags:
+topics:
     - connections
     - web-apps
     - passwordless

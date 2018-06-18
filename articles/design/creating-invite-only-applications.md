@@ -2,7 +2,7 @@
 description: How to customize the signup process for an invite-only application with Auth0
 toc: true
 crews: crew-2
-tags:
+topics:
   - design
 ---
 # Invite-Only Applications

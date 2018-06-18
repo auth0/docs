@@ -1,6 +1,6 @@
 ---
 description: How to handle declined authorization permissions and how to re-prompt for these permissions.
-tags:
+topics:
   - connections
   - social
 ---

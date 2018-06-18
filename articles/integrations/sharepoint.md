@@ -1,6 +1,6 @@
 ---
 description: How to integrate with SharePoint 2010/2013, including setup, troubleshooting, acessing logs and next steps.
-tags:
+topics:
   - integrations
   - sharepoint
 ---

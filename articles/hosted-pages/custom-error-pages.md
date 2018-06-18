@@ -3,7 +3,7 @@ title: Custom Error Pages
 description: How to setup a custom error page for authorization error events.
 toc: true
 crews: crew-2
-tags:
+topics:
   - custom-error-pages
   - hosted-pages
 ---

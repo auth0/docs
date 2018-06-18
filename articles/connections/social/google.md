@@ -10,7 +10,7 @@ alias:
  - google-oauth2
 seo_alias: google
 toc: true
-tags:
+topics:
   - connections
   - social
   - google

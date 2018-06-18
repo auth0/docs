@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: This document covers how to visualize data gathered via Instrumentation.
-tags:
+topics:
     - appliance
     - instrumentation
 ---

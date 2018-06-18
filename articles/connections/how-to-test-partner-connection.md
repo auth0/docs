@@ -1,6 +1,6 @@
 ---
 description: How to test a partner connection.
-tags:
+topics:
   - connections
   - troubleshootin
 ---

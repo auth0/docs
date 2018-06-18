@@ -6,7 +6,7 @@ seo_alias: paypal
 index: 10
 description: How to obtain a Client Id and Client Secret for PayPal.
 toc: true
-tags:
+topics:
   - connections
   - social
   - paypal

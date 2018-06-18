@@ -1,6 +1,6 @@
 ---
 description: How to use Lock Passwordless with Universal Login
-tags:
+topics:
   - login
   - universal-login
   - passwordless

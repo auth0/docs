@@ -1,6 +1,6 @@
 ---
 public: true
-tags:
+topics:
   - errors
   - tokens
 ---

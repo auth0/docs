@@ -2,7 +2,7 @@
 title: Browser-Based vs. Native Login Flows on Mobile Devices
 description: This article covers the pros and cons between a browser-based vs. native experience when implementing Auth0 on a mobile device
 toc: true
-tags:
+topics:
   - design
   - mobile
 ---

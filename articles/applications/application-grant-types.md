@@ -1,7 +1,7 @@
 ---
 description: Using the Grant Types property on Applications
 toc: true
-tags:
+topics:
   - applications
   - grant-types
 ---

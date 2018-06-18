@@ -1,7 +1,7 @@
 ---
 description: Configure Auth0 for use as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
 toc: true
-tags:
+topics:
     - integrations
     - azure
     - api-management

@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: How to automatically create tenants in the PSaaS Appliance
-tags:
+topics:
     - appliance
     - tenants
 ---

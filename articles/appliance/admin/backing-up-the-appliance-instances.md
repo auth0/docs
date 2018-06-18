@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Recommendations on when to back up PSaaS Appliance instances
-tags:
+topics:
     - appliance
     - backups
 ---

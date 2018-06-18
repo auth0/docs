@@ -1,6 +1,6 @@
 ---
 description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant
-tags:
+topics:
   - api-authentication
   - oidc
   - implicit

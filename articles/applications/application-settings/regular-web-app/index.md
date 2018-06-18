@@ -2,7 +2,7 @@
 description: Application settings for Web Apps
 url: /applications/application-settings/regular-web-app
 toc: true
-tags:
+topics:
   - applications
   - regular-web-apps
 ---

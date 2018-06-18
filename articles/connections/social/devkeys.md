@@ -1,6 +1,6 @@
 ---
 description: Caveats you need to be aware of when using Auth0 Dev Keys for social providers.
-tags:
+topics:
   - connections
   - social
   - dev-keys

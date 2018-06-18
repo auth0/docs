@@ -1,6 +1,6 @@
 ---
 description: How to use Liquid syntax in your email templates.
-tags:
+topics:
   - email
   - liquid
 ---

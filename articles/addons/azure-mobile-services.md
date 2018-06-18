@@ -12,7 +12,7 @@ alias:
   - windows-azure-vm
   - azure-websites
   - azure-vm
-tags:
+topics:
   - azure
   - mobile
   - addons

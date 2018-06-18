@@ -1,6 +1,6 @@
 ---
 description: Guide on how to use the hosted Guardian MFA page
-tags:
+topics:
   - mfa
   - guardian
   - hosted-pages

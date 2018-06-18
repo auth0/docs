@@ -2,7 +2,7 @@
 section: libraries
 toc: true
 description: Using Database Connections with Auth0.Swift
-tags:
+topics:
   - libraries
   - swift
   - db-connections

@@ -1,7 +1,7 @@
 ---
 description: API and SPA Configuration for the SPA + API architecture scenario
 toc: true
-tags:
+topics:
     - architecture
     - spa
     - api-auth

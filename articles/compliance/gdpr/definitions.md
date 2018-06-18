@@ -1,7 +1,7 @@
 ---
 title: General Data Protection Regulation (GDPR) Definitions
 description: Definitions used for Auth0's documentation on GDPR
-tags:
+topics:
     - compliance
     - gdpr
 ---

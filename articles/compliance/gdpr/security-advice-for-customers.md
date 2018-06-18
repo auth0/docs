@@ -1,7 +1,7 @@
 ---
 title: Security Advice for Customers
 description: How to protect your end users' data
-tags:
+topics:
     - compliance
     - gdpr
 ---

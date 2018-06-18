@@ -1,7 +1,7 @@
 ---
 title: "Server Client + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the Server Client + API architecture scenario
-tags:
+topics:
     - architecture
     - server-apps
     - api-auth

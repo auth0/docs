@@ -1,6 +1,6 @@
 ---
 public: false
-tags:
+topics:
   - errors
   - oauth1
   - oauth2

@@ -1,6 +1,6 @@
 ---
 description: How to back up your hosted pages using the Auth0 version control extensions
-tags:
+topics:
   - version-control
   - hosted-pages
 ---

@@ -1,7 +1,7 @@
 ---
 title: Authorization Extension API Explorer
 fullWidth: true
-tags:
+topics:
     - authorization
     - apis
     - api-authorization

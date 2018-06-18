@@ -5,7 +5,7 @@ image: /media/connections/exact.png
 seo_alias: exact
 description: How to obtain a Client Id and Client Secret for Exact.
 toc: true
-tags:
+topics:
   - connections
   - social
   - exact

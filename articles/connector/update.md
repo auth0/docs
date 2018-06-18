@@ -1,6 +1,6 @@
 ---
 description: Explains the different ways to update the AD/LDAP Connector.
-tags:
+topics:
   - connector
   - ad/ldap
 ---

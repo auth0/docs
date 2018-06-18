@@ -1,7 +1,7 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Rate Limiting page
-tags:
+topics:
     - appliance
     - dashboard
     - rate-limiting

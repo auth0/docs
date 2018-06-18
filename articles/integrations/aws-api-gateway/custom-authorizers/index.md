@@ -1,6 +1,6 @@
 ---
 description: How to use secure AWS API Gateway using custom authorizers that accept Auth0-issued Access Tokens
-tags:
+topics:
   - integrations
   - aws
   - api-gateway

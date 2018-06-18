@@ -6,7 +6,7 @@ seo_alias: fitbit
 index: 14
 description: How to obtain a Client Id and Client Secret for Fitbit.
 toc: true
-tags:
+topics:
   - connections
   - social
   - fitbit

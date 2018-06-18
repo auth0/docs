@@ -1,7 +1,7 @@
 ---
 description: This page lists different ways of how to update your application's secret.
 crews: crew-2
-tags:
+topics:
   - applications
   - client-secrets
 ---

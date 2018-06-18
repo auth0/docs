@@ -2,7 +2,7 @@
 title: Moving SPAs using Lock to Universal Login 
 description: Learn how to migrate from Single Page Applications using Lock to Universal Login
 toc: true
-tags:
+topics:
   - lock
   - migrations
   - spa

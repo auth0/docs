@@ -4,7 +4,7 @@ seo_alias: auth0-oidc
 image: /media/connections/auth0.png
 description: You can use an Application on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
 toc: true
-tags:
+topics:
   - connections
   - social
 ---

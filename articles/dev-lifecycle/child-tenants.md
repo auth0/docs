@@ -1,6 +1,6 @@
 ---
 description: How to request child tenants for your Auth0 tenant
-tags:
+topics:
     - child-tenants
     - dev-tools
 ---
