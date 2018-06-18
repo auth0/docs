@@ -5,7 +5,7 @@ toc: true
 topics:
   - api-authentication
   - oidc
-contentType: discussion
+contentType: concept
 ---
 # Introducing OIDC Conformant Authentication
 

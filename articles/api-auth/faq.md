@@ -6,7 +6,7 @@ topics:
   - user-consent
   - resource-servers
   - applications
-contentType: discussion
+contentType: concept
 ---
 
 # API Authentication and Authorization FAQ

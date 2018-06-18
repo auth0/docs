@@ -8,7 +8,7 @@ topics:
   - scopes
   - api-authentication
   - oidc
-contentType: discussion
+contentType: concept
 ---
 # Call your APIs with Auth0 tokens
 
