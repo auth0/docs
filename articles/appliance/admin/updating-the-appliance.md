@@ -5,6 +5,7 @@ toc: true
 topics:
     - appliance
     - updates
+contentType: how-to
 ---
 # Updating the PSaaS Appliance
 

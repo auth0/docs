@@ -4,6 +4,7 @@ description: How to configure the PSaaS Appliance CLI
 topics:
     - appliance
     - cli
+contentType: how-to
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface

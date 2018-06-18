@@ -5,6 +5,7 @@ topics:
     - appliance
     - dashboard
     - instrumentation
+contentType: concept
 ---
 
 # PSaaS Appliance Dashboard: Instrumentation

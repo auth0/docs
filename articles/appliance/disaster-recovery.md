@@ -4,6 +4,7 @@ section: appliance
 topics:
     - appliance
     - disaster-recovery
+contentType: concept
 ---
 
 # PSaaS Appliance: Disaster Recovery

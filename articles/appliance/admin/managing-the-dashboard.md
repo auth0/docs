@@ -4,6 +4,7 @@ description: How to access and restrict access to the PSaaS Appliance Management
 topics:
     - appliance
     - dashboard
+contentType: how-to
 ---
 
 # PSaaS Appliance Administration: Manage the Dashboard

@@ -5,6 +5,7 @@ topics:
     - appliance
     - dashboard
     - nodes
+contentType: concept
 ---
 
 # Auth0 Appliance Dashboard: Nodes
