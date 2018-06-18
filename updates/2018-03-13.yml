@@ -1,0 +1,9 @@
+changed:
+  -
+    title: "Access Tokens for the Management API"
+    tags:
+      - management-api
+      - tokens
+    description: |
+      The [Access Tokens for the Management API](https://auth0.com/docs/api/management/v2/tokens) was updated and includes additional instructions on setting scopes.
+      
