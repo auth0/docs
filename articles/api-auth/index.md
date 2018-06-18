@@ -25,18 +25,6 @@ In this page you can find a list of resources that can help you secure your APIs
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/intro">Introducing OIDC Conformant Authentication</a>
-    <p>
-      This document presents an overview of the latest new features and changes in our authentication flows, explain why they were made and points to other detailed tutorials to help you adopt these changes.
-    </p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/adoption">OIDC Conformant Authentication Adoption Guide</a>
-    <p>
-      This guide details all the latest new features and changes and provides suggestions on how to adapt your existing applications.
-    </p>
-  </li>
-  <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/which-oauth-flow-to-use">Which OAuth 2.0 flow should I use?</a>
     <p>
       OAuth 2.0 supports several different grants. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weight in as well, like the level of trust for the Application, or the experience you want your users to have. Start here if you are not familiar with all that and you need directions in order to decide the proper flow for your case.
