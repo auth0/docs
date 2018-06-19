@@ -4,6 +4,9 @@ topics:
   - dashboard
   - admins
 contentType: how-to
+useCase:
+  - manage-users
+  - manage-accounts
 ---
 # Manage Admins in the Dashboard
 

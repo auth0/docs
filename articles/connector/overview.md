@@ -4,6 +4,10 @@ description: An overview of what the AD/LDAP Connector is and why it's necessary
 topics:
   - connector
 contentType: concept
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # AD/LDAP Connector Overview

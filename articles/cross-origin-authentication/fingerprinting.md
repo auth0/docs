@@ -5,6 +5,8 @@ topics:
     - cors
     - fingerprinting
 contentType: how-to
+useCase:
+    - migrate
 ---
 # Fingerprinting of Username + Password Login Requests
 

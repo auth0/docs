@@ -5,6 +5,10 @@ topics:
   - connector
   - ad/ldap
 contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 # Creating a Test Active Directory Domain Controller
 
