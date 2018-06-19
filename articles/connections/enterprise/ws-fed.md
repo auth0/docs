@@ -10,7 +10,9 @@ topics:
     - enterprise
     - ws-fed
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connecting WS-Federation Providers with Auth0

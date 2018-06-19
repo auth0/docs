@@ -10,7 +10,9 @@ topics:
     - connections
     - criipto
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Log in with Danish NemID through Auth0

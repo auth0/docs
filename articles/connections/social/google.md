@@ -15,7 +15,9 @@ topics:
   - social
   - google
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your App to Google
 

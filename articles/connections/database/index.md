@@ -10,7 +10,8 @@ contentType:
     - index
     - concept
     - how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
 ---
 
 # Database Identity Providers

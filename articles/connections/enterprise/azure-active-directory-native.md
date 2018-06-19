@@ -20,7 +20,9 @@ topics:
     - microsoft
     - native-apps
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Native Azure Active Directory applications with Auth0 (Resource Owner flow)

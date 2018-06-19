@@ -12,7 +12,9 @@ topics:
     - google
     - google-apps
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your Google App with Auth0

@@ -10,7 +10,9 @@ topics:
   - social
   - oauth2
 contentType: how-to
-useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Add a generic OAuth2 Authorization Server to Auth0
 
