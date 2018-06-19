@@ -53,7 +53,7 @@ Then, call the `LoginAsync` method which will redirect the user to the login scr
 var loginResult = await client.LoginAsync();
 ```
 
-## Handing the callback URL
+### Handing the callback URL
 
 After a user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. In both Android and iOS you need to handle this callback to complete the authentication flow.
 
@@ -132,7 +132,7 @@ public class AppDelegate : UIApplicationDelegate
 }
 ```
 
-## Run the application
+### Run the application
 
 With the above code in place, a user can log in to your application using Auth0.
 
@@ -202,7 +202,3 @@ if (!loginResult.IsError)
     }
 }
 ```
-
-## More Information
-
-For more information, please refer to the [Auth0 OIDC Application Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
