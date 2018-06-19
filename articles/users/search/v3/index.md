@@ -23,9 +23,7 @@ In this article you'll learn how to search for users and sort the results.
 
 ## Limitations
 
-When you query for users with the [list or search users](/api/management/v2#!/Users/get_users) endpoint, you can retrieve maximum 1000 users (for example, 100 results per page * 10 queries going through page 0-9). 
-
-If you exceed this threshold, redefine your search.
+When you query for users with the [list or search users](/api/management/v2#!/Users/get_users) endpoint, you can retrieve maximum 1000 users. If you exceed this threshold, redefine your search.
 
 If you need a full export of your users, use instead the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
 
@@ -119,7 +117,7 @@ For more information on `sort` and other parameters, see the [Management API Exp
 
 ## Page results
 
-To page the user search results, use the `page`, `per_page`, and `include_totals` parameters when making your request:
+To page the user search results, use the `page`, `per_page`, and `include_totals` parameters at your request.
 
 Parameter | Description
 ----------|------------
@@ -161,7 +159,7 @@ Parameter | Description
 }
 ```
 
-Note that Auth0 limits the total number of users you can retrieve to 1000 (see [Limitations](#limitations)). So this means 100 users per page for 10 pages.
+Note that Auth0 limits the total number of users you can retrieve to 1000 (see [Limitations](#limitations)). So this means, for example, 100 users per page for 10 pages.
 
 For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer documentation](/api/management/v2#!/users/get_users).
 
