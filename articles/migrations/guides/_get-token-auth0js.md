@@ -39,7 +39,7 @@ var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: '${account.callback}',
-  audience: 'https://${account.namespace}/api/v2/˜',
+  audience: 'https://${account.namespace}/api/v2/',
   scope: '${scope}',
   responseType: 'token id_token'
 });
@@ -53,7 +53,7 @@ var auth0Manage = new auth0.Management({
       <div class="tab-pane-footer">
         <ul>
           <li>Asks for both an ID Token and an Access Token in the response (<code>responseType: 'token id_token'</code>)</li>
-          <li>Sets the Management API as the intended audience of the token (<code>audience: 'https://${account.namespace}/api/v2/˜'</code>)</li>
+          <li>Sets the Management API as the intended audience of the token (<code>audience: 'https://${account.namespace}/api/v2/'</code>)</li>
           <li>Asks for the required permission (<code>scope: '${scope}'</code>)</li>
           <li>Authenticates with the Management API using the Access Token</li>
         </ul>
