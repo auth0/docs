@@ -8,6 +8,7 @@ topics:
 contentType: 
     - index
     - how-to
+useCase: compliance
 ---
 # GDPR: Conditions for Consent
 

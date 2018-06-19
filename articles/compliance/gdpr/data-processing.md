@@ -5,6 +5,7 @@ topics:
     - compliance
     - gdpr
 contentType: concept
+useCase: compliance
 ---
 # Auth0 Data Processing
 

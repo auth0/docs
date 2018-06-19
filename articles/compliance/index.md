@@ -8,6 +8,7 @@ topics:
 contentType: 
     - index
     - reference
+useCase: compliance
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
