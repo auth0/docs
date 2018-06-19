@@ -5,6 +5,8 @@ topics:
   - applications
   - client-secrets
 contentType: how-to
+useCase:
+  - build-an-app
 ---
 
 # Rotate the Client Secret

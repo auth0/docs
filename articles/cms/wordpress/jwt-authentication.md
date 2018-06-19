@@ -4,6 +4,12 @@ topics:
     - wordpress
     - cms
 contentType: how-to
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # WordPress JWT Authentication

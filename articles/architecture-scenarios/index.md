@@ -9,6 +9,10 @@ topics:
 contentType: 
     - index
     - concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # Architecture Scenarios
 

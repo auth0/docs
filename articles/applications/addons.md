@@ -4,6 +4,9 @@ topics:
   - applications
   - add-ons
 contentType: reference
+useCase:
+  - build-an-app
+  - integrate-third-party-apps
 ---
 
 # Application Add-ons

@@ -12,6 +12,10 @@ topics:
     - lockjs
     - saml
 contentType: concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Regular Web App (using SAML)

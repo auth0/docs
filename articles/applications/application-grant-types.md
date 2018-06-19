@@ -8,6 +8,8 @@ contentType:
     - reference
     - concept
     - how-to
+useCase:
+  - build-an-app
 ---
 # Application Grant Types
 

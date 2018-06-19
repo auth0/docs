@@ -5,6 +5,9 @@ topics:
   - applications
   - connections
 contentType: concept
+useCase:
+  - build-an-app
+  - customize-connections
 ---
 # Application Connections
 
