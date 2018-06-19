@@ -9,6 +9,7 @@ topics:
     - connections
     - enterprise
     - ws-fed
+contentType: how-to
 ---
 
 # Connecting WS-Federation Providers with Auth0

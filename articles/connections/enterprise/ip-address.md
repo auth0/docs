@@ -13,6 +13,7 @@ topics:
     - connections
     - enterprise
     - ip-addresses
+contentType: how-to
 ---
 # Configure IP Address Authentication
 

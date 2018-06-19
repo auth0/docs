@@ -5,6 +5,9 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: 
+    - concept
+    - index
 ---
 # How Auth0 Can Help With GDPR Compliance
 

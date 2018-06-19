@@ -3,6 +3,7 @@ description: This page explains the scenarios of how Auth0 integrates with WordP
 topics:
     - wordpress
     - cms
+contentType: concept
 ---
 
 # How Auth0 Integrates with WordPress

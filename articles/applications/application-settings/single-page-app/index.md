@@ -5,6 +5,9 @@ toc: true
 topics:
   - applications
   - spa
+contentType: 
+    - index
+    - how-to
 ---
 
 # Application Settings: Single Page Applications

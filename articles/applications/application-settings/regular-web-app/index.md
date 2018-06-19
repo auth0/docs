@@ -5,6 +5,9 @@ toc: true
 topics:
   - applications
   - regular-web-apps
+contentType: 
+    - index
+    - how-to
 ---
 # Application Settings: Regular Web Applications
 

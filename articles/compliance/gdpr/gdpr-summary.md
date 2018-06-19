@@ -4,6 +4,7 @@ description: A summary of how GDPR affects Auth0, its customers, and the end use
 topics:
     - compliance
     - gdpr
+contentType: concept
 ---
 # General Data Protection Regulation (GDPR) - A Summary
 

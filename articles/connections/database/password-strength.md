@@ -7,6 +7,7 @@ topics:
     - database
     - db-connections
     - passwords
+contentType: concept
 ---
 # Password Strength in Auth0 Database Connections
 

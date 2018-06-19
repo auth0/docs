@@ -11,6 +11,9 @@ topics:
     - api-auth
     - authorization-code
     - implicit-grant
+contentType: 
+    - index
+    - tutorial
 ---
 
 # SPA + API

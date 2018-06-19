@@ -5,6 +5,7 @@ description: Ways to monitor the PSaaS Appliance
 topics:
     - appliance
     - monitoring
+contentType: index
 ---
 
 # Monitoring the Private SaaS (PSaaS) Appliance

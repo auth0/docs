@@ -15,6 +15,7 @@ topics:
     - active-directory
     - microsoft
     - ad-fs
+contentType: how-to
 ---
 # Connect your app to ADFS
 

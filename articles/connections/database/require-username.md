@@ -6,6 +6,7 @@ topics:
     - connections
     - database
     - db-connections
+contentType: how-to
 ---
 
 # Adding Username for Database Connections

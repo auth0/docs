@@ -3,6 +3,7 @@ description: How to test a partner connection.
 topics:
   - connections
   - troubleshootin
+contentType: how-to
 ---
 # Testing a partner connection
 

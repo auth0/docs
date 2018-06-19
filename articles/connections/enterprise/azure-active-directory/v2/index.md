@@ -19,6 +19,9 @@ topics:
     - azure
     - active-directory
     - microsoft
+contentType: 
+    - index
+    - how-to
 ---
 
 # Connect your app to Microsoft Azure Active Directory

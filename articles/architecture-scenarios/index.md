@@ -6,6 +6,9 @@ topics:
     - architecture
     - api-auth
     - authorization-code
+contentType: 
+    - index
+    - concept
 ---
 # Architecture Scenarios
 

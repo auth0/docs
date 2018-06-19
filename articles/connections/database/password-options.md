@@ -7,6 +7,7 @@ topics:
     - database
     - db-connections
     - passwords
+contentType: concept
 ---
 # Password Options in Auth0 Database Connections
 

@@ -3,6 +3,7 @@ description: Explains how to install the WordPress JWT Authentication and integr
 topics:
     - wordpress
     - cms
+contentType: how-to
 ---
 
 # WordPress JWT Authentication

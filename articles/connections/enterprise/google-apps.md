@@ -11,6 +11,7 @@ topics:
     - enterprise
     - google
     - google-apps
+contentType: how-to
 ---
 
 # Connect Your Google App with Auth0

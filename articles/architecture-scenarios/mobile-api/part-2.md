@@ -7,6 +7,7 @@ topics:
     - api-auth
     - authorization-code
     - pkce
+contentType: tutorial
 ---
 
 # Mobile + API: Auth0 Configuration

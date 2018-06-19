@@ -4,6 +4,10 @@ toc: true
 topics:
   - applications
   - grant-types
+contentType: 
+    - reference
+    - concept
+    - how-to
 ---
 # Application Grant Types
 

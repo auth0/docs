@@ -11,6 +11,7 @@ topics:
     - connections
     - enterprise
     - pingfederate
+contentType: how-to
 ---
 
 # Connect Your PingFederate Server to Auth0

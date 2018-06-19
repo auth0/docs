@@ -10,6 +10,7 @@ topics:
     - architecture
     - lockjs
     - active-directory
+contentType: concept
 ---
 
 # Business to Business Identity Scenarios

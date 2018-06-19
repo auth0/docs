@@ -5,6 +5,7 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: tutorial
 ---
 # Track Consent with Lock
 

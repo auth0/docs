@@ -4,6 +4,7 @@ toc: true
 topics:
   - connections
   - oauth2
+contentType: concept
 ---
 
 # Generic OAuth 1.0 and 2.0 Examples

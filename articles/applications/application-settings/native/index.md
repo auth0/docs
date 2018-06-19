@@ -5,6 +5,9 @@ toc: true
 topics:
   - applications
   - native-apps
+contentType: 
+    - index
+    - how-to
 ---
 
 # Application Settings: Native

@@ -11,6 +11,9 @@ topics:
     - api-auth
     - authorization-code
     - pkce
+contentType: 
+    - index
+    - tutorial
 ---
 
 # Mobile + API

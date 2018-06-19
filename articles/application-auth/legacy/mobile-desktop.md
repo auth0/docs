@@ -6,6 +6,9 @@ topics:
   - oauth2
   - mobile-apps
   - desktop-apps
+contentType: 
+    - concept
+    - how-to
 ---
 # Authentication for Mobile & Desktop Apps
 

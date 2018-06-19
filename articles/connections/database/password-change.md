@@ -7,6 +7,7 @@ topics:
     - database
     - db-connections
     - passwords
+contentType: how-to
 ---
 # Changing a User's Password
 

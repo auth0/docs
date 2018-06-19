@@ -11,6 +11,7 @@ topics:
     - api-auth
     - lockjs
     - saml
+contentType: concept
 ---
 
 # Regular Web App (using SAML)

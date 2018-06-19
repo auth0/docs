@@ -13,6 +13,7 @@ topics:
     - azure
     - active-directory
     - microsoft
+contentType: how-to
 ---
 
 # Connect your app to Active Directory

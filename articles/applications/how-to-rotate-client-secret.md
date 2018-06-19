@@ -4,6 +4,7 @@ crews: crew-2
 topics:
   - applications
   - client-secrets
+contentType: how-to
 ---
 
 # Rotate the Client Secret

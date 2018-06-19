@@ -6,6 +6,9 @@ topics:
   - oauth2
   - authentication
   - server-side-apps
+contentType: 
+    - concept
+    - how-to
 ---
 # Authentication for Server-side Web Apps
 

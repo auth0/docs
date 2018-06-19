@@ -5,6 +5,7 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: concept
 ---
 # GDPR: Right to access, correct, and erase data
 
