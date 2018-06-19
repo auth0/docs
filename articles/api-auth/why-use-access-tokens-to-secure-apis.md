@@ -6,6 +6,9 @@ topics:
   - oidc
   - access-tokens
 contentType: discussion
+useCase:
+  - secure-api
+  - call-api
 ---
 # Why you should always use Access Tokens to secure an API
 

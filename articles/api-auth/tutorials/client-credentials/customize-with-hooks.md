@@ -8,6 +8,10 @@ topics:
   - client-credentials
   - hooks
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - extensibility-hooks
 ---
 
 # Using Hooks with Client Credentials Grant

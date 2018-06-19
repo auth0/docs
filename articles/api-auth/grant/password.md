@@ -6,6 +6,9 @@ topics:
   - api-authorization
   - resource-owner-password
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Call APIs from Highly Trusted Applications
 

@@ -9,6 +9,9 @@ topics:
   - api-authentication
   - oidc
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Call your APIs with Auth0 tokens
 

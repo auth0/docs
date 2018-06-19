@@ -5,6 +5,7 @@ topics:
     - appliance
     - dashboard
 contentType: concept
+useCase: appliance
 ---
 
 # PSaaS Appliance Dashboard: Activity

@@ -5,6 +5,9 @@ topics:
   - oidc
   - silent-authentication
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Silent Authentication

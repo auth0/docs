@@ -4,6 +4,7 @@ description: The PSaaS Appliance is an option for your organization when complia
 topics:
     - appliance
 contentType: concept
+useCase: appliance
 ---
 
 # PSaaS Appliance Overview

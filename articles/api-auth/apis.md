@@ -9,6 +9,9 @@ topics:
   - oidc
   - apis
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # APIs
 

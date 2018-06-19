@@ -5,6 +5,9 @@ topics:
   - oidc
   - implicit
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Implicit grant

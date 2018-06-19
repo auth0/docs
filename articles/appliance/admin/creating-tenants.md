@@ -5,6 +5,7 @@ topics:
     - appliance
     - tenants
 contentType: how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance Administration: Automatic Creation of Tenants

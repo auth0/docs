@@ -5,6 +5,9 @@ topics:
   - oidc
   - sso
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Single sign-on

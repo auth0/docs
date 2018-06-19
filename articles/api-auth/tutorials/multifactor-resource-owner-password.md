@@ -8,6 +8,9 @@ topics:
   - mfa
   - resource-owner-password
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Multifactor Authentication and the Resource Owner Password Grant
 

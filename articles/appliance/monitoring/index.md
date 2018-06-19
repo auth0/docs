@@ -6,6 +6,7 @@ topics:
     - appliance
     - monitoring
 contentType: index
+useCase: appliance
 ---
 
 # Monitoring the Private SaaS (PSaaS) Appliance

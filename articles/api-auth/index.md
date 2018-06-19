@@ -7,6 +7,9 @@ topics:
   - api-authentication
   - oidc
 contentType: index
+useCase:
+  - secure-api
+  - call-api
 ---
 
 <div class="topic-page-header">

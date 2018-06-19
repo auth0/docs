@@ -4,6 +4,9 @@ topics:
   - client-credentials
   - api-authorization
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Client Credentials Grant
 

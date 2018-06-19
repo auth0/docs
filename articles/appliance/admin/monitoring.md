@@ -5,6 +5,7 @@ topics:
     - appliance
     - monitoring
 contentType: how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance Administration: Monitoring

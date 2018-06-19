@@ -4,6 +4,9 @@ topics:
   - authorization-code
   - api-authorization
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Calling APIs from Server-side Web Apps
 
