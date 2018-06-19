@@ -14,6 +14,7 @@ topics:
     - enterprise
     - ip-addresses
 contentType: how-to
+useCase: customize-connections
 ---
 # Configure IP Address Authentication
 

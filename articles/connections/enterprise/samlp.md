@@ -12,6 +12,7 @@ topics:
     - saml
 	- saml-p
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Create a SAMLP Identity Provider Connection

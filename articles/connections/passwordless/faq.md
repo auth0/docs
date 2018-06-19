@@ -4,6 +4,7 @@ topics:
     - connections
     - passwordless
 contentType: reference
+useCase: customize-connections
 ---
 # Passwordless FAQ
 

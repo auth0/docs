@@ -11,6 +11,7 @@ topics:
   - social
   - paypal
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to PayPal

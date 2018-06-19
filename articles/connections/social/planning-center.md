@@ -10,6 +10,7 @@ topics:
   - social
   - planning-center
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to Planning Center

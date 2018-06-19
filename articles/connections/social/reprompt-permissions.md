@@ -4,6 +4,7 @@ topics:
   - connections
   - social
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Handling Declined Authorization Permissions

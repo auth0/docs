@@ -12,6 +12,7 @@ topics:
     - enterprise
     - microsoft
     - o365
+useCase: customize-connections
 ---
 # Connect your app to Microsoft Office 365
 

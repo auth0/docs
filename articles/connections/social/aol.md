@@ -9,6 +9,7 @@ topics:
   - social
   - aol
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to AOL Reader

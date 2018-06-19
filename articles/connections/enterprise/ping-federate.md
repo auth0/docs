@@ -12,6 +12,7 @@ topics:
     - enterprise
     - pingfederate
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect Your PingFederate Server to Auth0

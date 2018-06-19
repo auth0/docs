@@ -11,6 +11,7 @@ topics:
   - social
   - facebook
 contentType: how-to
+useCase: customize-connections
 ---
 # Connect your app to Facebook
 

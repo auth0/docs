@@ -22,6 +22,7 @@ topics:
 contentType: 
     - index
     - how-to
+useCase: customize-connections
 ---
 
 # Connect your app to Microsoft Azure Active Directory

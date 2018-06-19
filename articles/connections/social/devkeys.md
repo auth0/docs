@@ -5,6 +5,7 @@ topics:
   - social
   - dev-keys
 contentType: reference
+useCase: customize-connections
 ---
 
 # Test Social Connections with Auth0 Developer Keys

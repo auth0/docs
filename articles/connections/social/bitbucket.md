@@ -10,6 +10,7 @@ topics:
   - social
   - bitbucket
 contentType: how-to
+useCase: customize-connections
 ---
 # Connect your app to Bitbucket
 

@@ -14,6 +14,7 @@ topics:
   - social
   - amazon
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to Amazon

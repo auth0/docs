@@ -9,6 +9,7 @@ topics:
     - enterprise
     - ldap
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Configure LDAP Authentication

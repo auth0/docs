@@ -17,6 +17,7 @@ topics:
     - ad-fs
 contentType: how-to
 toc: true
+useCase: customize-connections
 ---
 # Connect your app to ADFS
 

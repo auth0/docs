@@ -12,6 +12,7 @@ topics:
     - google
     - google-apps
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect Your Google App with Auth0

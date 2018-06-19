@@ -11,6 +11,7 @@ topics:
   - social
   - linkedin
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect Your App to LinkedIn

@@ -10,6 +10,7 @@ topics:
   - social
   - vkontakte
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to vKontakte

@@ -10,6 +10,7 @@ topics:
   - social
   - thecity
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to The City

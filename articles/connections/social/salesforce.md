@@ -11,6 +11,7 @@ topics:
   - social
   - salesforce
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to Salesforce

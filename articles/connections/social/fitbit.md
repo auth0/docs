@@ -11,6 +11,7 @@ topics:
   - social
   - fitbit
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to Fitbit

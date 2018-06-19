@@ -8,6 +8,7 @@ topics:
   - connections
   - social
 contentType: how-to
+useCase: customize-connections
 ---
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 

@@ -11,6 +11,7 @@ topics:
   - social
   - soundcloud
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Connect your app to SoundCloud
