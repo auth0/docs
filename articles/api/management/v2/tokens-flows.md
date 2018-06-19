@@ -7,7 +7,7 @@ topics:
   - apis
   - management-api
   - tokens
-contentType: discussion
+contentType: concept
 ---
 # Changes in Auth0 Management APIv2 Tokens
 
