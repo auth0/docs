@@ -6,6 +6,8 @@ topics:
     - user-management
     - user-profiles
     - user-profile-structure
+    contentType:
+      - reference
 ---
 
 # Structure of the User Profile

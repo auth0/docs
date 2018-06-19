@@ -1,10 +1,12 @@
 ---
 description: How to use the user_metadata to change a user's picture field and how to change the default picture for all users.
 topics:
-    - users
-    - user-management
-    - user-profiles
-    - user-picture
+  - users
+  - user-management
+  - user-profiles
+  - user-picture
+contentType:
+  - how-to
 ---
 
 # User Picture

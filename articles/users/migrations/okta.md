@@ -8,6 +8,8 @@ topics:
   - user-management
   - migrations
   - okta
+  contentType:
+    - how-to
 ---
 
 # Migrate Users from Okta to Auth0
@@ -67,10 +69,10 @@ function login (email, password, callback) {
   }, function (error, response, body) {
     // Ensure we have a successful response
     if (response.statusCode !== 200) return callback();
-    
+
     // Get the user from the response body
     var user = body._embedded.user;
-    
+
     // Set the data we want to store in Auth0 and migrate the user
     return callback(null, {
         user_id : user.id,
@@ -103,8 +105,8 @@ function getByEmail(email, callback) {
   var url = 'https://YOUR-OKTA-DOMAIN/api/v1/users/' + encodeURIComponent(email);
 
   // Make a GET request to find a user by email
-  // Replace YOUR-OKTA-API-TOKEN with an Okta API Token 
-  // (see https://developer.okta.com/docs/api/getting_started/getting_a_token.html) 
+  // Replace YOUR-OKTA-API-TOKEN with an Okta API Token
+  // (see https://developer.okta.com/docs/api/getting_started/getting_a_token.html)
   request({
     url: url,
     method: 'GET',

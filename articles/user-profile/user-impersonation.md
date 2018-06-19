@@ -2,10 +2,12 @@
 description: This page explains how to impersonate a user, a feature often used for testing and troubleshooting purposes.
 toc: true
 topics:
-    - users
-    - user-management
-    - user-profiles
-    - impersonation
+  - users
+  - user-management
+  - user-profiles
+  - impersonation
+contentType:
+  - tutorial
 ---
 # User impersonation
 
@@ -38,7 +40,7 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 
 ## Limitations
 
-Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
+Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info).
 
 ## Enable impersonation
 
@@ -248,7 +250,7 @@ If not you should send a `POST` request to the [Token endpoint in Auth0](/api/au
 }
 ```
 
-Replace the `AUTHORIZATION_CODE` with the `code` you received previously. 
+Replace the `AUTHORIZATION_CODE` with the `code` you received previously.
 
 Also, replace `${account.callback}` with your application's callback URL.
 

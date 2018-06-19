@@ -8,11 +8,13 @@ topics:
   - user-management
   - migrations
   - gigya
+  contentType:
+    - how-to
 ---
 
 # Migrate Users from Gigya to Auth0
 
-The tutorial will walk you through the process of configuring a custom database connection to import users from Gigya. It assumes that you have an Gigya account.
+The tutorial will walk you through the process of configuring a custom database connection to import users from Gigya. It assumes that you have a Gigya account.
 
 ## Configuring the Custom Database Connection
 
@@ -34,7 +36,7 @@ You can use [Gigya's IdentitySync](https://developers.gigya.com/display/GD/Ident
 
 Follow the instructions to transform your Gigya database's user data to [Auth0's user schema](/users/migrations/bulk-import#file-schema) and export the transformed data to JSON format.
 
-## Import Gigya Users 
+## Import Gigya Users
 
 Next, you can import your Gigya users into Auth0 with the User Import/Export Extension or the Management API.
 

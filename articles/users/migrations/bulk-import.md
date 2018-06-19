@@ -8,11 +8,13 @@ topics:
   - user-management
   - migrations
   - bulk-imports
+  contentType:
+    - how-to
 ---
 
 # Bulk User Imports with the Management API
 
-If you already have a user base, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
+If you already have a user base, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API.
 
 ::: note
 Each affected user will need to reset their password when they log in the first time after the bulk import.
@@ -137,7 +139,7 @@ Once the job finishes, whether it failed or was successful, the owner of the Aut
 
 ### Query for Job Status
 
-You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is an error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). 
+You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is an error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail).
 
 Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 

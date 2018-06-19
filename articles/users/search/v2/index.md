@@ -6,6 +6,9 @@ topics:
   - users
   - user-management
   - search
+contentType:
+  - how-to
+  - reference
 ---
 # User Search
 
@@ -45,9 +48,9 @@ Once you have downloaded the collection, and configured your environment, select
 For general information on making Postman request, please refer to the [Postman documentation](https://www.getpostman.com/docs/requests).
 :::
 
-## Sorting search results 
+## Sorting search results
 
-To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. 
+To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter.
 
 For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/users/get_users).
 
@@ -95,7 +98,7 @@ Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso
 Search for users without verified email | `email_verified:false OR NOT _exists_:email_verified`
 Search for users who have the `user_metadata` field named `name` with the value of "John Doe" | `user_metadata.name:"John Doe"`
 Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
-Search for all users that have never logged in | `(NOT _exists_:logins_count OR logins_count:0)` 
+Search for all users that have never logged in | `(NOT _exists_:logins_count OR logins_count:0)`
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
 All users with more than 100 logins | `logins_count:>100`

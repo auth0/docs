@@ -5,6 +5,8 @@ topics:
   - user-management
   - search
   - unbounce
+  contentType:
+    - how-to
 ---
 # Get User Information on Unbounce Landing Pages
 
@@ -44,7 +46,7 @@ You should use the clientID and Domain of the application you just configured.
 * Finally, go back to the JavaScript editor at Unbounce and add a click handler for each button to trigger the social authentication. Here, you must replace the button ID you took note of previously and the connection name, which can be seen in the [dashboard](${manage_url}) under under **Connections > Social** and expanding the provider. For example, for Google you would use `google-oauth2` and for LinkedIn, `linkedin`. Also, make sure that you replace the IDs properly, so instead of `#name` and `#email` you should put the ID of the form fields in question (you can see them while editing the form, under `Field Name and ID`).
 
 ```js
-$('#REPLACE_WITH_BUTTON_ID').bind('click', function() { 
+$('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
   webAuth.authorize({
     connection: 'YOUR CONNECTION NAME'
   });
@@ -52,17 +54,17 @@ $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
 
 // After authentication occurs, the parseHash method parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
-webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) { 
-  if (err) { 
-    return console.log(err); 
+webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
+  if (err) {
+    return console.log(err);
   }
 
   if (authResult != null && authResult.accessToken != null) {
     webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-      $('#name').val(user.name); 
-      $('#email').val(user.email); 
-    }); 
-  } 
+      $('#name').val(user.name);
+      $('#email').val(user.email);
+    });
+  }
 
 });
 ```

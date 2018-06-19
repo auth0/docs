@@ -2,9 +2,11 @@
 description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
 toc: true
 topics:
-    - users
-    - user-management
-    - user-profiles
+  - users
+  - user-management
+  - user-profiles
+contentType:
+  - reference
 ---
 
 # User Profile: In-Depth Details
@@ -95,7 +97,7 @@ There are three other types of tokens that can be returned during authentication
 * a 3rd party provider Access Token;
 * a Refresh Token.
 
-For more information on tokens and claims see the [Token Overview](/tokens).
+For more information on tokens and claims, see the [Token Overview](/tokens).
 
 ## Modification of User Profiles
 
@@ -161,7 +163,7 @@ The Auth0 Rules feature is a powerful capability which allows developers to exte
 
 Auth0 provides several sample rules to provide examples of how to achieve certain results. In the Auth0 dashboard, these samples can be viewed by clicking on "Rules" and "NEW RULE". There are several samples in the "ENRICH PROFILE" section that show how to add User Profile attributes.
 
-#### Persistent vs Transient profiles
+#### Persistent vs. Transient profiles
 
 The "ADD ATTRIBUTES TO A USER FOR SPECIFIC CONNECTION" sample shows how to add attributes to a User Profile for a particular login transaction. These attributes will not be persisted in the cached User Profile, so they will not be visible to any other authentication transactions.
 

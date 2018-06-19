@@ -7,6 +7,8 @@ topics:
   - user-management
   - search
   - query-syntax
+  contentType:
+    - reference
 ---
 
 # User Search Query Syntax

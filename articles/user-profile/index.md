@@ -2,9 +2,12 @@
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
 toc: true
 topics:
-    - users
-    - user-management
-    - user-profiles
+  - users
+  - user-management
+  - user-profiles
+contentType:
+  - concept
+  - how-to   
 ---
 # User Profile
 

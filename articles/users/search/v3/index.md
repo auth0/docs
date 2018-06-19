@@ -6,13 +6,15 @@ topics:
   - users
   - user-management
   - search
+  contentType:
+    - how-to
 ---
 
 # User Search
 
 Looking for someone? You can search for users matching a custom query with the [list or search users](/api/management/v2#!/Users/get_users) endpoint.
 
-In this article you'll learn how to search for users and sort the results.
+In this article, you'll learn how to search for users and sort the results.
 
 ## Before you start
 

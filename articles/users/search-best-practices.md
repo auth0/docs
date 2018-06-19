@@ -7,6 +7,9 @@ topics:
   - users
   - user-management
   - search
+contentType:
+  - concept
+  - reference
 ---
 
 # User Search Best Practices
@@ -32,7 +35,7 @@ In this document, we use the terms **eventually consistent** and **immediately c
 
 * **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
 
-* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
+* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
 
 ## General principles
 
@@ -180,7 +183,7 @@ The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_
 
 This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication process 
+* User searches run during the authentication process
 * User searches run as part of the account linking process.
 
 ## Users by email
@@ -241,7 +244,7 @@ The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/
 
 The Users by Email endpoint is immediately consistent, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication process 
+* User searches run during the authentication process
 * User searches run as part of the account linking process.
 
 ## User export
@@ -274,7 +277,7 @@ When you create your job, you'll need to provide:
     "queryString": [],
     "postData": {
         "mimeType": "application/json",
-        "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}" 
+        "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, { \"name\": \"identities[0].connection\", \"export_as\": \"provider\" }]}"
     },
     "headersSize": -1,
     "bodySize": -1,
@@ -314,7 +317,7 @@ When you create your job, you'll need to provide:
 
 ### Export metadata
 
-If you export user data in CSV and want to include metadata information, you must specify each metadata field that you want exported. 
+If you export user data in CSV and want to include metadata information, you must specify each metadata field that you want exported.
 
 For example, for metadata structured like this:
 
@@ -348,7 +351,7 @@ The export request (for all three fields) will looks like this:
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent.given\"}, {\"name\": \"user_metadata.consent.date\"}, {\"name\": \"user_metadata.consent.text_details\"}]}" 
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"csv\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent.given\"}, {\"name\": \"user_metadata.consent.date\"}, {\"name\": \"user_metadata.consent.text_details\"}]}"
     },
   "headersSize": -1,
   "bodySize": -1,
@@ -377,7 +380,7 @@ In this case, for the same example we used before, the request will look like th
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent\"}]}" 
+    "text": "{\"connection_id\": \"YOUR_CONNECTION_ID\", \"format\": \"json\", \"limit\": 5, \"fields\": [{\"name\": \"email\"}, {\"name\": \"user_metadata.consent\"}]}"
     },
   "headersSize": -1,
   "bodySize": -1,
@@ -387,7 +390,7 @@ In this case, for the same example we used before, the request will look like th
 
 ### Get the results
 
-Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). 
+Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id).
 
 You'll need to provide the ID of the job (which you received in the response when creating the job). If you're using the sample request below, replace the placeholder `YOUR_JOB_ID` with the value of the ID.
 

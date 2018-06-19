@@ -5,6 +5,8 @@ topics:
   - users
   - user-management
   - redirection
+contentType:
+  - how-to
 ---
 # Redirect Users After Login
 

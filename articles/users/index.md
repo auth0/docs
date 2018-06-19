@@ -5,6 +5,9 @@ description: Learn about working with users in Auth0
 topics:
   - users
   - user-management
+contentType:
+  - tutorial
+  - index
 ---
 
 <div class="topic-page-header">
