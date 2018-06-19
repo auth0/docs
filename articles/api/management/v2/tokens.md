@@ -7,9 +7,14 @@ topics:
   - apis
   - management-api
   - tokens
+<<<<<<< HEAD
 contentType: 
     - concept
     - how-to
+=======
+contentType: discussion
+useCase: invoke-api
+>>>>>>> Add useCase tags, part 1
 ---
 # The Auth0 Management APIv2 Token
 

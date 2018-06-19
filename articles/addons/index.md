@@ -6,6 +6,7 @@ topics:
 contentType: 
     - index
     - how-to
+useCase: integrate-third-party-apps
 ---
 
 # Auth0 Application Addons

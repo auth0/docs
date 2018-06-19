@@ -17,6 +17,7 @@ topics:
   - mobile
   - addons
 contentType: how-to
+useCase: integrate-third-party-apps
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
 

@@ -6,6 +6,7 @@ topics:
 contentType: 
     - reference
     - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)

@@ -4,6 +4,9 @@ topics:
   - facebook
   - analytics
 contentType: how-to
+useCase:
+  - manage-analytics
+  - analyze-external-analytics
 ---
 # Facebook Analytics for Auth0
 

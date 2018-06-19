@@ -7,6 +7,7 @@ topics:
     - management-api
     - apis
 contentType: reference
+useCase: invoke-api
 ---
 # Management API v1 vs v2
 

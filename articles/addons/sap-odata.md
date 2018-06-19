@@ -9,6 +9,7 @@ topics:
   - sap
   - addons
   - odata
+useCase: integrate-third-party-apps
 contentType: how-to
 ---
 
