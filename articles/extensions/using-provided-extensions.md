@@ -1,5 +1,7 @@
 ---
 description: Links and information on using Auth0's provided extensions.
+topics:
+  - extensions
 ---
 
 # Using Auth0's Provided Extensions

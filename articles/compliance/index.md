@@ -2,6 +2,9 @@
 title: Compliance
 description: Information about Auth0 Compliance and Certifications
 classes: topic-page
+topics:
+    - compliance
+    - gdpr
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
@@ -12,6 +15,15 @@ classes: topic-page
 </div>
 
 <ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr">GDPR</a>
+    <p>Auth0 is working toward GDPR readiness. Auth0 provides information to its customers to help them understand how features and functionality of the Auth0 platform may affect their GDPR compliance obligations.</p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/compliance/gdpr/features-aiding-compliance">How Auth0 can help with GDPR</a>
+      </li>
+    </ul>
+  </li>
   <li>
     <i class="icon icon-budicon-715"></i><a>Privacy Shield</a>
     <p>Auth0 is certified under the Privacy Shield Program, specifically the <b>EU-US Privacy Shield Framework</b> and the <b>Swiss-US Privacy Shield Framework</b>. You can find further details on our <a href="https://auth0.com/privacy">Privacy</a> page.</p>
@@ -29,10 +41,6 @@ classes: topic-page
   <li>
     <i class="icon icon-budicon-715"></i><a>SOC 2</a>
     <p>Auth0 undergoes a SOC 2 Type II audit by an independent auditor annually. This audit covers our product, infrastructure, and policies. The SOC 2 Type II Audit Report is available to enterprise level customers upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/compliance/gdpr">GDPR</a>
-    <p>Auth0 is working toward GDPR readiness. Auth0 provides information to its customers to help them understand how features and functionality of the Auth0 platform may affect their GDPR compliance obligations.</p>
   </li>
 </ul>
 

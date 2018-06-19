@@ -2,6 +2,12 @@
 section: libraries
 title: Lock Android v2 Native Social Authentication
 description: Lock for Android - Native Social Authentication
+topics:
+  - libraries
+  - lock
+  - android
+  - native
+  - social-connections
 ---
 # Lock Android: Native Social Authentication
 

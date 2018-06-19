@@ -3,6 +3,12 @@ title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - windows
+  - uwp
+  - csharp
 ---
 
 <%= include('../../../_includes/_package', {
@@ -12,7 +18,7 @@ budicon: 448
   requirements: [
     'Microsoft Visual Studio 2017',
     'Windows 10 SDK (10.0.10586.0)',
-    'Auth0.OidcClient.UWP 1.0.0'
+    'Auth0.OidcClient.UWP 2.0.0'
   ]
 }) %>
 
@@ -91,7 +97,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 // MainPage.xaml.cs
@@ -125,7 +131,7 @@ if (!loginResult.IsError)
 The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 :::
 
-You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
 ```csharp
 // MainPage.xaml.cs

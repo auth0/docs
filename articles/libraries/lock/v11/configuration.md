@@ -2,6 +2,9 @@
 section: libraries
 toc: true
 description: Lock v11 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
 ---
 # Lock Configuration Options
 
@@ -51,7 +54,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [audience](#audience-string-) | The API which will be consuming your Access Token |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
@@ -447,7 +450,7 @@ var options = {
 
 ### audience {String}
 
-The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+The `audience` option indicates the API which will be consuming the Access Token that is received after authentication.
 
 ```js
 var options = {
@@ -589,7 +592,7 @@ var options = {
 Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See the [user metadata documentation](/metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
 
 ::: panel Intended for use with database signup only
-`additionalSignupFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/custom-signup) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
+`additionalSignUpFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/custom-signup) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
 :::
 
 The new fields are rendered below the regular sign up input fields in the order they are provided.
@@ -686,7 +689,7 @@ var options = {
 ```
 
 ::: note
-Some use cases may be able to use `additionalSignupFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
+Some use cases may be able to use `additionalSignUpFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
 :::
 
 ### allowLogin {Boolean}

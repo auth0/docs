@@ -7,7 +7,7 @@ language:
   - Javascript
 framework:
   - Angular 2
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: application-platforms/angular2/dependencies

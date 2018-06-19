@@ -1,9 +1,12 @@
 ---
-title: Client Types
+title: Application Types
 description: Read about the the different applications types: public vs confidential, and first vs third-party
 toc: true
+topics:
+  - applications
+  - application-types
 ---
-# Client Types
+# Application Types
 
 <%= include('../_includes/_pipeline2') %>
 
@@ -20,7 +23,7 @@ When creating an application through the [Dashboard](${manage_url}/#/application
 
 ### Check your application type
 
-You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Client's type. If the application is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
+You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Application's type. If the application is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your application.
 
 ```har
 {

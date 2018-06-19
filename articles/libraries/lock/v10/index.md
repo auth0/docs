@@ -4,6 +4,9 @@ toc: true
 title: Lock 10 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
 ---
 # Lock 10 for Web
 
@@ -115,7 +118,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ## Cross-Origin Authentication
 
-Embedding Lock within your application, rather than using [universal login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
+Embedding Lock within your application, rather than using [Universal Login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 

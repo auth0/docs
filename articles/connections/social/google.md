@@ -10,12 +10,16 @@ alias:
  - google-oauth2
 seo_alias: google
 toc: true
+topics:
+  - connections
+  - social
+  - google
 ---
 # Connect your App to Google
 
 This article describes how to add login with Google functionality to your app. It also discusses how you can get an Access Token in order to access the Google API.
 
-First you need to connect your Auth0 client to Google. This is summarized in the following steps:
+First you need to connect your Auth0 application to Google. This is summarized in the following steps:
 
 1. Generate a **Client ID** and **Client Secret** in a Google project
 2. Enable the **Google Admin SDK Service**

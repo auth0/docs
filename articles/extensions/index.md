@@ -1,6 +1,8 @@
 ---
 description: Extensions enable you to install applications or run commands/scripts that extend the functionality of Auth0.
 toc: true
+topics:
+  - extensions
 ---
 # Auth0 Extensions
 

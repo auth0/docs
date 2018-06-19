@@ -1,5 +1,7 @@
 ---
-description: How to install multiple instances of the connectory for higher availability.
+description: How to install multiple instances of the connector for higher availability.
+topics:
+  - connector
 ---
 
 # High availability

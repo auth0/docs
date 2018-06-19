@@ -2,6 +2,9 @@
 title: Configuring Custom Multifactor Authentication
 url: /multifactor-authentication/custom
 description: Examples for configuring custom MFA implementations.
+topics:
+  - mfa
+  - custom-mfa
 ---
 # Configuring Custom MFA
 
@@ -54,47 +57,6 @@ function (user, context, callback) {
   }
 
   callback(null, user, context);
-}
-```
-
-### Access from a different device or location
-
-If the user makes a request from an IP address that Auth0 has not already associated with them, you can configure Auth0 to request MFA.
-
-```js
-function (user, context, callback) {
-
-  var deviceFingerPrint = getDeviceFingerPrint();
-  user.app_metadata = user.app_metadata || {};
-    
-  if (user.app_metadata.lastLoginDeviceFingerPrint !== deviceFingerPrint) {
-
-    user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
-
-    context.multifactor = {
-      allowRememberBrowser: false,
-      provider: 'guardian'
-    };
-    
-    auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-    .then( function() {
-      callback(null, user, context);
-    })
-    .catch( function(err) {
-      callback(err);
-    }); 
-  } else {
-    callback(null, user, context);
-  }
-
-  function getDeviceFingerPrint() {
-
-    var shasum = crypto.createHash('sha1');
-    shasum.update(context.request.userAgent);
-    shasum.update(context.request.ip);
-    return shasum.digest('hex');
-
-  }
 }
 ```
 

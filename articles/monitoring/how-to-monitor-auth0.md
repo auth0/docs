@@ -1,6 +1,8 @@
 ---
 description: How to use monitoring with an Auth0 account.
 toc: true
+topics:
+  - monitoring
 ---
 
 # Monitor Auth0
@@ -9,11 +11,11 @@ If you are using the public cloud version of Auth0, we recommend subscribing to 
 
 Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
-## Monitor Your Auth0 Account
+## Monitor your Auth0 account
 
 You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
 
-### The test Endpoint
+### The test endpoint
 
 The `test` endpoint checks the status of the core Auth0 authentication service. If the status is up, the endpoint returns a `200` status code; if is is not, it will return a `5xx` status code.
 
@@ -32,7 +34,7 @@ Additionally, this endpoint returns a JSON object:
 }
 ```
 
-### The testall Endpoint
+### The testall endpoint
 
 The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
 
@@ -52,20 +54,29 @@ We recommend using an authentication flow that doesn't require a user interface 
 * [New Relic](http://newrelic.com)
 * [Pingdom](http://pingdom.com)
 
-### Monitor External Services Associated with Your Auth0 Account
+## Monitor external services
 
-If you are seeing issues with your Auth0 service, but the monitoring endpoints aren't returning information on errors, check the status of any external services that you use via Auth0.
+If you are seeing potential issues with your Auth0 service, but the monitoring endpoints and the [Auth0 Status page](https://status.auth0.com) aren't indicating any problems, check the status of any external services that you use alongside Auth0.
 
 * [Amazon Web Services](https://status.aws.amazon.com/)
 * [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
+* [Citrix](https://status.cloud.com/)
 * [Facebook](https://developers.facebook.com/status/)
 * [GitHub](https://status.github.com/)
+* [Google Cloud](https://status.cloud.google.com/)
 * [Google's G Suite](https://www.google.com/appsstatus#hl=en&v=status)
+* [Heroku](https://status.heroku.com/)
+* [IBM](https://console.bluemix.net/status)
 * [Mandrill](http://status.mandrillapp.com/)
+* [Microsoft Azure](https://azure.microsoft.com/en-gb/status/)
+* [SAP](https://www.sap.com/about/cloud-trust-center/cloud-service-status.html)
 * [SendGrid](http://status.sendgrid.com/)
+* [SFDC](https://status.salesforce.com/)
+* [Slack](https://status.slack.com/)
 * [Twilio](https://status.twilio.com/)
+* [VM Ware](https://status.vmware-services.io/)
 
-## Monitoring a Dedicated Deployment
+## Monitor a dedicated deployment
 
 Please see the [PSaaS Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 

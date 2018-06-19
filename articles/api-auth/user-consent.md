@@ -1,5 +1,10 @@
 ---
 title: User consent and third-party applications
+topics:
+  - api-authentication
+  - oidc
+  - user-consent
+contentType: how-to
 ---
 
 # User Consent and Third-Party Applications
@@ -28,7 +33,7 @@ All applications created from the [management dashboard](${manage_url}/#/applica
 At the time of writing, third-party applications cannot be created from the management dashboard.
 They must be created through the management API, by setting `is_first_party: false`.
 
-All applications created through [Dynamic Application Registration](/api-auth/dynamic-application-registration) will be third-party.
+All applications created through [Dynamic Client Registration](/api-auth/dynamic-client-registration) will be third-party.
 
 ## Consent dialog
 

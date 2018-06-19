@@ -472,67 +472,6 @@ hidden_articles:
   - Hidden-Article
 ```
 
-### Versioning Quickstarts
-
-The filesystem structure for a versioned quickstart looks like this:
-
-```
-react/
-  _details/
-    legacy.md
-    oidc.md
-  _includes/
-    _dependencies.md
-  legacy/
-    00-getting-started.md
-    01-login.md
-    02-custom-login.md
-  oidc/
-    00-getting-started.md
-    01-login.md
-    02-custom-login.md
-  dashboard-default.md
-  index.yml
-```
-
-In this case `react` is the name of the quickstart that has versions, and the two versions available are `legacy` and `oidc`.
-
-To create a versioned topic, the `react/index.yml` file must contain a `versions` property witha neste a set of versions. Here's an example `index.yml`:
-
-```yaml
----
-title: React
-default_article: dashboard-default
-current_version: oidc
-versions:
-  legacy:
-    title: OIDC
-    articles:
-      - 00-getting-started
-      - 01-login
-      - 02-custom-login
-  oidc:
-    title: OIDC
-    articles:
-      - 00-getting-started
-      - 01-login
-      - 02-custom-login
----
-```
-
-Take notice to the additional properties on a versioned quickstart:
-
-* `current_version` -- The name of the current version. This must be present in the `versions` array.
-* `versions` -- An array of all versions of the quickstart.  Each version must have a title and articles property.
-
-Versions details are used to communicate the differences in versions to the customer. OIDC and Legacy have defaults, however, you can set customize any version details by including a markdown file in the `_details` folder with a the corresponding version name.
-
-```
-react/
-  _details/
-    version-name.md
-```
-
 ### Quickstart Guidelines
 
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
@@ -552,12 +491,12 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using head-less library to do login without Lock
-3. Session Handling - How to store tokens, refresh tokens, and logout
+3. Session Handling - How to store tokens, Refresh Tokens, and logout
 4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
 10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
@@ -584,7 +523,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
 

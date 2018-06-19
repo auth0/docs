@@ -6,6 +6,11 @@ seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - google
+    - google-apps
 ---
 
 # Connect Your Google App with Auth0
@@ -56,6 +61,10 @@ Google may show an "unverified app" screen before displaying the consent screen 
 
     * **Authorized JavaScript origins:** `https://${account.namespace}`
     * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
+
+    ::: note
+    If you are using the [custom domains](/custom-domains) feature, you will need to use your custom domain in the redirect URI in the following format: `https://<YOUR_CUSTOM_DOMAIN>/login/callback`.
+    :::
 
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 

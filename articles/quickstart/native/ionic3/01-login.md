@@ -3,6 +3,10 @@ title: Login
 default: true
 description: This tutorial demonstrates how to add authentication and authorization to an Ionic 3 app
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ionic3
 ---
 
 <%= include('../../../_includes/_package', {
@@ -124,10 +128,10 @@ export class AuthService {
       if (err) {
         throw err;
       }
-      // Set access token
+      // Set Access Token
       this.storage.set('access_token', authResult.accessToken);
       this.accessToken = authResult.accessToken;
-      // Set access token expiration
+      // Set Access Token expiration
       const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       this.storage.set('expires_at', expiresAt);
       // Set logged in
@@ -171,7 +175,7 @@ import { AuthService } from './../../services/auth.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
+
   constructor(
     public navCtrl: NavController,
     public auth: AuthService

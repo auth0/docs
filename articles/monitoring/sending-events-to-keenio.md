@@ -1,5 +1,8 @@
 ---
 description: How to send events to Keen IO from Auth0.
+topics:
+  - monitoring
+  - keenio
 ---
 # Sending events to Keen IO from Auth0
 

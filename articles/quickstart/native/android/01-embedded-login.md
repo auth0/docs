@@ -3,6 +3,10 @@ title: Embedded Login
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
 seo_alias: android
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - android
 ---
 
 This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
@@ -20,7 +24,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 }) %>
 
 ::: warning
-Username/Email & Password authentication from native applications is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [universal login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Application Grant Types](/applications/application-grant-types) for more information.
+Username/Email & Password authentication from native applications is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [Universal Login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Application Grant Types](/applications/application-grant-types) for more information.
 :::
 
 <%= include('_includes/_lock') %>

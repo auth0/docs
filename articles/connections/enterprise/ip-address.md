@@ -9,6 +9,10 @@ alias:
 seo_alias: ip-address
 description: How to use IP Address Authentication with Auth0.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - ip-addresses
 ---
 # Configure IP Address Authentication
 
@@ -21,7 +25,7 @@ Click __Create New Connection__ and fill in the required information.
 Field | Description
 ------|------------
 Connection Name | Descriptive name for the connection
-IP Range | Comma-seperated list of IP Addresses, as specified in the [CIDR-notation](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (for example, `62.1.62.25, 172.25.1.244`)
+IP Range | Comma-separated list of IP Addresses, as specified in the [CIDR-notation](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (for example, `192.168.100.14/24`)
 Default Username (Optional) | Default username assigned to anyone connecting from this range of IP addresses
 
 ![IP Address Configuration](/media/articles/connections/enterprise/ip-address/ip.png)

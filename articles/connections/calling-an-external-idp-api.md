@@ -3,10 +3,15 @@ title: Call an Identity Provider API
 description: How to call an Identity Provider API
 toc: true
 crews: crew-2
+topics:
+  - connections
+  - social
+  - access-tokens
+  - api
 ---
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
 You can retrieve and use this token to call the IdP's API.
 
@@ -22,9 +27,9 @@ The process you will follow differs, depending on whether your code runs in the 
 
 ## From the backend
 
-Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
-Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile.
 
 The steps to follow are:
 
@@ -45,7 +50,7 @@ This will create a new application and grant **all scopes of the Management API*
 ::: panel Can't see the button?
 If you don't see this button, it means that you have at least one authorized application already. In this case you can either update the scopes of an existing application and use that, or create a new one following these steps:
 1. Go to [Dashboard > Applications](${manage_url}/#/applications)
-2. Click **+ Create Application**, select **Non Interactive Applications** and click **Create**
+2. Click **+ Create Application**, select **Machine to Machine Applications** and click **Create**
 3. At the **Select an API** dropdown select `Auth0 Management API`
 4. Click **Navigate to the API and Authorize**
 5. Set the toggle to **Authorized** and enable the required scopes
@@ -53,7 +58,7 @@ If you don't see this button, it means that you have at least one authorized app
 
 It is recommended, for security reasons, that you only assign the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from a application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
+You can grant or remove scopes from an application, at the [Dashboard > APIs > Auth0 Management API > Machine to Machine Applications tab](${manage_url}/#/apis/management/authorized-applications).
 
 ![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 
@@ -66,7 +71,7 @@ Pick your application using the dropdown at the top, and choose your language of
 Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
 
 ::: panel More info on the snippets
-The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine to machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
 :::
 
 #### Token expiration
@@ -106,10 +111,10 @@ Replace these values:
 
 ### Step 3: Extract the IdP Access Token
 
-Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
+Within the user's `identities` array, there will be an Access Token that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
+For certain Identity Providers, Auth0 will store a Refresh Token which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
@@ -153,7 +158,7 @@ Make sure that you don't expose the IdP tokens to your client-side application! 
 :::
 
 ::: note
-For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+For more information on how to request specific scopes for an Identity Provider Access Token, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
 :::
 
 ## From the frontend

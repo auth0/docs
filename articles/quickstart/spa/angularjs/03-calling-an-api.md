@@ -2,6 +2,11 @@
 title: Calling an API
 description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - angular
+  - api
 ---
 
 <%= include('../../../_includes/_package', {
@@ -121,10 +126,18 @@ When you make `$http` calls, your protected API resources become accessible to t
       $http.get(API_URL + '/private').then(function(result) {
         vm.message = result.data.message;
       }, function(error) {
-        vm.message = error;
+        vm.message = error.data.message || error.data;
       });
     }
 
+  vm.securedScopedPing = function() {
+      vm.message = '';
+      $http.get(API_URL + '/private-scoped').then(function(result) {
+        vm.message = result.data.message;
+      }, function(error) {
+        vm.message = error.data.message || error.data;
+      });
+    }
   }
 
 })();

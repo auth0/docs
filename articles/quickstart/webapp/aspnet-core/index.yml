@@ -1,28 +1,16 @@
-title: ASP.NET Core
+title: ASP.NET Core v2.0
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
   - aspnetcore
+  - aspnetcore-2.0
 seo_alias: aspnet-core
 default_article: dashboard-default
-current_version: v2
-versions:
-  v1:
-    title: v1.1
-    articles:
-      - 00-intro
-      - 01-login
-      - 02-storing-tokens
-      - 03-user-profile
-      - 04-authorization
-  v2:
-    title: v2.0
-    articles:
-      - 00-intro
-      - 01-login
-      - 02-storing-tokens
-      - 03-user-profile
-      - 04-authorization
+articles:
+  - 00-intro
+  - 01-login
+  - 02-user-profile
+  - 03-authorization

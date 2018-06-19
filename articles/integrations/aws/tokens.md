@@ -1,6 +1,10 @@
 ---
 description: How to call AWS APIs and Resources Using Tokens
 toc: true
+topics:
+  - integrations
+  - aws
+  - tokens
 ---
 # Call AWS APIs and Resources Securely with Tokens
 
@@ -30,7 +34,7 @@ Log in to Auth0's Management Dashboard, navigate to the [Applications](${manage_
 ![](/media/articles/integrations/aws/aws-addon.png)
 
 ::: panel Username Length with AWS
-Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application. 
+Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application.
 :::
 
 #### IAM policy
@@ -63,7 +67,7 @@ The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated u
 
 ### Get the AWS Token for an Authenticated User
 
-When a user successfully authenticates, Auth0 returns an `id_token`, which is a [JWT](/jwt)). This `id_token` is then used to request an Auth0 and AWS token using the delegation endpoint.
+When a user successfully authenticates, Auth0 returns an ID Token, which is a [JWT](/jwt)). This ID Token is then used to request an Auth0 and AWS token using the delegation endpoint.
 
 Here is a sample request on the delegation endpoint:
 

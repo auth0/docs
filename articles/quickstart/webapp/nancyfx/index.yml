@@ -1,7 +1,7 @@
 title: NancyFX
 community: true
 image: /media/platforms/nancyfx.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/nancyfx/dependencies

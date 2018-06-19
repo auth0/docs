@@ -12,7 +12,7 @@ languages:
 framework:
   - Spring
 image: /media/platforms/java.png
-tags:
+topics:
   - quickstart
 snippets:
   configure: server-apis/java-spring-security/configure

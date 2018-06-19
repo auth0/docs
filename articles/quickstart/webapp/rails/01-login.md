@@ -2,6 +2,11 @@
 title: Login
 description: Ruby on Rails Login with Auth0
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - rails
 ---
 
 <%= include('../../../_includes/_package', {
@@ -14,7 +19,7 @@ budicon: 448
   ]
 }) %>
 
-The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
+The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [Universal Login](/hosted-pages/login).
 
 ## Create an Application
 

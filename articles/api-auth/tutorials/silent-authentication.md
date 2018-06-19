@@ -1,5 +1,10 @@
 ---
 description: How to keep users logged in to your application
+topics:
+  - api-authentication
+  - oidc
+  - silent-authentication
+contentType: tutorial
 ---
 
 # Silent Authentication
@@ -14,7 +19,7 @@ However, redirecting users away from your application is usually considered disr
 
 ## Initiate a Silent Authentication request
 
-To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-client).
+To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-application).
 
 For example:
 
@@ -79,6 +84,10 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 
 ## Renew expired tokens
 
+::: note
+Please review [our notes on token renewal for Safari users](/api-auth/token-renewal-in-safari).
+:::
+
 Access Tokens are opaque to applications. This means that applications are unable to inspect the contents of Access Tokens to determine their expiration date.
 
 There are two options to determine when an Access Token expires:
@@ -102,5 +111,3 @@ Implementation of token renewal will depend on the type of application and frame
 * [jQuery](/quickstart/spa/jquery/05-token-renewal)
 * [React](/quickstart/spa/react/05-token-renewal)
 * [Angular](/quickstart/spa/angular2/05-token-renewal)
-* [ASP.NET Core MVC](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/silent-auth)
-

@@ -7,7 +7,7 @@ language:
 framework:
   - React
 image: /media/platforms/react.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: application-platforms/react/dependencies

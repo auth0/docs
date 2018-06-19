@@ -1,6 +1,9 @@
 ---
 section: libraries
 description: Customizing error messages with Lock V9
+topics:
+  - libraries
+  - lock
 ---
 # Lock: Customizing Error Messages
 

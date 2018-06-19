@@ -2,6 +2,8 @@
 title: Dashboard
 description: Working with the Dashboard
 classes: topic-page
+topics:
+  - dashboard
 ---
 
 <div class="topic-page-header">

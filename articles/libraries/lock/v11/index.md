@@ -4,6 +4,9 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
 ---
 # Lock v11 for Web
 
@@ -54,6 +57,8 @@ If you are targeting mobile audiences, Auth0 recommends that you add the followi
 If you are using browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you will need to bundle it with all its dependencies. Examples are available for [Browserify](https://github.com/auth0/lock/tree/master/examples/bundling/browserify) and [webpack](https://github.com/auth0/lock/tree/master/examples/bundling/webpack).
 
 ### Cross-Origin Authentication
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 

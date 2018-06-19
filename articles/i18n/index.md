@@ -1,6 +1,8 @@
 ---
 url: /i18n
 description: Links to documentation on internationalizing an application.
+topics:
+    - i18n
 ---
 # Internationalization and Multilingual settings
 

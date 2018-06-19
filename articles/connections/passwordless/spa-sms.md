@@ -1,6 +1,11 @@
 ---
 title: Using Passwordless Authentication in SPA with SMS
 description: Learn how to authenticate users with a one-time-code using SMS in a Single Page Application (SPA).
+topics:
+    - connections
+    - passwordless
+    - sms
+    - spa
 ---
 # Using Passwordless Authentication in SPA with SMS
 

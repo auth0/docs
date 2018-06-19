@@ -3,6 +3,12 @@ title: Login
 default: true
 description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with the Flask framework.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - python
+  - flask
 ---
 
 You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
@@ -15,7 +21,6 @@ You can get started by either downloading the complete sample or following the t
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
     'Python-dotenv 0.6.5 and up',
-    'Requests 2.3.0 and up',
     'Authlib 0.6',
     'Six 1.10.0 and up'
   ]
@@ -45,7 +50,7 @@ Create a file named `server.py`, and instantiate an application with your client
 
 ```python
 # /server.py
-    
+
 from functools import wraps
 import json
 from os import environ as env
@@ -60,8 +65,7 @@ from flask import session
 from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
-import requests
-    
+
 app = Flask(__name__)
 
 oauth = OAuth(app)
@@ -81,9 +85,9 @@ auth0 = oauth.register(
 
 ## Add the Auth0 Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
+This handler exchanges the `code` that Auth0 sends to the callback URL for an Access Token and an ID Token.
 
-The `access_token` will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
+The Access Token will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # /server.py
@@ -92,22 +96,17 @@ The `access_token` will be used to call the `/userinfo` endpoint to get the user
 @app.route('/callback')
 def callback_handling():
     # Handles response from token endpoint
-    resp = auth0.authorize_access_token()
-
-    url = 'https://${account.namespace}/userinfo'
-    headers = {'authorization': 'Bearer ' + resp['access_token']}
-    resp = requests.get(url, headers=headers)
+    auth0.authorize_access_token()
+    resp = auth0.get('userinfo')
     userinfo = resp.json()
 
-    # Store the tue user information in flask session.
+    # Store the user information in flask session.
     session['jwt_payload'] = userinfo
-
     session['profile'] = {
         'user_id': userinfo['sub'],
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-
     return redirect('/dashboard')
 ```
 
@@ -172,7 +171,7 @@ def requires_auth(f):
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)
-    
+
   return decorated
 ```
 

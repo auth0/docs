@@ -2,6 +2,10 @@
 title: User Search
 description: Learn about Auth0's user search query string syntax and how to search for users then sort the results.
 toc: true
+topics:
+  - users
+  - user-management
+  - search
 ---
 
 # User Search
@@ -158,12 +162,14 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 
 ## Migrate from search engine v2 to v3
 
-The user search engine v2 will be deprecated soon, so we recommend migrating user search functionality to search engine v3 (`search_engine=v3`). Before you start migrating, there's a few things you should know:
+The user search engine v2 has been deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there's a few things you should know:
 
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
-* You can search for strings in `app_metadata`/`user_metadata` arrays, but not in nested `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
+* Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
+* The `_missing_` filter is not supported, consider using `NOT _exists_:...` instead.
+* The `.raw` suffix is not necessary anymore.
 
 ### Queries to migrate
 

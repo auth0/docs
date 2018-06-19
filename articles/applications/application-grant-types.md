@@ -1,8 +1,11 @@
 ---
 description: Using the Grant Types property on Applications
 toc: true
+topics:
+  - applications
+  - grant-types
 ---
-# Client Grant Types
+# Application Grant Types
 
 Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/api-auth/grant/authorization-code-pkce), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](api-auth/grant/implicit).
 
@@ -68,19 +71,19 @@ As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant 
 
 Begin by navigating to the [Applications page](${manage_url}/#/applications) of the Management Dashboard.
 
-![Auth0 Applications](/media/articles/applications/client-grant-types/applications.png)
+![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
 
 Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Client you're interested in to launch its settings page.
 
-![Auth0 Client Settings](/media/articles/applications/client-grant-types/client-settings.png)
+![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
 Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 
-![Auth0 Client Advanced Settings](/media/articles/applications/client-grant-types/client-advanced-settings.png)
+![Auth0 Client Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
 
 Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
 
-![Auth0 Client Grant Types](/media/articles/applications/client-grant-types/grant-types.png)
+![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
 ### Use the Management API
 
@@ -132,7 +135,7 @@ Public applications **cannot** utilize the `client_credentials` grant type. To a
 
 #### Confidential Applications
 
-Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
+Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
@@ -166,7 +169,7 @@ If you're currently using a legacy grant type, refer to the chart below to see w
 | `http://auth0.com/oauth/legacy/grant-type/access_token` | Use browser-based social authentication. |
 
 ::: note
-Those implementing Passwordless Authentication should use [universal login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
+Those implementing Passwordless Authentication should use [Universal Login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
 :::
 
 ## Enable a Legacy Grant Type

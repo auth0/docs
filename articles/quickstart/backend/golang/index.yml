@@ -6,7 +6,7 @@ alias:
 languages:
   - Go
 image: /media/platforms/golang.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/golang/dependencies

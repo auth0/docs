@@ -1,5 +1,8 @@
 ---
 description:  Information for how to use Duo Security for developers.
+topics:
+  - mfa
+  - duo
 ---
 
 # Duo for Developers

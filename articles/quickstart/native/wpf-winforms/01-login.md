@@ -3,6 +3,12 @@ title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - windows
+  - wpf
+  - winforms
 ---
 
 <%= include('../../../_includes/_package', {
@@ -11,7 +17,9 @@ budicon: 448
   path: 'Quickstart/00-Starter-Seed',
   requirements: [
     'Microsoft Visual Studio 2017',
-    '.NET Framework 4.5.2'
+    '.NET Framework 4.5.2',
+    'Auth0.OidcClient.WPF 2.0.0',
+    'Auth0.OidcClient.WinForms 2.0.0'
   ]
 }) %>
 
@@ -68,7 +76,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 // Form1.cs
@@ -102,7 +110,7 @@ if (!loginResult.IsError)
 The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 :::
 
-You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
 ```csharp
 // Form1.cs

@@ -2,6 +2,10 @@
 section: appliance
 description: This document details the requirements for the Auth0 Dedicated Cloud Service.
 toc: true
+topics:
+    - appliance
+    - private-cloud
+    - requirements
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 
@@ -99,15 +103,15 @@ We will need the following SMTP-related values:
 * Username
 * Password
 
-## Custom Domains
+## Custom Domain
 
 ::: note
-Custom domains are optional, and Auth0 SLAs do **not** cover this portion of the PSaaS Appliance infrastructure.
+A custom domain is optional, and Auth0 SLAs do **not** cover this portion of the PSaaS Appliance infrastructure.
 :::
 
-You can configure custom domain names for your app tenants' domains. 
+You can configure a single custom domain name for your app tenants' domains. 
 
-If you choose to use custom domains, you'll need to manage your DNS name records, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entries that alias the Auth0 identity.
+If you choose to use a custom domain, you'll need to manage the DNS name record, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entry that alias the Auth0 identity.
 
 For example, you'll need to map `identity.<your_name>.auth0.com` to `identity.<your_name>.com`.
 

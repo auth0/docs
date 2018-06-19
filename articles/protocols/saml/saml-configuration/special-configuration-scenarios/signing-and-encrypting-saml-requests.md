@@ -1,5 +1,8 @@
 ---
 description: Signing and encrypting SAML requests
+  topics:
+    - saml
+    - sso
 ---
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests
@@ -61,6 +64,15 @@ Next, you'll need make sure that the SAML assertion is *not* signed (you can sig
 If Auth0 is the SAML **identity provider**, it can received requests signed with the service provider's private key. Auth0 will then use the service providers' public key/certificate to validate the signature.
 
 To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
+
+The configuration should look like this:
+
+```json
+{
+  [...], // other settings
+  "signingCert": "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+}
+```
 
 ## Receive Signed SAML Authentication Responses
 

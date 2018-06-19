@@ -3,6 +3,11 @@ title: Login
 default: true
 description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - aspnet
+  - login
 ---
 
 <%= include('../../../_includes/_package', {
@@ -59,8 +64,6 @@ public ActionResult Login(string returnUrl)
         .WithRedirectUrl(redirectUri.ToString())
         .WithResponseType(AuthorizationResponseType.Code)
         .WithScope("openid profile")
-        // adding this audience will cause Auth0 to use the OIDC-Conformant pipeline
-        // you don't need it if your client is flagged as OIDC-Conformant (Advance Settings | OAuth)
         .WithAudience("https://" + @ConfigurationManager.AppSettings["auth0:Domain"] + "/userinfo");
 
     if (!string.IsNullOrEmpty(returnUrl))

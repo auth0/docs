@@ -6,10 +6,13 @@ alias:
   - azure blob storage
   - azblob
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
+  - azure
+  - addons
 articles:
   - authenticate
+contentType: how-to
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
 ---
 

@@ -1,5 +1,9 @@
 ---
 description: How to setup Microsoft Office 365 custom provisioning.
+topics:
+  - integrations
+  - microsoft
+  - office-365
 ---
 
 # Office 365 Custom Provisioning
@@ -62,7 +66,7 @@ function (user, context, callback) {
   var AUTH0_AD_CONNECTION = 'FabrikamAD';
   // The client_id of your Office 365 SSO integration
   // You can get it from the URL when editing the SSO integration,
-  // it will look like 
+  // it will look like
   // https://manage.auth0.com/#/externalapps/{the_client_id}/settings
   var AUTH0_OFFICE365_CLIENT_ID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
   // The main domain of our company.
@@ -119,7 +123,7 @@ function (user, context, callback) {
     .then(connectWithUser)
     .catch(callback);
 
-  // Requests an access_token to interact with Windows Graph API.
+  // Requests an Access Token to interact with Windows Graph API.
   function getAzureADToken() {
     var options = {
       method: 'POST',
@@ -139,7 +143,7 @@ function (user, context, callback) {
     return rp(options);
   }
 
-  // Gets the access_token requested above and assembles a new request
+  // Gets the Access Token requested above and assembles a new request
   // to provision the new Microsoft AD user.
   function createAzureADUser(response) {
     token = response.access_token;

@@ -6,6 +6,11 @@ alias:
   - saml
 seo_alias: samlp
 description: Connecting SAML Providers with Auth0
+topics:
+    - connections
+    - enterprise
+    - saml
+	- saml-p
 ---
 
 # Create a SAMLP Identity Provider Connection

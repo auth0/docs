@@ -1,5 +1,9 @@
 ---
 description: Customize SMS Messages
+topics:
+  - mfa
+  - guardian
+  - sms
 ---
 
 # Customize SMS Messages

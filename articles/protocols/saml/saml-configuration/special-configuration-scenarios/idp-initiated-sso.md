@@ -1,10 +1,15 @@
 ---
   description: Setting up IdP-initiated SSO
+  topics:
+    - saml
+    - sso
 ---
 
 # Special Configuration Scenarios: IdP Initiates SSO
 
 **Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+
+<%= include('../../../../_includes/_deprecate-impersonation.md') %>
 
 Many instructions for setting up a SAML federation begin with SSO initiated by the service provider:
 

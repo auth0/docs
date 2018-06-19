@@ -2,6 +2,11 @@
 section: libraries
 title: Lock Objective-C API
 description: Description of the Lock Objective-C API
+topics:
+  - libraries
+  - lock
+  - ios
+  - objective-c
 ---
 <!-- markdownlint-disable MD026 -->
 # Lock Objective-C API
@@ -64,7 +69,7 @@ A0APIClient *client = [lock apiClient];
 - (A0UserAPIClient *)newUserAPIClientWithIdToken:(NSString *)idToken;
 ```
 
-Returns a new instance of the API client for Auth0 API with the credentials of a authenticated user obtained from the **id_token**
+Returns a new instance of the API client for Auth0 API with the credentials of a authenticated user obtained from the **ID Token**
 
 ```objc
 A0UserAPIClient *client = [lock newUserAPIClientWithIdToken:@"AN ID TOKEN"];

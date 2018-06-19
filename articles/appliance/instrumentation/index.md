@@ -2,6 +2,9 @@
 url: /appliance/instrumentation
 section: appliance
 description: This document covers why and how to enable instrumentation in the PSaaS Appliance.
+topics:
+    - appliance
+    - instrumentation
 ---
 
 # Private SaaS (PSaaS) Appliance: Instrumentation
@@ -14,6 +17,5 @@ Please contact your Auth0 Customer Success Manager if you would like to enable I
 
 * [Software Components Utilized](/appliance/instrumentation/components)
 * [Available Metrics](/appliance/instrumentation/available-metrics)
-* [Access Your Data](/appliance/instrumentation/access-data)
 * [Visualize Your Data](/appliance/instrumentation/visualize-data)
 * [Add Users in Grafana](/appliance/instrumentation/add-grafana-users)

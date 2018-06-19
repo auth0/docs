@@ -1,9 +1,15 @@
 ---
 description: How to use Lock Passwordless with Universal Login
+topics:
+  - login
+  - universal-login
+  - passwordless
+  - hosted-pages
+  - lock
 ---
 # Universal Login with Lock Passwordless
 
-Using Lock Passwordless in a universal login page is the easiest and most secure implementation of [passwordless authentication](/connections/passwordless) that can be achieved. Additionally, universal login is the **only** way to perform passwordless authentication with native applications at this time.
+Using Lock Passwordless in a Universal Login page is the easiest and most secure implementation of [passwordless authentication](/connections/passwordless) that can be achieved. Additionally, Universal Login is the **only** way to perform passwordless authentication with native applications at this time.
 
 ## Lock Passwordless Template
 
@@ -16,6 +22,8 @@ At the top of the code editor for the page contents, you'll see a dropdown, titl
 Choose `Lock Passwordless` to get started.
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock-passwordless.png)
+
+<%= include('./_custom-domains') %>
 
 ## Next Steps
 

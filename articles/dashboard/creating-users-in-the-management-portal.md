@@ -1,6 +1,9 @@
 ---
 description: How to create users in the Auth0 Dashboard.
 crews: crew-2
+topics:
+  - dashboard
+  - users
 ---
 
 # Create Users using the Dashboard
@@ -24,7 +27,7 @@ Click on the __Create User__ button near the top right-hand side of the screen.
   When finished, click __Save__.
 
 ::: note
-The connection you use must be associated with a Application, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Applications from the <a href="${manage_url}">Dashboard</a>, in <em> Application Settings > Connections</em>, or from the <em>Connection Settings > Applications</em>.
+The connection you use must be associated with an application, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Applications from the <a href="${manage_url}">Dashboard</a>, in <em> Application Settings > Connections</em>, or from the <em>Connection Settings > Applications</em>.
 :::
 
 ![](/media/articles/users/create-user.png)

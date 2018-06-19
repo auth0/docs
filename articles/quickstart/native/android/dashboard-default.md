@@ -2,6 +2,10 @@
 title: Getting started
 description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
+topics:
+  - quickstarts
+  - native
+  - android
 ---
 
 <%= include('../../../_includes/_package', {

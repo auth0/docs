@@ -1,6 +1,9 @@
 ---
 toc: true
 description: Server-side SSO with regular web applications.
+topics:
+  - sso
+  - web-apps
 ---
 
 # Server-side SSO (Regular Web Apps)

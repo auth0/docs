@@ -1,6 +1,10 @@
 ---
 description: Overview of Microsoft Office 365 Integration with Auth0.
 toc: true
+topics:
+  - integrations
+  - microsoft
+  - office-365
 ---
 # Office 365 Integration
 

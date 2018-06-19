@@ -1,6 +1,9 @@
 ---
 title: PSaaS Appliance Remote Access Options
 description: Remote Access Options Available for those with PSaaS Appliance
+topics:
+    - appliance
+    - remote-access
 ---
 # PSaaS Appliance Remote Access Options
 

@@ -1,7 +1,7 @@
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note
-You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible. 
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
@@ -46,17 +46,6 @@ Then, present the login screen:
 ${snippet(meta.snippets.use)}
 
 This adds the `profile` scope to enable [retrieving the User Profile](/quickstart/native/ios-swift/03-user-sessions#fetch-the-user-profile).
-
-You need to make sure you get a response compliant with the OpenID Connect protocol. You can choose between two options:
-
-* Set the audience
-* Turn on the **OIDC conformant** switch in your Auth0 dashboard
-
-This example sets the `audience` parameter to get an OIDC-compliant response. 
-
-::: note
-To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. For more information, read [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
-:::
 
 After the user authenticates, their information is returned in a `credentials` object.
 

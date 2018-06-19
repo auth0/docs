@@ -3,6 +3,10 @@ title: Session Handling
 description: This tutorial will show you how to login and maintain a session’s connectivity.
 seo_alias: android
 budicon: 280
+topics:
+  - quickstarts
+  - native
+  - android
 ---
 
 This tutorial shows you how to let users log in and maintain an active session with Auth0.
@@ -53,7 +57,7 @@ WebAuthProvider.init(auth0)
 ## Check for Tokens when the Application Starts
 
 ::: panel Learn about Refresh Tokens
-Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
+Before you go further with this tutorial, read the [Refresh Token documentation](/refresh-token).
 It is important that you remember the following:
 * Refresh Tokens must be securely saved.
 * Even though Refresh Tokens cannot expire, they can be revoked.
@@ -116,7 +120,7 @@ private final AuthCallback webCallback = new AuthCallback() {
 ```
 
 ::: note
-A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage. 
+A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage.
 :::
 
 ## Recover the User's Credentials
@@ -140,7 +144,7 @@ credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManag
 ```
 
 ::: note
-The `SecureCredentialsManager` can prompt the user for local device authentication using the configured Lock Screen (PIN, Password, Pattern, Fingerprint) before giving them the stored credentials. This behavior can be enabled calling the `SecureCredentialsManager#requireAuthentication` method when setting up the Credentials Manager. The sample has this line commented for convenience, remove the comment to try it. 
+The `SecureCredentialsManager` can prompt the user for local device authentication using the configured Lock Screen (PIN, Password, Pattern, Fingerprint) before giving them the stored credentials. This behavior can be enabled calling the `SecureCredentialsManager#requireAuthentication` method when setting up the Credentials Manager. The sample has this line commented for convenience, remove the comment to try it.
 :::
 
 ## Log the User Out

@@ -1,3 +1,9 @@
+---
+title: Passwordless FAQ
+topics:
+    - connections
+    - passwordless
+---
 # Passwordless FAQ
 
 ## General Questions
@@ -141,3 +147,7 @@ Since you are using Auth0 passwordless logins, there are no passwords to phish, 
 ### Q: How does the system protect against brute-force attacks (code guessing)?
 
 **A:** The 6-digit numeric codes are one-time use and expire in a short time (5 minutes by default). In addition, Auth0 includes rate-limiting and IP address blocking after several failed attempts. Accordingly, it is impractical to brute-force guess these codes. The application owner will be notified by email of any attempt and can unblock the IP address for a legitimate user.
+
+### Q: Our company uses an email security system that scans URLs and invalidates the token. What can we do?
+
+**A:** The only solution to this is to ask your users to whitelist the passwordless emails.

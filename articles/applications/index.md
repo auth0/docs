@@ -1,6 +1,8 @@
 ---
 description: Explains the basics of creating and using Auth0 Applications.
 toc: true
+topics:
+  - applications
 ---
 # Applications
 
@@ -66,9 +68,9 @@ Auth0 stores log data of both actions taken in the dashboard by the administrato
 
 If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
 
-## Dynamic Application Registration
+## Dynamic Client Registration
 
-You can use the Auth0 to programmatically create applications, as described in the [OIDC Dynamic Application Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Application Registration](/api-auth/dynamic-application-registration).
+You can use the Auth0 to programmatically create applications, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
 
 ## Next Steps
 

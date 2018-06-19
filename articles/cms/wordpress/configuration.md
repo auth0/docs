@@ -1,21 +1,24 @@
 ---
-description: How to configure WordPress as a application with Auth0.
+description: How to configure WordPress as an application with Auth0.
+topics:
+    - wordpress
+    - cms
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
 
 By default, new installations of Login by Auth0 run the Setup Wizard and ask for an app token and attempt to setup all necessary components within your Auth0 tenant. This includes:
 
-* Creating a new Application using your site name with the correct app type and URLs 
+* Creating a new Application using your site name with the correct app type and URLs
 * Creating a database Connection for this Application for storing users
-* Creating a Application grant for the system Auth0 Management API
+* Creating an application grant for the system Auth0 Management API
 * Creating a new user for the WordPress administrator running the wizard
 
-Once this process is complete, your tenant is set up correctly and ready to accept signups and logins. 
+Once this process is complete, your tenant is set up correctly and ready to accept signups and logins.
 
-The Setup Wizard must run to completion for your site to be setup correctly. If the Wizard fails for any reason before the "setup successful" screen, check the plugin error log at **wp-admin > Auth0 > Error Log** and the steps below to determine the issue. 
+The Setup Wizard must run to completion for your site to be setup correctly. If the Wizard fails for any reason before the "setup successful" screen, check the plugin error log at **wp-admin > Auth0 > Error Log** and the steps below to determine the issue.
 
-It can be helpful, if you're having any issues with logging in or creating accounts, to walk through the screens for each section below to confirm your setup. 
+It can be helpful, if you're having any issues with logging in or creating accounts, to walk through the screens for each section below to confirm your setup.
 
 You'll need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
 
@@ -23,21 +26,21 @@ You'll need to be logged into your Auth0 account before starting the steps below
 
 ### Application setup
 
-First, we'll check for the Application created for your WordPress site. 
+First, we'll check for the Application created for your WordPress site.
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an Application that is similar to your site name; if you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking Create Application**, entering a name for the Application, selecting **Regular Web Applications**, then clicking **Create**. 
-    
-    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
+1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**.
 
-1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0
+    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-application-settings.png)
+1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
+
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. **Application Type** must be set to **Regular Web Application**
 
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
-    ![Application - allowed callback field](/media/articles/cms/wordpress/application-allowed-callbacks.png)
+    ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
 
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -49,22 +52,24 @@ First, we'll check for the Application created for your WordPress site.
     Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
     :::
 
+1. If SSO is needed, make sure that **Use Auth0 instead of the IdP to do Single Sign On** is turned on.
+
 1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 
 1. Turn off **OIDC Conformant**.
 
-    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/application-advanced-settings.png)
+    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
-1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and 
+1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and
 **Client Credentials**.
 
-    ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/application-grant-types.png)
+    ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
 1. Click **Save Changes** if anything was modified.
 
 ### Authorize the Application for the Management API
 
-In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. 
+In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API.
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
@@ -86,33 +91,31 @@ In order for your WordPress site to perform certain actions on behalf of your Au
     * `create:users`
     * `update:guardian_factors`
 
-![Application Advanced Settings](/media/articles/cms/wordpress/grant-application-access-to-api.png)
+![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
 ### Database Connection setup
 
-Database Connections enable the typical username and password login seen on most sites. This type of Connection is 
-not required and can be skipped if you're using passwordless or social logins only. 
+Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using passwordless or social logins only.
 
-1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new  
-Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
+1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
     ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
 1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
-1. Now click the **Applications** tab and activate the Application created above.
+1. Click the **Applications** tab and activate the Application created above.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-applications.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
 
 ### Social Connection setup
 
-See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods. 
+See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
 
 ### Update Auth0 settings in WordPress
 
 1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-application-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
@@ -120,7 +123,7 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Application page to your WordPress settings using the Copy to Clipboard buttons next to each field.
 
-1. Make sure **Application Signing Algorithm** matches the Application's Advanced > OAuth setting. 
+1. Make sure **Application Signing Algorithm** matches the Application's Advanced > OAuth setting.
 
 1. Scroll down and click **Save Changes**.
 
@@ -188,18 +191,18 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 ### Advanced
 
-* **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some 
-social Connections from working properly. 
+* **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some
+social Connections from working properly.
 
 * **Remember User Session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
 
 * **Login Redirection URL:** If set, redirects users to the specified URL after login. This does not affect logging in via the `[auth0]` shortcode. To change the redirect for the shortcode, add a `redirect_to` attribute, like so:
-    
+
     `[auth0 redirect_to="http://yourdomain.com/redirect-here"]`
 
 * **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless.
 
-* **Force HTTPS callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS. 
+* **Force HTTPS callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS.
 
 * **Lock JS CDN URL:** The URL of to the latest available Lock widget in the CDN.
 
@@ -211,11 +214,11 @@ social Connections from working properly.
 
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
 
-* **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). 
+* **Auto provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard).
 
     ::: note
     If registrations are allowed in WordPress, new users will be created regardless of this setting.
-    ::: 
+    :::
 
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the Connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
 
@@ -231,7 +234,7 @@ social Connections from working properly.
 
 * **Valid Proxy IP:** List the IP address of your proxy or load balancer to enable IP checks for logins and migration web services.
 
-* **Custom signup fields:** This field is the Json that describes the custom signup fields for lock. It should be a valid json and allows the use of functions (for validation). [More info here](/libraries/lock/v10/new-features#custom-sign-up-fields).
+* **Custom signup fields:** This field is the JSON that describes the custom signup fields for lock. It should be a valid json and allows the use of functions (for validation). [More info here](/libraries/lock/v10/new-features#custom-sign-up-fields).
 
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 

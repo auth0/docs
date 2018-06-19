@@ -1,5 +1,8 @@
 ---
 description: The WS-Federation protocol and how it is used in Auth0.
+topics:
+  - saml
+  - ws-federation
 ---
 # WS-Federation
 
@@ -25,7 +28,7 @@ https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-0
 
 You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the SAML token, as well as other lower-level WS-Fed and SAML-P settings.
 
-When redirecting your users to your WS-Fed enpoint, you can use the following (optional) parameters:
+When redirecting your users to your WS-Fed endpoint, you can use the following (optional) parameters:
 
 * **wreply**: Callback URL
 * **wctx**: Your application's state

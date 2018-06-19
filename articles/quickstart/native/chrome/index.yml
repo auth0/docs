@@ -5,7 +5,7 @@ language:
   - JavaScript
 framework:
   - Chrome Extension
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: native-platforms/chrome-extension/dependencies

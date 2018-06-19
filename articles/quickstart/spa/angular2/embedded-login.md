@@ -2,6 +2,11 @@
 title: Embedded Login
 description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - login
 ---
 
 <%= include('../../../_includes/_package', {
@@ -14,7 +19,7 @@ budicon: 448
   ]
 }) %>
 
-As an alternative to Auth0's universal login page, the Lock widget can be embedded directly in your application.
+As an alternative to Auth0's Universal Login page, the Lock widget can be embedded directly in your application.
 
 <%= include('../_includes/_install_lock') %>
 
@@ -40,7 +45,6 @@ import Auth0Lock from 'auth0-lock';
 export class AuthService {
 
   lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
-    oidcConformant: true,
     autoclose: true,
     auth: {
       redirectUrl: 'http://localhost:3000/callback',

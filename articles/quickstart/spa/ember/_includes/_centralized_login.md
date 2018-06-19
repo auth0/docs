@@ -119,9 +119,9 @@ export default Service.extend({
 The file now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
+* `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 * `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
 
 ### About the Authentication Service
 
@@ -223,4 +223,4 @@ Notice that there is also a `Log Out` control in this route which has an `action
 
 ## Embedded Login
 
-Auth0's universal login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).
+Auth0's Universal Login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).

@@ -1,6 +1,8 @@
 ---
 description: How to log out a user and optionally redirect them to an authorized URL.
 toc: true
+topics:
+  - logout
 ---
 
 # Logout
@@ -173,7 +175,7 @@ Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#log
 
 ## SAML Logout
 
-SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have a application with the SAML2 Web App addon).
+SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have an application with the SAML2 Web App addon).
 
 ### Logout for Auth0 as SAML Service Provider
 
@@ -224,8 +226,7 @@ For guidance and sample code on how to implement logout functionality in your ap
 * [Android](/quickstart/native/android/03-session-handling#log-out)
 * [Chrome Extension](/quickstart/native/chrome)
 * [Cordova](/quickstart/native/cordova)
-* [Ionic](/quickstart/native/ionic)
-* [Ionic 2+](/quickstart/native/ionic2)
+* [Ionic 3+](/quickstart/native/ionic3)
 * [iOS Objective-C](/quickstart/native/ios-objc/03-user-sessions#on-logout-clear-the-keychain)
 * [iOS Swift](/quickstart/native/ios-swift/03-user-sessions#on-logout-clear-the-keychain)
 
@@ -234,7 +235,6 @@ For guidance and sample code on how to implement logout functionality in your ap
 * [Angular 2+](/quickstart/spa/angular2)
 * [AngularJS](/quickstart/spa/angularjs)
 * [Aurelia](/quickstart/spa/aurelia)
-* [Cycle](/quickstart/spa/cyclejs#5-implement-the-logout)
 * [Ember](/quickstart/spa/ember)
 * [JavaScript](/quickstart/spa/vanillajs)
 * [React](/quickstart/spa/react)

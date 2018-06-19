@@ -8,7 +8,7 @@ alias:
 languages:
   - Javascript
 image: /media/platforms/falcor.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/falcor/dependencies

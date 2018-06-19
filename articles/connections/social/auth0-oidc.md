@@ -4,6 +4,9 @@ seo_alias: auth0-oidc
 image: /media/connections/auth0.png
 description: You can use an Application on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
 toc: true
+topics:
+  - connections
+  - social
 ---
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
@@ -33,7 +36,7 @@ Here is a sample request:
 curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
-with the **auth-oidc-connection.json** file containing:
+with the **auth0-oidc-connection.json** file containing:
 
 ```js
 {
@@ -110,7 +113,7 @@ Note that the generated `user_id` has the following format:
 
 `auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_OIDC_PROVIDER_AUTH0_CONNECTION|THE_OIDC_PROVIDER_USER_ID`
 
-The `access_token` is the JWT of the user in the OIDC Provider Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid email` will return:
+The Access Token is the JWT of the user in the OIDC Provider Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid email` will return:
 
 ```js
 {

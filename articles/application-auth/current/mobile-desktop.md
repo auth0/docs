@@ -2,6 +2,11 @@
 title: Authentication for Mobile & Desktop Apps
 description: Explains how to authenticate users in a mobile or desktop application.
 toc: true
+topics:
+  - authentication
+  - oauth2
+  - mobile-apps
+  - desktop-apps
 ---
 # Authentication for Mobile & Desktop Apps
 
@@ -145,7 +150,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 ```
 
 ::: note
-You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
+You can use the Access Token to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
 ## The ID Token
@@ -223,7 +228,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 }
 ```
 
-By extracting the `id_token`, which now contains the additional `name` and `picture` claims you requested, you'll see something similar to the following once you've decoded the payload:
+By extracting the ID Token, which now contains the additional `name` and `picture` claims you requested, you'll see something similar to the following once you've decoded the payload:
 
 ```json
 {
@@ -293,7 +298,7 @@ If all goes well, you'll receive an `HTTP 200` response with the following paylo
 }
 ```
 
-You can pull the user's name, profile picture, and email address from the `name`, `picture`, and `email` claims of the returned `id_token`. Note that the `sub` claim contains the user's unique ID as returned from GitHub:
+You can pull the user's name, profile picture, and email address from the `name`, `picture`, and `email` claims of the returned ID Token. Note that the `sub` claim contains the user's unique ID as returned from GitHub:
 
 ```json
 {

@@ -1,5 +1,12 @@
 ---
 description: API Authentication and Authorization FAQ
+topics:
+  - api-authentication
+  - oidc
+  - user-consent
+  - resource-servers
+  - applications
+contentType: discussion
 ---
 
 # API Authentication and Authorization FAQ

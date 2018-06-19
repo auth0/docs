@@ -2,6 +2,11 @@
 title: Calling an API
 description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - apis
 ---
 
 <%= include('../../../_includes/_package', {
@@ -87,14 +92,26 @@ export class PingComponent {
   public securedPing(): void {
     this.message = '';
     this.http
-      .get(`<%= "${this.API_URL}" %>/private`, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access_token'))
+      .get<IApiResponse>(`<%= "${this.API_URL}" %>/private`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
       })
       .subscribe(
-        data => this.message = (data as IApiResponse).message,
+        data => this.message = data.message,
         error => this.message = error
       );
   }
+
+  public securedScopedPing(): void {
+    this.message = '';
+    this.http
+      .get<IApiResponse>(`<%= "${this.API_URL}" %>/private-scoped`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
+    })
+      .subscribe(
+        data => this.message = data.message,
+        error => this.message = error
+      );
+    }
 }
 ```
 

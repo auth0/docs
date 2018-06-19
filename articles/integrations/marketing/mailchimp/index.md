@@ -2,6 +2,9 @@
 title: MailChimp Integration
 description: Learn how to import your Auth0 user data into MailChimp.
 toc: true
+topics:
+    - marketing
+    - mailchimp
 ---
 
 # MailChimp Integration

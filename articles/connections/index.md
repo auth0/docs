@@ -1,13 +1,15 @@
 ---
 url: /identityproviders
 description: Auth0 is an identity hub that supports the many authentication providers listed here.
+topics:
+  - connections
 ---
 
 # Identity Providers Supported by Auth0
 
 An Identity Provider is a server that can provide identity information to other servers. For example, Google is an Identity Provider. If you log in to a site using your Google account, then a Google server will send your identity information to that site.
 
-Auth0 is an identity hub that supports many identity providers using various protocols (like [OpenID Connect](/protocols/oidc), [SAML](/protocols/saml), [WS-Federation](/protocols/ws-fed), and more).
+Auth0 is an identity hub that supports many Identity Providers using various protocols (like [OpenID Connect](/protocols/oidc), [SAML](/protocols/saml), [WS-Federation](/protocols/ws-fed), and more).
 
 Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation.
 
@@ -28,6 +30,7 @@ Auth0 supports the following social providers out of the box. You can also use a
 ## Legal Identities
 
 Through our partner, Criipto, we offer a growing range of government and bank identities tied to legal persons. 
+
 <% var criiptoConnections = cache.find('articles/connections/criipto', {sort: 'index'}); %>
 <%= include('./_connections', { connections: criiptoConnections }) %>
 

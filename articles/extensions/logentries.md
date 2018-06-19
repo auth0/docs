@@ -1,5 +1,8 @@
 ---
 description: How to enable and use the Logentries extension.
+topics:
+  - extensions
+  - logentries
 ---
 
 # Auth0 Logs to Logentries

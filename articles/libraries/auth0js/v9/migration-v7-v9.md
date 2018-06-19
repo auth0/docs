@@ -3,6 +3,10 @@ section: libraries
 title: Migrating from Auth0.js v7 to v9
 description: How to migrate from Auth0.js v7 to v9
 toc: true
+topics:
+  - libraries
+  - auth0js
+  - migrations
 ---
 # Migrating from Auth0.js v7 to v9
 
@@ -25,7 +29,7 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With universal login
+// With Universal Login
 auth0.login({});
 
 // With a social or enterprise connection
@@ -50,7 +54,7 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token id_token'
 });
 
-// with universal login
+// with Universal Login
 webAuth.authorize({});
 
 // with a social or enterprise connection
@@ -77,7 +81,7 @@ var auth0 = new Auth0({
   responseType: 'token'
 });
 
-// With universal login
+// With Universal Login
 auth0.login({
   popup: true
 });
@@ -106,7 +110,7 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token'
 });
 
-// with universal login
+// with Universal Login
 webAuth.popup.authorize({});
 
 // with a social or enterprise connection

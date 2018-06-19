@@ -1,6 +1,6 @@
 title: ASP.NET (OWIN)
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/aspnet-owin/dependencies
@@ -14,6 +14,5 @@ default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login
-  - 02-storing-tokens
-  - 03-user-profile
-  - 04-authorization
+  - 02-user-profile
+  - 03-authorization

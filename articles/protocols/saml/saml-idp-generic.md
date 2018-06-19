@@ -2,6 +2,8 @@
 title: Auth0 as Identity Provider
 description: How to configure Auth0 to serve as an Identity Provider in a SAML federation.
 toc: true
+topics:
+  - saml
 ---
 # Auth0 as Identity Provider
 
@@ -16,7 +18,7 @@ You will need to obtain from the Service Provider (application) the URL to which
 In this section you will configure Auth0 to serve as an Identity Provider. You will do this by registering an application and using an addon.
 
 1. Go to [Dashboard > Applications](${manage_url}/#/applications).
-1. Click the **+ CREATE CLIENT** button on the right.
+1. Click the **+ CREATE APPLICATION** button on the right.
 1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications/application-settings).
 1. Click **SAVE**.
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).

@@ -1,5 +1,10 @@
 ---
 title: OIDC-conformant Resource Owner Password Credentials exchange
+topics:
+  - api-authentication
+  - oidc
+  - resource-owner-password
+contentType: discussion
 ---
 # Resource Owner Password Credentials exchange
 

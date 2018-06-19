@@ -1,6 +1,10 @@
 ---
 description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
 toc: true
+topics:
+    - users
+    - user-management
+    - user-profiles
 ---
 
 # User Profile: In-Depth Details
@@ -81,25 +85,25 @@ Finally, there is the Authentication API specifically used for authentication fl
 
 In the authentication flows described above, Auth0 returns a set of tokens in lieu of a full User Profile.
 
-One of the returned tokens is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the application uses `RS256` encryption then the `id_token` will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
+One of the returned tokens is the ID Token, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the application uses `RS256` encryption then the ID Token will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
 
 The claims within a JWT generally contain a subset of the information available on the User Profile in order to minimize the overall size. For further information on controlling the claims returned in a JWT, see the [Scopes](#scopes) section below.
 
 There are three other types of tokens that can be returned during authentication:
 
-* an Auth0 `access_token`;
+* an Auth0 Access Token;
 * a 3rd party provider Access Token;
-* a `refresh_token`.
+* a Refresh Token.
 
 For more information on tokens and claims see the [Token Overview](/tokens).
 
 ## Modification of User Profiles
 
-The information contained in a User Profile and in an `id_token` can be modified in a number of ways.
+The information contained in a User Profile and in an ID Token can be modified in a number of ways.
 
 ### Scopes
 
-The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/scopes).
+The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the ID Token (JWT). Examples of different scopes are discussed [here](/scopes).
 
 ### Dashboard
 
@@ -132,13 +136,13 @@ Another example is that the password can be set via the create or update call, b
 
 The [`/users`](/api/v2#!/Users/get_users) endpoint is used to retrieve information about all users. You may provide search criteria to find specific user(s).
 
-There is also [an endpoint](/api/v2#!/Users/get_users_by_id) to retrieve information about one user based on the `user_id`. Note that the `user_id` is an internal identifier that consists of a connection name and a unique identifier for the user. The `user_id` is different from the `id_token`.
+There is also [an endpoint](/api/v2#!/Users/get_users_by_id) to retrieve information about one user based on the `user_id`. Note that the `user_id` is an internal identifier that consists of a connection name and a unique identifier for the user. The `user_id` is different from the ID Token.
 
-In addition, two other endpoints are available to retrieve User Profile information based on either the Auth0 `access_token` or the Auth0 `id_token`.
+In addition, two other endpoints are available to retrieve User Profile information based on either the Auth0 Access Token or the Auth0 ID Token.
 
-The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as input the Auth0 `access_token` and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
+The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as input the Auth0 Access Token and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
 
-The [`/tokeninfo`](/api/authentication/reference#get-token-info) endpoint takes as input the Auth0 `id_token` and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
+The [`/tokeninfo`](/api/authentication/reference#get-token-info) endpoint takes as input the Auth0 ID Token and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
 
 ### Creating Users in a Custom Database
 
@@ -195,9 +199,7 @@ If Auth0 is serving as a SAML Service Provider, the "Mappings" tab for a SAML co
 
 `Connections -> Enterprise -> SAMLP -> {Name of Connection} -> Settings -> Mappings`
 
-If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application AddOns is used to map attributes from the Auth0 User Profile to attributes in the SAML Assertion sent back to the Service Provider.
-
-`Apps/APIs -> {name of app} - Addons -> SAML2 Web App -> Settings`
+If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application AddOns is used to map attributes from the Auth0 User Profile to attributes in the SAML Assertion sent back to the Service Provider: **[Dashboard](${manage_url}) > Applications > name of your app > Addons > SAML2 Web App > Settings**.
 
 ## User Profile with Account Linking
 

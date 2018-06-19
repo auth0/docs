@@ -1,5 +1,9 @@
 ---
 description: This page details Auth0's Penetration Testing Policy.
+topics:
+    - auth0-policies
+    - penetration-testing
+    - testing
 ---
 # Penetration Testing Policy
 

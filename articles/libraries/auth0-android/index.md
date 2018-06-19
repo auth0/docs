@@ -3,6 +3,9 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
+topics:
+  - libraries
+  - android
 ---
 # Auth0.Android
 
@@ -170,7 +173,7 @@ AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 
 ### Get user information
 
-To get the information associated with a given user's `access_token`, you can call the `userInfo` endpoint, passing the token.
+To get the information associated with a given user's Access Token, you can call the `userInfo` endpoint, passing the token.
 
 ```java
 authentication

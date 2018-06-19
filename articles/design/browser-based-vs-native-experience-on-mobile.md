@@ -2,6 +2,9 @@
 title: Browser-Based vs. Native Login Flows on Mobile Devices
 description: This article covers the pros and cons between a browser-based vs. native experience when implementing Auth0 on a mobile device
 toc: true
+topics:
+  - design
+  - mobile
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 
@@ -45,7 +48,7 @@ By default, [Lock](/libraries/lock) provides the UX, but you can customize it co
 
 ## Automatic improvements
 
-By relying on a universal login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
+By relying on a Universal Login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
 
 ## Load time and user experience
 

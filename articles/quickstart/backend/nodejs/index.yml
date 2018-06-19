@@ -8,7 +8,7 @@ alias:
 languages:
   - Javascript
 image: /media/platforms/node.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-apis/nodejs/dependencies

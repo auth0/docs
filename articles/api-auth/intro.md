@@ -2,6 +2,10 @@
 title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
+topics:
+  - api-authentication
+  - oidc
+contentType: discussion
 ---
 # Introducing OIDC Conformant Authentication
 
@@ -37,17 +41,17 @@ For more information on APIs, their role in OAuth and how to configure an API in
 
 Up until recently we were treating every application as first-party application. This means that all applications were considered trusted. Now you have the option to define an application as either first-party or third-party.
 
-Third-party applications, are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
+Third-party applications are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
 
-So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Application Registration](/api-auth/dynamic-application-registration) functionality. All applications registered through that will be third-party applications.
+So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Client Registration](/api-auth/dynamic-client-registration) functionality. All applications registered through that will be third-party applications.
 
 ::: note
 For more information, refer to [User consent and third-party applications](/api-auth/user-consent).
 :::
 
-### Calling APIs from a Service (machine-to-machine)
+### Calling APIs from a Service (machine to machine)
 
-We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
+We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
 ::: note
 For more information on the Client Credentials grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
@@ -82,7 +86,7 @@ For more information, refer to [User profile claims and scope](/api-auth/tutoria
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [Universal Login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
 Support for SSO from applications is planned for a future release.
@@ -198,7 +202,7 @@ Native applications need to use Universal Login (with an Auth0-hosted login page
 To use the new pipeline, at least one of the following should apply:
 
 - The application is flagged as __OIDC Conformant__, or
-- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
+- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-application) or [/token](/api/authentication#get-token) endpoints
 
 If none of these applies, then the legacy flows will be used.
 
@@ -247,7 +251,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
+      <td>Not supported for Resource Owner grant. For the rest, Universal Login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>

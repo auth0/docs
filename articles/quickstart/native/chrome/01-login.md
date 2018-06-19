@@ -2,6 +2,10 @@
 title: Login
 description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - chrome
 ---
 
 <%= include('../../../_includes/_package', {
@@ -193,9 +197,9 @@ function main () {
 document.addEventListener('DOMContentLoaded', main);
 ```
 
-Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's `access_token` is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
+Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's Access Token is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
 
-The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's `id_token` is unexpired, or the default view if it is expired.
+The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's ID Token is unexpired, or the default view if it is expired.
 
 ![popup](/media/articles/native-platforms/chrome/01-popup.png)
 
@@ -212,8 +216,8 @@ chrome.runtime.onMessage.addListener(function (event) {
   if (event.type === 'authenticate') {
 
     // scope
-    //  - openid if you want an id_token returned
-    //  - offline_access if you want a refresh_token returned
+    //  - openid if you want an ID Token returned
+    //  - offline_access if you want a Refresh Token returned
     // device
     //  - required if requesting the offline_access scope.
     let options = {

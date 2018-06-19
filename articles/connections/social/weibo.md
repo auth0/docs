@@ -5,6 +5,10 @@ image: /media/connections/weibo.png
 seo_alias: weibo
 description: How to obtain an App ID and App Secret for Weibo.
 toc: true
+topics:
+  - connections
+  - social
+  - weibo
 ---
 
 # Connect your app to Weibo
@@ -47,7 +51,7 @@ This page will contain your **App Key** and **App Secret**, to be used in the ne
 
 ## 4. Setup the Connection in Auth0
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the **Weibo** connection.
 

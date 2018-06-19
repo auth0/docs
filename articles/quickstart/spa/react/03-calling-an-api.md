@@ -2,6 +2,11 @@
 title: Calling an API
 description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - react
+  - apis
 ---
 
 <%= include('../../../_includes/_package', {
@@ -61,6 +66,13 @@ class Ping extends Component {
     axios.get(`<%= "${API_URL}" %>/private`, { headers })
       .then(response => this.setState({ message: response.data.message }))
       .catch(error => this.setState({ message: error.message }));
+  }
+  securedScopedPing() {
+      const { getAccessToken } = this.props.auth;
+      const headers = { 'Authorization': `Bearer <%= "${getAccessToken()}" %>`}
+      axios.get(`<%= "${API_URL}" %>/private-scoped`, { headers })
+        .then(response => this.setState({ message: response.data.message }))
+        .catch(error => this.setState({ message: error.message }));
   }
 }
 

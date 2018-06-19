@@ -1,5 +1,10 @@
 ---
 title: Delegation and the OIDC-conformant pipeline
+topics:
+  - api-authentication
+  - oidc
+  - delegation
+contentType: discussion
 ---
 
 # Delegation and the OIDC-conformant pipeline

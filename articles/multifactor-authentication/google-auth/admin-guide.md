@@ -1,5 +1,9 @@
 ---
 description:  Using Google Authenticator with Auth0 for administrators
+topics:
+  - mfa
+  - google
+  - google-autheticator
 ---
 
 # Google Authenticator for Administrators

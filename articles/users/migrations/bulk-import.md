@@ -3,6 +3,11 @@ title: Bulk User Imports with the Management API
 description: How to perform bulk user imports with the Management API.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - migrations
+  - bulk-imports
 ---
 
 # Bulk User Imports with the Management API
@@ -15,7 +20,7 @@ Each affected user will need to reset their password when they log in the first 
 
 ## Pre-requisites
 
-Before you launch the import users job, a database (to which the users will be imported) must already exist and it must be enabled for at least one client. For more information on how to configure a database connection at your [dashboard](${manage_url}), refer to [Database Identity Providers](/connections/database).
+Before you launch the import users job, a database (to which the users will be imported) must already exist and it must be enabled for at least one application. For more information on how to configure a database connection at your [dashboard](${manage_url}), refer to [Database Identity Providers](/connections/database).
 
 ## File schema
 

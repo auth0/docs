@@ -1,6 +1,6 @@
 title: Python
 image: /media/platforms/python.png
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/python/dependencies

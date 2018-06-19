@@ -2,6 +2,10 @@
 section: libraries
 title: Lock for Android v2 Delegation API
 description: Integrate with third-party apps with the delegation API.
+topics:
+  - libraries
+  - lock
+  - android
 ---
 # Lock Android: Delegation API
 
@@ -14,7 +18,7 @@ Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 String apiType = "firebase";
-String token = //Your Auth0 id_token of the logged in User
+String token = //Your Auth0 ID Token of the logged in User
 client.delegationWithIdToken(token, apiType)
   .start(new BaseCallback<Map<String, Object>, AuthenticationException>() {
         @Override

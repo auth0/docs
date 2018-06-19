@@ -1,11 +1,16 @@
 ---
 title: State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks.
+topics:
+    - protocols
+    - oauth
+    - state-parameter
+	  - csrf
 ---
 
 # State Parameter
 
-The `state` parameter is an authentication parameter used to help mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+Authorization protocols provide a `state` parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) will return this parameter unchanged in the response.
 
 A CSRF attack, also known as a one-click attack or session-riding, can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site upon which the user is currently authenticated. This type of attack targets state-changing requests as opposed to user data to initiate an action.
 
@@ -25,19 +30,19 @@ For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.o
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
 
-```
+```text
 xyzABC123
 ```
 
 2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-localstorage-sessionstorage-).
 
-```
+```text
 auth0-authorize = xyzABC123
 ```
 
 3. Encode this value and set it as the `state` parameter in the request.
 
-```
+```js
 // Encode the String
 var encodedString = Base64.encode(string);
 tenant.auth0.com/authorize?...&state=encodedString
@@ -45,13 +50,13 @@ tenant.auth0.com/authorize?...&state=encodedString
 
 4. After the request is sent, the user is redirected back to the application by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
-```
+```text
 /login/callback?...&state=encodedString
 ```
 
 5.  Decode the returned `state` value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
 
-```
+```js
 // Decode the String
 var decodedString = Base64.decode(encodedString);
 if(decodedString == auth0-authorize) {

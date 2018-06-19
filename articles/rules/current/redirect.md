@@ -1,5 +1,9 @@
 ---
 description: How to implement a user redirect using rules, and actions after redirecting.
+topics:
+  - rules
+  - extensibility
+  - redirection
 ---
 # Redirect Users from Rules
 

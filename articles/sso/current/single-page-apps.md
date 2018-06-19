@@ -1,6 +1,9 @@
 ---
 description: Tutorial on implementing client-side SSO on single page applications.
 toc: true
+topics:
+  - sso
+  - spa
 ---
 
 # Client-Side SSO on Single Page Applications
@@ -115,7 +118,7 @@ If silent authentication succeeds, however, the app stores the token and its exp
 
 ## Successful Authentication Response
 
-If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the `access_token` from the hash fragment of the returned URL:
+If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the Access Token from the hash fragment of the returned URL:
 
 ```js
 function getParameterByName(name) {
@@ -134,7 +137,7 @@ function getIdToken() {
 $(function () {
   var access_token = getAccessToken();
 
-  // Optional: an id_token will be returned by Auth0
+  // Optional: an ID Token will be returned by Auth0
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
@@ -169,7 +172,7 @@ setInterval(function() {
   if (!localStorage.getItem('userToken')) return;
 
   auth0.checkSession(function (err, data) {
-    if (err) { 
+    if (err) {
       // if we get here, it means there is no session on Auth0,
       // then remove the token and redirect to #login
       localStorage.removeItem('userToken');

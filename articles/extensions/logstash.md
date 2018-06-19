@@ -1,5 +1,8 @@
 ---
 description: How to install and configure the Auth0 Logs to Logstash extension.
+topics:
+  - extensions
+  - logstash
 ---
 
 # Auth0 Logs to Logstash

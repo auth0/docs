@@ -1,6 +1,10 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to add authorization to a Hapi.js API
+topics:
+    - quickstart
+    - backend
+    - hapi
 ---
 
 <%= include('../../../_includes/_package', {
@@ -51,7 +55,7 @@ server.register(jwt, err => {
   server.auth.strategy('jwt', 'jwt', 'required', {
     complete: true,
     // verify the Access Token against the
-    // remote Auth0 JWKS 
+    // remote Auth0 JWKS
     key: jwksRsa.hapiJwt2Key({
       cache: true,
       rateLimit: true,
@@ -71,7 +75,7 @@ server.register(jwt, err => {
 
 The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires a function which is the final stop for accepting or rejecting authorization for a given request. This function must return a callback with either `true` or `false` to indicate the the request can proceed. The function can also operate on the decoded payload of the JWT and supply a modified `req.auth.credentials` object based on custom logic.
 
-When you request multiple `scope`s in an Auth0 authentication transaction, they come back as a space-delimited string in the `access_token` payload. However, the **hapi-auth-jwt2** plugin expects an array when multiple `scope`s are used. This conversion can be handled in the `validateFunc` function.
+When you request multiple `scope`s in an Auth0 authentication transaction, they come back as a space-delimited string in the Access Token payload. However, the **hapi-auth-jwt2** plugin expects an array when multiple `scope`s are used. This conversion can be handled in the `validateFunc` function.
 
 Add a function called `validateUser` and modify the `req.auth.credentials` object such that the `scope` key is parsed into an array instead of a space-delimited string.
 
@@ -135,7 +139,7 @@ server.route({
 
 <%= include('../_includes/_api_scope_description') %>
 
-Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
+Individual routes can be configured to look for a particular `scope` in the Access Token using `auth.scope`.
 
 ```js
 // server.js
@@ -158,4 +162,4 @@ server.route({
 });
 ```
 
-With this configuration in place, only valid `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+With this configuration in place, only valid Access Tokens which have a scope of `read:messages` will be allowed to access this endpoint.

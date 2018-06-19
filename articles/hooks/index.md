@@ -4,6 +4,8 @@ classes: topic-page
 title: Hooks
 description: Working with Hooks
 beta: true
+topics:
+    - hooks
 ---
 
 <div class="topic-page-header">

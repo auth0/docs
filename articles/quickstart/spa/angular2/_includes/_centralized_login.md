@@ -21,6 +21,8 @@ import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
+(window as any).global = window;
+
 @Injectable()
 export class AuthService {
 
@@ -99,7 +101,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
   }
 
@@ -157,7 +159,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 ## Add a Callback Component
 
-When you use universal login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
+When you use Universal Login, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 
 ::: note
 This example assumes you are using the default Angular path-based routing. If you are using hash-based routing with `{ useHash: true }`, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
