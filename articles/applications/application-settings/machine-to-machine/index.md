@@ -1,3 +1,0 @@
-## Settings
-
-<%= include('../_settings') %>

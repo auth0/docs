@@ -44,6 +44,20 @@ The Settings tab lets you edit different application settings:
 
 <%= include('./application-settings/_settings') %>
 
+- **Application Type**: The type of application you are implementing. Select **Machine to Machine Application**.
+
+<%= include('./application-settings/_token-endpoint-auth-method') %>
+
+<%= include('./application-settings/_settings-pt2') %>
+
+### Advanced Settings
+
+<%= include('./application-settings/_adv-settings') %>
+
+<%= include('./application-settings/_trust-token-endpoint-ip-header') %>
+
+<%= include('./application-settings/_adv-settings-pt2') %>
+
 ## APIs
 
 The APIs tab lists all available APIs for the tenant, shows the ones that the Machine to Machine application is authorized to call, and let you authorize more APIs.
