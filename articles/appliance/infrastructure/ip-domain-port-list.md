@@ -7,6 +7,7 @@ topics:
     - ip-addressses
     - domains
     - ports
+contentType: reference
 ---
 
 <!-- markdownlint-disable MD033 -->

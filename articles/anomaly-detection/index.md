@@ -5,7 +5,10 @@ url: /anomaly-detection
 topics:
     - security
     - anomaly-detection
-contentType: index
+contentType: 
+    - index
+    - reference
+    - how-to
 ---
 
 # Anomaly Detection

@@ -6,6 +6,7 @@ topics:
     - appliance
     - custom-domains
 contentType: 
+    - index
     - concept
     - reference
 ---
