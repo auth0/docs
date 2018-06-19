@@ -13,17 +13,9 @@ github:
     path: Quickstart/00-Starter-Seed
 ---
 
-This tutorial explains how to integrate the Auth0 OIDC Application with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+<%= include('../_includes/_getting_started', { library: 'Windows Universal') %>
 
-<%= include('../_includes/_dotnet-oidc-client-configuration') %>
-
-## Install the Auth0.OidcClient.UWP NuGet Package
-
-Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
-
-${snippet(meta.snippets.dependencies)}
-
-## Set Up the Auth0 Callback URL
+<%= include('../../../_includes/_callback_url') %>
 
 For UWP applications, the callback URL needs to be in the format **ms-app://SID**, where **SID** is the **Package SID** for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management > App identity section, where you will see the **Package SID** listed.
 
@@ -45,17 +37,17 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 }
 ```
 
-This will print out the callback URL to your Debug window in Visual Studio.
+This will print out the callback URL to your Debug window in Visual Studio. This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the authentication process will not function correctly.
 
-<div class="setup-callback">
-<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, such as</p>
+## Integrate Auth0 in your Application
 
-<pre><code>ms-app://S-1-xxx...</pre></code>
-</div>
+### Install Dependencies
 
-This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the SSO will not function correctly.
+Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
 
-## Integration
+${snippet(meta.snippets.dependencies)}
+
+## Trigger Authentication
 
 To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
 
@@ -67,7 +59,9 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-csharp/lock-widget-screenshot.png)
 
-## Accessing the User's Information
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/hosted-pages/login#how-to-customize-your-login-page).
+
+## Handle Authentication Tokens
 
 The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
 
@@ -135,7 +129,3 @@ if (!loginResult.IsError)
     }
 }
 ```
-
-## More Information
-
-For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
