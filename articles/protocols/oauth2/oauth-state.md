@@ -25,7 +25,7 @@ Depending on the application type or framework, this may be included for the dev
 
 Deny malicious requests by setting the `state` parameter to hold a value for verification.
 
-::: Note
+::: note
 For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
 :::
 
@@ -35,7 +35,7 @@ For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.o
 xyzABC123
 ```
 
-2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-local-storage-sessionstorage-).
+2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-local-storage-session-storage-).
 
 ```text
 auth0-authorize = xyzABC123
