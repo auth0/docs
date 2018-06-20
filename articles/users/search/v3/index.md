@@ -20,7 +20,12 @@ In this article you'll learn how to search for users and sort the results.
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
 * You'll need a token to make requests to the Management API. Check out [the Auth0 Management APIv2 token](/api/management/v2/tokens) for more information.
 * To perform user search requests the `read:users` [scope](/scopes/) is required.
-* Auth0 limits the number of users you can retrieve (1000). If you exceed this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [User Import / Export](/extensions/user-import-export) extension.
+
+## Limitations
+
+When you query for users with the [list or search users](/api/management/v2#!/Users/get_users) endpoint, you can retrieve maximum 1000 users. If you exceed this threshold, redefine your search.
+
+If you need a full export of your users, use instead the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
 
 ## Search for users
 
@@ -112,11 +117,7 @@ For more information on `sort` and other parameters, see the [Management API Exp
 
 ## Page results
 
-::: note
-Auth0 limits the number of users you can retrieve (1000). If you exceed this threshold, please redefine your search, use the [export job](/api/management/v2#!/Jobs/post_users_exports) or [User Import / Export](/extensions/user-import-export) extension.
-:::
-
-To page the user search results, use the `page`, `per_page`, and `include_totals` parameters when making your request:
+To page the user search results, use the `page`, `per_page`, and `include_totals` parameters at your request.
 
 Parameter | Description
 ----------|------------
@@ -157,6 +158,8 @@ Parameter | Description
     ]
 }
 ```
+
+Note that Auth0 limits the total number of users you can retrieve to 1000 (see [Limitations](#limitations)). So this means, for example, 100 users per page for 10 pages.
 
 For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer documentation](/api/management/v2#!/users/get_users).
 
