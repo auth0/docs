@@ -21,11 +21,9 @@ You can only configure one email provider (Amazon SES, Sendgrid, and so on.) whi
 
 ## Whitelist IP addresses
 
-To make sure that emails can be sent from Auth0 to your SMTP, you must allow inbound connections from the following IP addresses:
+To make sure that emails can be sent from Auth0 to your SMTP, you must open the right ports and allow inbound connections from specific IP addresses.
 
-```text
-52.64.84.177,  52.64.111.197, 54.153.131.0, 13.210.52.131, 13.55.232.24, 13.54.254.182, 52.62.91.160, 52.63.36.78, 52.64.120.184, 54.66.205.24, 54.79.46.4
-```
+To get the list of IPs, go to [Dashboard > Emails > Provider](${manage_url}/#/emails/provider).
 
 ## Configure Amazon SES
 
