@@ -11,6 +11,7 @@ topics:
     - db-connections
     - passwordless
     - saml
+contentType: concept
 ---
 
 # Business to Consumer Identity Scenarios

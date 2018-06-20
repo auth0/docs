@@ -3,6 +3,7 @@ description: Explains how to install the Auth0 WordPress plugin.
 topics:
     - wordpress
     - cms
+contentType: how-to
 ---
 # Installation of the Login by Auth0 WordPress Plugin
 

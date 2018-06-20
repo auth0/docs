@@ -1,6 +1,7 @@
 ---
 title: Pass Parameters to Identity Providers
 description: How to pass parameters to an Identity Provider API
+contentType: how-to
 ---
 # Pass Parameters to Identity Providers
 

@@ -5,6 +5,9 @@ topics:
     - appliance
     - infrastructure
     - extensions
+contentType: 
+    - Reference
+    - Index
 ---
 # Enable Webtasks, Extensions, and User Search
 

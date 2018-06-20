@@ -13,6 +13,7 @@ topics:
     - saml
     - active-directory
     - social-connections
+contentType: concept
 ---
 
 # Business to Business + Enterprise Identity Scenarios

@@ -4,6 +4,7 @@ description: How to add a generic Oauth1 Authorization Server to Auth0.
 topics:
   - connections
   - oauth1
+contentType: how-to
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
 

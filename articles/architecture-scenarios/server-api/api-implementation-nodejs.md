@@ -8,6 +8,7 @@ topics:
     - authorization-code
     - client-credentials
     - nodejs
+contentType: tutorial
 ---
 # Server Client + API: Node.js Implementation for the API
 

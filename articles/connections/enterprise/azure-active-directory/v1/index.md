@@ -9,6 +9,9 @@ topics:
     - azure
     - active-directory
     - microsoft
+contentType: 
+    - index
+    - how-to
 ---
 
 # Connect your app to Azure Active Directory (Classic Portal)

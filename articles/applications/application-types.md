@@ -5,6 +5,7 @@ toc: true
 topics:
   - applications
   - application-types
+contentType: reference
 ---
 # Application Types
 

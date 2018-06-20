@@ -5,6 +5,7 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: how-to
 ---
 # GDPR: Data Portability
 

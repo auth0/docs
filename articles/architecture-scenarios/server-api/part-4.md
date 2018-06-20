@@ -7,6 +7,7 @@ topics:
     - api-auth
     - authorization-code
     - client-credentials
+contentType: tutorial
 ---
 
 # Server + API: Conclusion

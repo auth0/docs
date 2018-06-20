@@ -9,6 +9,7 @@ topics:
     - client-credentials
     - python
     - cron-job
+contentType: tutorial
 ---
 
 # Server Client + API: Python Implementation for the Cron Job

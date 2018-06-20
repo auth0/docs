@@ -4,6 +4,9 @@ url: /cms/wordpress
 topics:
     - wordpress
     - cms
+contentType: 
+    - index
+    - concept
 ---
 # Login by Auth0 WordPress Plugin
 

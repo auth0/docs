@@ -8,6 +8,7 @@ topics:
     - authorization-code
     - lockjs
     - aspnetcore
+contentType: tutorial
 ---
 
 # SSO for Regular Web Apps: ASP.NET Core implementation

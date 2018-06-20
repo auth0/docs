@@ -8,6 +8,7 @@ topics:
     - connections
     - enterprise
     - ldap
+contentType: how-to
 ---
 
 # Configure LDAP Authentication

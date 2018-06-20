@@ -4,6 +4,7 @@ toc: true
 topics:
     - wordpress
     - cms
+contentType: how-to
 ---
 
 # Extending the Login by Auth0 WordPress Plugin

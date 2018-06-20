@@ -7,7 +7,9 @@ topics:
   - apis
   - management-api
   - tokens
-contentType: concept
+contentType: 
+    - concept
+    - how-to
 ---
 # The Auth0 Management APIv2 Token
 

@@ -3,6 +3,7 @@ description: How to configure WordPress as an application with Auth0.
 topics:
     - wordpress
     - cms
+contentType: how-to
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin

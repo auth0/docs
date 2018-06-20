@@ -8,6 +8,7 @@ topics:
   - architecture
   - authorization-code
   - pkce
+contentType: tutorial
 ---
 
 # Mobile + API: Android Implementation for the Mobile App

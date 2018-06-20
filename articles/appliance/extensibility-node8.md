@@ -6,7 +6,9 @@ topics:
     - appliance
     - extensibility
     - migration
-contentType: concept
+contentType: 
+    - how-to
+    - concept
 toc: true
 ---
 # PSaaS Appliance Migration Guide: Extensibility and Node 8

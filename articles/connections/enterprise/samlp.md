@@ -11,6 +11,7 @@ topics:
     - enterprise
     - saml
 	- saml-p
+contentType: how-to
 ---
 
 # Create a SAMLP Identity Provider Connection

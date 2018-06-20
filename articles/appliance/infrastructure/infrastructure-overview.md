@@ -4,6 +4,7 @@ description: PSaaS Appliance infrastructure overview
 topics:
     - appliance
     - infrastructure
+contentType: concept
 ---
 # PSaaS Appliance Deployment Architecture
 

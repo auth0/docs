@@ -6,6 +6,10 @@ topics:
     - connections
     - database
     - db-connections
+contentType: 
+    - index
+    - concept
+    - how-to
 ---
 
 # Database Identity Providers

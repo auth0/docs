@@ -5,6 +5,9 @@ classes: topic-page
 topics:
     - compliance
     - gdpr
+contentType: 
+    - index
+    - concept
 ---
 
 <div class="topic-page-header">

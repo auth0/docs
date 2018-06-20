@@ -11,6 +11,7 @@ topics:
     - connections
     - enterprise
     - sharepoint
+contentType: how-to
 ---
 
 # Connect your app to SharePoint Apps

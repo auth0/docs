@@ -4,6 +4,7 @@ crews: crew-2
 topics:
   - applications
   - connections
+contentType: concept
 ---
 # Application Connections
 

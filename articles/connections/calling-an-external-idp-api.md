@@ -8,6 +8,7 @@ topics:
   - social
   - access-tokens
   - api
+contentType: how-to
 ---
 # Call an Identity Provider API
 

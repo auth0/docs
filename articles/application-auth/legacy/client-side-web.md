@@ -6,6 +6,9 @@ topics:
   - authentication
   - oauth2
   - implicit
+contentType: 
+    - concept
+    - how-to
 ---
 # Authentication for Client-side Web Apps
 

@@ -5,6 +5,9 @@ classes: topic-page
 topics:
     - compliance
     - gdpr
+contentType: 
+    - index
+    - reference
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

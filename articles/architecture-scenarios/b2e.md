@@ -12,6 +12,7 @@ topics:
     - active-directory
     - saml
     - sso
+contentType: concept
 ---
 
 # Business to Enterprise Identity Scenarios

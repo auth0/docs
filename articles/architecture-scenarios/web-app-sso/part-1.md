@@ -7,6 +7,7 @@ topics:
     - api-auth
     - authorization-code
     - lockjs
+contentType: tutorial
 ---
 
 # SSO for Regular Web Apps: Solution Overview

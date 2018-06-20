@@ -5,6 +5,7 @@ topics:
     - wordpress
     - joomla
     - cms
+contentType: concept
 ---
 
 # CMS Identity Plugins

@@ -5,6 +5,9 @@ description: This document covers why and how to enable instrumentation in the P
 topics:
     - appliance
     - instrumentation
+contentType: 
+    - index
+    - concept
 ---
 
 # Private SaaS (PSaaS) Appliance: Instrumentation

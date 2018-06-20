@@ -4,6 +4,9 @@ toc: true
 topics:
   - applications
   - machine-to-machine-apps
+contentType: 
+    - index
+    - how-to
 ---
 
 # Application Settings: Machine to Machine Application

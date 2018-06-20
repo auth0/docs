@@ -9,6 +9,7 @@ topics:
     - authorization-code
     - implicit-grant
     - angular2
+contentType: tutorial
 ---
 
 # SPA + API: Angular 2 Implementation for the SPA

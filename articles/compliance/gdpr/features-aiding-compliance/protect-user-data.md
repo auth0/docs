@@ -5,6 +5,7 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: concept
 ---
 # GDPR: Protect and secure user data
 

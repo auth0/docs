@@ -9,6 +9,7 @@ topics:
     - authorization-code
     - implicit-grant
     - nodejs
+contentType: tutorial
 ---
 # SPA + API: Node.js Implementation for the API
 

@@ -6,6 +6,7 @@ topics:
     - api-auth
     - authorization-code
     - pkce
+contentType: tutorial
 ---
 
 # Mobile + API: Conclusion

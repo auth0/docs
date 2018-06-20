@@ -5,6 +5,7 @@ description: Introduction to the various application authentication flows.
 topics:
   - authentication
   - oauth2
+contentType: index
 ---
 
 # Application Authentication

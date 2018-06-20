@@ -5,6 +5,9 @@ topics:
     - appliance
     - infrastructure
     - installation
+contentType: 
+    - concept
+    - how-to
 ---
 
 <!-- markdownlint-disable MD033 -->
