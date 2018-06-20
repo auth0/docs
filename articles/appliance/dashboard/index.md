@@ -6,6 +6,9 @@ url: /appliance/dashboard
 topics:
     - appliance
     - dashboard
+contentType: 
+    - reference
+    - concept
 ---
 
 # Private SaaS (PSaaS) Appliance Management Dashboard

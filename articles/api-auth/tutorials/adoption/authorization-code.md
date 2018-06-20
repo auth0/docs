@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - authorization-code
-contentType: discussion
+contentType: concept
 ---
 
 # Authorization Code grant

@@ -5,6 +5,7 @@ topics:
     - appliance
     - infrastructure
     - dns
+contentType: reference
 ---
 
 <!-- markdownlint-disable MD033 -->

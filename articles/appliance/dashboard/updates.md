@@ -5,6 +5,7 @@ topics:
     - appliance
     - dashboard
     - updates
+contentType: reference
 ---
 
 # PSaaS Appliance Dashboard: Updates

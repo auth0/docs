@@ -5,6 +5,7 @@ topics:
     - appliance
     - dashboard
     - cli
+contentType: concept
 ---
 
 # PSaaS Appliance Dashboard: CLI

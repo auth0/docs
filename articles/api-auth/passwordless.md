@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - passwordless
-contentType: discussion
+contentType: concept
 ---
 
 # OIDC Conformant Passwordless Authentication

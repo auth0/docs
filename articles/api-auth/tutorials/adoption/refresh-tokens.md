@@ -5,7 +5,7 @@ topics:
   - oidc
   - tokens
   - refresh tokens
-contentType: discussion
+contentType: concept
 ---
 
 # OIDC-conformant Refresh Tokens

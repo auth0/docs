@@ -4,7 +4,7 @@ topics:
   - api-authentication
   - oidc
   - delegation
-contentType: discussion
+contentType: concept
 ---
 
 # Delegation and the OIDC-conformant pipeline

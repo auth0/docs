@@ -8,7 +8,7 @@ topics:
   - api-authentication
   - oidc
   - apis
-contentType: discussion
+contentType: concept
 ---
 # APIs
 

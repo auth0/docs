@@ -5,7 +5,7 @@ topics:
   - implicit
   - api-authorization
   - resource-owner-password
-contentType: discussion
+contentType: concept
 ---
 # Call APIs from Highly Trusted Applications
 

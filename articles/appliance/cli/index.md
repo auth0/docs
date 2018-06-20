@@ -6,6 +6,7 @@ topics:
     - appliance
     - cli
     - backups
+contentType: how-to
 ---
 
 # Private SaaS (PSaaS) Appliance Command Line Interface
