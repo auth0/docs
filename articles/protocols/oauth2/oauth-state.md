@@ -6,6 +6,7 @@ topics:
     - oauth
     - state-parameter
 	  - csrf
+contentType: how-to
 ---
 
 # State Parameter
@@ -20,7 +21,7 @@ A CSRF attack, also known as a one-click attack or session-riding, can occur whe
 Depending on the application type or framework, this may be included for the developer. Also the exact structure of the requests may differ.
 :::
 
-## How to use the `state` parameter
+## How to use the state parameter
 
 Deny malicious requests by setting the `state` parameter to hold a value for verification.
 
@@ -34,7 +35,7 @@ For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.o
 xyzABC123
 ```
 
-2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-localstorage-sessionstorage-).
+2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-local-storage-sessionstorage-).
 
 ```text
 auth0-authorize = xyzABC123
@@ -66,7 +67,7 @@ if(decodedString == auth0-authorize) {
 }
 ```
 
-### How to get the `state` parameter value in a rule
+### How to get the state parameter value in a rule
 
 Accessing the `state` parameter value within a rule depends on the type of connection used; either in the body of the request or in the query string. You can obtain it using the following:
 
