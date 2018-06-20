@@ -4,7 +4,7 @@ toc: true
 ---
 # Regular Web Applications
 
-You need to define a Regular Web Application if you want to integrate Auth0 in traditional web applications that run on a server, like ASP .NET, Java, Ruby on Rails, or Node.js
+You'll need to define a Regular Web Application if you want to integrate Auth0 with traditional web applications (using technologies like ASP.NET, Java, Ruby on Rails, or Node.js) running on a server.
 
 <%= include('./_configure', { application_type: 'Regular Web', application_type_create: 'Regular Web Applications' }) %>
 

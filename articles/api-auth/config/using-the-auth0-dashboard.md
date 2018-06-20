@@ -9,15 +9,15 @@ contentType: how-to
 
 # Set up a Client Grant using the Dashboard
 
-Auth0 lets you authorize applications that have the 'Client Credential' grant type enabled to call APIs using the OAuth Client Credentials Grant. 
+Auth0 lets you authorize applications that have the **Client Credential** grant type enabled to call APIs using the OAuth Client Credentials Grant. 
 
-By default, all Machine to Machine Applications and Regular Web Applications have it the 'Client Credentials' grant enabled, but they are not authorized to call any API.
+By default, the **Client Credentials** grant is enabled for all Machine to Machine Applications and Regular Web Applications, but they are _not yet_ authorized to call any API.
 
-To authorize the applications to call an API you need to:
+To authorize the applications to call an API:
 
 1. Open the Auth0 Management Dashboard and browse to the [API section](${manage_url}/#/apis).
 
-2. Select the API you want to invoke using the Client Credentials Grant.
+2. Select the API you want to invoke using the **Client Credentials** Grant.
 
 3. Under the **Authorized Application** tab, look for the application you want to authorize, click the Authorize button, and optionally select the list of scopes that will be granted in the Access Token. This will create a 'client grant' in Auth0, which will allow the application to call the API.
 

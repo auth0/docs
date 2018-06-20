@@ -4,7 +4,7 @@ toc: true
 ---
 # Native Applications
 
-You need to define a Native application if you want to integrate Auth0 in mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic, iOS, Windows, OS/X.
+You'll need to create a Native Application if you want to integrate Auth0 with mobile, desktop, or hybrid apps that run natively on devices using Android, iOS, Windows, macOS, and so on.
 
 <%= include('./_configure', { application_type: 'Native', application_type_create: 'Native' }) %>
 

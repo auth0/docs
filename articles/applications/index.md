@@ -33,9 +33,7 @@ Follow the links above to get more information on how to configure each one.
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
 :::
 
-::: note
 Auth0 also differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
-:::
 
 ## How to Delete an Application
 
