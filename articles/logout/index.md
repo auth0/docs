@@ -1,5 +1,5 @@
 ---
-description: How to log out a user and optionally redirect them to an authorized URL.
+description: How to log out a user and optionally redirect them to an authorized URL
 toc: true
 topics:
   - logout
@@ -17,7 +17,7 @@ When you're implementing the logout functionality for your app, there are typica
 
 This document explains how to log out a user from the Auth0 session and (optionally) from the Identity Provider session. Remember that you should handle the Application Session in your app!
 
-## Log Out a User
+## Log out a user
 
 The [logout endpoint](/api/authentication?javascript#logout) in Auth0 works in one of two ways:
 
@@ -48,7 +48,6 @@ The following identity providers support federated logout:
 * Google
   * Apps
   * OAuth 2.0
-* LinkedIn
 * Microsoft
   * Active Directory Federation Services
   * Office 365
@@ -64,7 +63,7 @@ The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out 
 :::
 
 
-## Redirect Users After Logout
+## Redirect users after logout
 
 To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value. We suggest that you encode the target URL being passed in -- for example, to redirect the user to `http://www.example.com` after logout, you can make the following request:
 
@@ -90,7 +89,7 @@ You will need to add the non-encoded `returnTo` URL (for these examples, it is `
 
   you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the Application Level](#set-the-allowed-logout-urls-at-the-application-level) for more information.
 
-### Set the Allowed Logout URLs at the Tenant Level
+### Set the Allowed Logout URLs at the tenant level
 
 To add a list of URLs that the user may be redirected to after logging out at the tenant level, go to the [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) of the Auth0 Dashboard.
 
@@ -101,7 +100,7 @@ When providing the URL list, you can:
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
-### Set the Allowed Logout URLs at the Application Level
+### Set the Allowed Logout URLs at the application level
 
 To redirect the user after they log out from a specific application, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 application that is associated with the `CLIENT_ID` parameter.
 
@@ -128,7 +127,7 @@ In order to avoid validation errors, make sure that you include the protocol par
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the [Dashboard](${manage_url}) for the logout to function properly.
 :::
 
-#### Facebook Users
+#### Facebook users
 
 If you are using Facebook, please be aware of the additional requirements when triggering a logout.
 
@@ -140,7 +139,7 @@ https://${account.namespace}/v2/logout?federated&
       &access_token=[facebook access_token]
 ```
 
-### Supported Providers
+### Supported providers
 
 Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#logout) with the following providers:
 
