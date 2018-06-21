@@ -26,6 +26,7 @@ Operating the PSaaS Appliance in an internet-restricted environment results in t
 * Analytics (including usage statistics)
 * Authentication API Explorer
 * [Extensions](/extensions)
+* [Hooks](/hooks)
 * Lock
 * Management API Explorer
 * Management Dashboard
