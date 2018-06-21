@@ -71,6 +71,8 @@ Please indicate:
 
 The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
 
+This change will affect **all** tenants on the PSaaS Appliance.
+
 Please ensure that the VMs have internet access when enabling Node.js v8 for the first time.
 
 1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://CustomerManageDomain/configuration#/sandbox**).
