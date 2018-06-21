@@ -13,13 +13,16 @@ The Auth0 Management API Webhooks Extension allows you to use your own custom we
 
 To complete installation of this extension, click on the Auth0 Management API Webhooks box in the list of provided extensions on the Extensions page of the Management Portal. In the "Install Extension" window that then pops open, you will be asked to provide the following configuration variables:
 
-- __Schedule__: The frequency with which the webhook runs;
-- __Auth0_Domain__: The domain of your Auth0 app;
-- __Auth0_Global_Client_ID__: The Auth0 Global Client ID;
-- __Auth0_Global_Client_Secret__: The Auth0 Global Client Secret;
-- __Auth0_API_Endpoints__: The specific Auth0 Management API endpoints you want to monitor/call;
-- __Webhook URL__: The URL of your webhook;
+- __Schedule__: The frequency with which the job runs
+- __Batch_Size__: The amount of logs to be read and sent on each execution, extension will send multiple batches per run.
+- __Auth0_API_Endpoints__: The specific Auth0 Management API endpoints you want to monitor/call
+- __Webhook_URL__: The URL of your webhook
+- __Authorization__: String to be added as `Authorization` header.
+- __Send_as_Batch__: If enabled, extension will send whole batch of logs in one request. Otherwise, extension will be sending logs one-by-one.
 - __Webhook_Concurrent_Calls__: The maximum number of concurrent calls that will be made to your webhook.
+- __Start_From__: Log ID to start from.
+- __Slack_Incoming_Webhook_URL__: Extension can report statistics and possible failures to the Slack.
+- __Slack_Send_Success__: If enabled, extension will be sending messages on each run. Otherwise - only on fails.
 
 Once you have provided the required pieces of information, click "Install" to finish installing the extension.
 
