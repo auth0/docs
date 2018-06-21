@@ -26,7 +26,7 @@ If you are following along with the downloadable sample projects for this tutori
 http://localhost:3000/callback
 ```
 
-<%= include('../_includes/_install_auth0js') %>
+<%= include('../_includes/_install_auth0js_npm_only') %>
 
 <%= include('_includes/_centralized_login') %>
 
