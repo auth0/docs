@@ -71,7 +71,7 @@ The following rate limits apply:
 
 - For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
