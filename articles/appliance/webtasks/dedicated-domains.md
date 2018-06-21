@@ -89,7 +89,7 @@ No. Because the tenant name is used in the first part of the domains for the Aut
 
 **Do I have to enable Webtask Dedicated Domains?**
 
-Yes, if you are planning to use extensions. If you are not planning on using extensions, you do not have to enable dedicated domains.
+Yes, if you are planning on using Extensions, you must implement Webtask dedicated domains.
 
 **Can the Webtask tenant names differ from the one used by the Auth0 tenant?**
 
