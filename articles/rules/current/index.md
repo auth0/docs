@@ -352,9 +352,9 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 ## Available modules
 
-For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
+For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox based on [Extend](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=docs-rules). 
 
-For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire) and [Additional Modules Available in Rules](/appliance/modules).
+Within the sandbox, you can access the full power of Node.js with a large number of Node.js modules. For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire) and [Additional Modules Available in Rules](/appliance/modules).
 
 ## Keep reading
 
