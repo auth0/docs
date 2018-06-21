@@ -2,7 +2,34 @@
 
 ## Create an Authentication Service
 
-Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
+As a first step, create an `auth` sub-directory within your `src` directory. If you created your project using the Angular CLI, a good location for the `auth` sub-directory is `src/app`. 
+
+Next, inside the `auth` sub-directory, create a file named `auth0-variables.ts` that will store the Auth0 application keys and callbackURL constants that are going to be used to communicate with Auth0 through an Angular service.
+
+```ts
+// src/app/auth/auth0-variables.ts
+
+interface AuthConfig {
+  clientID: string;
+  domain: string;
+  callbackURL: string;
+}
+
+export const AUTH_CONFIG: AuthConfig = {
+  clientID: <YOUR CLIENT ID>,
+  domain: <YOUR DOMAIN>,
+  callbackURL: <YOUR CALLBACK URL>
+};
+```
+
+When testing locally using `localhost:<PORT NUMBER>`, ensure that the `callbackURL` includes the correct port number that you configured with your callback URLs in your Auth0 application settings. 
+
+::: note
+If you are using the downloadable sample, `auth0-variables.ts` was created and populated for you.
+:::
+
+
+Now, create a service to manage and coordinate user authentication. You can give the service any name. In the example below, we create `AuthService` within an `auth.service.ts` file that is placed within the `auth` sub-directory.
 
 In the service add an instance of the `auth0.WebAuth` object. When creating that instance, you can specify the following:
 <%= include('../../_includes/_auth_service_configure_client_details') %>
@@ -17,8 +44,8 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 // src/app/auth/auth.service.ts
 
 import { Injectable } from '@angular/core';
+import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
 (window as any).global = window;
@@ -27,11 +54,11 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: '${account.clientId}',
-    domain: '${account.namespace}',
+    clientID: AUTH_CONFIG.clientID,
+    domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
-    audience: 'https://${account.namespace}/userinfo',
-    redirectUri: 'http://localhost:3000/callback',
+    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
+    redirectUri: AUTH_CONFIG.callbackURL,
     scope: 'openid'
   });
 
@@ -40,15 +67,59 @@ export class AuthService {
   public login(): void {
     this.auth0.authorize();
   }
-
 }
 ```
 
-::: note
- **Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page. For example, you can trigger the method from a button click or a lifecycle event.
- :::
+Register `AuthService` as a provider with the appropriate module. Since, `AuthService` uses `Router` from `@angular/router`, be sure that the module imports and initializes `RouterModule`, like so:
+
+```ts
+// src/app/app.module.ts
+
+// .. 
+
+import {AuthService} from './auth/auth.service';
+import {RouterModule} from '@angular/router';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule, RouterModule.forRoot(<YOUR ROUTES>)
+  ],
+  providers: [AuthService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
  
- ![hosted login](/media/articles/web/hosted-login.png)
+ To test the `login` method, inject `AuthService` into the constructor of one of your components. Then, call `login` from somewhere within the component, such as a button or a lifecycle hook, to trigger the call to the Auth0 hosted login page. For example: 
+
+```ts
+// src/app/app.component.ts
+
+// ...
+
+import {AuthService} from './auth/auth.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  constructor(private auth: AuthService) {}
+}
+```
+
+```html
+<!-- src/app/app.component.html -->
+ <button (click)="auth.login()">Login</button>
+```
+ 
+![hosted login](/media/articles/web/hosted-login.png)
+ 
+With the above configuration, we are going to get an error message after we log in because we have not defined a Callback Component yet. Before we do so, let's add a few more methods to `AuthService` for completeness and create a login control through a form to exemplify how the different `AuthService` methods are used.
  
 ### Finish the Service
 
@@ -64,25 +135,27 @@ The example below shows the following methods:
 // src/app/auth/auth.service.ts
 
 // ...
+
 @Injectable()
 export class AuthService {
 
   // ...
+
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate([<ROUTE TO NAVIGATE ON AUTHENTICATION SUCCESS>]);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate([<ROUTE TO NAVIGATE ON AUTHENTICATION ERROR>]);
         console.log(err);
+        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
-  }
+   }
 
   private setSession(authResult): void {
-    // Set the time that the Access Token will expire at
+    // Set the time that the access token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
@@ -100,51 +173,50 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // Access Token's expiry time
+    // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
   }
 
 }
+
 ```
 
 ## Provide a Login Control
 
-Provide a template with controls for the user to log in and out.
+Provide a template with controls for the user to log in and out. For example: 
 
 ```html
 <!-- src/app/app.component.html -->
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <div class="navbar-header">
       <a class="navbar-brand" href="#">Auth0 - Angular</a>
+      <form class="form-inline">
+        <button class="btn btn-primary my-2 my-sm-0 mr-2"
+          routerLink="/" type="button">
+            Home
+        </button>
 
-      <button
-        class="btn btn-primary btn-margin"
-        routerLink="/">
-          Home
-      </button>
+        <button id="qsLoginBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="!auth.isAuthenticated()"
+          (click)="auth.login()" type="button">
+            Log In
+        </button>
 
-      <button
-        class="btn btn-primary btn-margin"
-        *ngIf="!auth.isAuthenticated()"
-        (click)="auth.login()">
-          Log In
-      </button>
+        <button id="qsLogoutBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="auth.isAuthenticated()"
+          (click)="auth.logout()" type="button">
+            Log Out
+        </button>
 
-      <button
-        class="btn btn-primary btn-margin"
-        *ngIf="auth.isAuthenticated()"
-        (click)="auth.logout()">
-          Log Out
-      </button>
-
-    </div>
+      </form>
   </div>
 </nav>
 
-<main class="container">
+<main role="main" class="container">
   <router-outlet></router-outlet>
 </main>
 ```
@@ -167,21 +239,81 @@ This example assumes you are using the default Angular path-based routing. If yo
 
 <%= include('../../_includes/_callback_component') %>
 
-Create a component named `CallbackComponent` and add a loading indicator.
+Create a component named `CallbackComponent` and add a loading indicator. You can create this component in a `callback` sub-directory within `src/app`, like so:
 
-::: note
-To display a loading indicator, you need a loading spinner or another indicator in the `assets` directory. See the downloadable sample for demonstration. 
-:::
+```ts
+// src/app/callback/callback.component.ts
 
-```html
-<!-- app/callback/callback.html -->
+import { Component, OnInit } from '@angular/core';
 
-<div class="loading">
-  <img src="assets/loading.svg" alt="loading">
-</div>
+@Component({
+  selector: 'app-callback',
+  template: `
+    <div class="loading">
+      <img src="assets/loading.svg" alt="loading">
+    </div>
+  `
+})
+export class CallbackComponent {}
 ```
 
-After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
+::: note
+To display a loading indicator, you need a loading spinner or another indicator in the `assets` directory. See the downloadable sample for demonstration. You can use our sample `loading.svg` by [downloading the image here](https://github.com/auth0-samples/auth0-angular-samples/blob/master/01-Login/src/assets/loading.svg).
+:::
+
+Add `CallbackComponent` to the proper module and configure a route for it within your router. For example:
+
+```ts
+// src/app/app.module.ts
+
+// ...
+
+import {CallbackComponent} from './callback/callback.component';
+
+@NgModule({
+  declarations: [
+    AppComponent, CallbackComponent
+  ],
+  imports: [
+    BrowserModule, RouterModule.forRoot([
+      {
+        path: '', redirectTo: '', pathMatch: 'full'
+      },
+      {
+        path: 'callback', component: CallbackComponent
+      }
+    ])
+  ],
+  providers: [AuthService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+ 
+After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the the route that you defined in the `handleAuthentication` method of `AuthService`:
+
+```ts
+// src/app/auth/auth.service.ts
+
+// ...
+
+  public handleAuthentication(): void {
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult);
+        this.router.navigate([<ROUTE TO NAVIGATE ON AUTHENTICATION SUCCESS>]);
+      } else if (err) {
+         this.router.navigate([<ROUTE TO NAVIGATE ON AUTHENTICATION ERROR>]);
+        console.log(err);
+        alert(`Error: ${err.error}. Check the console for further details.`);
+      }
+    });
+  }
+  
+// ...
+```
+
+After a successful login, the loading operation won't change because we are not yet handling authentication through our component. Let's do that next.
 
 ## Process the Authentication Result
 
