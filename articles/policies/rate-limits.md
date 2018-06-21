@@ -15,6 +15,10 @@ To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate li
 If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
 :::
 
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
+:::
+
 ## Limits
 
 Depending on the API endpoint, the request limit and the rate limit window in which the request limit resets, varies.
@@ -189,10 +193,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 ### Authentication API
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
-
-::: warning
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
 
 <table class="table">
   <thead>
