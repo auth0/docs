@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - salesforce
+contentType: how-to
 ---
 
 # Connect your app to Salesforce

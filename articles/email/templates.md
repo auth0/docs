@@ -2,6 +2,7 @@
 description: The Emails section of the Auth0 dashboard allows you to customize your emails with Liquid templating syntax.
 topics:
   - email
+contentType: how-to
 ---
 
 # Customizing Your Emails

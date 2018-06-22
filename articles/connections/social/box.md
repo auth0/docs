@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - box
+contentType: how-to
 ---
 
 # Connect your app to Box

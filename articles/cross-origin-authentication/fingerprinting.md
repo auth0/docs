@@ -4,6 +4,7 @@ description: An explanation of the technique used to mitigate CSRF attacks for c
 topics:
     - cors
     - fingerprinting
+contentType: how-to
 ---
 # Fingerprinting of Username + Password Login Requests
 

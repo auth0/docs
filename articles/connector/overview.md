@@ -3,6 +3,7 @@ title: AD/LDAP Connector Overview
 description: An overview of what the AD/LDAP Connector is and why it's necessary.
 topics:
   - connector
+contentType: concept
 ---
 
 # AD/LDAP Connector Overview

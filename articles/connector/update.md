@@ -3,6 +3,7 @@ description: Explains the different ways to update the AD/LDAP Connector.
 topics:
   - connector
   - ad/ldap
+contentType: how-to
 ---
 
 # Updating the AD/LDAP Connector

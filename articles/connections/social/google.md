@@ -14,6 +14,7 @@ topics:
   - connections
   - social
   - google
+contentType: how-to
 ---
 # Connect your App to Google
 

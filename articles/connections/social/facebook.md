@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - facebook
+contentType: how-to
 ---
 # Connect your app to Facebook
 

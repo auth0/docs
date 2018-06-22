@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - dwolla
+contentType: how-to
 ---
 
 # Connect your app to Dwolla

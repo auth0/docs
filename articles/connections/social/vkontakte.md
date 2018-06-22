@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - vkontakte
+contentType: how-to
 ---
 
 # Connect your app to vKontakte

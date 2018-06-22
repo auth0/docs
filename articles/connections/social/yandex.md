@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - yandex
+contentType: how-to
 ---
 
 # Connect your app to Yandex

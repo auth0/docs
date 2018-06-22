@@ -4,6 +4,7 @@ topics:
   - connector
   - ad/ldap
   - scom
+contentType: how-to
 ---
 
 # Monitoring the AD/LDAP Connector with System Center Operations Manager

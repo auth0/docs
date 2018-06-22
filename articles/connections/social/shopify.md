@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - shopify
+contentType: how-to
 ---
 
 # Connect your app to Shopify

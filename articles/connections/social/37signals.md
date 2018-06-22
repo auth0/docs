@@ -12,6 +12,7 @@ topics:
   - connections
   - social
   - 37signals
+contentType: how-to
 ---
 
 # Connect your app to 37Signals

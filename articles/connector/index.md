@@ -5,6 +5,10 @@ title: Active Directory/LDAP Connector
 description: Explains what the connector is and links to resources to learn more about it.
 topics:
   - connector
+contentType: 
+    - index
+    - concept
+    - how-to
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">

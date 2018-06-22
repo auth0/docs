@@ -3,6 +3,7 @@ title: Passwordless FAQ
 topics:
     - connections
     - passwordless
+contentType: reference
 ---
 # Passwordless FAQ
 

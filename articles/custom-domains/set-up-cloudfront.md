@@ -6,6 +6,7 @@ topics:
   - custom-domains
   - aws
   - cloudfront
+contentType: how-to
 ---
 # Configure AWS CloudFront for Use as Reverse Proxy
 In this article, we will show you how to configure AWS CloudFront for use as the reverse proxy with custom domain names for your Auth0 tenant.

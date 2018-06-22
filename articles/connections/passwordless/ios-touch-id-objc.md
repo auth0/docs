@@ -11,6 +11,7 @@ topics:
     - touchid
     - ios
     - objective-c
+contentType: how-to
 ---
 # Using Passwordless on iOS with TouchID
 

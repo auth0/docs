@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - oauth2
+contentType: how-to
 ---
 # Add a generic OAuth2 Authorization Server to Auth0
 

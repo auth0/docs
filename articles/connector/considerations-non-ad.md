@@ -3,6 +3,7 @@ description: How to configure the Connector for OpenLDAP and other directories t
 topics:
   - connector
   - openldap
+contentType: how-to
 ---
 
 # Considerations for OpenLDAP and non-AD directories

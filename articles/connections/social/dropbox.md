@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - dropbox
+contentType: how-to
 ---
 
 # Connect your app to Dropbox

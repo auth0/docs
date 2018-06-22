@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - linkedin
+contentType: how-to
 ---
 
 # Connect Your App to LinkedIn

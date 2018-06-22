@@ -4,6 +4,7 @@ topics:
     - connections
     - passwordless
     - ios
+contentType: how-to
 ---
 # Using Passwordless on iOS
 

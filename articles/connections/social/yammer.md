@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - yammer
+contentType: how-to
 ---
 
 # Connect your app to Yammer

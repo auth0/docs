@@ -4,6 +4,7 @@ topics:
   - connector
   - ad/ldap
   - client-certificates
+contentType: how-to
 ---
 
 # Client Certificate Support

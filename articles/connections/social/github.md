@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - github
+contentType: how-to
 ---
 # Connect your app to GitHub
 

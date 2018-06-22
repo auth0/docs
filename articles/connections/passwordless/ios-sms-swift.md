@@ -11,6 +11,7 @@ topics:
     - sms
     - ios
     - swift
+contentType: how-to
 ---
 # Using Passwordless on iOS with SMS
 

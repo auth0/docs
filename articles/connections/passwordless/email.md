@@ -8,6 +8,7 @@ topics:
     - connections
     - passwordless
     - email
+contentType: how-to
 ---
 
 # Authenticate users with using Passwordless Authentication via Email

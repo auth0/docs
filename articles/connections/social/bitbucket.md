@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - bitbucket
+contentType: how-to
 ---
 # Connect your app to Bitbucket
 

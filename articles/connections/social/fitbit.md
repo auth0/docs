@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - fitbit
+contentType: how-to
 ---
 
 # Connect your app to Fitbit

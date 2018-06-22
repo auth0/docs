@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - planning-center
+contentType: how-to
 ---
 
 # Connect your app to Planning Center

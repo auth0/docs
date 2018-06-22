@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - wordpress
+contentType: how-to
 ---
 
 # Connect your App to WordPress

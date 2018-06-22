@@ -8,6 +8,7 @@ topics:
   - connections
   - social
   - goodreads
+contentType: how-to
 ---
 # Connect your app to Goodreads
 

@@ -17,6 +17,7 @@ topics:
     - touchid
     - ios
     - swift
+contentType: how-to
 ---
 # Using Passwordless on iOS with TouchID
 

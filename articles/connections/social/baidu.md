@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - baidu
+contentType: how-to
 ---
 
 # Connect your app to Baidu
