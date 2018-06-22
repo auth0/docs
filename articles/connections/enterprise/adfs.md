@@ -16,6 +16,7 @@ topics:
     - microsoft
     - ad-fs
 contentType: how-to
+toc: true
 ---
 # Connect your app to ADFS
 
