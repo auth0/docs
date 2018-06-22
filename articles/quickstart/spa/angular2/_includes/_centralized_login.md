@@ -104,8 +104,7 @@ import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   constructor(private auth: AuthService) {}
@@ -189,41 +188,33 @@ Provide a template with controls for the user to log in and out. For example:
 ```html
 <!-- src/app/app.component.html -->
 
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="#">Auth0 - Angular</a>
-      <form class="form-inline">
-        <button class="btn btn-primary my-2 my-sm-0 mr-2"
-          routerLink="/" type="button">
+<nav>
+  <div>
+      <a href="#">Auth0 - Angular</a>
+      <form>
+        <button routerLink="/" type="button">
             Home
         </button>
 
         <button id="qsLoginBtn"
-          class="btn btn-primary my-2 my-sm-0"
           *ngIf="!auth.isAuthenticated()"
           (click)="auth.login()" type="button">
             Log In
         </button>
 
         <button id="qsLogoutBtn"
-          class="btn btn-primary my-2 my-sm-0"
           *ngIf="auth.isAuthenticated()"
           (click)="auth.logout()" type="button">
             Log Out
         </button>
-
       </form>
   </div>
 </nav>
 
-<main role="main" class="container">
+<main>
   <router-outlet></router-outlet>
 </main>
 ```
-
-::: note
-This example uses Bootstrap styles. You can use any style library, or not use one at all.
-:::
 
 Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the login page. 
 
@@ -329,8 +320,7 @@ import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
 
