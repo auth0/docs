@@ -1,23 +1,15 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an AngularJS application with Auth0.
 budicon: 448
 topics:
   - quickstarts
   - spa
   - angular
   - tokens
+github:
+  path: 05-Token-Renewal
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'Angular 1.6'
-  ]
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal

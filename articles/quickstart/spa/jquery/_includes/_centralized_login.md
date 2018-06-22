@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'jQuery', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Add a new file and name it `app.js`. You can use the file to create and manage an instance of the `auth0.WebAuth` object and hold logic to hide and display DOM elements.
 
@@ -34,7 +34,7 @@ $('document').ready(function() {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish the Authentication Functions
+## Handle Authentication Tokens
 
 Add more functions to the `app.js` file to handle authentication in the app.
 
@@ -129,7 +129,7 @@ $('document').ready(function() {
 });
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 
@@ -177,7 +177,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` function in the `app.js` file processes the hash.
 

@@ -6,6 +6,8 @@ topics:
   - quickstarts
   - native
   - android
+github:
+  path: 00-Login
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your Android apps.

@@ -1,4 +1,4 @@
-## Add Authentication with Auth0
+## Configure ASP.NET Core to Use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
@@ -6,7 +6,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-## Configure OpenID Connect Middleware
+### Configure OpenID Connect Middleware
 
 To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
 Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method.
@@ -129,7 +129,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-## Obtain an Access Token for Calling an API
+### Obtain an Access Token for Calling an API
 
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
 

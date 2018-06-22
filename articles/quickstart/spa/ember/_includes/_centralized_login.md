@@ -1,6 +1,6 @@
-<%= include('../../_includes/_login_preamble', { library: 'Ember' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Ember' } )%>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `auth` and the filename will be `auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -42,7 +42,7 @@ export default Service.extend({
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Authentication Functions
+## Handle Authentication Tokens
 
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
@@ -127,7 +127,7 @@ The file now includes several other methods for handling authentication.
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and log out.
 
@@ -143,7 +143,7 @@ The `action` added to the **Log In** control makes the appropriate call to the `
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
 
@@ -180,7 +180,7 @@ export default Route.extend({
 });
 ```
 
-## Create a Protected Route
+### Create a Protected Route
 
 After a user authenticates and returns to your application, you may wish to send them to a protected route. The transition logic is demonstrated above in the `transitionTo` call after authentication. Add a new route called `protected` and check whether the user is authenticated before allowing them to see it.
 
@@ -220,7 +220,3 @@ Add a template for this route.
 ```
 
 Notice that there is also a `Log Out` control in this route which has an `action` of `logout`. This will call the `logout` method on the `auth` service allowing the user to log out.
-
-## Embedded Login
-
-Auth0's Universal Login provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).

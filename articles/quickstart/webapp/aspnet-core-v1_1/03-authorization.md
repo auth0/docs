@@ -7,19 +7,9 @@ topics:
   - webapp
   - aspnet-core
   - authorization
+github:
+  path: Quickstart/03-Authorization
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  branch: 'v1',
-  path: 'Quickstart/03-Authorization',
-  requirements: [
-    '.NET Core 1.1.0',
-    'ASP.NET Core 1.1.1',
-    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
-  ]
-}) %>
 
 ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's ID Token by adding role information and then use that information inside your application to limit a user's access.
 

@@ -1,3 +1,56 @@
+<%= include('../../_includes/_getting_started', { library: 'Objective-C') %>
+
+Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+
+```xml
+<!-- Auth0.plist -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>ClientId</key>
+  <string>${account.clientId}</string>
+  <key>Domain</key>
+  <string>${account.namespace}</string>
+</dict>
+</plist>
+```
+
+<%= include('../../../../_includes/_callback_url') %>
+
+In your application's `Info.plist` file, register your iOS Bundle identifier as a custom scheme:
+
+```xml
+<!-- Info.plist -->
+
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        </array>
+    </dict>
+</array>
+```
+
+::: note
+If your `Info.plist` file is not in the format shown above, you can right-click `Info.plist` in Xcode and select **Open As** > **Source Code**.
+:::
+
+Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Callback URLs** field contains the following callback URL:
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+
+# Start the Authentication
+
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note

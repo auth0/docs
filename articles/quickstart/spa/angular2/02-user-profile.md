@@ -1,23 +1,15 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0
+description: This tutorial demonstrates how to fetch a user's information from Auth0.
 budicon: 292
 topics:
   - quickstarts
   - spa
   - angular2
   - user-profile
+github:
+  path : 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '02-User-Profile',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope
@@ -33,7 +25,7 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-## Make a Call for the User's Information
+## Retrieve User Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
@@ -64,7 +56,7 @@ public getProfile(cb): void {
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
+## Display the User Profile
 
 Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
 

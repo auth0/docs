@@ -7,6 +7,8 @@ topics:
   - native
   - ios
   - swift
+github:
+  path: 01-Login
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your iOS Swift apps.
