@@ -49,7 +49,7 @@ Next, you'll configure the **Default Cache Behavior Settings**. Here are the val
 | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
 | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
 | Cache Based on Selected Request Headers | Select **Whitelist** |
-| Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header |
+| Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin` and `Referer` headers. |
 | Forward Cookies | Select **All** |
 | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
