@@ -8,7 +8,7 @@ http://localhost:3000/callback
 ```bash
 http://localhost:3000
 ```
-3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample directory:
+3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 ```bash
 npm install
 npm start
