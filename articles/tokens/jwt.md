@@ -3,15 +3,18 @@ url: /jwt
 title: JSON Web Tokens (JWT) in Auth0
 description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to fully understand JWTs.
 toc: true
+topics:
+  - tokens
+  - jwt
 ---
 
 # JSON Web Tokens (JWT) in Auth0
 
 ::: note
-For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
+For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
-<%= include('../videos/_video', { id: 'dxfz716cw9' }) %>
+<%= include('../_includes/_video', { id: 'dxfz716cw9' }) %>
 
 ## What is JSON Web Token?
 
@@ -19,7 +22,7 @@ JSON Web Token (JWT) is an open standard ([RFC 7519](https://tools.ietf.org/html
 
 Let's explain some concepts of this definition further.
 
-- **Compact**: Because of its smaller size, JWTs can be sent through an URL, POST parameter, or inside an HTTP header. Additionally, the smaller size means transmission is fast.
+- **Compact**: Because of its smaller size, JWTs can be sent through a URL, POST parameter, or inside an HTTP header. Additionally, the smaller size means transmission is fast.
 
 - **Self-contained**: The payload contains all the required information about the user, avoiding the need to query the database more than once.
 
@@ -63,17 +66,28 @@ Then, this JSON is **Base64Url** encoded to form the first part of the JWT.
 ### Payload
 
 The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional metadata.
-There are three types of claims: *reserved*, *public*, and *private* claims.
 
-- **Reserved claims**: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: **iss** (issuer), **exp** (expiration time), **sub** (subject), **aud** (audience), and others.
+When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), there are some rules you should be aware of when it comes to naming (especially if you are using self-defined custom claims).
 
-::: note
-Notice that the claim names are only three characters long as JWT is meant to be compact.
-:::
+The JWT specification defines seven claims that can be included in a token. These are **registered claim names**, and they are:
 
-- **Public claims**: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
+* iss
+* sub
+* aud
+* exp
+* nbf
+* iat
+* jti
 
-- **Private claims**: These are the custom claims created to share information between parties that agree on using them.
+For your specific use case, you might then use what are called **public claim names**. Examples of these include:
+
+* auth_time
+* acr
+* nonce
+
+Finally, there are **private claim names**, which you can use to convey identity-related information, such as name or department.
+
+Because public and private claims are not registered, take care to avoid name collisions. If a collision does occur, it can be difficult to tease apart two claims of the same name, but with differing information.
 
 An example of payload could be:
 
@@ -116,6 +130,10 @@ If you want to play with JWT and put these concepts into practice, you can use [
 ## How do JSON Web Tokens work?
 
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned and must be saved locally (typically in local storage, but cookies can be also used), instead of the traditional approach of creating a session in the server and returning a cookie.
+
+::: warning
+You __must__ [verify a JWT's signature](/tokens/id-token#verify-the-signature) before storing and using it.
+:::
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the **Authorization** header using the **Bearer** schema. The content of the header should look like the following:
 
@@ -167,6 +185,8 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 
 ## Read More
 
+::: next-steps
 * [JWT Handbook](https://auth0.com/e-books/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
+:::

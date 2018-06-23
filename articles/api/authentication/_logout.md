@@ -1,7 +1,5 @@
 # Logout
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/v2/logout?
   client_id=${account.clientId}&
@@ -16,10 +14,10 @@ curl --request GET \
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  // Initialize client
+  // Initialize application
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
@@ -33,14 +31,15 @@ curl --request GET \
 ```
 
 <%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": "/v2/logout",
   "link": "#logout"
 }) %>
 
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter. The URL should be included in any the appropriate `Allowed Logout URLs` list:
-- If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the client level (see [Setting Allowed Logout URLs at the App Level](/logout#setting-allowed-logout-urls-at-the-app-level)).
-- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the account level (see [Setting Allowed Logout URLs at the Account Level](/logout#setting-allowed-logout-urls-at-the-account-level)).
+- If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the application level (see [Setting Allowed Logout URLs at the App Level](/logout#set-the-allowed-logout-urls-at-the-application-level)).
+- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the tenant level (see [Setting Allowed Logout URLs at the Tenant Level](/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
 
 
 ### Request Parameters
@@ -48,7 +47,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 | Parameter        | Description |
 |:-----------------|:------------|
 | `returnTo `      | URL to redirect the user after the logout. |
-| `client_id`      | The `client_id` of your client. |
+| `client_id`      | The `client_id` of your application. |
 | `federated`      | Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 
@@ -56,9 +55,9 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Logout URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Logout URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 1. At the *Other Flows* tab, click **Logout**, or **Logout (Federated)** to log the user out of the identity provider as well.
 

@@ -1,5 +1,8 @@
 ---
-  description: How to customize SAML assertions
+description: How to customize SAML assertions
+topics:
+  - saml
+  - saml-assertions
 ---
 
 # Customize SAML Assertions
@@ -10,9 +13,9 @@ You can customize your SAML assertions, as well as the SAML and WS-Fed protocol 
 
 To customize your SAML assertions when Auth0 acts as the identity provider, you can do so by configuring the addon itself or using [rules](/rules).
 
-### Use the Client Addon
+### Use the Application Addon
 
-To customize your SAML assertion using the client addon, navigate to [Clients > Settings > Addons](${manage_url}/#/clients/${account.clientId}/addons). Click on **SAML2 Web App** to launch the *Settings* tab that allows you to make several types of customizations including:
+To customize your SAML assertion using the application addon, navigate to [Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons). Click on **SAML2 Web App** to launch the *Settings* tab that allows you to make several types of customizations including:
 
 * Specifying an audience other than the default issuer of the SAML request;
 * Specifying a recipient;
@@ -24,7 +27,7 @@ To customize your SAML assertion using the client addon, navigate to [Clients > 
 
 You can use rules to add more extensive or dynamic customizations to the SAML response.
 
-Customizations done in Rules override customizations done using the Client Addons tab.
+Customizations done in Rules override customizations done using the Application Addons tab.
 
 #### Example: Changing the SAML Token Lifetime and Using UPN as NameID
 
@@ -77,7 +80,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **mapUnknownClaimsAsIs** (bool): if `passthroughClaimsWithNoMapping` is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix `http://schema.auth0.com`. If true it will passthrough the claim as-is. Default is false.
 
-* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, etc.) and the access_token if available. Default is true.
+* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the Access Token if available. Default is true.
 
 * **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
 
@@ -97,4 +100,4 @@ The following is a list of customization options for your SAML assertions.
 
 * **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
 
-* **includeAttributeNameFormat**: Default is true. When set to try, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to false, the attribute NameFormat is not set in the assertion
+* **includeAttributeNameFormat**: Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion

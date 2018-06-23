@@ -1,24 +1,35 @@
 ---
-description: Appliance infrastructure information about IP/Domain and Port Usage
+description: PSaaS Appliance infrastructure information about IP/Domain and Port Usage
 section: appliance
+topics:
+    - appliance
+    - infrastructure
+    - ip-addressses
+    - domains
+    - ports
+contentType: reference
 ---
 
+<!-- markdownlint-disable MD033 -->
 
-# Appliance Infrastructure: IP/Domain and Port List
+# PSaaS Appliance Infrastructure: IP/Domain and Port List
 
-The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
+The PSaaS Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
 ## Between Cluster Nodes
 
-When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Appliance instances in the same cluster:
+When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other PSaaS Appliance instances in the same cluster:
 
 <table class="table">
+  <thead>
   <tr>
     <th>Port</th>
     <th>Use</th>
     <th>Required?</th>
     <th>Notes</th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td>27017</td>
     <td>Database</td>
@@ -50,6 +61,18 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>Required for logging and debugging</td>
   </tr>
   <tr>
+    <td>9200, 9300-9400</td>
+    <td>Elastic Search</td>
+    <td>Yes</td>
+    <td>Required for Elastic Search</td>
+  </tr> 
+   <tr>
+    <td>3000</td>
+    <td>Grafana instrumentation</td>
+    <td>No</td>
+    <td>Required if you are using Grafana instrumentation</td>
+  </tr>  
+  <tr>
     <td>22</td>
     <td>Maintenance</td>
     <td>No</td>
@@ -61,13 +84,15 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>No</td>
     <td>Allows healthchecks between nodes</td>
   </tr>
+  </tbody>
 </table>
 
 ## External Connectivity
 
-Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Appliance instances to connect to these addresses.
+Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your PSaaS Appliance instances to connect to these addresses.
 
 <table class="table">
+  <thead>
   <tr>
     <th>Use</th>
     <th>Direction</th>
@@ -76,6 +101,8 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <th>Notes</th>
     <th>Required?</th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td>All</td>
     <td>Inbound</td>
@@ -95,9 +122,9 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
   <tr>
     <td>Command Line Interface</td>
     <td>Inbound <b>and</b> Outbound</td>
-    <td>CLI Clients (often on the internal network)</td>
+    <td>CLI Applications (often on the internal network)</td>
     <td>10121</td>
-    <td>Allows use of the Appliance Command Line Interface</td>
+    <td>Allows use of the PSaaS Appliance Command Line Interface</td>
     <td>No</td>
   </tr>
   <tr>
@@ -105,7 +132,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
     <td>80/443</td>
-    <td>Provides update packages for Appliance instances</td>
+    <td>Provides update packages for PSaaS Appliance instances</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -113,15 +140,15 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>docker.it.auth0.com (52.9.124.234)</td>
     <td>443</td>
-    <td>Provides updates for Appliance Docker Packages</td>
+    <td>Provides updates for PSaaS Appliance Docker Packages</td>
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Updates and web extensions</td>
+    <td>Web extensions, Hooks, and Management Dashboard</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions; Provides update packages for Appliance instances running versions `6868` or earlier</td>
+    <td>Required to run web extensions and Hooks; also required for admins to browse to the Management Dashboard</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -145,7 +172,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound</td>
     <td>Jump Host</td>
     <td>22</td>
-    <td>Allows access to Appliance instances for support purposes</td>
+    <td>Allows access to PSaaS Appliance instances for support purposes</td>
     <td>No</td>
   </tr>
   <tr>
@@ -156,6 +183,15 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Allows access to Healthcheck endpoints</td>
     <td>No</td>
   </tr>
+  <tr>
+    <td>DNS</td>
+    <td>Inbound <b>and</b> Outbound</td>
+    <td>Local domain servers</td>
+    <td>53</td>
+    <td>Required by the PSaaS Appliance to resolve host names internal and external to your environment</td>
+    <td>Yes</td>
+  </tr>
+  </tbody>
 </table>
 
 ## Notes

@@ -1,23 +1,20 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0
+description: This tutorial demonstrates how to fetch a user's information from Auth0.
 budicon: 292
+topics:
+  - quickstarts
+  - spa
+  - angular
+  - user-profile
+github:
+  path: 02-User-Profile
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
-  path: '02-User-Profile',
-  requirements: [
-    'AngularJS 1.6'
-  ]
-}) %>
-
 <%= include('../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope
 
-The user's `access_token` requires a `scope` of `openid profile` to successfully retrieve their information. In the `angularAuth0Provider` options, specify that you would like to ask for these scopes.
+To retrieve user information, request a scope of `openid profile` in the `angularAuth0Provider` options. 
 
 ```js
 // app/app.js
@@ -28,11 +25,11 @@ angularAuth0Provider.init({
 });
 ``` 
 
-## Make a Call for the User's Info
+## Retrieve User Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
-Add a method which calls `client.userInfo` to the `authService`.
+Add a method that calls the `client.userInfo` method to the `authService` service.
 
 ```js
 // app/auth/auth.service.js
@@ -42,7 +39,7 @@ var userProfile;
 function getProfile(cb) {
   var accessToken = localStorage.getItem('access_token');
   if (!accessToken) {
-    throw new Error('Access token must exist to fetch profile');
+    throw new Error('Access Token must exist to fetch profile');
   }
   angularAuth0.client.userInfo(accessToken, function(err, profile) {
     if (profile) {
@@ -63,9 +60,9 @@ function getCachedProfile() {
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
+## Display the User Profile
 
-The way your user's information gets displayed depends on the needs of your application, but a common implementation is to provide a dedicated profile area. The exact details are, of course, at your discretion.
+You can adjust how you show profile information to your users. Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
 
 Create a new controller and view to display the profile.
 
@@ -117,6 +114,6 @@ Create a new controller and view to display the profile.
 </div>
 ```
 
-When the component is initialized, it first looks for a profile held in memory on the service. If none is found, it calls the `getProfile` function to fetch the user's profile from Auth0.
+The component first looks for a profile cached on the service. If it doesn't find the profile, the component calls the `getProfile` function to get the user's profile from Auth0.
 
 <%= include('../_includes/_user_profile_additional_info') %>

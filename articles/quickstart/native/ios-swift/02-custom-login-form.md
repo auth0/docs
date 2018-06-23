@@ -2,19 +2,15 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 02-Custom-Login-Form
+  branch: embedded-login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ## Implement the Login
 
@@ -112,7 +108,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 
 ## Perform Social Authentication
 
-First, go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+First, go to your [Application Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
 ```shell
 {YOUR_APP_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
@@ -161,8 +157,9 @@ Finally, you can now perform webAuth authentication by specifying the social con
 ```swift
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
+    .scope("openid profile")
     .connection("facebook")
-    .scope("openid")
     .start { result in
         switch result {
         case .success(let credentials):
@@ -183,9 +180,10 @@ a comma separated list of provider permissions.
 ```swift
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
     .connection("facebook")
     .connectionScope("public_profile,email,user_friends,user_birthday")
-    .scope("openid")
+    .scope("openid profile")
     .start { result in
         switch result {
         case .success(let credentials):

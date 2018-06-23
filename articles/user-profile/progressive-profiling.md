@@ -1,10 +1,14 @@
 ---
-description: This page details how to implement progressive profiling with Auth0.
+description: This page details how Auth0 can help you implement progressive profiling in your website or application.
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - progressive-profiling
 ---
-
 # Progressive Profiling
 
-Rather than asking your users to fill out extensive registration forms, you can use **progressive profiling**, a technique to collect user information as users interact with your system.
+Rather than asking your users to fill out extensive registration forms, you can implement **progressive profiling**, a technique to collect user information as users interact with your system, on your website or application.
 
 For example, you might collect just the user's name, email, and password on initial signup. At a later point in time, you might ask for the name of their company and their title.
 
@@ -12,30 +16,32 @@ For example, you might collect just the user's name, email, and password on init
 Golden Rule: Never ask what you already know. If a user signs-up using a social network, you might already have demographic information on that user.
 :::
 
-## Implementing Progressive Profiling with Auth0
+## Progressive Profiling and Auth0
 
-You can very easily implement **progressive profiling** with Auth0. Every user that authenticates through Auth0 gets User Profile, and its contents can come from three different sources:
+One of the places you can get information for your progressive profile is Auth0. Every user that authenticates through Auth0 gets a User Profile, and the profile's contents can come from three different sources:
 
-* Properties supplied by the identity provider properties (e.g. any user property coming from LinkedIn, Facebook, or any [connection](/identityproviders));
-* Attributes that are dynamically created in [Auth0 Rules](/rules), e.g. calling APIs like [FullContact](https://www.fullcontact.com/) or [Clearbit](https://clearbit.com/);
-* Application-specific attributes that developers can collect on their apps. Auth0 calls this `metadata` for users.
+* Properties supplied by the identity provider properties (such as any user property coming from LinkedIn, Facebook, or any [connection](/identityproviders)).
+* Attributes that are dynamically created in [Auth0 Rules](/rules) or by calling APIs such as [FullContact](https://www.fullcontact.com/) and [Clearbit](https://clearbit.com/)
+* Application-specific attributes that developers can collect in their apps and save. In Auth0, this information is called **user metadata**.
 
-![](/media/articles/user-profile/progressive-profiling.png)
+![Progressive Profiling](/media/articles/user-profile/progressive-profiling.png)
 
 The first two sources are generally not directly relevant to **progressive profiling** (though they do supply information you won't need to ask the user for).
 
 ::: note
-Users logging in with social networks will typically _consent_ to disclose their information.
+Users logging in with social networks will typically **consent** to disclose their information.
 :::
 
 Using the Auth0 [Users API](/api/v2#!/Users/patch_users_by_id), you can augment the profile of any authenticated user with any information. Auth0 metadata objects can contain any serializable data structure.
 
+The choice of what to collect, when to collect it, and how to collect it, are up to you. Each application will implement progressive profiling differently. Your application might already do so, in fact.
+
 ::: note
-Auth0 provides two metadata attributes: `user_metadata` and `app_metadata`. You may update the contents of `user_metadata` with the user token obtained after authentication, but you will need a server-side APIv1 token to modify the contents of `app_metadata`.
+Auth0 provides two [metadata](/metadata) attributes: **user metadata** and **app metadata**. You can update the contents of your metadata fields with the [Management APIv2](/api/management/v2).
 :::
 
-This feature makes it very easy to control what information gets collected and when, and then through the [Users API](/api/v2#!/Users/patch_users_by_id), enriches the user profile with all that data:
+The use of progressive profiling within your application makes it very easy to control what information gets collected and when. As this happens, you can enrich the user profile with the data you've collected:
 
-![](/media/articles/user-profile/progressive-profiling-example.png)
+![Progressive profiling example](/media/articles/user-profile/progressive-profiling-example.png)
 
-In the example above, we collect `last_name` and `first_name` on signup. We then collect, on a later interaction, the user's `title` and `company`. Finally, in the context of an article that might interest the user, we add a `subscribed` property.
+In the example above, the application collects **last name** and **first name** on signup. It then collects the user's **title** and **company** at a later point. Finally, in the context of an article that might interest the user, the app adds information to the **subscribed** property.

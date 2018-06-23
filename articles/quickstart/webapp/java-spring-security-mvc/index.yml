@@ -1,33 +1,40 @@
 title: Java Spring Security
 image: /media/platforms/spring.png
 logo_name: java
-tags:
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
+topics:
   - quickstart
 alias:
   - spring
   - spring-security
 seo_alias: java spring
-snippets:
-  dependencies: server-platforms/java-spring-security/dependencies
-  dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
-  setup: server-platforms/java-spring-security/setup
-  use: server-platforms/java-spring-security/use
-  LoginAuthRequestsMethod: server-platforms/java-spring-security/LoginAuthRequestsMethod
-  LoginAuthRequestsSubclass: server-platforms/java-spring-security/LoginAuthRequestsSubclass
-  LoginJsp: server-platforms/java-spring-security/LoginJsp
-  LoginHomeController: server-platforms/java-spring-security/LoginHomeController
-  LoginHomeJsp: server-platforms/java-spring-security/LoginHomeJsp
-  customLoginJsp: server-platforms/java-spring-security/customLoginJsp
-  customLoginGetValues: server-platforms/java-spring-security/customLoginGetValues
-  customLoginEditController: server-platforms/java-spring-security/customLoginEditController
-  rulesSetRoles: server-platforms/java-spring-security/rulesSetRoles
-  rulesAdminService: server-platforms/java-spring-security/rulesAdminService
-  rulesHomeController: server-platforms/java-spring-security/rulesHomeController
-  rulesHomeJsp: server-platforms/java-spring-security/rulesHomeJsp
 default_article: dashboard-default
 articles:
-  - 00-intro
   - 01-login
-  - 02-custom-login
-  - 06-rules
-  - 09-mfa
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-spring-security-mvc-sample
+  branch: master
+requirements:
+  - Java 7 and up
+  - Gradle 3.3 and up
+  - Spring Boot 1.5.3 or above
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

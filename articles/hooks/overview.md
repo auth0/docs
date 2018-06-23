@@ -4,13 +4,15 @@ description: >-
   authentication flow. They allow you to customize and extend Auth0's
   capabilities, and you can chain them together for modular coding.
 beta: true
+topics:
+    - hooks
 ---
 
 # Hooks: Overview
 
 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 
-Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute your custom logic.
 
 You can manage your Hooks using:
 
@@ -21,6 +23,8 @@ You can manage your Hooks using:
 
 You can create Hooks for the following [extensibility points](/hooks/extensibility-points):
 
-- credentials-exchange
-- pre-user-registration
-- post-user-registration
+- [Credentials Exchange](/hooks/extensibility-points/credentials-exchange)
+- [Pre-User Registration](/hooks/extensibility-points/pre-user-registration)
+- [Post-User Registration](/hooks/extensibility-points/post-user-registration)
+
+<%= include('../_includes/_ip_whitelist') %>

@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Account Link Extension"
+    tags:
+      - extensions
+      - account-linking
+    description: |
+      A new doc call [Account Link](https://auth0.com/docs/extensions/account-link) was added to describe installing and using the new Account Link extension.

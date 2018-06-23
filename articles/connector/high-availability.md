@@ -1,5 +1,7 @@
 ---
-description: How to install multiple instances of the connectory for higher availability.
+description: How to install multiple instances of the connector for higher availability.
+topics:
+  - connector
 ---
 
 # High availability
@@ -34,7 +36,7 @@ Having a highly available deployment also allows updating the connector with zer
 
 ## Kerberos or certificate based authentication considerations
 
-If you enable [Kerberos](/connector/kerberos) or [client certificates](/connector/client-certificates) based authentication in your AD/LDAP connections, users will contact the connector directly, instead of going through the Auth0 server. In these scenarios where multiple connector instances exist, we recommend fronting them with a network load balancer. The `SERVER_URL` parameter can be used to publish the public location where the connector will be listening to incoming requests. 
+If you enable [Kerberos](/connector/kerberos) or [application certificates](/connector/application-certificates) based authentication in your AD/LDAP connections, users will contact the connector directly, instead of going through the Auth0 server. In these scenarios where multiple connector instances exist, we recommend fronting them with a network load balancer. The `SERVER_URL` parameter can be used to publish the public location where the connector will be listening to incoming requests. 
 
-This URL should be then mapped in the network load balancer to all internal instances of the deployed connectors. No special distribution policy is required (e.g. uniform round-robin, with no sticky sessions, should work).
+This URL should be then mapped in the network load balancer to all internal instances of the deployed connectors. No special distribution policy is required (for example, uniform round-robin, with no sticky sessions, should work).
 

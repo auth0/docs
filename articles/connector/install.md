@@ -1,5 +1,7 @@
 ---
 description: Directions on how to install the Connector with Windows.
+topics:
+  - connector
 ---
 
 # Installing the Connector on Windows

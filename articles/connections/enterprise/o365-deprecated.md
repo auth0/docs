@@ -6,6 +6,12 @@ alias:
   - office365
 seo_alias: o365-deprecated
 description: How to obtain a ClientId and Client Secret for an Office 365 connection.
+toc: true
+topics:
+    - connections
+    - enterprise
+    - microsoft
+    - o365
 ---
 # Connect your app to Microsoft Office 365
 
@@ -15,8 +21,6 @@ See [here](/office365-deprecated) for more details.
 :::
 
 To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Log into the Seller Dashboard
 Log into the [Seller Dashboard](https://sellerdashboard.microsoft.com), then select **client ids**.

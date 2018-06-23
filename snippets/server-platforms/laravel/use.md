@@ -9,7 +9,7 @@
             callbackURL: '{{ $auth0Config['redirect_uri'] }}'
             , responseType: 'code'
             , authParams: {
-                scope: 'openid name email' //Details: https:///scopes
+                scope: 'openid profile email' //Details: https:///scopes
             });
     }
 </script>

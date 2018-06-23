@@ -1,1 +1,1 @@
-Add a method called `userHasScopes` which will check for a particular `scope` in local storage. This method should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. This method can be used to conditionally hide and show various UI elements and to limit route access.
+Add a method called `userHasScopes` that checks for scopes in local storage. You can use this method to conditionally hide and show UI elements to the user and to limit route access.

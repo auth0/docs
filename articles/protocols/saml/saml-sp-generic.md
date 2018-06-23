@@ -1,11 +1,13 @@
 ---
 description: How to configure Auth0 to serve as a Service Provider in a SAML federation.
+toc: true
+topics:
+  - saml
 ---
 
 # Auth0 as Service Provider
 
 These instructions explain how to configure Auth0 to serve as a Service Provider in a SAML federation.
-
 
 There are **5 sections**, including a troubleshooting section at the end.
 
@@ -15,22 +17,17 @@ There are **5 sections**, including a troubleshooting section at the end.
 4. Test the connection from Service Provider to Identity Provider
 5. Troubleshooting
 
-
 ## 1. Obtain information from IDP
 
 You will need to obtain some information from the Identity Provider.  The instructions here will be generic.  You will have to locate this information in your specific Identity Provider.
 
-* SSO URL - The URL at the Identity Provider to which SAML authentication requests should be sent.  This is often called an SSO URL.
-
-* Logout URL - The URL at the Identity Provider to which SAML logout requests should be sent.  This is often called a logout URL, a global logout URL or single logout URL.
-
-* Signing certificate - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions.  There should be a place to download the signing certificate from the Identity Provider.   If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
-
+* **SSO URL** - The URL at the Identity Provider to which SAML authentication requests should be sent. This is often called an SSO URL.
+* **Logout URL** - The URL at the Identity Provider to which SAML logout requests should be sent.  This is often called a logout URL, a global logout URL or single logout URL.
+* **Signing certificate** - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions. There should be a place to download the signing certificate from the Identity Provider. If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
 
 ## 2. Configure Auth0 as Service Provider
 
 In this section you will configure Auth0 to serve as a SAML Service Provider.
-
 
 **In the Auth0 dashboard:**
 
@@ -39,29 +36,26 @@ In this section you will configure Auth0 to serve as a SAML Service Provider.
 3. In the middle of the screen, click on **"SAMLP Identity Provider"**
 4. Click on the blue **"Create New Connection"** button
 
+In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the **Configuration** tab.
 
-In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the "Configuration" tab.
-
-**Connection Name:** You can enter any name, such as "SAML-SP"
-
-**Email Domains:** Enter the email domain name for the users that will log in via this connection.
+- **Connection Name:** You can enter any name, such as `SAML-SP`.
+- **Email Domains:** Enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  If you leave this field blank, users with any email domain can use the IDP.
-
-**Sign In URL:** enter the **"SAML SSO URL"** that you obtained from the Identity Provider.
-
-**Sign Out URL:** enter the **SAML Logout URL** obtained from the Identity Provider.
-
-**Certificate:**  
-Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you obtained from the Identity Provider.
+- **Sign In URL:** Enter the **SAML SSO URL** that you obtained from the Identity Provider.
+- **Sign Out URL:** Enter the **SAML Logout URL** obtained from the Identity Provider.
+- **Certificate:**  Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you obtained from the Identity Provider.
+- **User Id Attribute**: The attribute in the SAML token that will be mapped to the `user_id` property in Auth0. If not set, then the `user_id` will be retrieved from the following (in listed order):
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 
 You can ignore the rest of the fields for now.
 
-**Save:** Click on the blue **"SAVE"** button at the bottom.
+Click on the blue **"SAVE"** button at the bottom.
 
-Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain.)
+Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain)
 
 ![](/media/articles/saml/saml-sp-generic/saml-sp-generic1.png)
-
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
 
@@ -77,7 +71,7 @@ Copy and save this entire Entity ID field from "urn" all the way to the end of t
 
 The third bullet indicates the binding that will be used to send the SAML Request from Auth0 to the Identity Provider.    If the Identity Provider provides a choice, select HTTP-Redirect as shown on your metadata screen.
 
-The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST.  e.g. the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding.  If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
+The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST, such as the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding.  If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
 
 The nameid format is the format for the attribute that will be used to identify users.
 
@@ -87,10 +81,9 @@ In general, you can access the metadata for a SAML connection in Auth0 here: `ht
 
 Make a note of this metadata URL as you may be able to use it to configure the Identity Provider in the next step.
 
-
 ## 3. Add your Service Provider metadata to the Identity Provider
 
-In this section you will add some information to the Identity Provider  so the Identity Provider knows how to receive and respond to SAML-based authentication requests from the Auth0 Service Provider.  The instructions provided here are generic.  You will need to find the appropriate screens and fields on the Identity Provider.
+In this section you will add some information to the Identity Provider so the Identity Provider knows how to receive and respond to SAML-based authentication requests from the Auth0 Service Provider. The instructions provided here are generic. You will need to find the appropriate screens and fields on the Identity Provider.
 
 Locate the screens in the Identity Provider that allow you to configure SAML.
 
@@ -98,13 +91,14 @@ If the Identity Provider supports uploading a metadata file, you can simply prov
 
 If the Identity Provider does not support uploading a metadata file, you can configure it manually as follows:
 
-The Identity Provider will need to know where to send the SAML assertions after it has authenticated a user.  This is the **Assertion Consumer Service URL** in Auth0. The Identity Provider may call this any of the following:
+The Identity Provider will need to know where to send the SAML assertions after it has authenticated a user. This is the **Assertion Consumer Service URL** in Auth0. The Identity Provider may call this any of the following:
 
 * Assertion Consumer Service URL
 * Application Callback URL
 
-If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the **Entity ID** from Auth0:
+Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, it should be in the format of `https://[YOUR CUSTOM DOMAIN]/login/callback?connection=TestSP`.
 
+If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the **Entity ID** from Auth0:
 
 ```text
 "audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
@@ -124,15 +118,15 @@ https://${account.namespace}/logout
 
 In this section, you will test to make sure the SAML configuration between Auth0, the Service Provider, and the remote SAML Identity Provider is working.
 
-* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+* In the [Dashboard](${manage_url}), navigate to:  __Connections > Enterprise > SAMLP Identity Provider__.
 
-* Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
+* Click on the triangular **Try** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
 * You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username.   If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
 
 You will then be redirected to the login screen of the Identity Provider.  Login with the credentials for a user that exists in the Identity Provider.
 
-If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!!!"__.  This page will display the contents of the SAML authentication assertion sent by the Identity Provider to Auth0 Service Provider.
+If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __It works__.  This page will display the contents of the SAML authentication assertion sent by the Identity Provider to Auth0 Service Provider.
 This means the SAML connection from Auth0 Service Provider to Identity Provider is working.
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
@@ -141,10 +135,9 @@ If it didn't work, double check the above steps and then consult the **troublesh
 The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
 :::
 
-Here is a sample of the **"It Works"** screen:
+Here is a sample of the **It Works** screen:
 
 ![](/media/articles/saml/saml-sp-generic/saml-auth0-9.png)
-
 
 ## 5. Troubleshooting
 
@@ -156,9 +149,11 @@ When troubleshooting SSO, it is often helpful to capture an HTTP trace of the in
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
-Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field in the __"Settings"__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
+Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field.  
 
-The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
+To do so, go to [Dashboard](${manage_url}), click on __Applications__, then on the __Settings__ icon to the right of the application name.
+
+The [http://samltool.io](http://samltool.io) tool can decode a SAML assertion and is a useful debugging tool.
 
 ## Supported algorithms for signatures
 

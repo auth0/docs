@@ -3,6 +3,11 @@ title: Login
 default: true
 description: This tutorial demonstrates how to use the Auth0 Apache SDK to add authentication and authorization to your web app.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - apache
+  - login
 ---
 
 ::: panel System Requirements
@@ -16,13 +21,13 @@ This tutorial and seed project have been tested with the following:
 
 First, you need to install the `mod_auth_openidc` module for Apache.
 
-You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_openidc/releases) and install them for your OS. If your OS isn't compatible with any of the binaries, you can still [build it from source](https://github.com/pingidentity/mod_auth_openidc/blob/master/INSTALL)
+You can get the binaries from [Github](https://github.com/zmartzone/mod_auth_openidc/releases) and install them for your OS. If your OS isn't compatible with any of the binaries, you can still [build it from source](https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL)
 
 Once you've installed it, you just need to enable it for Apache (If you are using Windows, you can use [this](https://github.com/enderandpeter/win-a2enmod#installation) to get `a2enmod` working on your system)
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configure the Module with your Auth0 Account Information
+## Configure the Module with Your Auth0 Account Information
 
 Now you should get a new configuration file under the `/etc/apache2/mods-available` folder, where Apache modules are normally installed (On Windows you need to use `/apache/conf/httpd.conf` file).
 
@@ -32,7 +37,7 @@ ${snippet(meta.snippets.setup)}
 
 ## Configuring Auth0 Settings
 
-In your client settings add a new allowed callback which is equal to `OIDCRedirectURI`.
+In your application settings add a new allowed callback which is equal to `OIDCRedirectURI`.
 
 Now, go to OAuth section in advanced settings and change `JsonWebToken Token Signature Algorithm` to RS256.
 

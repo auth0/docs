@@ -1,5 +1,8 @@
 ---
 description: How to Disable Guardian and the other types of MFA.
+topics:
+  - mfa
+  - guardian
 ---
 # Disable Guardian and other MFA
 

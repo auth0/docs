@@ -1,0 +1,9 @@
+added:
+  -
+    title: "User Search v3"
+    tags:
+      - search
+      - user search
+    description: |
+      A new page, [User Search v3](https://auth0.com/docs/users/search/v3), was added with documentation on version 3 of the user search API.
+      

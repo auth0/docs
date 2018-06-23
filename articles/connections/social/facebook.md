@@ -4,14 +4,23 @@ connection: Facebook
 index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
-description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
+description: This article shows you how to connect your app to Facebook
+toc: true
+topics:
+  - connections
+  - social
+  - facebook
 ---
-
 # Connect your app to Facebook
 
-To connect your Auth0 app to Facebook, you will need an **App ID** and **App Secret** from your Facebook app, then copy these keys into your Auth0 settings and enable the connection.
+This article describes how to add login with Facebook to your app. It also discusses how you can get an Access Token in order to access the Facebook API.
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+First you need to connect your Auth0 application to Facebook. This is summarized in the following steps:
+
+- Setup a Facebook app
+- Get your Facebook **App ID** and **App Secret**
+- Copy these keys into your Auth0 settings
+- Enable the Facebook social connection in Auth0
 
 ## 1. Login to Facebook Developers
 
@@ -29,22 +38,22 @@ Next you will need to complete the **Security Check**.
 
 ## 3. Setup Facebook Login
 
-On the **Product Setup** page that follows, click **Get Started** next to **Facebook Login**:
+On the **Product Setup** page that follows, click **Set Up** under **Facebook Login**:
 
 ![Click Get Started](/media/articles/connections/social/facebook/facebook-3.png)
 
 Next choose the type of application, for this tutorial we have selected **Web**.
 
-The **Client OAuth Settings** page for **Facebook Login** will appear:
+The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Application OAuth Settings** page:
 
-![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
+![Application OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
 Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
 ::: panel Find your Auth0 domain name
-If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`.
+If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Tenant Name** in the top right corner. Your Auth0 domain is this name (for example `exampleco-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://exampleco-enterprises.auth0.com/login/callback`.
 :::
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
@@ -57,7 +66,7 @@ Next, click on **App Review** on the left navigation bar. Near the top of the pa
 
 ![Make Public](/media/articles/connections/social/facebook/facebook-public.png)
 
-## 5. Get your **App ID** and **App Secret**
+## 5. Get your App ID and App Secret
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
@@ -65,7 +74,7 @@ Click **Settings** in the left nav. On this page you can retrieve your **App ID*
 
 Click **Show** to reveal the **App Secret** (you may be required to re-enter your Facebook password).
 
-In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the box with the **Facebook** logo.
 
@@ -81,9 +90,9 @@ Select all the **Attributes** and **Permissions** you want to enable.
 Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
 :::
 
-Then click the **Clients** tab and select the applications you wish to enable this connection for.
+Then click the **Applications** tab and select the applications you wish to enable this connection for.
 
-![Enable clients](/media/articles/connections/social/facebook/enable-clients.png)
+![Enable applications](/media/articles/connections/social/facebook/enable-applications.png)
 
 When finished click **Save**.
 
@@ -103,18 +112,28 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ![](/media/articles/connections/social/facebook/facebook-8b.png)
 
+## 7. Access Facebook API
+
+<%= include('../_call-api', {
+  "idp": "Facebook"
+}) %>
+
 ## Additional Info
+
+You can find additional information at Facebook docs: [Add Facebook Login to Your App or Website](https://developers.facebook.com/docs/facebook-login).
 
 ### Create a Test App
 
-Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per account. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
+Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per tenant. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
 
-Another option is to create another Auth0 account used for testing purposes. A new account can be created in the [Dashboard](${manage_url}) by clicking on your account name in the top right corner and selecting **New Account** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
+Another option is to create another Auth0 tenant used for testing purposes. A new tenant can be created in the [Dashboard](${manage_url}) by clicking on your tenant name in the top right corner and selecting **+ Create Tenant** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
 
 ### Deauthorize Callback URL
 
 On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
 
-[Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
+### Facebook Re-Authentication
+
+To force Facebook to prompt the user to [re-authenticate](https://developers.facebook.com/docs/facebook-login/reauthentication), you can set the `prompt='login'` value in Lock's `auth.param` object.
 
 <%= include('../_quickstart-links.md') %>

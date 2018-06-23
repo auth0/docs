@@ -1,3 +1,9 @@
+---
+title: Passwordless FAQ
+topics:
+    - connections
+    - passwordless
+---
 # Passwordless FAQ
 
 ## General Questions
@@ -118,7 +124,7 @@ Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very sim
 
 ### Q: How does the system prevent an intercepted one-time code or link from being used to establish an unauthorized session?
 
-**A:** Think of an intercepted code or link as similar to a compromised email account or stolen phone. Once the link or code is in the wrong hands, it can be used to log in as that user. But codes and links have a short time-to-live (typically 5 minutes) and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a brief window. Security experts strongly recommend using encrypted end-to-end communication between email servers and clients to prevent the easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. Implementation of multi-factor *step-up* authentication for sensitive data or actions will reduce this risk as well.
+**A:** Think of an intercepted code or link as similar to a compromised email account or stolen phone. Once the link or code is in the wrong hands, it can be used to log in as that user. But codes and links have a short time-to-live (typically 5 minutes) and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a brief window. Security experts strongly recommend using encrypted end-to-end communication between email servers and applications to prevent the easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. Implementation of multi-factor *step-up* authentication for sensitive data or actions will reduce this risk as well.
 
 ### Q: How could I use Passwordless sign in with *step-up* multi-factor authentication to improve security for more sensitive data or actions?
 
@@ -141,3 +147,7 @@ Since you are using Auth0 passwordless logins, there are no passwords to phish, 
 ### Q: How does the system protect against brute-force attacks (code guessing)?
 
 **A:** The 6-digit numeric codes are one-time use and expire in a short time (5 minutes by default). In addition, Auth0 includes rate-limiting and IP address blocking after several failed attempts. Accordingly, it is impractical to brute-force guess these codes. The application owner will be notified by email of any attempt and can unblock the IP address for a legitimate user.
+
+### Q: Our company uses an email security system that scans URLs and invalidates the token. What can we do?
+
+**A:** The only solution to this is to ask your users to whitelist the passwordless emails.

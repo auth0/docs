@@ -1,5 +1,5 @@
 ```xml
-<Location /example/>
+<Location /example>
    AuthType openid-connect
    #Require valid-user
    Require claim folder:example

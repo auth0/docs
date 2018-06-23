@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Pre-Deployment Tests"
+    tags:
+      - pre-deployment
+      - tests
+      - support
+    description: |
+      A new doc was added on how to use the [Pre-Deployment Tests](https://auth0.com/docs/pre-deployment-tests) to ensure that your tenants are ready for use in a production environment.

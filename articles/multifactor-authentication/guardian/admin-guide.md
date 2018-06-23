@@ -1,6 +1,10 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
 toc: true
+topics:
+  - mfa
+  - guardian
+  - push-notifications
 ---
 
 # Guardian for Administrators
@@ -9,7 +13,7 @@ Guardian is Auth0's multifactor authentication (MFA) application that provides a
 
 This page explains how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
-For information for your users on Guardian, how to download the app, and common questions, see: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
+For more information on Guardian, how to download the app, and common questions, see: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
 ## Support for Push Notifications
 
@@ -17,7 +21,7 @@ To enable Push Notifications MFA for sign in and sign up for your application by
 
 ![Dashboard > Guardian](/media/articles/mfa/guardian-dashboard.png)
 
-For your users to utilize this type of MFA, they will need a supported mobile device. The device must have either the Guardian app installed, the Google Authenticator app installed, or an app that supports scanning Time-based One-time Password(TOTP) codes to use with Guardian. Here are the available options:
+For your users to utilize this type of MFA, they will need a supported mobile device. The device must have either the Guardian app installed, the Google Authenticator app installed, or an app that supports scanning Time-based One-time Password (TOTP) codes to use with Guardian. Here are the available options:
 
 | **OS** | **Guardian** | **Google Authenticator** |
 | --- | --- | --- |
@@ -80,13 +84,13 @@ Click **SAVE**.
 
 ## Customize MFA for Select Users
 
-Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts.
+Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Applications. By default, Auth0 enables Guardian for all accounts.
 
 ```js
 function (user, context, callback) {
 
-  //var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
-  // run only for the specified clients
+  //var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
+  // run only for the specified applications
   // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){
@@ -108,7 +112,7 @@ If you choose to selectively apply MFA, you will need the appropriate `clientID`
 
 More specifically, you will uncomment and populate the following line of the **Customize MFA** snippet with the appropriate client IDs:
 
-`var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];`
+`var CLIENTS_WITH_MFA = ['REPLACE_WITH_CLIENT_ID'];`
 
 By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) for details
 
@@ -116,7 +120,7 @@ Once you have finished making your desired changes, click **Save**.
 
 ## Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate setting changes from the Guardian page's link to [Account Settings](${manage_url}/#/account). You can also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting **Account Settings** from the dropdown menu.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Tenant Settings](${manage_url}/#/tenant) page. You may also reach the **Tenant Settings** page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
@@ -173,7 +177,7 @@ To reset a user's MFA:
 
 1.  Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen.
-3. Select **Reset Multi Factor (Auth0)** from the dropdown.
+3. Select **Reset Multifactor Authentication** from the dropdown.
 4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 
  ![](/media/articles/mfa/reset-mfa.png)

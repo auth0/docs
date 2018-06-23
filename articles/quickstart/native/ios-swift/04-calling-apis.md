@@ -1,99 +1,82 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to manage tokens to make authenticated API calls, using URLSession.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls.
 budicon: 546
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 04-Calling-APIs
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '04-Calling-APIs',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
-
-The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
+Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
 In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
-## Get the user's credentials
+Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
+* You have completed the [Session Handling](/quickstart/native/ios-swift/03-user-sessions) tutorial and you know how to handle the `Credentials` object.
+* You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/quickstart/backend).
 
-In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
+<%= include('../_includes/_calling_api_create_api') %>
 
-You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
+<%= include('../_includes/_calling_api_create_scope') %>
 
-First, import the `Auth0` module in the file where you want to present the hosted login page.
+## Get the User's Access Token
 
-${snippet(meta.snippets.setup)}
+To retrieve an Access Token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
 
-Then present the hosted login screen, like this:
+Present the Hosted Login Page:
+
+::: note
+Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
+:::
 
 ```swift
 // HomeViewController.swift
+let APIIdentifier = "API_IDENTIFIER" // Replace with the API Identifier value you created
 
 Auth0
     .webAuth()
     .scope("openid profile")
+    .audience(APIIdentifier)
     .start {
         switch $0 {
         case .failure(let error):
             // Handle the error
             print("Error: \(error)")
         case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Good time to store the tokens
+            // Do something with credentials e.g.: save them.
+            // Auth0 will automatically dismiss the hosted login page
+            print("Credentials: \(credentials)")
         }
 }
 ```
 
-In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained. Which one depends on the application usage.
+## Attach the Access Token
 
-## Attach the Token
-
-Supposing you need to use the `accessToken` value, here is what you would do:
+To give the authenticated user access to secured resources in your API, include the user's Access Token in the requests you send to the API.
 
 ```swift
 // ProfileViewController.swift
 
 let token  = ... // The accessToken you stored after authentication
-let url = URL(string: "your api url")!
+let url = URL(string: "your api url")! // Set to your Protected API URL
 var request = URLRequest(url: url)
-// Configure your request here (method, body, etc)
+
 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 let task = URLSession.shared.dataTask(with: request) { data, response, error in
     // Parse the response
 }
 ```
 
-Notice that how you configure your authorization header should match the standards that you're using in your API. This is just an example of what it could look like.
-
 ## Send the Request
 
-Don't forget to actually send the request you just created, by executing:
+Send the request you created:
 
 ```swift
 // ProfileViewController.swift
 
 task.resume()
 ```
-
-### Sample Project Configuration
-
-When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
-
-```swift
-// ProfileViewController.swift
-
-let url = URL(string: "your api url")!
-var request = URLRequest(url: url)
-// Configure your request here (method, body, etc)
-```
-
-Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
-
-::: note
-For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
-:::

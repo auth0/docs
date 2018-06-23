@@ -1,0 +1,7 @@
+added:
+  -
+    title: "Testing Your Auth0 Implementation"
+    tags:
+      - testing
+    description: |
+      A new doc called [Testing Your Auth0 Implementation](https://auth0.com/docs/support/testing) was added with guidelines for testing and ways to troubleshoot performance issues.

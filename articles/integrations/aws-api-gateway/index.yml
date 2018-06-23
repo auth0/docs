@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: integrations/aws-api-gateway
+  current: custom-authorizers
+  versions:
+    - custom-authorizers
+    - delegation
+  defaultArticles:
+    custom-authorizers: index
+    delegation: index

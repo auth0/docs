@@ -1,12 +1,13 @@
 ---
 description: A guide on installing the AD/LDAP Connector on different platforms.
+topics:
+  - connector
 ---
-
 # Install the AD/LDAP Connector on Non-Microsoft Platforms
 
 This document covers how to install the AD/LDAP Connector on non-Microsoft Platforms.
 
-:::panel Prerequisites
+::: warning
 Prior to installing the AD/LDAP Connector, please ensure that you have already installed [Git](https://git-scm.com/download/linux), [Node.js](https://nodejs.org), and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
 :::
 
@@ -20,17 +21,17 @@ For most platforms, you will need to run the required commands with root privile
 
 2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
-    ```text
-    > mkdir /opt/auth0-adldap
-    > tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
-    > cd /opt/auth0-adldap
-    > npm install
+    ```bash
+    mkdir /opt/auth0-adldap
+    tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
+    cd /opt/auth0-adldap
+    npm install
     ```
 
-3. Start your server:
+3. Start your server.
 
-    ```text
-    > node server.js
+    ```bash
+    node server.js
     ```
 
     When prompted for the ticket number, enter the full ticket URL from the **Settings** tab of the **Setup AD/LDAP connector** screen in the Auth0 Management Dashboard:
@@ -54,7 +55,20 @@ For most platforms, you will need to run the required commands with root privile
 
 5. Run `node server.js` once more to start the Connector. Note that the `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
 
-6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)).
+6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)). For example, for using systemd with Ubuntu Xenial, the file `/lib/systemd/system/auth0-adldap.service` could contain the following:
+  
+	```text
+    [Unit]
+    Description=Auth0 AD LDAP Agent
+    After=network.target
+    
+    [Service]
+    Type=simple
+    Restart=always
+    User=ubuntu
+    WorkingDirectory=/opt/auth0-adldap
+    ExecStart=/usr/bin/node server.js
+    ```
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
@@ -67,6 +81,8 @@ For most platforms, you will need to run the required commands with root privile
   })
 </script>
 
-#### Notes
+7. Run `node admin/server.js` to access the admin UI -- the admin UI will be running and available on `http://localhost:8357`.
 
-* If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://your_tenant.auth0.com/testall` with a browser other than Internet Explorer.
+::: note
+If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://YOUR_TENANT.auth0.com/testall` with a browser other than Internet Explorer.
+:::

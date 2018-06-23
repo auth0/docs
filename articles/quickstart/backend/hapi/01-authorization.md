@@ -1,37 +1,32 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to a Hapi.js API
+description: This tutorial demonstrates how to add authorization to a Hapi.js API.
+topics:
+    - quickstart
+    - backend
+    - hapi
+github:
+  path: 01-Authenticate-RS256
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-hapi-api-samples',
-  path: '01-Authenticate-RS256',
-  requirements: [
-    'Hapi.js 16.0.0',
-    'hapi-auth-jwt2 7.2.4'
-  ]
-}) %>
-
 <%= include('../../../_includes/_api_auth_intro') %>
 
-<%= include('../_includes/_api_create_new') %>
+<%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-hapi-api-samples/tree/master/02-Authenticate-HS256'}) %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done using the **hapi-auth-jwt2** plugin and can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+## Validate Access Tokens
 
-## Install the Dependencies
+### Install dependencies
 
-The **hapi-auth-jwt2** plugin can be used to verify incoming JWTs. The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. Install these libraries with npm.
+This guide shows you how to validate the Access Token using the **hapi-auth-jwt2** plugin.  The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. 
+
+Install these libraries with npm.
 
 ```bash
 npm install --save hapi-auth-jwt2 jwks-rsa
 ```
 
-## Configure hapi-auth-jwt2
-
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-hapi-api-samples/tree/master/02-Authenticate-HS256'}) %>
+### Configure hapi-auth-jwt2
 
 Set up the **hapi-auth-jwt2** plugin to fetch this public key through the **jwks-rsa** library.
 
@@ -50,8 +45,8 @@ server.register(jwt, err => {
   if (err) throw err;
   server.auth.strategy('jwt', 'jwt', 'required', {
     complete: true,
-    // verify the access token against the
-    // remote Auth0 JWKS 
+    // verify the Access Token against the
+    // remote Auth0 JWKS
     key: jwksRsa.hapiJwt2Key({
       cache: true,
       rateLimit: true,
@@ -69,30 +64,77 @@ server.register(jwt, err => {
 });
 ```
 
-The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires some function that can do further checking. This might simply be a check to ensure the JWT has a `sub` claim, but your needs may vary in your own application.
+The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires a function which is the final stop for accepting or rejecting authorization for a given request. This function must return a callback with either `true` or `false` to indicate the the request can proceed. The function can also operate on the decoded payload of the JWT and supply a modified `req.auth.credentials` object based on custom logic.
+
+When you request multiple `scope`s in an Auth0 authentication transaction, they come back as a space-delimited string in the Access Token payload. However, the **hapi-auth-jwt2** plugin expects an array when multiple `scope`s are used. This conversion can be handled in the `validateFunc` function.
+
+Add a function called `validateUser` and modify the `req.auth.credentials` object such that the `scope` key is parsed into an array instead of a space-delimited string.
 
 ```js
 // server.js
 
 const validateUser = (decoded, request, callback) => {
   // This is a simple check that the `sub` claim
-  // exists in the access token. Modify it to suit
+  // exists in the Access Token. Modify it to suit
   // the needs of your application
   if (decoded && decoded.sub) {
+    if (decoded.scope)
+      return callback(null, true, {
+        scope: decoded.scope.split(' ')
+      });
+
     return callback(null, true);
   }
 
   return callback(null, false);
-}
+};
 ```
 
-## Protect Individual Endpoints
+When a valid JWT Access Token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
 
-The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`.
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
+
+The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`. To protect a route requiring a valid JWT you can pass `auth: 'jwt'`.
+
+<%= include('../_includes/_api_endpoints') %>
+
+```js
+// server.js
+
+// This route doesn't need authentication
+server.route({
+  method: 'GET',
+  path: '/api/public',
+  config: {
+    auth: false,
+    handler: (req, res) => {
+      res({
+        message: "Hello from a public endpoint! You don't need to be authenticated to see this."
+      });
+    }
+  }
+});
+
+// This route need authentication
+server.route({
+  method: 'GET',
+  path: '/api/private',
+  config: {
+    auth: 'jwt',
+    handler: (req, res) => {
+      res({
+        message: 'Hello from a private endpoint! You need to be authenticated to see this.'
+      });
+    }
+  }
+});
+```
 
 <%= include('../_includes/_api_scope_description') %>
 
-Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
+Individual routes can be configured to look for a particular `scope` in the Access Token using `auth.scope`.
 
 ```js
 // server.js
@@ -101,16 +143,18 @@ Individual routes can be configured to look for a particular `scope` in the `acc
 
 server.route({
   method: 'GET',
-  path: '/api/private',
+  path: '/api/private-scoped',
   config: {
     auth: {
       scope: 'read:messages'
     },
     handler: (req, res) => {
-      res({ message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this." });
+      res({
+        message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'
+      });
     }
   }
 });
 ```
 
-With this configuration in place, only valid `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+With this configuration in place, only valid Access Tokens which have a scope of `read:messages` will be allowed to access this endpoint.

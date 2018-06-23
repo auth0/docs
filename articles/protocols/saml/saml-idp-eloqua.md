@@ -1,5 +1,9 @@
 ---
 description: How to configure Auth0 to serve as an Identity Provider for Oracle Eloqua.
+topics:
+  - saml
+  - oracle
+  - eloqua
 ---
 
 # Configure Auth0 as Identity Provider for Oracle Eloqua
@@ -8,11 +12,11 @@ These instructions explain how to configure Auth0 to serve as an Identity Provid
 
 ## Configure the Addon: SAML2 Web App
 
-Login to [Auth0 dashboard](${manage_url}) and create a new [Client](${manage_url}/#/clients).
+Login to [Auth0 dashboard](${manage_url}) and create a new [Application](${manage_url}/#/applications).
 
-Navigate to the [Addons](${manage_url}/#/clients/${account.clientId}/addons) tab and enable the **SAML2 Web App** using the toggle switch.
+Navigate to the [Addons](${manage_url}/#/applications/${account.clientId}/addons) tab and enable the **SAML2 Web App** using the toggle switch.
 
-![Client Addons](/media/articles/protocols/saml/eloqua/client-addons.png)
+![Application Addons](/media/articles/protocols/saml/eloqua/client-addons.png)
 
 The *Settings* window will be displayed. Set the following values:
 
@@ -75,7 +79,7 @@ Edit the newly added identity provider and complete the following steps:
 
 We will now use the **Service Provider Entity URL** copied from within the IDP settings in Eloqua to set the `audience` restriction within Auth0.
 
-Navigate to __Dashboard > Clients > select your client > Addons > SAML2 Web App > Settings__ and set the `audience` to the value you copied.
+Navigate to __Dashboard > Applications > select your application > Addons > SAML2 Web App > Settings__ and set the `audience` to the value you copied.
 
 ## Test
 
@@ -90,6 +94,10 @@ Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/
 
 ### IdP Initiated Login
 
-For IDP Initiated login use the **Identity Provider Login URL** defined under the **Dashboard > Clients > select your client > Addons > SAML 2 Web App > Usage**.
+**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+
+<%= include('../../_includes/_deprecate-impersonation.md') %>
+
+For IDP Initiated login use the **Identity Provider Login URL** defined under the **Dashboard > Applications > select your application > Addons > SAML 2 Web App > Usage**.
 
 ![Eloqua IdP Initiated Login](/media/articles/protocols/saml/eloqua/idp-login.png)

@@ -7,21 +7,24 @@ alias:
   - thirtysevensignals
 seo_alias: 37signals
 description: How to obtain a Client Id and Client Secret for 37Signals.
+toc: true
+topics:
+  - connections
+  - social
+  - 37signals
 ---
 
 # Connect your app to 37Signals
 
 To configure a 37Signals OAuth2 connection, you will need to register your Auth0 tenant on the [37Signals Integration Portal](https://integrate.37signals.com/).
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
-
-### 1. Register a new App
+## 1. Register a new App
 
 Log into the Integration Portal. Select **New Application** and enter some general information about your app (name, website, logo) on first page:
 
 ![](/media/articles/connections/social/37signals/37signals-register-1.png)
 
-### 2. Define the scope of access and enter your callback URL
+## 2. Define the scope of access and enter your callback URL
 
 On the next page, select which 37Signals applications you want to access, and enter your Auth0 callback URL in the **Redirect URI** field:
 
@@ -29,7 +32,7 @@ On the next page, select which 37Signals applications you want to access, and en
 
 ![](/media/articles/connections/social/37signals/37signals-register-2.png)
 
-### 3. Generate your *Client Id* and *Client Secret*
+## 3. Generate your *Client Id* and *Client Secret*
 
 Once your app is registered, a `Client Id` and `Client Secret` are generated for you.
 

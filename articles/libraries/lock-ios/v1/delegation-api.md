@@ -1,7 +1,12 @@
 ---
 section: libraries
-toc_title: Delegation API
+title: Delegation API
 description: Integrate with third-party apps with the delegation API.
+topics:
+  - libraries
+  - lock
+  - ios
+  - delegation
 ---
 
 # Lock iOS: Delegation API
@@ -10,11 +15,11 @@ description: Integrate with third-party apps with the delegation API.
 
 After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/api/authentication/reference#delegation) using a valid JWT.
 
-
 Here's an example
+
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
-NSString *token = ...; // Auth0's id_token obtained on login
+NSString *token = ...; // Auth0's ID Token obtained on login
 A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{
                                                                      @"id_token": token,
                                                                      A0ParameterAPIType: @"firebase",
@@ -28,7 +33,7 @@ A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{
 
 ```swift
 let client = A0Lock.shared().apiClient()
-let token = // Auth0's id_token obtained on login
+let token = // Auth0's ID Token obtained on login
 let parameters = A0AuthParameters.new(with: [
     "id_token": token,
     A0ParameterAPIType: "firebase"

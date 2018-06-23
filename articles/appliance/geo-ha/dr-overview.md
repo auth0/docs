@@ -1,31 +1,41 @@
 ---
 section: appliance
-description: Descriptions of Appliance Geo HA Failure and Disaster Recovery
+description: Descriptions of PSaaS Appliance Geo HA Failure and Disaster Recovery
+topics:
+    - appliance
+    - geo-ha
+    - disaster-recovery
+contentType: reference
 ---
 
-# Geographic High-Availability Appliance Failure & Disaster Recovery
+<!-- markdownlint-disable MD033 -->
 
-One key aspect of the Geographic High-Availability (GEO HA) Appliance is the data center redundancy and failure handling that ensures the highest form of Appliance uptime offered by Auth0.
+# Geographic High-Availability PSaaS Appliance Failure & Disaster Recovery
+
+One key aspect of the Geographic High-Availability (GEO HA) PSaaS Appliance is the data center redundancy and failure handling that ensures the highest form of PSaaS Appliance uptime offered by Auth0.
 
 ## Standard Configuration
 
-The standard configuration of a GEO HA Appliance is a stretched cluster that consists of the following pieces:
+The standard configuration of a GEO HA PSaaS Appliance is a stretched cluster that consists of the following pieces:
 
-* one geographically-aware global load balancer/DNS failover configuration;
-* one primary data center with three Appliance instances;
-* one secondary data center with three Appliance instances;
-* one arbiter, a seventh instance that is located in its own data center.
+* One geographically-aware global load balancer/DNS failover configuration;
+* One primary data center with three PSaaS Appliance instances;
+* One secondary data center with three PSaaS Appliance instances;
+* One arbiter, a seventh instance that is located in its own data center.
 
 ## Failure Scenarios and Handling
 
 The following table summarizes what might happen and its possible performance impact in the event that any portion of the standard configuration encounters an error.
 
 <table class="table">
+  <thead>
     <tr>
         <th>Event</th>
         <th>Outcome</th>
         <th>Performance Impact</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
         <td>Data unavailable for one or more (but not all) of the primary data center's node(s)</td>
         <td>Data for one of the remaining nodes becomes the primary</td>
@@ -61,4 +71,5 @@ The following table summarizes what might happen and its possible performance im
         <td>No impact to the end user if both the primary and secondary data centers are still available</td>
         <td>None</td>
     </tr>
-<table>
+  </tbody>
+</table>

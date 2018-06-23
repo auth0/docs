@@ -5,6 +5,11 @@ image: /media/connections/fitbit.png
 seo_alias: fitbit
 index: 14
 description: How to obtain a Client Id and Client Secret for Fitbit.
+toc: true
+topics:
+  - connections
+  - social
+  - fitbit
 ---
 
 # Connect your app to Fitbit
@@ -14,8 +19,6 @@ New connections with Fitbit will use OAuth 2.0. Please see the following documen
 :::
 
 To configure a Fitbit OAuth 2.0 connection, you will need to register a new application in Fitbit.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Register a New Fitbit App
 
@@ -32,7 +35,7 @@ Log in to the [Fitbit's Developer site](https://dev.fitbit.com), then select **R
 - **Application Website**- the URL of your application
 - **Organization**- the name of the associated organization
 - **Organization Website**- the URL of the associated organization
-- **OAuth 2.0 Application Type**- select **Client**, client applications authenticate using either the Authorization Code Grant Flow or the Implicit Grant Flow
+- **OAuth 2.0 Application Type**- select **Application**, applications (clients) authenticate using either the Authorization Code Grant Flow or the Implicit Grant Flow
 - **Callback URL**- this is the URL called after a request, in this field enter: `https://${account.namespace}/login/callback`
 - **Default Access Type**- the type of access granted to the application
 
@@ -52,7 +55,7 @@ Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Fi
 
 ## 5. Enable the Connection
 
-Go to the **Apps** tab of the Fitbit connection on your Auth0 Dashboard and select each of your existing Auth0 clients for which you want to enable this connection:
+Go to the **Apps** tab of the Fitbit connection on your Auth0 Dashboard and select each of your existing Auth0 applications for which you want to enable this connection:
 
 ![](/media/articles/connections/social/fitbit/fitbit-apps.png)
 

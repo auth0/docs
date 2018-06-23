@@ -19,5 +19,5 @@ Once **auth0.js** is installed, add it to your build system or bring it in to yo
 If you don't want to use a package manager, **auth0.js** can also be retrieved from Auth0's CDN.
 
 ```html
-<script src="${auth0js_urlv8}"></script>
+<script src="${auth0js_url}"></script>
 ```

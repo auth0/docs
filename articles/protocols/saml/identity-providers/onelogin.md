@@ -1,6 +1,10 @@
 ---
 title: OneLogin
 description: How to configure OneLogin as an identity provider.
+topics:
+    - saml
+    - identity-providers
+    - onelogin
 ---
 # Configuring OneLogin as an Identity Provider
 
@@ -32,7 +36,7 @@ Go to [Auth0 dashboard > Connections > Enterprise > SAMLP Identity Provider](${m
 
 ![](/media/articles/saml/identity-providers/onelogin/auth0-new-samlp.png)
 
-Set a **Connection Name** (e.g. onelogin-customer) and copy the **SAML 2.0 Endpoint (HTTP)** on the **Sign In URL** input, and the **SLO Endpoint (HTTP)** on the **Sign Out URL** input. Upload the `onelogin.pem` certificate.
+Set a **Connection Name** (such as onelogin-customer) and copy the **SAML 2.0 Endpoint (HTTP)** on the **Sign In URL** input, and the **SLO Endpoint (HTTP)** on the **Sign Out URL** input. Upload the `onelogin.pem` certificate.
 
 ![](/media/articles/saml/identity-providers/onelogin/auth0-set-values.png)
 
@@ -45,7 +49,7 @@ The information here is what the OneLogin admin needs to finish the configuratio
 * **SAML Consumer URL**: `https://${account.namespace}/login/callback`
 * **SAML Audience**: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 
-Copy the values of the **post-back URL** and the **Entity ID** and head back to your [OneLogin](https://www.onelogin.com/) app. At the **Configuration** tab copy the **post-back URL** on the **ACS (Consumer) URL** input, the **Entity ID** on the **Audience** input, and set a valid regular expression on the **ACS (Consumer) URL Validator** input (e.g.  `[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`).
+Copy the values of the **post-back URL** and the **Entity ID** and head back to your [OneLogin](https://www.onelogin.com/) app. At the **Configuration** tab copy the **post-back URL** on the **ACS (Consumer) URL** input, the **Entity ID** on the **Audience** input, and set a valid regular expression on the **ACS (Consumer) URL Validator** input (such as  `[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`).
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-set-values.png)
 
@@ -62,10 +66,14 @@ You are redirected to a page informing you that the connection works. Well done!
 ![](/media/articles/saml/identity-providers/onelogin/auth0-try-result.png)
 
 ::: note
-The **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
+The **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (such as a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
 :::
 
 ## IdP Initiated SignOn
+
+**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+
+<%= include('../../../_includes/_deprecate-impersonation.md') %>
 
 OneLogin has an Application Portal / Launcher for their users. If you want to support that, you will have to change the **SAML Consumer URL** in OneLogin dashboard to be:
 

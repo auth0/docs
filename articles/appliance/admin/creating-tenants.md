@@ -1,23 +1,27 @@
 ---
 section: appliance
-description: How to automatically create tenants in the Appliance
+description: How to automatically create tenants in the PSaaS Appliance
+topics:
+    - appliance
+    - tenants
+contentType: how-to
 ---
 
-# Appliance Administration: Automatic Creation of Tenants
+# PSaaS Appliance Administration: Automatic Creation of Tenants
 
-If your business needs require you to create tenants regularly, you may automate this process in your Appliance instances. For example, you might need to create one tenant for each customer or project that goes live.
+If your business needs require you to create tenants regularly, you may automate this process in the PSaaS Appliance. For example, you might need to create one tenant for each customer or project that goes live.
 
-## Creating a Management API Client for the Root Tenant Authority
+## Creating a Management API Application for the Root Tenant Authority
 
 1. Choose the Root Tenant Authority (RTA) tenant using the drop-down menu located in the top right-hand side of the Dashboard.
 2. Go to the Applications page.
 3. Create an application called 'Tenant Provisioning.'
-4. Once you have created the 'Tenant Provisioning' client, go to the Connections tab and disable **all** Connections for this client.
+4. Once you have created the 'Tenant Provisioning' application, go to the Connections tab and disable **all** Connections for this application.
 5. Navigate to `${manage_url}/#/apis`. Click the link to open the Auth0 Management API.
-6. Go to the Non Interactive Clients tab, and enable Tenant Provisioning by moving the associated slide to the right.
-7. Create the new client grant.
+6. Go to the Machine to Machine Applications tab, and enable Tenant Provisioning by moving the associated slide to the right.
+7. Create the new application grant.
 
-### Creating the New Client Grant
+### Creating the New Application Grant
 
 1. Navigate to the [Management API Explorer](/api/management/v2#!/Client_Grants/post_client_grants) to generate the required `POST` call.
 2. Click the bubble that says **'create:client_grants'** to select that Scope.
@@ -49,9 +53,9 @@ If your business needs require you to create tenants regularly, you may automate
     }
     ```
 
-## Using the New Client grant
+## Using the New Application grant
 
-Once you have created your New Client Grant, you may use it to complete the following tasks.
+Once you have created your New Application Grant, you may use it to complete the following tasks.
 
 ### Getting an Access Token
 
@@ -68,7 +72,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
     "queryString" : [],
     "postData" : {
         "mimeType": "application/json",
-        "text": "{\"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
+        "text": "{\"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
@@ -76,7 +80,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
 }
 ```
 
-In return, you will receive the Access token:
+In return, you will receive the Access Token:
 
 ```text
 {
@@ -86,7 +90,7 @@ In return, you will receive the Access token:
 
 ### Creating a Tenant
 
-You may use the following call create a tenant. Once the tenant is created, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional access tokens--see the following section for the sample call).
+You may use the following call create a tenant. Once the tenant is created, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional Access Tokens--see the following section for the sample call).
 
 ```har
 {
@@ -112,7 +116,7 @@ You may use the following call create a tenant. Once the tenant is created, the 
 
 #### Getting an Access Token for the Newly-Created Tenant
 
-This snippet shows how you can get an access token for the newly-created tenant, which you can then use to call the Management API.
+This snippet shows how you can get an Access Token for the newly-created tenant, which you can then use to call the Management API.
 
 ```har
 {

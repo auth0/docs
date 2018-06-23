@@ -6,7 +6,9 @@
 
 - id: "articles"
   title: "Articles"
-  url: "/overview"
+  url: "/getting-started"
+  folder: "articles"
+  default: true
 
 # - id: "sdks"
 #   title: "SDKs"
@@ -15,15 +17,19 @@
 - id: "apis"
   title: "Auth0 APIs"
   url: "/api/info"
+  folder: "articles/apis"
 
 - id: "quickstarts"
   title: "QuickStarts"
   url: "/quickstarts"
+  folder: "articles/quickstart"
 
 - id: "libraries"
   title: "Libraries"
   url: "/libraries"
+  folder: "articles/libraries"
 
 - id: "appliance"
-  title: "Appliance"
+  title: "PSaaS Appliance"
   url: "/appliance"
+  folder: "articles/appliance"

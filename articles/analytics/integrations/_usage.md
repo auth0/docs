@@ -14,6 +14,6 @@ You will see the following events being logged:
 * Auth0 Lock signup submit
 * Auth0 Lock federated login
 
-Note that some events that Lock emits like `hash_parsed` are not used for analytics purposes. Also, be aware that some events are only availible in newer versions of Lock. If you are using an older version of Lock you will only see some of these events. We suggest upgrading to the latest version of Lock in order to get the most of the Auth0 Analytics integration.
+Note that some events that Lock emits like `hash_parsed` are not used for analytics purposes. Also, be aware that some events are only availible in newer versions of Lock. If you are using an older version of Lock you will only see some of these events. We suggest upgrading to the latest version of Lock to get the most of the Auth0 Analytics integration.
 
 For more information on the events that are sent see the [Lock API documentation](/libraries/lock/v10/api).

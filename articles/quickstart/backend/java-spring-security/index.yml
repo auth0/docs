@@ -1,5 +1,9 @@
 title: Spring Security Java API
 thirdParty: false
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 alias:
   - spring security
   - spring
@@ -8,7 +12,7 @@ languages:
 framework:
   - Spring
 image: /media/platforms/java.png
-tags:
+topics:
   - quickstart
 snippets:
   configure: server-apis/java-spring-security/configure
@@ -22,3 +26,27 @@ snippets:
   SecurePingController: server-apis/java-spring-security/SecurePingController
 articles:
   - 01-authorization
+  - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-spring-security-api-sample
+requirements:
+  - Java 8 or above
+  - Maven 3.0.x or above
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

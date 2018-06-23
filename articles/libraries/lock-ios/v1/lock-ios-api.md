@@ -1,7 +1,12 @@
 ---
 section: libraries
-toc_title: Lock Objective-C API
+title: Lock Objective-C API
 description: Description of the Lock Objective-C API
+topics:
+  - libraries
+  - lock
+  - ios
+  - objective-c
 ---
 <!-- markdownlint-disable MD026 -->
 # Lock Objective-C API
@@ -52,7 +57,7 @@ A0Lock *lock = [A0Lock newLockWithClientId:@"YOUR_CLIENT_ID" domain:@"YOUR_DOMAI
 - (A0APIClient *)apiClient;
 ```
 
-Returns an instance of the API client for Authentication API configured for your application.
+Returns an instance of the API application for Authentication API configured for your application.
 
 ```objc
 A0APIClient *client = [lock apiClient];
@@ -64,7 +69,7 @@ A0APIClient *client = [lock apiClient];
 - (A0UserAPIClient *)newUserAPIClientWithIdToken:(NSString *)idToken;
 ```
 
-Returns a new instance of the API client for Auth0 API with the credentials of a authenticated user obtained from the **id_token**
+Returns a new instance of the API client for Auth0 API with the credentials of a authenticated user obtained from the **ID Token**
 
 ```objc
 A0UserAPIClient *client = [lock newUserAPIClientWithIdToken:@"AN ID TOKEN"];
@@ -88,7 +93,7 @@ Handle URL received from AppDelegate when application is called from a third par
 - (void)registerAuthenticators:(NSArray *)authenticators;
 ```
 
-Register IdP authenticators that will be used for Social & Enterprise connections. By default all Social & Enterprise authentications are performed by using the web flow with Safari but you can plug your own authenticator for a connection. e.g.: you can register `A0FacebookAuthenticator` in order to login with FB native SDK.
+Register IdP authenticators that will be used for Social & Enterprise connections. By default all Social & Enterprise authentications are performed by using the web flow with Safari but you can plug your own authenticator for a connection (for example, you can register `A0FacebookAuthenticator` in order to login with FB native SDK).
 
 ```objc
 [lock registerAuthenticators:@[facebook, twitter]];

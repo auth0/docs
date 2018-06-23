@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Removed tutorial on how to implement step-up authentication with custom MFA rules"
+    tags:
+      - mfa
+      - step-up
+    description: |
+      The [Step-Up Authentication with Custom MFA Rules](https://auth0.com/docs/multifactor-authentication/custom-mfa-rules) tutorial was removed. The sample was removed as well from GitHub. The tutorial was describing the old approach that is not standards based. New tutorials are currently being written on how to do this using either ID Tokens or Access Tokens.

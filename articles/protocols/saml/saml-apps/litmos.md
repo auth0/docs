@@ -1,9 +1,13 @@
 ---
 title: Litmos SAML Configuration
 description: Litmos SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - litmos
 ---
 <!-- markdownlint-disable MD002 MD041 -->
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

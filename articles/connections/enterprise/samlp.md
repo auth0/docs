@@ -6,6 +6,12 @@ alias:
   - saml
 seo_alias: samlp
 description: Connecting SAML Providers with Auth0
+topics:
+    - connections
+    - enterprise
+    - saml
+	- saml-p
+contentType: how-to
 ---
 
 # Create a SAMLP Identity Provider Connection
@@ -51,7 +57,7 @@ You will then see a pop-up window with the next steps you need to take.
 
 ![](/media/articles/connections/enterprise/samlp/admin-url.png)
 
-If you do not have the appropriate administrative permissions to complete the integration, you will see a URL to provide to someone who does. If you do, click **Continue** to see the instructions on how to configure the identity provider you want to use with this integration. You will also be provided the custom parameters needed to integrate your Auth0 account with the identity provider.
+If you do not have the appropriate administrative permissions to complete the integration, you will see a URL to provide to someone who does. If you do, click **Continue** to see the instructions on how to configure the identity provider you want to use with this integration. You will also be provided the custom parameters needed to integrate your Auth0 tenant with the identity provider.
 
 ![](/media/articles/connections/enterprise/samlp/config-instructions.png)
 
@@ -81,7 +87,7 @@ Here's how you might include the call within your application's code:
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/connections",
+	"url": "https://${account.namespace}/api/v2/connections",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -99,11 +105,11 @@ Here's how you might include the call within your application's code:
 }
 ```
 
-## Enable the Connection for Your Auth0 Client
+## Enable the Connection for Your Auth0 Application
 
-To use your newly-created Connection, you'll need to enable it for your Auth0 Client(s).
+To use your newly-created Connection, you'll need to enable it for your Auth0 Application(s).
 
-1. Go to the [Clients](${manage_url}/#/clients) page of the Management Dashboard.
-2. Select the Client for which you want to enable the Connection.
-3. Click the **Connections** icon for your Client.
+1. Go to the [Applications](${manage_url}/#/applications) page of the Management Dashboard.
+2. Select the Application for which you want to enable the Connection.
+3. Click the **Connections** icon for your Application.
 4. Scroll down to the *Enterprise* section of the Connections page, and your Connection. Click the slider to enable the Connection. If successful, the slide turns green.

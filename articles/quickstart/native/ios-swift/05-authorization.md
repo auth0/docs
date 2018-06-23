@@ -2,70 +2,87 @@
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to perform certain actions in the app.
 budicon: 500
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 05-Authorization
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '05-Authorization',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
+Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
+If an identity provider does not supply this information, you can create a rule for assigning roles to users.
 
 ## Create a Rule to Assign Roles
 
-To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template.  These templates are written by Auth0 team to assist you complete common tasks.
+Create a rule that assigns the following access roles to your user:
+* An admin role
+* A regular user role
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section, select the **Set roles to a user** template.
 
-```
-if (user.email.indexOf('@example.com') > -1)
-```
+Edit the following line from the default script to match the conditions that fit your needs:
 
-::: note
-You can set roles other than `admin` and `user` or customize the rule as needed.
-:::
+```js
+function (user, context, callback) {
 
-By default, it says that if a user email contains `@example.com`, that user will be given an `admin` role, otherwise a regular `user` role.
+  //Define the name of the claim. Must look like a url:
+  //Have 'http' or 'https' scheme and a hostname other than
+  //'auth0.com', 'webtask.io' and 'webtask.run'.
+  var claimName = 'https://access.control/roles';
 
-## Test the Rule
+  //Check if the email has the 'admin.com' domain and give the 'admin' role.
+  //Otherwise, keep a default 'user' role.
+  var roles = ['user'];
+  if (user.email && user.email.indexOf('@admin.com') > -1) {
+      roles.push('admin');
+  }
+  //Set the role claim in the ID Token
+  context.idToken[claimName] = roles;
 
-```swift
-import Auth0
-```
-
-```swift
-// SessionManager.swift
-
-Auth0
-    .users(token: idToken)
-    .get(userId, fields: ["app_metadata"], include: true)
-    .start { result in
-        switch result {
-        case .success(let user):
-            guard
-              let appMetadata = user["app_metadata"] as? [String: Any],
-              let roles = appMetadata["roles"] as? [String]
-            else {
-              // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
-              return
-            }
-            if roles == "admin" {
-                // User has admin access, grant them the power.
-            } else {
-                // Not an admin, deny the user.
-            }
-        case .failure(let error):
-            // Handler error
-        }
+  callback(null, user, context);
 }
 ```
 
-## Use the Rule
+The rule is checked every time a user attempts to authenticate.
 
-At this point, you are able to distinguish the users' roles in your app to authorize or deny access to a certain feature.
+* If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
+* If the email contains anything else, the user gets the regular user role.
+
+The claim is saved in the ID Token under the name `https://access.control/roles`.
+
+::: note
+Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).
+:::
+
+## Test the Rule in Your Project
+
+The claim with the roles you set is stored in the user's ID Token. It is a [JSON Web Token (JWT)](/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library.
+
+```swift
+import JWTDecode
+```
+
+```swift
+guard
+    let idToken = self.keychain.string(forKey: "id_token"),
+    let jwt = try? decode(jwt: idToken),
+    let roles = jwt.claim(name: "https://access.control/roles").array
+    else { // Couldn't retrieve claim }
+
+if roles.contains("admin") {
+    // Access Granted
+    // Present Admin Screen
+} else {
+    // Access Denied
+    // Show warning
+}
+```
+
+## Restrict Content Based on Access Level
+
+Now you can recognize the users with different roles in your app. You can use this information to give and restrict access to selected features in your app to users with different roles.
+
+In the sample project, the user with the admin role can access the admin panel.

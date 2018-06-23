@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Secure AWS API Gateway Endpoints Using Custom Authorizers"
+    tags:
+      - aws
+      - api
+      - api-gatway
+      - tutorials
+    description: |
+      A [new tutorial](https://auth0.com/docs/integrations/aws-api-gateway) was added on how to secure your API Gateway APIs using custom authorizers that handle Auth0 Access Tokens.

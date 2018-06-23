@@ -1,0 +1,7 @@
+added:
+  -
+    title: "Past Migrations"
+    tags:
+      - migrations
+    description: |
+      The Auth0 migrations that have already been enabled for all customers were moved to a new article, [Past Migrations](https://auth0.com/docs/migrations/past-migrations). [Migrations](https://auth0.com/docs/migrations) now includes only the active migrations.

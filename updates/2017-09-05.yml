@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Enable Android App Links Support for your Auth0 Client"
+    tags:
+      - android
+      - app links
+      - clients
+      - tutorials
+    description: |
+      A [new tutorial](https://auth0.com/docs/clients/enable-android-app-links) was added on how to configure Android App Links for your Auth0 Android client.

@@ -1,6 +1,6 @@
-## Install the Middleware Dependencies
+## Configure Node to Use Auth0 
 
-Install the necessary middelwares.
+Install the necessary middleware.
 
 ```bash
 # installation with npm
@@ -10,9 +10,10 @@ npm install passport passport-auth0 connect-ensure-login --save
 yarn add passport passport-auth0 connect-ensure-login
 ```
 
-## Configure the Middleware
+### Configure the Middleware
 
-Provide your Auth0 client details as configuration values for an instance of `Auth0Strategy`. Tell **passport** to use the strategy.
+Create a new instance of the `Auth0Strategy` strategy. 
+Enter your Auth0 application details as configuration values. Tell `passport` to use this strategy. 
 
 ```js
 // app.js
@@ -21,14 +22,17 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
 // Configure Passport to use Auth0
-const strategy = new Auth0Strategy({
-  domain: '${account.namespace}',
-  clientID: '${account.clientId}',
-  clientSecret: 'YOUR_CLIENT_SECRET',
-  callbackURL:  'http://localhost:3000/callback'
-}, (accessToken, refreshToken, extraParams, profile, done) => {
-  return done(null, profile);
-});
+const strategy = new Auth0Strategy(
+  {
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    clientSecret: 'YOUR_CLIENT_SECRET',
+    callbackURL: 'http://localhost:3000/callback'
+  },
+  (accessToken, refreshToken, extraParams, profile, done) => {
+    return done(null, profile);
+  }
+);
 
 passport.use(strategy);
 
@@ -44,16 +48,31 @@ passport.deserializeUser(function(user, done) {
 // ...
 app.use(passport.initialize());
 app.use(passport.session());
+
 ```
 
 ## Trigger Authentication
 
-Auth0's hosted login page can be used to allow users to log in.
+[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
-Add a route called `/login` and pass an `env` object with the **Client ID**, **Domain**, and **Callback URL** for your client to it.
+::: note
+You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible. 
+To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
+:::
+
+Add a route called `/login`. Use the `env` object to set the following properties for your application: 
+* Client ID
+* Domain
+* Callback URL
+
+The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the login page.
 
 ```js
 // routes/index.js
+
+const express = require('express');
+const passport = require('passport');
+const router = express.Router();
 
 const env = {
   AUTH0_CLIENT_ID: '${account.clientId}',
@@ -61,10 +80,26 @@ const env = {
   AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
 };
 
-// Render the login template
-router.get('/login', (req, res) => {
-  res.render('login', { env });
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
 });
+
+// Perform the login
+router.get(
+  '/login',
+  passport.authenticate('auth0', {
+    clientID: env.AUTH0_CLIENT_ID,
+    domain: env.AUTH0_DOMAIN,
+    redirectUri: env.AUTH0_CALLBACK_URL,
+    audience: 'https://' + env.AUTH0_DOMAIN + '/userinfo',
+    responseType: 'code',
+    scope: 'openid'
+  }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
 
 // Perform session logout and redirect to homepage
 router.get('/logout', (req, res) => {
@@ -73,36 +108,16 @@ router.get('/logout', (req, res) => {
 });
 
 // Perform the final stage of authentication and redirect to '/user'
-router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), (req, res) => {
+router.get(
+  '/callback',
+  passport.authenticate('auth0', {
+    failureRedirect: '/'
+  }),
+  function(req, res) {
     res.redirect(req.session.returnTo || '/user');
-  });
-```
+  }
+);
 
-Create a view for the `/login` route. The view should instantiate `auth0.WebAuth` and call its `authorize` method to redirect the user to Auth0's hosted login page.
-
-```pug
-// views/login.pug
-
-extends layout
-
-block content
-
-  div(id="root" style="width: 280px; margin: 40px auto; padding: 10px;")
-
-  script.
-    const webAuth = new auth0.WebAuth({
-      clientID: '#{env.AUTH0_CLIENT_ID}',
-      domain: '#{env.AUTH0_DOMAIN}',
-      redirectUri: '#{env.AUTH0_CALLBACK_URL}',
-      responseType: 'code',
-      scope: 'openid'
-    });
-    webAuth.authorize();
 ```
 
 ![hosted login](/media/articles/web/hosted-login.png)
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).

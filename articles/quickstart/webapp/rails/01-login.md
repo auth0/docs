@@ -1,24 +1,33 @@
 ---
 title: Login
-description: Learn how to login using the Auth0 Lock widget and OmniAuth.
+description: This tutorial demonstrates how to add user login to a Ruby on Rails application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - rails
+github:
+  path: 01-Login
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '01-Login',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/oauth2/callback' }) %>
 
-The easiest way to add authentication to your Rails application is to use Auth0's [Lock widget](/lock) and OmniAuth authentication [strategy](https://github.com/auth0/omniauth-auth0).
+## Configure Rails to Use Auth0 
 
-## Initialize Omniauth Auth0
+### Install the Dependencies
 
-Create a file named `auth0.rb` under `config/initializers` with the following content:
+To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
+
+::: note
+If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
+:::
+
+${snippet(meta.snippets.dependencies)}
+
+### Initialize Omniauth Auth0
+
+Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
 ${snippet(meta.snippets.setup)}
 
@@ -26,7 +35,7 @@ ${snippet(meta.snippets.setup)}
 This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
 :::
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 Use the following command to create the controller that will handle the Auth0 callback:
 
@@ -37,6 +46,7 @@ rails generate controller auth0 callback failure --skip-template-engine --skip-a
 In the newly created controller, add a callback success and failure handler.
 
 ```ruby
+# app/controllers/auth0_controller.rb
 class Auth0Controller < ApplicationController
   def callback
     # This stores all the user information that came from Auth0
@@ -61,29 +71,60 @@ get "/auth/oauth2/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-## Trigger Login with Lock
+## Trigger Authentication
 
-<%= include('../../../_includes/_lock-sdk') %>
-
-::: note
-The `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
-:::
-
-If you wish to force an identity provider, you may redirect the user and specify the connection name in the query string.
+Create a file called `session_helper.rb`:
 
 ```ruby
-redirect_to '/auth/oauth2?connection=CONNECTION_NAME'
+# app/helpers/session_helper.rb
+
+module SessionHelper
+  def get_state
+    state = SecureRandom.hex(24)
+    session['omniauth.state'] = state
+
+    state
+  end
+end
 ```
 
-::: note
-[Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
-:::
+Use the following command to create the controller that will handle user login:
 
-## Check the User's Authentication Status
+```bash
+rails generate controller home
+```
 
-You can use a controller concern to control access to routes that require the user to be authenticated.
+In the controller `home_controller.rb` add the `show` action.
 
 ```ruby
+# app/controllers/home_controller.rb
+
+class HomeController < ApplicationController
+  def show
+  end
+end
+```
+
+Create a file called `show.html.erb` to add the template for `show` action. Add a link to `/auth/auth0` to trigger user login.
+
+```html
+<!-- app/views/home/show.html.erb -->
+
+<section class="jumbotron text-center">
+  <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
+  <h1>RoR Auth0 Sample</h1>
+  <p>Step 1 - Login.</p>
+  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+</section>
+```
+
+### Check the User's Authentication Status
+
+You can use a controller `concern` to control access to routes that require the user to be authenticated.
+
+```ruby
+# app/controllers/concerns/secured.rb
+
 module Secured
   extend ActiveSupport::Concern
 
@@ -97,20 +138,28 @@ module Secured
 end
 ```
 
-Include the concern in the corresponding controller to prevent unauthenticated users from accessing its routes:
+Use the following command to create the controller for the dashboard view:
+
+```bash
+rails generate controller dashboard show --skip-template-engine --skip-assets
+```
+
+Include the `concern` in the newly-created controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
+# app/controllers/dashboard_controller.rb
+
 class DashboardController < ApplicationController
- include Secured
+  include Secured
 
   def show
   end
 end
 ```
 
-## Display Error Descriptions
+### Display Error Descriptions
 
-Configuration the application to display erros by adding the following to `config/environments/production.rb`:
+Configure the application to display errors by adding the following to `config/environments/production.rb`:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|
@@ -121,7 +170,7 @@ OmniAuth.config.on_failure = Proc.new { |env|
 }
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 ### ActionDispatch::Cookies::CookieOverflow
 

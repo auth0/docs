@@ -34,7 +34,7 @@ shopt -s extglob
 mv !(docs) docs
 shopt -u extglob
 
-git clone https://$GITHUB_USER_NAME:$GITHUB_ACCESS_TOKEN@github.com/auth0/auth0-docs.git auth0-docs-repo
+git clone ssh://git@github.com/auth0/auth0-docs.git auth0-docs-repo
 
 echo "Moving docs site into root folder"
 shopt -s dotglob

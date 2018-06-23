@@ -1,5 +1,12 @@
 ---
 title: User profile claims and scope
+topics:
+  - api-authentication
+  - oidc
+  - scopes
+  - user-profiles
+  - claims
+contentType: concept
 ---
 
 # User profile claims and scope
@@ -8,15 +15,15 @@ title: User profile claims and scope
 
 The behavior of the `scope` parameter has been changed to conform to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 
-Instead of requesting arbitrary application-specific claims, clients can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
+Instead of requesting arbitrary application-specific claims, applications can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
 
 ## Standard claims
 
-The OIDC specification defines a [set of standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users that can be returned in ID tokens or in the response from /userinfo.
+The OIDC specification defines a [set of standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users that can be returned in ID Tokens or in the response from /userinfo.
 
 ## Custom claims
 
-In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that it is no longer possible to add arbitrary claims to ID tokens or access tokens. Custom claims may still be added, but must conform to a namespaced format to avoid possible collisions with standard OIDC claims.
+To improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. 
 
 For example, suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user.
 
@@ -34,7 +41,7 @@ This would be the profile stored by Auth0:
 }
 ```
 
-This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID token claims to the client:
+This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
 
 ```json
 {
@@ -48,7 +55,7 @@ This is a [*normalized user profile*](/user-profile/normalized), which is a prot
 }
 ```
 
-Note that the `user_id` property is sent as `sub` in the ID token, and that `favorite_color` and `user_metadata` are not present in the OIDC response from Auth0. This is because OIDC does not define standard claims to represent all the information in this user’s profile. We can, however, define a non-standard claim by namespacing it through a rule:
+Note that the `user_id` property is sent as `sub` in the ID Token, and that `favorite_color` and `user_metadata` are not present in the OIDC response from Auth0. This is because OIDC does not define standard claims to represent all the information in this user’s profile. We can, however, define a non-standard claim by namespacing it through a rule:
 
 ```js
 function (user, context, callback) {
@@ -67,9 +74,9 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 
 This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any non-namespaced claims will be silently excluded from tokens.
 
-If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
+If you need to add custom claims to the Access Token, the same applies but using `context.accessToken` instead.
 
-Please note that adding custom claims to id tokens trough this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+Please note that adding custom claims to ID Tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
 
 ## Further reading
 

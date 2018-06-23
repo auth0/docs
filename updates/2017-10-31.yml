@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Migrate Users from Okta to Auth0"
+    tags:
+      - migration
+      - okta
+    description: |
+      A new document on how to [Migrate Users from Okta to Auth0](https://auth0.com/docs/connections/database/migrating-okta) was added.

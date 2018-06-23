@@ -5,16 +5,45 @@ title: C#
 ```cs
 public class Startup
 {
-  public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+  public void ConfigureServices(IServiceCollection services)
   {
-    var options = new JwtBearerOptions
+    services.AddMvc();
+    
+    // 1. Add Authentication Services
+    services.AddAuthentication(options =>
     {
-      Audience = "${'<%= api.identifier %>'}",
-      Authority = "https://${'<%= tenantDomain %>'}/"
-    };
-    app.UseJwtBearerAuthentication(options);
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    app.UseMvc();
+    }).AddJwtBearer(options =>
+    {
+        options.Authority = "https://${'<%= tenantDomain %>'}/";
+        options.Audience = "${'<%= api.identifier %>'}";
+    });
+  }
+
+  public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+  {
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Home/Error");
+    }
+
+    app.UseStaticFiles();
+
+    // 2. Enable authentication middleware
+    app.UseAuthentication();
+
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
+    });
   }
 }
 ```

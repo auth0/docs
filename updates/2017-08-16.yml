@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Add /oauth/revoke endpoint at the Authentication API Explorer"
+    tags:
+      - refresh_token
+      - revoke
+    description: |
+      Added the [/oauth/revoke endpoint](https://auth0.com/docs/api/authentication#revoke-refresh-token) at the Authentication API Explorer. It can be used to revoke a Refresh Token.

@@ -1,16 +1,20 @@
 ---
-description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 accounts, allowing you to test your Auth0 SAML without configuring another provider to do so!
+description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
+toc: true
+topics:
+  - saml
+  - sso
 ---
 
 # SAML SSO with Auth0 as Service Provider and as an Identity Provider
 
-This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
+This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 tenant (tenant 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 tenant (tenant 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML tenant (tenant 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
 There are **9 steps** to this sample and the tenth is a troubleshooting section to help resolve any problems that might arise.
 
-1. [Establish two Auth0 accounts](#1-establish-two-auth0-accounts)
-2. [Set up the Auth0 Identity Provider (IDP) (account 2)](#2-set-up-the-auth0-idp-account-2-)
-3. [Set up the Auth0 Service Provider (SP) (account 1)](#3-set-up-the-auth0-service-provider-account-1-)
+1. [Establish two Auth0 tenants](#1-establish-two-auth0-tenants)
+2. [Set up the Auth0 Identity Provider (IDP) (tenant 2)](#2-set-up-the-auth0-idp-tenant-2-)
+3. [Set up the Auth0 Service Provider (SP) (tenant 1)](#3-set-up-the-auth0-service-provider-tenant-1-)
 4. [Add your Service Provider metadata to the Identity Provider](#4-add-your-service-provider-metadata-to-the-identity-provider)
 5. [Test the Identity Provider](#5-test-identity-provider)
 6. [Register a simple HTML application with which to test the end-to-end connection](#6-register-a-simple-html-application-with-which-to-test-the-end-to-end-connection-)
@@ -19,31 +23,31 @@ There are **9 steps** to this sample and the tenth is a troubleshooting section 
 9. [Test your sample application](#9-test-your-sample-application)
 10. [Troubleshooting](#10-troubleshooting)
 
-## 1. Establish two Auth0 Accounts
+## 1. Establish two Auth0 Tenants
 
-If you do not already have two Auth0 accounts, you will need to create them. If you do already have two accounts, you can skip to step #2.
+If you do not already have two Auth0 tenants, you will need to create them. If you do already have two tenants, you can skip to step #2.
 
 ### In the Auth0 Dashboard
 
-In the upper right corner, click on the name of your account and in the popup menu which appears, select **"New Account"**.  
+In the upper right corner, click on the name of your tenant and in the popup menu which appears, select **+ Create Tenant**.  
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-01.png)
 
-In the window which appears, enter a name for your second account in the **"Your Auth0 domain"** field and press the **"SAVE"** button.
+In the window which appears, enter a name for your second tenant in the **"Your Auth0 domain"** field and press the **"SAVE"** button.
 
-You can switch back and forth between the accounts by going to the upper right corner of the dashboard, clicking on the name of the current account, and using the popup menu which appears to switch between your accounts.
+You can switch back and forth between the tenants by going to the upper right corner of the dashboard, clicking on the name of the current tenant, and using the popup menu which appears to switch between your tenants.
 
-## 2. Set up the Auth0 IDP (account 2)
+## 2. Set up the Auth0 IDP (tenant 2)
 
-In this section you will configure one Auth0 account (account 2) to serve as an Identity Provider.  You will do this by registering a client, but in this case, the 'client' you register is really a representation of account 1, the SAML Service Provider.
+In this section you will configure one Auth0 tenant (tenant 2) to serve as an Identity Provider.  You will do this by registering an application, but in this case, the 'application' you register is really a representation of tenant 1, the SAML Service Provider.
 
-Log into **Account 2**
+Log into **Tenant 2**
 
 **In the Auth0 dashboard:**
 
-1. Click on **"Clients"** link at left.
+1. Click on **"Applications"** link at left.
 
-2. Click on the red **"+ CREATE CLIENT"** button on the right.
+2. Click on the red **"+ CREATE APPLICATION"** button on the right.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-02.png)
 
@@ -55,11 +59,11 @@ Log into **Account 2**
 
 6. Scroll down and click on the **"Show Advanced Settings"** link.
 
-7. In the expanded window, scroll down to the **"Certificates"** section and click on the **"DOWNLOAD CERTIFICATE"** link and select PEM from the dropdown, to download a PEM-formatted certificate.  The certificate will be downloaded to a file called "${account.tenant}.pem".  Save this file as you will need to upload this file when configuring the other Auth0 account, account 1.
+7. In the expanded window, scroll down to the **"Certificates"** section and click on the **"DOWNLOAD CERTIFICATE"** link and select PEM from the dropdown, to download a PEM-formatted certificate.  The certificate will be downloaded to a file called "${account.tenant}.pem".  Save this file as you will need to upload this file when configuring the other Auth0 tenant, tenant 1.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-03.png)
 
-8. Click on the **"Endpoints"** tab and go to the **"SAML"** section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as in the next step you will need to paste it into the other Auth0 account, account 1.
+8. Click on the **"Endpoints"** tab and go to the **"SAML"** section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as in the next step you will need to paste it into the other Auth0 tenant, tenant 1.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-04.jpg)
 
@@ -79,11 +83,11 @@ Next, create a user to use in testing the SAML SSO sequence.
 5. Press the blue **"SAVE"** button.
 
 
-## 3. Set up the Auth0 service provider (account 1)
+## 3. Set up the Auth0 service provider (tenant 1)
 
-In this section you will configure another Auth0 account (account 1) so it knows how to communicate with the second Auth0 account (account 2) for single sign on via the SAML protocol.
+In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for single sign on via the SAML protocol.
 
-Log out of **Account 2** and log into **Account 1**.
+Switch to **Tenant 1**. You can do this using the **Switch tenant** option in the upper-right menu.
 
 **In the Auth0 dashboard:**
 
@@ -104,12 +108,12 @@ In the **"Create SAMLP Identity Provider"** connection window, enter the followi
 **Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  Make sure the test user you created in section 2 has an email address with email domain that matches what you enter here.
 
-**Sign In URL:** enter the **"SAML Protocol URL"** field that you copied in section 2 above. (From account 2 dashboard, Apps/APIs link, Settings tab, Advanced Settings, ENDPOINTS section, SAML tab, "SAML Protocol URL" field.)
+**Sign In URL:** enter the **SAML Protocol URL** field that you copied in section 2 above (from tenant 2, go to: **Dashboard > Applications > Settings > Advanced Settings > ENDPOINTS section > SAML tab > SAML Protocol URL field**).
 
 **Sign Out URL:** enter the same URL as for the Sign In URL above.
 
 **X509 Signing Certificate:**  
-Click on the red **"UPLOAD CERTIFICATE..."** button and select the `.pem` file you downloaded from account 2 in section 2 above.
+Click on the red **"UPLOAD CERTIFICATE..."** button and select the `.pem` file you downloaded from tenant 2 in section 2 above.
 
 You can ignore the rest of the fields for now.
 
@@ -119,7 +123,7 @@ After pressing the **"SAVE"** button, A window will appear with a red **"CONTINU
 
 Click on the **"CONTINUE"** button.
 
-In the window that appears, metadata about this SAML provider (account 1) is displayed.  You will need to collect two pieces of information about this Auth0 account (the service provider) that you will then paste into the other Auth0 account you set up (the identity provider).
+In the window that appears, metadata about this SAML provider (tenant 1) is displayed.  You will need to collect two pieces of information about this Auth0 tenant (the service provider) that you will then paste into the other Auth0 tenant you set up (the identity provider).
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-08.jpg)
 
@@ -133,25 +137,25 @@ Copy the URL below that line into your browser address bar.
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
-Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
+Once you go to that metadata URL, it will display the metadata for the Auth0 tenant 1 (service provider side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.namespace}.auth0.com/login/callback?connection=YOUR_CONNECTION_NAME__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-Copy and save this URL. This is the URL on account 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
+Copy and save this URL. This is the URL on tenant 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
 ## 4. Add your Service Provider metadata to the Identity Provider
 
-In this section you will go back and add some information about the Service Provider (account 1) to the Identity Provider (account 2) so the Identity Provider Auth0 account knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 account.
+In this section you will go back and add some information about the Service Provider (tenant 1) to the Identity Provider (tenant 2) so the Identity Provider Auth0 tenant knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 tenant.
 
-* Log out of **Account 1** and log back into **Account 2**.
+* Switch back to **Tenant 2**.
 
-**In the Auth0 dashboard:** for Account 2
+**In the Auth0 dashboard:** for Tenant 2
 
-1. Click on **"Clients"** link at left.
+1. Click on **"Applications"** link at left.
 
-2. Find the row for the client you created earlier, and click on the **"Add Ons"** icon to the right of the client name. (the angle bracket and slash icon)
+2. Find the row for the application you created earlier, and click on the **"Add Ons"** icon to the right of the application name. (the angle bracket and slash icon)
 3. Locate the box with the **"SAML2 WEB APP"** label and click on the circle toggle to turn it green.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-10.jpg)
@@ -180,9 +184,9 @@ Next, replace the original value (urn:foo) with the **Entity ID** value you save
 
 In the same screen, click on the red **"DEBUG"** button.
 
-That will trigger a login screen from account 2, the Identity Provider.
+That will trigger a login screen from tenant 2, the Identity Provider.
 
-Log in with the credentials for account 2.
+Log in with the credentials for tenant 2.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-13.png)
 
@@ -198,9 +202,9 @@ Click on **"Close this window"** at the bottom of the screen.
 
 In this section, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
 
-Make sure you are logged into the **Account 1 Auth0 dashboard**.
+Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
-* In the **Auth0 dashboard**, click on the **"Clients"** link at left.
+* In the **Auth0 dashboard**, click on the **"Applications"** link at left.
 
 * Click on the red **"+ CREATE APP"** button on the right.
 
@@ -212,11 +216,11 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 
 * In the **"Allowed Callback URLs"** field, enter **[http://jwt.io](http://jwt.io)**.
 
-* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JASON Web Token returned at the end of the authentication sequence.
+* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JSON Web Token returned at the end of the authentication sequence.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
-* In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings etc.
+* In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings and so on.
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
 
@@ -226,9 +230,9 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 
 ## 7. Test the connection from Service Provider to Identity Provider
 
-In this section, you will test to make sure the SAML configuration between Auth0 account 1 (Service Provider) and Auth0 account 2 (Identity Provider) is working.
+In this section, you will test to make sure the SAML configuration between Auth0 tenant 1 (Service Provider) and Auth0 tenant 2 (Identity Provider) is working.
 
-* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+* On the [Dashboard](${manage_url}), navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-14.jpg)
 
@@ -236,7 +240,7 @@ In this section, you will test to make sure the SAML configuration between Auth0
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-15.png)
 
-* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test account you created earlier.
+* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test tenant you created earlier.
 
 You will then be redirected to the Lock login widget of the Identity Provider.  Login with the credentials for the test user you created.
 
@@ -268,6 +272,7 @@ Create an HTML page and insert the following HTML and javascript code:
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
         auth: {
           redirectUrl: 'http://jwt.io',
+          audience: 'https://your-audience.com',
           responseType: 'token',
           params: {scope: 'openid'}
         }
@@ -283,16 +288,16 @@ Create an HTML page and insert the following HTML and javascript code:
 
 ```
 
-Make sure you replace `YOUR-APP-CLIENT-ID` with the actual value of the app you registered in step 7 above.  
+Make sure you replace **YOUR-APP-CLIENT-ID** with the actual value of the app you registered in step 7 above. You can also replace **audience** with the value appropriate for your Application -- however, for the purposes of this test, a placeholder will work.
 
-The client ID for your client can be found in the **Auth0 dashboard** for **Account 1** by going to "Clients"link and clicking on the "Settings" (gear) icon to the right of your client's name.
+The client ID for your application can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Applications" link and clicking on the "Settings" (gear) icon to the right of your application's name.
 
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.
 
 ## 9. Test your sample application
 
-In this step, you will test your sample HTML application that uses the Auth0 SAML connection you set up in Account 1 to perform SSO via SAML against Account 2, serving as the SAML Identity Provider.
+In this step, you will test your sample HTML application that uses the Auth0 SAML connection you set up in Tenant 1 to perform SSO via SAML against Tenant 2, serving as the SAML Identity Provider.
 
 * Open the HTML file created above with a browser. You should first see a white page with a login button on it.
 
@@ -302,7 +307,7 @@ The **Auth0 Lock** widget should appear with one login option.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-18.png)
 
-If you have other connections turned on for your client, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the client in the Account 1 Auth0 dashboard.  (__Apps/APIs -> Settings__)
+If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the application in the Tenant 1 Auth0 dashboard  (__Applications > Settings__).
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-19.png)
 
@@ -312,9 +317,9 @@ After entering your email address, the blue button on the Lock widget may have a
 
 Note that whether you are prompted for credentials at this point depends on whether you still have an active session at the Identity Provider.
 
-From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specified in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the client's Settings tab in the Auth0 dashboard.)
+From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specified in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Settings tab in the Auth0 dashboard.)
 
-If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to the Identity Provider.  Log in to the Identity Provider using the credentials for the test user you created in Auth0 Account 2.
+If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to the Identity Provider.  Log in to the Identity Provider using the credentials for the test user you created in Auth0 Tenant 2.
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
@@ -324,10 +329,10 @@ This section has a few ideas for things to check if your sample doesn't work.
 
 Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again.  Otherwise, the browser may not be picking up the latest version of your html page or it may have stale cookies that impact execution.
 
-When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the Service Provider, and then to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider and then finally a redirect to the callback URL specified in your client.
+When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the Service Provider, and then to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider and then finally a redirect to the callback URL specified in your application.
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
-Check to make sure that the callback URL specified in the HTML file is also listed in the **Allowed Callback URLs** field in the "Settings" tab of the client registered in the Auth0 Dashboard.  (In dashboard, Click on Clients link, then on the "Settings" icon to the right of the client's name.)
+Check to make sure that the callback URL specified in the HTML file is also listed in the **Allowed Callback URLs** field in the "Settings" tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on Applications link, then on the "Settings" icon to the right of the application's name.)
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.

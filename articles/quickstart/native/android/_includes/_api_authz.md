@@ -48,7 +48,7 @@ Also include following permission:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
+Finally, open the Dashboard and make sure the Allowed Callback URLs for your application contains a URL with the following format:
 
 `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`
 
@@ -57,7 +57,7 @@ Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 ## Initiate Authentication and Authorization
 
-First create an instance of Auth0 with your client information:
+First create an instance of Auth0 with your application information:
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
@@ -69,11 +69,11 @@ Next, you need to use the `WebAuthProvider` to initiate the authentication and a
 ```java
 public void startAuth() {
     WebAuthProvider.init(account)
-            .withConnection("Username-Password-Authentication")
-            .withScope("openid profile {API_SCOPES}")
-            .withAudience("${apiIdentifier}")
-            .withScheme("demo")
-            .start(MainActivity.this, authCallback);
+        .withConnection("Username-Password-Authentication")
+        .withScope("openid profile {API_SCOPES}")
+        .withAudience("${apiIdentifier}")
+        .withScheme("demo")
+        .start(MainActivity.this, authCallback);
 }
 
 private AuthCallback authCallback = new AuthCallback() {
@@ -113,13 +113,13 @@ protected void onNewIntent(Intent intent) {
 
 ## Making an Authenticated API Call
 
-Use the `access_token` to invoke your Resource Server (API). In this example we are using the [Unirest library for Java](http://unirest.io/java.html):
+Use the Access Token to invoke your Resource Server (API). In this example we are using the [Unirest library for Java](http://unirest.io/java.html):
 
 ```java
 HttpResponse<String> response = Unirest.get("https://someapi.com/api")
-  .header("content-type", "application/json")
-  .header("Authorization", "Bearer {ACCESS_TOKEN}")
-  .asString();
+    .header("content-type", "application/json")
+    .header("Authorization", "Bearer {ACCESS_TOKEN}")
+    .asString();
 ```
 
 The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json]. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).

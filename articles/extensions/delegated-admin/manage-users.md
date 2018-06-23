@@ -1,11 +1,15 @@
 ---
 description: How to manage users in the Delegated Administration extension
 toc: true
+topics:
+  - extensions
+  - delegated-admin
+  - users
 ---
 
 # Delegated Administration: Manage Users
 
-In the Client exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
+In the Application exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
 
 By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/hooks#the-filter-hook).
 
@@ -14,6 +18,7 @@ By default, all users are displayed, but you can filter the displayed list by co
 The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](#access-hook).
 
 <table class="table">
+  <tbody>
     <tr>
         <th>Action</th>
         <th> Available in the Management Dashboard </th>
@@ -64,6 +69,7 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
         <th>Yes</th>
     </tr>
+  </tbody>
 </table>
 
 Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.

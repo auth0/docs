@@ -1,10 +1,12 @@
 ---
 description: The Emails section of the Auth0 dashboard allows you to customize your emails with Liquid templating syntax.
+topics:
+  - email
 ---
 
 # Customizing Your Emails
 
-::: panel-warning Email Setup
+::: warning
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
@@ -14,7 +16,7 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 
 
 ::: note
-Only one template can be used for each template type (i.e. only one template for change password emails).
+Only one template can be used for each template type (for example, only one template for change password emails).
 :::
 
 ## Configuring *From*, *Subject*, *Redirect To*, and *URL Lifetime*
@@ -26,7 +28,7 @@ For each type of email, you can customize the **From Address**, the **Subject**,
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
 ::: note
-For security purposes, you may not send customized emails from any `@auth0.com` address. If you are an appliance user, you may configure a similar domain blacklist.
+For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a PSaaS Appliance user, you may configure a similar domain blacklist.
 :::
 
 The **From Address** field supports the following macros:
@@ -101,7 +103,7 @@ You can modify the lifetime of this link for security purposes. By default, the 
 If users click on an expired link and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the query string:
 
 ```text
-http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
+http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired.&success=false
 ```
 
 ## Email Templates

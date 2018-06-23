@@ -3,11 +3,15 @@ description: Describes what changed in the flow for generating Auth0 Management 
 section: apis
 crews: crew-2
 toc: true
+topics:
+  - apis
+  - management-api
+  - tokens
+contentType: concept
 ---
-
 # Changes in Auth0 Management APIv2 Tokens
 
-Recently we changed the process to get a Management APIv2 Token. This article explains what changed, why this was done and how you can work around it (not recommended).
+Some time ago we changed the process to get a Management APIv2 Token. This article explains what changed, why this was done and how you can work around it (not recommended).
 
 ## What changed and why
 
@@ -22,12 +26,12 @@ The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client
 You can get a new token either [using the dashboard](/api/management/v2/tokens#get-a-token-manually) (if you use the API sporadically) or [by configuring a server process](/api/management/v2/tokens#automate-the-process) (if you need a token frequently) that will get a new token every 24 hours.
 
 ::: note
-For details on how to follow this new process refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>
+For details on how to follow this new process refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 :::
 
 #### Why this changed
 
-In order to generate the token, the Management API had access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
+In order to generate the token, the Management API required access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
 
 Furthermore, the API Explorer has no way to do authorization. This means that if you could login and access the API explorer, you could generate a token with __any__ scope, even if you as the logged in user were not allowed to have that scope.
 
@@ -66,7 +70,7 @@ To generate a token follow the next steps:
 
 1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
 
-2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)) and check the __secret base64 encoded__ flag.
+2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)) and check the __secret base64 encoded__ flag.
 
 3. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
 
@@ -90,11 +94,11 @@ To generate a token follow the next steps:
 
   Where:
 
-  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced).
+  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
-  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
+  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create applications, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 
   - __iat__: The time at which the token was issued. It must be a number containing a `NumericDate` value, for example `1487260214` (which maps to `Thu, 16 Feb 2017 15:50:14 GMT`). You can use an [epoch converter](http://www.epochconverter.com/) to get this value.
 
@@ -127,10 +131,10 @@ To generate a token follow the next steps:
 
   Note the following:
 
-  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
-  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
-  - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
+  - We want this token in order to call the [Get all applications](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 
   - The token expires in one year (`expiresIn: '1y'`).

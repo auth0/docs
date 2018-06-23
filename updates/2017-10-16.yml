@@ -1,0 +1,9 @@
+added:
+  -
+    title: "PSaaS Appliance Remote Access Options"
+    tags:
+      - remote-access
+      - infrastructure
+      - appliance
+    description: |
+      A new doc called [PSaaS Appliance Remote Access Options](https://auth0.com/docs/appliance/remote-access-options) was added with information on how to choose the remote access option most appropriate for your use case/implementation scenario.

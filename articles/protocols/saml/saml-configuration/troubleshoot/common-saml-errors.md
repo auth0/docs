@@ -1,5 +1,9 @@
 ---
 description: Common SAML errors and troubleshooting steps
+topics:
+  - saml
+  - sso
+  - errors
 ---
 
 # Common SAML Errors
@@ -15,14 +19,14 @@ This article covers SAML errors you might encounter when Auth0 acts as the servi
 }
 ```
 
-This message indicates that the Client doesn't have an active Connection associated.
+This message indicates that the Application doesn't have an active Connection associated.
 
 ### How to Fix
 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
-3. Switch to the *Clients* tab.
-4. Enable at least one Client (if you don't see any in the list, you will need to [create a client](/clients#how-to-configure-a-client) before proceeding).
+3. Switch to the *Applications* tab.
+4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications#how-to-configure-an-application) before proceeding).
 
 ## Error: IdP-Initiated Default App Not Configured
 
@@ -39,7 +43,7 @@ This error appears if you haven't provided the necessary information to support 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *IdP-Initiated* tab.
-4. Select the **Default Client** and the **Response Protocol** used by that Client, and (optionally) specify any additional parameters you want passed to the Client.
+4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ## Error: Missing RelayState
 
@@ -64,7 +68,7 @@ Make sure that the identity provider sends the correct `audience` value in the S
 
 ## Error: Specifying the Incorrect Protocol
 
-One common error is specifying the incorrect response protocol on the IdP-Initiated tab. The response protocol is the one used between Auth0 and the Client (not the remote identity provider). For example, if you set this value to **SAML** when your Client expects **OpenID Connect** or **WS-Fed** results in errors due to the incorrect configuration.
+One common error is specifying the incorrect response protocol on the IdP-Initiated tab. The response protocol is the one used between Auth0 and the Application (not the remote identity provider). For example, if you set this value to **SAML** when your Application expects **OpenID Connect** or **WS-Fed** results in errors due to the incorrect configuration.
 
 ### How to Fix
 

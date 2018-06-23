@@ -1,5 +1,9 @@
 ---
 description: A workshop designed to provide IT organizations with core Auth0 Private SaaS management concepts.
+topics:
+  - professional services
+  - psaas-appliance
+  - management
 ---
 
 # Training: Private SaaS Management Workshop
@@ -8,11 +12,7 @@ A workshop designed to provide IT organizations with core concepts on availabili
 
 ## Duration
 
-8 hours.
-
-::: note
-Auth0 Professional Services are delivered in 40 hs. "blocks".
-:::
+Two (2) working sessions with an Auth0 Managed Service Engineer.
 
 ## Level
 

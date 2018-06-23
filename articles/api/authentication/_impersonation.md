@@ -1,10 +1,8 @@
 # Impersonation
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/users/{user_id}/impersonate
-Content-Type:   'application/json'
+Content-Type:   application/json
 Authorization:  'Bearer {ACCESS_TOKEN}'
 {
   protocol: "PROTOCOL",
@@ -55,14 +53,13 @@ https:/YOUR_DOMAIN/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 <% var path = '/users/{user_id}/impersonate'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": path,
   "link": "#impersonation"
 }) %>
 
-::: warning
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
-:::
+<%= include('../../_includes/_deprecate-impersonation.md') %>
 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 

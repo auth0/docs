@@ -1,28 +1,30 @@
 ---
 sitemap: false
 description: An overview of Auth0’s onboarding program for enterprise customers.
+topics:
+  - appliance
+  - onboarding
 ---
-
 # Auth0 Sprint Onboarding
 
-Sprint is Auth0’s corporate and enterprise customer onboarding program.  It helps you achieve value quickly by ensuring your setup for success with your Auth0 subscription.
+Sprint is Auth0’s enterprise customer onboarding program.  It helps you achieve value quickly by ensuring your setup for success with your Auth0 subscription.
 
-All customer's who subscribe to a qualifying 12 month+ subscription agreement obtained through our enterprise or corporate sales team  will be offered access to Sprint Onboarding.  However, the engagement varies slightly based on your subscription value, additions and support option. 
+All customer's who subscribe to a qualifying 12 month+ subscription agreement obtained through our enterprise sales team  will be offered access to Sprint Onboarding.  However, the engagement varies slightly based on your subscription value, additions and support option. 
 
 ## Sprint Onboarding Overview
 
-#### Goal
+### Goal
 
 During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfill our obligation to:
 
-* Have your subscription account correctly provisioned and setup in our systems (including the [appliance deployment project](/onboarding/appliance-sprint) in the case of on-premise/private-cloud managed service customers)
+* Have your subscription tenant correctly provisioned and setup in our systems (including the [PSaaS Appliance deployment project](/onboarding/appliance-sprint) in the case of on-premise/private-cloud managed service customers)
 * Receive information from you that our Customer Success Managers will use to engage with you, measure success and manage your subscription throughout its various lifecycles
 * Provide information to you around accessing and utilizing informational, training and support resources to meet your success goals
 * Offer high level initial technical architecture guidance and plug you in to our Professional Services offerings if deeper guidance or hands-on development/implementation assistance is desired
 
 The outcome of these obligations is a Success Plan that will be co-managed by your lead contact and the Auth0 Customer Success Management team.
 
-#### Sprint Onboarding Activities by Subscription
+### Sprint Onboarding Activities by Subscription
 
 <table class="table">
   <thead>
@@ -81,11 +83,11 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
 
 <sup>*</sup> *Live sessions are delivered remotely via web conference.*
 
-#### Timing
+### Timing
 
 The Sprint program isn’t bound by a specific time restriction, but rather it’s considered completed on delivery of the obligations and the Success Plan.  For customers with a Cloud subscription, this usually takes between 1 and 3 weeks.  For customers with an on-premise or private cloud managed service it can take up to 6 weeks.  Sprint onboarding ends when the final Success Plan is shared with you.
 
-#### What happens after the Sprint onboarding program finishes?
+### What happens next?
 
 At the conclusion of the Sprint program, our Customer Success Management team will continue to monitor your progress against the Success Plan and work with you throughout different stages of the subscription lifecycle or when things are not moving to plan.  This can mean a number of different activities and interactions depending on where you’re at in the development lifecycle and based on your subscription.
 

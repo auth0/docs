@@ -3,6 +3,8 @@ url: /services
 classes: topic-page
 title: Auth0 Professional Services
 description: Professional Services offered by Auth0.
+topics:
+  - professional services
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">
@@ -18,7 +20,6 @@ description: Professional Services offered by Auth0.
 <%= include('../_includes/_topic-links', { links: [
   'services/architectural-design',
   'services/performance-scalability',
-  'services/geo-ha',
   'services/scenario-guidance',
   'services/code-review'
 ] }) %>
@@ -36,7 +37,6 @@ description: Professional Services offered by Auth0.
 <%= include('../_includes/_topic-links', { links: [
   'services/auth0-introduction',
   'services/auth0-advanced',
-  'services/private-saas-introduction',
   'services/private-saas-management'
 ] }) %>
 

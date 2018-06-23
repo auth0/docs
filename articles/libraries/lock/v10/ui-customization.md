@@ -1,9 +1,13 @@
 ---
 section: libraries
 description: Customizing the appearance of your Lock widget can be important for branding and a cohesive UI, and this resource highlights the ways in which you can do so while implementing Lock in your project.
+topics:
+  - libraries
+  - lock
 ---
-
 # Lock: UI Customization
+
+<%= include('../../../_includes/_version_warning_lock') %>
 
 You can customize the appearance of your Lock widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
 
@@ -21,13 +25,13 @@ There are a couple of theming options currently available, namespaced under the 
 
 ![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
 
-The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
+The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {
   theme: {
     logo: 'https://example.com/logo.png'
-  }  
+  }
 };
 ```
 
@@ -42,7 +46,7 @@ var options = {
   theme: {
     logo: 'https://example.com/logo.png',
     primaryColor: '#31324F'
-  }  
+  }
 };
 ```
 
@@ -114,8 +118,8 @@ Additionally, we of course recommend that you test your CSS changes exhaustively
 At this time, Auth0 doesn't offer any alternative pre-made CSS themes for Lock 10, and the ones that existed for earlier versions of Lock will not work with Lock 10.
 :::
 
-
 ## Further Information
+
 If you're looking for more detailed information while working to customize Lock for your application, check out the [configuration options](/libraries/lock/v10/customization) page or the [Lock API](/libraries/lock/v10/api) page!
 
 If you have specific theming options that you would like to see added, let us know. We are working on improving the customization options that are available through JavaScript, and this list will be updated as new options are added.

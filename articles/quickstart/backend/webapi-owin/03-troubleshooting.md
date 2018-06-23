@@ -1,8 +1,12 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
+name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
+topics:
+    - quickstart
+    - backend
+    - webapi-owin
 ---
 
 If you configured the JWT middleware correctly, you will be able to get proper responses from your API when you make requests. However, in the case where you get a 401 (Unauthorized) response from your API, it is because the configuration of your JWT middleware does not match with the JWT which was passed.
@@ -35,7 +39,7 @@ A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. 
 
 In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://rs256.test.api**.
 
-So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, e.g.:
+So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
 
 ```csharp
 var keyResolver = new OpenIdConnectSigningKeyResolver("https://jerrie.auth0.com/");

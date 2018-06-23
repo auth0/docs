@@ -1,11 +1,15 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - datadog
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
-```
+```json
 {
   "audience": "https://app.datadoghq.com/account/saml/metadata.xml",
    "mappings": {

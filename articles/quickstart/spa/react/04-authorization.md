@@ -1,25 +1,25 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to a React application.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - react
+  - authorization
+github:
+  path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '04-Authorization',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
 ## Handle Scopes in the `Auth` Service
 
-Adjust your `Auth` service to use a local member with any `scope`s you would like to request when users log in. Use this member in the `auth0.WebAuth` instance.
+Add a local member to your `Auth` service and intialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
@@ -57,9 +57,9 @@ userHasScopes(scopes) {
 }
 ```
 
-## Conditionally Dislay UI Elements
+## Conditionally Display UI Elements
 
-The `userHasScopes` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```js
 // src/App.js
@@ -89,7 +89,7 @@ render() {
 
 ## Protect Client-Side Routes
 
-For some routes in your application, you may want to only allow access if the user is authenticated. This check can be made in the `render` function for whichever route you like.
+You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `render` function.
 
 ```js
 // src/routes.js
@@ -103,11 +103,13 @@ For some routes in your application, you may want to only allow access if the us
 )} />
 ```
 
-In this example, if an unauthenticated user tries to access the `/ping` route, they will be redirected to `/home`.
+In this example, if an unauthenticated user tries to access the `/ping` route, they are redirected to the `/home` route.
 
-### Limit Route Access Based on `scope`
+### Limit Route Access Based on Scopes
 
-To prevent access to client-side routes based on a particular `scope`, make a call to `userHasScopes` in the route's `render` function
+To prevent access to client-side routes based on a particular scope, make a call to the `userHasScopes` method in the route's `render` function.
+
+If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 ```js
 // src/routes.js
@@ -120,8 +122,6 @@ To prevent access to client-side routes based on a particular `scope`, make a ca
   )
 )} />
 ```
-
-The user will now be redirected to the `/home` route unless they have a `scope` of `write:messages`.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 

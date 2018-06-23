@@ -1,9 +1,13 @@
 ---
 title: Freshdesk SAML Configuration
 description: Freshdesk SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - freshdesk
 ---
 
-${include('./\_header')}
+${include('./_header')}
 
 ```json
 {

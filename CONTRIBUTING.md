@@ -4,7 +4,7 @@
 
 The following is a set of guidelines for contributing to the Auth0 documentation. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
-## Table Of Contents
+## Table of Contents
 
 * [General Guidelines](#general-guidelines)
 * [Reusing Content](#reusing-content)
@@ -18,10 +18,10 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Front Matter](#front-matter)
   * [Linting](#linting)
 * [Sidebar](#sidebar)
-* [Versioning](#versioning)
+* [Beta Content](#beta-content)
 * [Finishing](#finishing)
-* [Editing Text](#editing-with-wordy)
-* [Test Procedures](#text-procedures)
+* [Editing with Wordy](#editing-with-wordy)
+* [Test Procedures](#test-procedures)
 * [Review Apps](#review-apps)
 * [Quickstarts](#quickstarts)
   * [Creating Quickstarts](#creating-quickstarts)
@@ -30,10 +30,12 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Seed Projects](#seed-projects)
 * [Updates Feed](#updates-feed)
 * [API](#api)
+* [Code snippets](#code-snippets)
 * [Document Front-matter](#document-front-matter)
 * [Document Variables](#document-variables)
   * [Common Variables](#common-variables)
   * [User Specific Variables](#user-specific-variables)
+* [Versioning](#versioning)
 
 ## General Guidelines
 
@@ -168,6 +170,8 @@ Try to keep the list length to a minimum (up to 5 links).
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
+The library we use is [HTTP Snippet](https://github.com/Kong/httpsnippet).
+
 **NOTE:** You need to set the language type to `har` for this to work. View this raw markdown document for an example.
 
 ```har
@@ -213,15 +217,14 @@ Change `<% example %>` to `${ "<% example %>" }`.
 
 ### Image zooming
 
-You can enable zooming for large images using the `zoomable` container:
+You can enable zooming adding the `zoomable` data attribute to any image tag in html:
 
-```
-::: zoomable
-![Client Credentials Grant Flow](/media/articles/architecture-scenarios/server-api/client-credentials-grant.png)
-:::
+
+```html
+<img src="/media/articles/architecture-scenarios/server-api/client-credentials-grant.png" alt="Client Credentials Grant Flow" data-zoomable>
 ```
 
-It's recommended to add this only for large images (like diagrams) and use it for images with .svg format.
+It's recommended to add this only for large images (like diagrams) and use it with .svg images.
 
 ### Screenshots
 
@@ -237,7 +240,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```
  1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
- 1. Resize image to a maximum 900px width.
+ 1. Resize image to a maximum 1500px width.
 
  Example:
 
@@ -263,12 +266,15 @@ For close-ups and other screenshots that do not include the browser window, appl
 
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
+`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it's disabled. Set it to `true` to display the dropdown.
+
 Example front matter:
 
 ```yaml
 ---
 title: My Document
 description: This is a document
+toc: true
 ---
 ```
 
@@ -298,14 +304,34 @@ If you are using VS Code as your code editor, it's highly recommended to install
 ## Sidebar
 
 When you are adding a new article you should always add a link to it in the `config/sidebar.yml` file.
-It's really important to represent all our articles in the sidebar because this will help the user identify where he is inside the documentation.
+It's really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
 
 You can add titles to the sidebar using the attribute `category`:
 
 ```
 - title: "Title text"
-- category: true
+  category: true
 ```
+
+You can hide an article from the sidebar with the `hidden` key:
+
+```
+- title: "Title text"
+  hidden: true
+```
+
+You can nest articles with the `children` key:
+
+```
+  - title: Getting Started
+    url: "/getting-started"
+    children:
+      - title: Auth0 Overview
+        url: /getting-started/overview
+      - title: The Basics
+        url: /getting-started/the-basics
+```
+
 
 ## Beta Content
 
@@ -446,67 +472,6 @@ hidden_articles:
   - Hidden-Article
 ```
 
-### Versioning Quickstarts
-
-The filesystem structure for a versioned quickstart looks like this:
-
-```
-react/
-  _details/
-    legacy.md
-    oidc.md
-  _includes/
-    _dependencies.md
-  legacy/
-    00-getting-started.md
-    01-login.md
-    02-custom-login.md
-  oidc/
-    00-getting-started.md
-    01-login.md
-    02-custom-login.md
-  dashboard-default.md
-  index.yml
-```
-
-In this case `react` is the name of the quickstart that has versions, and the two versions available are `legacy` and `oidc`.
-
-To create a versioned topic, the `react/index.yml` file must contain a `versions` property witha neste a set of versions. Here's an example `index.yml`:
-
-```yaml
----
-title: React
-default_article: dashboard-default
-current_version: oidc
-versions:
-  legacy:
-    title: OIDC
-    articles:
-      - 00-getting-started
-      - 01-login
-      - 02-custom-login
-  oidc:
-    title: OIDC
-    articles:
-      - 00-getting-started
-      - 01-login
-      - 02-custom-login
----
-```
-
-Take notice to the additional properties on a versioned quickstart:
-
-* `current_version` -- The name of the current version. This must be present in the `versions` array.
-* `versions` -- An array of all versions of the quickstart.  Each version must have a title and articles property.
-
-Versions details are used to communicate the differences in versions to the customer. OIDC and Legacy have defaults, however, you can set customize any version details by including a markdown file in the `_details` folder with a the corresponding version name.
-
-```
-react/
-  _details/
-    version-name.md
-```
-
 ### Quickstart Guidelines
 
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
@@ -526,12 +491,12 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using head-less library to do login without Lock
-3. Session Handling - How to store tokens, refresh tokens, and logout
+3. Session Handling - How to store tokens, Refresh Tokens, and logout
 4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
 10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
@@ -558,7 +523,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
 6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
 7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
-8. Calling Your API - How to take the access token from
+8. Calling Your API - How to take the Access Token from
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
 
@@ -675,6 +640,7 @@ The follow are the values for the package configuration.
 | `repo` | The name of the github repository. |
 | `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
 | `requirements` | An array of strings representing the system requirements for the project and article. |
+| `branch` | The branch of the github repository. If omitted this will default to `master` |
 
 ## Updates Feed
 
@@ -795,7 +761,7 @@ When writing docs you can use the following variables instead of hard-coding the
 | `auth0js_urlv8`                 | The url to the auth0.js v8 CDN location.      | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
-| `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com/` |
+| `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com` |
 
 ### User Specific Variables
 
@@ -848,7 +814,7 @@ The `versioning` object has the following properties:
 * `versions` -- An array of all versions of the topic. Each of these must have a corresponding subdirectory beneath the topic directory.
 * `defaultArticles` -- A map of default articles for each version. (Explained below)
 
-## User interface
+### User interface
 
 When a user views an article within a versioned topic, a select will be added after the main title:
 
@@ -869,9 +835,9 @@ This document covers an outdated version of Lock. We recommend you to <a href="/
 
 ![image](https://cloud.githubusercontent.com/assets/6318057/26082485/90f464fc-39a6-11e7-90ac-2a22773b02a5.png)
 
-## Limitations
+### Limitations
 
-### No sub-directories
+#### No sub-directories
 
 This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
 
@@ -903,7 +869,7 @@ example/
 
 This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
 
-### Case Sensitive
+#### Case Sensitive
 
 The folder name must match exactly the names listed in the yaml file. This is case sensitive.
 

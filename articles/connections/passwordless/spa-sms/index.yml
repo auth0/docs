@@ -1,9 +1,0 @@
-versioning:
-  baseUrl: connections/passwordless/spa-sms
-  current: v8
-  versions:
-    - v7
-    - v8
-  defaultArticles:
-    v7: index
-    v8: index

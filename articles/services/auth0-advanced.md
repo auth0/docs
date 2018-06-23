@@ -1,5 +1,8 @@
 ---
 description: A training for advanced development on the Auth0 platform.
+topics:
+  - professional services
+  - auth0-training
 ---
 
 # Training: Auth0 Advanced Topics
@@ -9,7 +12,7 @@ A training for advanced development on the Auth0 platform. Target audience is de
 
 ## Duration
 
-8 hours.
+Two (2) training sessions with an Auth0 Solutions Architect.
 
 
 ## Level

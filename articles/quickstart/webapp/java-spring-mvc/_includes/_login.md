@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 The Login project sample has the following structure:
 
 ```text
@@ -40,8 +40,7 @@ The project contains also five Controllers:
 
 Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
 
-
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
@@ -49,28 +48,32 @@ Let's begin by making your Auth0 credentials available on the App. In the `AppCo
 @Component
 @Configuration
 public class AppConfig {
-    @Value(value = '<%= "${com.auth0.domain}" %>')
+    @Value(value = "<%= "${com.auth0.domain}" %>")
     private String domain;
 
-    @Value(value = '<%= "${com.auth0.clientId}" %>')
+    @Value(value = "<%= "${com.auth0.clientId}" %>")
     private String clientId;
 
-    @Value(value = '<%= "${com.auth0.clientSecret}" %>')
+    @Value(value = "<%= "${com.auth0.clientSecret}" %>")
     private String clientSecret;
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here, such as requesting a different scope or using a different signature verification algorithm.
 
 ```java
+// src/main/java/com/auth0/example/AppConfig.java
+
 @Component
 public class AuthController {
     private final AuthenticationController controller;
+    private final String userInfoAudience;
 
     @Autowired
     public AuthController(AppConfig config) {
         controller = AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
                 .build();
+        userInfoAudience = String.format("https://%s/userinfo", config.getDomain());
     }
 
     public Tokens handle(HttpServletRequest request) throws IdentityVerificationException {
@@ -79,13 +82,14 @@ public class AuthController {
 
     public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
         return controller.buildAuthorizeUrl(request, redirectUri)
+                .withAudience(userInfoAudience)
                 .build();
     }
 }
 ```
 
 
-To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -116,7 +120,6 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
 
-
 ## Display the Home Page
 
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeController` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
@@ -143,7 +146,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean bootRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 

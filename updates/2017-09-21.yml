@@ -1,0 +1,9 @@
+changed:
+  -
+    title: "Configure Okta as an OpenID Connect Identity Provider"
+    tags:
+      - okta
+      - openid connect identity provider
+      - custom social connection
+    description: |
+      Updated the [Configure Okta as an OpenID Connect Identity Provider](https://auth0.com/docs/protocols/oidc/identity-providers/okta) document with steps on obtaining custom claims from Okta.

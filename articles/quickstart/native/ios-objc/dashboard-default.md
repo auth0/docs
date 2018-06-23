@@ -2,18 +2,14 @@
 title: Getting Started
 description: Short Introduction to the Auth0 iOS Objective-C Quickstarts.
 budicon: 715
+topics:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
+github:
+    path: 00-Login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '00-Login',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ::: note
 It is recommend in order to make the most of all the features in the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit to start with the [iOS Swift QuickStart](/quickstart/native/ios-swift)
@@ -33,9 +29,9 @@ A brief description:
 
 - [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many the [Auth0 API](/api/info) functions and enables you to integrate the Login.
 
-## Create a Client
+## Create an Application
 
-If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
+If you haven't already done so, create a new application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

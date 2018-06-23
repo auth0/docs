@@ -1,5 +1,8 @@
 ---
 description: Explains the different ways to update the AD/LDAP Connector.
+topics:
+  - connector
+  - ad/ldap
 ---
 
 # Updating the AD/LDAP Connector

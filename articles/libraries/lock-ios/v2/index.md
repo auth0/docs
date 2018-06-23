@@ -4,12 +4,18 @@ toc: true
 title: Lock v2 for iOS
 description: A widget that provides a frictionless login and signup experience for your native iOS apps.
 mobileimg: media/articles/libraries/lock-ios.png
+topics:
+  - libraries
+  - lock
+  - ios
 ---
 # Lock v2 for iOS
 
-You're looking at the documentation for the easiest way of securing your iOS apps!
+This reference guide will show you how to implement the Lock user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh Access Tokens, get user profile info, and more, check out the [Auth0.Swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift QuickStart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
 
-Lock is an embeddable login form, which is configurable to your needs and ready for use in your mobile applications. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out the basic usage guide below for more information!
+::: note
+Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
+:::
 
 ## Requirements
 
@@ -37,12 +43,11 @@ Import **Lock** wherever you'll need it
 
 ```swift
 import Lock
-import Auth0
 ```
 
 ### Auth0 Credentials
 
-In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](${manage_url}), under your Client's settings.
+In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](${manage_url}), under your Application's settings.
 
 In your application bundle you can add a `plist` file named `Auth0.plist` that will include your credentials with the following format.
 
@@ -63,61 +68,34 @@ In your application bundle you can add a `plist` file named `Auth0.plist` that w
 
 Lock Classic handles authentication using Database, Social, and Enterprise connections.
 
+### OIDC Conformant Mode
+
+It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default this is `false`
+
+```swift
+.withOptions {
+    $0.oidcConformant = true
+}
+```
+
+::: note
+For more information, please see our [Introduction to OIDC Conformant Authentication](/api-auth/intro) and the [OIDC adoption guide](/api-auth/tutorials/adoption).
+:::
+
 To show Lock, add the following snippet in your `UIViewController`.
 
 ```swift
 Lock
     .classic()
-    // withConnections, withOptions, withStyle, etc
+    // withConnections, withOptions, withStyle, and so on
+    .withOptions {
+      $0.oidcConformant = true
+      $0.scope = "openid profile"
+    }
     .onAuth { credentials in
-      // Save the Credentials object
+      // Let's save our credentials.accessToken value
     }
     .present(from: self)
-```
-
-## Implementation of Lock Passwordless
-
-::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
-:::
-
-Lock Passwordless handles passwordless authentication using email and sms connections.
-
-To show Lock, add the following snippet in your `UIViewController`.
-
-```swift
-Lock
-    .passwordless()
-    // withConnections, withOptions, withStyle, etc
-    .onAuth { credentials in
-      // Save the Credentials object
-    }
-    .present(from: self)
-```
-
-**Notes:**
-
-- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
-- The `audience` option is not available in Passwordless.
-
-### Passwordless Method
-
-When using Lock passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/clients/enable-universal-links) you can add the following:
-
-```swift
-.withOptions {
-    $0.passwordlessMethod = .magicLink
-}
-```
-
-### Activity callback
-
-If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
-
-```swift
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-    return Lock.continueAuth(using: userActivity)
-}
 ```
 
 ## Use Auth0.Swift Library to access user profile
@@ -128,7 +106,7 @@ To access user profile information, you will need to use the `Auth0.Swift` libra
 guard let accessToken = credentials.accessToken else { return }
 Auth0
     .authentication()
-    .userInfo(token: accessToken)
+    .userInfo(withAccessToken: accessToken)
     .start { result in
         switch result {
         case .success(let profile):
@@ -143,7 +121,7 @@ Check out the [Auth0.Swift Library Documentation](/libraries/auth0-swift) for mo
 
 ## Specify Connections
 
-Lock will automatically load the connections configured for your client. If you wish to override the default behavior, you can manually specify which connections it should display to users as authentication options. This can be done by calling the method and supplying a closure that can specify the connection(s).
+Lock will automatically load the connections configured for your application. If you wish to override the default behavior, you can manually specify which connections it should display to users as authentication options. This can be done by calling the method and supplying a closure that can specify the connection(s).
 
 Adding a database connection:
 
@@ -176,7 +154,7 @@ Lock provides many styling options to help you apply your own brand identity to 
 }
 ```
 
-::: panel Styling Customization Options
+::: note
 You can see the complete set of styling options to alter the appearance of Lock for your app in the [Customization Guide](/libraries/lock-ios/v2/customization).
 :::
 
@@ -198,25 +176,42 @@ Lock
 You can see the complete set of behavior configuration options to alter the way Lock works for your app in the [Configuration Guide](/libraries/lock-ios/v2/configuration).
 :::
 
-## Logging
+## Password Manager Support
 
-Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings. The example below displays logging turned on, but take a look at the [Behavior Configuration Options](/lock-ios/v2/configuration) page for more information about logs in Lock for iOS v2.
+By default, password manager support using [1Password](https://1password.com/) is enabled for database connections. 1Password support will still require the user to have the 1Password app installed for the option to be visible in the login and signup screens. You can disable 1Password support using the enabled property of the passwordManager.
 
 ```swift
-Lock
-    .classic()
-    .withOptions {
-        $0.logLevel = .all
-        $0.logHttpRequest = true
-    }
+.withOptions {
+    $0.passwordManager.enabled = false
+}
+```
+
+By default the `appIdentifier` will be set to the app's bundle identifier and the `displayName` will be set to the app's display name. You can customize these as follows:
+
+```swift
+.withOptions {
+    $0.passwordManager.appIdentifier = "www.myapp.com"
+    $0.passwordManager.displayName = "My App"
+}
+```
+
+You will need to add the following to your app's `info.plist`:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>org-appextension-feature-password-management</string>
+</array>
 ```
 
 <%= include('../_includes/_roadmap') %>
 
-## Other Resources
+## Next Steps
 
-- [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
-- [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
-- [Custom Fields](/libraries/lock-ios/v2/custom-fields) - adding custom signup fields to Lock
-- [Internationalization](/libraries/lock-ios/v2/internationalization) - internationalization and localization support in Lock
-- [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from Lock v1 to Lock v2
+::: next-steps
+- [Customizing the Style of Lock](/libraries/lock-ios/v2/customization)
+- [Customizing the Behavior of Lock](/libraries/lock-ios/v2/configuration)
+- [Adding Custom Signup Fields to Lock](/libraries/lock-ios/v2/custom-fields)
+- [Lock Internationalization](/libraries/lock-ios/v2/internationalization)
+- [Logging out Users](/logout)
+:::

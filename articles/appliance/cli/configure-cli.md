@@ -1,11 +1,15 @@
 ---
 section: appliance
-description: How to configure the Appliance CLI
+description: How to configure the PSaaS Appliance CLI
+topics:
+    - appliance
+    - cli
+contentType: how-to
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface
 
-The Auth0 Appliance Command Line Interface (CLI) allows you to perform operations on your Appliance instances via authorized workstations.
+The PSaaS Appliance Command Line Interface (CLI) allows you to perform operations on your PSaaS Appliance instances via authorized workstations.
 
 ## Downloading the CLI Setup Files
 
@@ -42,37 +46,46 @@ However, if you have keys defined and you've run `update-commands`, you will see
 Usage: a0cli [options] <command>
 
 
- Commands:
+  Commands:
 
-   create-key                     Creates private/public keys pair on current path.
-   show-key                       Shows public key on current path.
-   delete-key                     Deletes keys pair from current path.
-   update-commands                Retrieve availables commands from the specified node.
-   backup <password>              Creates a new backup.
-   backup-delete                  Deletes the current backup
-   backup-retrieve                retrieves the current backup.
-   backup-status                  Retrieves the status of the node backup.
-   nslookup <host>                Performs an nslookup to a specified <host> from the target node.
-   ping                           Sends a PING message to verify if the target node is up.
-   re-up <host>                   Updates the host entries for instances in the database cluster. Example a0-1:10.1.0.21, a0-2:10.1.0.22
-   set-as-backup [device] [force] Add the backup role to the target node.
-   test-port <host> <port>        Verifies if the target ip can listen <port> on <host>.
+    create-key                       Creates private/public keys pair on current path.
+    show-key                         Shows public key on current path.
+    delete-key                       Deletes keys pair from current path.
+    update-commands                  Retrieve availables commands from the specified node.
+    backup <password>                Creates a new backup.
+    backup-delete                    Deletes the current sensitive backup
+    backup-retrieve                  retrieves the current backup.
+    backup-sensitive <password>      Creates a new backup of sensitive configuration.
+    backup-sensitive-delete          Deletes the current backup
+    backup-sensitive-retrieve        retrieves the current sensitive backup.
+    backup-sensitive-status          Retrieves the status of the node backup.
+    backup-status                    Retrieves the status of the node backup.
+    nslookup <host>                  Performs an nslookup to the specified <host> from the target node.
+    ping                             Sends a PING message to verify if the target node is up.
+    re-ip <hosts>                    Updates the host entries for instances in the database cluster. Example a0-1:10.1.0.21,a0-2:10.1.0.22
+    set-as-backup <device> [force]   Add the backup role to the target node.
+    test-port <host> <port>          Verifies if the target ip can listen <port> on <host>.
+    user-export <password> <fields>  Exports user to a file.
+    user-export-delete               Deletes the current user-export
+    user-export-retrieve             retrieves the current user-export file.
+    user-export-status               Retrieves the status of the user-export.
 
- Options:
+  Options:
 
-   -h, --help           output usage information
-   -V, --version        output the version number
-   -t, --target <ip>    Host name or IP address of appliance instance.
-   -p, --port <number>  Port number of appliance instance. Default port: 10121
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -t, --target <ip>    Host name or IP address of appliance instance.
+    -p, --port <number>  Port number of appliance instance. Default port: 10121
+
 ```
 
 ::: note
-  Because the CLI sends commands to the server running on each Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
+  Because the CLI sends commands to the server running on each PSaaS Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
 :::
 
 ## Granting Access Rights to Users
 
-Only workstations that you have authorized may perform operations on the Appliance.
+Only workstations that you have authorized may perform operations on the PSaaS Appliance.
 
 To authorize a new workstation for use with the CLI:
 
@@ -80,17 +93,17 @@ To authorize a new workstation for use with the CLI:
 
     ![](/media/articles/appliance/cli/cli-create-key.png)
 
-2. Navigate to the CLI page of the Appliance configuration area, and add the key to your configuration. For additional information on how to do this, please see the [configuration instructions for Appliance CLIs](/appliance/dashboard/cli).
+2. Navigate to the CLI page of the PSaaS Appliance configuration area, and add the key to your configuration. For additional information on how to do this, please see the [configuration instructions for PSaaS Appliance CLIs](/appliance/dashboard/cli).
 
     ![](/media/articles/appliance/cli/cli-config-with-key.png)
 
 ::: note
-  Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on the Appliance.
+Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on the PSaaS Appliance.
 :::
 
 ## Updating Command Lists
 
-To send commands to the appliance's node, you will need to update the command list the node accepts by running the following command:
+To send commands to the PSaaS Appliance's node, you will need to update the command list the node accepts by running the following command:
 
 `a0cli -t <target node> update-commands`
 

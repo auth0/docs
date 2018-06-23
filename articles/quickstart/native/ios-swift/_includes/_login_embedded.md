@@ -18,12 +18,16 @@ Lock
         $0.scope = "openid profile"
     }
     .onAuth { credentials in
-        // Do something with credentials e.g.: save them.
+        // Do something with credentials, such as save them.
         // Lock will not save these objects for you.
         // Lock will dismiss itself automatically by default.
     }
     .present(from: self)
 ```
+
+::: note
+The snippet enables `oidcConformant`, when this mode is enabled it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. For more information, please see our [Introduction to OIDC Conformant Authentication](/api-auth/intro) and the [OIDC adoption guide](/api-auth/tutorials/adoption).
+:::
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
 

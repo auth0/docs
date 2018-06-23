@@ -1,6 +1,9 @@
 ---
 description: How to create new Hooks using the Management Dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
 ---
 
 # Create a New Hook Using the Dashboard

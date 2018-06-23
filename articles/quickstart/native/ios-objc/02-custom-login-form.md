@@ -2,19 +2,15 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
+github:
+    path: 02-Custom-Login-Form
+    branch: embedded-login
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 <%= include('_includes/_hybrid_setup') %>
 
@@ -55,7 +51,7 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 
 ```objc
 [auth userInfoWithAccessToken:[credentials accessToken]
-      callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+      callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
                dispatch_async(dispatch_get_main_queue(), ^{
                    [self.spinner stopAnimating];
                    if(error) {
@@ -68,7 +64,7 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 ```
 
 ::: note
-For further reference on the `profile` object, see [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+For further reference on the `userInfo` object, see [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) documentation.
 :::
 
 ## Implement a Sign Up

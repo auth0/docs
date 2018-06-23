@@ -1,14 +1,14 @@
-#### 1. Optional: Configure an email provider
+### Optional: Configure an email provider
 
 By default, Auth0 sends the email from its own messaging provider. Optionally, you can [configure your own email provider](/email/providers) to better monitor and troubleshoot the email service.
 
-#### 2. Configure the connection
+### Configure the connection
 
 In the Dashboard, on the **Email** page, under [Connections > Passwordless](${manage_url}/#/connections/passwordless), you can configure the contents and behavior of the email.
 
 ![](/media/articles/connections/passwordless/passwordless-email-config.png)
 
-##### Multi-Language Support
+#### Multi-Language Support
 
 The Message area supports usage of multiple languages.
 

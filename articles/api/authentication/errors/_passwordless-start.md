@@ -6,7 +6,7 @@
         <th width="20%">Status</th>
         <th width="80%">Response</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>

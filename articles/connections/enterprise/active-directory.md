@@ -7,6 +7,13 @@ alias:
 seo_alias: active-directory
 description: How to connect to Active Directory with Auth0.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+contentType: how-to
 ---
 
 # Connect your app to Active Directory
@@ -24,9 +31,9 @@ Configuring an AD/LDAP connection in Auth0 requires two steps:
 1. Create an AD/LDAP Connection in Auth0 and download the installer.
 2. Install the connector on your network.
 
-### Create an AD/LDAP Connection in Auth0
+## Create an AD/LDAP Connection in Auth0
 
-These are the steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+These are the steps to connect your application. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 Select **Connections > Enterprise > AD/LDAP** from the Auth0 dashboard menu. Click the **+ CREATE NEW CONNECTION** button and name the connection.
 
@@ -50,7 +57,7 @@ We ship different versions of the connector to install on Windows or Linux platf
 
 Keep the **TICKET URL** on hand as you will need it later.
 
-### Install the connector on your network
+## Install the connector on your network
 
 Continue to the instructions on how to [Install the Connector](/connector).
 

@@ -1,8 +1,14 @@
 ---
-  description: How to configure Auth0 for use as a SAML identity provider
+description: How to configure Auth0 for use as a SAML identity provider
+topics:
+  - saml
 ---
 
 # Configure Auth0 as an Identity Provider
+
+::: warning
+Auth0 only supports using Auth0 as the identity provider in SAML configurations with **SAML 2.0**.
+:::
 
 Depending on the type of application you're working with, configuring Auth0 to serve as the SAML Identity Provider (IdP) is done in several places.
 
@@ -45,9 +51,9 @@ You can also refer to [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial) for
 
 If the Service Provider option you've chosen doesn't come with built-in Auth0 support, you can [manually add the configuration](/saml-idp-generic).
 
-Navigate to the [Clients section of the Management Dashboard](${manage_url}/#/clients), find the Client you're working with, and click on **Settings**.
+Navigate to the [Applications section of the Management Dashboard](${manage_url}/#/applications), find the Application you're working with, and click on **Settings**.
 
-![](/media/articles/protocols/saml/saml-configuration/clients.png)
+![](/media/articles/protocols/saml/saml-configuration/applications.png)
 
 Switch over to the **Addons** tab.
 

@@ -3,6 +3,8 @@
 
 Auth0
     .webAuth()
+    .scope("openid profile")
+    .audience("https://${account.namespace}/userinfo")
     .start {
         switch $0 {
         case .failure(let error):
@@ -10,7 +12,7 @@ Auth0
             print("Error: \(error)")
         case .success(let credentials):
             // Do something with credentials e.g.: save them.
-            // Auth0 will automatically dismiss the hosted login page
+            // Auth0 will automatically dismiss the login page
             print("Credentials: \(credentials)")
         }
 }

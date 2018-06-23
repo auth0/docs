@@ -1,0 +1,12 @@
+added:
+  -
+    title: "Securing Google Cloud Endpoints with Auth0"
+    tags:
+      - tutorial
+      - api
+      - gce
+      - google cloud platform
+      - google cloud endpoints
+      - cloud endpoints
+    description: |
+      A new doc called [Securing Google Cloud Endpoints with Auth0](https://auth0.com/docs/tutorials/google-cloud-platform) was added with instructions on securing a Google Cloud Endpoints API with Auth0.

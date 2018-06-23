@@ -1,0 +1,7 @@
+changed:
+  -
+    title: "Enable and update the IP Authentication Connection doc"
+    tags:
+      - ip authentication
+    description: |
+      Updated the [IP Address Authentication](https://auth0.com/docs/connections/enterprise/ip-address) document and made it visible at the site.

@@ -9,17 +9,17 @@
   icon: "icon-budicon-499"
   color: "orange"
   description: "Learn the basics of using Auth0."
-  url: "/topics/getting-started"
+  url: "/getting-started"
   articles:
 
-    - title: "Overview"
-      url: "/overview"
+    - title: Auth0 Overview
+      url: /getting-started/overview
 
-    - title: Developer Videos
-      url: /videos
+    - title: The Basics
+      url: /getting-started/the-basics
 
-    - title: Architecture Scenarios
-      url: /architecture-scenarios
+    - title: Dashboard Overview
+      url: /getting-started/dashboard-overview
 
 - id: "ui-components"
   title: "UI Components"
@@ -30,13 +30,13 @@
   articles:
 
     - title: "Lock for Web"
-      url: "/libraries/lock"
+      url: "/libraries/lock/v11"
 
     - title: "Lock for iOS"
-      url: "/libraries/lock-ios"
+      url: "/libraries/lock-ios/v2"
 
     - title: "Lock for Android"
-      url: "/libraries/lock-android"
+      url: "/libraries/lock-android/v2"
 
 - id: "authentication-flows"
   title: "Authentication Flows"
@@ -64,14 +64,15 @@
   url: "/topics/guides"
   articles:
 
-    - title: "Tokens"
+    - title: "Architecture Scenarios"
+      url: /architecture-scenarios
+      
+    - title: "Tokens used by Auth0"
       url: "/tokens"
 
-    - title: "JWT"
-      url: "/jwt"
+    - title: "Migration Guides"
+      url: "/migrations"
 
-    - title: "Import and Migrate"
-      url: "/connections/database/migrating"
 
 - id: "apis"
   title: "APIs"
@@ -93,14 +94,14 @@
       forceFullReload: true
 
 - id: "appliance"
-  title: "Appliance"
+  title: "PSaaS Appliance"
   icon: "icon-budicon-359"
   color: "pink"
   description: "Deploying and managing a private instance of Auth0."
   url: "/appliance"
   articles:
 
-    - title: "Appliance Planning"
+    - title: "PSaaS Appliance Planning"
       url: "/appliance/appliance-overview"
 
     - title: Administrator's Manual

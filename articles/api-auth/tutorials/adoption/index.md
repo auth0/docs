@@ -1,6 +1,10 @@
 ---
 url: /api-auth/tutorials/adoption
 title: OIDC Conformant Authentication Adoption Guide
+topics:
+  - api-authentication
+  - oidc
+contentType: concept
 ---
 
 # OIDC Conformant Authentication Adoption Guide
@@ -15,7 +19,7 @@ This guide details all the upcoming changes, **some of which will be breaking**,
 
 This guide is meant for developers and IT admins who manage Auth0 integrations in their applications. If you are not familiar with how OAuth works at a basic level, [we suggest reading our protocol overview](/protocols/oauth2).
 
-If you are integrating Auth0 as a [SAML or WS-Federation **identity provider**](/saml-idp-generic) to your application (i.e. not through OIDC/OAuth), then you do not need to make any changes.
+If you are integrating Auth0 as a [SAML or WS-Federation **identity provider**](/saml-idp-generic) to your application (that is, not through OIDC/OAuth), then you do not need to make any changes.
 
 To make this guide accessible to everyone, any authentication flows will be described only through HTTP requests instead of in the context of any particular language or library's implementation. This is the similar to the descriptions and examples provided by the [official OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -25,7 +29,7 @@ All of the changes described in this guide apply to the **OIDC Conformant Authen
 
 -   An [authentication request](/api/authentication#social) was initiated with an `audience` parameter.
 
--   The client being used is flagged as **OIDC Conformant** (available at _Dashboard > Clients > Settings > Show advanced settings > OAuth > OIDC Conformant flag_).
+-   The application being used is flagged as **OIDC Conformant** (available at _Dashboard > Applications > Settings > Show advanced settings > OAuth > OIDC Conformant flag_).
 
 If none of these conditions are met, the **legacy authentication pipeline** will be used, and everything will keep working as usual.
 
@@ -35,8 +39,8 @@ Any new Auth0 features, examples and documentation moving forward will target on
 
 The new features provided by the OIDC-conformant pipeline include:
 
-* [Create third-party clients for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
-* Restrict the user profile information provided to clients upon authentication
+* [Create third-party applications for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
+* Restrict the user profile information provided to applications upon authentication
 * [OIDC Dynamic Client Registration](/api-auth/dynamic-client-registration)
 
 ## Is there a deadline to adopt these new features?

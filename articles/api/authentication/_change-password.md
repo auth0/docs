@@ -1,10 +1,8 @@
 # Change Password
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/dbconnections/change_password
-Content-Type: 'application/json'
+Content-Type: application/json
 {
   "client_id": "${account.clientId}",
   "email": "EMAIL",
@@ -21,8 +19,8 @@ curl --request POST \
 ```
 
 ```javascript
-// Script uses auth0.js v8. See Remarks for details.
-<script src="${auth0js_urlv8}"></script>
+// Script uses auth0.js. See Remarks for details.
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
@@ -43,6 +41,7 @@ curl --request POST \
 ```
 
 <%= include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/dbconnections/change_password",
   "link": "#change-password"

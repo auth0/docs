@@ -1,0 +1,9 @@
+added:
+  -
+    title: "ADFS SAML Connection"
+    tags:
+      - saml
+      - adfs
+      - connections
+    description: |
+      A new doc was added on how to create an [ADFS SAML Connection](https://auth0.com/docs/protocols/saml/adfs).

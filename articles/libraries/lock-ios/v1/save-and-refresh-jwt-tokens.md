@@ -1,21 +1,26 @@
 ---
 section: libraries
-toc_title: Saving and Refreshing JWT Tokens
+title: Saving and Refreshing JWT Tokens
 description: Keeping your user logged in
+topics:
+  - libraries
+  - lock
+  - ios
+  - tokens
 ---
 
 # Lock iOS: Saving and Refreshing JWT Tokens
 
 <%= include('../_includes/_lock-version-1') %>
 
-When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
+When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
 credentials again.
 
 ::: note
 We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
 :::
 
-First thing we need to do is store the `id_token` and `refresh_token` in the iOS Keychain after a successful authentication.
+First thing we need to do is store the ID Token and Refresh Token in the iOS Keychain after a successful authentication.
 
 ```objc
 A0LockViewController *controller = ...;
@@ -43,9 +48,9 @@ controller.onAuthenticationBlock = { (profile, token) in
     // Other stuff. Don't forget to dismiss lock
 }
 ```
-Once you have those stored, you can at any point request a new `id_token` using either of by calling to Auth0`s **delegation** endpoint.
+Once you have those stored, you can at any point request a new ID Token using either of by calling to Auth0`s **delegation** endpoint.
 
-## Using a non-expired id_token
+## Using a non-expired ID Token
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -54,10 +59,10 @@ NSString* token = [keychain stringForKey:@"id_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithIdToken:token parameters:nil success:^(A0Token *token) {
     [keychain setString:token.idToken forKey:@"id_token"];
-    //Just got a new id_token!
+    //Just got a new ID Token!
 } failure:^(NSError *error) {
     [keychain clearAll]; //Cleaning stored values since they are no longer valid
-    //id_token is no longer valid.
+    //ID Token is no longer valid.
     //You should ask the user to login again!.
 }];
 ```
@@ -70,16 +75,16 @@ if let token = keychain.stringForKey("id_token") {
         parameters: nil,
         success: { token in
             keychain.setString(token.idToken, forKey: "id_token")
-            //Just got a new id_token!
+            //Just got a new ID Token!
         }, failure: { error in
             keychain.clearAll() //Cleaning stored values since they are no longer valid
-            //id_token is no longer valid.
+            //ID Token is no longer valid.
             //You should ask the user to login again!.
     })
 }
 ```
 
-## Using refresh_token
+## Using Refresh Token
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -88,10 +93,10 @@ NSString* refreshToken = [keychain stringForKey:@"refresh_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithRefreshToken:refreshToken parameters:nil success:^(A0Token *token) {
     [keychain setString:token.idToken forKey:@"id_token"];
-    //Just got a new id_token!
+    //Just got a new ID Token!
 } failure:^(NSError *error) {
     [keychain clearAll]; //Cleaning stored values since they are no longer valid
-    //refresh_token is no longer valid.
+    //Refresh Token is no longer valid.
     //You should ask the user to login again!.
 }];
 ```
@@ -104,10 +109,10 @@ if let token = keychain.stringForKey("refresh_token") {
         parameters: nil,
         success: { token in
             keychain.setString(token.idToken, forKey: "id_token")
-            //Just got a new id_token!
+            //Just got a new ID Token!
         }, failure: { error in
             keychain.clearAll() //Cleaning stored values since they are no longer valid
-            //refresh_token is no longer valid.
+            //Refresh Token is no longer valid.
             //You should ask the user to login again!.
     })
 }

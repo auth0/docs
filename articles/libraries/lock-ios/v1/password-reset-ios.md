@@ -1,9 +1,13 @@
 ---
 section: libraries
-toc_title: Password Reset
+title: Password Reset
 description: All you need to know about password reset with Lock for iOS.
+topics:
+  - libraries
+  - lock
+  - ios
+  - passwords
 ---
-
 # Lock iOS: Password Reset
 
 <%= include('../_includes/_lock-version-1') %>
@@ -18,13 +22,11 @@ If you implement a custom UI, you need to send a password reset email to the use
 Please see [Password Strength in Auth0 Database Connections](/connections/database/password-strength) before implementing password reset.
 :::
 
-### Important considerations
+## Important considerations
 
 Passwords can only be changed for users signing in using database connections. If a user is signing in with a social or enterprise connection, their password would need to be reset in those platforms.
 
-### Examples
-
-**Objective-C**
+## Example: Objective-C
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -42,7 +44,7 @@ params[A0ParameterConnection] = @"Username-Password-Authentication";
                                  }];
 ```
 
-**Swift**
+## Example: Swift
 
 ```swift
 let client = A0Lock.shared().apiClient()

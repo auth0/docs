@@ -1,5 +1,8 @@
 ---
 description: Training covering fundamentals of the Auth0 service.
+topics:
+  - professional services
+  - auth0-101
 ---
 
 # Training: Auth0 Introduction
@@ -8,7 +11,7 @@ This training course explains the fundamentals of Auth0 services. The intended a
 
 ## Duration
 
-8 hours
+2 training sessions with an Auth0 Solutions Architect.
 
 ## Level
 

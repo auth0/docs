@@ -2,6 +2,10 @@
 description: Management API V1 reference page.
 section: apis
 toc: true
+topics:
+  - apis
+  - management-api
+contentType: reference
 ---
 
 # Auth0 Management API Reference
@@ -13,7 +17,7 @@ https://${account.namespace}/api
 ```
 
 ### Authentication
-Each API request must include an access token, either inside the query string:
+Each API request must include an Access Token, either inside the query string:
 
 ```text
 https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
@@ -31,7 +35,7 @@ A token is obtained using the POST method:
 ```text
 POST https://${account.namespace}/oauth/token
 Content-type: application/x-www-form-urlencoded
-client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&type=web_server&grant_type=client_credentials
 ```
 
 The response body of this POST is a JSON object:
@@ -46,11 +50,11 @@ The response body of this POST is a JSON object:
 Here is a simple example using cURL:
 
 ```text
-curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
+curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&type=web_server&grant_type=client_credentials"
 ```
 
 ### Headers
-The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
+The `Authorization` header is the only accepted header and is used in place of the query string to send the Access Token. All content is  returned in JSON. The `Accept` header is ignored for now.
 
 ```text
 Authorization: bearer {ACCESS-TOKEN}
@@ -329,7 +333,7 @@ The body of the request is formatted as a `connection` object. For example, the 
 
 Once again, the `options` object is dependent on the strategy specified.
 
-If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.).
+If successful, the response body will contain a complete `connection` object. This will include additional fields (such as the entity `id`, and so on).
 
 #### Updating a Connection
 
@@ -372,7 +376,7 @@ Most attributes in the `user` object are self-explanatory. Some comments are bel
 |`issuer` | The name of the authentication server. In the example above it is the URL of Fabrikam's ADFS server used.|
 |`user_id` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 |`picture` | The URL of the user's gravatar, if available. |
-|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, etc.). |
+|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, and so on). |
 
 #### Other resources
 

@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Auth0 .NET SDK version 3.3.0 released"
+    tags:
+      - sdk
+      - dotnet
+    description: |
+      New version of the [Auth0 .NET SDK](https://github.com/auth0/auth0.net) has been released. It adds support for all the latest updates to the Authentication and Management API.

@@ -1,6 +1,11 @@
 ---
 desription: This page explains how to use Postman Collections to access Auth0 APIs.
 section: apis
+topics:
+    - management-api
+    - authorization-api
+    - apis
+contentType: how-to
 ---
 
 # Using the Auth0 API with our Postman Collections
@@ -29,7 +34,7 @@ The Auth0 Postman collections make use of environment variables to customize the
 
 You will need to create an environment and configure the following variables:
 
-* `auth0_domain`: Should contain the domain for your Auth0 tenant, e.g. **jerrie.auth0.com**.
+* `auth0_domain`: Should contain the domain for your Auth0 tenant, such as **jerrie.auth0.com**.
 * `auth0_token`: Should contain the token needed when making calls to the Management API, and is therefore only required when using the Management API collection. More information on how to generate a token can be found at [The Auth0 Management APIv2 Token](https://auth0.com/docs/api/management/v2/tokens) 
 
 In the screenshot below you can see a Postman environment configured with both the `auth0_domain` and `auth0_token` variables defined:
@@ -46,7 +51,7 @@ Once the environment is configured, you can follow these steps to execute an Aut
 
 ![](/media/articles/api/postman/execute-api-method.png)
 
-You man also optionally have to configure query parameters or the JSON method body, depending on the API call. For more information please refer to the [Sending Requests](https://www.getpostman.com/docs/requests) document on the Postman website.
+You may also optionally have to configure query parameters or the JSON method body, depending on the API call. For more information please refer to the [Sending Requests](https://www.getpostman.com/docs/requests) document on the Postman website.
 
 ## A word about storing tokens in Postman variables
 

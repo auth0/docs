@@ -1,13 +1,11 @@
-This integration guide will walk you through setting up and managing authentication and authorization in your ${library} apps using Auth0.
-
+::: note
+**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/application-auth/current/client-side-web) it uses.
+:::
 <%= include('../../../_includes/_new_app') %>
-
 <%= include('../../../_includes/_callback_url') %>
 
-If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to
-
-```bash
-${callback}
-```
+::: note
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `${callback}`.
+:::
 
 <%= include('../_includes/_install_auth0js') %>

@@ -1,7 +1,11 @@
 ---
 section: libraries
-toc_title: Logging
+title: Logging
 description: Learn how to debug Lock by enabling logging.
+topics:
+  - libraries
+  - lock
+  - ios
 ---
 
 # Lock iOS: Logging
@@ -37,7 +41,7 @@ A0LockLogger.logAll()
 If you are already using `CocoaLumberjack`, you need to enable __Lock__'s log after you register CocoaLumberjack's loggers.
 :::
 
-### Lock versions < 1.10.0
+## Lock versions < 1.10.0
 Go to `A0Logging.h` and change the `auth0LogLevel` variable with the Log Level you'll want to see. for example:
 ```objc
 static const int auth0LogLevel = LOG_LEVEL_ALL;

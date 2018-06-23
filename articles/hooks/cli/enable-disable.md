@@ -1,6 +1,9 @@
 ---
 description: How to enable/disable Hooks using the Auth0 Command-Line Interfance
 beta: true
+topics:
+    - hooks
+    - cli
 ---
 
 # Enable or Disable Existing Hooks Using the Auth0 Command-Line Interface
@@ -13,7 +16,7 @@ For each extensibility point, you may have either no associated Hooks enabled or
 
 By default, the Auth0 CLI creates new Hooks in a disabled state.
 
-### Enable Your Hook
+## Enable Your Hook
 
 The following command enables your Hook:
 
@@ -21,7 +24,7 @@ The following command enables your Hook:
 
 By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with the same extensibility point.
 
-### Disable Your Hook
+## Disable Your Hook
 
 The following command disables your Hook:
 

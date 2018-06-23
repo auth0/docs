@@ -1,22 +1,27 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard Tenants page
+description: Overview of the PSaaS Appliance Dashboard Tenants page
+topics:
+    - appliance
+    - dashboard
+    - tenants
+contentType: reference
 ---
 
-# Auth0 Appliance Dashboard: Tenants
+# PSaaS Appliance Dashboard: Tenants
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
-The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
+The Tenants page of the PSaaS Appliance Dashboard lists all tenants associated with your PSaaS Appliance instance.
 
 ![](/media/articles/appliance/dashboard/tenants.png)
 
 For each associated tenant, you will see the following pieces of information:
 
 * **Name**: the name of the tenant;
-* **Clients**: the number of clients associated with the tenant;
+* **Applications**: the number of applications associated with the tenant;
 * **Connections**: the number of Connections enabled for the tenant;
 * **Total Users**: the total number of users associated with the tenant;
 * **Total Logins**: the total number of logins by users associated with the tenant.
@@ -57,6 +62,6 @@ Once the change has been implemented and you have refreshed the custom domains p
 
 * **Domain**: the custom domain URL;
 * **SSL Available**: indicates successful application of the SSL certificate;
-* **Certificate Subject**: the subject of the certificate, or the target of the certificate (e.g. what is being secured);
+* **Certificate Subject**: the subject of the certificate, or the target of the certificate (such as what is being secured);
 * **Certificate Expiration**: the date and time when the certificate expires;
 * **Remove Domain**: clicking the "X" button removes this domain from the tenant.

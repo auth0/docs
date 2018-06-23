@@ -8,19 +8,19 @@
       <th width="20%">Status</th>
       <th width="80%">Description</th>
     </tr>
-  <thead>
+  </thead>
   <tbody>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "missing device parameter"}</code></br>You need to provide a device name for the caller device (like a browser, app, etc)</td>
+      <td><code>{"error": "invalid_request", "error_description": "missing device parameter"}</code></br>You need to provide a device name for the caller device (like a browser, app, and so on)</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT id token</td>
+      <td><code>{"error": "invalid_request", "error_description": "missing id_token parameter"}</code></br>For this grant type you need to provide a JWT ID Token</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid <code>id_token</code> or user</td>
+      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid ID Token or user</td>
     </tr>
   </tbody>
 </table>
@@ -33,7 +33,7 @@
         <th width="20%">Status</th>
         <th width="80%">Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
@@ -86,7 +86,7 @@
         <th width="20%">Status</th>
         <th width="80%">Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>

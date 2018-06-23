@@ -2,11 +2,16 @@
 title: Password Options in Auth0 Database Connections
 description: Auth0's Password Options allow you to disallow users from repeating prior passwords, to customize a password dictionary of passwords to disallow, and to disallow passwords related to the user's personal data.
 crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+    - passwords
+contentType: concept
 ---
-
 # Password Options in Auth0 Database Connections
 
-:::panel-warning Feature availability
+::: warning
 The **Password Options** feature is only available for Database connections. The password limitations in Social and Enterprise connections are enforced by each provider.
 :::
 
@@ -14,7 +19,7 @@ An important concern when using passwords for authentication is the creation of 
 
 One facet of strong passwords is their uniqueness and difficulty to guess. Auth0's password options for database connections are designed to allow you to force your users to make better decisions when choosing their passwords.
 
-![Password Options](/media/articles/connections/database/password-options.png)
+![Password Options](/media/articles/connections/database/pw-options.png)
 
 The Password Options area is located in your [Auth0 Dashboard](${manage_url}). Go to Connections -> Database, choose a database connection, and then open its settings, and click _Password Policy_. The Password Policy settings page contains the ability to configure the [Password Strength Policy](/connections/database/password-strength) as well as the Password Options below.
 
@@ -28,7 +33,7 @@ Note that upon enabling this option, only password changes going forward will be
 
 ## Password Dictionary
 
-The Password Dictionary option, when enabled, allows the use of a password dictionary to stop users from choosing common passwords. The [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/10k_most_common.txt) that Auth0 uses can be enabled just by toggling this option on. It will not allow users to use a password that is present on that list.
+The Password Dictionary option, when enabled, allows the use of a password dictionary to stop users from choosing common passwords. The [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt) that Auth0 uses can be enabled just by toggling this option on. It will not allow users to use a password that is present on that list.
 
 Additionally, you can use the text area here and add your own prohibited passwords, one per line. These can be items that are specific to your company, or passwords that your own research has shown you are commonly used in general or at your company in specific.
 

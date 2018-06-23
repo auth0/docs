@@ -1,27 +1,27 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Nancy FX application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - nancyfx
+github:
+  path: 00-Starter-Seed
 ---
+<%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-nancyfx-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2015',
-    '.NET Framework 4.5.2'
-  ]
-}) %>
+## Configure your application to use Auth0 
 
-## Install the Dependencies
+### Install the Dependencies
 
 Install Auth0 NancyFX dependency with `NuGet`
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configure Auth0
+### Configure Auth0
 
 In your Nancy self-hosted application add the following to your BootStrapper:
 
@@ -42,7 +42,7 @@ The `UserIdentifier` lets you set an identifier for the user. Currently, here ar
 Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
 :::
 
-## Add Auth0 Configuration
+### Add Auth0 Configuration
 
 You need to configure your Auth0 keys in the `app.config`
 
@@ -50,13 +50,13 @@ You need to configure your Auth0 keys in the `app.config`
 <appSettings>
     <!-- Auth0 configuration -->
     <add key="auth0:ClientId" value="${account.clientId}" />
-    <add key="auth0:ClientSecret" value="${account.clientSecret}" />
+    <add key="auth0:ClientSecret" value="YOUR_CLIENT_SECRET" />
     <add key="auth0:Domain" value="${account.namespace}" />
     <add key="auth0:CallbackUrl" value="${account.callback}" />
 </appSettings>
 ```
 
-## Block all Unauthenticated Requests
+### Block all Unauthenticated Requests
 
 After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests with the following code.
 
@@ -85,7 +85,15 @@ public class Authentication : NancyModule
             if (this.SessionIsAuthenticated())
                 return Response.AsRedirect("securepage");
 
-            return View["login"];
+            var apiClient = new AuthenticationApiClient(ConfigurationManager.AppSettings["auth0:domain"]);
+            var authorizationUri = apiClient.BuildAuthorizationUrl()
+                .WithClient(ConfigurationManager.AppSettings["auth0:ClientId"])
+                .WithRedirectUrl(ConfigurationManager.AppSettings["auth0:CallbackUrl"])
+                .WithResponseType(AuthorizationResponseType.Code)
+                .WithScope("openid profile")
+                .Build();
+
+            return Response.AsRedirect(authorizationUri.ToString());
         };
 
         Get["/login-callback"] = o => this
@@ -98,11 +106,3 @@ public class Authentication : NancyModule
     }
 }
 ```
-
-## Triggering Login Manually or Integrating Lock
-
-<%= include('../../../_includes/_lock-sdk') %>
-
-::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
-:::

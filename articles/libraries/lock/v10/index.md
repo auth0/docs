@@ -4,13 +4,19 @@ toc: true
 title: Lock 10 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
 ---
-
 # Lock 10 for Web
 
-You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!
+<%= include('../../../_includes/_version_warning_lock') %>
 
-Lock is an embeddable login form, which is [configurable to your needs][lock-customization] and ready for use on mobile devices. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out one of the pages listed below to delve into details about Lock usage, if you know what you are looking for, or continue down this page for a basic installation and usage guide!
+Lock is an embeddable login form, [configurable to your needs][lock-configuration] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
+
+::: note
+Check out the [Lock repository](https://github.com/auth0/lock) on GitHub.
+:::
 
 ## Lock 10 Installation
 
@@ -30,18 +36,14 @@ Install via [bower](http://bower.io):
 bower install auth0-lock
 ```
 
-Include via our CDN (Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock)):
+Include via our CDN (with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
 
 ```html
-<!-- Latest minor release -->
-<script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
-
-<!-- Latest patch release (recommended for production) -->
-<script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
+<script src="${lock_urlv10}"></script>
 ```
 
 ::: note
-It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation.
+It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation. Check the [GitHub repository](https://github.com/auth0/lock/releases) for a current list of releases.
 :::
 
 ### Mobile
@@ -58,15 +60,23 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ## Usage
 
-### Implementing Lock
+### 1. Initializing Lock
+
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique application ID for each Auth0 application app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example, `yourname.auth0.com`).
 
 ```js
-// Initiating our Auth0Lock
+// Initializing Auth0Lock
 var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
 );
+```
 
+### 2. Authenticating and Getting User Info
+
+Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
+
+```js
 // Listening for the authenticated event
 lock.on("authenticated", function(authResult) {
   // Use the token in authResult to getUserInfo() and save it to localStorage
@@ -76,13 +86,29 @@ lock.on("authenticated", function(authResult) {
       return;
     }
 
+    document.getElementById('nick').textContent = profile.nickname;
+
     localStorage.setItem('accessToken', authResult.accessToken);
     localStorage.setItem('profile', JSON.stringify(profile));
   });
 });
 ```
 
-### Showing Lock
+You can then manipulate page content and display profile information to the user (for example, displaying their name in a welcome message).
+
+```html
+ <h2>Welcome <span id="nick" class="nickname"></span></h2>
+```
+
+::: note
+Note that if you are storing the user profile, you will want to `JSON.stringify` the profile object and then, when using it later, `JSON.parse` it, because it will need to be stored in `localStorage` as a string rather than a JSON object.
+:::
+
+### 3. Showing Lock
+
+Here you're showing the Lock widget after the user clicks a login button; you can just as easily show Lock automatically when arriving at a page by just using `lock.show();` on page load.
+
+This will show the Lock widget, and paired with the above, you're now ready to handle logins!
 
 ```js
 document.getElementById('btn-login').addEventListener('click', function() {
@@ -90,37 +116,27 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-### Displaying the User's Profile
+## Cross-Origin Authentication
 
-```js
-// Verify that there's a token in localStorage
-var token = localStorage.getItem('accessToken');
-if (token) {
-  showLoggedIn();
-}
-
-// Display the user's profile
-function showLoggedIn() {
-  var profile = JSON.parse(localStorage.getItem('profile'));
-  document.getElementById('nick').textContent = profile.nickname;
-}
-```
-
-```html
- <h2>Welcome <span id="nick" class="nickname"></span></h2>
-```
-
-::: note
-This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
-:::
-
-## Start Using Lock
-
-<%= include('../../../_includes/_lock-sdk') %>
+Embedding Lock within your application, rather than using [Universal Login](/hosted-pages/login), requires [cross-origin authentication](/cross-origin-authentication). In order to use embedded Lock v10 via cross-origin authentication, you must set the [oidcconformant](/libraries/lock/v10/configuration#oidcconformant-boolean-) option to `true`.
 
 ## Browser Compatibility
 
 Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
+
+## More Examples
+
+The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
+
+## Next Steps
+
+This document has shown how to use Lock 10 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+
+::: next-steps
+* [Lock v10 API Reference][lock-api]
+* [Lock Configuration Options][lock-configuration]
+* [Lock UI Customization][ui-customization]
+:::
 
 <!--vars-->
 
@@ -135,7 +151,7 @@ Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **I
 [sending-authentication-parameters]: /libraries/lock/v10/sending-authentication-parameters
 
 [getting-started]: /libraries/lock#lock-10-installation
-[lock-customization]: /libraries/lock/v10/customization
+[lock-configuration]: /libraries/lock/v10/configuration
 [ui-customization]: /libraries/lock/v10/ui-customization
 [lock-api]: /libraries/lock/v10/api
 [lock-auth0js]: /libraries/lock/v10/auth0js

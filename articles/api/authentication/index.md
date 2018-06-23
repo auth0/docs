@@ -1,6 +1,9 @@
 ---
-title: Authorization API Explorer
+title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">
@@ -32,6 +35,10 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_saml-sso') %>
 </div>
 
@@ -40,11 +47,11 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_linking') %>
+  <%= include('./_impersonation') %>
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_impersonation') %>
+  <%= include('./_application-reg') %>
 </div>
 
 <span data-section-label="api-authz">API Authorization</span>
@@ -54,6 +61,9 @@ fullWidth: true
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_get-token') %>
 </div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_revoke-refersh-token') %>
+</div>
 
 <span data-section-label="legacy">Legacy</span>
 <div class="api-section" data-section="legacy">
@@ -61,6 +71,9 @@ fullWidth: true
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
+</div>
+<div class="api-section" data-section="none">
+  <%= include('./legacy/_linking') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>
@@ -72,6 +85,9 @@ fullWidth: true
 <span data-section-label="errors">Errors</span>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_errors') %>
+</div>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_oauth-revoke') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_oauth-access_token') %>

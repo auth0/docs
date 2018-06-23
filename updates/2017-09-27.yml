@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Using LDAP Authentication with Auth0"
+    tags:
+      - connection
+      - ldap
+      - enterprise connection
+    description: |
+      A new doc called [Using LDAP Authentication with Auth0](https://auth0.com/docs/connections/enterprise/ldap) was added with instructions on setting up an LDAP connection.

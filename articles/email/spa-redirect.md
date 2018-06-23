@@ -1,5 +1,8 @@
 ---
 description: How to work around the limitation of single-page application email redirects.
+topics:
+  - email
+  - spa
 ---
 # Single-Page App Email Redirect Issue
 

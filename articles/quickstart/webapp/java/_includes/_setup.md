@@ -1,20 +1,11 @@
-## Configure Callback URLs
+## Integrate Auth0 in your Application
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+### Setup Dependencies
 
-![Callback error](/media/articles/java/callback_error.png)
-
-The same applies for the Logout URLs. They must be whitelisted in the Auth0 Dashboard. If you follow our seed project or the samples based on it, the values you must configure are:
-- Allowed Callback URLs: `http://localhost:8080/callback`
-- Allowed Logout URLs: `http://localhost:8080/logout`
-
-
-## Setup Dependencies
-
-To integrate your Java application with Auth0 you need to add the following dependencies:
+To integrate your Java application with Auth0, add the following dependencies:
 
 - **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-- **auth0-java-mvc-commons**: is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user. You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
+- **auth0-java-mvc-commons**: is the [Java library](https://github.com/auth0/auth0-java-mvc-common) that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
 
 If you are using Gradle, add them to your `build.gradle`:
 
@@ -38,8 +29,7 @@ If you are using Maven, add them to your `pom.xml`:
 </dependency>
 ```
 
-
-## Configure your Java App
+### Configure your Java App
 
 Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else. The required information is:
 
@@ -56,7 +46,7 @@ Your Java App needs some information in order to authenticate against your Auth0
 
 <context-param>
     <param-name>com.auth0.clientSecret</param-name>
-    <param-value>${account.clientSecret}</param-value>
+    <param-value>YOUR_CLIENT_SECRET</param-value>
 </context-param>
 ```
 
@@ -73,5 +63,5 @@ But it also allows us to customize it's behavior:
 
 
 ::: panel Check populated attributes
-If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for.
+If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered application. In any case, you should verify that the values are correct if you have multiple applications in your account and you might want to use another than the one we set the information for.
 :::
