@@ -10,11 +10,11 @@ npm install
 4) Click the **LOAD UNPACKED** button and select the quickstart directory.
 5) After the extension is added, it will get an extension id displayed that will be visible in the Extension Management page.
 6) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
-```bash
+```text
 https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
 ```
 7) Also set the **Allowed Origins (CORS)** in [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) setting to:
-```bash
+```text
 chrome-extension://<YOUR_EXTENSION_ID>
 ```
 
