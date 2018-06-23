@@ -10,7 +10,7 @@ topics:
 github:
   path: 01-Login
 ---
-<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
+<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000/callback' }) %>
 
 ## Configure Go to Use Auth0 
 

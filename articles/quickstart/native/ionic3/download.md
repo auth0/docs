@@ -2,11 +2,11 @@
 To run the sample follow these steps:
 
 1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
-```bash
+```text
 com.auth0.ionic://${account.namespace}/cordova/com.auth0.ionic/callback
 ```
 2) Set **Allowed Origins (CORS)s** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
-```bash
+```text
 http://localhost:8080
 ```
 3) Ensure that [Ionic 3](https://ionicframework.com/docs/intro/installation/) and [Cordova](https://ionicframework.com/docs/cli/#using-cordova) are installed.
