@@ -134,6 +134,8 @@ With the **bcrypt.compareSync** method, it then validates that the passwords mat
 
 This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
 
+Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
+
 ## Step 3: Add configuration parameters
 
 You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts, and you can access them using the global configuration object.
@@ -154,3 +156,11 @@ function login (username, password, callback) {
   });
 }
 ```
+
+## Summary
+
+In this article, we showed you how to configure your database for use with Auth0 as an identity provider. You: 
+
+1. Created an Auth0 database connection
+2. Created database action scripts
+3. Added configuration parameters
