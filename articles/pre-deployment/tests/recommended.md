@@ -26,3 +26,4 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | [Guardian Multifactor](/multifactor-authentication) or other Multifactor Authentication Providers | Consider [multifactor authentication](${manage_url}/#/guardian) as part of the authentication strategy |
 | [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Applications |
 | Use RS256 Instead of HS256 | Set the JSONWebToken [Signature Algorithm](/apis#signing-algorithms) to RS256 instead of HS256 |
+| Use Custom Domains | We recommend using a [custom domain](/custom-domains) with [Universal Login](/hosted-pages/login) for a seamless and secure user experience. Check the [documentation](/custom-domains) to see if your plan and use case supports custom domains. |
