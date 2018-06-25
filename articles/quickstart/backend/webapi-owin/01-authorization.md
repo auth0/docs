@@ -11,7 +11,7 @@ github:
 ---
 
 ::: panel-warning OWIN 4
-Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is only compatible with the **OWIN 4.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with OWIN 3.x will result in errors.
+Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package used in this tutorial is only compatible with the **OWIN 4.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with OWIN 3.x will result in errors.
 :::
 
 <%= include('../../../_includes/_api_auth_intro') %>

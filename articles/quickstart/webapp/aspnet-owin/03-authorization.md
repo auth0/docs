@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+description: This tutorial demonstrates how assign roles to your users, and use those roles to authorize or deny a user to access certain routes in the app.
 budicon: 500
 topics:
   - quickstarts
@@ -48,7 +48,7 @@ This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, 
 
 ## Restrict an action based on a user's roles
 
-Update the OpenID Connect middleware registration inside your `Startup` class to inform it which claim in the ID Token contains the role information by setting the `RoleClaimType` inside `TokenValidationParameters`. The value you specify must match the claim you used in your rule.
+Update the OpenID Connect middleware registration inside your `Startup` class to inform it which claim in the ID Token contains the role information by setting the `RoleClaimType` property of the `TokenValidationParameters`. The value you specify must match the claim you used in your rule.
 
 ```csharp
 // Startup.cs
