@@ -6,7 +6,7 @@ topics:
   - sso
 ---
 <!-- markdownlint-disable MD041 MD002 -->
-# Single Sign On (SSO) with Auth0
+# Single Sign On with Auth0
 
 Single Sign On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using.
 
