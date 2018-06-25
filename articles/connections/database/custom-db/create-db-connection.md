@@ -80,15 +80,16 @@ When creating users, Auth0 calls the **Get User** script before the **Create** s
 
 ### Create the Login script
 
-The Login script will run each time a user attempts to log in. You can write your own Login script or select a template from the **Templates** dropdown.
+The Login script will run each time a user attempts to log in. To create your script, you can:
 
-::: note
-If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
-:::
+* Write your own Login script 
+* Select a template from the **Templates** dropdown.
+
+Users of [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product may find [this sample login script](/connections/database/db2-script) to be of interest.
 
 ![Database action script templates](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
-For example, the MySQL Login template:
+For example, the MySQL Login template is as follows:
 
 ```js
 function login(email, password, callback) {
@@ -129,13 +130,13 @@ function login(email, password, callback) {
 
 The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`.
 
-With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`.
+With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
 
-This script assumes that you have a `users` table containing these columns. The `id` returned by Login script is used to construct `user_id` attribute of user profile. If you are using multiple custom database connections, then value of `id` must be unique across all the custom database connections to avoid and `user_id` collisions. Our recommendation is to prefix the value of `id` with connection name (without any whitespace).
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
 
 ## Step 3: Add configuration parameters
 
-You can store parameters, like the credentials required to connect to your database, in the Settings section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
+You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
 
 You can access parameter values using the `configuration` object in your database action scripts (i.e. `configuration.MYSQL_PASSWORD`).
 
