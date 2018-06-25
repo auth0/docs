@@ -5,6 +5,7 @@ topics:
   - email
   - smtp
 contentType: how-to
+useCase: customize-emails
 ---
 # Use Your Own SMTP Email Provider
 

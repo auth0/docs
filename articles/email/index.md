@@ -7,6 +7,7 @@ contentType:
     - index
     - reference
     - how-to
+useCase: customize-emails
 ---
 
 # Emails in Auth0

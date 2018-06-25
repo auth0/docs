@@ -4,6 +4,9 @@ topics:
     - child-tenants
     - dev-tools
 contentType: how-to
+useCase:
+    - support
+    - development
 ---
 
 # Child Tenant Request Process

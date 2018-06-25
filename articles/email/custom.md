@@ -4,6 +4,7 @@ toc: true
 topics:
   - email
 contentType: concept
+useCase: customize-emails
 ---
 # Custom Email Handling
 

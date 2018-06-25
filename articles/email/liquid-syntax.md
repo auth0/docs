@@ -6,6 +6,7 @@ topics:
 contentType: 
     - how-to
     - concept
+useCase: customize-emails
 ---
 
 # Liquid Syntax in Email Templates

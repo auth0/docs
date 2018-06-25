@@ -4,6 +4,7 @@ topics:
   - email
   - smtp
 contentType: how-to
+useCase: customize-emails
 ---
 
 # Set Up a Test SMTP Provider
