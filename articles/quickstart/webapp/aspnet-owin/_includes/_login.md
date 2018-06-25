@@ -174,6 +174,10 @@ To add the Login and Logout links to the navigation bar, head over to `/Views/Sh
 
 ## Obtain an Access Token for Calling an API
 
+You can run the application and select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or log in with any of the social login providers you may have configured.
+
+## Obtain an Access Token for Calling an API
+
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint. 
 
 You will also need to configure the OpenID Connect middleware to add the ID Token and Access Token as claims on the `ClaimsIdentity`.
@@ -227,6 +231,7 @@ public void Configuration(IAppBuilder app)
             }
         }
     });
+    
 }
 ```
 
