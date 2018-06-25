@@ -180,6 +180,8 @@ Please take a look at the [Deprecation Error Reference](/errors/deprecation-erro
 
 Auth0 has provided a toggle in the tenant settings in the [Dashboard](${manage_url}) to allow customers to turn off the legacy endpoints manually for their tenant ahead of the deprecation deadline of July 16, 2018. Navigate to the tenant settings screen, **Advanced** tab and scroll down to the block of migration toggles.
 
+![Allowed Web Origins](/media/articles/libraries/lock/legacy-lock-api-off.png)
+
 Turn off the **Legacy Lock API** toggle to stop your tenant from being able to use those endpoints. This toggle allows you to test the removal of the deprecated endpoints with the ability to turn them back on if you encounter issues.
 
 ::: note
