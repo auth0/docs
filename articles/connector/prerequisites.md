@@ -2,6 +2,7 @@
 description: Lists all the prerequisites to installing and configuring the connector.
 topics:
   - connector
+contentType: reference
 ---
 
 # Prerequisites

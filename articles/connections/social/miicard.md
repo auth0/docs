@@ -8,6 +8,7 @@ topics:
   - connections
   - social
   - miicard
+contentType: how-to
 ---
 
 # Connect your app to miiCard

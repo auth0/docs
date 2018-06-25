@@ -4,6 +4,9 @@ description: Working with the Dashboard
 classes: topic-page
 topics:
   - dashboard
+contentType: 
+    - index
+    - how-to
 ---
 
 <div class="topic-page-header">

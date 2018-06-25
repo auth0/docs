@@ -15,6 +15,7 @@ topics:
   - connections
   - social
   - microsoft
+contentType: how-to
 ---
 
 # Connect your app to Microsoft Account

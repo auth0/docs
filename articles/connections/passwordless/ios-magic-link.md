@@ -7,6 +7,7 @@ topics:
     - email
     - ios
     - magic-links
+contentType: how-to
 ---
 
 # Lock iOS v1: Passwordless with Magic Link

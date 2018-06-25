@@ -5,6 +5,7 @@ toc: true
 topics:
   - custom-domains
   - certificates
+contentType: how-to
 ---
 # Custom Domains with Self-Managed Certificates
 

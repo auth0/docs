@@ -2,6 +2,7 @@
 description: How to install multiple instances of the connector for higher availability.
 topics:
   - connector
+contentType: how-to
 ---
 
 # High availability

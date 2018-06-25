@@ -5,6 +5,7 @@ toc: true
 topics:
   - connector
   - ad/ldap
+contentType: reference
 ---
 # Troubleshooting the Active Directory/LDAP Connector
 

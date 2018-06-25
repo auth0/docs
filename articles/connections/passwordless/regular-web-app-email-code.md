@@ -7,6 +7,7 @@ topics:
     - web-apps
     - passwordless
     - email
+contentType: how-to
 ---
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 

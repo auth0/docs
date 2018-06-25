@@ -4,6 +4,7 @@ toc: true
 topics:
   - connector
   - ad/ldap
+contentType: how-to
 ---
 # Creating a Test Active Directory Domain Controller
 

@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - twitter
+contentType: how-to
 ---
 
 # Connect Your App to Twitter

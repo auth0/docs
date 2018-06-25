@@ -11,6 +11,7 @@ topics:
     - email
     - ios
     - swift
+contentType: how-to
 ---
 # Using Passwordless on iOS with Email
 

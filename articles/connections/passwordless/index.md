@@ -4,6 +4,9 @@ url: /connections/passwordless
 topics:
     - connections
     - passwordless
+contentType:
+    - index
+    - how-to
 ---
 # Using Passwordless Authentication
 

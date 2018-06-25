@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - yahoo
+contentType: how-to
 ---
 
 # Connect your app to Yahoo!

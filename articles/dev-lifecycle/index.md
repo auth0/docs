@@ -4,6 +4,9 @@ title: Development Lifecycle
 description: Introduction to development lifecycle in Auth0.
 topics:
   - dev-tools
+contentType: 
+    - index
+    - how-to
 ---
 
 <div class="topic-page-header">

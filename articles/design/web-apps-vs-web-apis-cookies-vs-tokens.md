@@ -6,6 +6,7 @@ topics:
   - cookies
   - tokens
   - apis
+contentType: concept
 ---
 # Web Apps vs Web APIs / Cookies vs Tokens
 

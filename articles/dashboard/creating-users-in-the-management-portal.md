@@ -4,6 +4,7 @@ crews: crew-2
 topics:
   - dashboard
   - users
+contentType: how-to
 ---
 
 # Create Users using the Dashboard

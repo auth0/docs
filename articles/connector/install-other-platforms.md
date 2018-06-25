@@ -2,6 +2,7 @@
 description: A guide on installing the AD/LDAP Connector on different platforms.
 topics:
   - connector
+contentType: how-to
 ---
 # Install the AD/LDAP Connector on Non-Microsoft Platforms
 

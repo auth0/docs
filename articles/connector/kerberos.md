@@ -5,6 +5,9 @@ topics:
   - connector
   - ad/ldap
   - kerberos
+contentType: 
+    - how-to
+    - concept
 ---
 # Federating with Active Directory through the AD/LDAP Connector
 

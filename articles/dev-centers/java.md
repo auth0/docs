@@ -4,6 +4,7 @@ description: Resources and documentation for Java developers
 logo: java
 topics:
   - java
+contentType: reference
 ---
 
 # Java SDK Developer Center

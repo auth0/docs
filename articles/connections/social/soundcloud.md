@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - soundcloud
+contentType: how-to
 ---
 
 # Connect your app to SoundCloud

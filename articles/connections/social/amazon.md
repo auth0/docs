@@ -13,6 +13,7 @@ topics:
   - connections
   - social
   - amazon
+contentType: how-to
 ---
 
 # Connect your app to Amazon

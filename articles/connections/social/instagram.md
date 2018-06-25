@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - instagram
+contentType: how-to
 ---
 # Connect your app to Instagram
 

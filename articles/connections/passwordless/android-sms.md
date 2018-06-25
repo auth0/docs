@@ -6,6 +6,7 @@ topics:
     - android
     - sms
     - mobile
+contentType: how-to
 ---
 # Authenticate users with a one-time code via SMS
 

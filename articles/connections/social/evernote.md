@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - evernote
+contentType: how-to
 ---
 
 # Connect your app to Evernote

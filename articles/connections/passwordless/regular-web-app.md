@@ -4,6 +4,7 @@ topics:
     - connections
     - web-apps
     - passwordless
+contentType: how-to
 ---
 # Using Passwordless Authentication on a Regular Web App
 

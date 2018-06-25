@@ -11,6 +11,7 @@ topics:
     - email
     - ios
     - objective-c
+contentType: how-to
 ---
 # Using Passwordless on iOS with Email (Objective C)
 

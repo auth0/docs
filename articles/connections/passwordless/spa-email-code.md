@@ -6,6 +6,7 @@ topics:
     - passwordless
     - spa
     - email
+contentType: how-to
 ---
 # Using Passwordless Authentication in SPA with Email
 

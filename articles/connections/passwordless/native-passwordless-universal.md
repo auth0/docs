@@ -5,6 +5,7 @@ topics:
     - connections
     - passwordless
     - native
+contentType: how-to
 ---
 # Passwordless Authentication in Native Applications with Universal Login
 

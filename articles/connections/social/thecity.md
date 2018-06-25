@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - thecity
+contentType: how-to
 ---
 
 # Connect your app to The City

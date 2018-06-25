@@ -10,6 +10,7 @@ topics:
   - connections
   - social
   - paypal
+contentType: how-to
 ---
 
 # Connect your app to PayPal

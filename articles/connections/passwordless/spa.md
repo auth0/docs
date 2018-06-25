@@ -4,6 +4,7 @@ topics:
     - connections
     - passwordless
     - spa
+contentType: how-to
 ---
 # Using Passwordless Authentication on a SPA
 

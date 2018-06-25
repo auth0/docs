@@ -5,6 +5,7 @@ topics:
     - passwordless
     - android
     - email
+contentType: how-to
 ---
 # Authenticate users with a one-time code via e-mail
 

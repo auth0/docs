@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - renren
+contentType: how-to
 ---
 
 # Connect your app to RenRen

@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - docomo
+contentType: how-to
 ---
 
 # Connect your app to Docomo dAccount

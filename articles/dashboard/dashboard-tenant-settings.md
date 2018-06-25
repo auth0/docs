@@ -4,6 +4,7 @@ toc: true
 topics:
   - dashboard
   - tenants
+contentType: reference
 ---
 # Tenant Settings in the Auth0 Dashboard
 

@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - exact
+contentType: how-to
 ---
 
 # Connect your app to Exact

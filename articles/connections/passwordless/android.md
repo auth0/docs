@@ -7,6 +7,7 @@ topics:
     - sms
     - mobile
     - email
+contentType: how-to
 ---
 # Passwordless Authentication on Android
 

@@ -4,6 +4,7 @@ toc: true
 crews: crew-2
 topics:
   - design
+contentType: tutorial
 ---
 # Invite-Only Applications
 

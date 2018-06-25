@@ -9,6 +9,7 @@ topics:
   - connections
   - social
   - weibo
+contentType: how-to
 ---
 
 # Connect your app to Weibo

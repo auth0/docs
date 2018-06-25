@@ -5,6 +5,7 @@ toc: true
 topics:
   - design
   - mobile
+contentType: reference
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 

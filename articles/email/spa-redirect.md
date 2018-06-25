@@ -3,6 +3,7 @@ description: How to work around the limitation of single-page application email 
 topics:
   - email
   - spa
+contentType: how-to
 ---
 # Single-Page App Email Redirect Issue
 

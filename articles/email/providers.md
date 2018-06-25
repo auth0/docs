@@ -4,6 +4,7 @@ toc: true
 topics:
   - email
   - smtp
+contentType: how-to
 ---
 # Use Your Own SMTP Email Provider
 

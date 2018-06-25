@@ -7,6 +7,7 @@ toc: true
 topics:
   - connections
   - social
+contentType: how-to
 ---
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
