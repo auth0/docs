@@ -11,16 +11,6 @@ github:
   path: Quickstart/03-Authorization
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-samples',
-  path: 'Quickstart/03-Authorization',
-  requirements: [
-    'Visual Studio 2017 v15.7',
-    'Microsoft.Owin.Security.OpenIdConnect v4.0.0'
-  ]
-}) %>
-
 ASP.NET (OWIN) supports Role-based Authorization which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application.
 
 ::: note
