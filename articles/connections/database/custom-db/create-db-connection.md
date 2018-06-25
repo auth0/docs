@@ -36,7 +36,7 @@ The first thing you will do is create a database connection in Auth0:
 | **Name** | The name of the connection. The name must start and end with an alphanumeric character, contain only alphanumeric characters and dashes, and not exceed 35 characters. |
 | **Requires Username** | Forces users to provide a username *and* email address during registration. |
 | **Username length** | Sets the minimum and maximum length for a username. |
-| **Disable Sign Ups** | Prevents sign ups to your application. You will still be able to create users with your API credentials or via the Dashboard, however. |
+| **Disable Sign Ups** | Prevents sign-ups to your application. You will still be able to create users with your API credentials or via the Dashboard, however. |
 
 4. Click **Create** to proceed.
 
@@ -57,11 +57,11 @@ Once Auth0 creates your connection, you'll have the following tabs (in addition 
 
 ## Step 2: Create database action scripts
 
-Toggling the **Use my own database** switch enables the **Database Action Scripts** area. This is where you will create scripts to configure how authentication works when using your database.
+Toggling the **Use my own database** switch enables the **Database Action Scripts** area. This area is where you will create scripts to configure how authentication works when using your database.
 
 You **must** configure a login script; additional scripts for user functionality, such as password resets, are optional.
 
-You can write your own database action scripts or you can begin by selecting a template from the **Templates** dropdown and modifying it as necessary.
+You can write your database action scripts, or you can begin by selecting a template from the **Templates** dropdown and modifying it as necessary.
 
 The available database actions are as follows.
 
@@ -82,7 +82,7 @@ When creating users, Auth0 calls the **Get User** script before the **Create** s
 
 The Login script will run each time a user attempts to log in. To create your script, you can:
 
-* Write your own Login script 
+* Write your Login script 
 * Select a template from the **Templates** dropdown.
 
 Users of [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product may find [this sample login script](/connections/database/db2-script) to be of interest.
@@ -132,11 +132,11 @@ The above script connects to a MySQL database and executes a query to retrieve t
 
 With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
 
-This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
 
 ## Step 3: Add configuration parameters
 
-You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts and you can access them using the global configuration object.
+You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts, and you can access them using the global configuration object.
 
 You can access parameter values using the `configuration` object in your database action scripts (i.e. `configuration.MYSQL_PASSWORD`).
 
@@ -154,51 +154,3 @@ function login (username, password, callback) {
   });
 }
 ```
-
-## Error Handling
-
-There are three different errors you can return from a database connection:
-
-* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
-* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
-* `new Error(<message>)`: simple errors (no error code).
-
-To return an error, call the callback with an error as the first parameter:
-
-```js
-callback(error);
-```
-
-For example:
-
-```js
-callback(new ValidationError('email-too-long', 'Email is too long.'));
-```
-
-If you use [Lock](/libraries/lock), you can customize the error messages that will be displayed by adding them to the dictionary. For more info, see [Customizing Lock Error Messages](libraries/lock/customizing-error-messages).
-
-## Metadata
-
-Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/metadata#metadata-and-custom-databases).
-
-<%= include('../../_includes/_ip_whitelist') %>
-
-## Troubleshoot
-
-Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
-
-![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
-
-If you do not get the expected result or receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
-
-::: note
-The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) can be used to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
-:::
-
-## Auth0 Login widget
-
-If you use [Lock](libraries#lock), enabling the database connection lets users enter their username and password on the Auth0 Login widget. Once entered, this data is passed to your scripts.
-
-![Auth0 login widget](/media/articles/connections/database/mysql/db-connection-widget.png)
-
-<%= include('../_quickstart-links.md') %>

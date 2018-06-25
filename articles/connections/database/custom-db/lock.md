@@ -4,7 +4,7 @@ crews: crew-2
 ---
 # Using Lock with Custom Databases
 
-If you use [Lock](libraries#lock), enabling the database connection lets users enter their username and password on the Auth0 Login widget. Once entered, the user-provided data is passed to your scripts.
+If you use [Lock](libraries#lock), enabling the database connection lets users enter their username and password on the Auth0 Login widget. Once entered, this data is passed to your scripts.
 
 ![Auth0 login widget](/media/articles/connections/database/mysql/db-connection-widget.png)
 

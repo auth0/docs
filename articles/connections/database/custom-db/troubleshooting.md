@@ -4,7 +4,7 @@ crews: crew-2
 ---
 # Troubleshoot Errors When Using Custom Databases
 
-Test the script using the **TRY** button. If your settings are correct, you should see the resulting profile:
+Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
 ![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
 
