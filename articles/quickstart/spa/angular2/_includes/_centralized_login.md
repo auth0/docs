@@ -4,32 +4,7 @@
 
 As a first step, create an `auth` sub-directory within your `src` directory. If you created your project using the Angular CLI, a good location for the `auth` sub-directory is `src/app`. 
 
-Next, inside the `auth` sub-directory, create a file named `auth0-variables.ts` that will store the Auth0 application keys and callbackURL constants that are going to be used to communicate with Auth0 through an Angular service.
-
-```ts
-// src/app/auth/auth0-variables.ts
-
-interface AuthConfig {
-  clientID: string;
-  domain: string;
-  callbackURL: string;
-}
-
-export const AUTH_CONFIG: AuthConfig = {
-  clientID: <YOUR CLIENT ID>,
-  domain: <YOUR DOMAIN>,
-  callbackURL: <YOUR CALLBACK URL>
-};
-```
-
-When testing locally using `localhost:<PORT NUMBER>`, ensure that the `callbackURL` includes the correct port number that you configured with your callback URLs in your Auth0 application settings. 
-
-::: note
-If you are using the downloadable sample, `auth0-variables.ts` was created and populated for you.
-:::
-
-
-Now, create a service to manage and coordinate user authentication. You can give the service any name. In the example below, we create `AuthService` within an `auth.service.ts` file that is placed within the `auth` sub-directory.
+Create a service to manage and coordinate user authentication. You can give the service any name. In the example below, we create `AuthService` within an `auth.service.ts` file that is placed within the `auth` sub-directory.
 
 In the service add an instance of the `auth0.WebAuth` object. When creating that instance, you can specify the following:
 <%= include('../../_includes/_auth_service_configure_client_details') %>
@@ -44,7 +19,6 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 // src/app/auth/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 
@@ -54,11 +28,11 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: AUTH_CONFIG.clientID,
-    domain: AUTH_CONFIG.domain,
+    clientID: <YOUR AUTH0 CLIENT ID>,
+    domain: <YOUR AUTH0 DOMAIN>,
     responseType: 'token id_token',
-    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-    redirectUri: AUTH_CONFIG.callbackURL,
+    audience: `https://${<YOUR AUTH0 DOMAIN>}/userinfo`,
+    redirectUri: <YOUR AUTH0 ALLOWED CALLBACK URL>,
     scope: 'openid'
   });
 
@@ -69,6 +43,10 @@ export class AuthService {
   }
 }
 ```
+
+::: note
+When testing locally using `localhost:<PORT NUMBER>`, ensure that the `callbackURL` includes the correct port number that you configured with your callback URLs in your Auth0 application settings. 
+:::
 
 Register `AuthService` as a provider with the appropriate module. Since, `AuthService` uses `Router` from `@angular/router`, be sure that the module imports and initializes `RouterModule`, like so:
 
