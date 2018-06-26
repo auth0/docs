@@ -26,7 +26,7 @@ Click **Run Production Check** to launch the testing interface.
 
 At this point, you'll be able to select one or more [Applications](/applications) associated with this tenant for which you want checks run.
 
-![](/media/articles/support/pre-deployment-tests/choose-clients.png)
+![](/media/articles/support/pre-deployment-tests/choose-applications.png)
 
 Once you've selected your applications, click **Run Check**.
 
