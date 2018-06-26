@@ -11,13 +11,13 @@ contentType: reference
 
 # Production Checks: Required Fixes
 
-The following tests check to see if you've completed all requirements for successful deployment to Production.
+The following checks see if you've completed all requirements for successful deployment to Production.
 
 ::: note
-See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-your-results-set) for additional information on your testing output.
+See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-your-results-set) for additional information on your checks output.
 :::
 
-| Test | Description |
+| Check | Description |
 | ---- | ----------- |
 | [Allow ID Tokens for Management API v2 Authentication](migrations/guides/calling-api-with-idtokens) is disabled | The capabilities for using ID Tokens to authorize some of the Users and Device Credentials endpoints of the Management API are being deprecated. After completing migration to Access Tokens, make sure the [`Allow ID Tokens for Management API v2 Authentication` toggle is turned off](${manage_url}/#/account/advanced). |
 | [Allowed Callback URLs](tutorials/redirecting-users) are not Localhost | Validates the [Application Allowed Callback URLs do not point to localhost](${manage_url}/#/applications), 127.0.0.1, and so on. |
