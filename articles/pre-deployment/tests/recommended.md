@@ -11,20 +11,24 @@ contentType: reference
 
 # Production Checks: Recommended Fixes
 
-The following tests check to see if you've completed all recommendations (which are optional) for successful deployment to Production.
+The following checks see if you've completed all recommendations (which are optional) for successful deployment to Production.
 
 ::: note
-See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-your-results-set) for additional information on your testing output.
+See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-your-results-set) for additional information on your checks output.
 :::
 
-| Test | Description |
+| Check | Description |
 | ---- | ----------- |
-| [Customer Error Page](/hosted-pages/custom-error-pages) Configured | [Configure a Custom Error Page](${manage_url}/#/account) with your application-specific details and corporate branding |
-| Customize [Guardian Multifactor Page](/hosted-pages/guardian) | If you're using Guardian Multifactor Authentication, [configure a Custom Hosted Page for Guardian Multifactor](${manage_url}/#/guardian_mfa_page) with your application details and corporate branding |
-| Customize [Login Page](/hosted-pages/login) | [Configure a Custom Hosted Page for Universal Login](${manage_url}/#/login_page) with your application details and corporate branding |
-| Customize [Password Reset Page](/hosted-pages/password-reset) | [Configure a Custom Hosted Page for Password Reset](${manage_url}/#/password_reset) with your application details and corporate branding |
-| [Email Templates](/email/custom) Configured | [Configure custom email templates](${manage_url}/#/emails) with your application specific details and corporate branding |
-| Enable [MFA for Tenant Administrators](/tutorials/manage-dashboard-admins) | [Enable multifactor authentication](${manage_url}/#/account/admins) for tenant administrators |
-| [Guardian Multifactor](/multifactor-authentication) or other Multifactor Authentication Providers | Consider [multifactor authentication](${manage_url}/#/guardian) as part of the authentication strategy |
-| [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Applications |
-| Use RS256 Instead of HS256 | Set the JSONWebToken [Signature Algorithm](/apis#signing-algorithms) to RS256 instead of HS256 |
+| [Authorization Extension](extensions/authorization-extension/v2) | Evaluate the [Authorization Extension if you have authorization requirements](${manage_url}/#/extensions). |
+| [Custom Domain](custom-domains) is configured | Use [custom domains with Universal Login](${manage_url}/#/tenant/custom_domains) for the most seamless and secure experience for your end users. |
+| [Custom Error Page](/hosted-pages/custom-error-pages) is configured | [Configure a Custom Error Page](${manage_url}/#/account) with your application-specific details and corporate branding. |
+| [Deploy Rules and Database Connections Scripts from External Repositories Extensions](extensions#deploy-rules-and-database-connections-scripts-from-external-repositories) | Evaluate the [External Repositories extensions to manage your Rules, Hooks, and database connections scripts from an external source code repository](${manage_url}/#/extensions). |
+| [Email Templates](/email/custom) are configured | [Configure custom email templates](${manage_url}/#/emails) with your application specific details and corporate branding. |
+| [Export Auth0 Logs Extensions](extensions#export-auth0-logs-to-an-external-service) | Evaluate the [Export Auth0 Logs extensions if you have requirements to conduct detailed analysis of user authentication behavior, dashboard admin behavior, or authentication issues](${manage_url}/#/extensions). |
+| [Guardian Multifactor](/multifactor-authentication) or other Multifactor Authentication Providers | Consider [multifactor authentication](${manage_url}/#/guardian) as part of the authentication strategy. |
+| [Guardian Multifactor Page](/hosted-pages/guardian) is customized | If you're using Guardian Multifactor Authentication, [configure a Custom Hosted Page for Guardian Multifactor](${manage_url}/#/guardian_mfa_page) with your application details and corporate branding. |
+| [Hosted Login Page](/hosted-pages/login) is customized | [Configure a Custom Hosted Page for Universal Login](${manage_url}/#/login_page) with your application details and corporate branding. |
+| [MFA for Tenant Administrators](/tutorials/manage-dashboard-admins) is enabled | [Enable multifactor authentication](${manage_url}/#/account/admins) for tenant administrators. |
+| [Password Reset Page](/hosted-pages/password-reset) is customized | [Configure a Custom Hosted Page for Password Reset](${manage_url}/#/password_reset) with your application details and corporate branding. |
+| [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Application. |
+| Use RS256 Instead of HS256 | Set the JSONWebToken [Signature Algorithm](/apis#signing-algorithms) to RS256 instead of HS256. |
