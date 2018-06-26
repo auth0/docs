@@ -8,4 +8,4 @@ If you use [Lock](libraries#lock), enabling the database connection lets users e
 
 ![Auth0 login widget](/media/articles/connections/database/mysql/db-connection-widget.png)
 
-<%= include('../_quickstart-links.md') %>
+<%= include('../../_quickstart-links.md') %>
