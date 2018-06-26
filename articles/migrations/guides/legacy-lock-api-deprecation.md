@@ -22,9 +22,9 @@ If you do not use the above libraries and do not specifically call the above end
 ::: panel-warning Dashboard Warning Banner - Legacy Lock API Enabled
 You may see this warning panel when you log in to the dashboard: 
 
-`Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated.` 
+> Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated.
 
-If you see this panel, it is because you have not turned off the Legacy Lock API switch in your [advanced settings](${manage_url}/#/tenant/advanced). If you are unaffected by the migration, or have already completed it, you should be able to turn that setting off and remove the warning.
+If you see this panel, it is because you have not turned off the Legacy Lock API switch in your [Advanced Settings](${manage_url}/#/tenant/advanced). If you are not affected by the migration, or have already completed it, turn that setting off to remove the warning.
 :::
 
 ### If you already use Universal Login / Hosted Login Page
