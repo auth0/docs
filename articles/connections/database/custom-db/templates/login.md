@@ -4,32 +4,34 @@ toc: true
 ---
 # Custom Database Script Templates: Login
 
-Auth0 provides the following custom database script templates that you can use when implementing user login functionality. While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+Auth0 provides the following custom database login script templates that you can use when implementing user login functionality.
+
+While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
 
 ## Notes
 
 When working on your login script, keep in mind that:
 
-* This script will be executed each time a user attempts to login
+* The script will be executed each time a user attempts to login
 * The two parameters, **email** and **password**, are used to validate the authenticity of the user 
-* The login script is **mandatory**. The other scripts (if implemented) will be used for sign up, email verification, password reset, and deleting users
+* The login script is **mandatory**
 
 ## Sample Scripts
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
 ::: next-steps
-* [JavaScript](/connections/database/custom-db/templates/login/index#javascript)
-* [ASP.NET Membership Provider (MVC3 - Universal Providers)](/connections/database/custom-db/templates/login)
-* [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/login)
-* [MongoDB](/connections/database/custom-db/templates/login)
-* [MySQL](/connections/database/custom-db/templates/login)
-* [Oracle](/connections/database/custom-db/templates/login)
-* [PostgreSQL](/connections/database/custom-db/templates/login)
-* [SQL Server](/connections/database/custom-db/templates/login)
-* [Windows Azure SQL Database](/connections/database/custom-db/templates/login)
-* [Request with Basic Auth](/connections/database/custom-db/templates/login)
-* [Stormpath](/connections/database/custom-db/templates/login)
+* [JavaScript](/connections/database/custom-db/templates/login#javascript)
+* [ASP.NET Membership Provider (MVC3 - Universal Providers)](/connections/database/custom-db/templates/login#asp-net-membership-provider-mvc3-universal-providers-)
+* [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/login#asp-net-membership-provider-mvc4-simple-membership-)
+* [MongoDB](/connections/database/custom-db/templates/login#mongodb)
+* [MySQL](/connections/database/custom-db/templates/login#mysql)
+* [Oracle](/connections/database/custom-db/templates/login#oracle)
+* [PostgreSQL](/connections/database/custom-db/templates/login#postgresql)
+* [SQL Server](/connections/database/custom-db/templates/login#sql-server)
+* [Windows Azure SQL Database](/connections/database/custom-db/templates/login#windows-azure-sql-database)
+* [Request with Basic Auth](/connections/database/custom-db/templates/login#request-with-basic-auth)
+* [Stormpath](/connections/database/custom-db/templates/login#stormpath)
 :::
 
 ### JavaScript
