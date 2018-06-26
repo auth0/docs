@@ -860,20 +860,17 @@ articles:
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
-
+      - title: "Run Checks"
+        url: "/pre-deployment/how-to-run-test"
+        
+      - title: "Result Types"
+        url: "/pre-deployment/how-to-run-test#production-check-results"
       
-      - title: Run Checks
-        url: /pre-deployment/how-to-run-test
+      - title: "Read Results Set"
+        url: "/pre-deployment/how-to-run-test#how-to-read-your-results-set"
         
-      - title: Result Types
-        url: /pre-deployment/how-to-run-test/
-      
-      - title: Read Results Set
-        url: /pre-deployment/how-to-run-test/how-to-read-your-results-set
-        
-      - title: Pre-Launch Tips
-        url: /pre-deployment/prelaunch-tips
-        
+      - title: "Pre-Launch Tips"
+        url: "/pre-deployment/prelaunch-tips"
 
   - title: "Professional Services"
     url: "/services"
