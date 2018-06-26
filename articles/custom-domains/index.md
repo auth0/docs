@@ -12,7 +12,7 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 
 For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-It is recommended that you use custom domains with Universal Login for the most seamless and secure experience for your end users. Check the documentation [Universal Login](/hosted-pages/login) to see if your plan and use case supports custom domains. 
+It is recommended that you use custom domains with Universal Login for the most seamless and secure experience for your end users. Check the [Universal Login](/hosted-pages/login) documentation to see if your plan and use case support custom domains. 
 
 ## Prerequisites
 
