@@ -34,6 +34,9 @@ When the test is complete, your screen will automatically refresh to display you
 
 ![](/media/articles/support/pre-deployment-tests/results.png)
 
+
+## Production Check Results
+
 There are three types of check results: Required, Recommended, and Best Practices.
 
 | Result Type | Description |
