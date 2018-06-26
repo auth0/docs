@@ -5,9 +5,11 @@ topics:
     - pre-deployments-tests
     - tests
     - best-practices
+    - production-checks
+contentType: reference
 ---
 
-# Pre-Deployment Tests: Best Practices
+# Production Checks: Best Practices
 
 The following checks cannot be automated, so we recommend manually checking these areas prior to deployment to Production.
 

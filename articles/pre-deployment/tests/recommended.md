@@ -5,9 +5,11 @@ topics:
     - pre-deployments-tests
     - tests
     - recommendations
+    - production-checks
+contentType: reference
 ---
 
-# Pre-Deployment Tests: Recommended Fixes
+# Production Checks: Recommended Fixes
 
 The following tests check to see if you've completed all recommendations (which are optional) for successful deployment to Production.
 

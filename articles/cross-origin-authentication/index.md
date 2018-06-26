@@ -76,6 +76,8 @@ When third party cookies are not available, **auth0.js** will render an `iframe`
 
 Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Application's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
 
+Validate that the Location URL for the page does not point to localhost.
+
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
 :::

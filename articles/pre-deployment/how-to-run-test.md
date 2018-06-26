@@ -1,14 +1,16 @@
 ---
-description: How to run the Auth0 Pre-Deployment Tests to ensure that your Applications are production-ready
+description: How to run the Auth0 Production Check to ensure that your Applications are production-ready
 topics:
     - pre-deployment
     - pre-deployments-tests
     - tests
+    - production-checks
+contentType: how-to
 ---
 
-# How to Run the Pre-Deployment Test
+# How to Run the Production Checks
 
-The Pre-Deployment Tests are available via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}).
+The Production Checks can be reviewed in [CS Tools](${https://support-it.auth0.com/tenants/checklist?tenantId=solepano@us}) or in the [Auth0 Support Center tenants section](${https://support.auth0.com/tenants/public}).
 
 ![](/media/articles/support/pre-deployment-tests/support-home.png)
 

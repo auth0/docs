@@ -9,6 +9,10 @@ topics:
     - auth0js
     - tokens
     - user-profiles
+contentType: 
+    - concept
+    - how-to
+    - reference
 ---
 # Migrating from Legacy Authentication Flows
 
@@ -75,6 +79,8 @@ If you specify an audience, then the OIDC flow will be triggered and the user pr
 You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use Access Tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do this.
 
 ## User Profiles
+
+The legacy authentication flows that allow ID tokens and the userinfo endpoint to include the complete user profile are being deprecated. Make sure the `Legacy User Profile` toggle is turned off after completing the migration to the new OIDC-conformant APIs.
 
 When using the legacy authentication flows, the entire user profile is returned in ID Tokens and from `/userinfo`, as demonstrated below.
 

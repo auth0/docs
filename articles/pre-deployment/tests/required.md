@@ -5,9 +5,11 @@ topics:
     - pre-deployments-tests
     - tests
     - requirements
+    - production-checks
+contentType: reference
 ---
 
-# Pre-Deployment Tests: Required Fixes
+# Production Checks: Required Fixes
 
 The following tests check to see if you've completed all requirements for successful deployment to Production.
 
