@@ -8,6 +8,11 @@ topics:
   - lock
   - migrations
   - angular
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating Angular 1.x Applications from Lock v9 to v11
 

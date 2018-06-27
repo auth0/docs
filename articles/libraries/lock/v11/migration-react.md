@@ -7,6 +7,11 @@ topics:
   - lock
   - migrations
   - react
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating React Applications to Lock v11
 

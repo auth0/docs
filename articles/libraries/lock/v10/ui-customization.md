@@ -4,6 +4,11 @@ description: Customizing the appearance of your Lock widget can be important for
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: UI Customization
 

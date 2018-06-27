@@ -5,6 +5,11 @@ topics:
   - libraries
   - lock
   - connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - customize-connections
 ---
 # Selecting the Connection in Lock
 

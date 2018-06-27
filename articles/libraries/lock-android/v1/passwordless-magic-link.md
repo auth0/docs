@@ -7,6 +7,12 @@ topics:
   - android
   - passwordless
   - magic-link
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless Magic link
 

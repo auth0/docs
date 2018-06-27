@@ -8,6 +8,13 @@ topics:
   - libraries
   - lock
   - android
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Getting Started
 

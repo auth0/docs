@@ -6,6 +6,12 @@ topics:
   - libraries
   - lock
   - android
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Android Development Keystores and Key Hashes
 

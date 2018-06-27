@@ -7,6 +7,13 @@ topics:
   - lock
   - android
   - migrations
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
+  - migrate
 ---
 # Lock Android: Migration Guide
 

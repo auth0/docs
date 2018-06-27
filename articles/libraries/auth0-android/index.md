@@ -6,6 +6,10 @@ url: /libraries/auth0-android
 topics:
   - libraries
   - android
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
 # Auth0.Android
 

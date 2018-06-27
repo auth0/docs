@@ -6,6 +6,11 @@ topics:
   - libraries
   - lock
   - android
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Configuration
 

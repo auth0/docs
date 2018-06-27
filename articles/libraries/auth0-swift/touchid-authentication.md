@@ -5,6 +5,8 @@ topics:
   - libraries
   - swift
   - touch-id
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.swift Touch ID Authentication
 

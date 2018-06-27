@@ -4,6 +4,10 @@ description: Customizing error messages with Lock 10
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Customizing Error Messages
 

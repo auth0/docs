@@ -5,6 +5,11 @@ topics:
   - libraries
   - lock
   - auth0js
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
 ---
 # Using Lock With auth0.js
 

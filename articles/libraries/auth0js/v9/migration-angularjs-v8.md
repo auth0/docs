@@ -8,6 +8,11 @@ topics:
   - auth0js
   - migrations
   - angular
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating Angular 1.x applications from Auth0.js v8 to v9
 

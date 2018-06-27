@@ -6,6 +6,8 @@ topics:
   - libraries
   - swift
   - db-connections
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Using Database Connections with Auth0.Swift
 

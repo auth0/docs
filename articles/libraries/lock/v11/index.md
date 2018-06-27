@@ -7,6 +7,11 @@ img: media/articles/libraries/lock-web.png
 topics:
   - libraries
   - lock
+contentType:
+  - how-to
+  - index
+useCase:
+  - add-login
 ---
 # Lock v11 for Web
 
