@@ -67,6 +67,32 @@ The application will then receive a successful authentication response from Auth
 
 Once consent has been given, the user will no longer see the consent dialog on subsequent logins.
 
+## Scope Descriptions 
+
+By default, the consent page will use the scopes names to prompt for user consent. As showcased in the example below, scopes should be defined with in the <resource>:<action> format.
+
+![API Scopes](/media/articles/api-auth/consent-scopes.png)
+
+The consent page will group scopes with the same resource in a single line, detailing all actions. In the example above, it will display "Posts: read and write your posts".
+
+You can change this behavior to display the 'Description' field instead. You can enable this behavior by setting the tenant flag `use_scope_descriptions_for_consent` to true. At the moment, this can only be done with API call:
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/tenants/settings",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"flags\": { \"use_scope_descriptions_for_consent\": true } }"
+  }
+}
+```
+
 ## Handling rejected permissions
 
 If a user decides to reject consent to the application, they will be redirected to the `redirect_uri` specified in the request with an `access_denied` error:

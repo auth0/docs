@@ -23,7 +23,7 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 1. The web app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant)), so the user can authenticate.
 
-1. Auth0 authenticates the user (via the browser). The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the applicaion (for example: post messages, list contacts, and so forth).
+1. Auth0 authenticates the user (via the browser). The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the application (for example: post messages, list contacts, and so forth).
 
 1. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
 
