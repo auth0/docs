@@ -10,6 +10,13 @@ topics:
   - libraries
   - lock
   - ios
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v1 for iOS and macOS
