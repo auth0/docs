@@ -12,7 +12,7 @@ contentType: reference
 
 <!-- markdownlint-disable MD033 -->
 
-# PSaaS Appliance Infrastructure: IP/Domain and Port List
+# PSaaS Appliance Infrastructure Requirements: IP/Domain and Port List
 
 The PSaaS Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
