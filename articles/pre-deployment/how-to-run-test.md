@@ -10,7 +10,7 @@ contentType: how-to
 
 # How to Run the Production Checks
 
-The Production Checks can be reviewed in [CS Tools](${https://support-it.auth0.com/tenants/checklist?tenantId=solepano@us}) or in the [Auth0 Support Center tenants section](${https://support.auth0.com/tenants/public}).
+The Production Checks can be reviewed in [CS Tools](${env.DOMAIN_URL_SUPPORT}/tenants/checklist?tenantId=solepano@us}) or in the [Auth0 Support Center tenants section](${env.DOMAIN_URL_SUPPORT}/tenants/public}).
 
 ![](/media/articles/support/pre-deployment-tests/support-home.png)
 
