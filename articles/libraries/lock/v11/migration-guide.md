@@ -41,7 +41,7 @@ If you have any questions or concerns, you can discuss them in the [Auth0 Commun
 
 ## Disabling legacy Lock API
 
-After you update to Lock v11 and/or Auth0.js v9, make sure that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the legacy API is no longer available. The `/usernamepassword/login` and `/ssodata` endpoints will be removed from service on **July 16, 2018**. These are used by Lock.js v8, v9, v10, and auth0.js v6, v7 and v8.
+After completing the migration to the latest versions, make sure that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the legacy API is no longer available. Starting on **July 16, 2018**, this option will be forcibly disabled, so it is recommended you opt-in before that time to verify that your configuration will work correctly. Additionally, the `/usernamepassword/login` and `/ssodata` endpoints will be removed from service on **July 16, 2018**. These are used by Lock.js v8, v9, v10, and auth0.js v6, v7 and v8.
 
 You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanced) of Tenant Settings.
 
