@@ -186,23 +186,32 @@ articles:
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
-  - title: "Connections"
+  - title: "Connections and Identity Providers"
     url: "/connections"
     children:
       - title: "Overview"
         url: "/connections"
 
-      - title: "Username/Password"
+      - title: "Database Connections"
         url: "/connections/database"
+        children:
+          - title: "Custom Databases"
+          url: "/connections/database/custom-db"
+
+          - title: "Password Policies"
+            url: "/connections/database/password-options"
+            children:
+              - title: "Password Options"
+                url: "/connections/database/password-options"
+
+              - title: "Password Strength"
+                url: "/connections/database/password-strength"
 
       - title: "Social/Enterprise"
         url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
-
-      - title: "Your Database"
-        url: "/connections/database/custom-db"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
@@ -342,81 +351,9 @@ articles:
             url: "/hooks/dashboard/enable-disable"
             hidden: true
 
-  - title: "Email"
-    url: "/email"
+  - title: "Extensions"
+    url: "/extensions"
     children:
-      - title: "Overview"
-        url: "/email"
-
-      - title: "Custom Email Handling"
-        url: "/email/custom"
-
-      - title: "Customizing Your Emails"
-        url: "/email/templates"
-
-      - title: "Use your own SMTP Email Provider"
-        url: "/email/providers"
-
-      - title: "Liquid Syntax in Email Templates"
-        url: "/email/liquid-syntax"
-
-      - title: "Set up a Test SMTP Provider"
-        url: "/email/testing"
-
-  - title: "Password Policies"
-    url: "/connections/database/password-options"
-    children:
-      - title: "Password Options"
-        url: "/connections/database/password-options"
-
-      - title: "Password Strength"
-        url: "/connections/database/password-strength"
-
-  - title: "User Management"
-    url: "/users"
-    children:
-      - title: "User Profile"
-        url: "/user-profile"
-        children:
-          - title: "Structure"
-            url: "/user-profile/user-profile-structure"
-
-          - title: "Details"
-            url: "/user-profile/user-profile-details"
-
-          - title: "Normalized User Profile"
-            url: "/user-profile/normalized/auth0"
-
-          - title: "Picture"
-            url: "/user-profile/user-picture"
-
-      - title: "User Search"
-        url: "/users/search/v3"
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v3/query-syntax"
-
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
-
-      - title: "User Search"
-        url: "/users/search/v2"
-        hidden: true
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v2/query-syntax"
-            hidden: true
-
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
-            hidden: true
-
-      - title: "User Metadata"
-        url: "/metadata"
-
-      - title: "User Impersonation"
-        url: "/user-profile/user-impersonation"
-
       - title: "Delegated Administration"
         url: "/extensions/delegated-admin"
 
@@ -452,11 +389,77 @@ articles:
             url: "/extensions/authorization-extension/v2/import-export-data"
             hidden: true
 
-      - title: "Progressive Profiling"
-        url: "/user-profile/progressive-profiling"
+  - title: "Email"
+    url: "/email"
+    children:
+      - title: "Overview"
+        url: "/email"
 
-      - title: "Data Storage"
-        url: "/user-profile/user-data-storage"
+      - title: "Custom Email Handling"
+        url: "/email/custom"
+
+      - title: "Customizing Your Emails"
+        url: "/email/templates"
+
+      - title: "Use your own SMTP Email Provider"
+        url: "/email/providers"
+
+      - title: "Liquid Syntax in Email Templates"
+        url: "/email/liquid-syntax"
+
+      - title: "Set up a Test SMTP Provider"
+        url: "/email/testing"
+
+  - title: "User Management"
+    url: "/users"
+    children:
+      - title: "User Profile"
+        url: "/user-profile"
+        children:
+          - title: "Structure"
+            url: "/user-profile/user-profile-structure"
+
+          - title: "Details"
+            url: "/user-profile/user-profile-details"
+
+          - title: "Normalized User Profile"
+            url: "/user-profile/normalized/auth0"
+
+          - title: "Picture"
+            url: "/user-profile/user-picture"
+
+          - title: "User Impersonation"
+            url: "/user-profile/user-impersonation"
+
+          - title: "Progressive Profiling"
+            url: "/user-profile/progressive-profiling"
+
+          - title: "Data Storage"
+            url: "/user-profile/user-data-storage"
+
+      - title: "User Search"
+        url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
+
+      - title: "User Search"
+        url: "/users/search/v2"
+        hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
+            hidden: true
+
+      - title: "User Metadata"
+        url: "/metadata"
 
       - title: "User Migration"
         url: "/users/migrations"
@@ -493,10 +496,10 @@ articles:
         url: "/multifactor-authentication/guardian"
         children:
           - title: "For Administrators"
-            url: "/multifactor-authentication/administrator"
+            url: "/multifactor-authentication/guardian/administrator"
 
           - title: "For Developers"
-            url: "/multifactor-authentication/developer"
+            url: "/multifactor-authentication/guardian/developer"
 
           - title: "For Users"
             url: "/multifactor-authentication/guardian/user-guide"
@@ -532,14 +535,14 @@ articles:
         url: "/multifactor-authentication/yubikey"
         
       - title: "Step-up Authentication"
-        url: "/multifactor-authentication/developer/step-up-authentication"
+        url: "/multifactor-authentication/step-up-authentication"
         children:
           - title: "Step-up Authentication for Web Apps"
-            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
+            url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
           - title: "Step-up Authentication for APIs"
-            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
+            url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
             hidden: true
 
       - title: "API"
@@ -777,7 +780,7 @@ articles:
         url: "/migrations/guides/extensibility-node8"
         hidden: true
         
-  - title: "Data Privacy"
+  - title: "Compliance"
     url: "/compliance"
     children:   
       - title: "GDPR"
@@ -1098,7 +1101,7 @@ appliance:
       - title: Critical Issue
         url: /appliance/critical-issue
       - title: Enterprise Support
-        url: /onboarding/enterprise-support
+        url: /appliance/onboarding/enterprise-support
 
   - title: PSaaS Appliance Planning
     url: /appliance/appliance-overview
@@ -1138,7 +1141,7 @@ appliance:
         url: /appliance/raci
 
       - title: Customer Onboarding
-        url: /onboarding/appliance-sprint
+        url: /appliance/onboarding/appliance-sprint
 
       - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
