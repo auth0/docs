@@ -7,7 +7,9 @@ topics:
   - dashboard
 contentType:
     - how-to
-useCase: manage-accounts
+useCase:
+    - manage-accounts
+    - get-started
 ---
 # Dashboard Overview
 

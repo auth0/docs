@@ -3,6 +3,8 @@ description: This page is themguide to internationalizing an iOS application.
 topics:
     - i18n
     - ios
+contentType: how-to
+useCase: localize
 ---
 # iOS guide to i18n
 

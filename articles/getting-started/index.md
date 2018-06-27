@@ -7,7 +7,9 @@ topics:
 contentType:
   - concept
   - index
-useCase: strategize
+useCase:
+  - strategize
+  - get-started
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

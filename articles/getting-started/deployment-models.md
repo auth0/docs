@@ -7,7 +7,9 @@ topics:
   - deployment-models
 contentType:
     - concept
-useCase: development
+useCase:
+    - development
+    - get-started
 ---
 # Auth0 Deployment Models
 

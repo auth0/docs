@@ -6,7 +6,9 @@ topics:
   - auth0-101
   - auth0-overview
 contentType: concept
-useCase: strategize
+useCase:
+  - strategize
+  - get-started
 ---
 # Auth0 Overview
 

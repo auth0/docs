@@ -7,8 +7,9 @@ topics:
   - auth0-basics
 contentType: concept
 useCase:
-  - strategize
   - development
+  - strategize
+  - get-started
 ---
 # Learn the Basics
 

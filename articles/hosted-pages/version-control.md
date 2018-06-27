@@ -3,6 +3,8 @@ description: How to back up your hosted pages using the Auth0 version control ex
 topics:
   - version-control
   - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # How to Use Version Control to Manage Your Hosted Pages
 

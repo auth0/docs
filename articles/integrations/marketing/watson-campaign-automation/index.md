@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - watson-campaign
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Watson Campaign Automation Integration

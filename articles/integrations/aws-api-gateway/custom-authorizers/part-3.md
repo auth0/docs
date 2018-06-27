@@ -5,6 +5,9 @@ topics:
   - integrations
   - aws
   - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 

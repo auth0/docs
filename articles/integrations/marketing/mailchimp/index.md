@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - mailchimp
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # MailChimp Integration

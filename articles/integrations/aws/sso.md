@@ -5,6 +5,11 @@ topics:
   - integrations
   - aws
   - sso
+contentType: how-to
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 
 # Enable SSO to the AWS Console

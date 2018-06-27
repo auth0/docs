@@ -7,6 +7,8 @@ topics:
   - windows
   - azure-ad
   - active-directory
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Migrate Office365 Connections to Windows Azure AD

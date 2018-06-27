@@ -5,6 +5,8 @@ public: false
 topics:
   - auth0-101
 contentType: concept
-useCase: strategize
+useCase:
+  - strategize
+  - get-started
 ---
 # Frequently Asked Questions - UNDER CONSTRUCTION

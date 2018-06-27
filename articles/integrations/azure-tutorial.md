@@ -5,6 +5,10 @@ topics:
   - integrations
   - microsoft
   - azure
+contentType:
+- how-to
+- index
+useCase: integrate-saas-sso
 ---
 # Using Auth0 with Microsoft Azure
 

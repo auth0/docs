@@ -5,6 +5,11 @@ topics:
   - integrations
   - aws
   - api-gateway
+contentType:
+  - tutorial
+  - index
+useCase:
+  - secure-an-api
 ---
 
 # Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda

@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - marketo
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Marketo Integration

@@ -9,6 +9,7 @@ contentType: concept
 useCase:
   - strategize
   - development
+  - get-started
 ---
 # The Implementation Process - UNDER CONSTRUCTION
 
