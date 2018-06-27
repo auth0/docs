@@ -863,12 +863,6 @@ articles:
       - title: "Run Checks"
         url: "/pre-deployment/how-to-run-test"
         
-      - title: "Result Types"
-        url: "/pre-deployment/how-to-run-test#production-check-results"
-      
-      - title: "Read Results Set"
-        url: "/pre-deployment/how-to-run-test#how-to-read-your-results-set"
-        
       - title: "Pre-Launch Tips"
         url: "/pre-deployment/prelaunch-tips"
 
