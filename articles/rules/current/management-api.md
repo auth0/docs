@@ -6,7 +6,7 @@ topics:
   - extensibility
   - management-api
 ---
-# Use the Management API in rules
+# Use the Management API in Rules
 
 You have limited access to the [Management API](/api/management/v2) inside Rules. In particular, the version of the Node.js client library available from rules only allow you to update the user's `app_metadata` and `user_metadata` as descibed in [User Metadata in Rules](/rules/current/metadata-in-rules).
 
