@@ -22,8 +22,6 @@ When creating an Auth0 Application, you'll be asked to indicate the *type* of Ap
 
 For desktop or mobile apps running natively on the device, you'll want to create a Native Application.
 
-Validate that the Allowed Web Origins URLs do not point to localhost.
-
 ## Settings
 
 <%= include('../_settings') %>
