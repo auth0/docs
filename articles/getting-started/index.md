@@ -4,6 +4,10 @@ title: Getting Started
 classes: topic-page
 topics:
   - auth0-101
+contentType:
+  - concept
+  - index
+useCase: strategize
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

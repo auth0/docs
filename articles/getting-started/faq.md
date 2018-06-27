@@ -4,5 +4,7 @@ toc: true
 public: false
 topics:
   - auth0-101
+contentType: concept
+useCase: strategize
 ---
 # Frequently Asked Questions - UNDER CONSTRUCTION

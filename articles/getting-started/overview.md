@@ -5,6 +5,8 @@ toc: true
 topics:
   - auth0-101
   - auth0-overview
+contentType: concept
+useCase: strategize
 ---
 # Auth0 Overview
 

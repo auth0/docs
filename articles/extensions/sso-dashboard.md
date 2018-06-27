@@ -5,6 +5,9 @@ toc: true
 topics:
   - extensions
   - sso-dashboard
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Single Sign-On (SSO) Dashboard

@@ -3,6 +3,9 @@ description: This page explains how to configure and install Auth0's Logs to App
 topics:
   - extensions
   - application-insights
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Application Insights

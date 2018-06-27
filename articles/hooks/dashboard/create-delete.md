@@ -4,6 +4,8 @@ beta: true
 topics:
     - hooks
     - dashboard
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
 # Create a New Hook Using the Dashboard

@@ -5,6 +5,8 @@ beta: true
 topics:
     - hooks
     - dashboard
+contentType: index
+useCase: extensibility-hooks
 ---
 
 # Work with Hooks in the Dashboard

@@ -4,5 +4,7 @@ toc: true
 public: false
 topics:
   - auth0-101
+contentType: tutorial
+useCase: strategize
 ---
 # Hello World - UNDER CONSTRUCTION

@@ -5,6 +5,10 @@ public: false
 topics:
   - auth0-101
   - auth0-basics
+contentType: concept
+useCase:
+  - strategize
+  - development
 ---
 # The Implementation Process - UNDER CONSTRUCTION
 

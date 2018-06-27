@@ -6,6 +6,9 @@ topics:
   - migrations
   - universal-login
   - embedded-login
+contentType:
+    - index
+useCase: migrate
 ---
 
 # Migrating to Universal Login

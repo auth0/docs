@@ -6,6 +6,9 @@ description: >-
 beta: true
 topics:
     - hooks
+contentType:
+  - index
+useCase: extensibility-hooks
 ---
 
 # Hooks: Overview

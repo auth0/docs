@@ -6,6 +6,11 @@ topics:
   - universal-login
   - embedded-login
   - migrations
+contentType:
+  - concept
+useCase:
+  - strategize
+  - development
 ---
 # Universal vs Embedded Login
 

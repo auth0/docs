@@ -3,6 +3,9 @@ description: How to enable and use the Logentries extension.
 topics:
   - extensions
   - logentries
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Logentries

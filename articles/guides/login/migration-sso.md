@@ -6,6 +6,10 @@ topics:
   - migrations
   - sso
   - embedded-login
+contentType:
+    - concept
+    - index
+useCase: migrate
 ---
 
 # Migration in Embedded Login Scenarios with SSO

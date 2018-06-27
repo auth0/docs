@@ -3,6 +3,9 @@ description: This page explains how to configure and install Auth0's Authenticat
 topics:
   - extensions
   - auth-api-webhooks
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Authentication API Webhooks

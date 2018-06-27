@@ -5,6 +5,10 @@ toc: true
 topics:
   - auth0-101
   - auth0-basics
+contentType: concept
+useCase:
+  - strategize
+  - development
 ---
 # Learn the Basics
 

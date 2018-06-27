@@ -7,6 +7,9 @@ topics:
   - migrations
   - web-apps
   - universal-login
+contentType:
+    - how-to
+useCase: migrate
 ---
 # Migrate Web Applications using Lock 10+ to Universal Login
 

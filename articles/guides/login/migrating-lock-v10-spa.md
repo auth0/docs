@@ -7,6 +7,9 @@ topics:
   - migrations
   - spa
   - universal-login
+contentType:
+    - how-to
+useCase: migrate
 ---
 
 # Migrate SPAs using Lock 10+ to Universal Login

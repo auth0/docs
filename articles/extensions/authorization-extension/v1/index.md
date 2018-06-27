@@ -3,6 +3,10 @@ description: This page explains how to setup and manage the Authorization Extens
 topics:
   - extensions
   - authorization_v1
+contentType:
+  - tutorial
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Auth0 Authorization Extension v1

@@ -2,6 +2,9 @@
 description: Links and information on using Auth0's provided extensions.
 topics:
   - extensions
+contentType:
+  - index
+useCase: extensibility-extensions
 ---
 
 # Using Auth0's Provided Extensions
