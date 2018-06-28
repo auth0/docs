@@ -6,7 +6,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-## Install and configure the OpenID Connect middleware
+### Install and configure the OpenID Connect middleware
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware which is available in the `Microsoft.Owin.Security.OpenIdConnect` NuGet package, so install that first:
 
@@ -100,7 +100,9 @@ It is essential that you register both the Kentor Cookie Saver middleware, the c
 
 In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct [logout URL](/logout).
 
-## Add Login and Logout Methods
+## Trigger Authentication
+
+### Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
@@ -136,7 +138,7 @@ public class AccountController : Controller
 }
 ```
 
-## Add Login and Logout Links
+### Add Login and Logout Links
 
 To add the Login and Logout links to the navigation bar, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -172,7 +174,7 @@ To add the Login and Logout links to the navigation bar, head over to `/Views/Sh
 </div>
 ```
 
-## Obtain an Access Token for Calling an API
+### Obtain an Access Token for Calling an API
 
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint. 
 
