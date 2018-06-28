@@ -5,6 +5,10 @@ topics:
     - user-management
     - user-profiles
     - progressive-profiling
+contentType:
+  - concept
+useCase:
+  - manage-users
 ---
 # Progressive Profiling
 

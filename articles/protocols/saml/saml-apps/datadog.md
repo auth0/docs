@@ -5,6 +5,10 @@ topics:
     - saml
     - identity-providers
     - datadog
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 ${include('./_header')}

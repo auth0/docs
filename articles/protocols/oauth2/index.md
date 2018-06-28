@@ -5,6 +5,10 @@ topics:
     - protocols
     - oauth2
     - oauth
+contentType:
+  - concept
+useCase:
+  - development
 ---
 # OAuth 2.0
 

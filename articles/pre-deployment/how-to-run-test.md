@@ -5,7 +5,11 @@ topics:
     - pre-deployments-tests
     - tests
     - production-checks
-contentType: how-to
+contentType:
+  - reference
+  - how-to
+useCase:
+  - support
 ---
 
 # How to Run the Production Checks

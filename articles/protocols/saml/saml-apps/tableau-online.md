@@ -1,6 +1,14 @@
 ---
 title: Tableau Online SAML Configuration
 description: Tableau Online SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - tableau
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 ${include('./_header')}

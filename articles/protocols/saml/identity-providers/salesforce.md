@@ -4,6 +4,10 @@ topics:
     - saml
     - identity-providers
     - salesforce
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # SAML SSO with SalesForce

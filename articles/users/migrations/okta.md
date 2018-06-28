@@ -8,6 +8,11 @@ topics:
   - user-management
   - migrations
   - okta
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate Users from Okta to Auth0

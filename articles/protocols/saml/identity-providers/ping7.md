@@ -5,6 +5,10 @@ topics:
     - saml
     - identity-providers
     - pingfederate
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Configuring PingFederate 7 as an Identity Provider
 

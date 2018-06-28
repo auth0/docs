@@ -6,6 +6,10 @@ topics:
     - auth0-policies
     - rate-limits
     - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Rate Limit Policy For Auth0 APIs
 

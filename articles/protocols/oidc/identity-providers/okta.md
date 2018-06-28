@@ -5,6 +5,11 @@ topics:
     - protocols
     - oidc
     - okta
+contentType:
+  - concept
+useCase:
+  - development
+  - add-idp
 ---
 # Configure Okta as an OpenID Connect Identity Provider
 

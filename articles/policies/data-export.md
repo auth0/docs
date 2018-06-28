@@ -4,6 +4,10 @@ topics:
     - auth0-policies
     - data 
     - data-exports
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Data Export Policy
 

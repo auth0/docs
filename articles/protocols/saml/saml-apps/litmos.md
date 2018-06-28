@@ -5,6 +5,10 @@ topics:
     - saml
     - identity-providers
     - litmos
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 ${include('./_header')}

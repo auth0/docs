@@ -4,6 +4,10 @@ topics:
   - professional services
   - psaas-appliance
   - management
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Training: Private SaaS Management Workshop

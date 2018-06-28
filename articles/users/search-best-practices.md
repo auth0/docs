@@ -7,6 +7,12 @@ topics:
   - users
   - user-management
   - search
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - manage-users
 ---
 
 # User Search Best Practices

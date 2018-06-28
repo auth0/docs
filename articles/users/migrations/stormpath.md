@@ -8,6 +8,11 @@ topics:
   - user-management
   - migrations
   - stormpath
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate Users from Stormpath to Auth0

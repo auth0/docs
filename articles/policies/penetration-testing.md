@@ -4,6 +4,10 @@ topics:
     - auth0-policies
     - penetration-testing
     - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Penetration Testing Policy
 

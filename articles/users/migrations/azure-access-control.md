@@ -7,6 +7,12 @@ topics:
   - user-management
   - migrations
   - azure
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate from Azure Access Control Service to Auth0

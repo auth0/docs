@@ -6,7 +6,10 @@ topics:
     - tests
     - best-practices
     - production-checks
-contentType: reference
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Production Checks: Best Practices

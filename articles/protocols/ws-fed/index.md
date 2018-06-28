@@ -3,6 +3,10 @@ description: The WS-Federation protocol and how it is used in Auth0.
 topics:
   - saml
   - ws-federation
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # WS-Federation
 

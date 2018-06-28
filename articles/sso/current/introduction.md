@@ -3,6 +3,10 @@ description: A brief introduction to Single Sign On (SSO) and an overview of how
 toc: true
 topics:
   - sso
+contentType:
+  - concept
+useCase:
+  - integrate-saas-sso
 ---
 
 # Introduction to Single Sign On with Auth0

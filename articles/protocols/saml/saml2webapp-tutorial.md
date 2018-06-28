@@ -3,6 +3,10 @@ description: How to use Auth0 in a SAML2 web application.
 topics:
   - saml
   - web-apps
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Using Auth0 with a SAML2 Web App

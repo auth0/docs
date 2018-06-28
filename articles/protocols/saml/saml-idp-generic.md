@@ -4,6 +4,10 @@ description: How to configure Auth0 to serve as an Identity Provider in a SAML f
 toc: true
 topics:
   - saml
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Auth0 as Identity Provider
 

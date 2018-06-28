@@ -5,6 +5,11 @@ description: List of bulletins addressing security vulnerabilities in Auth0 soft
 topics:
   - security
   - security-bulletins
+contentType:
+  - index
+  - reference
+useCase:
+  - development
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

@@ -5,6 +5,12 @@ topics:
     - users
     - user-management
     - user-profiles
+contentType:
+  - concept
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
 # User Profile
 

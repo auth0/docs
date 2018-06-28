@@ -4,6 +4,11 @@ description: How to setup SAML Identity Provider initiated SSO.
 topics:
   - saml
   - sso
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-idp
 ---
 
 # IdP-Initiated SSO

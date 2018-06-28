@@ -6,6 +6,12 @@ topics:
   - users
   - user-management
   - search
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - manage-users
 ---
 
 # User Search

@@ -3,6 +3,11 @@ description: How to troubleshoot with HAR files and steps to generate a HAR file
 topics:
     - support
     - har-files
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Troubleshooting with HAR files

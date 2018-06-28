@@ -5,6 +5,11 @@ topics:
     - support
     - testing
     - pre-deployment-testing
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Testing Your Auth0 Implementation

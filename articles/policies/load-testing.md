@@ -4,6 +4,10 @@ topics:
     - auth0-policies
     - load-testing
     - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Load Testing Policy

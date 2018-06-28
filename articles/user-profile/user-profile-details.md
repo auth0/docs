@@ -5,6 +5,10 @@ topics:
     - users
     - user-management
     - user-profiles
+contentType:
+  - concept
+useCase:
+  - manage-users
 ---
 
 # User Profile: In-Depth Details

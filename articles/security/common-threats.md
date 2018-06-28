@@ -5,6 +5,10 @@ topics:
   - security-bulletins
   - prevention
   - common-threats
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Common Threats and How to Prevent Them

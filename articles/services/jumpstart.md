@@ -4,6 +4,10 @@ topics:
   - professional services
   - jumpstart
   - architecture
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Jumpstart

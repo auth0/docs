@@ -4,6 +4,11 @@ toc: true
 topics:
   - tokens
   - id-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # ID Token
 

@@ -6,7 +6,10 @@ topics:
     - tests
     - requirements
     - production-checks
-contentType: reference
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Production Checks: Required Fixes

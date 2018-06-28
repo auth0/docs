@@ -4,6 +4,11 @@ description: What is the OpenID Connect protocol and how it works
 topics:
     - protocols
     - oidc
+contentType:
+  - index
+  - concept
+useCase:
+  - development
 ---
 # OpenID Connect
 

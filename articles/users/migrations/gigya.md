@@ -8,6 +8,11 @@ topics:
   - user-management
   - migrations
   - gigya
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate Users from Gigya to Auth0

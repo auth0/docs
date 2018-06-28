@@ -6,6 +6,8 @@ articles:
   - tokens/jwt
 topics:
   - glossary
+contentType: reference
+useCase: development
 ---
 
 ::: note

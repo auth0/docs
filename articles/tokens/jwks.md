@@ -6,6 +6,11 @@ toc: true
 topics:
   - tokens
   - jwks
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # JSON Web Key Set (JWKS)
 
