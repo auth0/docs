@@ -5,6 +5,12 @@ crews: crew-2
 toc: true
 topics:
   - account-linking
+contentType:
+  - concept
+  - how-to
+  - index
+useCase:
+  - manage-accounts
 ---
 # Linking User Accounts
 

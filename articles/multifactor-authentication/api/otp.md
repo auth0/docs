@@ -6,6 +6,11 @@ topics:
   - mfa-api
   - mfa-authenticators
   - otp
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Associate a One-Time Password Authenticator

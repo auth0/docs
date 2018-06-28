@@ -6,6 +6,11 @@ topics:
   - mfa
   - mfa-api
   - mfa-authenticators
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Manage the Authenticators

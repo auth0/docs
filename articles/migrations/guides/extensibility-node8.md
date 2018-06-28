@@ -11,6 +11,12 @@ topics:
   - custom-db
   - custom-social-connections
   - extensions
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
+  - migrate
 ---
 # Migration Guide: Extensibility and Node 8
 

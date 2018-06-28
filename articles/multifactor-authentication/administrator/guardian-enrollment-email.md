@@ -4,6 +4,10 @@ topics:
   - mfa
   - guardian
   - email
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Sending a Guardian Enrollment Email to a User
 

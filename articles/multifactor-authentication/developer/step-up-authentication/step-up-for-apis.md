@@ -6,6 +6,11 @@ topics:
   - step-up-authentication
   - apis
 toc: true
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Step-up Authentication for APIs
 

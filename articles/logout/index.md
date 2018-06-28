@@ -3,6 +3,11 @@ description: How to log out a user and optionally redirect them to an authorized
 toc: true
 topics:
   - logout
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-logout
 ---
 
 # Logout

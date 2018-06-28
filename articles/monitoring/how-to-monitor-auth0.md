@@ -3,6 +3,13 @@ description: How to use monitoring with an Auth0 account.
 toc: true
 topics:
   - monitoring
+contentType:
+  - concept
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - integrate-analytics
 ---
 
 # Monitor Auth0

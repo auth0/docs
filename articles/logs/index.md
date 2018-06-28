@@ -4,6 +4,13 @@ url: /logs
 crews: crew-2
 topics:
   - logs
+contentType:
+  - concept
+  - how-to
+  - reference
+useCase:
+  - analyze-logs
+  - integrate-analytics
 ---
 
 # Logs

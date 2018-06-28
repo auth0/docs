@@ -6,6 +6,11 @@ topics:
   - mfa
   - guardian
   - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Android

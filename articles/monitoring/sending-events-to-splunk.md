@@ -3,6 +3,13 @@ description: How to send events from Auth0 to Spunk.
 topics:
   - monitoring
   - splunk
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 # Sending Events from Auth0 to Splunk
 

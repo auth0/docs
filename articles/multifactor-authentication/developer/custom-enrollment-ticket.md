@@ -6,6 +6,11 @@ topics:
   - api
   - custom-enrollment
   - tickets
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Custom Enrollment
 

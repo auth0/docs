@@ -3,6 +3,10 @@ description: Guardian for Select Users
 topics:
   - mfa
   - guardian
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Customize MFA for Select Users
 

@@ -4,6 +4,10 @@ description: The basics of multifactor authentication and the different methods 
 url: /multifactor-authentication
 topics:
     - mfa
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Multifactor Authentication in Auth0

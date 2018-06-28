@@ -4,6 +4,10 @@ topics:
   - mfa
   - guardian
   - twilio
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Configuring Twilio for Guardian SMS
