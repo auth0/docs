@@ -29,10 +29,10 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](${manage_url}/#/applications) that is authorized to use the API created in the previous step
+- You have created a [machine to machine application](/applications/machine-to-machine) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
-- How to set up a Client Credentials Grant:
+- How to set up a Client Grant:
   - [Using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
   - [Using the Management API](/api-auth/config/using-the-management-api)
 - [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
@@ -235,7 +235,7 @@ Let's see what each one contains.
 :::next-steps
 * [What are Hooks and how you can work with them](/hooks)
 * [Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
-* [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-* [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+* [How to set up a Client Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+* [How to set up a Client Grant using the Management API](/api-auth/config/using-the-management-api)
 * [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 :::
