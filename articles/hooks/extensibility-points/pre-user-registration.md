@@ -3,6 +3,12 @@ title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
 toc: true
 beta: true
+topics:
+    - hooks
+    - extensibility-points
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
 # Extensibility Point: Pre-User Registration
@@ -59,13 +65,24 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 ### Response
 
-The default response object every time the Hook runs is as follows:
+The default response object every time the Hook runs is similar to the following:
 
 ```json
 {
   "user": {
-    "user_metadata": "object",
-    "app_metadata": "object",
+    "tenant": "my-tenant",
+    "username": "user1",
+    "password": "xxxxxxx",
+    "email": "user1@foo.com",
+    "emailVerified": false,
+    "phoneNumber": "1-000-000-0000",
+    "phoneNumberVerified": false,
+    "user_metadata": {
+      "hobby": "surfing"
+    },
+    "app_metadata": {
+      "plan": "full"
+    }
   }
 }
 ```

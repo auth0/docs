@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Nodes page
+topics:
+    - appliance
+    - dashboard
+    - nodes
+contentType: concept
+useCase: appliance
 ---
 
 # Auth0 Appliance Dashboard: Nodes

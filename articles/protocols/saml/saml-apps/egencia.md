@@ -1,6 +1,14 @@
 ---
 title: Egencia SAML Configuration
 description: Egencia SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - egencia
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 ${include('./_header')}

@@ -1,6 +1,14 @@
 ---
 title: Freshdesk SAML Configuration
 description: Freshdesk SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - freshdesk
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 ${include('./_header')}

@@ -1,6 +1,14 @@
 ---
 title: Lock iOS v1 Passwordless Magic Links
 description: Using Passwordless Magic Links with Lock for iOS v1
+topics:
+    - connections
+    - passwordless
+    - email
+    - ios
+    - magic-links
+contentType: how-to
+useCase: customize-connections
 ---
 
 # Lock iOS v1: Passwordless with Magic Link

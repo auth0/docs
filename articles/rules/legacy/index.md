@@ -1,6 +1,14 @@
 ---
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
+topics:
+  - rules
+  - extensibility
+contentType:
+  - reference
+  - how-to
+useCase:
+  - extensibility-rules
 ---
 
 # Rules
@@ -33,7 +41,7 @@ Among many possibilities, Rules can be used to:
 
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 

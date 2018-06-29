@@ -1,5 +1,13 @@
 ---
+title: "Auth0 Extension: Single Sign-On (SSO) Dashboard"
 description: This page explains how to configure and utilize the SSO Dashboard Extension.
+toc: true
+topics:
+  - extensions
+  - sso-dashboard
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Single Sign-On (SSO) Dashboard
@@ -12,7 +20,7 @@ The SSO dashboard supports two types of users:
 
 [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
 
-## Create A Application
+## Create an application
 
 Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single Page Web Applications** application type. Click on **Create**.
 
@@ -46,11 +54,11 @@ Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
 Save your changes.
 
-### Application Connections
+### Application connections
 
 By default all the connection types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Application.
 
-## Install the Extension
+## Install the extension
 
 We are now ready to setup our new extension. But first, head back to your newly created Application and copy the **Client ID** value.
 
@@ -72,7 +80,7 @@ If you navigate back to the [Applications](${manage_url}/#/applications) view, y
 
 The `auth0-sso-dashboard` application is created automatically when you install the extension. It's an application authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
 
-## Use the Extension
+## Use the extension
 
 Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
@@ -84,13 +92,9 @@ Once you agree, you will be directed to your custom **SSO Dashboard** page, whic
 
 To login into the dashboard:
 
-For **Admins**:
+For **Admins** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
-`https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/admins/login` or through the Auth0 Management Dashboard.
-
-For **Users**:
-
-`https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/login`
+For **Users** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/login`.
 
 ### Add a new application
 

@@ -1,6 +1,13 @@
 ---
 description: How to troubleshoot SAML-related configuration issues when Auth0 is the service provider
 toc: true
+topics:
+  - saml
+  - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Troubleshooting SAML when Auth0 is the Service Provider
@@ -64,7 +71,7 @@ You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyz
 
 After retrieving and decoding the SAML message, check the following fields:
 
-Field | Description 
+Field | Description
 ------|-------------
 Destination | Check that the destination for the SAML response is the correct Auth0 Tenant and Connection (`https://{TENANT}.auth0.com/login/callback?connection={CONNECTION}`).
 Status Field | This field should indicate success. (`<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`).
@@ -88,7 +95,7 @@ Check to see if the user's Auth0 profile populated correctly:
 
 ### If the User Profile Attribute is Missing
 
-If the attribute is missing, check to see if the attribute was included in the assertion. You can do this by [decoding the SAML assertion](#), or you can enable debugging for the connection. 
+If the attribute is missing, check to see if the attribute was included in the assertion. You can do this by [decoding the SAML assertion](#), or you can enable debugging for the connection.
 
 To enable debugging for the connection, navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, click on **Settings**, and enable **Debug Mode**.
 
@@ -144,7 +151,7 @@ You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyz
 
 After retrieving and decoding the SAML message, check the following fields:
 
-Field | Description 
+Field | Description
 ------|-------------
 Destination | The application URL that consumes the SAML assertion, also known as the Assertion Callback URL.
 Status Field | This field should indicate success. (`<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`).
@@ -166,7 +173,7 @@ If your authorization flow uses an OIDC-conformant protocol, you can [capture a 
 
 2. Further down is your application's callback URL. Make sure that it's correct.
 
-3. Retrieve the `id_token` from this call, and paste it into [a JWT decoder](https://jwt.io/). Check that the claims in the token contain the information needed by the application.
+3. Retrieve the ID Token from this call, and paste it into [a JWT decoder](https://jwt.io/). Check that the claims in the token contain the information needed by the application.
 
 ### Troubleshooting IdP-initiated Flows
 

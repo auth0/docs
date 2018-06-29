@@ -1,5 +1,12 @@
 ---
 description: How to modify AD/LDAP Connector settings in the console, Profile Mapper, or config file.
+topics:
+  - connector
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Modify the AD/LDAP Connector Settings
@@ -109,7 +116,7 @@ Sometimes you will need to point your AD/LDAP Connector instance to a new connec
 
 Since you cannot rename connections in Auth0, the only option is to create a new Active Directory / LDAP connection and point your existing Connector instances to it. Here's how:
 
-1. Create the new Active Directory / LDAP connection in the Auth0 dashboard and copy the resulting **TICKET URL**.
+1. Create the new Active Directory / LDAP connection in the Auth0 dashboard and copy the resulting **TICKET URL**. If you are using the [custom-domains](/custom-domains) feature, you will need to replace the `${account.namespace}` part of the **TICKET URL** with your custom domain, such as `identity.fabrikam.com`.
 2. On the AD/LDAP Connector host in the Connector Admin app, perform an export of the existing settings via the **Import/Export** tab. This is just a precaution in case something were to happen in the following steps that would accidentally overwrite your custom settings. If you are running the Connector on a host that does not have a web browser to access to the Connector Admin website, simply make a copy of your `config.json` file.
 3. On the AD/LDAP Connector host, edit the `config.json` file and change the value of the `PROVISIONING_TICKET` property to the **TICKET URL** you copied in Step 1.
 4. If you moved from one Auth0 tenant to another, remove the property in the `config.json` file that has the name `urn:auth0:OLD_AUTH0_TENANT_NAME`. If this is not removed, the Connector will still function but this old configuration data is not needed.

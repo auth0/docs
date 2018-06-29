@@ -3,10 +3,22 @@ description: Details on how to generate and use a token for the Auth0 Management
 section: apis
 crews: crew-2
 toc: true
+topics:
+  - apis
+  - management-api
+  - tokens
+<<<<<<< HEAD
+contentType: 
+    - concept
+    - how-to
+=======
+contentType: discussion
+useCase: invoke-api
+>>>>>>> Add useCase tags, part 1
 ---
 # The Auth0 Management APIv2 Token
 
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with a application API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with an application API key and secret for the entire tenant.
 
 There are two ways to get a Management APIv2 Token:
 - [get one manually using the Dashboard](#get-a-token-manually), or
@@ -17,18 +29,14 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 ::: warning
-Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process).
+Τhe Management APIv2 token, by default, has a validity of __24 hours__. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or [automate the process](#automate-the-process). Keep in mind that these tokens **cannot be revoked** so long expiration times are **not recommended**.
 :::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
 
 ### 1. Create and Authorize an Application
 
-First, you need to create and authorize a Machine to Machine Application. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
-
-::: panel What is a Machine to Machine Application?
-A Machine to Machine Application represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
-:::
+First, you need to create and authorize a [Machine to Machine Application](/applications/machine-to-machine). We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
 To create and authorize a Machine to Machine Application for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
@@ -118,7 +126,7 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
+From the above we can see that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
 ### 2. Use the Token
 
@@ -224,7 +232,7 @@ __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period. 
+You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period.
 Note that deleting the application grant will prevent *new tokens* from being issued to the application. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 application using the dashboard](${manage_url}/#/apis/management/authorized-applications).
 
 __My Client Secret was compromised! What should I do?__</br>

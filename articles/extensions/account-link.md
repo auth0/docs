@@ -1,6 +1,13 @@
 ---
 toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
+topics:
+  - extensions
+  - account-linking
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Account Link
 
@@ -12,17 +19,19 @@ To install this extension, click on the __Account Link__ box in the list of prov
 
 ![Install Account Link Extension](/media/articles/extensions/account-link/install-extension.png)
 
-The extension will create a new **Client** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
+The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
 
 ## Setup
 
-### Changing the Client Name
+First, navigate to the [Advanced Settings](${manage_url}/#/tenant/advanced) for your tenant, scroll to the bottom of the page, and click the toggle to enable **Allow ID Tokens for Management API v2 Authentication**.
 
-We recommend changing the name of the default client used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Login Page** when they authenticate their primary account.
+### Changing the Application Name
+
+We recommend changing the name of the default application used for the extension to something descriptive and easy to read for your customers, like `Account Linking`, since it will appear on the **Login Page** when they authenticate their primary account.
 
 ### Updating the Login Page
 
-By default, Auth0's [universal login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
+By default, Auth0's [Universal Login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
 
 To prevent this, we send over a query parameter to let the login page know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the login page.
 

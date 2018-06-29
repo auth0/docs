@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about Networks
+topics:
+    - appliance
+    - infrastructure
+    - networks
+contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Network

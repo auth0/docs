@@ -4,6 +4,14 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
+topics:
+  - connections
+  - social
+  - goodreads
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Goodreads
 

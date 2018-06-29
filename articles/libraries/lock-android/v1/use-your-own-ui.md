@@ -1,6 +1,18 @@
 ---
 title: Lock Android v1 Customize Your UI
 description: Customize the UI of Lock in your App
+topics:
+  - libraries
+  - lock
+  - android
+  - lock-ui
+contentType:
+  - how-to
+  - concept
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Customize Your UI
 

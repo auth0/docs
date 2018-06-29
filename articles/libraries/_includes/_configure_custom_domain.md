@@ -22,7 +22,7 @@ var options = {
 The CDN URL varies by region. For regions outside of the US, use `https://cdn.{region}.auth0.com` (for example, use `eu` for Europe, `au` for Australia).
 :::
 
-#### Management Client
+#### Management Application
 
 If you intend to use the Auth0.js `auth0.Management` to get user information or perform account linking operations, you will need to instantiate a new Auth0 object with the Auth0 domain rather than your custom domain. The Management API only accepts Auth0 domains. 
 

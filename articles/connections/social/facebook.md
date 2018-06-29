@@ -6,6 +6,14 @@ image: /media/connections/facebook.png
 seo_alias: facebook
 description: This article shows you how to connect your app to Facebook
 toc: true
+topics:
+  - connections
+  - social
+  - facebook
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Facebook
 
@@ -70,7 +78,7 @@ Click **Settings** in the left nav. On this page you can retrieve your **App ID*
 
 Click **Show** to reveal the **App Secret** (you may be required to re-enter your Facebook password).
 
-In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the box with the **Facebook** logo.
 

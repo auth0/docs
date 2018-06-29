@@ -1,6 +1,13 @@
 ---
 description: Explains what Connections are and how they are associated with Auth0 Applications.
 crews: crew-2
+topics:
+  - applications
+  - connections
+contentType: concept
+useCase:
+  - build-an-app
+  - customize-connections
 ---
 # Application Connections
 
@@ -22,8 +29,8 @@ Let's suppose that you have two applications: an internal timesheets application
 
 You can configure this in Auth0 as follows:
 
-- Create a tenant `Fabrikam-Internal` for your internal domain, and a application within it `Fabrikam Employee Timesheets` for timesheets.
-- Create a second tenant `Fabrikam-Public` for your public-facing domain, and a application within it `Fabrikam Customer Portal` for the customer portal.
+- Create a tenant `Fabrikam-Internal` for your internal domain, and an application within it `Fabrikam Employee Timesheets` for timesheets.
+- Create a second tenant `Fabrikam-Public` for your public-facing domain, and an application within it `Fabrikam Customer Portal` for the customer portal.
 - Configure the following [Enterprise connections](${manage_url}/#/connections/enterprise) for the `Fabrikam-Internal` tenant: Active Directory / LDAP, and Google Apps; once each is set up, check the **Applications** tab to enable them.
 - Configure the following [Enterprise connection](${manage_url}/#/connections/enterprise) for the `Fabrikam-Public` tenant: Google Apps; once it is set up, check the **Applications** tab to enable it.
 - Configure the following [Social connections](${manage_url}/#/connections/social) for the `Fabrikam-Public` tenant: Facebook, LinkedIn; once each is set up, check the **Applications** tab to enable it.

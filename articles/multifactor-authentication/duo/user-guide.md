@@ -1,5 +1,12 @@
 ---
 description:  Information for how to use Duo Security for users.
+topics:
+  - mfa
+  - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # How to Use Duo
@@ -22,7 +29,7 @@ When you are logging in, first enter you username and password. Then you will se
 If you choose this option, you must have the Duo App installed on your device. The app will send you a push notification, choose Accept to login.
 
 ### Call me
-If you choose this option, you will recieve an automated call from Duo. Answer the call and press any key to finish logging in.
+If you choose this option, you will receive an automated call from Duo. Answer the call and press any key to finish logging in.
 
 ### Enter a Passcode
 If you choose this option, you must have the Duo App installed on your device. Open the app on your device and then click on the key icon next to the name of the application you are logging into. This will reveal a six-digit code, enter this passcode and then click **Log In** to continue.
@@ -39,6 +46,4 @@ If you forgot your password when you are trying to login, click **Don't remember
 
 ### Additional Help
 
-For other issues/questions regarding Duo [see here.](https://guide.duo.com) 
-
-
+For other issues/questions regarding Duo [see here.](https://guide.duo.com)

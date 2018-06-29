@@ -1,5 +1,14 @@
 ---
 description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant
+topics:
+  - api-authentication
+  - oidc
+  - implicit
+  - nonce
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Mitigate replay attacks when using the Implicit Grant

@@ -6,6 +6,13 @@ seo_alias: nemid
 description: Connecting Danish NemID with Auth0 through the Criipto Verify service
 toc: true
 crews: crew-2
+topics:
+    - connections
+    - criipto
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Log in with Danish NemID through Auth0

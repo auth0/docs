@@ -1,5 +1,12 @@
 ---
 description: Special configuration scenarios when setting up a SAML Integration
+  topics:
+    - saml
+    - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Special Configuration Scenarios
 

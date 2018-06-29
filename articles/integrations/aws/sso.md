@@ -1,6 +1,15 @@
 ---
 description: How to use SSO with AWS
 toc: true
+topics:
+  - integrations
+  - aws
+  - sso
+contentType: how-to
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 
 # Enable SSO to the AWS Console
@@ -187,6 +196,29 @@ function (user, context, callback) {
 
   callback(null, user, context);
 
+}
+```
+
+## Configure Session Expiration
+
+If you want to extend the amount of time allowed to elapse before the AWS session expires (which is, by default, **3600 seconds**), you can do so using a custom [rule](/rules). Your rule sets the [**SessionDuration** attribute](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html) that changes the duration of the session.
+
+```js
+function (user, context, callback) {
+    if(context.clientID !== 'YOUR_CLIENT_ID_HERE'){
+      return callback(null, user, context);
+    }
+
+  user.awsRole = 'YOUR_ARN_HERE';
+  user.awsRoleSession = 'YOUR_ROLE_SESSION_HERE';
+  user.time = 1000; // time until expiration in seconds
+
+  context.samlConfiguration.mappings = {
+    'https://aws.amazon.com/SAML/Attributes/Role': 'YOUR-AWS-ROLE-NAME',
+    'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'YOUR-AWS-ROLE-SESSION-NAME',
+    'https://aws.amazon.com/SAML/Attributes/SessionDuration': 'time'   };
+
+  callback(null, user, context);
 }
 ```
 

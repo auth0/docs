@@ -1,5 +1,12 @@
 ---
 description: An overview of the Auth0 Management API v1 which has been deprecated.
+topics:
+  - apis
+  - management-api
+contentType: 
+    - reference
+    - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)
@@ -16,7 +23,7 @@ Please use the [new version](/api/v2) instead.
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an `access_token`. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
+Auth0 API requires an Access Token. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token
@@ -28,7 +35,7 @@ Content-Type: application/json
 }
 ```
 
-Once authenticated, the `access_token` can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
+Once authenticated, the Access Token can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
 
 
 ## Users
@@ -73,7 +80,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/refresh_tokens being used by the user.
+Gets all devices/Refresh Tokens being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices

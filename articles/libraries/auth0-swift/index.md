@@ -3,6 +3,13 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
+topics:
+  - libraries
+  - swift
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
 # Auth0.swift
 
@@ -108,9 +115,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-#### Authenticate with universal login
+#### Authenticate with Universal Login
 
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
+The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [Universal Login](/hosted-pages/login).
 
 ::: note
 To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).

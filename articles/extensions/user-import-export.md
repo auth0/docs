@@ -2,6 +2,12 @@
 title: User Import / Export Extension
 toc: true
 description: The User Import / Export is an extension that allows you to import / export users from or to any database you have configured in your account.
+topics:
+  - extensions
+  - user-import-export
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 # User Import / Export
 

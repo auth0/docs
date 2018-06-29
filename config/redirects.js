@@ -18,7 +18,6 @@ const apiNames = [
   'php',
   'python',
   'rails',
-  'relay',
   'ruby',
   'salesforce-sandbox',
   'salesforce',
@@ -511,7 +510,11 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-application-secret'
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -1226,10 +1229,6 @@ module.exports = [
     to: '/quickstart/backend/rails'
   },
   {
-    from: '/quickstart/backend/relay/00-getting-started',
-    to: '/quickstart/backend/relay'
-  },
-  {
     from: '/quickstart/backend/ruby/00-getting-started',
     to: '/quickstart/backend/ruby'
   },
@@ -1734,7 +1733,95 @@ module.exports = [
     to: '/users/search/v2/query-syntax'
   },
   {
-    from: '/api-auth/dynamic-client-registration',
-    to: '/api-auth/dynamic-application-registration'
-  }
+    from: '/api-auth/dynamic-application-registration',
+    to: '/api-auth/dynamic-client-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
+  },
+  {
+    from: `/link-accounts/auth-api`,
+    to: `/link-accounts`
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
+  },
+  {
+    from: '/support/sla',
+    to: '/support/sld'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api',
+    to: '/architecture-scenarios/mobile-api'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api',
+    to: '/architecture-scenarios/server-api'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api',
+    to: '/architecture-scenarios/spa-api'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso',
+    to: '/architecture-scenarios/web-app-sso'
+  },
+  {
+    from: '/architecture-scenarios/application/web-saml',
+    to: '/architecture-scenarios/web-saml'
+  },
+  {
+    from: '/architecture-scenarios/business/b2b-b2e',
+    to: '/architecture-scenarios/b2b-b2e'
+  },,
+  {
+    from: '/architecture-scenarios/business/b2b',
+    to: '/architecture-scenarios/b2b'
+  },
+  {
+    from: '/architecture-scenarios/business/b2c',
+    to: '/architecture-scenarios/b2c'
+  },
+  {
+    from: '/architecture-scenarios/business/b2e',
+    to: '/architecture-scenarios/b2e'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+    to: '/architecture-scenarios/mobile-api/mobile-implementation-android'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/server-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/cron-implementation-python',
+    to: '/architecture-scenarios/server-api/cron-implementation-python'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
+    to: '/architecture-scenarios/spa-api/spa-implementation-angular2'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/spa-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
+    to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
+  },
+  {
+     from: '/applications/application-settings/non-interactive',
+     to: '/applications/application-settings/machine-to-machine'
+   }
 ];

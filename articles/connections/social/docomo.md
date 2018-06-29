@@ -5,6 +5,14 @@ image: /media/connections/daccount.png
 seo_alias: docomo
 description: How to obtain a Client ID and Client Secret for Docomo dAccount.
 toc: true
+topics:
+  - connections
+  - social
+  - docomo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Docomo dAccount
@@ -47,7 +55,7 @@ This page will contain your **Client ID (クライアントID)** and **Client Se
 
 ## 3. Setup the Connection to Auth0
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the **NTT Docomo** connection.
 

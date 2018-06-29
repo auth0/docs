@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Android v2 Passwordless
 description: Guide on implementing Passwordless authentication with Lock for Android
+topics:
+  - libraries
+  - lock
+  - android
+  - passwordless
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless
 

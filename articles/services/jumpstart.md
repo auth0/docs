@@ -1,5 +1,13 @@
 ---
 description: Focused project to help customers get started with Auth0 during their first year.
+topics:
+  - professional services
+  - jumpstart
+  - architecture
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Jumpstart

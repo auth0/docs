@@ -1,7 +1,14 @@
 ---
 toc: true
 section: appliance
-description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.
+topics:
+  - appliance
+  - onboarding 
+contentType:
+  - concept
+useCase:
+  - appliance
 ---
 # Enterprise Support Guidance
 

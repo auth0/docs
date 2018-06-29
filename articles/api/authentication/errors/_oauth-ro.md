@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid <code>id_token</code> or user</td>
+      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid ID Token or user</td>
     </tr>
   </tbody>
 </table>

@@ -5,6 +5,14 @@ image: /media/connections/baidu.png
 seo_alias: baidu
 description: How to obtain an API Key and Secret Key for Baidu.
 toc: true
+topics:
+  - connections
+  - social
+  - baidu
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Baidu

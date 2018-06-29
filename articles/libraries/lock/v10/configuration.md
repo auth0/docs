@@ -2,6 +2,13 @@
 section: libraries
 toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Configuration Options
 
@@ -53,7 +60,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [audience](#audience-string-) | The API which will be consuming your Access Token |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
@@ -450,7 +457,7 @@ var options = {
 
 ### audience {String}
 
-The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+The `audience` option indicates the API which will be consuming the Access Token that is received after authentication.
 
 ```js
 var options = {
@@ -846,7 +853,7 @@ var options = {
 
 ### oidcConformant {Boolean}
 
-Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [universal login](/hosted-pages/login).
+Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [Universal Login](/hosted-pages/login).
 
 To enable OIDC conformant mode, pass a flag in the options object.
 

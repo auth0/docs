@@ -1,6 +1,13 @@
 ---
 description: Tutorial on implementing Single Sign On (SSO) with Auth0.
 toc: true
+topics:
+  - sso
+  - sso-setup
+contentType:
+  - how-to
+useCase:
+  - integrate-saas-sso
 ---
 
 # Set Up Single Sign On with Auth0

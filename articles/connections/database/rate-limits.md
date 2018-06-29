@@ -1,6 +1,13 @@
 ---
 title: Rate Limits on User/Password Authentication
 description: Explains the Auth0 limits the number of repeat login attempts per user and IP address on database connections.
+topics:
+    - connections
+    - database
+    - db-connections
+    - rate-limits
+contentType: concept
+useCase: customize-connections
 ---
 
 # Rate Limits on User/Password Authentication

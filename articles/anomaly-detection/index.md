@@ -2,6 +2,14 @@
 toc: true
 description: Explains all the types of Anomaly Detection provided by Auth0 and how to enable them.
 url: /anomaly-detection
+topics:
+    - security
+    - anomaly-detection
+contentType: 
+    - index
+    - reference
+    - how-to
+useCase: customize-anomaly-detection
 ---
 
 # Anomaly Detection

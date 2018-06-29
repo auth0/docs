@@ -3,6 +3,15 @@ section: libraries
 title: Migrating to Auth0.js v9
 description: How to migrate to Auth0.js v9
 toc: true
+topics:
+  - libraries
+  - auth0js
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating to Auth0.js v9
 
@@ -30,9 +39,9 @@ The documents below describe all the changes that you should be aware of when mi
 * [Migrating from Auth0.js v8 in Angular 2.x Applications](/libraries/auth0js/v9/migration-angular)
 * [Migrating from Auth0.js v8 in React.js Applications](/libraries/auth0js/v9/migration-react)
 
-:::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
-:::
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Troubleshooting
 
@@ -44,4 +53,6 @@ You have already migrated to Auth0.js 9 but you still see this error in your log
 Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
 ```
 
-These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in.
+These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in. 
+
+Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.

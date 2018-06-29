@@ -1,6 +1,11 @@
 ---
 description: This page lists the API features that are only available in Management API v1.
 section: apis
+topics:
+  - apis
+  - management-api
+contentType: reference
+useCase: invoke-api
 ---
 
 # Management API v1 Use Cases

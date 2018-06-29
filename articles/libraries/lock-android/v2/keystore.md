@@ -2,6 +2,16 @@
 section: libraries
 title: Android Development Keystores and Key Hashes
 description: Instructions on acquiring development keystores/key hashes during Android app development.
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Android Development Keystores and Key Hashes
 

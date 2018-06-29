@@ -1,17 +1,15 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to a Symfony API
+description: This tutorial demonstrates how to add authentication and authorization to a Symfony API.
+topics:
+    - quickstart
+    - backend
+    - symfony
+github:
+    path: 01-Authorization-RS256
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-symfony-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'PHP 5.5',
-    'Symfony 3.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -19,7 +17,9 @@ description: This tutorial demonstrates how to add authentication and authorizat
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
+
+### Install dependencies
 
 Protecting a Symfony API with Auth0 requires the **jwt-auth-bundle** package. Install it using **composer**.
 
@@ -33,7 +33,7 @@ ${snippet(meta.snippets.dependencies)}
 `v3.x.x` of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
 :::
 
-## Add the Bundle to AppKernel.php
+### Add the bundle to AppKernel.php
 
 ```php
 // app/AppKernel.php
@@ -54,19 +54,19 @@ class AppKernel extends Kernel
     }
 ```
 
-## Add Configuration Values
+### Add configuration values
 
 Add your Auth0 domain and API audience to the `config.yml` file located in `app/config`.
 
 ${snippet(meta.snippets.setup)}
 
-## Set Up the User and UserProvider
+### Set up the User and UserProvider
 
 Create your `User` and `UserProvider`.
 
 The `UserProvider` must implement the `JWTUserProviderInterface` (see `/source/AppBundle/Security/A0UserProvider`). This class should implement two methods:
 
-- `loadUserByJWT`: receives the decoded JWT `access_token` and returns a User.
+- `loadUserByJWT`: receives the decoded JWT Access Token and returns a User.
 
 - `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role `IS_AUTHENTICATED_ANONYMOUSLY`).
 
@@ -83,17 +83,19 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-## Set Up the SecurityProvider
+### Set up the SecurityProvider
 
 Modify the `security.yml` file located in `app/config` such that it contains the following:
 
 - The `UserProvider`
-- The secured area that you want to authenticate using an `access_token`
+- The secured area that you want to authenticate using an Access Token
 - The `access_control` section with the roles needed for each route
 
 ${snippet(meta.snippets.use)}
 
-## Set Up a Protected Route
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 ```php
 // src/AppBundle/Controller/SecuredController.php
@@ -132,10 +134,4 @@ class SecuredController extends Controller
 }
 ```
 
-## Configuring Scopes
-
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**. The route defined above expects a scope of `read:messages` to be present in the payload of the `access_token`.
-
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
-
-With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+With this configuration in place, only calls that include Access Tokens which have a scope of `read:messages` will be allowed to access this endpoint.

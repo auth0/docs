@@ -1,6 +1,12 @@
 ---
 description: How to use Auth0 as an identity provider with GitHub Enterprise.
 crews: crew-2
+topics:
+  - integrations
+  - github
+  - github-enterprise
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Using Auth0 as an Identity Provider with GitHub Enterprise

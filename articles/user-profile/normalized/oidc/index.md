@@ -1,5 +1,16 @@
 ---
 description: Claims for a user profile returned via an OIDC-Compliant authorization flow
+topics:
+  - user-profile
+  - normalized-user-profile
+  - users
+  - oidc-user-profiles
+contentType:
+  - index
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 # User Profiles Returned from OIDC-Compliant Pipelines
 

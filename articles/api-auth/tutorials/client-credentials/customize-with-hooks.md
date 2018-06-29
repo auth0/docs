@@ -2,6 +2,16 @@
 description: How to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.
 crews: crew-2
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - client-credentials
+  - hooks
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - extensibility-hooks
 ---
 
 # Using Hooks with Client Credentials Grant
@@ -23,10 +33,10 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](${manage_url}/#/applications) that is authorized to use the API created in the previous step
+- You have created a [machine to machine application](/applications/machine-to-machine) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
-- How to set up a Client Credentials Grant:
+- How to set up a Client Grant:
   - [Using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
   - [Using the Management API](/api-auth/config/using-the-management-api)
 - [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
@@ -64,7 +74,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
   ```
 
   This sample hook will:
-  - add an arbitrary claim (`https://foo.com/claim`) to the `access_token`
+  - add an arbitrary claim (`https://foo.com/claim`) to the Access Token
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
@@ -121,7 +131,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
 
 ## Test your Hook
 
-To test the hook you just created you need to run a Client Credentials exchange, get the `access_token`, decode it and review its contents.
+To test the hook you just created you need to run a Client Credentials exchange, get the Access Token, decode it and review its contents.
 
 To get a token, make a `POST` request at the `https://${account.namespace}/oauth/token` API endpoint, with a payload in the following format.
 
@@ -160,11 +170,11 @@ Content-Type: application/json
 }
 ```
 
-Copy the `access_token`.
+Copy the Access Token.
 
 The easiest way to decode it and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
-Paste your `access_token` at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
+Paste your Access Token at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
 
 ![Decode Token with JWT.io](/media/articles/api-auth/hooks/cc-decode-token.png)
 
@@ -229,7 +239,7 @@ Let's see what each one contains.
 :::next-steps
 * [What are Hooks and how you can work with them](/hooks)
 * [Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
-* [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-* [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+* [How to set up a Client Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+* [How to set up a Client Grant using the Management API](/api-auth/config/using-the-management-api)
 * [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 :::

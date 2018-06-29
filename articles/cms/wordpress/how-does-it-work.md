@@ -1,5 +1,15 @@
 ---
 description: This page explains the scenarios of how Auth0 integrates with WordPress.
+topics:
+    - wordpress
+    - cms
+contentType: concept
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # How Auth0 Integrates with WordPress

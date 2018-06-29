@@ -1,5 +1,13 @@
 ---
 description: This page compares web applications to web APIs and cookies vs. Tokens.
+topics:
+  - design
+  - web-apps
+  - cookies
+  - tokens
+  - apis
+contentType: concept
+useCase: strategize
 ---
 # Web Apps vs Web APIs / Cookies vs Tokens
 
@@ -19,4 +27,4 @@ Before moving forward, you might want to read these articles for more context: [
 
 * By default we use `scope=openid` in **token-based authentication** to avoid having a huge token. You can control any [standard OpenID Connect claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) that you want to get in the token by adding them as scope values. For example, `scope=openid name email family_name address phone_number`.
 
-* Finally, you can **mix token-based authentication** with **cookie-based authentication**. Take into account that cookies will work just fine if the web app and the API are served from the same domain, so you might not need token based authentication. Now, if you need to, we also return a JWT on the web app flow. Each of our SDK will do it differently. If you want to call your APIs from JavaScript (instead of using the existing cookie) then somehow you have to set the `id_token` in your webpage. One way of doing it is by setting it on your layout/master page something like `window.token = ${"<%= id_token %>;"}` and then you get it from anywhere in your JavaScript code.
+* Finally, you can **mix token-based authentication** with **cookie-based authentication**. Take into account that cookies will work just fine if the web app and the API are served from the same domain, so you might not need token based authentication. Now, if you need to, we also return a JWT on the web app flow. Each of our SDKs will do it differently. If you want to call your APIs from JavaScript (instead of using the existing cookie), then somehow you have to set the ID Token in your webpage. One way of doing it is by setting it on your layout/master page--something like `window.token = ${"<%= id_token %>;"}`--and then getting it from anywhere in your JavaScript code.

@@ -1,6 +1,16 @@
 ---
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
 toc: true
+topics:
+    - users
+    - user-management
+    - user-profiles
+contentType:
+  - concept
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
 # User Profile
 
@@ -82,11 +92,7 @@ The Raw JSON tab displays all of the information contained on the user's profile
 
 ### Impersonate a user
 
-::: panel-warning Advanced Feature
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
-
-You will also need to [set the appropriate flag in auth0.js](/user-profile/user-impersonation#enable-impersonation). 
-:::
+<%= include('../_includes/_deprecate-impersonation.md') %>
 
 If you need to log in to your app as a user, see everything exactly as the user sees it, and do everything exactly as the user does it, you can do this using the Dashboard.
 
@@ -136,7 +142,7 @@ A popup will warn you that the action cannot be undone and prompt you to confirm
 
 Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
-First, you have to generate an `access_token` to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+First, you have to generate an Access Token to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
 Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 

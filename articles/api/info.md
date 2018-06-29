@@ -2,6 +2,12 @@
 description: This page explains the basics of Auth0's Management and Authentication APIs.
 section: apis
 crews: crew-2
+topics:
+    - management-api
+    - authorization-api
+    - apis
+contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 APIs

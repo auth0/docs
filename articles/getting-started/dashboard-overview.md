@@ -2,6 +2,14 @@
 title: Dashboard Overview
 description: Learn the basics of the Auth0 Dashboard
 toc: true
+topics:
+  - auth0-101
+  - dashboard
+contentType:
+    - how-to
+useCase:
+    - manage-accounts
+    - get-started
 ---
 # Dashboard Overview
 

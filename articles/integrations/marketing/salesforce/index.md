@@ -2,6 +2,11 @@
 title: Salesforce Integration
 description: Learn how to import your Auth0 user data into Salesforce.
 toc: true
+topics:
+    - marketing
+    - salesforce
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Salesforce Integration

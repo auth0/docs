@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: This document covers how to add new users to Grafana.
+topics:
+    - appliance
+    - instrumentation
+contentType: how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance: Adding Users to Grafana

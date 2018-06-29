@@ -1,6 +1,15 @@
 ---
 title: Migration in Embedded Login Scenarios with SSO
 description: Learn how to migrate from old versions of Lock/Auth0.js when your application uses embedded login and requires SSO.
+topics:
+  - lock
+  - migrations
+  - sso
+  - embedded-login
+contentType:
+    - concept
+    - index
+useCase: migrate
 ---
 
 # Migration in Embedded Login Scenarios with SSO

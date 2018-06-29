@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about security
+topics:
+    - appliance
+    - infrastructure
+    - security
+contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Security and Access

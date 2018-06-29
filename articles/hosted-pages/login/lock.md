@@ -1,5 +1,12 @@
 ---
 description: How to use Lock with Universal Login
+topics:
+  - lock
+  - login
+  - universal-login
+  - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # How to Use Lock with Universal Login
 
@@ -14,6 +21,8 @@ If you want to change any of Lock's [configurable options](/libraries/lock/confi
 When you're done making changes to the code, click **Save** to persist the changes.
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
+
+<%= include('./_custom-domains') %>
 
 ## Next Steps
 

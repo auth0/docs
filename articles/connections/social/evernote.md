@@ -5,6 +5,14 @@ image: /media/connections/evernote.png
 seo_alias: evernote
 description: How to obtain a Consumer Key and Consumer Secret for Evernote.
 toc: true
+topics:
+  - connections
+  - social
+  - evernote
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Evernote

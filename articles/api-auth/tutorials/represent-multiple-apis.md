@@ -1,5 +1,13 @@
 ---
-  description: How to use multiple APIs and represent them as a single API in Auth0.
+description: How to use multiple APIs and represent them as a single API in Auth0.
+topics:
+  - api-authentication
+  - oidc
+  - apis
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # How to Represent Multiple APIs Using a Single Auth0 API
@@ -32,8 +40,8 @@ If you don't already have an Auth0 Application (of type **Single Page Web Applic
 
 [Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Application, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Application**.
-2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
+1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create DB Connection**.
+2. The **Create DB Connection** window will open. Provide a **Name** for your Connection, and click **Create** to proceed.
 3. Once your Connection is ready, click over to the *Applications* tab, and enable the Connection for your Application.
 
 ### Create a Test User
@@ -126,7 +134,7 @@ Next, Auth0 authenticates the user. If this is the first time the user goes thro
 
 ![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 
-If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an Access Token in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
 
 ```js
 function getParameterByName(name) {
@@ -139,7 +147,7 @@ function getAccessToken() {
 }
 ```
 
-The app can then use the `access_token` to call the API on behalf of the user.
+The app can then use the Access Token to call the API on behalf of the user.
 
 After logging in, you can see buttons that allow you to call either of your APIs.
 

@@ -1,5 +1,13 @@
 ---
 title: OIDC-conformant Implicit grant
+topics:
+  - api-authentication
+  - oidc
+  - implicit
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Implicit grant

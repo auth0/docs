@@ -1,5 +1,11 @@
 ---
-  description: Things to consider when designing your SAML integration
+description: Things to consider when designing your SAML integration
+topics:
+  - saml
+contentType:
+  - concept
+useCase:
+  - add-idp
 ---
 
 # SAML Design Considerations
@@ -20,7 +26,7 @@ Regardless of how you implement SAML SSO, it's important to consider:
 
   * You can use an Auth0 [rule](/rules) to call an API to retrieve any missing information and dynamically add it to the Auth0 profile (which is then returned to the application). Rules execute after successful authentication, and your application can retrieve profile attributes each time *or* you can save the attributes to the Auth0 profile.
 
-  * Auth0 can pass the basic profile information from the identity provider to the application, which then retreives any missing information from another source. With the two sets of information, the application creates a local user profile.
+  * Auth0 can pass the basic profile information from the identity provider to the application, which then retrieves any missing information from another source. With the two sets of information, the application creates a local user profile.
 
 * You can specify email domains as part of the Auth0 SAMLP Connection configuration to control the IDP that handles a select group of users. For example, if you add email domain `example.com` to the Auth0 SAMLP Connection configuration for Company X, all users with emails with the `example.com` domain get handled by the specific IDP for Company X.
 

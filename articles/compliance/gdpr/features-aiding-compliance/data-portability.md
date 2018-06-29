@@ -2,6 +2,11 @@
 title: "GDPR: Data Portability"
 description: This article discusses how customers can export user data in order to comply with data portability GDPR requirements
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: how-to
+useCase: compliance
 ---
 # GDPR: Data Portability
 

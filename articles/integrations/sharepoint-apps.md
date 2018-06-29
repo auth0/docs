@@ -1,5 +1,10 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
+topics:
+  - integrations
+  - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Connecting Provider Hosted Apps to SharePoint Online
 
@@ -76,7 +81,7 @@ Users will install your app from the Office Marketplace. When they click on the 
 ![](/media/articles/integrations/sharepoint-apps/8Xp6x.png)
 
 ::: note
-Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (such as lists).
+Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host`, and `site`. These will allow you to call back SharePoint APIs (such as lists).
 :::
 
 ```text

@@ -1,7 +1,17 @@
 ---
+title: Rate Limit Policy For Auth0 APIs
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+toc: true
+topics:
+    - auth0-policies
+    - rate-limits
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
-# Auth0 API Rate Limit Policy
+# Rate Limit Policy For Auth0 APIs
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
@@ -63,8 +73,8 @@ The rate limits for this API defer depending on whether your tenant is free or p
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
 
 The aforementioned rate limits include calls made via [Rules](/rules).
@@ -268,7 +278,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>10 requests per second</td>
   </tr>
   <tr>
-    <td>Json Web Token Keys</td>
+    <td>JSON Web Token Keys</td>
     <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>

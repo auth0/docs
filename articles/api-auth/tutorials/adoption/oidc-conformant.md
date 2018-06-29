@@ -1,6 +1,13 @@
 ---
 title: OIDC-conformant applications
 description: List of breaking changes for OIDC-conformant applications
+topics:
+  - api-authentication
+  - oidc
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant applications

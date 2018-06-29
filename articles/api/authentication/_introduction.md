@@ -54,6 +54,8 @@ For each endpoint you will find sample snippets you can use, in three available 
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use the [Auth0.js library](/libraries/auth0js), Node.js code or simple JavaScript
 
+Each request should be sent with a Content-Type of `application/json`.
+
 ## Testing
 
 You can test the endpoints using either the [Authentication API Debugger](/extensions/authentication-api-debugger) or our preconfigured [Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For some endpoints both options are available.

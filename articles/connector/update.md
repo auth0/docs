@@ -1,5 +1,13 @@
 ---
 description: Explains the different ways to update the AD/LDAP Connector.
+topics:
+  - connector
+  - ad/ldap
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Updating the AD/LDAP Connector

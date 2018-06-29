@@ -1,5 +1,14 @@
 ---
 description: How to setup authentication using client certificates.
+topics:
+  - connector
+  - ad/ldap
+  - client-certificates
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Client Certificate Support

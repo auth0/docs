@@ -4,6 +4,16 @@ toc: true
 url: /libraries/lock-ios/v2/configuration
 title: Lock for iOS v2 Configuration Options
 description: Behavior configuration options available with Lock v2 for iOS
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Configuration Options
@@ -39,7 +49,7 @@ Allows Lock to be dismissed by the user. By default this is `false`.
 
 ### scope
 
-Scope used for authentication. By default is `openid`. It will return not only the **access\_token**, but also an **id_token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
+Scope used for authentication. By default is `openid`. It will return not only the **Access Token**, but also an **ID Token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
 
 ```swift
 .withOptions {

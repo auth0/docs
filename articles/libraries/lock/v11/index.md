@@ -4,6 +4,14 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - index
+useCase:
+  - add-login
 ---
 # Lock v11 for Web
 
@@ -55,6 +63,8 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
+<%= include('../../../_includes/_embedded_login_warning') %>
+
 Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
@@ -75,7 +85,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
 Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
 

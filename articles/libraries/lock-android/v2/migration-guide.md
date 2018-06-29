@@ -2,6 +2,18 @@
 section: libraries
 title: Lock Android v2 Migration Guide
 description: A reference for changed option names and behaviors in Lock for Android v2
+topics:
+  - libraries
+  - lock
+  - android
+  - migrations
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
+  - migrate
 ---
 # Lock Android: Migration Guide
 
@@ -11,10 +23,10 @@ In v1 of Lock for Android, you were asked to create a custom `Application` class
 
 ## Obtaining the User's Profile
 
-In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. You can get the `access_token` and request the information associated to that user, by making a request to Auth0.
+In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. You can get the Access Token and request the information associated to that user, by making a request to Auth0.
 
 1. Create a new `AuthenticationAPIClient` instance by passing an instance of the `Auth0` object. It can be the same instance used to launch Lock in the first place.
-1. Call the `userInfo` method on the API application passing the previously obtained `access_token`.
+1. Call the `userInfo` method on the API application passing the previously obtained Access Token.
 1. A `UserProfile` instance is returned
 
 ```java

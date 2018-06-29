@@ -1,8 +1,18 @@
 ---
 description: How to use the Management API in rules.
 toc: true
+topics:
+  - rules
+  - extensibility
+  - management-api
+contentType:
+  - reference
+  - concept
+  - how-to
+useCase:
+  - extensibility-rules
 ---
-# Use the Management API in rules
+# Use the Management API in Rules
 
 You have limited access to the [Management API](/api/management/v2) inside Rules. In particular, the version of the Node.js client library available from rules only allow you to update the user's `app_metadata` and `user_metadata` as descibed in [User Metadata in Rules](/rules/current/metadata-in-rules).
 
@@ -26,5 +36,5 @@ function (user, context, callback) {
 ```
 
 ::: note
-The `access_token` for the Management API which is available through `auth0.accessToken` is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes you can [request a token using Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
+The Access Token for the Management API which is available through `auth0.accessToken` is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes you can [request a token using Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
 :::

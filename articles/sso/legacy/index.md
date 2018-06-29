@@ -1,6 +1,12 @@
 ---
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
+topics:
+  - sso
+contentType:
+  - index
+useCase:
+  - integrate-saas-sso
 ---
 # What is Single Sign On?
 
@@ -33,7 +39,7 @@ Let's look at how the SSO flow looks when using Auth0 and a user visits your app
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
 4. Once the user has logged in, Auth0 will set an SSO cookie
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an ID Token containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
@@ -44,7 +50,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
 4. Auth0 will update the SSO cookie if required
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an ID Token containing the identity of the user.
 
 If an SSO cookie is present you can also sign the user in silently, that is, without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
 
@@ -79,7 +85,7 @@ Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) rep
 
 ### Length of SSO Sessions
 
-If the SSO flag is set for a Application, Auth0 will maintain an SSO session for any user authenticating via that Application. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Application that created the session within the given timeframe.
+If the SSO flag is set for an application, Auth0 will maintain an SSO session for any user authenticating via that Application. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Application that created the session within the given timeframe.
 
 ## What is Single Log Out?
 

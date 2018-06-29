@@ -1,6 +1,14 @@
 ---
 section: libraries
 description: Lock v11 documentation on setting authentication parameters.
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Lock Authentication Parameters
 

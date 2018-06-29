@@ -2,6 +2,13 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v7
+topics:
+  - libraries
+  - auth0js
+contentType:
+  - index
+  - how-to
+useCase: add-login
 ---
 
 # Auth0.js v7 Reference
@@ -186,7 +193,7 @@ You can also request scopes that are not were not configured for the connection.
   });
 ```
 
-Trigger the login with offline mode support to get the `refresh_token`
+Trigger the login with offline mode support to get the Refresh Token
 
 ```js
 $('.login-dbconn').click(function () {
@@ -407,7 +414,7 @@ auth0.login({
 
 ##### Single Page Apps
 
-If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page. And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an `access_token` and `id_token` (the JWT). After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
+If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page. And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an Access Token and ID Token (the JWT). After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
 
 ```js
 $(function () {
@@ -461,7 +468,7 @@ var auth0 = new Auth0({
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
 ::: panel Authorization Code Grant
-Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an Access Token and ID Token and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
 :::
 
 #### Popup Mode
@@ -585,7 +592,7 @@ And if you don't want that redirect to occur (for example, you have a Single Pag
 
 ### Response configuration
 
-By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an Access Token. The Access Token can be obtained directly if you provide the `responseType: 'token'` option. In this case the Access Token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
+By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an Access Token. The Access Token can be obtained directly if you provide the `responseType: 'token'` option. In this case the Access Token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an ID Token.
 
 ```js
 var auth0 = new Auth0({
@@ -665,7 +672,7 @@ If you just want to get a new token for an addon that you've activated, you can 
 
 ```js
 var options = {
-  id_token: "your ID Token", // The id_token you have now
+  id_token: "your ID Token", // The ID Token you have now
   api: 'firebase', // This defaults to the first active addon if any or you can specify this
   "scope": "openid profile"         // default: openid
 };
@@ -679,7 +686,7 @@ If you want to get the token for another API or App:
 
 ```js
 var options = {
-  id_token: "your ID Token", // The id_token you have now
+  id_token: "your ID Token", // The ID Token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
   targetClientId: 'The other application id'
 };
@@ -699,7 +706,7 @@ auth0.renewIdToken(current_id_token, function (err, delegationResult) {
 });
 ```
 
-If you want to refresh your existing (expired) token, if you have the refresh_token, you can call the following:
+If you want to refresh your existing (expired) token, if you have the Refresh Token, you can call the following:
 
 ```js
 auth0.refreshToken(refresh_token, function (err, delegationResult) {

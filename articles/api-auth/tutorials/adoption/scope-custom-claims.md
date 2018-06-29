@@ -1,5 +1,15 @@
 ---
 title: User profile claims and scope
+topics:
+  - api-authentication
+  - oidc
+  - scopes
+  - user-profiles
+  - claims
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # User profile claims and scope

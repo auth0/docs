@@ -2,6 +2,13 @@
 title: "GDPR: Conditions for Consent"
 description: This article discusses which Auth0 features can help customers comply with the Conditions for Consent GDPR requirements
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: 
+    - index
+    - how-to
+useCase: compliance
 ---
 # GDPR: Conditions for Consent
 
@@ -15,15 +22,15 @@ This article explains how you can use Auth0 features to implement these requirem
 
 Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
 
+::: note
+Before you design your solution using metadata make sure you are aware of the restrictions. Auth0 limits the total size of the `user_metadata` to **16 MB**. For more details review the [metadata size limits](/metadata#metadata-size-limits).
+::: 
+
 ### Use Lock
 
 You can customize the Lock UI to display links to your terms and conditions and/or privacy statement pages, and a consent checkbox that the user has to check in order to sign up. This can be done with the [mustAcceptTerms Lock option](/libraries/lock/configuration#mustacceptterms-boolean-). This property, when set to `true`, displays a checkbox alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified using the [languageDictionary option](/libraries/lock/configuration#languagedictionary-object-). Once the user accepts and signs up, save the consent information at the `user_metadata` using a [rule](/rules) that will run upon first login.
 
 If you want to get more information from the users during signup, and you authenticate users with a database connection, you can add custom fields to the Lock UI. This can be done with the [additionalSignUpFields Lock option](/libraries/lock/configuration#additionalsignupfields-array-). Any custom fields are automatically added to the `user_metadata`.
-
-::: note
-Before you design your solution using `user_metadata` make sure you have reviewed the [metadata size limits](/metadata#metadata-size-limits).
-::: 
 
 If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). Once the signup process is complete, save the consent information at the `user_metadata` by calling the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
@@ -45,7 +52,9 @@ For a tutorial on how to implement any of these scenarios, see the [Track Consen
 
 ### Re-consent and user migration
 
-If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password. 
+If you need to ask for consent from existing users and you decide to migrate your users from an existing database to Auth0, you can use our [Automatic User Migration](/users/migrations/automatic) feature. By activating this, each time a user logs in for the first time (since this was activated), they will be created in Auth0 without having to reset their password.
+
+Note that every time your Terms and Conditions change, you **must** ask the users for consent again.
 
 :::panel What else do I have to do?
 - You must write up the notification users will see around how users' data is being used, how long data will be used, users' rights, etc. as well as customize the UI sign-up box

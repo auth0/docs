@@ -1,5 +1,15 @@
 ---
 description: This page explains common troubleshooting issues with WordPress.
+topics:
+    - wordpress
+    - cms
+contentType: reference
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # WordPress Troubleshooting

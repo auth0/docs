@@ -1,6 +1,14 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - datadog
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 ${include('./_header')}

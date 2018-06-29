@@ -2,6 +2,21 @@
 title: "Migration Guide: Extensibility and Node 8"
 description: This article covers the Auth0 features/modules affected, as well as our recommendations to ensure a smooth migration process.
 toc: true
+topics:
+  - migrations
+  - extensibility
+  - nodejs
+  - rules
+  - hooks
+  - custom-db
+  - custom-social-connections
+  - extensions
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
+  - migrate
 ---
 # Migration Guide: Extensibility and Node 8
 
@@ -24,6 +39,7 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 * Hooks
 * Custom database connections
 * Custom social connections
+* Extensions
 
 If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
@@ -50,6 +66,52 @@ Node 8 can be enabled through the new Extensibility panel on the [Advanced Tenan
 Changing the runtime may break your existing Rules, Hooks, and Custom Database/Social Connections. We recommend that you first switch your development tenant to the Node 8 runtime, test your setup, and switch your production tenant only when you have identified there are no breaking changes.
 :::
 
+## Whitelist the new URLs
+
+When you upgrade to Node 8, the URLs you use to access extensions and custom webtasks will change. The change is an `8` that is appended before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
+
+The execution URLs will also change for custom webtasks in your Auth0 container. You must update any external applications that call those webtasks.
+
+This is a breaking change for some extensions, that require whitelisting the URLs in order to properly work.
+
+The affected extensions are the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-On (SSO) Dashboard](/extensions/sso-dashboard). If you use either, **you must whitelist the new URLs** both as Allowed Callback and as Allowed Logout URLs.
+
+To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
+
+### Delegated Administration URLs
+
+The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+
+| Location | Allowed Callback URL for Node 8 | Allowed Logout URL for Node 8 |
+| --- | --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
+
+For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings: 
+- **Allowed Callback URLs**: `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login`
+- **Allowed Logout URLs**: `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin`
+
+### SSO Dashboard URLs
+
+The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+
+The login URL for **Admins**:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
+
+The login URL for **Users**:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
+
 ## How to ensure a stable migration
 
 As part of the process of introducing Node 8 in our Webtask runtime, we ran a number of tests to determine which modules are not forward-compatible from Node 4 to 8. Most customers _should_ be able to upgrade to Node 8 without any issues.
@@ -60,6 +122,7 @@ With that said, before you migrate, we highly recommend testing all of your:
 * Hooks
 * Custom Database Connections/Scripts
 * Custom Social Connections
+* Extensions
 
 Furthermore, we recommend that the testing be done in your development tenant and migrating your production tenant only if you see no issues in development. 
 
@@ -67,7 +130,7 @@ You can query the Management API for your Rules, Custom Database scripts, and Cu
 
 Please see our documentation on the [Connections](/api/management/v2#!/Connections) and [Rules](/api/management/v2#!/Rules/get_rules) endpoints for additional information on this process.
 
-When using the `/connections` endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
+When using the [Connections](/api/management/v2#!/Connections) endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
@@ -85,6 +148,7 @@ In addition, test _logging in_ using the development tenant to ensure that all o
 * Hooks
 * Database Connections
 * Custom Social Connections
+* Extensions
 
 ## Affected modules
 
@@ -129,6 +193,6 @@ Some of the behavioral and syntactic changes in modules were not forward-compati
 
 For example, the default encoding of the `crypto` module was changed from `binary` to `utf8`, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
 
-Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/node/wiki/Breaking-changes-between-v4-LTS-and-v6-LTS) and [v6 to v8](https://github.com/nodejs/node/wiki/Breaking-changes-between-v6-LTS-and-v8-LTS) for additional information.
+Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v4-LTS-and-v6-LTS.md) and [v6 to v8](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v6-LTS-and-v8-LTS.md) for additional information.
 
 **To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 8 runtime before April 30 2018.**

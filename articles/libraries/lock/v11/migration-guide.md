@@ -2,6 +2,17 @@
 section: libraries
 title: Migrating to Lock v11
 description: How to migrate to Lock v11
+topics:
+  - libraries
+  - lock
+  - migrations
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating to Lock v11
 
@@ -31,13 +42,13 @@ The documents below describe all the changes that you should be aware of when mi
 * [Migrating from Lock v8](/libraries/lock/v11/migration-v8-v11)
 * [Migrating from Lock v8 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v8)
 
-:::note
 If you have any questions or concerns, you can discuss them in the [Auth0 Community](https://community.auth0.com/), submit them using the [Support Center](${env.DOMAIN_URL_SUPPORT}), or directly through your account representative, if applicable. 
-:::
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Disabling legacy Lock API
 
-After you update to Lock v11 and/or Auth0.js v9, it is advised that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the legacy API is no longer available. Starting on July 16, 2018, this option will be forcibly disabled, so it is recommended you opt-in before that time to verify that your configuration will work correctly. 
+After completing the migration to the latest versions, make sure that you turn off the **Legacy Lock API** toggle in the Dashboard. This will make your Auth0 tenant behave as if the legacy API is no longer available. Starting on **July 16, 2018**, this option will be forcibly disabled, so it is recommended you opt-in before that time to verify that your configuration will work correctly.
 
 You can find the setting in the [Advanced section](${manage_url}/#/tenant/advanced) of Tenant Settings.
 
@@ -64,3 +75,5 @@ Legacy Lock API: This feature is being deprecated. Please refer to our documenta
 ```
 
 These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in.
+
+Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.

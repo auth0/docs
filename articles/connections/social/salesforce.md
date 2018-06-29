@@ -6,6 +6,14 @@ seo_alias: salesforce
 index: 6
 description: How to connect your app to Salesforce using Auth0.
 toc: true
+topics:
+  - connections
+  - social
+  - salesforce
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Salesforce

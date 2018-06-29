@@ -2,6 +2,11 @@
 title: Sailthru Integration
 description: Learn how to import your Auth0 user data into Sailthru.
 toc: true
+topics:
+    - marketing
+    - sailthru
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Sailthru Integration

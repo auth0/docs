@@ -1,6 +1,13 @@
 ---
 title: Amazon API Gateway Tutorial - Adding Security and Deploying
 description: Step 2 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 

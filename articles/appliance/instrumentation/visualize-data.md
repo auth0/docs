@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: This document covers how to visualize data gathered via Instrumentation.
+topics:
+    - appliance
+    - instrumentation
+contentType: how
+useCase: appliance
 ---
 
 # PSaaS Appliance: How to Visualize Your Data

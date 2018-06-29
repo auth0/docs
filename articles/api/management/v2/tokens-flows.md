@@ -3,6 +3,16 @@ description: Describes what changed in the flow for generating Auth0 Management 
 section: apis
 crews: crew-2
 toc: true
+topics:
+  - apis
+  - management-api
+  - tokens
+<<<<<<< HEAD
+contentType: concept
+=======
+contentType: discussion
+useCase: invoke-api
+>>>>>>> Add useCase tags, part 1
 ---
 # Changes in Auth0 Management APIv2 Tokens
 

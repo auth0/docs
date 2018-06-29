@@ -1,6 +1,9 @@
 ---
 title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">
@@ -29,6 +32,10 @@ fullWidth: true
 
 <div class="api-section" data-section="none">
   <%= include('./_userinfo') %>
+</div>
+
+<div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
 </div>
 
 <div class="api-section" data-section="none">

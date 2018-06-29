@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Tenants page
+topics:
+    - appliance
+    - dashboard
+    - tenants
+contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Dashboard: Tenants

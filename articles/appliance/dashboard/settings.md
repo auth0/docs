@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Settings page
+topics:
+    - appliance
+    - dashboard
+    - settings
+contentType: reference
+useCase: appliance
 ---
 
 # Auth0 Appliance Dashboard: Settings

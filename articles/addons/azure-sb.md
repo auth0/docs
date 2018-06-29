@@ -5,10 +5,14 @@ url: /addons/azure-sb
 alias:
   - Azure Service Bus
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
+  - azure
+  - addons
 articles:
   - authenticate
+contentType: how-to
+useCase: integrate-third-party-apps
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
 ---
 

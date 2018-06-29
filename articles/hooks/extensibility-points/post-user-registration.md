@@ -3,6 +3,12 @@ title: Using the Post-User Registration Extensibility Point
 description: The post-user-registration extensibility point for use with Hooks
 beta: true
 toc: true
+topics:
+    - hooks
+    - extensibility-points   
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
 # Extensibility Point: Post-User Registration

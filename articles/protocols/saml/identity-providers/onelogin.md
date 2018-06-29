@@ -1,6 +1,14 @@
 ---
 title: OneLogin
 description: How to configure OneLogin as an identity provider.
+topics:
+    - saml
+    - identity-providers
+    - onelogin
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Configuring OneLogin as an Identity Provider
 
@@ -68,6 +76,8 @@ The **Try** button only works for users logged in to Auth0 dashboard. You can't 
 ## IdP Initiated SignOn
 
 **Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+
+<%= include('../../../_includes/_deprecate-impersonation.md') %>
 
 OneLogin has an Application Portal / Launcher for their users. If you want to support that, you will have to change the **SAML Consumer URL** in OneLogin dashboard to be:
 

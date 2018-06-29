@@ -4,6 +4,15 @@ toc: true
 url: /libraries/lock-ios/v2/customization
 title: Lock for iOS v2 Style Customization Options
 description: Styling and customization options for the style of Lock v2 for iOS
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Style Customization Options 

@@ -2,9 +2,6 @@
 
 At this point, you're all set to implement the login in any activity you want. Inside the activity, override the `onCreate` and `onDestroy` methods to initialize and release **Lock**, and define an instance of `LockCallback` to handle the authentication result. The `Auth0` instance holds the client information such as Client ID and Domain. If you've added the `R.string.com_auth0_client_id` and `R.string.com_auth0_domain` String resources, you'll be able to use the constructor that receives an android Context. If you prefer to hardcode them, use the constructor that receives both strings.
 
-To ensure Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
-
-
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {

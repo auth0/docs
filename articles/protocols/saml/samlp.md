@@ -1,6 +1,13 @@
 ---
 title: SAML
 description: SAML Identity Provider Configuration
+topics:
+  - saml
+  - samlp
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 
 # SAML Identity Provider Configuration

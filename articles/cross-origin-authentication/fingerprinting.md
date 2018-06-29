@@ -1,6 +1,12 @@
 ---
 title: Fingerprinting of Username + Password Login Requests
 description: An explanation of the technique used to mitigate CSRF attacks for cross-origin authentication requests.
+topics:
+    - cors
+    - fingerprinting
+contentType: how-to
+useCase:
+    - migrate
 ---
 # Fingerprinting of Username + Password Login Requests
 

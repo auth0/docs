@@ -1,5 +1,11 @@
 ---
 description: How to configure, use debug rules using the Real-time Webtask Logs extension.
+topics:
+  - extensions
+  - realtime-webtask-logs
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Real-time Webtask Logs

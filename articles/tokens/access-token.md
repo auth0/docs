@@ -2,12 +2,20 @@
 title: Access Token
 description: Learn what Access Tokens are and how you can use them with Auth0.
 toc: true
+topics:
+  - tokens
+  - access-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # Access Token
 
 ## Overview
 
-The Access Token is a credential that can be used by a application to access an API. 
+The Access Token is a credential that can be used by an application to access an API. 
 
 It can be any type of token (such as an opaque string or a JWT) and is meant for an API. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the **scope** that has been granted). 
 
@@ -17,16 +25,16 @@ The Access Token should be used as a **Bearer** credential and transmitted in an
 
 Auth0 currently generates Access Tokens in two formats: as opaque strings or as [JSON Web Tokens (JWTs)](/jwt).
 
-This depends on the value that the **audience** parameter has in the [authorization request](/api/authentication#authorize-client).
+This depends on the value that the **audience** parameter has in the [authorization request](/api/authentication#authorize-application).
 
 ::: panel What is the audience?
-The **audience** is a parameter set during [authorization](/api/authentication#authorize-client), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token (in other words, which is the intended *audience* of this token). If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
+The **audience** is a parameter set during [authorization](/api/authentication#authorize-application), and it contains the unique identifier of the target API. This is how you tell Auth0 for which API to issue an Access Token (in other words, which is the intended *audience* of this token). If you do not want to access a custom API, then by setting the audience to `${account.namespace}/userinfo`, you can use the opaque Access Token to [retrieve the user's profile](/api/authentication#get-user-info).
 :::
 
 * If the **audience** is set to `${account.namespace}/userinfo`, then the Access Token will be an opaque string.
 * If the **audience** is set to the unique identifier of a custom API, then the Access Token will be a [JSON Web Token (JWT)](/jwt).
 
-When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated Access Token will be a JWT valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API. The **audience** parameter of this JWT will include two values: `${account.namespace}/userinfo` and your custom API's unique identifier.
+When the **audience** is set to a custom API and the **scope** parameter includes the `openid` value, then the generated Access Token will be a JWT valid for both [retrieving the user's profile](/api/authentication#get-user-info) and for accessing the custom API. The `aud` claim of this JWT will include two values: `${account.namespace}/userinfo` and your custom API's unique identifier.
 
 :::panel Use RS256 for multiple audiences
 If you set a custom API audience and also use `scope=openid` in your request, then your custom API must use **RS256** (read [how to change an API's settings](/apis#api-settings)). For security reasons, tokens signed with HS256 can hold only one audience. This also applies if you have set a **Default Audience** at your [API Authorization settings](${manage_url}/#/tenant).
@@ -38,7 +46,7 @@ Remember always that the application should not depend on the Access Token to be
 
 ## How to get an Access Token
 
-Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain Access Tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
+Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-application) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain Access Tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
 
 ### Using the Authentication API
 
@@ -56,7 +64,7 @@ Access Tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/auth
 
 Access Tokens are typically obtained in order to access user-owned resources. For example, a Calendar application needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
 
-Such access is requested by the application and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-client).
+Such access is requested by the application and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-application).
 
 ```text
 https://${account.namespace}/authorize?
@@ -111,7 +119,7 @@ Content-Type: application/json
 
 In order to obtain this Access Token, the application must first have permission to access the geocoding API. This is typically done by requesting access from the administrator of the geocoding API.
 
-For details on how to set up a Client Credentials Grant in Auth0, refer to [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+For details on how to set up a Client Grant in Auth0, refer to [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ## Add custom claims
 
@@ -163,7 +171,7 @@ Auth0 creates Access Tokens in JWT format for custom APIs. JWTs contain three pa
 
 ### Authorize Access Tokens
 
-Once a application has obtained an Access Token, it will include that token as a credential when making API requests.
+Once an application has obtained an Access Token, it will include that token as a credential when making API requests.
 
 ```text
 GET /calandar/v1/events

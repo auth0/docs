@@ -1,25 +1,21 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls.
 budicon: 546
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 04-Calling-APIs
+contentType: tutorial
+useCase: quickstart
 ---
-
-You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '04-Calling-APIs',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with. 
+In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have completed the [Session Handling](/quickstart/native/ios-swift/03-user-sessions) tutorial and you know how to handle the `Credentials` object.
@@ -31,7 +27,7 @@ Before you continue with this tutorial, make sure that you have completed the pr
 
 ## Get the User's Access Token
 
-To retrieve an access token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
+To retrieve an Access Token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
 
 Present the Hosted Login Page:
 
@@ -62,7 +58,7 @@ Auth0
 
 ## Attach the Access Token
 
-To give the authenticated user access to secured resources in your API, include the user's access token in the requests you send to the API.
+To give the authenticated user access to secured resources in your API, include the user's Access Token in the requests you send to the API.
 
 ```swift
 // ProfileViewController.swift

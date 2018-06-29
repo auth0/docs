@@ -2,6 +2,18 @@
 section: libraries
 toc: true
 description: Migration Guide from lock-passwordless to Lock v11 with Passwordless Mode
+topics:
+  - libraries
+  - lock
+  - migrations
+  - passwordless
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - add-login
+  - migrate
 ---
 # Migration Guide for lock-passwordless to Lock v11 with Passwordless Mode
 

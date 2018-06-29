@@ -1,6 +1,13 @@
 ---
 description: How to Set up an Auth0 SAML Connection Against ADFS
 toc: true
+topics:
+  - saml
+  - adfs
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # ADFS SAML Connection

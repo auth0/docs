@@ -6,6 +6,14 @@ seo_alias: wordpress
 index: 11
 description: How to obtain a Client Id and Client Secret for WordPress
 toc: true
+topics:
+  - connections
+  - social
+  - wordpress
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your App to WordPress
@@ -50,7 +58,7 @@ On the **My Applications** dashboard page, click **Manage Application**. Under t
 
 ![](/media/articles/connections/social/wordpress/oauth-info.png)
 
-In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. 
+In a separate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. 
 
 Click on the box with the **WordPress** logo.
 

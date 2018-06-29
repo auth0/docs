@@ -1,6 +1,13 @@
 ---
 description: How to read and update user metadata with Lock.
 crews: crew-2
+topics:
+  - metadata
+  - lock
+contentType:
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # How to use Metadata with Lock Library

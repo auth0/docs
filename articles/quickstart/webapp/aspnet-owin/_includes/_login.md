@@ -1,12 +1,12 @@
-## Add Authentication with Auth0
+## Configure your application to use Auth0 
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the login page for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
+[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
 
 ::: note
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-## Install and Configure Auth0 OAuth2 Middleware
+### Install and Configure Auth0 OAuth2 Middleware
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
 
@@ -50,7 +50,7 @@ public void Configuration(IAppBuilder app)
         ClientId = auth0ClientId,
         ClientSecret = auth0ClientSecret,
 
-        // If you want to request an access_token to pass to an API, then replace the audience below to 
+        // If you want to request an Access Token to pass to an API, then replace the audience below to
         // pass your API Identifier instead of the /userinfo endpoint
         Provider = new Auth0AuthenticationProvider()
         {
@@ -69,15 +69,11 @@ public void Configuration(IAppBuilder app)
 
 It is important that you register both the cookie middleware and the Auth0 middleware, as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
-::: note
-We are passing the Auth0 tenant's user info endpoint as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](/api-auth/intro).
-:::
-
-## Add Login and Logout Methods
+## Trigger Authentication
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
-The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate. 
+The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate.
 
 For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](/logout) documentation.
 
@@ -146,7 +142,7 @@ internal class ChallengeResult : HttpUnauthorizedResult
 }
 ```
 
-## Add Login and Logout Links
+### Add Login and Logout Links
 
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -182,6 +178,79 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
 </div>
 ```
 
-## Run the Application
+### Store the Tokens
 
-Now when you run the application you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
+The Auth0 OAuth2 middleware can automatically add the ID Token and Access Token as claims on the `ClaimsIdentity` by setting the `SaveIdToken` and `SaveAccessToken` properties of the `Auth0AuthenticationOptions` to `true`.
+
+You can also save the Refresh Token by setting the `SaveRefreshToken` property to `true`, but you will need to ensure that Auth0 issues a Refresh Token by requesting the `offline_access` scope.
+
+Update the registration of the Auth0 middleware in your `Startup.cs` file as follows:
+
+```csharp
+// Startup.cs
+
+public void Configuration(IAppBuilder app)
+{
+    // Configure Auth0 parameters
+    string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
+    string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
+    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
+
+    // Set Cookies as default authentication type
+    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+    app.UseCookieAuthentication(new CookieAuthenticationOptions
+    {
+        AuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
+        LoginPath = new PathString("/Account/Login")
+    });
+
+    // Configure Auth0 authentication
+    var options = new Auth0AuthenticationOptions()
+    {
+        Domain = auth0Domain,
+        ClientId = auth0ClientId,
+        ClientSecret = auth0ClientSecret,
+
+        // Save the tokens to claims
+        SaveIdToken = true,
+        SaveAccessToken = true,
+        SaveRefreshToken = true,
+
+        // If you want to request an Access Token to pass to an API, then replace the audience below to
+        // pass your API Identifier instead of the /userinfo endpoint
+        Provider = new Auth0AuthenticationProvider()
+        {
+            OnApplyRedirect = context =>
+            {
+                string userInfoAudience = $"https://{auth0Domain}/userinfo";
+                string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
+
+                context.Response.Redirect(redirectUri);
+            }
+        }
+    };
+    options.Scope.Add("offline_access"); // Request a Refresh Token
+    app.UseAuth0Authentication(options);
+}
+```
+
+To access these token from one of your controllers, simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
+
+The sample code below shows how you can extract the claims for the Access Token, ID Token, and Refresh Token respectively:
+
+``` csharp
+// Controllers/AccountController.cs
+
+[Authorize]
+public ActionResult Tokens()
+{
+    var claimsIdentity = User.Identity as ClaimsIdentity;
+
+    // Extract tokens
+    string accessToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "access_token")?.Value;
+    string idToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "id_token")?.Value;
+    string refreshToken = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "refresh_token")?.Value;
+
+    // Now you can use the tokens as appropriate...
+}
+```

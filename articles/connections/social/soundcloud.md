@@ -6,6 +6,14 @@ image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 description: How to obtain a Client Id and Client Secret for SoundCloud.
 toc: true
+topics:
+  - connections
+  - social
+  - soundcloud
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to SoundCloud

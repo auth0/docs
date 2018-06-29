@@ -2,6 +2,14 @@
 classes: topic-page
 title: Auth0 Integrations
 description: Learn how to integrate Auth0 with other applications and services.
+topics:
+  - integrations
+contentType: index
+useCase:
+  - integrate-third-party-apps
+  - integrate-analytics
+  - integrate-marketing
+  - integrate-saas-sso
 ---
 <!-- markdownlint-disable MD041 MD002 MD026 -->
 <div class="topic-page-header">

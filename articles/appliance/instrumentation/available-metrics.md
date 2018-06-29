@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: This document covers the metrics available when using Instrumentation.
+topics:
+    - appliance
+    - instrumentation
+contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance: Metrics Available via Instrumentation

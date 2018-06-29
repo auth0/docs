@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure overview
+topics:
+    - appliance
+    - infrastructure
+contentType: concept
+useCase: appliance
 ---
 # PSaaS Appliance Deployment Architecture
 

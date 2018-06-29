@@ -1,5 +1,16 @@
 ---
 description: Auth0 features that provide extensibility to your authentication and authorization flows.
+topics:
+  - extensibility
+  - rules
+  - hooks
+  - extensions 
+contentType:
+  - index
+useCase:
+  - extensibility-rules
+  - extensibility-hooks
+  - extensibility-extensions
 ---
 
 # Extensibility

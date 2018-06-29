@@ -1,5 +1,13 @@
 ---
 description:  Using Google Authenticator with Auth0 for developers
+topics:
+  - mfa
+  - google
+  - google-autheticator
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator for Developers

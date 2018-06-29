@@ -1,6 +1,11 @@
 ---
 description: How to create/delete Hooks using the Auth0 Command-Line Interfance
 beta: true
+topics:
+    - hooks
+    - cli
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
 # Create/Delete Hooks Using the Auth0 Command-Line Interface

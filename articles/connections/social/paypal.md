@@ -6,6 +6,14 @@ seo_alias: paypal
 index: 10
 description: How to obtain a Client Id and Client Secret for PayPal.
 toc: true
+topics:
+  - connections
+  - social
+  - paypal
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to PayPal

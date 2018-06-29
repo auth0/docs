@@ -21,94 +21,84 @@ articles:
       - title: Deployment Models
         url: /getting-started/deployment-models
 
-      - title: Videos
-        url: /videos
-        children:
-
-        - title: Rules
-          url: /videos/rules
-
-        - title: Session & Cookies
-          url: /videos/session-and-cookies
-
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
     children:
       - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/application/web-app-sso
+        url: /architecture-scenarios/web-app-sso
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/web-app-sso/part-1
+             url: /architecture-scenarios/web-app-sso/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/web-app-sso/part-2
+             url: /architecture-scenarios/web-app-sso/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/web-app-sso/part-3
+             url: /architecture-scenarios/web-app-sso/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/web-app-sso/part-4
+             url: /architecture-scenarios/web-app-sso/part-4
 
       - title: Server Application + API
-        url: /architecture-scenarios/application/server-api
+        url: /architecture-scenarios/server-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/server-api/part-1
+             url: /architecture-scenarios/server-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/server-api/part-2
+             url: /architecture-scenarios/server-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/server-api/part-3
+             url: /architecture-scenarios/server-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/server-api/part-4
+             url: /architecture-scenarios/server-api/part-4
 
       - title: SPA + API
-        url: /architecture-scenarios/application/spa-api
+        url: /architecture-scenarios/spa-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/spa-api/part-1
+             url: /architecture-scenarios/spa-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/spa-api/part-2
+             url: /architecture-scenarios/spa-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/spa-api/part-3
+             url: /architecture-scenarios/spa-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/spa-api/part-4
+             url: /architecture-scenarios/spa-api/part-4
 
       - title: Mobile + API
-        url: /architecture-scenarios/application/mobile-api
+        url: /architecture-scenarios/mobile-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/mobile-api/part-1
+             url: /architecture-scenarios/mobile-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/mobile-api/part-2
+             url: /architecture-scenarios/mobile-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/mobile-api/part-3
+             url: /architecture-scenarios/mobile-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/mobile-api/part-4
+             url: /architecture-scenarios/mobile-api/part-4
 
       # - title: SAML for Regular Web Apps
-      #   url: /architecture-scenarios/application/web-saml
+      #   url: /architecture-scenarios/web-saml
 
       # - title: B2B + B2E
-      #   url: /architecture-scenarios/business/b2b-b2e
+      #   url: /architecture-scenarios/b2b-b2e
 
       # - title: B2B
-      #   url: /architecture-scenarios/business/b2b
+      #   url: /architecture-scenarios/b2b
 
       # - title: B2C
-      #   url: /architecture-scenarios/business/b2c
+      #   url: /architecture-scenarios/b2c
 
       # - title: B2E
-      #   url: /architecture-scenarios/business/b2e 
+      #   url: /architecture-scenarios/b2e 
 
   - title: "Applications"
     url: "/applications"
@@ -229,6 +219,9 @@ articles:
 
           - title: "FAQ"
             url: "/connections/passwordless/faq"
+
+      - title: "Send extra parameters"
+        url: "/connections/pass-parameters-to-idps"
 
   - title: "Hosted Pages"
     url: "/hosted-pages"
@@ -549,6 +542,26 @@ articles:
             url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
             hidden: true
 
+      - title: "API"
+        url: "/multifactor-authentication/api"
+        hidden: true
+        children:
+          - title: "Trigger MFA"
+            url: "/multifactor-authentication/api/challenges"
+            hidden: true
+          - title: "One-Time Password Challenge"
+            url: "/multifactor-authentication/api/otp"
+            hidden: true
+          - title: "SMS Message Challenge"
+            url: "/multifactor-authentication/api/oob"
+            hidden: true
+          - title: "Manage Authenticators"
+            url: "/multifactor-authentication/api/manage"
+            hidden: true
+          - title: "FAQ"
+            url: "/multifactor-authentication/api/faq"
+            hidden: true
+
   - title: "Security"
     url: "/security"
     children:
@@ -847,11 +860,11 @@ articles:
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
-      - title: Useful Tips
-        url: /pre-deployment/prelaunch-tips
-      
-      - title: Run Tests
-        url: /pre-deployment/how-to-run-test
+      - title: "Run Checks"
+        url: "/pre-deployment/how-to-run-test"
+        
+      - title: "Pre-Launch Tips"
+        url: "/pre-deployment/prelaunch-tips"
 
   - title: "Professional Services"
     url: "/services"
@@ -1147,8 +1160,6 @@ appliance:
             url: /appliance/admin/backing-up-the-appliance-instances
           - title: Monitoring
             url: /appliance/admin/monitoring
-          - title: Limiting SSH Access
-            url: /appliance/admin/limiting-ssh-access
           - title: Updating
             url: /appliance/admin/updating-the-appliance
 
@@ -1172,7 +1183,7 @@ appliance:
         url: /appliance/cli
       - title: Automatic Tenant Creation
         url: /appliance/admin/creating-tenants
-      - title: Node Module Availibility
+      - title: Node Module Availability
         url: /appliance/modules
       - title: Webtasks
         url: /appliance/webtasks
@@ -1183,7 +1194,8 @@ appliance:
         children:
           - title: Roles and Responsibilities
             url: /appliance/disaster-recovery-raci
-
+      - title: Migrating to Node.js v8
+        url: /appliance/extensibility-node8
       - title: Release Notes
         url: https://auth0.com/changelog/appliance
         external: true

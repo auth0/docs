@@ -1,6 +1,16 @@
 ---
 section: libraries
 description: Common errors that you might get when you authenticate users using Auth0 libraries
+topics:
+  - libraries
+  - lock
+  - auth0js
+  - error-messages
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Common Authentication Errors
 

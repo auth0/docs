@@ -1,6 +1,12 @@
 ---
 toc: true
 description: The GitLab Deployments extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from GitLab to Auth0.
+topics:
+  - extensions
+  - gitlab-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # GitLab Deployments

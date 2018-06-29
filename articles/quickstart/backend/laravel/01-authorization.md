@@ -1,19 +1,15 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
+description: This tutorial demonstrates how to add authorization to a Laravel API.
+topics:
+    - quickstart
+    - backend
+    - laravel
+github:
+   path: 01-Authorization-RS256
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5',
-    'laravel-auth0 5.0.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -21,9 +17,11 @@ description: This tutorial demonstrates how to add authorization to your Laravel
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
 
-Protecting your Laravel API requires a middleware which will check for and verify an `access_token` in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
+### Install dependencies
+
+Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -33,7 +31,7 @@ Install `laravel-auth0` using **Composer**.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Enable the Provider
+### Enable the provider
 
 The `laravel-auth0` package comes with a provider called `LoginServiceProvider`. Add this to the list of application `providers`.
 
@@ -52,7 +50,7 @@ If you would like to use the `Auth0` [facade](http://laravel.com/docs/facades), 
 
 You will now be able to access user info with `Auth0::getUser()`.
 
-Finally, you need to bind a class that provides a user (your app model user) each time the user is logged in or an `access_token` is decoded. You can use the `Auth0UserRepository` provided by this package or you can build your own class.
+Finally, you need to bind a class that provides a user (your app model user) each time the user is logged in or an Access Token is decoded. You can use the `Auth0UserRepository` provided by this package or you can build your own class.
 
 To use `Auth0UserRepository`, add the following lines to your `AppServiceProvider`:
 
@@ -63,14 +61,14 @@ public function register()
 {
 
     $this->app->bind(
-        \Auth0\Login\Contract\Auth0UserRepository::class, 
+        \Auth0\Login\Contract\Auth0UserRepository::class,
         \Auth0\Login\Repository\Auth0UserRepository::class
     );
 
 }
 ```
 
-## Configure the Plugin
+### Configure the plugin
 
 The **laravel-auth0** plugin comes with a configuration file that can be generated using `artisan`. Generate the file and complete the details found within.
 
@@ -80,7 +78,7 @@ php artisan vendor:publish
 
 After the file is generated, it will be located at `config/laravel-auth0.php`.
 
-## Configure Apache
+### Configure Apache
 
 By default, Apache doesn't parse `Authorization` headers from incoming HTTP requests. To enable this, add a `mod_rewrite` to your `.htaccess` file.
 
@@ -89,7 +87,7 @@ RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 ```
 
-## Define a User and User Provider
+### Define a User and User Provider
 
 The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a **User Object** given by a **User Provider**. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the **User Provider** indirectly by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
@@ -110,9 +108,11 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 ],
 ```
 
-## Protect the API Routes
+## Protect API Endpoints
 
-Define a middleware to check and verify `access_token` in the `Authorization` header of an incoming HTTP request.
+<%= include('../_includes/_api_endpoints') %>
+
+Define a middleware to check and verify Access Token in the `Authorization` header of an incoming HTTP request.
 
 To create a middleware use the `make:middleware` Artisan command.
 
@@ -120,7 +120,7 @@ To create a middleware use the `make:middleware` Artisan command.
 php artisan make:middleware CheckJWT
 ```
 
-Implement `handle` method to check for an `access_token`, and if it is valid log the user in Laravel authentication system.
+Implement `handle` method to check for an Access Token, and if it is valid log the user in Laravel authentication system.
 
 ```php
 // /app/Http/Middleware/CheckJWT.php
@@ -202,19 +202,19 @@ Route::get('/public', function (Request $request) {
 });
 
 Route::get('/private', function (Request $request) {
-    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid Access Token to see this."]);
 })->middleware('jwt');
 ```
 
-This route is now only accessible if an `access_token` is included in the `Authorization` header of the incoming request.
+This route is now only accessible if an Access Token is included in the `Authorization` header of the incoming request.
 
-## Configure the Scopes
+### Configure the Scopes
 
-The middleware defined above that the `access_token` in the incoming HTTP request is valid, however it does not include a mechanism to check if the `access_token` has sufficient **scope** to access the requested resource.
+The middleware defined above that the Access Token in the incoming HTTP request is valid, however it does not include a mechanism to check if the Access Token has sufficient **scope** to access the requested resource.
 
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-Define a middleware to look for a particular **scope** claim in the `access_token`.
+Define a middleware to look for a particular **scope** claim in the Access Token.
 
 To create a middleware use the `make:middleware` Artisan command.
 
@@ -222,7 +222,7 @@ To create a middleware use the `make:middleware` Artisan command.
 php artisan make:middleware CheckScope
 ```
 
-Implement `handle` method to check for an `access_token`, and if it is valid and have the appropriate scope log the user in Laravel authentication system.
+Implement `handle` method to check for an Access Token, and if it is valid and have the appropriate scope log the user in Laravel authentication system.
 
 ```php
 // /app/Http/Middleware/CheckScope.php
@@ -313,14 +313,16 @@ Apply the `check.scope` middleware to the route you want to protect.
 
 Route::get('/private-scoped', function (Request $request) {
     return response()->json([
-        "message" => "Hello from a private endpoint! You need to have a valid access token and a scope of read:messages to see this."
+        "message" => "Hello from a private endpoint! You need to have a valid Access Token and a scope of read:messages to see this."
     ]);
 })->middleware('check.scope:read:messages');
 ```
 
-This route is now only accessible if an `access_token` with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
+This route is now only accessible if an Access Token with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
 
-## Extend the `Auth0UserRepository` Class
+## Optional Steps
+
+### Extend the `Auth0UserRepository` class
 
 There may be situations where you need to customize the `Auth0UserRepository` class. For example, you may want to use the default `User` model and store the user profile in your database. If you need a more advanced custom solution such as this, you can extend the `Auth0UserRepository` class with your own custom class.
 
@@ -397,14 +399,12 @@ public function register()
 {
 
     $this->app->bind(
-        \Auth0\Login\Contract\Auth0UserRepository::class, 
-        \App\Repository\MyCustomUserRepository::class 
+        \Auth0\Login\Contract\Auth0UserRepository::class,
+        \App\Repository\MyCustomUserRepository::class
     );
 
 }
 ```
-
-## Optional Steps
 
 ### Configure CORS
 

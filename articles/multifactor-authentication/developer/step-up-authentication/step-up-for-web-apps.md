@@ -1,7 +1,16 @@
 ---
 title: Step-up Authentication for Web Apps
 description: Describes how to check if a user has logged in your web app with Multifactor Authentication by examining their ID Token
+topics:
+  - mfa
+  - step-up-authentication
+  - web-apps
 toc: true
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Step-up Authentication for Web Apps
 
