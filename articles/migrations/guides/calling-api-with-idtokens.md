@@ -17,7 +17,7 @@ contentType:
 
 For some use cases you could use [ID Tokens](/tokens/id-token) in order to call some of the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. 
 
-The capabilities for using ID Tokens to authorize some of the Users and Device Credentials endpoints of the Management API are being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2). Make sure the `Allow ID Tokens for Management API v2 Authentication` toggle is turned off after completing the migration to Access Tokens.
+This functionality is being deprecated. You will have to use proper [Access Tokens](/tokens/access-token) in order to access any of the endpoints of the [Management API](/api/management/v2). Make sure the `Allow ID Tokens for Management API v2 Authentication` toggle is turned off after completing the migration to Access Tokens.
 
 The grace period for this migration started on **March 31, 2018** and at the moment is open-ended. This means that you will still be able to use ID Tokens to access these endpoints. When a mandatory opt-in date is set for this migration customers will be notified beforehand.
 
