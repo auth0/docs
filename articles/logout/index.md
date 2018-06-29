@@ -7,7 +7,7 @@ topics:
 
 # Logout
 
-When you're implementing the logout functionality for your app, there are typically three sessions layers you need to consider:
+When you're implementing the logout functionality for your app, there are typically three session layers you need to consider:
 
 - __Application Session__: The first is the session inside your application. Though your application uses Auth0 to authenticate users, you'll still need to track that the user has logged in to your application. In a regular web application, this is achieved by storing information inside a cookie. You need to log out the user from your application by clearing their session.
 
@@ -59,13 +59,13 @@ The following identity providers support federated logout:
 * Yammer
 
 ::: panel-warning Clear your application session
-The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out from Auth0, and (optionally) from your identity provider. It does *not* log you out of your application! This is something that you must implement on your side. You need to log out the user from your application by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
+The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out from Auth0 and, optionally, from your identity provider. It does *not* log you out of your application! This is something that you must implement on your side. You need to log out the user from your application by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
 :::
 
 
 ## Redirect users after logout
 
-To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value. We suggest that you encode the target URL being passed in -- for example, to redirect the user to `http://www.example.com` after logout, you can make the following request:
+To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value. We suggest that you encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, you can make the following request:
 
 ```text
 https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
@@ -121,7 +121,7 @@ In order to avoid validation errors, make sure that you include the protocol par
 
 * The `returnTo` parameter does not work with all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
-* The URLs provided to the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. Note, that the scheme and host parts, however, are case insensitive. For example, if your URL is `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` portion is case insensitive, while the `FooHoo.html` portion is case sensitive.
+* The URLs provided in the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. However, do note that the scheme and host parts are case insensitive. For example, if your URL is `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` portion is case insensitive, while the `FooHoo.html` portion is case sensitive.
 
 ::: note
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the [Dashboard](${manage_url}) for the logout to function properly.
