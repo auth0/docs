@@ -37,17 +37,17 @@ You'll be redirected to the **Quick Start** page of the Application, where you c
 
 Since this is the first time you're working with the API and Application together, you'll see a message that says, "This application is not authorized for this API." To authorize the application for use with the API, click **Navigate to the API and Authorize**.
 
-![Application Quick Start Page](/media/articles/extensions/authorization/application-quick-start.png)
+![Application Quick Start Page](/media/articles/extensions/authorization/client-quick-start.png)
 
 You'll see a list of Machine to Machine Applications you can use with your API. Click the slider next to the Application you just created to authorize it.
 
-![Authorize Application](/media/articles/extensions/authorization/applications-for-api.png)
+![Authorize Application](/media/articles/extensions/authorization/clients-for-api.png)
 
 Once you've authorized the Application, you'll see the **Grant ID**. You can also select the **Scopes** to be granted to the Application. The scopes you grant depends on the endpoints you want to access. For example, you'd grant `read:users` to [get all users](hapi/authorization-extension#get-all-users).
 
 If you make any changes to the scopes, click **Update** to save.
 
-![Scopes](/media/articles/extensions/authorization/application-scopes.png)
+![Scopes](/media/articles/extensions/authorization/client-scopes.png)
 
 ### Get the Access Token
 
