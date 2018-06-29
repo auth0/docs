@@ -10,7 +10,7 @@ topics:
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
-This article will help you learn how to configure the custom Password Reset page. If you are trying to reset your own password, see [Reset Your Auth0 Account Password](https://auth0.com/docs/support/reset-account-password).
+This article will help you learn how to configure the custom Password Reset page. If you are trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 
 ## Enable the Custom Password Reset Page
 
