@@ -25,7 +25,7 @@ Click __Create New Connection__ and enter the following information:
 * __Connection Name__ - A descriptive name for the connection
 * __Email Domains__ - (Optional) A comma-separated list of valid domains. Only needed if you want to use the [Lock login widget](/libraries/lock).
 
-Next, you must either provide the URL for your WS-Federation server in the __ADFS URL__ field or upload a Federation Metadata file.
+Next, you must either provide the URL for your WS-Federation server in the __ADFS URL__ field or upload a Federation Metadata file. If you set a URL make sure it's publicly accessible and the metadata file is valid.
 
 ![New Connection](/media/articles/connections/enterprise/ws-fed/new.png)
 
