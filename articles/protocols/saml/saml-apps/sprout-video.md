@@ -7,7 +7,7 @@ topics:
     - sprout-video
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

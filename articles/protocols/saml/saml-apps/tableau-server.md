@@ -7,7 +7,7 @@ topics:
     - tableau
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

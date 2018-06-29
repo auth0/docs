@@ -7,7 +7,7 @@ topics:
     - pluralsight
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 
 ```json

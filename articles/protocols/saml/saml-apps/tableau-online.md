@@ -3,7 +3,7 @@ title: Tableau Online SAML Configuration
 description: Tableau Online SAML Configuration
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

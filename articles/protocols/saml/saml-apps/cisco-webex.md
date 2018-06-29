@@ -8,7 +8,7 @@ topics:
     - cisco-webex
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

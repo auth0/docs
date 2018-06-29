@@ -7,7 +7,7 @@ topics:
     - google-apps
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

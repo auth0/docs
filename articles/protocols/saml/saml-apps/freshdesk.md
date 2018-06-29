@@ -7,7 +7,7 @@ topics:
     - freshdesk
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -28,6 +28,4 @@ ${include('./_header')}
 }
 ```
 
-With the following callback:
-
-`https://{FD Domain}.freshdesk.com/login/saml`
+The **Callback URL** is `https://{FD Domain}.freshdesk.com/login/saml`.

@@ -7,7 +7,7 @@ topics:
     - egencia
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 
 ```json

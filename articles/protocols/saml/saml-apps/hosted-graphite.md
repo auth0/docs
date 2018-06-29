@@ -7,7 +7,7 @@ topics:
     - hosted-graphite
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

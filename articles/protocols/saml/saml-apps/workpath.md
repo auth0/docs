@@ -3,7 +3,7 @@ title: Workpath SAML Configuration
 description: Workpath SAML Configuration
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
