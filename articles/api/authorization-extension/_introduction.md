@@ -15,7 +15,7 @@ For each endpoint in this explorer, you will find sample snippets you can use, i
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use Node.js or simple JavaScript
 
-Each request should be sent with `Content-type: application/json`.
+Each request should be sent with a Content-Type of `application/json`.
 
 ## Find your extension URL
 
