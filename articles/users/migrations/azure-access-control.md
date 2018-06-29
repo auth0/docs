@@ -47,7 +47,9 @@ To create a connection between Auth0 and your identity provider, navigate to [Da
 * __Connection Name__: A descriptive name for the connection.
 * __Email Domains__: (Optional) A comma-separated list of valid domains. Only needed if you want to use the [Lock login widget](/libraries/lock).
 
-Next, either enter your WS-Federation server URL in the __ADFS URL__ field or upload a Federation Metadata file. If you set a WS-Federation server URL, Auth0 will retrieve the Federation Metadata endpoint and import the required parameters, certificates, and URLs.
+Next, either enter your WS-Federation server URL in the __ADFS URL__ field or upload a Federation Metadata file. 
+
+If you set a WS-Federation server URL, Auth0 will retrieve the Federation Metadata endpoint and import the required parameters, certificates, and URLs. You must make sure that the URL is publicly accessible and the SSL certificate on your ADFS installation is valid.
 
 ![New Connection](/media/articles/connections/enterprise/ws-fed/new.png)
 
