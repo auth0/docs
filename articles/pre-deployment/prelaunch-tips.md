@@ -1,10 +1,11 @@
 ---
-title: Pre-launch Tips 
+title: Pre-Launch Tips 
 description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
 topics:
     - pre-deployment
     - pre-launch
     - tips-and-tricks
+    - production-checks
 ---
 
 # Pre-Launch Tips 

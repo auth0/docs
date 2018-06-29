@@ -9,6 +9,10 @@ topics:
     - auth0js
     - tokens
     - user-profiles
+contentType: 
+    - concept
+    - how-to
+    - reference
 ---
 # Migrating from Legacy Authentication Flows
 
@@ -58,7 +62,7 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis), and we recommend that you start using [Access Tokens](/tokens/access-token).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 
@@ -75,6 +79,8 @@ If you specify an audience, then the OIDC flow will be triggered and the user pr
 You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use Access Tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do this.
 
 ## User Profiles
+
+The legacy authentication flows that allow ID Tokens and the `/userinfo` endpoint to include the complete user profile are being deprecated. Make sure the `Legacy User Profile` toggle is turned off after completing the migration to the new OIDC-conformant APIs.
 
 When using the legacy authentication flows, the entire user profile is returned in ID Tokens and from `/userinfo`, as demonstrated below.
 
