@@ -6,6 +6,8 @@ public: true
 topics:
   - sso
   - zendesk
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

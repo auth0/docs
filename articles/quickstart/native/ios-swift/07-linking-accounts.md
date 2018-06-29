@@ -9,6 +9,8 @@ topics:
   - swift
 github:
     path: 07-Linking-Accounts
+contentType: tutorial
+useCase: quickstart
 ---
 
 ## Before You Start

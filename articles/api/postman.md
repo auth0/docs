@@ -6,6 +6,7 @@ topics:
     - authorization-api
     - apis
 contentType: how-to
+useCase: invoke-api
 ---
 
 # Using the Auth0 API with our Postman Collections

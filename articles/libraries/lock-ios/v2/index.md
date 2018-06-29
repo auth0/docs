@@ -8,6 +8,13 @@ topics:
   - libraries
   - lock
   - ios
+contentType:
+  - reference
+  - index
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock v2 for iOS
 

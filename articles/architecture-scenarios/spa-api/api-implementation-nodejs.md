@@ -10,6 +10,10 @@ topics:
     - implicit-grant
     - nodejs
 contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # SPA + API: Node.js Implementation for the API
 

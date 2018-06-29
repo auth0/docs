@@ -6,6 +6,8 @@ public: true
 topics:
   - sso
   - dropxbox
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

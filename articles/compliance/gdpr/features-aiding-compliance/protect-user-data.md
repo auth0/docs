@@ -6,6 +6,7 @@ topics:
     - compliance
     - gdpr
 contentType: concept
+useCase: compliance
 ---
 # GDPR: Protect and secure user data
 

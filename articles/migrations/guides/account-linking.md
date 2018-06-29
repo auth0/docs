@@ -5,6 +5,11 @@ toc: true
 topics:
   - account-linking
   - migrations
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Migration Guide: Account Linking and ID Tokens

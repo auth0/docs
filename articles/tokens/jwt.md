@@ -6,6 +6,11 @@ toc: true
 topics:
   - tokens
   - jwt
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 
 # JSON Web Tokens (JWT) in Auth0

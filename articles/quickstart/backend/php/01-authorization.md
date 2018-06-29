@@ -7,6 +7,8 @@ topics:
     - php
 github:
   path: 01-Authenticate-RS256
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

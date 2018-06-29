@@ -10,6 +10,8 @@ topics:
 github:
     path: 02-Custom-Login-Form
     branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('_includes/_hybrid_setup') %>

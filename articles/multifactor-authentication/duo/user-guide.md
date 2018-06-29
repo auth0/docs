@@ -3,6 +3,10 @@ description:  Information for how to use Duo Security for users.
 topics:
   - mfa
   - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # How to Use Duo

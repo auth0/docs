@@ -14,6 +14,8 @@ framework:
 image: /media/platforms/java.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   configure: server-apis/java-spring-security/configure
   dependencies: server-apis/java-spring-security/dependencies

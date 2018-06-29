@@ -7,6 +7,8 @@ thirdParty: false
 image: /media/platforms/django.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/django/dependencies
   setup: server-apis/django/setup

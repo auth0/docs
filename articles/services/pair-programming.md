@@ -3,6 +3,10 @@ description: Project to co-develop integration points with Auth0.
 topics:
   - professional services
   - pair-programming
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Advisory Sessions: Pair Programming

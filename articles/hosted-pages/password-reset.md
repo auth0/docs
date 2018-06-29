@@ -4,6 +4,8 @@ crews: crew-2
 topics:
   - password-reset
   - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 
 # Password Reset Page

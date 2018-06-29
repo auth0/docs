@@ -4,6 +4,9 @@ description: The Bitbucket Deployments extension allows you to deploy Rules and 
 topics:
   - extensions
   - bitbucket-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Bitbucket Deployments

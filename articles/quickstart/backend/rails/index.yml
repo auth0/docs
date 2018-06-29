@@ -10,6 +10,8 @@ thirdParty: false
 image: /media/platforms/rails.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/rails/dependencies
   setup: server-apis/rails/setup

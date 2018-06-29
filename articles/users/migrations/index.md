@@ -6,6 +6,11 @@ topics:
   - users
   - user-management
   - migrations
+contentType:
+  - index
+useCase:
+  - manage-users
+  - migrate
 ---
 
 <!-- markdownlint-disable MD041 MD002 MD026 -->

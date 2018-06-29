@@ -9,6 +9,8 @@ topics:
   - swift
 github:
   path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 This multistep quickstart guide will walk you through managing authentication in your iOS Swift apps with Auth0.

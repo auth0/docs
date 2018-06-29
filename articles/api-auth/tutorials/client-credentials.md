@@ -7,6 +7,9 @@ topics:
   - oidc
   - client-credentials
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # How to Implement the Client Credentials Grant
 

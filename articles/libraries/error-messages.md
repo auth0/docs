@@ -6,6 +6,11 @@ topics:
   - lock
   - auth0js
   - error-messages
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Common Authentication Errors
 

@@ -7,6 +7,10 @@ topics:
     - hooks
     - extensibility-points
     - credentials-exchange
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-hooks
 ---
 
 # Extensibility Point: Credentials Exchange

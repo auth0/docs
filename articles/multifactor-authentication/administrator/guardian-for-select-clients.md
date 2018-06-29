@@ -3,6 +3,10 @@ description: Guardian for Select Applications
 topics:
   - mfa
   - guardian
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Customize MFA for Select Applications
 

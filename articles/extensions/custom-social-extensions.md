@@ -4,6 +4,9 @@ toc: true
 topics:
   - extensions
   - custom-social-connections
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Custom Social Connections

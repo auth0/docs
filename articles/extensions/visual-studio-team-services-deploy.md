@@ -3,6 +3,9 @@ description: The Visual Studio Team Services Deployments extension allows you to
 topics:
   - extensions
   - vs-team-services-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Visual Studio Team Services Deployments

@@ -4,6 +4,10 @@ toc: true
 topics:
     - mfa
     - yubikey
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Multifactor Authentication with YubiKey NEO
 

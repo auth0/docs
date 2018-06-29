@@ -10,6 +10,9 @@ topics:
   - social
   - baidu
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Baidu

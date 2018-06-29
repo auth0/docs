@@ -7,6 +7,8 @@ topics:
 contentType:
     - index
     - concept
+useCase: 
+  - strategize
 ---
 # Cross-Origin Authentication
 

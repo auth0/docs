@@ -5,6 +5,8 @@ topics:
     - quickstart
     - backend
     - nginx
+contentType: tutorial
+useCase: quickstart
 ---
 
 ::: panel-info System Requirements

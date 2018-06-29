@@ -7,6 +7,9 @@ topics:
   - resource-servers
   - applications
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # API Authentication and Authorization FAQ

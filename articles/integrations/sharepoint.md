@@ -3,6 +3,8 @@ description: How to integrate with SharePoint 2010/2013, including setup, troubl
 topics:
   - integrations
   - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # SharePoint 2010/2013 Integration

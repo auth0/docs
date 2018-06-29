@@ -5,6 +5,8 @@ topics:
   - integrations
   - github
   - github-enterprise
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Using Auth0 as an Identity Provider with GitHub Enterprise

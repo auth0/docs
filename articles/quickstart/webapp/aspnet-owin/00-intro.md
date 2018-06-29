@@ -7,6 +7,8 @@ topics:
   - quickstarts
   - webapp
   - aspnet-owin
+contentType: tutorial
+useCase: quickstart
 ---
 ## Sample Projects
 

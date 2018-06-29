@@ -5,6 +5,9 @@ topics:
   - connections
   - oauth2
 contentType: concept
+useCase:
+  - customize-connections
+  - add-idp
 ---
 
 # Generic OAuth 1.0 and 2.0 Examples

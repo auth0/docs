@@ -8,6 +8,10 @@ topics:
     - authorization-code
     - implicit-grant
 contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # SPA + API: Auth0 Configuration

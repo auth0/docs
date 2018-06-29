@@ -4,6 +4,9 @@ description: The GitHub Deployments extension allows you to deploy rules and dat
 topics:
   - extensions
   - github-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # GitHub Deployments

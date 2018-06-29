@@ -6,6 +6,10 @@ topics:
     - pre-launch
     - tips-and-tricks
     - production-checks
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Pre-Launch Tips 

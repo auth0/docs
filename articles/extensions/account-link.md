@@ -4,6 +4,10 @@ description: The Account Link extension allows users with two accounts with the 
 topics:
   - extensions
   - account-linking
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Account Link
 

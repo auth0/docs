@@ -6,6 +6,10 @@ toc: true
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock 9: API Reference
 

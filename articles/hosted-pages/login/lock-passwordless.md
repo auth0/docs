@@ -6,6 +6,8 @@ topics:
   - passwordless
   - hosted-pages
   - lock
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # Universal Login with Lock Passwordless
 

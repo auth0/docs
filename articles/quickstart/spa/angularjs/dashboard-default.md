@@ -8,6 +8,8 @@ topics:
   - angular
 github:
   path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../../../_includes/_callback_url') %>
 

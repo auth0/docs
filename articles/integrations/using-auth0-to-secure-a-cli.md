@@ -4,6 +4,8 @@ description: How to use Auth0 to secure a CLI.
 topics:
   - integrations
   - cli
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Using Auth0 to secure a CLI

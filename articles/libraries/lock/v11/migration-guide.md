@@ -6,6 +6,13 @@ topics:
   - libraries
   - lock
   - migrations
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating to Lock v11
 

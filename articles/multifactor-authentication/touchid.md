@@ -2,6 +2,10 @@
 description: Links to documentation for Touch ID.
 topics:
     - touch-id
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 # Touch ID Settings
 

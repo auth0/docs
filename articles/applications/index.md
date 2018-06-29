@@ -8,6 +8,8 @@ contentType:
     - reference
     - how-to
     - concept
+useCase:
+  - build-an-app
 ---
 # Applications
 

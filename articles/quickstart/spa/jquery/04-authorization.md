@@ -12,6 +12,8 @@ github:
 sample_download_required_data:
   - client
   - api
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_authz_preamble') %>
 

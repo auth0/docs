@@ -3,6 +3,10 @@ description: How to Customize the Guardian Widget
 topics:
   - mfa
   - guardian
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Customizing the Guardian Screen
 

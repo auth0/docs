@@ -5,6 +5,7 @@ topics:
     - appliance
     - instrumentation
 contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance: Instrumentation Components

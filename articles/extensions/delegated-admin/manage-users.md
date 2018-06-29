@@ -5,6 +5,10 @@ topics:
   - extensions
   - delegated-admin
   - users
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Delegated Administration: Manage Users

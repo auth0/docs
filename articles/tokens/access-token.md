@@ -5,6 +5,11 @@ toc: true
 topics:
   - tokens
   - access-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # Access Token
 

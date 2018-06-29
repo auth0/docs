@@ -8,6 +8,8 @@ topics:
   - webapp
   - login
   - laravel
+contentType: tutorial
+useCase: quickstart
 github:
     path: 00-Starter-Seed
 ---

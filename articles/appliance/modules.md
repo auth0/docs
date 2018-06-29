@@ -6,6 +6,7 @@ topics:
     - js-modules
     - sandbox
 contentType: reference
+useCase: appliance
 ---
 
 # Node.js Modules Available in Rules and Custom Database Connections

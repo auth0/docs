@@ -5,6 +5,11 @@ topics:
   - mfa
   - mfa-api
   - mfa-challenges
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 # Trigger MFA using the API
 

@@ -4,6 +4,10 @@ description: How to enable API access to the Authorization Extension
 topics:
   - extensions
   - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Authorization Extension: API Access
 

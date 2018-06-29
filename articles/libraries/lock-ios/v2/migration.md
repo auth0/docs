@@ -9,6 +9,13 @@ topics:
   - lock
   - ios
   - migrations
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
+  - migrate
 ---
 # Migrating from Lock iOS v1 to v2
 

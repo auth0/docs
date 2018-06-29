@@ -7,6 +7,7 @@ topics:
 contentType:
     - index
     - how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication
 

@@ -8,6 +8,8 @@ topics:
   - microsoft
   - active-directory-rms
   - windows
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

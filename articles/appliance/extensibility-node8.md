@@ -10,6 +10,7 @@ contentType:
     - how-to
     - concept
 toc: true
+useCase: appliance
 ---
 # PSaaS Appliance Migration Guide: Extensibility and Node 8
 

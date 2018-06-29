@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - alterian
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Alterian Integration

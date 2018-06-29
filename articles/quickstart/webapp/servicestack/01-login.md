@@ -8,6 +8,8 @@ topics:
   - webapp
   - login
   - servicestack
+contentType: tutorial
+useCase: quickstart
 github:
     path: 00-Starter-Seed
 ---

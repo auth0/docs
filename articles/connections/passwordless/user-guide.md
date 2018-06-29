@@ -7,6 +7,7 @@ contentType:
     - concept
     - how-to
     - reference
+useCase: customize-connections
 ---
 # User Guide: Passwordless
 

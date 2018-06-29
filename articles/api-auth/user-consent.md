@@ -5,6 +5,9 @@ topics:
   - oidc
   - user-consent
 contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # User Consent and Third-Party Applications

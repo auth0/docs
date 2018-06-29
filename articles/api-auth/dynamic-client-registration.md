@@ -6,6 +6,9 @@ toc: true
 topics:
   - applications
 contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Dynamic Client Registration

@@ -6,6 +6,10 @@ topics:
     - oauth
     - state-parameter
 	- csrf
+contentType:
+  - concept
+useCase:
+  - development
 ---
 
 # The State Parameter

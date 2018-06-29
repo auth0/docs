@@ -4,6 +4,9 @@ topics:
     - integrations
     - azure
     - api-management
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Integrate Azure API Management Service with Auth0

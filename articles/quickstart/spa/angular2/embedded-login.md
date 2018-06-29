@@ -10,6 +10,8 @@ topics:
 github: 
   branch: embedded-login
   path: 01-Embedded-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 As an alternative to Auth0's Universal Login page, the Lock widget can be embedded directly in your application.

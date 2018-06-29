@@ -6,6 +6,11 @@ topics:
     - user-management
     - user-profiles
     - impersonation
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 # User impersonation
 

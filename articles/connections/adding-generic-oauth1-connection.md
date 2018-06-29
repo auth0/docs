@@ -5,6 +5,9 @@ topics:
   - connections
   - oauth1
 contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
 

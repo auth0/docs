@@ -4,6 +4,10 @@ topics:
     - auth0-policies
     - data
     - data-transfer
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Data Transfer Policy

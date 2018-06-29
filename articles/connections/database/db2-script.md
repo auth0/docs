@@ -6,6 +6,8 @@ topics:
     - custom-database
     - ibm-db2
 contentType: reference
+useCase:
+    - customize-connections
 ---
 
 # Login Script for IBM DB2

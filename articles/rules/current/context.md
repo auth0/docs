@@ -4,6 +4,10 @@ description: Lists the properties that are available for the context argument wh
 topics:
   - rules
   - extensibility
+contentType:
+  - reference
+useCase:
+  - extensibility-rules
 ---
 # Context Argument Properties in Rules
 

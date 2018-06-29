@@ -11,6 +11,8 @@ thirdParty: false
 image: /media/platforms/asp.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies
 articles:

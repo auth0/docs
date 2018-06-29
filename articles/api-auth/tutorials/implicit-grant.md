@@ -7,6 +7,12 @@ topics:
   - oidc
   - implicit
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+useCase:
+  - secure-api
+  - call-api
 ---
 # How to implement the Implicit Grant
 

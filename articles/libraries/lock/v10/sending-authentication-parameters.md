@@ -4,6 +4,11 @@ description: Lock V10 documentation on setting authentication parameters.
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: Authentication Parameters
 

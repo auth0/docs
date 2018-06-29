@@ -9,6 +9,7 @@ contentType:
     - index
     - reference
     - how-to
+useCase: customize-anomaly-detection
 ---
 
 # Anomaly Detection

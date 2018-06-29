@@ -5,6 +5,12 @@ topics:
     - wordpress
     - cms
 contentType: how-to
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # Extending the Login by Auth0 WordPress Plugin

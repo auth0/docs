@@ -8,6 +8,8 @@ topics:
   - chrome
 github:
   path: 00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_getting_started', { library: 'Chrome') %>

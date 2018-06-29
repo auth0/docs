@@ -9,6 +9,8 @@ topics:
   - swift
 github:
     path: 03-User-Sessions
+contentType: tutorial
+useCase: quickstart
 ---
 
 ## Before You Start

@@ -6,6 +6,7 @@ topics:
   - apis
   - management-api
 contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 Management API Reference

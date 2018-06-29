@@ -6,6 +6,9 @@ title: Analytics Integrations
 topics:
   - analytics
 contentType: index
+useCase:
+  - manage-analytics
+  - analyze-external-analytics
 ---
 
 <div class="topic-page-header">

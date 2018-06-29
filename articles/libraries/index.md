@@ -7,6 +7,12 @@ topics:
   - libraries
   - lock
   - auth0js
+contentType:
+  - index
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 <div class="topic-page-header">

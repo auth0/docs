@@ -5,6 +5,10 @@ toc: true
 topics:
   - extensions
   - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Configuration

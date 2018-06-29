@@ -8,6 +8,7 @@ topics:
 contentType: 
     - index
     - concept
+useCase: appliance
 ---
 
 # Private SaaS (PSaaS) Appliance: Instrumentation

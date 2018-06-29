@@ -8,6 +8,7 @@ topics:
 contentType:
     - reference
     - index
+useCase: invoke-api
 ---
 
 <div class="api-section" data-section="none">

@@ -6,6 +6,8 @@ topics:
     - marketing
     - adobe
     - adobe-campaign
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Adobe Campaign Integration

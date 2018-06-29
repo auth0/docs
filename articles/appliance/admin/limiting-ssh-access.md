@@ -6,6 +6,7 @@ topics:
     - ssh
     - security
 contentType: concept
+useCase: appliance
 ---
 
 # PSaaS Appliance Administration: Limiting SSH Access

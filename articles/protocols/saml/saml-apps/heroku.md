@@ -4,6 +4,10 @@ topics:
     - saml
     - identity-providers
     - heroku
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure SSO with Heroku

@@ -9,6 +9,7 @@ topics:
 contentType: 
     - index
     - reference
+useCase: appliance
 ---
 
 # Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)

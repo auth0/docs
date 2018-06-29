@@ -5,6 +5,10 @@ topics:
     - saml
     - identity-providers
     - onelogin
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Configuring OneLogin as an Identity Provider
 

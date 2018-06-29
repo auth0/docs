@@ -8,6 +8,7 @@ topics:
     - domains
     - ports
 contentType: reference
+useCase: appliance
 ---
 
 <!-- markdownlint-disable MD033 -->

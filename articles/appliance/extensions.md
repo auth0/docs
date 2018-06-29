@@ -8,6 +8,7 @@ topics:
 contentType: 
     - concept
     - how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance: Extensions

@@ -5,6 +5,7 @@ topics:
     - appliance
     - infrastructure
 contentType: concept
+useCase: appliance
 ---
 # PSaaS Appliance Deployment Architecture
 

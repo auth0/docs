@@ -5,6 +5,7 @@ topics:
     - appliance
     - coadmins
 contentType: how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance Administration: Inviting Co-Administrators

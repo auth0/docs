@@ -7,6 +7,7 @@ topics:
     - spa
     - email
 contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication in SPA with Email
 

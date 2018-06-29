@@ -6,6 +6,12 @@ toc: true
 topics:
   - libraries
   - auth0js
+contentType:
+  - index
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Auth0.js v7 to v8 Migration Guide
 

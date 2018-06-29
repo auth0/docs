@@ -6,6 +6,8 @@ topics:
   - libraries
   - swift
   - users
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # User Management with Auth0.Swift
 

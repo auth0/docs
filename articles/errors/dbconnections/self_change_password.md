@@ -4,6 +4,8 @@ public: false
 topics:
   - errors
   - passwords
+contentType: reference
+useCase: error-management
 ---
 # Self Change Password Errors
 

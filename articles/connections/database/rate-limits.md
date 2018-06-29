@@ -7,6 +7,7 @@ topics:
     - db-connections
     - rate-limits
 contentType: concept
+useCase: customize-connections
 ---
 
 # Rate Limits on User/Password Authentication

@@ -11,6 +11,7 @@ contentType:
     - concept
     - reference
     - how-to
+useCase: appliance
 ---
 # PSaaS Appliance: Webtask with Dedicated Domains
 

@@ -7,6 +7,8 @@ topics:
     - quickstart
     - backend
     - webapi-owin
+contentType: tutorial
+useCase: quickstart
 ---
 
 If you configured the JWT middleware correctly, you will be able to get proper responses from your API when you make requests. However, in the case where you get a 401 (Unauthorized) response from your API, it is because the configuration of your JWT middleware does not match with the JWT which was passed.

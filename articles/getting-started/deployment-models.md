@@ -5,6 +5,11 @@ toc: true
 topics:
   - auth0-101
   - deployment-models
+contentType:
+    - concept
+useCase:
+    - development
+    - get-started
 ---
 # Auth0 Deployment Models
 

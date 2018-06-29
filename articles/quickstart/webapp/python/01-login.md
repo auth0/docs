@@ -3,6 +3,8 @@ title: Login
 default: true
 description: This tutorial demonstrates how to add user login to a Python web Application built with the Flask framework.
 budicon: 448
+contentType: tutorial
+useCase: quickstart
 topics:
   - quickstarts
   - webapp

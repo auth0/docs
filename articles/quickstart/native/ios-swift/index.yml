@@ -13,6 +13,8 @@ author:
 image: /media/platforms/ios.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 seo_alias: swift
 snippets:
   setup: native-platforms/ios-swift/setup

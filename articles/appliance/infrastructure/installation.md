@@ -8,6 +8,7 @@ topics:
 contentType: 
     - concept
     - how-to
+useCase: appliance
 ---
 
 <!-- markdownlint-disable MD033 -->

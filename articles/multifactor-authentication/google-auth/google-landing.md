@@ -6,6 +6,10 @@ topics:
   - mfa
   - google
   - google-autheticator
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator

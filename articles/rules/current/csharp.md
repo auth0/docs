@@ -6,6 +6,10 @@ topics:
   - rules
   - extensibility
   - csharp
+contentType:
+  - reference
+useCase:
+  - extensibility-rules
 ---
 # Using C<span>#</span> in Rules
 

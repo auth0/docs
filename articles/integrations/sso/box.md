@@ -6,6 +6,8 @@ public: true
 topics:
   - sso
   - box
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

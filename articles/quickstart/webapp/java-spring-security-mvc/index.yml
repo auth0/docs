@@ -7,6 +7,8 @@ author:
   community: false
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 alias:
   - spring
   - spring-security

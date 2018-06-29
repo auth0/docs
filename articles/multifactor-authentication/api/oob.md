@@ -6,6 +6,11 @@ topics:
   - mfa-api
   - mfa-authenticators
   - oob
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Associate an Out-of-Band Authenticator

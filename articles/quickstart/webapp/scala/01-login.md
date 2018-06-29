@@ -8,6 +8,8 @@ topics:
   - webapp
   - login
   - scala
+contentType: tutorial
+useCase: quickstart
 github:
   path: 00-Starter-Seed
 ---

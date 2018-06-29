@@ -7,6 +7,11 @@ topics:
   - lock
   - android
   - tokens
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Refreshing JWT Tokens
 

@@ -5,6 +5,7 @@ topics:
     - passwordless
     - ios
 contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless on iOS
 

@@ -5,6 +5,10 @@ description: Details on the Lock v11 API.
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock API Reference
 

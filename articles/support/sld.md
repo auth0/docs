@@ -3,6 +3,11 @@ title: Auth0 Service Level Description
 description: Details on the Auth0 Service Level Description
 topics:
     - sld
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 # Auth0 Service Level Description
 

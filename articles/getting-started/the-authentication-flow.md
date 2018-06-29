@@ -5,5 +5,9 @@ public: false
 topics:
   - auth0-101
   - authentication
+contentType: concept
+useCase:
+  - development
+  - get-started
 ---
 # The Authentication Flow - UNDER CONSTRUCTION

@@ -5,6 +5,11 @@ toc: true
 topics:
     - errors
     - deprecation
+contentType:
+  - reference
+  - concept
+  - how-to
+useCase: error-management
 ---
 # Deprecation Error Reference
 

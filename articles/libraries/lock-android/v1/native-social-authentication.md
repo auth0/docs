@@ -7,6 +7,11 @@ topics:
   - native
   - social-connections
   - android
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Native Social Authentication
 

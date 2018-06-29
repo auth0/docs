@@ -5,6 +5,7 @@ topics:
     - compliance
     - gdpr
 contentType: reference
+useCase: compliance
 ---
 # Roles and Responsibilities under GDPR
 

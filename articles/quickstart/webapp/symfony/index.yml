@@ -4,6 +4,8 @@ author:
 image: /media/platforms/php.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/symfony/dependencies
   setup: server-platforms/symfony/setup

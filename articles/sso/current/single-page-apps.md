@@ -4,6 +4,11 @@ toc: true
 topics:
   - sso
   - spa
+contentType:
+  - how-to
+  - concept
+useCase:
+  - integrate-saas-sso
 ---
 
 # Client-Side SSO on Single Page Applications

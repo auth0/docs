@@ -12,6 +12,9 @@ topics:
     - enterprise
     - pingfederate
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your PingFederate Server to Auth0

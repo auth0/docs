@@ -3,6 +3,10 @@ description: Lists all the prerequisites to installing and configuring the conne
 topics:
   - connector
 contentType: reference
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Prerequisites

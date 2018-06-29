@@ -9,6 +9,8 @@ topics:
   - objective-c
 github:
     path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 ::: note

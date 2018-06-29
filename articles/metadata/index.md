@@ -4,6 +4,12 @@ crews: crew-2
 toc: true
 topics:
   - metadata
+contentType:
+  - reference
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
 # Metadata
 

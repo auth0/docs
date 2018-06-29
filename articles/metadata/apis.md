@@ -7,6 +7,11 @@ topics:
   - metadata
   - apis
   - management-api
+contentType:
+  - reference
+  - how-to
+useCase:
+  - manage-users
 ---
 # How to Create and Update User Metadata With the Auth0 APIs
 

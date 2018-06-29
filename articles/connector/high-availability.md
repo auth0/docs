@@ -3,6 +3,10 @@ description: How to install multiple instances of the connector for higher avail
 topics:
   - connector
 contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # High availability

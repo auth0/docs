@@ -6,6 +6,9 @@ topics:
   - tokens
   - refresh tokens
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant Refresh Tokens

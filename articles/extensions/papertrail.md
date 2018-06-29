@@ -3,6 +3,9 @@ description: How to configure and retrieve information from the Auth0 Logs to Pa
 topics:
   - extensions
   - papertrail
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Papertrail

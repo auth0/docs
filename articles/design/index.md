@@ -7,6 +7,7 @@ topics:
 contentType:
     - index
     - how-to
+useCase: strategize
 ---
 
 <div class="topic-page-header">

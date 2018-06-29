@@ -5,6 +5,7 @@ toc: true
 topics:
   - custom-domains
 contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains
 

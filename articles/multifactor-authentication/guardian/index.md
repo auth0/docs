@@ -5,6 +5,10 @@ topics:
   - mfa
   - guardian
   - push-notifications
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Auth0 Guardian

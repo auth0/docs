@@ -7,6 +7,9 @@ topics:
   - user-profiles
   - claims
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # User profile claims and scope

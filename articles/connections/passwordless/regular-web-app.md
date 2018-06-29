@@ -5,6 +5,7 @@ topics:
     - web-apps
     - passwordless
 contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication on a Regular Web App
 

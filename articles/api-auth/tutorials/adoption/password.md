@@ -5,6 +5,9 @@ topics:
   - oidc
   - resource-owner-password
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Resource Owner Password Credentials exchange
 

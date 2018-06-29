@@ -4,6 +4,8 @@ crews: crew-2
 topics:
   - error-pages
   - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 
 # Error Pages

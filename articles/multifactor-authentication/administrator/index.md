@@ -5,6 +5,10 @@ topics:
   - guardian
   - push-notifications
   - sms
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Administrators 

@@ -5,6 +5,10 @@ topics:
     - saml
     - identity-providers
     - siteminder
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Configuring SiteMinder as an Identity Provider
 

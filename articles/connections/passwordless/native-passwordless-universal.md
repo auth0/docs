@@ -6,6 +6,7 @@ topics:
     - passwordless
     - native
 contentType: how-to
+useCase: customize-connections
 ---
 # Passwordless Authentication in Native Applications with Universal Login
 

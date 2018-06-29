@@ -3,6 +3,10 @@ description: How to modify AD/LDAP Connector settings in the console, Profile Ma
 topics:
   - connector
 contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Modify the AD/LDAP Connector Settings

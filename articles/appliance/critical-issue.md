@@ -8,6 +8,7 @@ topics:
 contentType: 
     - how-to
     - concept
+useCase: appliance
 ---
 
 # Critical Support Issue Guidance for Appliance Customers

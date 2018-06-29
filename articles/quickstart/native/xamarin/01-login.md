@@ -9,6 +9,8 @@ topics:
   - xamarin
 github:
     path: Quickstart/01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_getting_started', { library: 'Xamarin') %>

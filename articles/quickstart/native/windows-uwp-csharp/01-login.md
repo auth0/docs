@@ -11,6 +11,8 @@ topics:
   - csharp
 github:
     path: Quickstart/00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_getting_started', { library: 'Windows Universal') %>

@@ -6,6 +6,7 @@ topics:
     - dashboard
     - updates
 contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Dashboard: Updates

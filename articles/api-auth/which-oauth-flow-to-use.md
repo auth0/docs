@@ -7,6 +7,9 @@ topics:
   - oidc
   - application-grants
 contentType: discussion
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Which OAuth 2.0 flow should I use?

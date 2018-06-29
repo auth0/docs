@@ -9,6 +9,9 @@ topics:
   - social
   - aol
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to AOL Reader

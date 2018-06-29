@@ -6,6 +6,7 @@ topics:
     - dashboard
     - settings
 contentType: reference
+useCase: appliance
 ---
 
 # Auth0 Appliance Dashboard: Settings

@@ -8,6 +8,10 @@ topics:
     - authorization-code
     - client-credentials
 contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Server + API: Application Implementation

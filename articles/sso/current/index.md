@@ -4,6 +4,10 @@ description: Single Sign On (SSO) with Auth0
 classes: topic-page
 topics:
   - sso
+contentType:
+  - index
+useCase:
+  - integrate-saas-sso
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 # Single Sign On (SSO) with Auth0

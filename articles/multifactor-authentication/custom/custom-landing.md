@@ -5,6 +5,11 @@ description: Examples for configuring custom MFA implementations.
 topics:
   - mfa
   - custom-mfa
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Configuring Custom MFA
 

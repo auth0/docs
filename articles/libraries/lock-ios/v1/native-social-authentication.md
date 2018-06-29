@@ -8,6 +8,11 @@ topics:
   - ios
   - native
   - social-connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Native Social Authentication

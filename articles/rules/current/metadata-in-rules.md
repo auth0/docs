@@ -5,6 +5,12 @@ topics:
   - rules
   - extensibility
   - metadata
+contentType:
+  - reference
+  - concept
+  - how-to
+useCase:
+  - extensibility-rules
 ---
 # User Metadata in Rules
 

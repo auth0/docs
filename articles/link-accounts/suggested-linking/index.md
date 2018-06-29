@@ -5,6 +5,11 @@ toc: true
 topics:
   - account-linking
   - server-side
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Account Linking Using Server Side Code

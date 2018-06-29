@@ -9,6 +9,9 @@ topics:
   - access-tokens
   - api
 contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Call an Identity Provider API
 

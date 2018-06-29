@@ -10,6 +10,8 @@ language:
 image: /media/platforms/windows-8.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/windows-uwp-csharp/dependencies
   setup: native-platforms/windows-uwp-csharp/setup

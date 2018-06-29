@@ -9,6 +9,8 @@ topics:
   - user-profile
 github:
   path: Quickstart/02-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
 ## Getting the Profile
 

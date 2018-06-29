@@ -6,6 +6,11 @@ topics:
   - lock
   - migrations
   - cordova
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 
 # Migration from Lock in Cordova Applications

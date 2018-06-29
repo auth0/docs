@@ -5,6 +5,7 @@ topics:
     - appliance
     - signups
 contentType: how-to
+useCase: appliance
 ---
 
 # PSaaS Appliance Administration: Disabling Sign-Ups

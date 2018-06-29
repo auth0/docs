@@ -4,6 +4,10 @@ crews: crew-2
 topics:
     - auth0-policies
     - billing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Billing Policy

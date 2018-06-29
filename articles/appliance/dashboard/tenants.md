@@ -6,6 +6,7 @@ topics:
     - dashboard
     - tenants
 contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Dashboard: Tenants

@@ -9,6 +9,7 @@ topics:
 contentType: 
     - reference
     - concept
+useCase: appliance
 ---
 
 # Private SaaS (PSaaS) Appliance Management Dashboard

@@ -5,6 +5,7 @@ topics:
     - appliance
     - instrumentation
 contentType: how
+useCase: appliance
 ---
 
 # PSaaS Appliance: How to Visualize Your Data

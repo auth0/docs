@@ -5,6 +5,10 @@ classes: topic-page
 topics:
     - saml
     - identity-providers
+contentType:
+  - index
+useCase:
+  - add-idp
 ---
 
 <!-- markdownlint-disable MD041 MD002 -->

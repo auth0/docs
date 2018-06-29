@@ -9,6 +9,8 @@ topics:
   - android
 github:
     path: 06-Calling-APIs
+contentType: tutorial
+useCase: quickstart
 ---
 
 You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).

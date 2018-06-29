@@ -4,6 +4,10 @@ description: An overview of the steps in the Cloud Sprint onboarding program.
 topics:
   - appliance
   - onboarding
+contentType:
+  - concept
+useCase:
+  - appliance
 ---
 
 # Cloud Sprint

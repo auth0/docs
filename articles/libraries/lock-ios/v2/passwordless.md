@@ -7,6 +7,11 @@ topics:
   - lock
   - ios
   - passwordless
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Passwordless for iOS
 

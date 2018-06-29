@@ -7,6 +7,7 @@ topics:
     - private-cloud
     - requirements
 contentType: reference
+useCase: appliance
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 

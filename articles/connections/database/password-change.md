@@ -8,6 +8,7 @@ topics:
     - db-connections
     - passwords
 contentType: how-to
+useCase: customize-connections
 ---
 # Changing a User's Password
 

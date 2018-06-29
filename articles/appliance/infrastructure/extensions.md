@@ -8,6 +8,7 @@ topics:
 contentType: 
     - Reference
     - Index
+useCase: appliance
 ---
 # Enable Webtasks, Extensions, and User Search
 

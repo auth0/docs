@@ -12,6 +12,10 @@ topics:
     - passwordless
     - saml
 contentType: concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Business to Consumer Identity Scenarios

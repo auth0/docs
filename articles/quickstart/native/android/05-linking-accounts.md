@@ -9,6 +9,8 @@ topics:
   - android
 github:
     path: 05-Linking-Accounts
+contentType: tutorial
+useCase: quickstart
 ---
 
 ## Before You Start

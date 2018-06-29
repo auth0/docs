@@ -9,6 +9,8 @@ hybrid: false
 image: /media/platforms/xamarin.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/xamarin/dependencies
   setup: native-platforms/xamarin/setup

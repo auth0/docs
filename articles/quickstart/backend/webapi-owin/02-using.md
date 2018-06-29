@@ -6,6 +6,8 @@ topics:
     - quickstart
     - backend
     - webapi-owin
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_api_using') %>

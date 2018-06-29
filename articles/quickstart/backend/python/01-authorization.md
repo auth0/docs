@@ -7,6 +7,8 @@ topics:
     - python
 github:
   path: 00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

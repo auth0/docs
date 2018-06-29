@@ -13,6 +13,10 @@ topics:
     - saml
     - sso
 contentType: concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Business to Enterprise Identity Scenarios
