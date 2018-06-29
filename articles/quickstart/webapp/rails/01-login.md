@@ -7,6 +7,8 @@ topics:
   - webapp
   - login
   - rails
+contentType: tutorial
+useCase: quickstart
 github:
   path: 01-Login
 ---

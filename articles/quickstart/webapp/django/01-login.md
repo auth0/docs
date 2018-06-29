@@ -10,6 +10,8 @@ topics:
   - django
 github:
   path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 

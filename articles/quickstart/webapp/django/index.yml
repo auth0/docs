@@ -2,6 +2,8 @@ title: Django
 image: /media/platforms/python.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/django/dependencies
   setup: server-platforms/django/setup

@@ -7,6 +7,8 @@ topics:
   - webapp
   - login
   - java-spring-security
+contentType: tutorial
+useCase: quickstart
 github:
   path: 01-Login
 ---

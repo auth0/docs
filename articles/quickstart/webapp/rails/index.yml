@@ -5,6 +5,8 @@ topics:
   - ruby
   - rails
   - ruby on rails
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/rails/dependencies
   setup: server-platforms/rails/setup

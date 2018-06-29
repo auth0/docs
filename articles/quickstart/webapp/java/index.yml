@@ -2,6 +2,8 @@ title: Java
 image: /media/platforms/java.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 author:
   name: Luciano Balmaceda
   email: luciano.balmaceda@auth0.com

@@ -4,6 +4,8 @@ author:
   name: Josh Cunningham
   email: josh.cunningham@auth0.com
   community: false
+contentType: tutorial
+useCase: quickstart
 topics:
   - quickstart
 snippets:

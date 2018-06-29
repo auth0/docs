@@ -9,6 +9,8 @@ topics:
   - login
 github:
   path: Quickstart/01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('_includes/_setup') %>
 

@@ -9,6 +9,8 @@ topics:
   - java-spring-security
 github:
   path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../../../_includes/_new_app') %>
 

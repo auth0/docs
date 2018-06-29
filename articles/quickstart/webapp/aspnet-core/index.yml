@@ -2,6 +2,8 @@ title: ASP.NET Core v2.0
 image: /media/platforms/asp.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:

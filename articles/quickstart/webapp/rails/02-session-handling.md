@@ -7,6 +7,8 @@ topics:
   - webapp
   - login
   - sessions
+contentType: tutorial
+useCase: quickstart
 github:
   path: 02-Session-Handling
 ---
