@@ -8,6 +8,8 @@ topics:
   - react-native
 github:
   path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'React Native') %>
 

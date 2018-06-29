@@ -11,6 +11,8 @@ framework:
 image:
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: application-platforms/aurelia/dependencies
   setup: application-platforms/aurelia/setup

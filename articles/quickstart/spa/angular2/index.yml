@@ -9,6 +9,8 @@ framework:
   - Angular 2
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: application-platforms/angular2/dependencies
   setup: application-platforms/angular2/setup

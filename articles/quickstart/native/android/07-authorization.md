@@ -9,6 +9,8 @@ topics:
   - android
 github:
   path: 07-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny access to your content to different users based on the level of access they have.

@@ -9,6 +9,8 @@ topics:
   - login
 github:
   path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000/callback' }) %>

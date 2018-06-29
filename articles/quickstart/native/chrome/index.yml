@@ -7,6 +7,8 @@ framework:
   - Chrome Extension
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/chrome-extension/dependencies
   setup: native-platforms/chrome-extension/setup

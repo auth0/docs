@@ -8,6 +8,8 @@ languages:
 image: /media/platforms/golang.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/golang/dependencies
   setup: server-apis/golang/setup

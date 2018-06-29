@@ -7,6 +7,8 @@ topics:
     - rails
 github:
   path: 01-Authentication-RS256
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

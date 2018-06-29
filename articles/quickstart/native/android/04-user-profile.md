@@ -9,6 +9,8 @@ topics:
   - android
 github:
     path: 04-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to get and modify the user's profile data with Auth0 in your Android apps.

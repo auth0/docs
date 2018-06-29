@@ -9,6 +9,8 @@ hybrid: true
 image: /media/platforms/phonegap.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/cordova/dependencies
   setup: native-platforms/cordova/setup

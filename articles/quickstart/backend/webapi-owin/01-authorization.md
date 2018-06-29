@@ -8,6 +8,8 @@ topics:
     - webapi-owin
 github:
     path: Quickstart/01-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 ::: panel-warning OWIN 4 Incompatibility

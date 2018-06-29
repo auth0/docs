@@ -11,6 +11,8 @@ languages:
 image: /media/platforms/node.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/hapi/dependencies
   setup: server-apis/hapi/setup

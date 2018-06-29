@@ -9,6 +9,8 @@ topics:
   - android
 github:
     path: 03-Session-Handling
+contentType: tutorial
+useCase: quickstart
 ---
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:

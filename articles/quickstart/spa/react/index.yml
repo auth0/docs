@@ -9,6 +9,8 @@ framework:
 image: /media/platforms/react.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: application-platforms/react/dependencies
   setup: application-platforms/react/setup

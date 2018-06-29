@@ -9,6 +9,8 @@ topics:
   - user-profile
 github:
   path: 02-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_user_profile_preamble') %>
 

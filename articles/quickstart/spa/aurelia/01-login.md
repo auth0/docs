@@ -8,6 +8,8 @@ topics:
   - aurelia
 github:
   path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Aurelia', callback: 'http://localhost:3000/callback' }) %>
 

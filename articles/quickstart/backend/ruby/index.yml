@@ -9,6 +9,8 @@ thirdParty: false
 image: /media/platforms/rails.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/ruby/dependencies
   setup: server-apis/ruby/setup

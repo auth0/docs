@@ -12,6 +12,8 @@ author:
 image: /media/platforms/android.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
