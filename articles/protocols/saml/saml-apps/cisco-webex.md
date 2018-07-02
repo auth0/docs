@@ -12,7 +12,7 @@ useCase:
   - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

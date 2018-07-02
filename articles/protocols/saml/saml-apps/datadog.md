@@ -11,7 +11,7 @@ useCase:
   - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -29,6 +29,6 @@ ${include('./_header')}
 }
 ```
 
-**Callback URL**: `https://app.datadoghq.com/account/saml/assertion`
+The **Callback URL** is `https://app.datadoghq.com/account/saml/assertion`.
 
-Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
+Notice that Datadog has an option to automatically provision new users. Check [Datadog docs](http://docs.datadoghq.com/guides/saml/) for more details.

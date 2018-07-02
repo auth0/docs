@@ -11,7 +11,7 @@ useCase:
   - add-idp
 ---
 <!-- markdownlint-disable MD002 MD041 -->
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -37,9 +37,7 @@ ${include('./_header')}
 }
 ```
 
-## Application Callback URL
-
-`https://{YOUR DOMAIN}.litmos.com/integration/samllogin`
+The **Callback URL** is `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`.
 
 ## Sample SAML
 
