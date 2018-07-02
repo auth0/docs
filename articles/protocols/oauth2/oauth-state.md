@@ -1,6 +1,6 @@
 ---
 title: State Parameter
-description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks.
+description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks and restore state
 topics:
     - protocols
     - oauth
@@ -16,20 +16,28 @@ useCase:
 
 Authorization protocols provide a `state` parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) will return this parameter unchanged in the response.
 
-A CSRF attack, also known as a one-click attack or session-riding, can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site upon which the user is currently authenticated. This type of attack targets state-changing requests as opposed to user data to initiate an action.
+Your application can use this parameter in order to:
 
-![](/media/articles/protocols/CSRF_Diagram.png)
+- Make sure that the response belongs to a request that was initiated by the same user. Therefore, `state` helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+- Restore the previous state of the application. For example, you can retrieve the URL that the user intended to reach before the application decided that it needed to issue an authorization request. Store this value locally, authenticate the user, retrieve the value once you get the callback from Auth0, and then redirect the user there. How you store that value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format)).
+
+## Format
+
+For the most basic cases the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
+
+This field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded JSON object that can hold multiple values, [such as a return URL](/tutorials/redirecting-users).
+
+## How to use the parameter against CSRF attacks
+
+A **CSRF attack** can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
+
+![Diagram of CSRF attack](/media/articles/protocols/CSRF_Diagram.png)
+
+By using the state parameter to hold a value for verification, malicious requests can be denied.
 
 ::: note
-Depending on the application type or framework, this may be included for the developer. Also the exact structure of the requests may differ.
-:::
-
-## How to use the state parameter
-
-Deny malicious requests by setting the `state` parameter to hold a value for verification.
-
-::: note
-For most cases, the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
+Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
 :::
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
@@ -69,8 +77,23 @@ if(decodedString == auth0-authorize) {
 	// Request Denied
 }
 ```
+## How to use the parameter to restore state
 
-### How to get the state parameter value in a rule
+If a user intended to access a page in your app, and that action triggered the request to authenticate, once the user logs in you want to redirect the user to that page.
+
+
+You can use the state parameter to restore the previous state of your application. 
+
+The process in order to do that, looks like the following:
+
+1. Store the URL value locally
+1. Authenticate the user
+1. If the authentication is successful, retrieve the value once you get the callback from Auth0
+1. Redirect the user to the page
+
+How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format)).
+
+## How to get the parameter value in a rule
 
 Accessing the `state` parameter value within a rule depends on the type of connection used; either in the body of the request or in the query string. You can obtain it using the following:
 
