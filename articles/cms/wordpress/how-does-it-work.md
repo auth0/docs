@@ -61,9 +61,9 @@ If you enable [data migration](/connections/database/migrating), the plugin will
 
 The login flow is as follows:
 
-1. The user access your WordPress site's login page and provides their credentials.
+1. The user accesses your WordPress site's login page and provides their credentials.
 2. Auth0 can't find a user associated with the provided credentials, so it proceeds to call the migration endpoint.
-3. The plugin find a user in your WordPress database with the provided username/email, so it verifies the password.
+3. The plugin finds a user in your WordPress database with the provided username/email, so it verifies the password.
 4. Auth0 creates the user in your Auth0 account, authenticates the user, and logs them in.
 
 ## Keep Reading

@@ -1,5 +1,5 @@
 ---
-description: This page explains common troubleshooting issues with Auth0 WordPress plugin.
+description: This page explains common troubleshooting issues with the Login by Auth0 WordPress plugin.
 topics:
     - wordpress
     - cms
@@ -35,19 +35,19 @@ If you get this error, make sure you are requesting an email from each provider 
 
 ### I'm seeing the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in.
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the Application settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
 ### How do I setup Passwordless login? 
 
 Passwordless login is possible any Auth0-enabled website using email or SMS. To make this work on your WordPress site:
 
-1. Turn on Passwordless Login	from the plugin settings' **Features** tab and save
-2. In your Auth0 dashboard, go to **Connections > Passwordless**
+1. Turn on "Passwordless Login" from the plugin settings' **Features** tab and save
+2. In your Auth0 dashboard, go to **[Connections > Passwordless](${manage_url}/#/connections/passwordless)**
 	1. To use email, turn on the **Email** connection and modify the settings, if desired. This will turn on email code login (users are emailed a code which is then typed into the login form on your site). 
 	2. To use a "magic link" (emailed link will automatically log users in), add `{passwordlessMethod: 'code'}` to the "Extra Settings" field in the plugin settings' **Advanced** tab. 
 	3. To use SMS login, turn on the **SMS** connection and follow the steps to setup a Twilio developer account (this will require a paid Twilio account depending on usage). 
 
-The Auth0 login form will select a passwordless method depending on which connection is activated above. If you have both connections active, it will default to email. In this case, either turn off the email connection to show SMS or add `sms` to the "Connections" field in the plugin settings' **Advanced** tab
+The Auth0 login form will select a Passwordless method depending on which connection is activated above. If you have both connections active, it will default to email. In this case, either turn off the email connection to show SMS or add `sms` to the "Connections" field in the plugin settings' **Advanced** tab
 
 ### I have two accounts for the same user in WordPress.
 
@@ -59,7 +59,7 @@ The plugin can be accessed using valid WordPress credentials through the regular
 
 ### I am having problems when a user logs in. Where can I find a log of what is happening?
 
-The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** plugin menu. The error log in your Auth0 dashboard can also provide additional information. 
+The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** plugin menu. The [logs](${manage_url}/#/logs) in your Auth0 dashboard can also provide additional information. 
 
 ### How can I show the widget or shortcode in signup mode as default?
 
