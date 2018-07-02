@@ -7,6 +7,7 @@ topics:
     - security
 contentType: reference
 useCase: appliance
+applianceId: appliance40
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Security and Access

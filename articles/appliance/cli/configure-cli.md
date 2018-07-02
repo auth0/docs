@@ -6,6 +6,7 @@ topics:
     - cli
 contentType: how-to
 useCase: appliance
+applianceId: appliance13
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface

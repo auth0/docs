@@ -7,6 +7,7 @@ topics:
     - sandbox
 contentType: reference
 useCase: appliance
+applianceId: appliance60
 ---
 
 # Node.js Modules Available in Rules and Custom Database Connections

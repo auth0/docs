@@ -6,6 +6,7 @@ topics:
     - coadmins
 contentType: how-to
 useCase: appliance
+applianceId: appliance5
 ---
 
 # PSaaS Appliance Administration: Inviting Co-Administrators

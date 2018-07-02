@@ -7,6 +7,7 @@ topics:
     - updates
 contentType: how-to
 useCase: appliance
+applianceId: appliance10
 ---
 # Updating the PSaaS Appliance
 

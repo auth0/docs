@@ -7,6 +7,7 @@ topics:
     - troubleshooting
 contentType: reference
 useCase: appliance
+applianceId: appliance26
 ---
 
 # PSaaS Appliance Dashboard: Troubleshoot

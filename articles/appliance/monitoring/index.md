@@ -7,6 +7,7 @@ topics:
     - monitoring
 contentType: index
 useCase: appliance
+applianceId: appliance48
 ---
 
 # Monitoring the Private SaaS (PSaaS) Appliance

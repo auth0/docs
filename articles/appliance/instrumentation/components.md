@@ -6,6 +6,7 @@ topics:
     - instrumentation
 contentType: reference
 useCase: appliance
+applianceId: appliance44
 ---
 
 # PSaaS Appliance: Instrumentation Components

@@ -8,6 +8,7 @@ topics:
     - requirements
 contentType: reference
 useCase: appliance
+applianceId: appliance61
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 

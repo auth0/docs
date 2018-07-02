@@ -9,6 +9,7 @@ contentType:
   - concept
 useCase:
   - appliance
+applianceId: appliance66
 ---
 # Enterprise Support Guidance
 

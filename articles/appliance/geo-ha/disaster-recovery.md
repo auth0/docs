@@ -6,6 +6,7 @@ topics:
     - geo-ha
 contentType: reference
 useCase: appliance
+applianceId: appliance28
 ---
 
 <!-- markdownlint-disable MD033 -->

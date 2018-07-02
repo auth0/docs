@@ -9,6 +9,7 @@ contentType:
     - index
     - concept
 useCase: appliance
+applianceId: appliance45
 ---
 
 # Private SaaS (PSaaS) Appliance: Instrumentation
