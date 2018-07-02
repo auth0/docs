@@ -129,6 +129,10 @@ We are planning to support several additional features in the future, including 
 
 Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
 
+4. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
+
+We cannot provide a static list of IP addresses as they are subject to change. Our recommendation is to whitelist your custom domain instead.
+
 ## Troubleshooting
 
 If you are seeing errors, refer to the following troubleshooting steps.
