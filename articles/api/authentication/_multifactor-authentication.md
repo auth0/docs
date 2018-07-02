@@ -197,7 +197,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
-### More informationm
+### More information
 
 - [Associate an OTP Authenticator](/multifactor-authentication/api/otp)
 
@@ -285,20 +285,20 @@ Content-Type: application/json
 
 Verifies multifactor authentication (MFA) using an out-of-band (OOB) challenge (either Push notification or SMS).
 
-To verify MFA using an OOB challenge your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
+To verify MFA using an OOB challenge, your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
 The response to this request depends on the status of the underlying challenge verification:
-- If the challenge has been accepted and verified: it will be the same as `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
+- If the challenge has been accepted and verified, it will be the same as `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
 - If the challenge has been rejected, you will get an `invalid_grant` error, meaning that the challenge was rejected by the user. At this point you should stop polling, as this response is final.
-- If the challenge verification is still pending (meaning it has not been accepted nor rejected) you will get an `authorization_pending` error, meaning that you must retry the same request a few seconds later. If you request too frequently you will get a `slow_down` error.
+- If the challenge verification is still pending (meaning it has not been accepted nor rejected), you will get an `authorization_pending` error, meaning that you must retry the same request a few seconds later. If you request too frequently, you will get a `slow_down` error.
 
-When the challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a usually a 6 digit number (similar to an OTP) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario the response will be immediate; you will receive an `invalid_grant` or an `access_token` as response.
+When the challenge response includes a `binding_method: prompt`, your app needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is usually a 6-digit number (similar to an OTP) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario, the response will be immediate; you will receive an `invalid_grant` or an `access_token` as response.
 
 ### Request parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA, use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
@@ -478,21 +478,17 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-::: warning
-This endpoint is still under development. It is available to customers with early access.
-:::
-
 Associates or adds a new authenticator for multifactor authentication.
 
 If the user has active authenticators, an [Access Token](/tokens/access-token) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa/` is required to use this endpoint.
 
 If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
 
-After an authenticator is added it must be verified. To verify the authenticator, use the response values from the `/mfa/associate` request in place of the values returned from the `/mfa/challenge` endpoint and continue with the verification flow.
+After an authenticator is added, it must be verified. To verify the authenticator, use the response values from the `/mfa/associate` request in place of the values returned from the `/mfa/challenge` endpoint and continue with the verification flow.
 
 A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multifactor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
 
-To access this endoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+To access this endoint, you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
 - `scope`: `enroll`
 - `audience`: `https://${account.namespace}/mfa/`
 
