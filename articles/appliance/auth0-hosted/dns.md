@@ -1,6 +1,6 @@
 ---
 section: appliance
-description:
+description: DNS records and domain name requirements for Auth0-Hosted PSaaS Appliance
 toc: false
 topics:
     - appliance
@@ -9,11 +9,7 @@ contentType: reference
 useCase: appliance
 applianceId: appliance68
 ---
-# DNS Records
-
-::: warning
-Please finalize DNS names prior to PSaaS Appliance deployment.
-:::
+# DNS Records and Domain Names
 
 Auth0 provides the domain names needed for your DNS zones/certificates. If you have Development and Production environments, your domain names will typically be formatted as follows:
 
@@ -21,6 +17,10 @@ Auth0 provides the domain names needed for your DNS zones/certificates. If you h
 | ----------- | --------------------------- |
 | Development | **company**-dev.auth0.com |
 | Production  | **company**.auth0.com     |
+
+::: warning
+Please finalize DNS names prior to PSaaS Appliance deployment.
+:::
 
 You will also need names for the Management Dashboard, Webtask endpoints, Webtask dedicated domain, and App Tenant.
 
