@@ -4,6 +4,10 @@ description: Overview of available multifactor authentication APIs
 topics:
   - mfa
   - mfa-api
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Multifactor Authentication API

@@ -5,6 +5,8 @@ toc: true
 topics:
   - integrations
   - google-cloud
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Securing Google Cloud Endpoints with Auth0

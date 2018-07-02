@@ -4,6 +4,10 @@ description: Guidance for designing your Auth0 implementation
 classes: topic-page
 topics:
   - design
+contentType:
+    - index
+    - how-to
+useCase: strategize
 ---
 
 <div class="topic-page-header">

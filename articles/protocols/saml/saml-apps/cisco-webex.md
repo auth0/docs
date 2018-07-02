@@ -6,9 +6,13 @@ topics:
     - identity-providers
     - cisco
     - cisco-webex
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

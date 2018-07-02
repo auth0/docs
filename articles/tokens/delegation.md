@@ -3,6 +3,11 @@ description: This page explains an overview about Auth0 delegation tokens.
 topics:
   - tokens
   - delegation
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 
 # Delegation Tokens

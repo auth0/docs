@@ -5,6 +5,8 @@ topics:
   - login
   - auth0js
   - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # Using Auth0.js in the Hosted Login Page
 

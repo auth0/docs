@@ -4,6 +4,10 @@ description: Customizing how Lock with CSS and Javascript
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Customize the look and feel
 

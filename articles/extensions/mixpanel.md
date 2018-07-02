@@ -3,6 +3,9 @@ description: How to configure and use the Auth0 Logs to Mixpanel extension.
 topics:
   - extensions
   - mixpanel
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Mixpanel

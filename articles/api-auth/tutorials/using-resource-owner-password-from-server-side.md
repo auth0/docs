@@ -7,6 +7,9 @@ topics:
   - oidc
   - resource-owner-password
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Using Resource Owner Password from Server side

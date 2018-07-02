@@ -7,7 +7,14 @@ topics:
   - apis
   - management-api
   - tokens
+<<<<<<< HEAD
+contentType: 
+    - concept
+    - how-to
+=======
 contentType: discussion
+useCase: invoke-api
+>>>>>>> Add useCase tags, part 1
 ---
 # The Auth0 Management APIv2 Token
 
@@ -29,11 +36,7 @@ Let's see how you can get a token manually. Note, that the first step of the pro
 
 ### 1. Create and Authorize an Application
 
-First, you need to create and authorize a Machine to Machine Application. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
-
-::: panel What is a Machine to Machine Application?
-A Machine to Machine Application represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
-:::
+First, you need to create and authorize a [Machine to Machine Application](/applications/machine-to-machine). We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
 To create and authorize a Machine to Machine Application for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 

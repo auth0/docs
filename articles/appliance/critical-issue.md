@@ -5,6 +5,10 @@ description: Outlines additional support procedure information for enterprise su
 topics:
     - appliance
     - support
+contentType: 
+    - how-to
+    - concept
+useCase: appliance
 ---
 
 # Critical Support Issue Guidance for Appliance Customers

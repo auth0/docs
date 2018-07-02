@@ -8,6 +8,11 @@ topics:
   - user-management
   - migrations
   - bulk-imports
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Bulk User Imports with the Management API

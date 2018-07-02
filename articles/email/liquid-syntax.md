@@ -3,6 +3,10 @@ description: How to use Liquid syntax in your email templates.
 topics:
   - email
   - liquid
+contentType: 
+    - how-to
+    - concept
+useCase: customize-emails
 ---
 
 # Liquid Syntax in Email Templates

@@ -4,6 +4,10 @@ topics:
   - integrations
   - microsoft
   - office-365
+contentType:
+  - how-to
+  - concept
+useCase: integrate-saas-sso
 ---
 
 # Office 365 Custom Provisioning

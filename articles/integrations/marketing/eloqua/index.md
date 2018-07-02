@@ -6,6 +6,8 @@ topics:
     - marketing
     - eloqua
     - oracle
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Oracle Eloqua Integration

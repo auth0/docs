@@ -1,35 +1,21 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 Xamarin SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to add user login to a Xamarin application using Auth0.
 budicon: 448
 topics:
   - quickstarts
   - native
   - xamarin
+github:
+    path: Quickstart/01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-xamarin-oidc-samples',
-  path: 'Quickstart/01-Login',
-  requirements: [
-    'Visual Studio 2017 (Version 15.7) or Visual Studio for Mac (Version 7.5)',
-    'Xamarin for Visual Studio 4.10',
-    'Auth0.OidcClient.Android 2.0.0',
-    'Auth0.OidcClient.iOS 2.0.0'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Xamarin') %>
 
-This tutorial explains how to integrate the Auth0 OIDC Application with a Xamarin application.
-
-<%= include('../_includes/_dotnet-oidc-client-configuration') %>
-
-## Install the Auth0.OidcClient.Android NuGet Package
-
-${snippet(meta.snippets.dependencies)}
-
-## Set Up the Auth0 Callback URL
+<%= include('../../../_includes/_callback_url') %>
 
 Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an ID Token, Access Token, and Refresh Token.
 
@@ -43,7 +29,6 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
   where `YOUR_ANDROID_PACKAGE_NAME` is the Package Name for your application, such as `com.mycompany.myapplication`.
 
-
 * For iOS, the callback URL will be in the format
 
   ```text
@@ -52,9 +37,13 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
   where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier for your application, such as `com.mycompany.myapplication`.
 
-Go to your [Application's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the correct URL. **Also, ensure that the Callback URL is in lowercase.**
+Ensure that the Callback URL is in lowercase.
 
-## Integration
+## Install Dependencies
+
+${snippet(meta.snippets.dependencies)}
+
+## Trigger Authentication
 
 To integrate Auth0 login into your application, instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
 
@@ -66,7 +55,7 @@ Then, call the `LoginAsync` method which will redirect the user to the login scr
 var loginResult = await client.LoginAsync();
 ```
 
-## Handing the callback URL
+### Handing the callback URL
 
 After a user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. In both Android and iOS you need to handle this callback to complete the authentication flow.
 
@@ -145,7 +134,7 @@ public class AppDelegate : UIApplicationDelegate
 }
 ```
 
-## Run the application
+### Run the application
 
 With the above code in place, a user can log in to your application using Auth0.
 
@@ -215,7 +204,3 @@ if (!loginResult.IsError)
     }
 }
 ```
-
-## More Information
-
-For more information, please refer to the [Auth0 OIDC Application Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).

@@ -7,6 +7,11 @@ topics:
   - lock
   - android
   - i18n
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Internationalization
 

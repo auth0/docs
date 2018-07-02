@@ -1,23 +1,20 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to a jQuery application.
 budicon: 546
 topics:
   - quickstarts
   - spa
   - jquery
   - authorization
+github:
+  path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '04-Authorization',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>

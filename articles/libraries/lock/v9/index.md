@@ -6,6 +6,11 @@ toc: true
 topics:
   - libraries
   - lock
+contentType:
+  - index
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock 9 for Web
 

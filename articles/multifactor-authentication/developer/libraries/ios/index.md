@@ -6,6 +6,11 @@ topics:
   - mfa
   - guardian
   - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for iOS

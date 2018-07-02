@@ -4,7 +4,10 @@ topics:
   - api-authentication
   - oidc
   - sso
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Single sign-on

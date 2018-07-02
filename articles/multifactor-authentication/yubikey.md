@@ -4,10 +4,18 @@ toc: true
 topics:
     - mfa
     - yubikey
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Multifactor Authentication with YubiKey NEO
 
 This tutorial shows you how to implement Multifactor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+
+:::warning
+Binding an OTP to an identity is outside the scope of this article.
+:::
 
 Implementing MFA using YubiKey NEO requires use of the following Auth0 features for the described reasons:
 

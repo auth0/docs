@@ -4,6 +4,11 @@ crews: crew-2
 topics:
   - account-linking
   - client-side
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Account Linking Using Client Side Code

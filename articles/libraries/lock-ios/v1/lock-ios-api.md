@@ -7,6 +7,11 @@ topics:
   - lock
   - ios
   - objective-c
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 <!-- markdownlint-disable MD026 -->
 # Lock Objective-C API

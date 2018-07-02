@@ -4,6 +4,8 @@ description: Remote Access Options Available for those with PSaaS Appliance
 topics:
     - appliance
     - remote-access
+contentType: reference
+useCase: appliance
 ---
 # PSaaS Appliance Remote Access Options
 

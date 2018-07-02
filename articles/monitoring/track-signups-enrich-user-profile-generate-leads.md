@@ -3,6 +3,13 @@ description: How to track sign-ups, enrich user profiles and generate new leads.
 topics:
   - monitoring
   - marketing
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 
 # How to track Sign-ups, enrich User Profile and generate new Leads

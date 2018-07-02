@@ -3,6 +3,10 @@ description: An overview of the SAML configuration process
 topics:
   - saml
   - saml-configuration
+contentType:
+  - index
+useCase:
+  - add-idp
 ---
 
 # SAML Configuration

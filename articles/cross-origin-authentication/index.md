@@ -4,6 +4,11 @@ title: Cross-Origin Authentication
 description: An explanation of cross-origin authentication in Auth0 and its compatibility with browsers
 topics:
   - cors
+contentType:
+    - index
+    - concept
+useCase: 
+  - strategize
 ---
 # Cross-Origin Authentication
 
@@ -72,6 +77,8 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
 Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Application's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
+
+For production environments, verify that the Location URL for the page does not point to localhost.
 
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.

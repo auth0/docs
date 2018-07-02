@@ -1,26 +1,17 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to login and maintain a session’s connectivity.
+description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 seo_alias: android
 budicon: 280
 topics:
   - quickstarts
   - native
   - android
+github:
+    path: 03-Session-Handling
+contentType: tutorial
+useCase: quickstart
 ---
-
-This tutorial shows you how to let users log in and maintain an active session with Auth0.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '03-Session-Handling',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
@@ -64,7 +55,7 @@ It is important that you remember the following:
 * New tokens will have the same scope as was originally requested during the first authentication.
 :::
 
-You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens.md) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
+You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
 
 
 Create a new instance of the Credentials Manager. When you run the application, you should check if there are any previously stored credentials. You can use these credentials to bypass the login screen:

@@ -4,6 +4,10 @@ description: How to set up user-initiated multifactor authentication
 toc: true
 topics:
     - mfa
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # User-Initiated Multifactor Authentication
 

@@ -7,6 +7,11 @@ topics:
     - user-management
     - users
     - custom-database
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # Update Users Using Your Database

@@ -4,6 +4,10 @@ toc: true
 topics:
   - saml
   - adfs
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # ADFS SAML Connection

@@ -4,7 +4,10 @@ description: List of breaking changes for OIDC-conformant applications
 topics:
   - api-authentication
   - oidc
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant applications

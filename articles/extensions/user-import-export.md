@@ -5,6 +5,9 @@ description: The User Import / Export is an extension that allows you to import 
 topics:
   - extensions
   - user-import-export
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 # User Import / Export
 

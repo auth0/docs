@@ -4,6 +4,8 @@ description: Describes the configuration steps you might need to follow in order
 toc: true
 topics:
   - custom-domains
+contentType: how-to
+useCase: customize-domains
 ---
 # Additional Configuration for Custom Domains
 

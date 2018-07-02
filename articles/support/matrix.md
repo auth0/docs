@@ -6,6 +6,10 @@ classes: support-matrix-page
 topics:
     - support
     - support-matrix
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Auth0 Product Support Matrix
 
@@ -486,11 +490,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/webapp/apache">Apache</a></td>
-      <td class="text-center"></td>
-      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>

@@ -8,6 +8,10 @@ topics:
   - connections
   - social
   - miicard
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to miiCard

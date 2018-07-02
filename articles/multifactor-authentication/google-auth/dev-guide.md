@@ -4,6 +4,10 @@ topics:
   - mfa
   - google
   - google-autheticator
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator for Developers

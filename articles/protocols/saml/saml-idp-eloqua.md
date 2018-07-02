@@ -4,6 +4,10 @@ topics:
   - saml
   - oracle
   - eloqua
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure Auth0 as Identity Provider for Oracle Eloqua

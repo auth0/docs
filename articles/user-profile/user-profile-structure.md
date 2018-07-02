@@ -6,6 +6,11 @@ topics:
     - user-management
     - user-profiles
     - user-profile-structure
+contentType:
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 
 # Structure of the User Profile

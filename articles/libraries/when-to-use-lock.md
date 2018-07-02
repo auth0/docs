@@ -5,6 +5,11 @@ topics:
   - libraries
   - lock
   - custom-ui
+contentType:
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock vs. a Custom UI
 

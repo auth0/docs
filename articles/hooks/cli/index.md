@@ -5,6 +5,10 @@ beta: true
 topics:
     - hooks
     - cli
+contentType:
+    - how-to
+    - index
+useCase: extensibility-hooks
 ---
 
 # Auth0 Command-Line Interface

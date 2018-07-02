@@ -6,6 +6,9 @@ topics:
   - oidc
   - access-tokens
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Verify Access Tokens for Custom APIs
 

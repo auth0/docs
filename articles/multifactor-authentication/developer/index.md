@@ -5,6 +5,10 @@ description: Developer Documentation for Guardian
 topics:
   - mfa
   - guardian
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Developer Resources for Guardian

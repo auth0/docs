@@ -4,6 +4,10 @@ topics:
   - applications
   - android
   - app-links
+contentType: how-to
+useCase:
+  - build-an-app
+  - enable-mobile-auth
 ---
 
 # Enable Android App Links Support for your Auth0 Application

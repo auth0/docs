@@ -8,6 +8,11 @@ topics:
     - authorization-code
     - client-credentials
     - nodejs
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # Server Client + API: Node.js Implementation for the API
 

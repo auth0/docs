@@ -3,7 +3,10 @@ description: An overview of the Auth0 Management API v1 which has been deprecate
 topics:
   - apis
   - management-api
-contentType: reference
+contentType: 
+    - reference
+    - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)

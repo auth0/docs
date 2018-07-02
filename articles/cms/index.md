@@ -5,6 +5,9 @@ topics:
     - wordpress
     - joomla
     - cms
+contentType: concept
+useCase:
+  - add-login
 ---
 
 # CMS Identity Plugins

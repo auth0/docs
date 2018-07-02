@@ -10,6 +10,10 @@ topics:
   - connections
   - social
   - wordpress
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your App to WordPress

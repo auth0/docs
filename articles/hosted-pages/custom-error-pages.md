@@ -6,6 +6,9 @@ crews: crew-2
 topics:
   - custom-error-pages
   - hosted-pages
+contentType:
+    - how-to
+useCase: customize-hosted-pages
 ---
 # Custom Error Pages
 

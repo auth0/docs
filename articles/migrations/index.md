@@ -4,6 +4,11 @@ title: Auth0 Migrations
 description: List of all the changes made on Auth0 platform that might affect customers
 topics:
   - migrations
+contentType:
+  - concept
+  - reference
+useCase:
+  - migrate
 ---
 
 # Migrations

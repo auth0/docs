@@ -6,6 +6,9 @@ topics:
   - implicit
   - nonce
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Mitigate replay attacks when using the Implicit Grant

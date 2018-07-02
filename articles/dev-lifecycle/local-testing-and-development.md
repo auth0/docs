@@ -3,6 +3,8 @@ description: How to develop and test Auth0 applications.
 topics:
     - dev-tools
     - local-env
+contentType: how-to
+useCase: development
 ---
 # Work with Auth0 Locally
 

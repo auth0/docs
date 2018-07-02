@@ -3,7 +3,10 @@ description: Describes how to call APIs from regular web apps using the Authenti
 topics:
   - authorization-code
   - api-authorization
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Calling APIs from Server-side Web Apps
 

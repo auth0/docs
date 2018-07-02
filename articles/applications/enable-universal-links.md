@@ -4,6 +4,10 @@ topics:
   - applications
   - ios
   - universal-links
+contentType: how-to
+useCase:
+  - build-an-app
+  - enable-mobile-auth
 ---
 
 # Enable Universal Links Support for your Auth0 Application in Xcode

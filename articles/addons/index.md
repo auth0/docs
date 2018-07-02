@@ -3,6 +3,10 @@ url: /addons
 description: How to setup Application Addons, like Amazon Web Services and Azure Blob Storage, with your Auth0 app.
 topics:
     - addons
+contentType: 
+    - index
+    - how-to
+useCase: integrate-third-party-apps
 ---
 
 # Auth0 Application Addons

@@ -4,6 +4,8 @@ toc: true
 topics:
   - integrations
   - mqtt
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Authenticating & Authorizing Devices using MQTT with Auth0
 

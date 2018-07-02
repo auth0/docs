@@ -6,6 +6,8 @@ public: true
 topics:
   - sso
   - cloudbees
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

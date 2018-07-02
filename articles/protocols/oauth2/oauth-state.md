@@ -5,8 +5,11 @@ topics:
     - protocols
     - oauth
     - state-parameter
-	  - csrf
-contentType: how-to
+    - csrf
+contentType:
+  - concept
+useCase:
+  - development
 ---
 
 # State Parameter

@@ -4,6 +4,10 @@ description: Working with the Dashboard
 classes: topic-page
 topics:
   - dashboard
+contentType: 
+    - index
+    - how-to
+useCase: manage-accounts
 ---
 
 <div class="topic-page-header">

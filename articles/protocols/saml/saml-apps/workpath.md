@@ -1,9 +1,13 @@
 ---
 title: Workpath SAML Configuration
 description: Workpath SAML Configuration
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

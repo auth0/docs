@@ -7,21 +7,12 @@ topics:
   - webapp
   - aspnet-core
   - authorization
+github:
+  path: Quickstart/03-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/03-Authorization',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.1.300',
-    '.NET Core 2.1.0',
-    'ASP.NET Core 2.1.0'
-  ]
-}) %>
-
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application. 
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
 
 ::: note
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).

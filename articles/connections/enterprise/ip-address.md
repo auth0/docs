@@ -13,6 +13,10 @@ topics:
     - connections
     - enterprise
     - ip-addresses
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Configure IP Address Authentication
 

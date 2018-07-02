@@ -4,7 +4,10 @@ topics:
   - api-authentication
   - oidc
   - resource-owner-password
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Resource Owner Password Credentials exchange
 

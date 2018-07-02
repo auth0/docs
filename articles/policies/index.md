@@ -3,6 +3,10 @@ url: /policies
 description: This page lists all of Auth0's established operational policies.
 topics:
     - auth0-policies
+contentType:
+  - index
+useCase:
+  - support
 ---
 # Operational Policies
 

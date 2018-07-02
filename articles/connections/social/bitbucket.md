@@ -9,6 +9,10 @@ topics:
   - connections
   - social
   - bitbucket
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Bitbucket
 

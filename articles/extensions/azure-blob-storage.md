@@ -4,6 +4,9 @@ topics:
   - extensions
   - azure
   - blob-storage
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Azure Blob Storage

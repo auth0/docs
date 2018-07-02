@@ -4,9 +4,12 @@ description: The GitHub Deployments extension allows you to deploy rules and dat
 topics:
   - extensions
   - github-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
-# Github Deployments
+# GitHub Deployments
 
 The **GitHub Deployments** extension allows you to deploy [rules](/rules) and database connection scripts from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
 

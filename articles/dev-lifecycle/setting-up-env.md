@@ -3,6 +3,8 @@ description: Use multiple Auth0 tenants to manage various environments.
 topics:
     - dev-tools
     - local-env
+contentType: how-to
+useCase: development
 ---
 # Set Up Multiple Environments
 

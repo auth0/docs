@@ -5,6 +5,8 @@ topics:
     - appliance
     - monitoring
     - testing
+contentType: how-to
+useCase: appliance
 ---
 
 # Using the `testall` Endpoint

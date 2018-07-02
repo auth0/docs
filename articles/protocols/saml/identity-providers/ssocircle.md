@@ -6,6 +6,10 @@ topics:
     - saml
     - identity-providers
     - ssocircle
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # SAML SSO with SSOCircle as an Identity Provider
 

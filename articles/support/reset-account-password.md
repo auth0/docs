@@ -5,6 +5,11 @@ topics:
     - support
     - passwords
     - password-reset
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Reset Your Auth0 Account Password

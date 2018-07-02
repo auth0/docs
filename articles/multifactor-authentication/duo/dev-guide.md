@@ -3,6 +3,10 @@ description:  Information for how to use Duo Security for developers.
 topics:
   - mfa
   - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Duo for Developers

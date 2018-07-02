@@ -4,6 +4,12 @@ topics:
   - integrations
   - aws
   - api-gateway
+contentType:
+  - index
+  - concept
+  - tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Secure AWS API Gateway Endpoints Using Custom Authorizers

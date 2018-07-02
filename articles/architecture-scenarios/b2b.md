@@ -10,6 +10,11 @@ topics:
     - architecture
     - lockjs
     - active-directory
+contentType: concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Business to Business Identity Scenarios

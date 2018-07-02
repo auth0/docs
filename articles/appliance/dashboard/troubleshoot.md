@@ -5,6 +5,8 @@ topics:
     - appliance
     - dashboard
     - troubleshooting
+contentType: reference
+useCase: appliance
 ---
 
 # PSaaS Appliance Dashboard: Troubleshoot

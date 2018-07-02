@@ -5,6 +5,10 @@ beta: true
 topics:
     - hooks
     - extensibility-points
+contentType:
+  - index
+  - concept
+useCase: extensibility-hooks
 ---
 
 # Extensibility Points

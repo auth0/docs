@@ -6,6 +6,10 @@ topics:
     - saml
     - identity-providers
     - okta
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure Okta as an Identity Provider

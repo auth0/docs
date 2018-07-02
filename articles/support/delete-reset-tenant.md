@@ -5,6 +5,11 @@ topics:
     - delete-tenant
     - reset-tenant
     - tenants
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Delete/Reset Your Tenant

@@ -5,6 +5,11 @@ toc: true
 topics:
   - auth0-101
   - dashboard
+contentType:
+    - how-to
+useCase:
+    - manage-accounts
+    - get-started
 ---
 # Dashboard Overview
 

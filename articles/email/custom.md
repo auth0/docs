@@ -3,6 +3,8 @@ description: The Auth0 APIs provide endpoints that allow you to completely manag
 toc: true
 topics:
   - email
+contentType: concept
+useCase: customize-emails
 ---
 # Custom Email Handling
 

@@ -9,6 +9,7 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 topics:
   - salesforce
   - addons
+useCase: integrate-third-party-apps
 contentType: how-to
 ---
 

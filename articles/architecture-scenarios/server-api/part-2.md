@@ -7,6 +7,11 @@ topics:
     - api-auth
     - authorization-code
     - client-credentials
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Server + API: Auth0 Configuration

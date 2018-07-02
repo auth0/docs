@@ -5,6 +5,11 @@ topics:
   - libraries
   - lock
   - lock-ui
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Lock UI Customization
 

@@ -8,6 +8,8 @@ topics:
   - webapp
   - apache
   - login
+contentType: tutorial
+useCase: quickstart
 ---
 
 ::: panel System Requirements

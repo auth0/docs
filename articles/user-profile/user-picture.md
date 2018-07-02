@@ -5,6 +5,11 @@ topics:
     - user-management
     - user-profiles
     - user-picture
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # User Picture

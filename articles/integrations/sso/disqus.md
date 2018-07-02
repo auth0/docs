@@ -6,6 +6,8 @@ public: true
 topics:
   - sso
   - disqus
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Disqus Single Sign On Integration

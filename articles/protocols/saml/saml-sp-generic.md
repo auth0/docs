@@ -3,6 +3,10 @@ description: How to configure Auth0 to serve as a Service Provider in a SAML fed
 toc: true
 topics:
   - saml
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Auth0 as Service Provider

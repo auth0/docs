@@ -3,6 +3,10 @@ public: true
 topics:
   - errors
   - tokens
+contentType:
+  - reference
+  - how-to
+useCase: error-management
 ---
 
 # Errors with code 'invalid_token'

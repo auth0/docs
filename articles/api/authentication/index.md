@@ -1,6 +1,9 @@
 ---
 title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">

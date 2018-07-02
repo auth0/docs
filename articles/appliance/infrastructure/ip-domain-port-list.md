@@ -7,11 +7,13 @@ topics:
     - ip-addressses
     - domains
     - ports
+contentType: reference
+useCase: appliance
 ---
 
 <!-- markdownlint-disable MD033 -->
 
-# PSaaS Appliance Infrastructure: IP/Domain and Port List
+# PSaaS Appliance Infrastructure Requirements: IP/Domain and Port List
 
 The PSaaS Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
@@ -143,11 +145,11 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Web extensions and Management Dashboard</td>
+    <td>Web extensions, Hooks, and Management Dashboard</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions; also required for admins to browse to the Management Dashboard</td>
+    <td>Required to run web extensions and Hooks; also required for admins to browse to the Management Dashboard</td>
     <td>Yes</td>
   </tr>
   <tr>

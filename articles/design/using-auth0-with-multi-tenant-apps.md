@@ -1,10 +1,12 @@
 ---
-description: This articles discusses how you can use Auth0 with multi-tenant applications.
+description: This article discusses how you can use Auth0 with multi-tenant applications.
 crews: crew-2
 toc: true
 topics:
   - design
   - multi-tenancy
+contentType: concept
+useCase: strategize
 ---
 # Using Auth0 with Multi-Tenant Applications
 

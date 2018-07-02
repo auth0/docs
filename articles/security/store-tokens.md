@@ -5,6 +5,10 @@ topics:
   - security-bulletins
   - tokens
   - token storage
+contentType:
+  - reference
+useCase:
+  - development
 ---
 # Where to Store Tokens
 

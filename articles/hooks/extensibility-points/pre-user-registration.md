@@ -6,6 +6,9 @@ beta: true
 topics:
     - hooks
     - extensibility-points
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
 # Extensibility Point: Pre-User Registration

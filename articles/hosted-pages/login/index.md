@@ -9,6 +9,10 @@ topics:
   - auth0js
   - lock
   - hosted-pages
+contentType:
+  - concept
+  - index
+useCase: customize-hosted-pages
 ---
 # Universal Login
 

@@ -6,6 +6,10 @@ description: Control user authorization behavior during runtime with the Authori
 topics:
   - extensions
   - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension

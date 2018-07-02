@@ -5,7 +5,10 @@ topics:
   - oidc
   - tokens
   - refresh tokens
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant Refresh Tokens

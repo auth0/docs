@@ -6,6 +6,8 @@ topics:
     - passwordless
     - sms
     - spa
+contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication in SPA with SMS
 

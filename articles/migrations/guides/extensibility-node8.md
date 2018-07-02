@@ -11,6 +11,12 @@ topics:
   - custom-db
   - custom-social-connections
   - extensions
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
+  - migrate
 ---
 # Migration Guide: Extensibility and Node 8
 
@@ -187,6 +193,6 @@ Some of the behavioral and syntactic changes in modules were not forward-compati
 
 For example, the default encoding of the `crypto` module was changed from `binary` to `utf8`, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
 
-Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/node/wiki/Breaking-changes-between-v4-LTS-and-v6-LTS) and [v6 to v8](https://github.com/nodejs/node/wiki/Breaking-changes-between-v6-LTS-and-v8-LTS) for additional information.
+Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v4-LTS-and-v6-LTS.md) and [v6 to v8](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v6-LTS-and-v8-LTS.md) for additional information.
 
 **To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 8 runtime before April 30 2018.**

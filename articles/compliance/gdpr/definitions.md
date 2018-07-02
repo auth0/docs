@@ -4,6 +4,8 @@ description: Definitions used for Auth0's documentation on GDPR
 topics:
     - compliance
     - gdpr
+contentType: reference
+useCase: compliance
 ---
 # Definitions
 

@@ -5,9 +5,13 @@ topics:
     - saml
     - identity-providers
     - eloqua
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 
 ```json

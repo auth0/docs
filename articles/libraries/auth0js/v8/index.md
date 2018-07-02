@@ -5,6 +5,10 @@ description: How to install, initialize and use auth0.js v8
 topics:
   - libraries
   - auth0js
+contentType:
+  - index
+  - how-to
+useCase: add-login
 ---
 # Auth0.js v8 Reference
 
@@ -482,14 +486,14 @@ Using auth0.js within your application (rather than using [Universal Login](/hos
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
+To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
 ```js
 var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: 'http://example.com',
-  audience: `https://${account.namespace}/api/v2/˜`,
+  audience: `https://${account.namespace}/api/v2/`,
   scope: 'read:current_user',
   responseType: 'token id_token'
 });
@@ -500,7 +504,7 @@ You can also do so by using `checkSession()`:
 ```
 webAuth.checkSession(
   {
-    audience: `https://${account.namespace}/api/v2/˜`,
+    audience: `https://${account.namespace}/api/v2/`,
     scope: 'read:current_user'
   }, function(err, result) {
      // use result.accessToken

@@ -2,6 +2,11 @@
 description: Lists all the prerequisites to installing and configuring the connector.
 topics:
   - connector
+contentType: reference
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Prerequisites

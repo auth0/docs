@@ -3,6 +3,9 @@ description: This page explains the Auth0 AD/LDAP Connector Health Monitor Exten
 topics:
   - extensions
   - ad/ldap-connector
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Auth0 AD/LDAP Connector Health Monitor

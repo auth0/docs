@@ -6,6 +6,9 @@ topics:
   - aws
   - api-gateway
   - cognito
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Secure AWS API Gateway Using Cognito

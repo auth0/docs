@@ -6,6 +6,13 @@ topics:
     - architecture
     - api-auth
     - authorization-code
+contentType: 
+    - index
+    - concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # Architecture Scenarios
 

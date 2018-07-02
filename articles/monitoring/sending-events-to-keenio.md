@@ -3,6 +3,13 @@ description: How to send events to Keen IO from Auth0.
 topics:
   - monitoring
   - keenio
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 # Sending events to Keen IO from Auth0
 

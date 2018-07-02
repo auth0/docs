@@ -5,6 +5,10 @@ toc: true
 topics:
     - compliance
     - gdpr
+contentType: 
+    - index
+    - how-to
+useCase: compliance
 ---
 # GDPR: Conditions for Consent
 

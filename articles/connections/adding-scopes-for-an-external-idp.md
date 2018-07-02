@@ -3,6 +3,10 @@ description: How to add scopes to your IdP connection.
 topics:
   - connections
   - scopes
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Add scopes/permissions to call Identity Provider's APIs
 

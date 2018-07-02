@@ -5,6 +5,10 @@ topics:
   - mfa
   - guardian
   - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Administrators

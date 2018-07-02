@@ -4,6 +4,12 @@ toc: true
 topics:
   - tokens
   - refresh-tokens
+contentType:
+  - how-to
+  - concept
+  - index
+useCase:
+  - invoke-api
 ---
 # Refresh Token
 
@@ -75,7 +81,7 @@ The response should contain an Access Token and a Refresh Token.
 ```text
 {
   "access_token": "eyJz93a...k4laUWw",
-  "Refresh Token": "GEbRxBN...edjnXbL",
+  "refresh_token": "GEbRxBN...edjnXbL",
   "token_type": "Bearer"
 }
 ```

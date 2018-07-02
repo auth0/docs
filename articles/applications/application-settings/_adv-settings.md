@@ -14,14 +14,6 @@ Application metadata are custom string keys and values (each of which has a char
 
 You can create up to 10 sets of metadata.
 
-#### Mobile Settings
-
-If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
-
-When developing iOS apps, you'll provide your **Team ID** and **App Bundle Identifier**.
-
-When developing Android apps, you'll provide your **App Package Name** and your **Key Hashes**.
-
 #### OAuth
 
 Set the OAuth-related settings on this tab:

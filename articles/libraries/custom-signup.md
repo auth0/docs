@@ -6,6 +6,12 @@ topics:
   - libraries
   - lock
   - custom-signups
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Custom Signup
 

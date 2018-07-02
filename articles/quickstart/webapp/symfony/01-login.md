@@ -1,29 +1,23 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Symfony SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to add user login to a Symfony application..
 budicon: 448
 topics:
   - quickstarts
   - webapp
   - login
   - symfony
+contentType: tutorial
+useCase: quickstart
+github:
+    path: 00-Starter-Seed
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-symfony-php-web-app',
-  path: '00-Starter-Seed',
-  requirements: [
-    'PHP 5.6, 7.0',
-    'Symfony 3.3'
-  ]
-}) %>
-
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 
+## Configure Symfony to Use Auth0 
 
-## Using HWIOAuthBundle for Authentication
+### Using HWIOAuthBundle for Authentication
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate the Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
@@ -37,11 +31,11 @@ and run `composer update`.
 This sample is using [`curl-client`](https://github.com/php-http/curl-client) as PHP HTTP client implementation for [`httplug-bundle`](https://github.com/php-http/HttplugBundle), you can use the PHP HTTP [client implementation](http://docs.php-http.org/en/latest/clients.html) you want.
 :::
 
-## Enable the Bundle
+### Enable the Bundle
 
 ${snippet(meta.snippets.setup)}
 
-## Configure the Routes
+### Configure the Routes
 
 Add the following routes at the beginning of `app/config/routing.yml`
 
@@ -61,7 +55,7 @@ auth0_logout:
     path: /auth0/logout
 ```
 
-## Create an Auth0 Resource Owner
+### Create an Auth0 Resource Owner
 
 You need to create an Auth0 resource owner to enable HWIOAuthBundle to connect to Auth0.
 
@@ -137,7 +131,7 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
 }
 ```
 
-## Configure the Resource Owner
+### Configure the Resource Owner
 
 Add this to your `app/config/config.yml`
 
@@ -155,12 +149,12 @@ hwi_oauth:
             scope: "openid profile"
 ```
 
-## User Provider
+### User Provider
 
 You can create a user provider that implements `OAuthAwareUserProviderInterface` and set it up in the next step, or you
 can use one of the predefined services that `HWIOAuthBundle` provides.
 
-## Configure the OAuth Firewall
+### Configure the OAuth Firewall
 
 This is where you set the filters to select which pages require authentication or authorization. You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
@@ -197,7 +191,7 @@ security:
 
 Notice that we need to identify the user provided selected in the step before both in the providers and in the firewall.
 
-## Triggering Login and accessing user information
+## Trigger Authentication
 
 Set the following in `app/resources/views/index.html.twig`
 
@@ -214,4 +208,3 @@ Set the following in `app/resources/views/index.html.twig`
     <a href="/connect/auth0"><button>Login</button></a>
 {% endif %}
 ```
-

@@ -9,6 +9,12 @@ topics:
   - migrations
   - automatic-user-migration
   - custom-db
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Automatic User Migration with Custom Database Connections

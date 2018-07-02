@@ -4,6 +4,11 @@ description: Describes different options for selecting the connection in Auth0 w
 topics:
   - libraries
   - lock
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - customize-connections
 ---
 # Selecting the connection in Auth0 for multiple login options
 

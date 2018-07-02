@@ -1,7 +1,7 @@
 
 <%= include('../../_includes/_login_preamble', { library: 'AngularJS', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angularjs-samples/tree/embedded-login/01-Embedded-Login' }) %>
 
-## Configure angular-auth0
+### Configure angular-auth0
 
 The angular-auth0 wrapper comes with a provider called `angularAuth0Provider`. The provider has an `init` method which takes a configuration object used to create an instance of the `WebAuth` object from auth0.js. 
 
@@ -74,7 +74,7 @@ In this tutorial, the route is `/callback`, which is implemented in the [Add a C
 })();
 ```
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. 
 
@@ -117,7 +117,7 @@ Create a service and provide a `login` method that calls the `authorize` method 
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish the Service
+## Handle Authentication Tokens
 
 Add more methods to the `authService` service to handle authentication in the app.
 
@@ -189,7 +189,7 @@ The example below shows the following methods:
 })();
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
@@ -203,7 +203,7 @@ Depending on whether the user is authenticated or not, they see the **Log Out** 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 When you use the login page, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 
@@ -245,7 +245,7 @@ To display a loading indicator, you need a loading spinner or another indicator 
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `authService` service processes the hash. 
 

@@ -7,6 +7,8 @@ topics:
     - web-apps
     - passwordless
     - email
+contentType: how-to
+useCase: customize-connections
 ---
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 

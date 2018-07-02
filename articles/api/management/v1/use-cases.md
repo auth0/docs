@@ -5,6 +5,7 @@ topics:
   - apis
   - management-api
 contentType: reference
+useCase: invoke-api
 ---
 
 # Management API v1 Use Cases

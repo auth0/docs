@@ -8,6 +8,8 @@ topics:
   - mfa
   - error-pages
   - hosted-pages
+contentType: index
+useCase: customize-hosted-pages
 ---
 
 # Auth0 Hosted Pages

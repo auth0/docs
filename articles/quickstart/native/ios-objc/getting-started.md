@@ -7,6 +7,10 @@ topics:
   - native
   - ios
   - objective-c
+github:
+  path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your iOS Objective-C apps.

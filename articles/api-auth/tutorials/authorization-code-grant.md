@@ -6,6 +6,9 @@ topics:
   - oidc
   - authorization-code
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Execute an Authorization Code Grant Flow
 

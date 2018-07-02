@@ -7,6 +7,8 @@ topics:
   - sso
   - microsoft
   - dynamics-crm
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 <%= include('./_template', {

@@ -7,6 +7,10 @@ topics:
   - security-bulletins
   - blacklisting
   - users
+contentType:
+  - reference
+useCase:
+  - development
 ---
 # Blacklist User Attributes
 

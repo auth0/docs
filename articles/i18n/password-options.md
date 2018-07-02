@@ -4,6 +4,8 @@ topics:
     - i18n
     - lock
     - password
+contentType: how-to
+useCase: localize
 ---
 # Password Options Translation
 

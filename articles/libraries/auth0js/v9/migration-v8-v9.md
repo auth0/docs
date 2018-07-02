@@ -7,6 +7,11 @@ topics:
   - libraries
   - auth0js
   - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Auth0.js v8 to v9
 

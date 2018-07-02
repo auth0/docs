@@ -6,6 +6,8 @@ topics:
   - libraries
   - android
   - db-connections
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Database Authentication
 

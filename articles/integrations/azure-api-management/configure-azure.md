@@ -5,6 +5,9 @@ topics:
     - integrations
     - azure
     - api-management
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # Configure Azure
 

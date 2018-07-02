@@ -5,6 +5,12 @@ crews: crew-2
 toc: true
 topics:
   - account-linking
+contentType:
+  - concept
+  - how-to
+  - index
+useCase:
+  - manage-accounts
 ---
 # Linking User Accounts
 
@@ -256,7 +262,7 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
 
 Instead of calling directly the API, you can use the [Auth0.js](/libraries/auth0js) library.
 
-First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
+First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
 
 Once you have the Access Token, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the Access Token.
 

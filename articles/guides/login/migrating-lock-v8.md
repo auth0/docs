@@ -6,6 +6,8 @@ topics:
   - lock
   - migrations
   - universal-login
+contentType: index
+useCase: migrate
 ---
 # Migrating Applications using Lock 8 to Universal Login
 

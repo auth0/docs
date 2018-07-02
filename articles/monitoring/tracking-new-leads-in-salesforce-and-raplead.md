@@ -5,6 +5,13 @@ topics:
   - marketing
   - salesforce
   - rapleaf
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 
 # Tracking new leads in Salesforce, augmenting user profile with RapLeaf

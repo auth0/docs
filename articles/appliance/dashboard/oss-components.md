@@ -5,6 +5,8 @@ topics:
     - appliance
     - dashboard
     - oss
+contentType: concept
+useCase: appliance
 ---
 
 # OSS Components

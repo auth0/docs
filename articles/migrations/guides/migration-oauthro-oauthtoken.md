@@ -2,6 +2,11 @@
 title: Migration Guide for Resource Owner Password Credentials Exchange
 description: Learn how to migrate your API calls and responses from /oauth/ro to /oauth/token
 toc: true
+contentType:
+  - concept
+useCase:
+  - secure-an-api
+  - migrate
 ---
 # Migration Guide for Resource Owner Password Credentials Exchange
 

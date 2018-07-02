@@ -5,6 +5,12 @@ topics:
   - libraries
   - lock
   - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Sending Authentication Parameters
 

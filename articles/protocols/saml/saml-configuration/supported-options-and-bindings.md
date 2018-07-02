@@ -3,6 +3,10 @@ description: Supported SAML bindings and options
 topics:
   - saml
   - saml-bindings
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 
 # Supported SAML Bindings and Options

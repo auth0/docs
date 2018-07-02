@@ -5,6 +5,8 @@ description: How to configure Auth0.Android to meet your application's needs
 topics:
   - libraries
   - android
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Configuration Options
 

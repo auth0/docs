@@ -9,6 +9,9 @@ toc: true
 topics:
     - connections
     - custom-database
+contentType: tutorial
+useCase:
+    - customize-connections
 ---
 
 # Authenticate Users Using Your Database

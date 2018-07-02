@@ -8,6 +8,12 @@ topics:
   - android
   - passwordless
   - tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless
 

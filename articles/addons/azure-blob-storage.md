@@ -14,6 +14,7 @@ articles:
   - authenticate
 contentType: how-to
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
+useCase: integrate-third-party-apps
 ---
 
 # Azure Blob Storage Addon

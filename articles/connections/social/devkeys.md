@@ -4,6 +4,10 @@ topics:
   - connections
   - social
   - dev-keys
+contentType: reference
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Test Social Connections with Auth0 Developer Keys
@@ -24,7 +28,7 @@ The exact terminology of a Client ID / Client Secret may differ between various 
 
 ## Limitations of Developer Keys
 
-They Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
+The Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
 
 1. You cannot use developer keys with [custom domains](/custom-domains).
 

@@ -3,6 +3,11 @@ url: /email
 description: Auth0 built-in email services.
 topics:
   - email
+contentType:
+    - index
+    - reference
+    - how-to
+useCase: customize-emails
 ---
 
 # Emails in Auth0

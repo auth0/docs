@@ -5,6 +5,8 @@ topics:
     - passwordless
     - email
     - spa
+contentType: how-to
+useCase: customize-connections
 ---
 # Authenticate users with a Magic Link via e-mail on SPA
 

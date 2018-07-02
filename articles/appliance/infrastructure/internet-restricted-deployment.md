@@ -1,6 +1,8 @@
 ---
 title: Internet-Restricted PSaaS Appliance Deployments
 description: Operating the PSaaS Appliance in an Internet-Restricted Environment
+contentType: reference
+useCase: appliance
 ---
 # PSaaS Appliace Deployments with Limited Internet Connectivity
 
@@ -14,7 +16,7 @@ The PSaaS Appliance is designed to mirror the solutions offered via the Auth0 Pu
 
 ## Internet-Restricted Environments
 
-While we make an effort to create PSaaS Appliances that are encapsulated for normal operation, there are several features that require access to external resources for normal functionality. These resources are primarily located on the Auth0 Content Delivery Network (CDN).
+While we make an effort to create PSaaS Appliances that are encapsulated for normal operation, there are several features that require access to external resources for normal functionality. These resources are primarily located on the Auth0 Content Delivery Network (CDN), which is accessed via **cdn.auth0.com**.
 
 ::: warning
 The PSaaS Appliance **must** have access to the internet during [update periods](https://auth0.com/docs/appliance/infrastructure/ip-domain-port-list#external-connectivity).
@@ -25,6 +27,7 @@ Operating the PSaaS Appliance in an internet-restricted environment results in t
 * Analytics (including usage statistics)
 * Authentication API Explorer
 * [Extensions](/extensions)
+* [Hooks](/hooks)
 * Lock
 * Management API Explorer
 * Management Dashboard

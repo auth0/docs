@@ -5,7 +5,10 @@ topics:
     - tokens
     - token-renewal
     - custom-domains
-contentType: discussion
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Renew Tokens When Using Safari
 

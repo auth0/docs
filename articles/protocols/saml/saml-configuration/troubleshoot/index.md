@@ -4,6 +4,11 @@ toc: true
 topics:
   - saml
   - sso
+contentType:
+  - index
+  - reference
+useCase:
+  - add-idp
 ---
 
 # Troubleshooting

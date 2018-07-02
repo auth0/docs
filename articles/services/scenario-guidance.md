@@ -5,6 +5,10 @@ topics:
   - product-lifecycle
   - solutions-architecture
   - architecture
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Advisory Sessions: Scenario guidance

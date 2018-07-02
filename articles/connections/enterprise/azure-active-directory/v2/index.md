@@ -19,6 +19,12 @@ topics:
     - azure
     - active-directory
     - microsoft
+contentType: 
+    - index
+    - how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Microsoft Azure Active Directory

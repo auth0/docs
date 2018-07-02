@@ -11,6 +11,13 @@ topics:
     - api-auth
     - authorization-code
     - client-credentials
+contentType:
+    - tutorial
+    - index
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Server + API

@@ -9,6 +9,11 @@ topics:
     - client-credentials
     - python
     - cron-job
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Server Client + API: Python Implementation for the Cron Job

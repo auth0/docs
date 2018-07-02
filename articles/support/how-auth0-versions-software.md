@@ -5,6 +5,10 @@ topics:
     - support
     - auth0-versioning
     - versioning
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Versioning
 

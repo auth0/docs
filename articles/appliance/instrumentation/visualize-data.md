@@ -4,6 +4,8 @@ description: This document covers how to visualize data gathered via Instrumenta
 topics:
     - appliance
     - instrumentation
+contentType: how
+useCase: appliance
 ---
 
 # PSaaS Appliance: How to Visualize Your Data

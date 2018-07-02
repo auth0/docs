@@ -4,6 +4,11 @@ topics:
     - support
     - data
     - data-export
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Moving out of Auth0

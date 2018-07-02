@@ -4,6 +4,9 @@ description: The GitLab Deployments extension allows you to deploy Rules, Hosted
 topics:
   - extensions
   - gitlab-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # GitLab Deployments

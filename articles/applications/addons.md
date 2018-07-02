@@ -3,6 +3,10 @@ description: Explains what Add-ons are and how they are associated with Auth0 Ap
 topics:
   - applications
   - add-ons
+contentType: reference
+useCase:
+  - build-an-app
+  - integrate-third-party-apps
 ---
 
 # Application Add-ons

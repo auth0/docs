@@ -7,6 +7,11 @@ topics:
     - api-auth
     - authorization-code
     - implicit-grant
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # SPA + API: API and SPA Configuration

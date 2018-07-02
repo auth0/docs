@@ -4,6 +4,12 @@ description: Overview of scopes.
 toc: true
 topics:
   - scopes
+contentType:
+  - reference
+  - concept
+  - index
+useCase:
+  - development
 ---
 
 # Scopes
