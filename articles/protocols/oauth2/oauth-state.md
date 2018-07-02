@@ -15,17 +15,17 @@ useCase:
 
 # State Parameter
 
-Authorization protocols provide a `state` parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) will return this parameter unchanged in the response.
+Authorization protocols provide a **state** parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) will return this parameter unchanged in the response.
 
 Your application can use this parameter in order to:
 
-- Make sure that the response belongs to a request that was initiated by the same user. Therefore, `state` helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+- Make sure that the response belongs to a request that was initiated by the same user. Therefore, **state** helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-- Restore the previous state of the application. For example, you can retrieve the URL that the user intended to reach before the application decided that it needed to issue an authorization request. Store this value locally, authenticate the user, retrieve the value once you get the callback from Auth0, and then redirect the user there. How you store that value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format)).
+- Restore the previous state of your application.
 
 ## Format
 
-For the most basic cases the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
+For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
 
 This field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded JSON object that can hold multiple values, [such as a return URL](/tutorials/redirecting-users).
 
@@ -53,7 +53,7 @@ xyzABC123
 auth0-authorize = xyzABC123
 ```
 
-3. Encode this value and set it as the `state` parameter in the request.
+3. Encode this value and set it as the **state** parameter in the request.
 
 ```js
 // Encode the String
@@ -61,13 +61,13 @@ var encodedString = Base64.encode(string);
 tenant.auth0.com/authorize?...&state=encodedString
 ```
 
-4. After the request is sent, the user is redirected back to the application by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
+4. After the request is sent, the user is redirected back to the application by Auth0. The **state** value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```text
 /login/callback?...&state=encodedString
 ```
 
-5.  Decode the returned `state` value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
+5.  Decode the returned **state** value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
 
 ```js
 // Decode the String
@@ -96,7 +96,9 @@ How you store the URL value depends on your application's type. It can be local 
 
 ## How to get the parameter value in a rule
 
-Accessing the `state` parameter value within a rule depends on the type of connection used; either in the body of the request or in the query string. You can obtain it using the following:
+You can access the **state** parameter value within a [rule](/rules). How you can get this value, depends on the type of connection used; either from the body of the request or from the query string. 
+
+You can obtain it using the following:
 
 ```js
 var state = context.request.query.state || context.request.body.state;
