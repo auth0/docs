@@ -6,6 +6,7 @@ topics:
     - disaster-recovery
 contentType: concept
 useCase: appliance
+applianceId: appliance56
 ---
 
 # PSaaS Appliance: Disaster Recovery

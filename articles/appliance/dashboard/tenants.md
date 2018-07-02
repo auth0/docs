@@ -7,6 +7,7 @@ topics:
     - tenants
 contentType: reference
 useCase: appliance
+applianceId: appliance25
 ---
 
 # PSaaS Appliance Dashboard: Tenants

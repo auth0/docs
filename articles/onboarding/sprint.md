@@ -8,6 +8,7 @@ contentType:
   - concept
 useCase:
   - appliance
+applianceId: appliance67
 ---
 # Auth0 Sprint Onboarding
 

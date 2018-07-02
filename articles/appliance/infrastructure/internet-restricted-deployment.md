@@ -3,6 +3,7 @@ title: Internet-Restricted PSaaS Appliance Deployments
 description: Operating the PSaaS Appliance in an Internet-Restricted Environment
 contentType: reference
 useCase: appliance
+applianceId: appliance37
 ---
 # PSaaS Appliace Deployments with Limited Internet Connectivity
 

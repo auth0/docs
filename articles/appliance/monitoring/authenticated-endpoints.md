@@ -7,6 +7,7 @@ topics:
     - testing
 contentType: how-to
 useCase: appliance
+applianceId: appliance47
 ---
 
 # PSaaS Appliance: Using Authenticated Testing Endpoints

@@ -9,6 +9,7 @@ contentType:
     - how-to
     - concept
 useCase: appliance
+applianceId: appliance54
 ---
 
 # Critical Support Issue Guidance for Appliance Customers

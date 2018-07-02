@@ -7,6 +7,7 @@ topics:
     - oss
 contentType: concept
 useCase: appliance
+applianceId: appliance22
 ---
 
 # OSS Components

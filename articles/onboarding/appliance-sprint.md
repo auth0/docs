@@ -9,6 +9,7 @@ contentType:
   - concept
 useCase:
   - appliance
+applianceId: appliance64
 ---
 
 # PSaaS Appliance Deployment Project

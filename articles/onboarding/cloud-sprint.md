@@ -8,6 +8,7 @@ contentType:
   - concept
 useCase:
   - appliance
+applianceId: appliance65
 ---
 
 # Cloud Sprint

@@ -6,6 +6,7 @@ topics:
     - time-sync
 contentType: how-to
 useCase: appliance
+applianceId: appliance53
 ---
 # Time Synchronization
 

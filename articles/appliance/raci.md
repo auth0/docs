@@ -6,6 +6,7 @@ topics:
     - raci
 contentType: reference
 useCase: appliance
+applianceId: appliance62
 ---
 
 # PSaaS Appliance: Roles and Responsibilities

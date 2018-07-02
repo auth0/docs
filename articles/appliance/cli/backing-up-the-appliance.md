@@ -8,6 +8,7 @@ topics:
     - backups
 contentType: how-to
 useCase: appliance
+applianceId: appliance12
 ---
 
 # How to Back Up the PSaaS Appliance Using the CLI

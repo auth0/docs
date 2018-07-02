@@ -9,6 +9,7 @@ contentType:
     - concept
     - how-to
 useCase: appliance
+applianceId: appliance58
 ---
 
 # PSaaS Appliance: Extensions

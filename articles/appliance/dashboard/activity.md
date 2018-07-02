@@ -6,6 +6,7 @@ topics:
     - dashboard
 contentType: concept
 useCase: appliance
+applianceId: appliance17
 ---
 
 # PSaaS Appliance Dashboard: Activity
