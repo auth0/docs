@@ -245,8 +245,6 @@ social Connections from working properly.
 
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 
-* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
-
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
 
 * **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
