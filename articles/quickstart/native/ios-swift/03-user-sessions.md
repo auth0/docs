@@ -13,10 +13,6 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-## Before You Start
-
-Before you continue with this tutorial, make sure that you have integrated the Auth0 library into your project. If you have not, follow the [Login](/quickstart/native/ios-swift/00-login) tutorial.
-
 ## Credentials Manager
 
 This guide shows you how to use the credentials manager to store and Refresh Tokens. 
@@ -62,7 +58,7 @@ Auth0
 }
 ```
 
-## Check for Credentials When the User Opens Your Application
+### Check for Credentials When the User Opens Your Application
 
 When the user opens your application, check for valid credentials. If they exist, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
@@ -97,7 +93,7 @@ credentialsManager.credentials { error, credentials in
 
 If the credentials have expired, the credentials manager will automatically renew them for you with the Refresh Token.
 
-## Clear the Keychain When the User Logs Out
+### Clear the Keychain When the User Logs Out
 
 When you need to log the user out, remove their credentials from the keychain:
 
@@ -107,7 +103,7 @@ When you need to log the user out, remove their credentials from the keychain:
 credentialsManager.clear()
 ```
 
-## Get the User Profile
+## Retrieve the User Profile
 
 To get the user's profile, you need a valid Access Token. You can find the token in the `credentials` object returned by the credentials manager.
 
@@ -133,9 +129,7 @@ Auth0
     }
 ```
 
-## Show the User Profile Information
-
-### Default information
+### User Profile Information
 
 To show the information contained in the user profile, access its properties, for example:
 
