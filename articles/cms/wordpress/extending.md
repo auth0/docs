@@ -381,7 +381,7 @@ Use this filter to modify the cookie name used for [state validation](https://au
 
 > A <cookie-name> can be any US-ASCII characters except control characters (CTLs), spaces, or tabs. It also must not contain a separator character like the following: ( ) < > @ , ; : \ " /  [ ] ? = { }.
 
-[From MDN's Set-Cookie doc](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
+Read more about the `Set-Cookie` HTTP response header at the [MDN's Set-Cookie documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie).
 
 ```php
 /**
