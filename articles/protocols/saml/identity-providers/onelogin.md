@@ -1,6 +1,7 @@
 ---
 title: OneLogin
 description: How to configure OneLogin as an identity provider.
+toc: true
 topics:
     - saml
     - identity-providers
@@ -53,13 +54,19 @@ The information here is what the OneLogin admin needs to finish the configuratio
 * **SAML Consumer URL**: `https://${account.namespace}/login/callback`
 * **SAML Audience**: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 
-Copy the values of the **post-back URL** and the **Entity ID**, and head back to your [OneLogin](https://www.onelogin.com/) app. At the **Configuration** tab, copy the **post-back URL** on the **ACS (Consumer) URL** input and the **Recipient** input, the **Entity ID** on the **Audience** input, and set a valid regular expression on the **ACS (Consumer) URL Validator** input (such as  `[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`).
+Copy the values of the **post-back URL** and the **Entity ID**, and head back to your [OneLogin](https://www.onelogin.com/) app.
+
+At the **Configuration** tab:
+
+- Copy the **post-back URL** on the **ACS (Consumer) URL** input and the **Recipient** input
+- Copy the **Entity ID** on the **Audience** input
+- Set a valid regular expression on the **ACS (Consumer) URL Validator** input (for example, `[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`)
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-set-values.png)
 
 ## Testing
 
-If you do not already have a user on OneLogin, go to the **Users** tab and add one. Also, your new Auth0 SAMLP connection should be associated with an App, otherwise you will get an `invalid_request: the connection was disabled` error.
+If you do not already have a user on OneLogin, go to the **Users** tab and add one. Also, your new Auth0 SAMLP connection should be associated with an app, otherwise you will get an `invalid_request: the connection was disabled` error.
 
 We are now set to test the connection! On your **SAMLP Identity Provider** connection, click the **Try** button.
 
@@ -91,7 +98,7 @@ Also, you have to pick the application to redirect after the SAML assertion is c
 
 ## Edit connection mappings
 
-If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin and being created in the Auth0 dashboard will be missing some information. Go to [Auth0 dashboard > Users](${manage_url}/#/users) and check your login. It should look like this:
+If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin and being created in the Auth0 dashboard will be missing some information. Go to [Dashboard > Users](${manage_url}/#/users) and check your login. It should look like this:
 
 ![](/media/articles/saml/identity-providers/onelogin/user-without-mappings.png)
 
@@ -111,7 +118,7 @@ Go to the __Settings__ of your [SAMLP Identity Provider](${manage_url}/#/connect
 
 ![](/media/articles/saml/identity-providers/onelogin/edit-mappings.png)
 
-Save your changes, and try your connection again. Once you have successfully logged in, go to [Auth0 dashboard > Users](${manage_url}/#/users), and check your login. It should look like this:
+Save your changes, and try your connection again. Once you have successfully logged in, go to [Dashboard > Users](${manage_url}/#/users), and check your login. It should look like this:
 
 ![](/media/articles/saml/identity-providers/onelogin/user-with-mappings.png)
 
