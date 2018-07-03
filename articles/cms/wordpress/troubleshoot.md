@@ -14,26 +14,26 @@ useCase:
 
 # WordPress Troubleshooting
 
-Below, we've collected some of the common troubleshooting questions we encounter. If the questions below do not solve your issue ... 
+In this page, we have collected some of the common troubleshooting questions we encounter. If the questions below do not solve your issue, then consider the following alternatives:
 
 * If you're setting up the plugin for the first time or having issues with users logging in, please review the [configuration](/cms/wordpress/configuration) page in this section.
 * If you found a bug in the plugin code [submit an issue](https://github.com/auth0/wp-auth0/issues) or [create a pull request](https://github.com/auth0/wp-auth0/pulls) on GitHub.
 * If you have questions about how to use Auth0 or the plugin, please [post on our community site](https://community.auth0.com/) or create a [support forum request here](https://wordpress.org/support/plugin/auth0).
 * You can also see additional documentation and answers on our [support site](https://support.auth0.com/). Customers on a paid Auth0 plan can [submit a trouble ticket](https://support.auth0.com/tickets) for a fast response.
 
-### I'm seeing the error message "Invalid state" that prevents me from logging in.
+### I'm seeing the error message "Invalid state" that prevents me from logging in
 
 State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This error message is usually caused by a cached callback URL (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide on GitHub](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/blob/master/README.md). 
 
-### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in.
+### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
 This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to what time is being used. 
 
-### I'm seeing the error message "This account does not have an email associated..." that prevents me from logging in.
+### I'm seeing the error message "This account does not have an email associated..." that prevents me from logging in
 
 If you get this error, make sure you are requesting an email from each provider in the Auth0 Dashboard under Connections -> Social (expand each provider). Take into account that not all providers return email addresses for users (e.g. Twitter). If this happens, you can always add an Email address to any logged in user through the Auth0 Dashboard (or API). See Users -> Edit.
 
-### I'm seeing the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in.
+### I'm seeing the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
@@ -43,13 +43,13 @@ Passwordless login is possible any Auth0-enabled website using email or SMS. To 
 
 1. Turn on "Passwordless Login" from the plugin settings' **Features** tab and save
 2. In your Auth0 dashboard, go to **[Connections > Passwordless](${manage_url}/#/connections/passwordless)**
-	1. To use email, turn on the **Email** connection and modify the settings, if desired. This will turn on email code login (users are emailed a code which is then typed into the login form on your site). 
-	2. To use a "magic link" (emailed link will automatically log users in), add `{passwordlessMethod: 'code'}` to the "Extra Settings" field in the plugin settings' **Advanced** tab. 
-	3. To use SMS login, turn on the **SMS** connection and follow the steps to setup a Twilio developer account (this will require a paid Twilio account depending on usage). 
+  - To use email, turn on the **Email** connection and modify the settings, if desired. This will turn on email code login (users are emailed a code which is then typed into the login form on your site). 
+  - To use a "magic link" (emailed link will automatically log users in), add `{passwordlessMethod: 'code'}` to the "Extra Settings" field in the plugin settings' **Advanced** tab. 
+  - To use SMS login, turn on the **SMS** connection and follow the steps to setup a Twilio developer account (this will require a paid Twilio account depending on usage). 
 
-The Auth0 login form will select a Passwordless method depending on which connection is activated above. If you have both connections active, it will default to email. In this case, either turn off the email connection to show SMS or add `sms` to the "Connections" field in the plugin settings' **Advanced** tab
+The Auth0 login form will select a Passwordless method depending on which connection is activated above. If you have both connections active, it will default to email. In this case, either turn off the email connection to show SMS or add `sms` to the **Connections** field in the plugin settings' **Advanced** tab.
 
-### I have two accounts for the same user in WordPress.
+### I have two accounts for the same user in WordPress
 
 Under some situations, you may end up with a user with two accounts. WordPress allows you to merge users by deleting one of the accounts and attributing that account's content to another user. Go to wp-admin > Users, select the account you want to delete, and in the confirmation dialog select another user to transfer the content.
 
@@ -65,11 +65,11 @@ The plugin provides an error log where you can check what has happened. Access i
 
 You can use the widget `Extra configuration` setting (or the `extra_conf` attribute in the shortcode) and add this json `{"mode":"signup" }` that will force the plugin to be shown in this mode.
 
-### When using a plugin to force the login, the user is not logged in.
+### When using a plugin to force the login, the user is not logged in
 
 This is typically caused by a cached page after login. Check with your host for strategies to mitigate this or try adding a cache-busting parameter to the URL ([see this Gist for instructions](https://gist.github.com/joshcanhelp/e3eb693749f0fe66aad097c3bbb3b415)).
 
-#### The user is not logged in when using the "Force Login" plugin.
+#### The user is not logged in when using the "Force Login" plugin
 
 This is because the callback URL has not been whitelisted. Try adding this code to the `my_forcelogin_whitelist` filter:
 
@@ -137,7 +137,7 @@ The Auth0 plugin does not handle sessions, it uses the WordPress settings. By de
 
 ### How do I implement a refresh token? 
 
-We implemented additional parameters in the login methods used by the plugin to allow for refresh tokens. Use the [`auth0_auth_scope`](https://auth0.com/docs/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](https://auth0.com/docs/cms/wordpress/extending#auth0_user_login) action to accomplish this. 
+We implemented additional parameters in the login methods used by the plugin to allow for refresh tokens. Use the [`auth0_auth_scope`](/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](/cms/wordpress/extending#auth0_user_login) action to accomplish this. 
 
 ### Profile data saved in WordPress is not being synced to the Auth0 user account. 
 
