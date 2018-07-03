@@ -16,8 +16,6 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 
  - If a user enters their password incorrectly more than 10 times from a single IP address, they will be blocked from logging into that account from that IP address. Auth0 will send an email containing a link to unblock the user to the owner of the database account. This the [Brute Force Protection](/anomaly-detection#brute-force-protection) shield as part of Auth0's Anomaly Detection.
 
- - Depending on if the [2nd Level Brute Force Protection](/anomaly-detection#2nd-level-brute-force-protection) shield is enabled, users may also be blocked they attempt 100 failed login attempts from a single IP address using different usernames and incorrect passwords in 24 hours. This shield also blocks 50 sign up attempts per minute from the same IP address.
-
  - A user cannot login more than 5 times per minute as the same user from the same location, regardless of having the correct credentials. This limit does not apply if the frequent requests are from different users.
 
 ## Unblocking a User
