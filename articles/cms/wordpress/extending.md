@@ -371,6 +371,33 @@ function auth0_theme_hook_auth0_auth_scope( $scopes ) {
 add_filter( 'auth0_auth_scope', 'auth0_theme_hook_auth0_auth_scope' );
 ```
 
+### auth0_nonce_cookie_name
+
+Use this filter to modify the cookie name used for nonce validation. See the `auth0_state_cookie_name` filter below for an example.
+
+### auth0_state_cookie_name
+
+Use this filter to modify the cookie name used for [state validation](https://auth0.com/docs/protocols/oauth2/oauth-state). This can add a prefix or suffix or replace the name entirely. Make sure to use valid characters in any modifications made:
+
+> A `<cookie-name>` can be any US-ASCII characters except control characters (CTLs), spaces, or tabs. It also must not contain a separator character like the following: ( ) < > @ , ; : \ " /  [ ] ? = { }.
+
+Read more about the `Set-Cookie` HTTP response header at the [MDN's Set-Cookie documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie).
+
+```php
+/**
+ * Prefix state and nonce cookie names.
+ *
+ * @param string $cookie_name - Cookie name to modify.
+ *
+ * @return string
+ */
+function auth0_theme_hook_prefix_cookie_name( $cookie_name ) {
+	return 'prefix_' . $cookie_name;
+}
+add_filter( 'auth0_state_cookie_name', 'auth0_theme_hook_prefix_cookie_name' );
+add_filter( 'auth0_nonce_cookie_name', 'auth0_theme_hook_prefix_cookie_name' );
+```
+
 ## Additional Extensions
 
 Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php).
