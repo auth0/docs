@@ -11,6 +11,8 @@ useCase: invoke-api
 
 # Auth0 Management API Reference
 
+<%= include('../../../_includes/_version_warning_api') %>
+
 ### API endpoint
 
 ```text
