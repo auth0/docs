@@ -1,5 +1,6 @@
 ---
 description: This page explains common troubleshooting issues with the Login by Auth0 WordPress plugin.
+toc: true
 topics:
     - wordpress
     - cms
