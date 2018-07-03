@@ -2,6 +2,7 @@
 section: appliance
 classes: topic-page
 title: Customer-Hosted PSaaS Appliance
+applianceId: appliance74
 ---
 
 <div class="topic-page-header">
