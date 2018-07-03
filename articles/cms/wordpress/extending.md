@@ -379,7 +379,7 @@ Use this filter to modify the cookie name used for nonce validation. See the `au
 
 Use this filter to modify the cookie name used for [state validation](https://auth0.com/docs/protocols/oauth2/oauth-state). This can add a prefix or suffix or replace the name entirely. Make sure to use valid characters in any modifications made:
 
-> A <cookie-name> can be any US-ASCII characters except control characters (CTLs), spaces, or tabs. It also must not contain a separator character like the following: ( ) < > @ , ; : \ " /  [ ] ? = { }.
+> A `<cookie-name>` can be any US-ASCII characters except control characters (CTLs), spaces, or tabs. It also must not contain a separator character like the following: ( ) < > @ , ; : \ " /  [ ] ? = { }.
 
 Read more about the `Set-Cookie` HTTP response header at the [MDN's Set-Cookie documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie).
 
