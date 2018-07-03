@@ -12,6 +12,7 @@ useCase: invoke-api
 # Management API v1 (deprecated)
 
 <%= include('../../../_includes/_version_warning_api') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ## Authentication
 
