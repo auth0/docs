@@ -30,6 +30,6 @@ Choose your **SMS Source**.
 
 * If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio.
 
-* If you choose **Use Copilot **, you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+* If you choose **Use Copilot**, you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
 
 Click **SAVE**.
