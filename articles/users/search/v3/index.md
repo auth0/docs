@@ -89,7 +89,7 @@ Search for all users with logins count > 100 and < 200 | `logins_count:{100 TO 2
 
 ## Sort results
 
-To sort user search results, pass a `field:order` value to the `sort` parameter when making your request. The `field` is the name of the field to sort by, while order can be set to `1` for ascending order and `-1` for descending.
+To sort user search results, pass a `field:order` value to the `sort` parameter when making your request. The `field` is the name of the field to sort by, while order can be set to `1` for ascending order and `-1` for descending. Sorting by `app_metadata` or `user_metadata` is not supported.
 
 For example, to sort users in ascending order by the `created_at` field you can pass the value `created_at:1` to the `sort` parameter:
 
