@@ -204,7 +204,7 @@ Set the following in `app/resources/views/default/index.html.twig`
 
 ## Logout
 
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
+To log the user out, you have to clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
 
 Add this to your `src/AppBundle/Controller/DefaultController.php`.
 
@@ -223,15 +223,18 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $returnTo = sprintf('%s://%s:%s/auth0/logout',
+        $port = $this->container->get('router')->getContext()->getHttpPort();
+        $port == "" ? : $port = ':'.$port;
+        $returnTo = sprintf('%s://%s%s/auth0/logout',
             $this->container->get('router')->getContext()->getScheme(),
             $this->container->get('router')->getContext()->getHost(),
-            $this->container->get('router')->getContext()->getHttpPort());
+            $port);
         $logoutUrl = sprintf(
             'https://%s/v2/logout?client_id=%s&returnTo=%s',
             '${account.namespace}',
             '${account.clientId}',
-            $returnTo);
+            $returnTo
+        );
         return $this->render('default/index.html.twig', array(
             'logoutUrl' => $logoutUrl
         ));
@@ -240,5 +243,5 @@ class DefaultController extends Controller
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
+The return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
