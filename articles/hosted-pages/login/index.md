@@ -90,7 +90,7 @@ Remember that the login page customizations are per **tenant** rather than per a
 Customizations may alter the general user interface look and feel and behavior, but should not try to alter authorization parameters (like `clientID`, `callbackURL`, `state` and so on). 
 Authorization parameters are passed through the `@@config@@` placeholder. Make sure your code decodes these values and uses the parameters provided in the `config` object (including `config.internalOptions`) to initialize Lock or Auth0.js as shown in the default templates.
 
-#### When using Lock v11:
+#### When using Lock v11
 
 ```js
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
@@ -106,7 +106,7 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   [...] 
 ```
 
-#### When using Auth0.js v9:
+#### When using Auth0.js v9
 
 ```js
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
