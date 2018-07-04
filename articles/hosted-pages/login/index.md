@@ -83,7 +83,44 @@ In order to get started customizing the login page, you'll first want to choose 
 
 You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the application or connection. Remember that the login page customizations are per **tenant** rather than per application. When necessary, you can provide different pages to different applications via a method discussed later in this document.
+Remember that the login page customizations are per **tenant** rather than per application, so all changes to the page's appearance and/or behavior will apply to **all** login actions. When necessary, you can provide different pages to different applications via a method discussed later in this document.
+
+### 4. Authorization parameters
+
+Customizations may alter the general user interface look and feel and behavior, but should not try to alter authorization parameters (like `clientID`, `callbackURL`, `state` and so on). 
+Authorization parameters are passed through the `@@config@@` placeholder. Make sure your code decodes these values and uses the parameters provided in the `config` object (including `config.internalOptions`) to initialize Lock or Auth0.js as shown in the default templates.
+
+#### When using Lock v11
+
+```js
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
+var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+  auth: {
+    redirectUrl: config.callbackURL,
+    responseType: (config.internalOptions || {}).response_type ||
+      (config.callbackOnLocationHash ? 'token' : 'code'),
+    params: config.internalOptions
+  },
+  assetsUrl:  config.assetsUrl,
+  [...] 
+```
+
+#### When using Auth0.js v9
+
+```js
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
+var params = Object.assign({
+  domain: config.auth0Domain,
+  clientID: config.clientID,
+  redirectUri: config.callbackURL,
+  responseType: 'code'
+}, config.internalOptions);
+
+var webAuth = new auth0.WebAuth(params);
+[...]
+```
 
 ::: panel-warning Customization and deprecation notes
 By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, your tenant logs will show deprecation notes (`Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.`). Additionally, after **July 16, 2018**, the application will no longer work until the login page customizations are fixed.
