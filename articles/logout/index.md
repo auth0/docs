@@ -144,39 +144,6 @@ https://${account.namespace}/v2/logout?federated&
       &access_token=[facebook access_token]
 ```
 
-### Supported providers
-
-Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#logout) with the following providers:
-
-- AOL
-- Auth0
-    - AD/LDAP
-- Custom (Passport/WS-Fed/SAML)
-- Facebook
-- FitBit
-- GitHub
-- Google
-    - Apps
-    - OAuth2
-- LinkedIn
-- Microsoft
-    - Active Directory (AD)
-    - Active Directory Federation Services (ADFS)
-    - Office 365
-    - Windows Live
-- OAuth
-    - 1.0
-    - 2.0
-- Salesforce
-    - Salesforce Community
-    - Salesforce Sandbox
-- Samlp
-- Twitter
-- Waad
-- WS-Fed
-- Yahoo
-- Yammer
-
 ## SAML Logout
 
 SAML logout is configured differently depending on whether Auth0 acts as the Service Provider (i.e. when you create a SAML **connection**) or when Auth0 acts as the Identity Provider (i.e. when you have an application with the SAML2 Web App addon).
