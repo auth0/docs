@@ -2,6 +2,12 @@
 title: User-Initiated Multifactor Authentication (MFA)
 description: How to set up user-initiated multifactor authentication
 toc: true
+topics:
+    - mfa
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # User-Initiated Multifactor Authentication
 
@@ -29,7 +35,7 @@ To help you get started, you'll see a template you can modify. Additional templa
 
 As an example, the follow code snippet calls for MFA when:
 
-* The client specified is used
+* The application specified is used
 * The user's `app_metadata` has a `use_mfa` flag set to `true`
 
 Finally, if the two parameters above are met, MFA occurs every login.
@@ -37,7 +43,7 @@ Finally, if the two parameters above are met, MFA occurs every login.
 ```js
 function (user, context, callback) {
 
-    // run only for the specified clients
+    // run only for the specified applications
     var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
     
     if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {

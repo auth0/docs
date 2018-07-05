@@ -1,6 +1,13 @@
 ---
 title: Enabling API Access to the Authorization Extension
 description: How to enable API access to the Authorization Extension
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Authorization Extension: API Access
 
@@ -24,23 +31,23 @@ Once enabled, you'll be able to see or control (within the extension) some of th
 
 ## Access the Extension's API
 
-When you enabled API access to the extension, Auth0 automatically created an API for your use in the [Dashboard]({$manage_url}/#/apis). To access the API, you'll need to create a Non Interactive Client, which is the entity that interacts with the API itself.
+When you enabled API access to the extension, Auth0 automatically created an API for your use in the [Dashboard]({$manage_url}/#/apis). To access the API, you'll need to create a Machine to Machine Application, which is the entity that interacts with the API itself.
 
-### Create the Client
+### Create the Application
 
-In the [Clients section of the Dashboard](${manage_url}/#/clients), click **Create Client**. Name your new Client, and choose the **Non Interactive Client** type. Click **Create** to proceed.
+In the [Applications section of the Dashboard](${manage_url}/#/applications), click **Create Application**. Name your new Application, and choose the **Machine to Machine Application** type. Click **Create** to proceed.
 
-You'll be redirected to the **Quick Start** page of the Client, where you can customize the living documentation based on the API with which you'll use the Client. Select the API that Auth0 created for your extension (it should be called **auth0-authorization-extension-api** or similar).
+You'll be redirected to the **Quick Start** page of the Application, where you can customize the living documentation based on the API with which you'll use the Application. Select the API that Auth0 created for your extension (it should be called **auth0-authorization-extension-api** or similar).
 
-Since this is the first time you're working with the API and Client together, you'll see a message that says, "This client is not authorized for this API." To authorize the client for use with the API, click **Navigate to the API and Authorize**.
+Since this is the first time you're working with the API and Application together, you'll see a message that says, "This application is not authorized for this API." To authorize the application for use with the API, click **Navigate to the API and Authorize**.
 
-![Client Quick Start Page](/media/articles/extensions/authorization/client-quick-start.png)
+![Application Quick Start Page](/media/articles/extensions/authorization/client-quick-start.png)
 
-You'll see a list of Non Interactive Clients you can use with your API. Click the slider next to the Client you just created to authorize it.
+You'll see a list of Machine to Machine Applications you can use with your API. Click the slider next to the Application you just created to authorize it.
 
-![Authorize Client](/media/articles/extensions/authorization/clients-for-api.png)
+![Authorize Application](/media/articles/extensions/authorization/clients-for-api.png)
 
-Once you've authorized the Client, you'll see the **Grant ID**. You can also select the **Scopes** to be granted to the Client. The scopes you grant depends on the endpoints you want to access. For example, you'd grant `read:users` to [get all users](hapi/authorization-extension#get-all-users).
+Once you've authorized the Application, you'll see the **Grant ID**. You can also select the **Scopes** to be granted to the Application. The scopes you grant depends on the endpoints you want to access. For example, you'd grant `read:users` to [get all users](hapi/authorization-extension#get-all-users).
 
 If you make any changes to the scopes, click **Update** to save.
 

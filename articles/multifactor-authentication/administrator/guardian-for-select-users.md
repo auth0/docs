@@ -1,11 +1,18 @@
 ---
 description: Guardian for Select Users
+topics:
+  - mfa
+  - guardian
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Customize MFA for Select Users
 
-Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that allows advanced configuration of Guardian's behavior via [Rules](/rules). One option is to apply Guardian authentication only to a subset of your clients.
+Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that allows advanced configuration of Guardian's behavior via [Rules](/rules). One option is to apply Guardian authentication only to a subset of your applications.
 
-By default, Auth0 enables Guardian for all clients.
+By default, Auth0 enables Guardian for all applications.
 
 ```js
 function (user, context, callback) {

@@ -1,6 +1,13 @@
 ---
 description: How to Set up an Auth0 SAML Connection Against ADFS
 toc: true
+topics:
+  - saml
+  - adfs
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # ADFS SAML Connection
@@ -166,7 +173,7 @@ You can add additional claims mappings if necessary; for assistance on which LDA
 Before you can test your Auth0-ADFS integration, you'll need to make sure that you've completed the following steps:
 
 1. [Create a user](/tutorials/creating-users-in-the-management-portal) for your newly-created Connection.
-2. [Enable your Connection](/clients/connections) for at least one Client.
+2. [Enable your Connection](/applications/connections) for at least one Application.
 
 To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.
 

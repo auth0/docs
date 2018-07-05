@@ -2,8 +2,6 @@
 
 ## Get Token Info
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/tokeninfo
 Content-Type: application/json
@@ -81,7 +79,7 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `id_token` <br/><span class="label label-danger">Required</span> | The `id_token` to use. |
+| `id_token` <br/><span class="label label-danger">Required</span> | The ID Token to use. |
 
 ### Test with Postman
 

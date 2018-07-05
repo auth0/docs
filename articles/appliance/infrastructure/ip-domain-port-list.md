@@ -1,11 +1,20 @@
 ---
 description: PSaaS Appliance infrastructure information about IP/Domain and Port Usage
 section: appliance
+topics:
+    - appliance
+    - infrastructure
+    - ip-addressses
+    - domains
+    - ports
+contentType: reference
+useCase: appliance
+applianceId: appliance38
 ---
 
 <!-- markdownlint-disable MD033 -->
 
-# PSaaS Appliance Infrastructure: IP/Domain and Port List
+# PSaaS Appliance Infrastructure Requirements: IP/Domain and Port List
 
 The PSaaS Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
@@ -53,6 +62,18 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>Yes</td>
     <td>Required for logging and debugging</td>
   </tr>
+  <tr>
+    <td>9200, 9300-9400</td>
+    <td>Elastic Search</td>
+    <td>Yes</td>
+    <td>Required for Elastic Search</td>
+  </tr> 
+   <tr>
+    <td>3000</td>
+    <td>Grafana instrumentation</td>
+    <td>No</td>
+    <td>Required if you are using Grafana instrumentation</td>
+  </tr>  
   <tr>
     <td>22</td>
     <td>Maintenance</td>
@@ -103,7 +124,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
   <tr>
     <td>Command Line Interface</td>
     <td>Inbound <b>and</b> Outbound</td>
-    <td>CLI Clients (often on the internal network)</td>
+    <td>CLI Applications (often on the internal network)</td>
     <td>10121</td>
     <td>Allows use of the PSaaS Appliance Command Line Interface</td>
     <td>No</td>
@@ -125,11 +146,11 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Web extensions</td>
+    <td>Web extensions, Hooks, and Management Dashboard</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions; also required for admins to browse to the Management Dashboard</td>
+    <td>Required to run web extensions and Hooks; also required for admins to browse to the Management Dashboard</td>
     <td>Yes</td>
   </tr>
   <tr>

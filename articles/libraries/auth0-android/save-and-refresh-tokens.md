@@ -2,6 +2,12 @@
 section: libraries
 description: Keeping your user logged in with Auth0.Android
 toc: true
+topics:
+  - libraries
+  - android
+  - tokens
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Saving and Renewing Tokens
 

@@ -2,8 +2,6 @@
 
 ## Get User Info
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/userinfo
 Authorization: 'Bearer {ACCESS_TOKEN}'
@@ -20,20 +18,20 @@ curl --request GET \
 // Script uses auth0.js. See Remarks for details.
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  // Initialize the Auth0 client
+  // Initialize the Auth0 application
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Parse the URL and extract the access_token
+
+  // Parse the URL and extract the Access Token
   webAuth.parseHash(window.location.hash, function(err, authResult) {
     if (err) {
       return console.log(err);
     }
     webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-        // This method will make a request to the /userinfo endpoint 
-        // and return the user object, which contains the user's information, 
+        // This method will make a request to the /userinfo endpoint
+        // and return the user object, which contains the user's information,
         // similar to the response below.
     });
   });
@@ -65,13 +63,13 @@ curl --request GET \
 
 Given the Auth0 [Access Token](/tokens/access-token) obtained during login, this endpoint returns a user's profile.
 
-This endpoint will work only if `openid` was granted as a scope for the `access_token`.
+This endpoint will work only if `openid` was granted as a scope for the Access Token.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 `access_token` obtained during login. |
+| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 Access Token obtained during login. |
 
 ### Test with Postman
 

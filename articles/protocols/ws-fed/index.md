@@ -1,19 +1,26 @@
 ---
 description: The WS-Federation protocol and how it is used in Auth0.
+topics:
+  - saml
+  - ws-federation
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # WS-Federation
 
-WS-Federation (which is short for Web Services Federation) is a protocol that can be used to negotiate the issuance of a token. You can use this protocol for your client applications (such as a Windows Identity Foundation-based app) and for identity providers (such as Active Directory Federation Services or Azure AppFabric Access Control Service).
+WS-Federation (which is short for Web Services Federation) is a protocol that can be used to negotiate the issuance of a token. You can use this protocol for your applications (such as a Windows Identity Foundation-based app) and for identity providers (such as Active Directory Federation Services or Azure AppFabric Access Control Service).
 
-## For Client Applications
+## For Applications (Clients)
 
-By registering your application as a [client](/client) in Auth0, it will automatically be assigned a WS-Fed endpoint of the form:
+By registering your application as an [application](/applications) in Auth0, it will automatically be assigned a WS-Fed endpoint of the form:
 
 ```text
 https://${account.namespace}/wsfed/${account.clientId}
 ```
 
-You can find all available options for configuring WS-Federation under the [advanced settings](${manage_url}/#/clients/${account.clientId}/settings) area for your client.
+You can find all available options for configuring WS-Federation under the [advanced settings](${manage_url}/#/applications/${account.clientId}/settings) area for your application.
 
 ![WS-Fed Endpoints](/media/articles/protocols/ws-fed-endpoints.png)
 
@@ -25,7 +32,7 @@ https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-0
 
 You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the SAML token, as well as other lower-level WS-Fed and SAML-P settings.
 
-When redirecting your users to your WS-Fed enpoint, you can use the following (optional) parameters:
+When redirecting your users to your WS-Fed endpoint, you can use the following (optional) parameters:
 
 * **wreply**: Callback URL
 * **wctx**: Your application's state

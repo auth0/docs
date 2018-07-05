@@ -1,6 +1,9 @@
 ---
 title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">
@@ -32,6 +35,10 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_saml-sso') %>
 </div>
 
@@ -44,7 +51,7 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_client-reg') %>
+  <%= include('./_application-reg') %>
 </div>
 
 <span data-section-label="api-authz">API Authorization</span>

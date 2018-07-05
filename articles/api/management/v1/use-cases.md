@@ -1,16 +1,21 @@
 ---
 description: This page lists the API features that are only available in Management API v1.
 section: apis
+topics:
+  - apis
+  - management-api
+contentType: reference
+useCase: invoke-api
 ---
 
 # Management API v1 Use Cases
 
-Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1.
+Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1. Otherwise, we recommend that you use the [new version](/api/v2) instead.
 
 The features only available in Management API v1 include:
 
 * [Active Directory Connector Monitoring](#active-directory-connector-monitoring)
-* [Client Users](#client-users)
+* [Application Users](#application-users)
 * [Email](#email)
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
 * [Impersonation](#impersonation)
@@ -23,9 +28,9 @@ In Management API v1, there is a `GET` endpoint that allows you to monitor the s
 
 GET `/api/connections/{AUTH0_CONNECTION}/socket`
 
-## Client Users
+## Application Users
 
-With Management API v1, after authenticating with the `client_id` and `client_secret` of an application, you can make a `GET` call to the appropriate Users endpoint to return only those users that belong to any specified client connection that is enabled for that application.
+With Management API v1, after authenticating with the `client_id` and `client_secret` of an application, you can make a `GET` call to the appropriate Users endpoint to return only those users that belong to any specified application connection that is enabled for that application.
 
 [`/api/clients/{client-id}/users`](/api/v1#!#get--api-clients--client-id--users)
 

@@ -1,23 +1,29 @@
 ---
 section: appliance
 description: How to automatically create tenants in the PSaaS Appliance
+topics:
+    - appliance
+    - tenants
+contentType: how-to
+useCase: appliance
+applianceId: appliance2
 ---
 
 # PSaaS Appliance Administration: Automatic Creation of Tenants
 
 If your business needs require you to create tenants regularly, you may automate this process in the PSaaS Appliance. For example, you might need to create one tenant for each customer or project that goes live.
 
-## Creating a Management API Client for the Root Tenant Authority
+## Creating a Management API Application for the Root Tenant Authority
 
 1. Choose the Root Tenant Authority (RTA) tenant using the drop-down menu located in the top right-hand side of the Dashboard.
 2. Go to the Applications page.
 3. Create an application called 'Tenant Provisioning.'
-4. Once you have created the 'Tenant Provisioning' client, go to the Connections tab and disable **all** Connections for this client.
+4. Once you have created the 'Tenant Provisioning' application, go to the Connections tab and disable **all** Connections for this application.
 5. Navigate to `${manage_url}/#/apis`. Click the link to open the Auth0 Management API.
-6. Go to the Non Interactive Clients tab, and enable Tenant Provisioning by moving the associated slide to the right.
-7. Create the new client grant.
+6. Go to the Machine to Machine Applications tab, and enable Tenant Provisioning by moving the associated slide to the right.
+7. Create the new application grant.
 
-### Creating the New Client Grant
+### Creating the New Application Grant
 
 1. Navigate to the [Management API Explorer](/api/management/v2#!/Client_Grants/post_client_grants) to generate the required `POST` call.
 2. Click the bubble that says **'create:client_grants'** to select that Scope.
@@ -49,9 +55,9 @@ If your business needs require you to create tenants regularly, you may automate
     }
     ```
 
-## Using the New Client grant
+## Using the New Application grant
 
-Once you have created your New Client Grant, you may use it to complete the following tasks.
+Once you have created your New Application Grant, you may use it to complete the following tasks.
 
 ### Getting an Access Token
 

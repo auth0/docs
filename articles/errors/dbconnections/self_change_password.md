@@ -1,6 +1,11 @@
 ---
 description: Error messages for the self change password API.
 public: false
+topics:
+  - errors
+  - passwords
+contentType: reference
+useCase: error-management
 ---
 # Self Change Password Errors
 

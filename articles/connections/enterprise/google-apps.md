@@ -6,11 +6,20 @@ seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - google
+    - google-apps
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your Google App with Auth0
 
-You can connect your Auth0 Client to Google Apps by providing the Google *Client ID* and *Client Secret* to Auth0.
+You can connect your Auth0 Application to Google Apps by providing the Google *Client ID* and *Client Secret* to Auth0.
 
 ## Generate the Google Client ID and Client Secret
 
@@ -56,6 +65,10 @@ Google may show an "unverified app" screen before displaying the consent screen 
 
     * **Authorized JavaScript origins:** `https://${account.namespace}`
     * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
+
+    ::: note
+    If you are using the [custom domains](/custom-domains) feature, you will need to use your custom domain in the redirect URI in the following format: `https://<YOUR_CUSTOM_DOMAIN>/login/callback`.
+    :::
 
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
@@ -109,16 +122,16 @@ Click **Save** when you're done.
 
   ![Google Apps Enterprise Connection Administrator Settings](/media/articles/connections/enterprise/google/config-settings.png)
 
-## Enable the Connection for Your Auth0 Client
+## Enable the Connection for Your Auth0 Application
 
-To use your newly-created Connection, you'll need to enable it for your Auth0 Client(s).
+To use your newly-created Connection, you'll need to enable it for your Auth0 Application(s).
 
-1. Go to the [Clients](${manage_url}/#/clients) page of the Management Dashboard.
-2. Select the Client for which you want to enable the Connection.
-3. Click the **Connections** icon for your Client.
+1. Go to the [Applications](${manage_url}/#/applications) page of the Management Dashboard.
+2. Select the Application for which you want to enable the Connection.
+3. Click the **Connections** icon for your Application.
 4. Scroll down to the *Enterprise* section of the Connections page, and find your Google Apps Connection. Click the slider to enable the Connection. If successful, the slide turns green.
 
-![Auth0 Client Connections](/media/articles/connections/enterprise/google/client-connection.png)
+![Auth0 Application Connections](/media/articles/connections/enterprise/google/client-connection.png)
 
 At this point, your users will be able to log in using their Google App credentials.
 

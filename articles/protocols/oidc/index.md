@@ -1,6 +1,14 @@
 ---
 title: OpenID Connect
 description: What is the OpenID Connect protocol and how it works
+topics:
+    - protocols
+    - oidc
+contentType:
+  - index
+  - concept
+useCase:
+  - development
 ---
 # OpenID Connect
 
@@ -21,11 +29,11 @@ Let's use the example we mentioned earlier, signing into Auth0 using your Google
 
 ## Access Tokens
 
-[Access Tokens](/tokens/access-token) are credentials that can be used by a client to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scopes that have been granted).
+[Access Tokens](/tokens/access-token) are credentials that can be used by an application to access an API. Access Tokens can be an opaque string, JWT, or non-JWT token. Its purpose is to inform the API that the bearer of this token has been granted delegated access to the API and request specific actions (as specified by the scopes that have been granted).
 
 ## ID Tokens
 
-The [ID Token](/tokens/id_token) is a [JSON Web Token (JWT)](/jwt) that contains identity data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. ID Tokens conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contain three parts: a header, a body and a signature.
+The [ID Token](/tokens/id_token) is a [JSON Web Token (JWT)](/jwt) that contains identity data. It is consumed by the application and used to get user information like the user's name, email, and so forth, typically used for UI display. ID Tokens conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contain three parts: a header, a body and a signature.
 
 ### Claims
 

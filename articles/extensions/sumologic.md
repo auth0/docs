@@ -1,5 +1,11 @@
 ---
 description: How to configure and retrieve information using the Auth0 Logs to Sumo Logic extension.
+topics:
+  - extensions
+  - sumologic
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Sumo Logic

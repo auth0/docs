@@ -21,138 +21,128 @@ articles:
       - title: Deployment Models
         url: /getting-started/deployment-models
 
-      - title: Videos
-        url: /videos
-        children:
-
-        - title: Rules
-          url: /videos/rules
-
-        - title: Session & Cookies
-          url: /videos/session-and-cookies
-
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
     children:
       - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/application/web-app-sso
+        url: /architecture-scenarios/web-app-sso
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/web-app-sso/part-1
+             url: /architecture-scenarios/web-app-sso/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/web-app-sso/part-2
+             url: /architecture-scenarios/web-app-sso/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/web-app-sso/part-3
+             url: /architecture-scenarios/web-app-sso/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/web-app-sso/part-4
+             url: /architecture-scenarios/web-app-sso/part-4
 
-      - title: Server Client + API
-        url: /architecture-scenarios/application/server-api
+      - title: Server Application + API
+        url: /architecture-scenarios/server-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/server-api/part-1
+             url: /architecture-scenarios/server-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/server-api/part-2
+             url: /architecture-scenarios/server-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/server-api/part-3
+             url: /architecture-scenarios/server-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/server-api/part-4
+             url: /architecture-scenarios/server-api/part-4
 
       - title: SPA + API
-        url: /architecture-scenarios/application/spa-api
+        url: /architecture-scenarios/spa-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/spa-api/part-1
+             url: /architecture-scenarios/spa-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/spa-api/part-2
+             url: /architecture-scenarios/spa-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/spa-api/part-3
+             url: /architecture-scenarios/spa-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/spa-api/part-4
+             url: /architecture-scenarios/spa-api/part-4
 
       - title: Mobile + API
-        url: /architecture-scenarios/application/mobile-api
+        url: /architecture-scenarios/mobile-api
         children:
            - title: Solution Overview
-             url: /architecture-scenarios/application/mobile-api/part-1
+             url: /architecture-scenarios/mobile-api/part-1
            
            - title: Configuration
-             url: /architecture-scenarios/application/mobile-api/part-2
+             url: /architecture-scenarios/mobile-api/part-2
            
            - title: Implementation
-             url: /architecture-scenarios/application/mobile-api/part-3
+             url: /architecture-scenarios/mobile-api/part-3
            
            - title: Conclusion
-             url: /architecture-scenarios/application/mobile-api/part-4
+             url: /architecture-scenarios/mobile-api/part-4
 
       # - title: SAML for Regular Web Apps
-      #   url: /architecture-scenarios/application/web-saml
+      #   url: /architecture-scenarios/web-saml
 
       # - title: B2B + B2E
-      #   url: /architecture-scenarios/business/b2b-b2e
+      #   url: /architecture-scenarios/b2b-b2e
 
       # - title: B2B
-      #   url: /architecture-scenarios/business/b2b
+      #   url: /architecture-scenarios/b2b
 
       # - title: B2C
-      #   url: /architecture-scenarios/business/b2c
+      #   url: /architecture-scenarios/b2c
 
       # - title: B2E
-      #   url: /architecture-scenarios/business/b2e 
+      #   url: /architecture-scenarios/b2e 
 
-  - title: "Clients"
-    url: "/clients"
+  - title: "Applications"
+    url: "/applications"
     children:
 
       - title: Overview
-        url: /clients
+        url: /applications
 
       - title: Connections
-        url: /clients/connections
+        url: /applications/connections
 
-      - title: Client Types
-        url: /clients/client-types
+      - title: Application Types
+        url: /applications/application-types
 
       - title: Grant Types
-        url: /clients/client-grant-types
+        url: /applications/application-grant-types
 
   - title: "Authentication"
-    url: "/client-auth/current"
+    url: "/application-auth/current"
     children:
 
       - title: "Server-side App"
-        url: "/client-auth/current/server-side-web"
+        url: "/application-auth/current/server-side-web"
       
       - title: "Client-side App"
-        url: "/client-auth/current/client-side-web"
+        url: "/application-auth/current/client-side-web"
         
       - title: "Mobile App"
-        url: "/client-auth/current/mobile-desktop"
+        url: "/application-auth/current/mobile-desktop"
       
       - title: "Legacy"
-        url: "/client-auth/legacy"
+        url: "/application-auth/legacy"
         hidden: true
         children:
           - title: "Server-side App"
-            url: "/client-auth/legacy/server-side-web"
+            url: "/application-auth/legacy/server-side-web"
             hidden: true
       
           - title: "Client-side App"
-            url: "/client-auth/legacy/client-side-web"
+            url: "/application-auth/legacy/client-side-web"
             hidden: true
         
           - title: "Mobile App"
-            url: "/client-auth/legacy/mobile-desktop"
+            url: "/application-auth/legacy/mobile-desktop"
             hidden: true
             
         
@@ -187,11 +177,11 @@ articles:
       - title: "APIs & CLIs"
         url: "/api-auth/grant/client-credentials"
 
-      - title: "APIs & Trusted Clients"
+      - title: "APIs & Trusted Applications"
         url: "/api-auth/grant/password"
 
-      - title: "Dynamic Client Registration"
-        url: "/api-auth/dynamic-client-registration"
+      - title: "Dynamic Application Registration"
+        url: "/api-auth/dynamic-application-registration"
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
@@ -229,6 +219,9 @@ articles:
 
           - title: "FAQ"
             url: "/connections/passwordless/faq"
+
+      - title: "Send extra parameters"
+        url: "/connections/pass-parameters-to-idps"
 
   - title: "Hosted Pages"
     url: "/hosted-pages"
@@ -398,11 +391,25 @@ articles:
             url: "/user-profile/user-picture"
 
       - title: "User Search"
-        url: "/users/search"
-
-      - title: "User Search v3"
         url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
+
+      - title: "User Search"
+        url: "/users/search/v2"
         hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/users/search/best-practices"
+            hidden: true
 
       - title: "User Metadata"
         url: "/metadata"
@@ -527,12 +534,32 @@ articles:
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/developer/step-up-authentication"
         children:
-          - title: "Step-up with ID Tokens"
-            url: "/multifactor-authentication/developer/mfa-from-id-token"
+          - title: "Step-up Authentication for Web Apps"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
-          - title: "Step-Up with Custom MFA Rules"
-            url: "/multifactor-authentication/custom-mfa-rules"
+          - title: "Step-up Authentication for APIs"
+            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
+            hidden: true
+
+      - title: "API"
+        url: "/multifactor-authentication/api"
+        hidden: true
+        children:
+          - title: "Trigger MFA"
+            url: "/multifactor-authentication/api/challenges"
+            hidden: true
+          - title: "One-Time Password Challenge"
+            url: "/multifactor-authentication/api/otp"
+            hidden: true
+          - title: "SMS Message Challenge"
+            url: "/multifactor-authentication/api/oob"
+            hidden: true
+          - title: "Manage Authenticators"
+            url: "/multifactor-authentication/api/manage"
+            hidden: true
+          - title: "FAQ"
+            url: "/multifactor-authentication/api/faq"
             hidden: true
 
   - title: "Security"
@@ -542,6 +569,14 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "CVE 2018-6874"
+            url: "/security/bulletins/cve-2018-6874"
+            hidden: true
+            
+          - title: "CVE 2018-6873"
+            url: "/security/bulletins/cve-2018-6873"
+            hidden: true
+            
           - title: "CVE 2018-7307"
             url: "/security/bulletins/cve-2018-7307"
             hidden: true
@@ -737,7 +772,70 @@ articles:
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
         hidden: true
+      
+      - title: "Extensibility and Node.js v8"
+        url: "/migrations/guides/extensibility-node8"
+        hidden: true
         
+  - title: "Data Privacy"
+    url: "/compliance"
+    children:   
+      - title: "GDPR"
+        url: "/compliance/gdpr"
+        children:        
+          - title: "Terminology"
+            hidden: true
+            url: "/compliance/gdpr/definitions"
+            
+          - title: "Summary"
+            hidden: true
+            url: "/compliance/gdpr/gdpr-summary"
+             
+          - title: "Roles and Responsibilities"
+            hidden: true
+            url: "/compliance/gdpr/roles-responsibilities"
+          
+          - title: "Auth0 Data Processing"
+            hidden: true
+            url: "/compliance/gdpr/data-processing"
+
+          - title: "How Auth0 can help"
+            url: "/compliance/gdpr/features-aiding-compliance"
+            children:
+          
+              - title: "User Consent"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
+                children:
+              
+                  - title: "Track Consent with Lock"
+                    hidden: true
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
+                  
+                  - title: "Track Consent with custom UI"
+                    hidden: true
+                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
+
+              - title: "Access, correct, and erase data"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
+
+              - title: "Data Minimization"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
+
+              - title: "Data Portability"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/data-portability"
+
+              - title: "Protect and secure user data"
+                hidden: true
+                url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
+              
+          - title: "Security Advice"
+            hidden: true
+            url: "/compliance/gdpr/security-advice-for-customers"
+      
   - title: "Support"
     url: "/support"
     children:
@@ -762,11 +860,11 @@ articles:
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
-      - title: Useful Tips
-        url: /pre-deployment/prelaunch-tips
-      
-      - title: Run Tests
-        url: /pre-deployment/how-to-run-test
+      - title: "Run Checks"
+        url: "/pre-deployment/how-to-run-test"
+        
+      - title: "Pre-Launch Tips"
+        url: "/pre-deployment/prelaunch-tips"
 
   - title: "Professional Services"
     url: "/services"
@@ -803,70 +901,6 @@ articles:
 
       - title: "Jumpstart"
         url: "/services/jumpstart"
-        
-  - title: "Compliance"
-    hidden: true
-    url: "/compliance"
-    children:
-    
-      - title: "GDPR"
-        hidden: true
-        url: "/compliance/gdpr"
-        children:
-        
-          - title: "Definitions"
-            hidden: true
-            url: "/compliance/gdpr/definitions"
-            
-          - title: "Summary"
-            hidden: true
-            url: "/compliance/gdpr/gdpr-summary"
-             
-          - title: "Roles and Responsibilities"
-            hidden: true
-            url: "/compliance/gdpr/roles-responsibilities"
-          
-          - title: "Auth0 Data Processing"
-            hidden: true
-            url: "/compliance/gdpr/data-processing"
-
-          - title: "How Auth0 can help"
-            hidden: true
-            url: "/compliance/gdpr/features-aiding-compliance"
-            children:
-          
-              - title: "User Consent"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/user-consent"
-                children:
-              
-                  - title: "Track Consent with Lock"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
-                  
-                  - title: "Track Consent with custom UI"
-                    hidden: true
-                    url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
-
-              - title: "Access, correct, and erase data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/right-to-access-data"
-
-              - title: "Data Minimization"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-minimization"
-
-              - title: "Data Portability"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/data-portability"
-
-              - title: "Protect and secure user data"
-                hidden: true
-                url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
-              
-          - title: "Security Advice"
-            hidden: true
-            url: "/compliance/gdpr/security-advice-for-customers"
 
 apis:
 
@@ -893,14 +927,6 @@ apis:
         children:
         - title: Changes
           url: "/api/management/v2/tokens-flows"
-
-      - title: Query String Syntax
-        url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
-
-      - title: User Search
-        url: "/api/management/v2/user-search"
-        forceFullReload: true
 
       - title: Changes in v2
         url: "/api/management/v2/changes"
@@ -1134,8 +1160,6 @@ appliance:
             url: /appliance/admin/backing-up-the-appliance-instances
           - title: Monitoring
             url: /appliance/admin/monitoring
-          - title: Limiting SSH Access
-            url: /appliance/admin/limiting-ssh-access
           - title: Updating
             url: /appliance/admin/updating-the-appliance
 
@@ -1159,7 +1183,7 @@ appliance:
         url: /appliance/cli
       - title: Automatic Tenant Creation
         url: /appliance/admin/creating-tenants
-      - title: Node Module Availibility
+      - title: Node Module Availability
         url: /appliance/modules
       - title: Webtasks
         url: /appliance/webtasks
@@ -1170,7 +1194,8 @@ appliance:
         children:
           - title: Roles and Responsibilities
             url: /appliance/disaster-recovery-raci
-
+      - title: Migrating to Node.js v8
+        url: /appliance/extensibility-node8
       - title: Release Notes
         url: https://auth0.com/changelog/appliance
         external: true

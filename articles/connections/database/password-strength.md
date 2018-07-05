@@ -2,6 +2,13 @@
 title: Password Strength in Auth0 Database Connections
 description: Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match OWASP password recommendations.
 crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+    - passwords
+contentType: concept
+useCase: customize-connections
 ---
 # Password Strength in Auth0 Database Connections
 

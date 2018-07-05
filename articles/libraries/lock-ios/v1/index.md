@@ -6,6 +6,17 @@ title: Lock v1 for iOS and macOS
 snippets:
   dependencies: native-platforms/ios-objc/dependencies
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v1 for iOS and macOS
@@ -46,7 +57,7 @@ For example:
 ![plist](/media/articles/libraries/lock-ios/plist.png)
 
 ::: note
-You can find these values in your [Client Settings](${manage_url}/#/applications) in the Auth0 dashboard.
+You can find these values in your [Application Settings](${manage_url}/#/applications) in the Auth0 dashboard.
 :::
 
 You will also need to register a **Custom URL** type with a custom scheme in the following format:
@@ -133,7 +144,7 @@ This call is required to be able to return to your application when authenticati
 
 ### Email/password, enterprise, and social provider authentication
 
-`A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your client in the [Auth0 Dashboard](${manage_url}/#/connections/social).
+`A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your application in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
 First, instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Then present it as a modal view controller:
 

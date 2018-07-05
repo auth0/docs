@@ -1,5 +1,13 @@
 ---
 description: Customize SMS Messages
+topics:
+  - mfa
+  - guardian
+  - sms
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Customize SMS Messages

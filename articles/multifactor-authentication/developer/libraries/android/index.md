@@ -2,6 +2,15 @@
 title: Getting Started with Guardian for Android
 url: /multifactor-authentication/developer/libraries/android
 description: Installation, usage, and configuration options guide for Guardian for Android
+topics:
+  - mfa
+  - guardian
+  - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Android

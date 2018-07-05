@@ -2,6 +2,16 @@
 title: Update Users Using Your Database
 description: How to update user profiles when using your own database as an identity provider.
 toc: true
+topics:
+    - updating-users
+    - user-management
+    - users
+    - custom-database
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # Update Users Using Your Database

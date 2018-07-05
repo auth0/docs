@@ -3,20 +3,15 @@ title: Linking Accounts
 description: This tutorial will show you how to link two different accounts for the same user.
 seo_alias: android
 budicon: 345
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 05-Linking-Accounts
+contentType: tutorial
+useCase: quickstart
 ---
-
-This tutorial shows you how to link two different accounts for the same user using Auth0.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '05-Linking-Accounts',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>__
 
 ## Before You Start
 

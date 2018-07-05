@@ -1,6 +1,18 @@
 ---
 description: This page explains the basics of the Login by Auth0 WordPress plugin.
 url: /cms/wordpress
+topics:
+    - wordpress
+    - cms
+contentType: 
+    - index
+    - concept
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users
 ---
 # Login by Auth0 WordPress Plugin
 

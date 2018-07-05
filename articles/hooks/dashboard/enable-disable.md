@@ -1,6 +1,11 @@
 ---
 description: How to enable or disable Hooks using the Management Dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
 # Enable or Disable Existing Hooks Using the Dashboard

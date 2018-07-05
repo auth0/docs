@@ -2,10 +2,15 @@
 title: Auth0 Product Support Matrix
 description: This doc covers what features, platforms, and software configurations Auth0 supports.
 toc: true
+classes: support-matrix-page
+topics:
+    - support
+    - support-matrix
+contentType:
+  - reference
+useCase:
+  - support
 ---
-<!-- markdownlint-disable -->
-<div class="support-matrix-page">
-
 # Auth0 Product Support Matrix
 
 For customers with valid [subscriptions](${manage_url}/#/account/billing/subscription), this article covers the features, platforms, and software configurations that are eligible for Auth0 support.
@@ -289,18 +294,8 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/native/electron">Electron</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-electron-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/native/ionic">Ionic</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ionic-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/native/ionic2">Ionic 2</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ionic2-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td><a href="/quickstart/native/ionic3">Ionic 3</a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-ionic3-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
@@ -331,11 +326,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/native/cordova">Cordova</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-cordova-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/native/phonegap">Phonegap</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-cordova-samples/tree/master/00-Starter-Seed/phonegap-basic-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
@@ -403,11 +393,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/spa/socket-io">Socket.io</a></td>
-      <td class="text-center"></td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
       <td><a href="/quickstart/spa/vuejs">Vue.js</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-vue-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
@@ -415,11 +400,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/spa/aurelia">Aurelia</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-aurelia-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/spa/cyclejs">Cycle.js</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-cycle-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
@@ -512,11 +492,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/webapp/apache">Apache</a></td>
-      <td class="text-center"></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
       <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-nancyfx-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
@@ -603,11 +578,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/backend/falcor">Falcor</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-falcor-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/backend/relay">Relay</a></td>
-      <td class="text-center"></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>

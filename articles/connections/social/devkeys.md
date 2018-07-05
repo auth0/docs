@@ -1,5 +1,13 @@
 ---
 description: Caveats you need to be aware of when using Auth0 Dev Keys for social providers.
+topics:
+  - connections
+  - social
+  - dev-keys
+contentType: reference
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Test Social Connections with Auth0 Developer Keys
@@ -20,7 +28,7 @@ The exact terminology of a Client ID / Client Secret may differ between various 
 
 ## Limitations of Developer Keys
 
-They Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
+The Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
 
 1. You cannot use developer keys with [custom domains](/custom-domains).
 
@@ -30,7 +38,7 @@ They Auth0 developer keys are to be used for testing purposes so there are a few
 
 2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, for example `https://${account.namespace}/login/callback`.
 
-    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your client to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
+    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
 
 3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 

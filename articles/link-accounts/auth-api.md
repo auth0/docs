@@ -1,5 +1,13 @@
 ---
 description: How to link accounts using the Authentication API (Deprecated)
+topics:
+  - authentication-api
+  - account-linking
+contentType:
+  - reference
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Link Accounts using Authentication API (Deprecated)

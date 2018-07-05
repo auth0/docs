@@ -1,7 +1,12 @@
 ---
-description: This articles discusses how you can use Auth0 with multi-tenant applications.
+description: This article discusses how you can use Auth0 with multi-tenant applications.
 crews: crew-2
 toc: true
+topics:
+  - design
+  - multi-tenancy
+contentType: concept
+useCase: strategize
 ---
 # Using Auth0 with Multi-Tenant Applications
 
@@ -31,12 +36,12 @@ We recommend that you [create multiple Auth0 tenants](https://github.com/auth0/a
 ## Use Multiple Connections
 
 ::: warning
-Auth0 enforces a limit of 50 Database Connections for each [client](/clients). Users with Enterprise agreements do not have any Database Connections limits.
+Auth0 enforces a limit of 50 Database Connections for each [application](/applications). Users with Enterprise agreements do not have any Database Connections limits.
 :::
 
 While using multiple [Connections](/identityproviders) introduces additional layers of complexity, there are several scenarios where this option might make sense:
 
-* You have different Connection-level requirements, such as varying password policies, for each of your Clients.
+* You have different Connection-level requirements, such as varying password policies, for each of your Applications.
 * You have users from different Connections. For example, one app may have users providing username/password credentials, while another app handles Enterprise logins.
 
 ::: note

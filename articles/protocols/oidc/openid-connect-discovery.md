@@ -1,10 +1,17 @@
 ---
 description: How to use OpenID Connect discovery with Auth0.
+topics:
+    - protocols
+    - oidc
+contentType:
+  - how-to
+useCase:
+  - development
 ---
 
 # OpenID Connect Discovery
 
-Auth0 exposes OIDC discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications. 
+Auth0 exposes OIDC discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications.
 
 A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 
@@ -32,7 +39,7 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     // OPTIONAL: you can read/modify the claims that are populated based on the JWT
     SecurityTokenValidated = context =>
     {
-      // add Auth0 access_token as claim
+      // add Auth0 Access Token as claim
       var accessToken = context.ProtocolMessage.AccessToken;
       if (!string.IsNullOrEmpty(accessToken))
       {

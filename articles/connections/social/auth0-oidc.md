@@ -2,22 +2,29 @@
 connection: Auth0 OpenIDConnect
 seo_alias: auth0-oidc
 image: /media/connections/auth0.png
-description: You can use a Client on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
+description: You can use an Application on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
 toc: true
+topics:
+  - connections
+  - social
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
-You can use a client on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
+You can use application on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
 
 ## Configure the OIDC Provider Auth0 Tenant
 
-1. Create a Client or edit an existing one. Set the client type to regular web app.
+1. Create an Application or edit an existing one. Set the application type to regular web app.
 2. Take note of its **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
 3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
 ![Provider tenant settings](/media/articles/connections/social/auth0-oidc/child-app.png)
 
-4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the client's **Advance Settings** is turned **off**.
+4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the application's **Advance Settings** is turned **off**.
 
 ::: note
 The requirement for the **OIDC-Conformant** toggle to be **off** is a temporary requirement that will be removed in the future.
@@ -33,7 +40,7 @@ Here is a sample request:
 curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
-with the **auth-oidc-connection.json** file containing:
+with the **auth0-oidc-connection.json** file containing:
 
 ```js
 {
@@ -53,14 +60,14 @@ The required parameters for this connection are:
 
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `auth0-oidc`.
-* **options.client_id**: the `clientID` of the target Client in the OIDC Provider Auth0 tenant.
-* **options.client_secret**: the `cliendSecret` of the target Client in the OIDC Provider Auth0 tenant.
+* **options.client_id**: the `clientID` of the target Application in the OIDC Provider Auth0 tenant.
+* **options.client_secret**: the `cliendSecret` of the target Application in the OIDC Provider Auth0 tenant.
 * **options.domain**: the domain of the OIDC Provider Auth0 tenant.
 
 Optionally, you can add:
 
 * **options.scope**: the scope parameters for which you wish to request consent (such as `profile`, `identities`, and so on).
-* **enabled_clients**: an array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
+* **enabled_clients**: an array containing the identifiers of the applications for which the connection is to be enabled. If the array is empty or the property is not specified, no applications are enabled.
 
 ## Use the Auth0 connection
 
@@ -74,7 +81,7 @@ https://${account.namespace}/authorize/?client_id=${account.clientId}&response_t
 
 To add a custom connection in Lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
-The user will be redirected to the built-in login page of the OIDC Provider Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
+The user will be redirected to the built-in login page of the OIDC Provider Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Application) and enter their credentials.
 
 ![Login widget](/media/articles/connections/social/auth0-oidc/login-page.png)
 
@@ -110,7 +117,7 @@ Note that the generated `user_id` has the following format:
 
 `auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_OIDC_PROVIDER_AUTH0_CONNECTION|THE_OIDC_PROVIDER_USER_ID`
 
-The `access_token` is the JWT of the user in the OIDC Provider Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid email` will return:
+The Access Token is the JWT of the user in the OIDC Provider Auth0 connection. If you decode it, you will see all the properties that were requested in the `scope` of the auth0-oidc connection. For example, for `scope=openid email` will return:
 
 ```js
 {

@@ -2,6 +2,11 @@
 description: How to create new Hooks using the Management Dashboard
 url: /hooks/dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
+contentType: index
+useCase: extensibility-hooks
 ---
 
 # Work with Hooks in the Dashboard

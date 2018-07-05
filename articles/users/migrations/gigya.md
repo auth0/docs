@@ -3,6 +3,16 @@ title: Migrate Users from Gigya to Auth0
 description: How to import users from Gigya to Auth0.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - migrations
+  - gigya
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate Users from Gigya to Auth0
@@ -17,11 +27,11 @@ You can create a new database connection in the [Connections > Database](${manag
 
 ![Create a new DB Connection](/media/articles/users/migrations/create-database-connection.png)
 
-### 2. Connect the Database to Client
+### 2. Connect the Database to Application
 
-Now you'll need to connect your database with a client. Navigate to the **Clients** tab of your database settings, under the **Clients Using This Connection** heading you can enable the database connection for each client.
+Now you'll need to connect your database to an application. Navigate to the **Applications** tab of your database settings, under the **Applications Using This Connection** heading you can enable the database connection for each application.
 
-![Database Connection Clients](/media/articles/users/migrations/enable-clients.png)
+![Database Connection Applications](/media/articles/users/migrations/enable-applications.png)
 
 ## Export Gigya Users
 

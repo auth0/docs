@@ -3,25 +3,20 @@ title: Custom Login Form
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login form.
 seo_alias: android
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 02-Custom-Login-Form
+    branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
-
-This quickstart will show you how to add Auth0 login capabilities while using a customized login form.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>__
 
 ## Before Starting
 
-You'll first need to whitelist the **Callback URL** in the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
+You'll first need to whitelist the **Callback URL** in the "Allowed Callback URLs" section of the [Application settings](${manage_url}/#/applications) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
 
 ```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
@@ -82,7 +77,7 @@ There are multiple ways of designing a customized login screen which are not cov
 
 ### Using a Social connection
 
-You'll use the `WebAuthProvider#init` method. If no connection name is given, the login page will be shown and the user may choose any of the connections enabled for your client. By calling `withConnection` you can force the user to use a specific connection. Let's do that for `Twitter`. Make sure to use a connection that is enabled in your client!
+You'll use the `WebAuthProvider#init` method. If no connection name is given, the login page will be shown and the user may choose any of the connections enabled for your application. By calling `withConnection` you can force the user to use a specific connection. Let's do that for `Twitter`. Make sure to use a connection that is enabled in your application!
 
 ```java
 private void login() {

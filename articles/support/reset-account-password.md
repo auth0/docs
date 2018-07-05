@@ -1,6 +1,15 @@
 ---
 description: How to reset your Auth0 account password
 crews: crew-2
+topics:
+    - support
+    - passwords
+    - password-reset
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Reset Your Auth0 Account Password

@@ -3,6 +3,16 @@ section: libraries
 classes: topic-page
 title: Auth0 Libraries
 description: Overview of the Auth0 Libraries and SDKs
+topics:
+  - libraries
+  - lock
+  - auth0js
+contentType:
+  - index
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 <div class="topic-page-header">
@@ -17,21 +27,21 @@ description: Overview of the Auth0 Libraries and SDKs
 
 ## How Should You Implement Auth0?
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [universal login](/hosted-pages/login). Using universal login is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The login page uses by default the Lock Widget to authenticate users, but there is also a template for Lock Passwordless and a template for a custom UI built with the Auth0.js SDK available. 
+When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). Using Universal Login is a simple process, and prevents the pitfalls of [cross-origin authentication](/cross-origin-authentication). The login page uses by default the Lock Widget to authenticate users, but there is also a template for Lock Passwordless and a template for a custom UI built with the Auth0.js SDK available. 
 
 You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page).
 
-If universal login does not meet your requirements, however, Auth0 has a variety of options which can be embedded in your applications to assist with authentication.
+If Universal Login does not meet your requirements, however, Auth0 has a variety of options which can be embedded in your applications to assist with authentication.
 
 * [Lock](#lock) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
 * [Auth0 SDKs](#auth0-sdks) are client-side libraries that do not come with a user interface. These allow for expanded customization of the behavior and appearance of the login process.
-* The [Authentication API](/api/authentication) can be used to integrate applications with Auth0 without using any of the Auth0's libraries.
+* The [Authentication API](/api/authentication) can be used to integrate applications with Auth0 without using any of the Auth0 libraries.
 
 The best option to choose will depend on the needs of your app. Check out [When to Use Lock](/libraries/when-to-use-lock) for more information to help you decide between using Lock or an SDK.
 
 ## Lock
 
-The Lock widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app. Lock gives your users a customizable UI to authenticate with which to authenticate in your app.
+The Lock widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app. Lock gives your users a customizable UI with which to authenticate in your app.
 
 The Lock widget for each platform has detailed reference documentation.
 

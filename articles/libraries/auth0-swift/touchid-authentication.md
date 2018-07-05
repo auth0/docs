@@ -1,6 +1,12 @@
 ---
 section: libraries
 description: How to implement Touch ID authentication with Auth0.swift.
+topics:
+  - libraries
+  - swift
+  - touch-id
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.swift Touch ID Authentication
 

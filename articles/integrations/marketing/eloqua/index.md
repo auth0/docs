@@ -2,6 +2,12 @@
 title: Oracle Eloqua Integration
 description: Learn how to import your Auth0 user data into Eloqua.
 toc: true
+topics:
+    - marketing
+    - eloqua
+    - oracle
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Oracle Eloqua Integration

@@ -1,19 +1,33 @@
 ---
-title: Track consent with custom UI
+title: "GDPR: Track consent with your custom UI"
 description: This tutorial describes how you can use either auth0.js or the Auth0 APIs to capture consent information when you use your own custom UI for logins
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: tutorial
+useCase: compliance
 ---
 # Track Consent with Custom UI
 
 In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
 
+<%= include('../_legal-warning.md') %>
+
 ## Overview
 
-We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:
+We will capture consent information, under various scenarios, and save this at the user's metadata.
+
+All scenarios will save the following properties at the [user's metadata](/metadata):
+- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
+- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+
+For example:
 
 ```text
 {
-  "consentGiven": true
+  "consentGiven": "true"
+  "consentTimestamp": "1525101183"
 }
 ```
 
@@ -22,9 +36,7 @@ We will see four different implementations for this:
 1. one that displays a flag, works for database connections, and uses the [auth0.js](/libraries/auth0js) library to create the user (used by Single Page Applications)
 1. one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
 1. one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
-1. one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed (used either by SPAs or Regular Web Apps)
-
-All implementations will have the same final result, a `consentGiven` property saved at the [user's metadata](/metadata).
+1. one that redirects to another page where the Terms & Conditions and/or privacy policy information can be reviewed and consent info can be provided (used either by SPAs or Regular Web Apps)
 
 ## Option 1: Use auth0.js
 
@@ -32,7 +44,7 @@ In this section, we will use a simple Single Page Application and customize the 
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
-1. Go to [Dashboard > Clients](${manage_url}/#/clients) and create a new [client](/clients). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
+1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 
     :::note
     This field holds the set of URLs to which Auth0 is allowed to redirect the users after they authenticate. Our sample app will run at `http://localhost:3000` hence we set this value.
@@ -40,7 +52,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. Go to the connection's **Clients** tab and make sure your newly created client is enabled.
+1. Go to [Dashboard > Connections > Database](https://manage.auth0.com/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. Go to the connection's **Applications** tab and make sure your newly created application is enabled.
 
 1. Download the [JavaScript SPA Sample](/quickstart/spa/vanillajs).
 
@@ -72,7 +84,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
     //code reducted for simplicity
     ```
 
-1. Edit the `signup()` function to set the metadata. Note that we set the value of the metadata to a string with the value `true` and not to a boolean value. This is due to a restriction of the [Authentication API Signup endpoint](/api/authentication#signup) which only accepts strings as values, not booleans.
+1. Edit the signup function to set the metadata. Note that we set the value of the metadata to a string with the value `true` and not to a boolean value, and we are using `toString` to convert the number to a string. This is due to a restriction of the [Authentication API Signup endpoint](/api/authentication#signup) which only accepts strings as values.
 
     ```js
     //code reducted for simplicity
@@ -80,7 +92,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
       connection: databaseConnection,
       email: email,
       password: password,
-      user_metadata: { consentGiven: 'true' }
+      user_metadata: { consentGiven: 'true', consentTimestamp: Date.now().toString() }
     }, function(err) {
       if (err) displayError(err);
     });
@@ -97,7 +109,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 If you serve your login page from your own server, then you can call the [Authentication API Signup endpoint](/api/authentication#signup) directly once the user signs up.
 
-For the same scenario we have been discussing so far, once you sign up a new user, you can use the following snippet to create the user at Auth0 and set the metadata.
+For the same scenario we have been discussing so far, once you sign up a new user, you can use the following snippet to create the user at Auth0 and set the metadata. Remember to replace the value of the `consentTimestamp` request parameter with the timestamp of when the user provided consent.
 
 ```har
 {
@@ -109,7 +121,7 @@ For the same scenario we have been discussing so far, once you sign up a new use
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"YOUR_USER_EMAIL\",\"password\": \"YOUR_USER_PASSWORD\",\"user_metadata\": {\"consentGiven\": \"true\"}}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"YOUR_USER_EMAIL\",\"password\": \"YOUR_USER_PASSWORD\",\"user_metadata\": {\"consentGiven\": \"true\", \"consentTimestamp\": \"1525101183\" }}"
   }
 }
 ```
@@ -149,7 +161,7 @@ Once you have a valid token, use the following snippet to update the user's meta
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"user_metadata\": {\"consentGiven\":true}}" 
+		"text": "{\"user_metadata\": {\"consentGiven\":true, \"consentTimestamp\": \"1525101183\"}}" 
     },
 	"headersSize": -1,
 	"bodySize": -1,
@@ -157,7 +169,7 @@ Once you have a valid token, use the following snippet to update the user's meta
 }
 ```
 
-Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search#users-by-email).
+Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search/best-practices#users-by-email).
 
 ## Option 4: Redirect to another page
 
@@ -165,7 +177,13 @@ If you want to display more information to your user, then upon signup you can r
 
 <%= include('./_redirect.md') %>
 
-To test this configuration run the application and go to [http://localhost:3000](http://localhost:3000). Sign up with a new user. You will be navigated to the consent form. Check the **I agree** flag and click **Submit**. Then go to [Dashboard > Users](${manage_url}/#/users) and search for your new user. Go to **User Details** and scroll down to the **Metadata** section. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`.
+To test this configuration: 
+1. Run the application and go to [http://localhost:3000](http://localhost:3000)
+1. Sign up with a new user. You will be navigated to the consent form. 
+1. Check the **I agree** flag and click **Submit**
+1. Go to [Dashboard > Users](${manage_url}/#/users) and search for your new user
+1. Go to **User Details** and scroll down to the **Metadata** section. 
+1. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`, and the `consentTimestamp` set to the Unix timestamp of the moment the user consented
 
 ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 

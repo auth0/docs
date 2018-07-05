@@ -1,15 +1,27 @@
 ---
 description: Explains AD/LDAP Federation Support with Auth0, how to configure it, the flow, and auto-login with Lock.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+  - kerberos
+contentType: 
+    - how-to
+    - concept
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
-
 # Federating with Active Directory through the AD/LDAP Connector
 
 The AD/LDAP connector makes it easy for your users to authenticate when they are on a domain-joined machine within the corporate network.
 
 ## Configuration
 
-To activate this feature for Active Directory/LDAP, simply enable the option in the dashboard.
+To activate this feature for Active Directory/LDAP, simply enable the option in the Dashboard. 
+
+Go to the **Connections > Enterprise > Active Directory > LDAP**, select the connection you want configure, and click the **Settings** icon.
 
 ![](/media/articles/connector/kerberos/connector-kerberos-configuration.png)
 
@@ -45,9 +57,9 @@ On the other hand, when users are not in the corporate network (for example, at 
 Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature which works in Lock 10  but is disabled in Lock 11.
 :::
 
-When an application is using Lock within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations) the Lock will show a button which allows users to authenticate using "Windows Authentication". If they don't want to use this they can continue and have the Lock show all other available connections.
+When an application is using Lock within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
 
-In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page (or to your own page hosting the Lock) to automatically sign in the user if Kerberos is possible:
+In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page to automatically sign in the user if Kerberos is possible:
 
 ```js
 /*
@@ -81,6 +93,7 @@ lock.$auth0.getSSOData(true, function(err, data) {
   }
 });
 ```
+
 ## Troubleshooting
 
 To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.

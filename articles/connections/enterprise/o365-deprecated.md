@@ -7,6 +7,14 @@ alias:
 seo_alias: o365-deprecated
 description: How to obtain a ClientId and Client Secret for an Office 365 connection.
 toc: true
+topics:
+    - connections
+    - enterprise
+    - microsoft
+    - o365
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Microsoft Office 365
 

@@ -9,6 +9,14 @@ seo_alias: amazon
 index: 9
 description: How to obtain a Client Id and Client Secret for Amazon.
 toc: true
+topics:
+  - connections
+  - social
+  - amazon
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Amazon

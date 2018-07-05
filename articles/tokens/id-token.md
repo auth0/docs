@@ -1,6 +1,14 @@
 ---
-description: How to obtain, use and renew an id_token.
+description: How to obtain, use, and renew an ID Token.
 toc: true
+topics:
+  - tokens
+  - id-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # ID Token
 
@@ -16,7 +24,7 @@ You can get an ID Token for a user after they successfully authenticate.
 
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the ID Token.
 
-The ID Token is consumed by the client and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
+The ID Token is consumed by the application and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the application can know the identity of the user, without having to make an additional network requests.
 
 ::: note
 If you need a refresher on OIDC refer to [OpenID Connect](/protocols/oidc).
@@ -53,7 +61,7 @@ Remember that the ID Token is always a JWT, and the signature is created using i
 
 The most secure practice, and our recommendation, is to use `RS256`.
 
-To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
+To check or update the algorithm your Application uses go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
 
 ### Validate the Claims
 
@@ -63,11 +71,11 @@ Once the application verifies the token's signature, the next step is to validat
 
 - **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
 
-- **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Client.
+- **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Application.
 
 ## Control the contents of an ID Token
 
-In order to retrieve an ID Token the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
+In order to retrieve an ID Token, the `responseType` should include `id_token`, both for client-side and server-side authentication flows.
 
 The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
@@ -99,7 +107,7 @@ The ID Token will contain only the claims specified as the value of the `scope` 
 
 You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
 
-The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
+The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io`, and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 
 For more information on the namespaced format of custom claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 
@@ -120,7 +128,7 @@ The payload's claims can include some or all of the following:
 | picture | The profile picture of the user which is returned from the Identity Provider. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)|(unique id in the provider)`, such as `github|1234567890`. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued ID Token, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 
@@ -130,13 +138,13 @@ The exact claims contained in the ID Token will depend on the `scope` parameter 
 
 The purpose of the ID Token is to cache user information for better performance and experience, and by default, the token is valid for 36000 seconds, or 10 hours. You may change this setting as you see fit; if there are security concerns, you may certainly shorten the time period before the token expires, but remember that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action that requires an API call.
 
-The expiration time can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
+The expiration time can be changed in the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
 
 There are cases where you might want to renew your ID Token. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
-When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the ID Token. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
+When performing the initial authorization flow, you can ask for a Refresh Token, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The Refresh Token is stored in session, along with the ID Token. Then, when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
-This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
+This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case, you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
 If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
 
@@ -151,12 +159,12 @@ auth0.checkSession({
 
 ## Revoke access
 
-Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
+Once issued, tokens can not be revoked in the same fashion as cookies with session ids for server-side sessions. As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
 
 ## Keep Reading
 
 ::: next-steps
 * [Overview of JSON Web Tokens](/jwt)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
-* [Debugger for viewing JSON Web Tokens](http://jwt.io/)
+* [Debugger for Viewing JSON Web Tokens](http://jwt.io/)
 :::

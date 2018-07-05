@@ -1,5 +1,14 @@
 ---
 description: How to export data out of Auth0.
+topics:
+    - support
+    - data
+    - data-export
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Moving out of Auth0

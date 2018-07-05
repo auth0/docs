@@ -1,6 +1,14 @@
 ---
 section: libraries
 description: Guide to migrate from Auth0 Widget to Auth0 Lock.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: Migration Guide
 

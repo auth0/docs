@@ -2,6 +2,13 @@
 classes: topic-page
 title: Amazon Web Services (AWS)
 url: /integrations/aws
+topics:
+  - integrations
+  - aws
+contentType: index
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
 ---
 
 <div class="topic-page-header">

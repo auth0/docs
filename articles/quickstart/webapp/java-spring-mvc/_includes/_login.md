@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 The Login project sample has the following structure:
 
 ```text
@@ -40,8 +40,7 @@ The project contains also five Controllers:
 
 Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
 
-
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
@@ -120,7 +119,6 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 ::: note
 It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
-
 
 ## Display the Home Page
 

@@ -1,7 +1,12 @@
 ---
-title: GDPR Compliance: Right to access, correct, and erase data
+title: "GDPR: Right to access, correct, and erase data"
 description: This article discusses which Auth0 features can help customers comply with the GDPR requirements on the user's right to access, correct, and erase their personal data
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: concept
+useCase: compliance
 ---
 # GDPR: Right to access, correct, and erase data
 
@@ -10,6 +15,8 @@ As per articles 15, 16, 17, and 19 of GDPR, users have the right to get a copy o
 With Auth0, you can access, edit, and delete user information:
 - manually, using the [Dashboard](${manage_url}/#/users), or
 - programatically, using the [Management API](/api/management/v2)
+
+<%= include('./_legal-warning.md') %>
 
 ## Manual process
 
@@ -32,9 +39,9 @@ You can also retrieve, edit, and delete user information using our API.
 
 First, pick an endpoint that matches your needs:
 
-- [Retrieve a user using the ID as search criteria](/users/search#users-by-id)
-- [Retrieve a user using the Email as search criteria](/users/search#users-by-email)
-- [Export all users to a file using a long running job](/users/search#user-export)
+- [Retrieve a user using the ID as search criteria](/users/search/best-practices#users-by-id)
+- [Retrieve a user using the Email as search criteria](/users/search/best-practices#users-by-email)
+- [Export all users to a file using a long running job](/users/search/best-practices#user-export)
 - [Update a user](/api/management/v2#!/Users/patch_users_by_id). Note that not all fields are editable (see the next paragraph: [Editable data](#editable-data)). Keep in mind that:
   - The properties of the new object will replace the old ones. The **user_metadata** and **app_metadata** fields are an exception to this rule. These properties are merged instead of being replaced, though the merge happens only on the first level.
   - If you are updating **email_verified**, **phone_verified**, **username**, or **password**, you must set the **connection** parameter.

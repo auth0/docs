@@ -1,5 +1,12 @@
 ---
 title: Using Passwordless Authentication on Android with e-mail
+topics:
+    - connections
+    - passwordless
+    - android
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
 # Authenticate users with a one-time code via e-mail
 

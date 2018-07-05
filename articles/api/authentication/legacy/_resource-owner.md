@@ -1,7 +1,5 @@
 # Resource Owner
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/oauth/ro
 Content-Type: application/json
@@ -70,18 +68,18 @@ request(options, function (error, response, body) {
 This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
+Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the Access Token and an ID Token.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `connection` <br/><span class="label label-danger">Required</span> | The name of the connection configured to your client |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Application ID. |
+| `connection` <br/><span class="label label-danger">Required</span> | The name of the connection configured to your application |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use the value `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's username |
 | `password` <br/><span class="label label-danger">Required</span> | The user's password |
-| `scope` | Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
+| `scope` | Use `openid` to get an ID Token, `openid profile email` to get an ID Token and the user profile, or `openid offline_access` to get an ID Token and a Refresh Token. |
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. |
 | `device` | You should set this to a string, if you are requesting a Refresh Token (`scope=offline_access`). |
 
@@ -89,9 +87,9 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
-1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test, and **Connection** to the name of the connection to use.
+1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test, and **Connection** to the name of the connection to use.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
 
@@ -109,4 +107,4 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
+- [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)

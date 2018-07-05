@@ -1,5 +1,13 @@
 ---
 description: Auth0 policies on exporting data.
+topics:
+    - auth0-policies
+    - data 
+    - data-exports
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Data Export Policy
 

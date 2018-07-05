@@ -1,13 +1,20 @@
 ---
-title: GDPR Compliance: Data Minimization
+title: "GDPR: Data Minimization"
 description: This article discusses how customers can minimize the personal data they collect for processing and ensure their security
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: how-to
+useCase: compliance
 ---
 # GDPR: Data Minimization
 
 According to Article 5 of GDPR, the personal data you collect must be limited to what is necessary for processing and must be kept only as long as needed. Appropriate security must be ensured during data processing, including protection against unauthorised or unlawful processing and against accidental loss, destruction, or damage.
 
 There are several Auth0 features than can help you achieve these goals, like account linking, user profile encryption, and more.
+
+<%= include('./_legal-warning.md') %>
 
 ## Restrict user profile information
 
@@ -20,37 +27,7 @@ To limit the amount of personal information in the Auth0 user profile, you can:
 
 ## Encrypt user profile information
 
-You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields. When a user sets sensitive information, call the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
-
-For example, to save the encrypted `passportNumber` in the user's profile, send this request:
-
-```har
-{
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/users/user_id",
-  "httpVersion": "HTTP/1.1",
-  "cookies": [],
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_ACCESS_TOKEN"
-  }, {
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
-  "queryString": [],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"user_metadata\": {\"passportNumber\": \"B9MuhaDoreVr69MDqx3p8A==\"}}"
-  },
-  "headersSize": -1,
-  "bodySize": -1,
-  "comment": ""
-}
-```
-
-:::note
-Replace the `YOUR_ACCESS_TOKEN` placeholder with a token that will allow you to access this endpoint. This should be a [Management API Token](/api/management/v2/tokens), with the scopes `update:users` and `update:users_app_metadata`.
-:::
+<%= include('./_encrypt-data.md') %>
 
 ## Use account linking
 

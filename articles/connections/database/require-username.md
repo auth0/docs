@@ -2,6 +2,12 @@
 title: Adding Username for Database Connections
 description: How to add a username field for login to database connections.
 crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+contentType: how-to
+useCase: customize-connections
 ---
 
 # Adding Username for Database Connections

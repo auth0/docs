@@ -2,18 +2,16 @@
 title: Getting Started
 description: Short Introduction to the Auth0 iOS Swift Quickstarts.
 budicon: 715
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '00-Login',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 This multistep quickstart guide will walk you through managing authentication in your iOS Swift apps with Auth0.
 
@@ -31,9 +29,9 @@ A brief description:
 
 - [**Lock.swift**](https://github.com/auth0/Lock.swift) is a native widget that is easy to embed in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
 
-## Create a Client
+## Create an Application
 
-If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
+If you haven't already done so, create a new application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

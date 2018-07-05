@@ -1,6 +1,15 @@
 ---
-title: Pre-launch Tips 
+title: Pre-Launch Tips 
 description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
+topics:
+    - pre-deployment
+    - pre-launch
+    - tips-and-tricks
+    - production-checks
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Pre-Launch Tips 
@@ -33,7 +42,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Adequately protect any client secret values.
 
-* Check your [grant types](/clients/client-grant-types) for your clients. Make sure you have the right ones enabled and more importantly, disable any grant types that aren't needed.
+* Check your [grant types](/applications/application-grant-types) for your applications. Make sure you have the right ones enabled and more importantly, disable any grant types that aren't needed.
 
 * If you make use of [user_metadata](/metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
 

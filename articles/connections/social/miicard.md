@@ -4,6 +4,14 @@ connection: miiCard
 image: /media/connections/miicard.png
 seo_alias: miicard
 description: How to obtain a Client Id and Client Secret for miiCard.
+topics:
+  - connections
+  - social
+  - miicard
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to miiCard

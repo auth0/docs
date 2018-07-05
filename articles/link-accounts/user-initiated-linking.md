@@ -1,6 +1,14 @@
 ---
 description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
 crews: crew-2
+topics:
+  - account-linking
+  - client-side
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # User Initiated Account Linking

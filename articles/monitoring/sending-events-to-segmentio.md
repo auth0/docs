@@ -1,5 +1,15 @@
 ---
 description: How to send events to segment.io from Auth0
+topics:
+  - monitoring
+  - segmentio
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 # Send Auth0 Events to Segment
 
@@ -37,8 +47,7 @@ function(user, context, callback) {
       traits: {
       email: user.email,
       signed_up: user.created_at,
-      login_count: user.logins_count,
-      last_login: user.last_login,
+      login_count: user.logins_count
     },
     "context": {
       "userAgent": context.request.UserAgent,

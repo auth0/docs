@@ -2,27 +2,40 @@
 title: Custom Domains
 description: How to map custom domains
 toc: true
+topics:
+  - custom-domains
+contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains
 
-Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
+Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain.
 
-Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login](/hosted-pages/login).
+For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
+
+It is recommended that you use custom domains with Universal Login for the most seamless and secure experience for your end users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
 
 ## Prerequisites
 
-You'll need to register and own the domain name to which you're mapping your Auth0 domain.
+* This feature is not available for free plans. To configure a custom domain you have to [upgrade your account to any paid plan](${manage_url}/#/tenant/billing/subscription)
+* You must register and own the domain name to which you are mapping your Auth0 domain
 
 ## Features supporting use of custom domains
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-client) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
-* Database and Social connections
-* Lock 11 with Cross Origin Authentication
-* SAML Connections and Clients
+* Database and social connections
+* Lock 11 with cross-origin authentication
+* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* Google Apps connections
+* SAML connections and applications
+* WS-Fed clients (Auth0 as IDP using WS-Fed Add-on)
+* Azure AD connections
+* ADFS connections
+* AD/LDAP connections
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -110,7 +123,15 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 
 2. **What about support for other features?**
   
-We are planning to support several additional features in the future, including SAML and WS-Fed clients and enterprise and Passwordless connections.
+We are planning to support several additional features in the future, including WS-Fed applications and enterprise and Passwordless connections.
+
+3. **How many custom domains can I use per tenant?**
+
+Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
+
+4. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
+
+We cannot provide a static list of IP addresses as they are subject to change. Our recommendation is to whitelist your custom domain instead.
 
 ## Troubleshooting
 
@@ -142,3 +163,9 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 ```text
 "0 issue \"letsencrypt.org\""
 ```
+
+### "Service not found"
+
+If your application issues an `/authorize` request with `audience=https://login.northwind.com/userinfo`, the server will return a `Service not found: https://login.northwind.com/userinfo` error. This is because even if you set a custom domain the API identifier for the `/userinfo` endpoint remains `https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. 
+
+To fix this your app should instead use `audience=https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. You can also remove this `audience=[...]/userinfo` parameter altogether if your application is flagged as **OIDC-Conformant** in the **OAuth2** tab of the application's **Advanced Settings**.

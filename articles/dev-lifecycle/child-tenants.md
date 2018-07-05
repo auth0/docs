@@ -1,5 +1,12 @@
 ---
 description: How to request child tenants for your Auth0 tenant
+topics:
+    - child-tenants
+    - dev-tools
+contentType: how-to
+useCase:
+    - support
+    - development
 ---
 
 # Child Tenant Request Process
@@ -22,7 +29,7 @@ Child tenants **must not** be used in production environments.
 
 ## Request a Child Tenant
 
-Please use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) to request that a child tenant be created for you. Requests must be made at least five business days in advance of your desired implementation date.
+Please use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) to request that a child tenant be assigned for you. The new child tenant has to be created before the request is submitted. Requests must be made at least five business days in advance of your desired implementation date.
 
 Please include the following information with your request:
 

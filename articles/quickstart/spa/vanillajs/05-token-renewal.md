@@ -1,15 +1,17 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to a JavaScript application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - vanillajs
+  - tokens
+github:
+    path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-javascript-samples',
-  path: '05-Token-Renewal'
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal

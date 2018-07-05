@@ -3,6 +3,11 @@ title: Disqus Single Sign On Integration
 description: How to set up Single Sign On (SSO) integration with Disqus and Auth0.
 toc: true
 public: true
+topics:
+  - sso
+  - disqus
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Disqus Single Sign On Integration
@@ -19,7 +24,7 @@ Disqus allows you to embed a discussion section onto your site where your users 
 3. You will be directed to the *Create a new site* page. Provide your **Website Name** and your website's **Category**. When you've provided the requested information, click **Create Site** to continue.
 
   ::: note
-  You **Website Name** will become your unique Disqus URL. Make note of this URL, since it is required to configure your Auth0 Client.
+  You **Website Name** will become your unique Disqus URL. Make note of this URL, since it is required to configure your Auth0 Application.
   :::
 
   ![](/media/articles/integrations/disqus/create-new-site.png)

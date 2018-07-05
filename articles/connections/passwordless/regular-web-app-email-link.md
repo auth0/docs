@@ -1,7 +1,20 @@
 ---
 title: Using Passwordless Authentication with a magic link via email on Regular Web Apps
+description: How to authenticate users with a magic link via email in a traditional web app that runs on the server
+toc: true
+topics:
+    - connections
+    - web-apps
+    - passwordless
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
+
+:::warning
+Passwordless is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP. If you call it from the server-side, your backend's IP may easily hit these rate limits.
+:::
 
 <%= include('_introduction-email-magic-link') %>
 
@@ -55,7 +68,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
   path: ''
 }) %>
 
-You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript application library](/libraries/auth0js).
 
 <%= include('_init-auth0js_v9', {redirectUri:true} ) %>
 

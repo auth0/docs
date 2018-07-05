@@ -1,6 +1,13 @@
 ---
 title: Using Passwordless SMS & Email Authentication with Auth0
 url: /connections/passwordless
+topics:
+    - connections
+    - passwordless
+contentType:
+    - index
+    - how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication
 

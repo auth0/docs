@@ -1,6 +1,13 @@
 ---
 description: How to troubleshoot SAML-related configuration issues when Auth0 is the identity provider
 toc: true
+  topics:
+    - saml
+    - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Troubleshooting SAML when Auth0 is the Identity Provider
@@ -14,7 +21,7 @@ When troubleshooting a SAML login, there are four primary stages to check:
 
 The following sections describe how to check each stage and how to identify if there are any issues with a given stage.
 
-## Issue: A Successful Login Event Does Not Show Up in Auth0 Logs
+## A successful login event does not show up in Auth0 logs
 
 In this case, the user successfully logs in with the idp, but a successful login event does *not* show up in auth0 logs.
 
@@ -30,7 +37,7 @@ In this case, the user successfully logs in with the idp, but a successful login
 
   * Check that the SAML Connection works by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
 
-## Issue: The User's Profile Attributes are Incorrect
+## The user's profile attributes are incorrect
 
 In this case, the user successfully logs in with the idp, a successful login event shows up in auth0 logs, but the user's profile attributes are incorrect.
 
@@ -42,7 +49,7 @@ If the user:
 
 The next step is to check that the user's profile contains the necessary user profile attributes.
 
-### Checking the User Profile
+### Checking the user profile
 
 1. After logging in to the [Auth0 Dashboard, navigate to *Users*](${manage_url}/#/users).
 
@@ -52,7 +59,7 @@ The next step is to check that the user's profile contains the necessary user pr
 
 If an attribute is missing, check with the identity provider to confirm that it has the attribute and that it is returning that attribute to Auth0.
 
-## Issue: The User Cannot Access the Application
+## The user cannot access the application
 
 In this case, the user successfully logs in with the idp, a successful login event shows up in auth0 logs, and the user's profile attributes are correct, but the user cannot access the application.
 
@@ -127,3 +134,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
     ```
 
     ![](/media/articles/protocols/saml/saml-configuration/saml-rules.png)
+
+## When I try to logout I get the error: No active session(s) found matching LogoutRequest
+
+The `SessionIndex` and `NameID` values in the SAML Logout request need to match the ones received by the service provider in the original SAML assertion.

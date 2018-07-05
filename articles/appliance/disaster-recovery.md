@@ -1,6 +1,12 @@
 ---
 description: High-level overview of disaster recovery options for the PSaaS Appliance
 section: appliance
+topics:
+    - appliance
+    - disaster-recovery
+contentType: concept
+useCase: appliance
+applianceId: appliance56
 ---
 
 # PSaaS Appliance: Disaster Recovery

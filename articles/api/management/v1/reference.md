@@ -2,9 +2,16 @@
 description: Management API V1 reference page.
 section: apis
 toc: true
+topics:
+  - apis
+  - management-api
+contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 Management API Reference
+
+<%= include('../../../_includes/_version_warning_api') %>
 
 ### API endpoint
 
@@ -50,7 +57,7 @@ curl https://${account.namespace}/oauth/token --data "client_id=${account.client
 ```
 
 ### Headers
-The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
+The `Authorization` header is the only accepted header and is used in place of the query string to send the Access Token. All content is  returned in JSON. The `Accept` header is ignored for now.
 
 ```text
 Authorization: bearer {ACCESS-TOKEN}

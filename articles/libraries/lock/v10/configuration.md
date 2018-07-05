@@ -2,6 +2,13 @@
 section: libraries
 toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Configuration Options
 
@@ -20,7 +27,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [allowAutocomplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
-| [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
+| [allowedConnections](#allowedconnections-array-) | limit the application connections shown in Lock to a particular set |
 | [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
 | [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
@@ -53,7 +60,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [audience](#audience-string-) | The API which will be consuming your Access Token |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
@@ -91,7 +98,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [oidcConformant](#oidcconformant-boolean-) | Whether or not to use OIDC Conformant mode |
-| [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
+| [clientBaseUrl](#clientbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
 | [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
@@ -404,7 +411,7 @@ var options = {
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
 
-Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this client in the dashboard.
+Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this application in the dashboard.
 
 ```js
 var options = {};
@@ -450,7 +457,7 @@ var options = {
 
 ### audience {String}
 
-The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+The `audience` option indicates the API which will be consuming the Access Token that is received after authentication.
 
 ```js
 var options = {
@@ -567,7 +574,7 @@ var options = {
 
 #### sso {Boolean}
 
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
 
 ::: warning
 Failing to set this to true will result in multifactor authentication not working correctly.
@@ -846,7 +853,7 @@ var options = {
 
 ### oidcConformant {Boolean}
 
-Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [universal login](/hosted-pages/login).
+Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when implementing [Universal Login](/hosted-pages/login).
 
 To enable OIDC conformant mode, pass a flag in the options object.
 
@@ -866,7 +873,7 @@ Although this flag was present in previous versions, official support was added 
 
 ### clientBaseUrl {String}
 
-This option can provide a URL to override the client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
+This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
 
 ```js
 var options = {

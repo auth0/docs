@@ -1,9 +1,17 @@
 ---
 title: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
 description: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - eloqua
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 
 ```json
