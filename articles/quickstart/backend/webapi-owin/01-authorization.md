@@ -12,8 +12,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-::: panel-warning OWIN 4 Incompatibility
-Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package is only compatible with **System.IdentityModel.Tokens.Jwt 4.x** and the **OWIN 3.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with newer versions of those packages will result in compiler errors.
+::: panel-warning OWIN 4
+Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package used in this tutorial is only compatible with the **OWIN 4.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with OWIN 3.x will result in errors.
 :::
 
 <%= include('../../../_includes/_api_auth_intro') %>
@@ -71,7 +71,7 @@ public void Configuration(IAppBuilder app)
             {
                 ValidAudience = apiIdentifier,
                 ValidIssuer = domain,
-                IssuerSigningKeyResolver = (token, securityToken, identifier, parameters) => keyResolver.GetSigningKey(identifier)
+                IssuerSigningKeyResolver = (token, securityToken, kid, parameters) => keyResolver.GetSigningKey(kid)
             }
         });
 

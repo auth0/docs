@@ -39,7 +39,7 @@ A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. 
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
-In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://rs256.test.api**.
+In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api**.
 
 So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
 
@@ -51,9 +51,9 @@ app.UseJwtBearerAuthentication(
         AuthenticationMode = AuthenticationMode.Active,
         TokenValidationParameters = new TokenValidationParameters()
         {
-            ValidAudience = "https://rs256.test.api",
+            ValidAudience = "https://quickstarts/api",
             ValidIssuer = "https://jerrie.auth0.com/",
-            IssuerSigningKeyResolver = (token, securityToken, identifier, parameters) => keyResolver.GetSigningKey(identifier)
+            IssuerSigningKeyResolver = (token, securityToken, kid, parameters) => keyResolver.GetSigningKey(kid)
         }
     });
 ```
@@ -62,7 +62,7 @@ For a token signed using HS256, the debugger view will look a little different:
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
-In the screenshot above you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://hs256.test.api**.
+In the screenshot above you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api/hs256**.
 
 In this case the middleware needs to be configured as follows:
 
@@ -71,12 +71,12 @@ app.UseJwtBearerAuthentication(
     new JwtBearerAuthenticationOptions
     {
         AuthenticationMode = AuthenticationMode.Active,
-        AllowedAudiences = new[] { "https://hs256.test.api" },
-        IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+        AllowedAudiences = new[] { "https://quickstarts/api/hs256" },
+        IssuerSecurityKeyProviders = new IIssuerSecurityKeyProvider[]
         {
-            new SymmetricKeyIssuerSecurityTokenProvider("https://jerrie.auth0.com/",
+            new SymmetricKeyIssuerSecurityKeyProvider("https://jerrie.auth0.com/",
               Encoding.UTF8.GetBytes("your api secret"))
-        },
+        }
     });
 ```
 
