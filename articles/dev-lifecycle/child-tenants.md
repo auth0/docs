@@ -13,6 +13,10 @@ useCase:
 
 This request process is for self-service customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
 
+::: warning
+Please note that this policy doesn't apply if you have an Enterprise subscription. If you need to add Child tenants to your subscription, please contact your designated CSM, or the Auth0 Support team using the [Support Center](${env.DOMAIN_URL_SUPPORT}).
+:::
+
 ::: note
 Free tenants do not include a child tenant.
 :::
