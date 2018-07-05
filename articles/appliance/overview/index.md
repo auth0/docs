@@ -7,14 +7,13 @@ contentType: concept
 useCase: appliance
 applianceId: appliance52
 ---
-
 # PSaaS Appliance Overview
 
 The PSaaS Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The PSaaS Appliance can be deployed in one of three places:
 
-* a dedicated cloud environment hosted by Auth0 (you may opt for a shared cloud environment or an environment where resources are allocated only to your company).
-* your cloud environment using **Amazon AWS** or **Microsoft Azure**. Other public cloud service providers will need to be reviewed.
-* your own datacenter (as a managed service) using **VMWare** or **Microsoft Hyper-V**.
+* A dedicated cloud environment hosted by Auth0 (you may opt for a shared cloud environment or an environment where resources are allocated only to your company).
+* Your cloud environment using **Amazon AWS** or **Microsoft Azure**. Other public cloud service providers will need to be reviewed.
+* Your own data center (as a managed service) using **VMWare** or **Microsoft Hyper-V**.
 
 ::: note
 Please contact us for additional information if you are interested in using cloud environments and/or virtualization environments not listed above.
@@ -50,7 +49,7 @@ You may deploy the PSaaS Appliance in several different configurations and use s
         <td><ul><li>Highly scalable capacity for the most demanding applications</li> <li>Tolerates multi-node outages</li> <li>Recommended for large-scale Production environments</li> <li>Includes a single node for Dev/QA</li></ul></td>
     </tr>
     <tr>
-        <th>Geo HA</th>
+        <th><a href="/appliance/geo-ha">Geo HA</a></th>
         <td>Not Available</td>
         <td colspan="2"><ul><li>Multiple data center with active-passive clustering and automated failover</li> <li>Auth0 continues to operate if a data center becomes unavailable</li> <li>If the primary data center fails, traffic can quickly be routed to the secondary cluster</li> <li>Cluster topology is replicated in each environment. Requires a global load balancing solution like AWS Route 53 or F5 Global Traffic Manager.</li></ul></td>
     </tr>
