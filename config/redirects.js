@@ -1822,6 +1822,22 @@ module.exports = [
   },
   {
      from: '/applications/application-settings/non-interactive',
-     to: '/applications/application-settings/machine-to-machine'
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/machine-to-machine',
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/native',
+     to: '/applications/native#settings'
+   },
+   {
+     from: '/applications/application-settings/regular-web-app',
+     to: '/applications/webapps#settings'
+   },
+   {
+     from: '/applications/application-settings/single-page-app',
+     to: '/applications/spa#settings'
    }
 ];
