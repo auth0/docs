@@ -6,12 +6,13 @@ http://localhost:3000/callback
 ```
 2) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 ```bash
-npm install
-npm start
+npm install && npm start
 ```
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
 
 ```bash
-# In Linux / macOS         In Windows' Powershell
-sh exec.sh                 ./exec.ps1
+# In Linux / macOS         
+sh exec.sh                 
+# In Windows' Powershell
+./exec.ps1
 ```
