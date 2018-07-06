@@ -101,13 +101,14 @@ If you provide access to the appropriate monitoring endpoints, Auth0 will monito
 If Auth0 hosts the PSaaS Appliance for you, then Auth0 will monitor the related services.
 
 ### Monitoring Endpoints
+
 Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (such as Microsoft System Center, IBM Tivoli, HP OpenView, and so on) for auditing, load balancing, and performance monitoring, such as in cases where the transaction under test includes application specific functionality (for example, a [rule](/rules) that integrates Auth0 with your own CRM).
 
 You may find detailed guidance at [Monitoring Auth0](/monitoring).
 
 In addition, the PSaaS Appliance has authenticated monitoring endpoints for metrics like CPU, memory, and disk space that you can query for more detailed information.
 
-If the PSaaS Appliance does not perform as expected, you can contact your Auth0 Customer Success Engineer. Auth0 provides an incident escalation procedure during the onboarding process that explains the steps to be followed when an incident occurs. Auth0 has a 24 x 7, around-the-clock support staff.
+If the PSaaS Appliance does not perform as expected, please open a ticket in the Auth0 [Support Center](${env.DOMAIN_URL_SUPPORT}). Auth0 provides an incident escalation procedure during the onboarding process that explains the steps to be followed when an incident occurs. Auth0 has a 24 x 7, around-the-clock support staff.
 
 ## Server Requirements
 
