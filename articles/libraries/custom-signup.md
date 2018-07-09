@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: How to customize the user sign-up form with additional fields using Lock or the Auth0 API.
+description: How to customize the user signup form with additional fields using Lock or the Auth0 API.
 toc: true
 topics:
   - libraries
@@ -15,10 +15,10 @@ useCase:
 ---
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password.
+You can customize the user signup form with more fields in addition to email and password when using Lock or the Auth0 API. There are many factors to consider before you choose ![Lock vs. Custom UI](/libraries/when-to-use-lock). For example, using Lock, you can redirect to another page to capture data or use progressive profiling. When using the Auth0 API, you can capture custom fields and store them in a database. There are certain limitations to the customization that should be considered when choosing the method that best suits your purpose. Some typical customizations include adding a username and verifying password strength. 
 
 :::panel Universal Login
-Auth0 offers a [Universal Login](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the application name, logo and background color, then Universal Login via an Auth0 login page might be an easier option to implement.
+Auth0 offers a [Universal Login](/hosted-pages/login) option that you can use instead of designing your own custom signup page. If you want to offer signup and login options, and you only need to customize the application name, logo and background color, then Universal Login via an Auth0 login page might be an easier option to implement. 
 :::
 
 ## Using Lock
@@ -41,7 +41,7 @@ For further reference, here is our [documentation on progressive profiling](/use
 
 ## Using the API
 
-### 1. Create a sign up form to capture custom fields
+### 1. Create a signup form to capture custom fields
 
 ```html
 <form id="signup">
@@ -125,7 +125,7 @@ window.auth0 = new Auth0({
 
 Your server will then need to call APIv2 to add the necessary custom fields to the user's profile.
 
-## Add username to the sign up form
+## Add username to the signup form
 
 One common signup customization is to add a username to the signup.
 
