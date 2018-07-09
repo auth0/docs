@@ -42,7 +42,7 @@ Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
 | Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
 | Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
 
