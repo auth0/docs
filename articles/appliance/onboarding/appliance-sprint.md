@@ -11,7 +11,6 @@ useCase:
   - appliance
 applianceId: appliance64
 ---
-
 # PSaaS Appliance Deployment Project
 
 PSaaS Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an PSaaS Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription.
@@ -36,7 +35,7 @@ The following sections describe what happens during each step of the PSaaS Appli
 
 **What?** Your team prepares the relevant infrastructure based on our guidance.
 
-[PSaaS Appliance Infrastructure Requirements Docs](/appliance/infrastructure)
+[PSaaS Appliance Infrastructure Requirements Docs](/appliance/customer-hosted/infrastructure)
 
 ### Step 3 - PSaaS Appliance Setup
 
@@ -50,9 +49,9 @@ The following sections describe what happens during each step of the PSaaS Appli
 
 **What?** An operational handover session with your team to learn how to administer the PSaaS Appliance.
 
-[PSaaS Appliance Configuration](/appliance/dashboard) - See our Docs on the configuration settings within the Appliance.
+[PSaaS Appliance Configuration](/appliance/customer-hosted/dashboard) - See our Docs on the configuration settings within the Appliance.
 
-[PSaaS Appliance Administrator's Manual](/appliance/admin)
+[PSaaS Appliance Administrator's Manual](/appliance/customer-hosted/admin)
 
 ## What's next?
 

@@ -9,9 +9,6 @@ contentType: reference
 useCase: appliance
 applianceId: appliance31
 ---
-
-<!-- markdownlint-disable MD033 -->
-
 # DNS
 
 The following document details the requirements of DNS records used for PSaaS Appliance instances.
@@ -86,7 +83,7 @@ The Auth0 PSaaS Appliance is capable of supporting multi-tenancy (that is, each 
 
 ## DNS Configuration Requirements
 
-In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/appliance/infrastructure/infrastructure-overview).
+In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/appliance/customer-hosted/infrastructure/infrastructure-overview).
 
 ### IP Addresses and DNS Records
 

@@ -13,7 +13,7 @@ applianceId: appliance23
 # Auth0 Appliance Dashboard: Rate Limiting
 
 ::: note
-  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 While the Auth0-managed cloud instances automatically includes rate limiting to ensure quality service, you must manually enable rate limiting if you are using Auth0 PSaaS Appliance instances.

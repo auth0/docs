@@ -1,5 +1,4 @@
 ---
-url: /appliance/extensions
 section: appliance
 description: Explains implementation details for Extensions specific to the PSaaS Appliance.
 topics:
@@ -25,7 +24,7 @@ Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Applia
 ::: note
 To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
 
-See [Enable Webtasks, Web Extensions, and User Search](/appliance/infrastructure/extensions) for additional information.
+See [Enable Webtasks, Web Extensions, and User Search](/appliance/customer-hosted/infrastructure/extensions) for additional information.
 :::
 
 In order for you to configure Extensions, you will need to add this URL to the **Allowed Origins (CORS)** section under the [Auth0 Dashboard's Application Settings page](${manage_url}/#/applications).

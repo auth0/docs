@@ -17,19 +17,19 @@ applianceId: appliance74
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/appliance/customer-hosted/infrastructure">PSaaS Appliance Infrastructure Requirements</a>
+    <i class="icon icon-budicon-715"></i><a href="/appliance/customer-hosted/customer-hosted/infrastructure">PSaaS Appliance Infrastructure Requirements</a>
     <p>
       This document contains information about the PSaaS Appliance and its infrastructure requirements.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/appliance/customer-hosted/raci">PSaaS Appliance Personnel Roles and Responsibilities</a>
+    <i class="icon icon-budicon-715"></i><a href="/appliance/customer-hosted/customer-hosted/raci">PSaaS Appliance Personnel Roles and Responsibilities</a>
     <p>
       This document contains information about the division of responsibilities among PSaaS Appliance personnel with regards to deployment, maintenance, and support.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/onboarding/appliance-sprint">PSaaS Appliance Sprint (Customer Onboarding)</a>
+    <i class="icon icon-budicon-715"></i><a href="/appliance/onboarding/appliance-sprint">PSaaS Appliance Sprint (Customer Onboarding)</a>
     <p>
       PSaaS Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 PSaaS Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription. The 6 steps in the onboarding program set both you and Auth0 up for success.
     </p>

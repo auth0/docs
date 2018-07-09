@@ -34,5 +34,5 @@ To add a node to the `backup` role, execute the `set-as-backup` command using th
 
 ## Additional Reading
 
-* [Configuring and Using the PSaaS Appliance Command Line Interface](/appliance/cli/configure-cli)
-* [How to Back Up the PSaaS Appliance Using the CLI](/appliance/cli/backing-up-the-appliance)
+* [Configuring and Using the PSaaS Appliance Command Line Interface](/appliance/customer-hosted/cli/configure-cli)
+* [How to Back Up the PSaaS Appliance Using the CLI](/appliance/customer-hosted/cli/backing-up-the-appliance)

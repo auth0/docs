@@ -13,7 +13,7 @@ applianceId: appliance18
 # PSaaS Appliance Dashboard: CLI
 
 ::: note
-  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 If your PSaaS Appliance instances requires integration with the PSaaS Appliance Command Line Interface (CLI), you may add the required access keys to this page.

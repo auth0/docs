@@ -1,5 +1,4 @@
 ---
-url: /appliance/geo-ha
 section: appliance
 description: Descriptions of Appliance Geo HA
 topics:
@@ -79,5 +78,5 @@ If the primary data center becomes available again and its instances are visible
 ### Keep reading
 
 ::: next-steps
-* [Geographic High-Availability PSaaS Appliance Failure Scenarios and Testing](/appliance/geo-ha/disaster-recovery)
+* [Geographic High-Availability PSaaS Appliance Failure Scenarios and Testing](/appliance/overview/geo-ha/disaster-recovery)
 :::

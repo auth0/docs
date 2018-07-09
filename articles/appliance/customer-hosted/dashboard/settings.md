@@ -13,7 +13,7 @@ applianceId: appliance24
 # Auth0 Appliance Dashboard: Settings
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 The Settings page is where you will make most of the changes that pertain to your PSaaS Appliance configuration.

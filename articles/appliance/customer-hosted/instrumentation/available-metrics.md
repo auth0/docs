@@ -8,7 +8,6 @@ contentType: reference
 useCase: appliance
 applianceId: appliance43
 ---
-
 # PSaaS Appliance: Metrics Available via Instrumentation
 
 The following metrics are available to you when Instrumentation is enabled on your PSaaS Appliance:

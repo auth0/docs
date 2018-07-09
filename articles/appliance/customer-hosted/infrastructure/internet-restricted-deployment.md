@@ -20,7 +20,7 @@ The PSaaS Appliance is designed to mirror the solutions offered via the Auth0 Pu
 While we make an effort to create PSaaS Appliances that are encapsulated for normal operation, there are several features that require access to external resources for normal functionality. These resources are primarily located on the Auth0 Content Delivery Network (CDN), which is accessed via **cdn.auth0.com**.
 
 ::: warning
-The PSaaS Appliance **must** have access to the internet during [update periods](https://auth0.com/docs/appliance/infrastructure/ip-domain-port-list#external-connectivity).
+The PSaaS Appliance **must** have access to the internet during [update periods](/appliance/customer-hosted/infrastructure/ip-domain-port-list#external-connectivity).
 :::
 
 Operating the PSaaS Appliance in an internet-restricted environment results in the loss of the following features/functionality:

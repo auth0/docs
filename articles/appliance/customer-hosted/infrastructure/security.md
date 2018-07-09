@@ -16,7 +16,7 @@ applianceId: appliance40
 
  ## SSL Certificates
 
-You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/appliance/webtasks/dedicated-domains). 
+You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/customer-hosted/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/appliance/webtasks/dedicated-domains). 
 
  ::: note
    If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
@@ -74,7 +74,7 @@ The PSaaS Appliance supports STARTTLS, but it is not required.
 
 ## Auth0 Remote Access
 
-Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
+Auth0 requires [remote access](/appliance/customer-hosted/remote-access-options) to your PSaaS Appliance instances to perform updates, maintenance, or troubleshooting.
 
 ### Initial Configuration
 

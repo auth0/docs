@@ -13,7 +13,7 @@ applianceId: appliance25
 # PSaaS Appliance Dashboard: Tenants
 
 ::: note
-  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 The Tenants page of the PSaaS Appliance Dashboard lists all tenants associated with your PSaaS Appliance instance.

@@ -18,7 +18,7 @@ Beginning with PSaaS Appliance build **6576**, you may reconfigure the mapping o
 
 ## Prerequisites
 
-Prior to beginning, please be sure to [configure the CLI](/appliance/cli/configure-cli) for use in performing operations on your PSaaS Appliance instances via authorized workstations.
+Prior to beginning, please be sure to [configure the CLI](/appliance/customer-hosted/cli/configure-cli) for use in performing operations on your PSaaS Appliance instances via authorized workstations.
 
 ## Using the `re-ip` Task
 

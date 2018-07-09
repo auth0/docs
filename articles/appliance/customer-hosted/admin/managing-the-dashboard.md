@@ -16,11 +16,11 @@ applianceId: appliance7
 ::: panel-warning Connections for the Auth0 Application
 The **Auth0** application in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this application is the built-in Database Connection (the default Connection for this application is a Database Connection called *Initial-Connection*) or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** application.
 
-Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** application.
+Additionally, please [disable signups](/appliance/customer-hosted/admin/disabling-sign-ups) for the **Auth0** application.
 :::
 
 
-The [Auth0 Dashboard](/appliance/dashboard) uses the PSaaS Appliance to authenticate its users.
+The [Auth0 Dashboard](/appliance/customer-hosted/dashboard) uses the PSaaS Appliance to authenticate its users.
 
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 

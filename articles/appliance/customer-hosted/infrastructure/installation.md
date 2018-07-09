@@ -11,9 +11,6 @@ contentType:
 useCase: appliance
 applianceId: appliance36
 ---
-
-<!-- markdownlint-disable MD033 -->
-
 # PSaaS Appliance Infrastructure Overview
 
 ## Project Coordination and Execution

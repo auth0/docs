@@ -16,4 +16,4 @@ If the PSaaS Appliance is used in a stateless way (such as authentication, SSO),
 If the PSaaS Appliance is only used to store data (such as database connections, user metadata), Auth0 recommends that you take **daily** backups of all nodes using virtual machine snapshots.
 
 ## For More Information:
--  [How to Back Up the PSaaS Appliance Using the CLI](/appliance/cli/backing-up-the-appliance)
+-  [How to Back Up the PSaaS Appliance Using the CLI](/appliance/customer-hosted/cli/backing-up-the-appliance)

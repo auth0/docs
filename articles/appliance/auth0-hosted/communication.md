@@ -28,4 +28,4 @@ To configure the outgoing emails, we will need the following SMTP-related values
 * Username
 * Password
 
-Please note that this information is not required until the required environments are ready. Auth0 will work with you to update your settings. See the [SMTP section](/appliance/infrastructure/security#smtp) of the PSaaS Appliance infrastructure manual for additional information.
+Please note that this information is not required until the required environments are ready. Auth0 will work with you to update your settings. See the [SMTP section](/appliance/customer-hosted/infrastructure/security#smtp) of the PSaaS Appliance infrastructure manual for additional information.

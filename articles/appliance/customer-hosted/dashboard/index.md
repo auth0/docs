@@ -2,7 +2,6 @@
 section: appliance
 description: >
   Learn how to use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
-url: /appliance/dashboard
 topics:
     - appliance
     - dashboard
@@ -27,22 +26,22 @@ These controls, however, are exposed to you if you are managing your PSaaS Appli
 
 For additional information about the pages contained in the PSaaS Appliance configuration area, please refer to the following documents:
 
-[Nodes](/appliance/dashboard/nodes)
+[Nodes](/appliance/customer-hosted/dashboard/nodes)
 
-[Settings](/appliance/dashboard/settings)
+[Settings](/appliance/customer-hosted/dashboard/settings)
 
-[Tenants](/appliance/dashboard/tenants)
+[Tenants](/appliance/customer-hosted/dashboard/tenants)
 
-[Troubleshoot](/appliance/dashboard/troubleshoot)
+[Troubleshoot](/appliance/customer-hosted/dashboard/troubleshoot)
 
-[Updates](/appliance/dashboard/updates)
+[Updates](/appliance/customer-hosted/dashboard/updates)
 
-[Activity](/appliance/dashboard/activity)
+[Activity](/appliance/customer-hosted/dashboard/activity)
 
-[Instrumentation](/appliance/dashboard/instrumentation)
+[Instrumentation](/appliance/customer-hosted/dashboard/instrumentation)
 
-[Rate Limiting](/appliance/dashboard/rate-limiting)
+[Rate Limiting](/appliance/customer-hosted/dashboard/rate-limiting)
 
-[CLI](/appliance/dashboard/cli)
+[CLI](/appliance/customer-hosted/dashboard/cli)
 
-[OSS Components](/appliance/dashboard/oss-components)
+[OSS Components](/appliance/customer-hosted/dashboard/oss-components)

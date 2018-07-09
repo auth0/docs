@@ -20,11 +20,11 @@ Beginning with version `11638`, the backup doesn't include sensitive configurati
 ## Prior to Beginning the Backup
 
 Please ensure that:
-* You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your PSaaS Appliance instances;
+* You have configured the [Command Line Interface](/appliance/customer-hosted/cli/configure-cli) on your PSaaS Appliance instances;
 * The node has disk space equal to or greater than twice the amount of Auth0 data present.
 
 ::: note
-Beginning with PSaaS Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
+Beginning with PSaaS Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/customer-hosted/cli/adding-node-to-backup-role).
 :::
 
 Please be aware that we use the following sample values throughout this document:

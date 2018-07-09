@@ -1,5 +1,4 @@
 ---
-url: /appliance/instrumentation
 section: appliance
 description: This document covers why and how to enable instrumentation in the PSaaS Appliance.
 topics:
@@ -20,7 +19,7 @@ The PSaaS Appliance ships with a feature called Instrumentation, which makes it 
 Please contact your Auth0 Customer Success Manager if you would like to enable Instrumentation for your PSaaS Appliance (please note that this feature is not available for PSaaS Appliances hosted by Auth0).
 :::
 
-* [Software Components Utilized](/appliance/instrumentation/components)
-* [Available Metrics](/appliance/instrumentation/available-metrics)
-* [Visualize Your Data](/appliance/instrumentation/visualize-data)
-* [Add Users in Grafana](/appliance/instrumentation/add-grafana-users)
+* [Software Components Utilized](/appliance/customer-hosted/instrumentation/components)
+* [Available Metrics](/appliance/customer-hosted/instrumentation/available-metrics)
+* [Visualize Your Data](/appliance/customer-hosted/instrumentation/visualize-data)
+* [Add Users in Grafana](/appliance/customer-hosted/instrumentation/add-grafana-users)

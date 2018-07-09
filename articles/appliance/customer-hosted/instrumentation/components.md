@@ -8,7 +8,6 @@ contentType: reference
 useCase: appliance
 applianceId: appliance44
 ---
-
 # PSaaS Appliance: Instrumentation Components
 
 The following applications are used to implement Instrumentation within the PSaaS Appliance:

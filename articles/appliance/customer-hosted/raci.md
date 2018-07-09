@@ -41,12 +41,12 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 
 |PSaaS Appliance-Related Tasks or Deliverables|Auth0|Subscriber|Notes|
 |---|---|---|---|
-|Preparing VM Infrastructure, including: memory, storage, processors, load balances, networks, SSL certificates, DNS records, SMTP servers, enabling Auth0 access via Jumphost/VPN|C|R, A (subscriber's infrastructure engineer)|The subscriber will submit the PSaaS Appliance Infrastructure Checklist when the VMs are ready and the [infrastructure requirements](/appliance/infrastructure) are met.|
+|Preparing VM Infrastructure, including: memory, storage, processors, load balances, networks, SSL certificates, DNS records, SMTP servers, enabling Auth0 access via Jumphost/VPN|C|R, A (subscriber's infrastructure engineer)|The subscriber will submit the PSaaS Appliance Infrastructure Checklist when the VMs are ready and the [infrastructure requirements](/appliance/customer-hosted/infrastructure) are met.|
 |Deployment to Development and Production environments|R, A - Auth0 Customer Success Engineer|I|The Auth0 Customer Success Engineer will SSH into the VMs and deploy the Appliance.|
-|Configuration of Development and Production environments|C|R|The Auth0 CSE will show the subscriber's infrastructure engineer [how to upload the SSL certificates, enter the SMTP credentials, and add administrators](/appliance/dashboard).|
+|Configuration of Development and Production environments|C|R|The Auth0 CSE will show the subscriber's infrastructure engineer [how to upload the SSL certificates, enter the SMTP credentials, and add administrators](/appliance/customer-hosted/dashboard).|
 |Operations Handover|R|C|Auth0 Customer Success Engineers will provide a 90-minute Operations Handover meeting to review information regarding PSaaS Appliance monitoring, backup, and updates, as well as answer questions.|
-|Monitoring|I|R, A|The subscriber is responsible for [monitoring the PSaaS Appliance](/appliance/monitoring).|
-|Backing Up|I (in the event that there are issues)|R, A|The subscriber is responsible for [backing up the PSaaS Appliance](/appliance/disaster-recovery) using the [Command-Line Tools](/appliance/cli).|
+|Monitoring|I|R, A|The subscriber is responsible for [monitoring the PSaaS Appliance](/appliance/customer-hosted/monitoring).|
+|Backing Up|I (in the event that there are issues)|R, A|The subscriber is responsible for [backing up the PSaaS Appliance](/appliance/customer-hosted/disaster-recovery) using the [Command-Line Tools](/appliance/customer-hosted/cli).|
 |Code Integration into Applications|C, I (in the event that there are issues)|R, A|The subscriber is responsible for Auth0 code integration.|
 |User Migration (if required)|C, I (in the event that there are issues)|R, A|The subscriber is responsible for migrating users where appropriate.|
 |Updates|R|R, A|Auth0 Customer Success Engineers will partner with the subscriber's infrastructure engineers to update the PSaaS Appliance on an agreed-upon basis. The subscriber is responsible for: taking VM snapshot(s) prior to the update, providing access to the PSaaS Appliance, being present as the PSaaS Appliance updates. Auth0 is responsible for: running manual scripts (if required), informing the subscriber on the status of the upgrade.|
@@ -56,8 +56,8 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 
 ### Keep Reading
 
-* [Overview](/appliance/appliance-overview )
-* [Infrastructure](/appliance/infrastructure)
-* [Disaster Recovery](/appliance/disaster-recovery)
-* [Enterprise Support](/onboarding/enterprise-support)
-* [Critical Support Issues Guidance](/appliance/critical-issue)
+* [Overview](/appliance/overview/appliance-overview )
+* [Infrastructure](/appliance/customer-hosted/infrastructure)
+* [Disaster Recovery](/appliance/customer-hosted/disaster-recovery)
+* [Enterprise Support](/appliance/onboarding/enterprise-support)
+* [Critical Support Issues Guidance](/appliance/customer-hosted/critical-issue)

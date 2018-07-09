@@ -13,7 +13,7 @@ applianceId: appliance21
 # Auth0 Appliance Dashboard: Nodes
 
 ::: note
-  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 The Nodes page located under the PSaaS Appliance configuration area provides a high-level overview of the nodes you have running as part of your PSaaS Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.

@@ -8,7 +8,6 @@ contentType: how
 useCase: appliance
 applianceId: appliance46
 ---
-
 # PSaaS Appliance: How to Visualize Your Data
 
 Once you have enabled Instrumentation, you can access your data in one of two places:

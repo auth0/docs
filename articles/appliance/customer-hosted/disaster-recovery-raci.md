@@ -28,7 +28,7 @@ RACI refers to the following list of definitions:
 ## Database Backup
 
 ::: note
-Please see [Database Backup](/appliance/disaster-recovery#database-backups) for more information.
+Please see [Database Backup](/appliance/customer-hosted/customer-hosted/disaster-recovery#database-backups) for more information.
 :::
 
 The following table details the task division for configuring, creating, and monitoring the data backup process.
@@ -48,31 +48,31 @@ The following table details the task division for configuring, creating, and mon
             <td>Provision Additional Backup Disk</td>
             <td>I</td>
             <td>R, A</td>
-            <td>The subscriber will need to <a href="/appliance/infrastructure/virtual-machines#virtual-machine-infrastructure-requirements">provision an additional drive</a> for backup purposes.</td>
+            <td>The subscriber will need to <a href="/appliance/customer-hosted/infrastructure/virtual-machines#virtual-machine-infrastructure-requirements">provision an additional drive</a> for backup purposes.</td>
         </tr>
         <tr>
             <td>Download PSaaS Appliance CLI tool</td>
             <td>C</td>
             <td>R, A</td>
-            <td>The subscriber will need to contact their Auth0 Customer Success Manager for the <a href="/appliance/cli/configure-cli#downloading-the-cli-setup-files">custom download link</a>.</td>
+            <td>The subscriber will need to contact their Auth0 Customer Success Manager for the <a href="/appliance/customer-hosted/cli/configure-cli#downloading-the-cli-setup-files">custom download link</a>.</td>
         </tr>
         <tr>
             <td>Install PSaaS Appliance CLI Tool</td>
             <td>I</td>
             <td>R, A</td>
-            <td>The subscriber will need to <a href="/appliance/cli/configure-cli#installing-and-using-the-cli">install the CLI tool</a>.</td>
+            <td>The subscriber will need to <a href="/appliance/customer-hosted/cli/configure-cli#installing-and-using-the-cli">install the CLI tool</a>.</td>
         </tr>
         <tr>
             <td>Configure Appliance CLI Tool</td>
             <td>I</td>
             <td>R, A</td>
-            <td>The subscriber will need to add a <a href="/appliance/cli/adding-node-to-backup-role">node to the backup role</a>.</td>
+            <td>The subscriber will need to add a <a href="/appliance/customer-hosted/cli/adding-node-to-backup-role">node to the backup role</a>.</td>
         </tr>
         <tr>
             <td>Perform Data Backup via CLI Tool</td>
             <td>I</td>
             <td>R, A</td>
-            <td>The subscriber will need to <a href="/appliance/cli/backing-up-the-appliance#generate-a-new-backup">initiate a backup action via the CLI</a>, as well as check periodically on the status of the backup.</br>Beginning with version <code>11638</code>, a separate Sensitive Configuration Backup needs to performed as well.</td>
+            <td>The subscriber will need to <a href="/appliance/customer-hosted/cli/backing-up-the-appliance#generate-a-new-backup">initiate a backup action via the CLI</a>, as well as check periodically on the status of the backup.</br>Beginning with version <code>11638</code>, a separate Sensitive Configuration Backup needs to performed as well.</td>
         </tr>
         <tr>
             <td>Store Data Backup at a Secondary Site</td>
@@ -84,7 +84,7 @@ The following table details the task division for configuring, creating, and mon
             <td>Delete Data Backups</td>
             <td>I</td>
             <td>R, A</td>
-            <td>Only one backup should be stored in the backup device. If there exists a backup on the device, the subscriber will be asked to <a href="/appliance/cli/backing-up-the-appliance#delete-a-backup ">delete it</a> prior to creating a new one.</td>
+            <td>Only one backup should be stored in the backup device. If there exists a backup on the device, the subscriber will be asked to <a href="/appliance/customer-hosted/cli/backing-up-the-appliance#delete-a-backup ">delete it</a> prior to creating a new one.</td>
         </tr>
     </tbody>
 </table>

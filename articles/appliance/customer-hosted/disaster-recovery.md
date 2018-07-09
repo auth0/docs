@@ -19,7 +19,7 @@ In cases where the data centers have very low latency, you can run individual PS
 
 ## Geographic High-Availability PSaaS Appliance Implementation
 
-If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 1 minute.
+If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/overview/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 1 minute.
 
 **Advantages**:
 
@@ -37,8 +37,8 @@ Geo-HA involves:
 * Additional configuration to handle logical corruption, since this is not a scenario that is covered by the typical setup.
 
 For more information, please see:
-* [Geo HA](/appliance/geo-ha)
-* [Disaster Recovery](/appliance/geo-ha/disaster-recovery)
+* [Geo HA](/appliance/overview/geo-ha)
+* [Disaster Recovery](/appliance/overview/geo-ha/disaster-recovery)
 
 ## VM Snapshots
 If you have some tolerance for downtime (either in terms of minutes or hours), you can consider using the Virtual Machine (VM) snapshot approach. A VM snapshot contains everything you need to rebuild an PSaaS Appliance. You would be responsible for regularly taking VM snapshots and either storing them either offsite or replicating them to other regions in the cloud.
@@ -57,19 +57,19 @@ The following outlines the basic steps required for restoring your PSaaS Applian
 
 1. Ensure that you have a snapshot of your VM(s) and that it is stored at a secondary site. In the event of a disaster, your primary site may not be accessible.
 2. Restore your VM(s) using your snapshots at your secondary site.
-Use the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) to [reconfigure the IP addresses](/appliance/cli/reconfiguring-ip) of the VM(s).
+Use the [PSaaS Appliance Command Line Interface (CLI)](/appliance/customer-hosted/cli) to [reconfigure the IP addresses](/appliance/customer-hosted/cli/reconfiguring-ip) of the VM(s).
 
 ::: panel VMWare's Site Recovery Manager
 If you are hosting your PSaaS Appliance instances using VMware, you may also implement a similar backup/recovery scenario using VMWare's  Site Recovery Manager (SRM). SRM provides an automated mechanism to move your snapshots to a secondary site, where they can be retrieved if you ever need your data restored. If you choose this option, Auth0 will help you set up and test your implementation.
 
-We have tested that it will change the IP for the box and you can [run re-ip](/appliance/cli/reconfiguring-ip) as long as you have prepared the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) ahead of time and uploaded the certificate.
+We have tested that it will change the IP for the box and you can [run re-ip](/appliance/customer-hosted/cli/reconfiguring-ip) as long as you have prepared the [PSaaS Appliance Command Line Interface (CLI)](/appliance/customer-hosted/cli) ahead of time and uploaded the certificate.
 :::
 
 ## Database Backups
 
 Restoring your PSaaS Appliance with database backups requires you to provision new Virtual Machines (VMs). You will then need assistance from an Auth0 Customer Success Engineer (CSE) to configure the PSaaS Appliance and bring it back online with your restored data.
 
-Database backups are not the same as a snapshot of the whole VM. They are compressed backups created by the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli). You can then download them from the PSaaS Appliance and store them at a secondary site for recovery in the event you need to implement a recovery scenario.
+Database backups are not the same as a snapshot of the whole VM. They are compressed backups created by the [PSaaS Appliance Command Line Interface (CLI)](/appliance/customer-hosted/cli). You can then download them from the PSaaS Appliance and store them at a secondary site for recovery in the event you need to implement a recovery scenario.
 
 If you choose to use database backups as your DR strategy, please note that this process may take up to **24 hours**.
 
@@ -81,9 +81,9 @@ If you choose to use database backups as your DR strategy, please note that this
 * Recovering with a database backup requires the greatest amount of time.
 
 For more information, please see:
-* [Backing Up PSaaS Appliance Instances](/appliance/admin/backing-up-the-appliance-instances)
-* [Using the CLI to Backup PSaaS Appliance Instances](/appliance/cli/backing-up-the-appliance)
-* [Adding an PSaaS Appliance Node to the Backup Role](/appliance/cli/adding-node-to-backup-role)
+* [Backing Up PSaaS Appliance Instances](/appliance/customer-hosted/admin/backing-up-the-appliance-instances)
+* [Using the CLI to Backup PSaaS Appliance Instances](/appliance/customer-hosted/cli/backing-up-the-appliance)
+* [Adding an PSaaS Appliance Node to the Backup Role](/appliance/customer-hosted/cli/adding-node-to-backup-role)
 
 ::: note
   This option is available to PSaaS Appliance on version **7247** or later.

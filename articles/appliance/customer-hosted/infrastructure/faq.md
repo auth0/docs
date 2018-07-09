@@ -8,7 +8,6 @@ contentType: reference
 useCase: appliance
 applianceId: appliance33
 ---
-
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions
 
 #### Are there any functional differences between the Auth0 Cloud and the Auth0 PSaaS Appliance?
@@ -21,9 +20,9 @@ While proxies are currently unsupported, please speak to your Auth0 Customer Suc
 No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals.
 
 #### Can I install a monitoring agent in the PSaaS Appliance?
-No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals. The PSaaS Appliance [exposes monitoring information](/appliance/monitoring) in the Dashboard for common metrics (CPU/memory/and so on) or through the API, which can be used by your operations team and monitoring tools to determine how the PSaaS Appliance is performing.
+No, the PSaaS Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the PSaaS Appliance. Auth0 will manage the PSaaS Appliance internals. The PSaaS Appliance [exposes monitoring information](/appliance/customer-hosted/monitoring) in the Dashboard for common metrics (CPU/memory/and so on) or through the API, which can be used by your operations team and monitoring tools to determine how the PSaaS Appliance is performing.
 
-[Testall](/appliance/monitoring/testall) is an unauthenticated endpoint that can be used by load balancers. There are also additional authenticated endpoints that provide detailed information.
+[Testall](/appliance/customer-hosted/monitoring/testall) is an unauthenticated endpoint that can be used by load balancers. There are also additional authenticated endpoints that provide detailed information.
 
 #### Can I install anti-virus software on the PSaaS Appliance?
 While this is currently not supported, preinstalled anti-virus software may be included in future updates.
@@ -38,7 +37,7 @@ Webtasks and web extensions require this due to Node.js security requirements.
 
 For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required.
 
-For certain protocols, [Internet connectivity is required during operation](/appliance/infrastructure/internet-restricted-deployment) (such as social connections or emails).
+For certain protocols, [Internet connectivity is required during operation](/appliance/customer-hosted/infrastructure/internet-restricted-deployment) (such as social connections or emails).
 
 Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
 
@@ -46,13 +45,13 @@ Your server also needs to be able to access **cdn.auth0.com** if you run web ext
 
 Yes, you can use Lock with your PSaaS Appliance implementation.
 
-However, if you choose to operate your applications connected to the [PSaaS Appliance in an Internet-restricted environment](/appliance/infrastructure/internet-restricted-deployment), you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
+However, if you choose to operate your applications connected to the [PSaaS Appliance in an Internet-restricted environment](/appliance/customer-hosted/infrastructure/internet-restricted-deployment), you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
 
 If you choose this option, you are responsible for ensuring that your copy of the Lock source code stays up-to-date.
 
 #### How is the Auth0 software installed? 
 
-The PSaaS Appliance is a managed service that is deployed as [virtual machines](/appliance/infrastructure/virtual-machines) and runs on your network, so there is no traditional software installation involved.
+The PSaaS Appliance is a managed service that is deployed as [virtual machines](/appliance/customer-hosted/infrastructure/virtual-machines) and runs on your network, so there is no traditional software installation involved.
 
 Deployment of each PSaaS Appliance node is a manual process that must be performed by Auth0 Managed Service Engineers.
 
@@ -76,7 +75,7 @@ Our Professional Services team offers [Performance and Scalability](https://auth
 
 #### How does Auth0 access customer-hosted PSaaS Appliance VMs?
 
-Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS Appliance instances to configure, perform updates, perform maintenance, or troubleshoot. The remote access options are:
+Auth0 requires [remote access](/appliance/customer-hosted/remote-access-options) to your PSaaS Appliance instances to configure, perform updates, perform maintenance, or troubleshoot. The remote access options are:
 
 1. Jumphost + Firewall Whitelist
 2. Two Jumphosts
@@ -96,4 +95,4 @@ You can read the PSaaS Appliance terms [here](https://auth0.com/legal/baseline/P
 
 #### Does the PSaaS Appliance require internet access?
 
-Please refer to [our documentation on the internet-related requirements](/appliance/infrastructure/internet-restricted-deployment) for the PSaaS Appliance.
+Please refer to [our documentation on the internet-related requirements](/appliance/customer-hosted/infrastructure/internet-restricted-deployment) for the PSaaS Appliance.

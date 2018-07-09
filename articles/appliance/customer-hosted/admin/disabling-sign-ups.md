@@ -16,10 +16,10 @@ The PSaaS Appliance, when running in multi-tenancy mode, behaves just like the A
 ::: panel-warning Connections for the Auth0 Application
 The **Auth0** application in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this application is the built-in Database Connection (the default Connection for this application is a Database Connection called *Initial-Connection*) or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** application.
 
-Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** application.
+Additionally, please [disable signups](/appliance/customer-hosted/admin/disabling-sign-ups) for the **Auth0** application.
 :::
 
-Disabling signups will prevent users from signing up for an account in your PSaaS Appliance. Therefore, if you want to [invite co-administrators](/appliance/admin/inviting-coadmins) to a specific tenant, you will need to do the following:
+Disabling signups will prevent users from signing up for an account in your PSaaS Appliance. Therefore, if you want to [invite co-administrators](/appliance/customer-hosted/admin/inviting-coadmins) to a specific tenant, you will need to do the following:
 
 * create the user manually using the Dashboard;
 * send the newly-created user's credentials to your co-administrator;

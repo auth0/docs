@@ -8,9 +8,7 @@ contentType: how-to
 useCase: appliance
 applianceId: appliance42
 ---
-
 # PSaaS Appliance: Adding Users to Grafana
-
 
 By default, each Grafana instance (every PSaaS Appliance node comes with its own instance of Grafana) includes the following users:
 

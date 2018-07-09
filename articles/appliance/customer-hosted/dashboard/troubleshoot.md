@@ -13,7 +13,7 @@ applianceId: appliance26
 # PSaaS Appliance Dashboard: Troubleshoot
 
 ::: note
-  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/customer-hosted/dashboard#appliance-controls).
 :::
 
 The Troubleshoot page of the PSaaS Appliance Dashboard provides you with tools to help diagnose any issues that might occur.

@@ -12,7 +12,7 @@ applianceId: appliance20
 
 # PSaaS Appliance Dashboard: Instrumentation
 
-The PSaaS Appliance ships with a feature called [Instrumentation](/appliance/instrumentation), which makes it easy for your PSaaS Appliance administrators or Auth0 Customer Success Engineers to gather information about the current (or previous) state of the PSaaS Appliance.
+The PSaaS Appliance ships with a feature called [Instrumentation](/appliance/customer-hosted/instrumentation), which makes it easy for your PSaaS Appliance administrators or Auth0 Customer Success Engineers to gather information about the current (or previous) state of the PSaaS Appliance.
 
 If you have chosen to enable Instrumentation, you can see specific Grafana dashboards in the [PSaaS Appliance Dashboard](${manage_url}/configuration#/instrumentation).
 

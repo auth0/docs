@@ -38,7 +38,7 @@ For **multi-node** clusters, all virtual machines must be:
   Production and non-Production (test/development) must be on completely isolated networks.
 :::
 
-For a full list of IP addresses, domains, and ports used by the PSaaS Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
+For a full list of IP addresses, domains, and ports used by the PSaaS Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/customer-hosted/infrastructure/ip-domain-port-list).
 
 
 ## Internet Connectivity
@@ -58,7 +58,7 @@ DNS records are required for all PSaaS Appliance instances (development/test *an
 * **webtask**: webtask DNS is used for web extensions and to use Webtasks externally;
 * **App Tenant**: the tenant on the PSaaS Appliance created for your apps. It manages settings for your apps, user profiles, rules, and so on. This is the tenant you will interact with primarily through the Management Dashboard and the API.
 
-Each additional DNS zone requires an additional certificate. Please refer to the [DNS page](/appliance/infrastructure/dns) for specific requirements.
+Each additional DNS zone requires an additional certificate. Please refer to the [DNS page](/appliance/customer-hosted/infrastructure/dns) for specific requirements.
 
 ## Load Balancers (for Multi-Node Clusters only)
 
@@ -66,7 +66,7 @@ You must include a round-robin load balancer in your infrastructure when impleme
 
 We recommend a layer 7/application layer load balancer that supports:
 
-* HTTP health monitoring. The [testall](/appliance/monitoring/testall) endpoint is an unauthenticated endpoint that will be used for monitoring by load balancers;
+* HTTP health monitoring. The [testall](/appliance/customer-hosted/monitoring/testall) endpoint is an unauthenticated endpoint that will be used for monitoring by load balancers;
 * Awareness of websockets (this is required if using the Auth0 AD/LDAP Connector);
 * TCP/IP:
     * If your deployment requires geo-location data for users authenticating with Auth0, support for `proxy_protocols` (which append the remote UP address when opening a connection to the backend) will be exposed to the nodes. If `proxy_protocols` is not supported, the IP address information captured for individual logins will always appear as the Load Balancer IP address;

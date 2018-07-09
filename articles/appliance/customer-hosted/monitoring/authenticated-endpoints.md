@@ -16,7 +16,7 @@ For calls to the testing endpoints that return detailed information, Auth0 requi
 
 ## Generating the API Key
 
-To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your PSaaS Appliance Dashboard. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
+To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/customer-hosted/dashboard/settings) page of your PSaaS Appliance Dashboard. There, you will find an [API Keys section](/appliance/customer-hosted/dashboard/settings#api-keys) that allows you to generate new keys.
 
 During the first use, you will see a that there is no key. To generate your first key, click on the "Generate" button at the far right of the row.
 

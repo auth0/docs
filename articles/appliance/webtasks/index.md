@@ -18,7 +18,7 @@ Beginning with Build 7247, you may use the PSaaS Appliance's version of [Webtask
 ::: panel Prerequisites
 Prior to working with Webtasks, please ensure that you have configured the:
 
-* [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli/configure-cli);
+* [PSaaS Appliance Command Line Interface (CLI)](/appliance/customer-hosted/cli/configure-cli);
 * [Webtask Command Line Interface (`wt-cli`)](https://webtask.io/docs/101)
 :::
 
@@ -132,5 +132,5 @@ You should get a message that the webtask was created, alongside with the URL to
 * [Getting Started with Webtasks](https://webtask.io/docs/101)
 * [Using Webtasks as Code Sandboxes](https://webtask.io/docs/sample_multitenant)
 * [HTTP API: Executing Webtasks](https://webtask.io/docs/api_run)
-* [Webtasks with Dedicated Domains](/appliance/webtasks/dedicated-domains)
+* [Webtasks with Dedicated Domains](/appliance/customer-hosted/webtasks/dedicated-domains)
 :::

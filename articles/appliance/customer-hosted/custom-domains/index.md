@@ -1,5 +1,4 @@
 ---
-url: /appliance/custom-domains
 section: appliance
 description: How to set up custom domains for your PSaaS Appliance
 topics:
@@ -71,8 +70,8 @@ The custom domain has its own certificate, which is stored separately.
 
 ## Configuring Custom Domains
 
-You may configure custom domains for your tenants via the [custom domains set-up area](/appliance/dashboard/tenants#custom-domains) of the [tenants page in the PSaaS Appliance configuration area](/appliance/dashboard/tenants).
+You may configure custom domains for your tenants via the [custom domains set-up area](/appliance/customer-hosted/dashboard/tenants#custom-domains) of the [tenants page in the PSaaS Appliance configuration area](/appliance/customer-hosted/dashboard/tenants).
 
 ## Custom Domains for PSaaS Appliance's Hosted in Auth0’s Private Cloud
 
-If your PSaaS Appliance is hosted in Auth0’s private cloud, your domains will end in *auth0.com*. If you want to use a custom domain with your customer-facing applications, see [Information Requirements for Setting Up the PSaaS Appliance in Auth0's Private Cloud](/appliance/private-cloud-requirements).
+If your PSaaS Appliance is hosted in Auth0’s private cloud, your domains will end in *auth0.com*. If you want to use a custom domain with your customer-facing applications, consider the [Auth0-Hosted PSaaS Appliance](/appliance/auth0-hosted).

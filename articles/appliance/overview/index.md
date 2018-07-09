@@ -49,7 +49,7 @@ You may deploy the PSaaS Appliance in several different configurations and use s
         <td><ul><li>Highly scalable capacity for the most demanding applications</li> <li>Tolerates multi-node outages</li> <li>Recommended for large-scale Production environments</li> <li>Includes a single node for Dev/QA</li></ul></td>
     </tr>
     <tr>
-        <th><a href="/appliance/geo-ha">Geo HA</a></th>
+        <th><a href="/appliance/overview/geo-ha">Geo HA</a></th>
         <td>Not Available</td>
         <td colspan="2"><ul><li>Multiple data center with active-passive clustering and automated failover</li> <li>Auth0 continues to operate if a data center becomes unavailable</li> <li>If the primary data center fails, traffic can quickly be routed to the secondary cluster</li> <li>Cluster topology is replicated in each environment. Requires a global load balancing solution like AWS Route 53 or F5 Global Traffic Manager.</li></ul></td>
     </tr>
@@ -78,7 +78,7 @@ If Auth0 is managing a dedicated environment for you, Auth0 will obtain your con
 
 ### Connectivity
 
-During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can [continue to operate with limited internet access](/appliance/infrastructure/internet-restricted-deployment).
+During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can [continue to operate with limited internet access](/appliance/customer-hosted/infrastructure/internet-restricted-deployment).
 
 For normal maintenance, Auth0 will access the Management Dashboard (either over a temporary SSH connection or through remote control software) to apply the update. Auth0 will also need SSH access in the event that updates to the PSaaS Appliance are necessary. If you expose API endpoints to be used for monitoring, Auth0 will collect this information to proactively monitor PSaaS Appliance behavior for you.
 
