@@ -77,7 +77,7 @@ The Management Dashboard, Webtask, and App Tenant(s) **must** be a part of the s
 
 The hostname (such as **manage-project**.yourdomain.auth0.com) must be at least three characters long and must **not** contain any underscores(_).
 
-The word `login` is reserved and **cannot** be used.
+The word `login` is reserved and **cannot** be used. Please also refer to the [full list of reserved words](/appliance/infrastructure/dns#hostnames)
 
 The domain name you use for tenants hosted in the Dedicated Cloud Service **cannot** be the same as any you're using for tenants hosted in the Public Cloud Service. 
 
