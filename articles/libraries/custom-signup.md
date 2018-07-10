@@ -15,7 +15,9 @@ useCase:
 ---
 # Custom Signup
 
-You can customize the user signup form with more fields in addition to email and password when using Lock or the Auth0 API. There are many factors to consider before you choose [Lock vs. Custom UI](/libraries/when-to-use-lock). For example, using Lock, you can redirect to another page to capture data or use progressive profiling. When using the Auth0 API, you can capture custom fields and store them in a database. There are certain limitations to the customization that should be considered when choosing the method that best suits your purpose. Some typical customizations include adding a username and verifying password strength.
+You can customize the user signup form with more fields in addition to email and password when using Lock or the Auth0 API. 
+
+There are many factors to consider before you choose [Lock vs. Custom UI](/libraries/when-to-use-lock). For example, using Lock, you can redirect to another page to capture data or use progressive profiling. When using the Auth0 API, you can capture custom fields and store them in a database. There are certain limitations to the customization that should be considered when choosing the method that best suits your purpose. Some typical customizations include adding a username and verifying password strength.
 
 :::panel Universal Login
 Auth0 offers a [Universal Login](/hosted-pages/login) option that you can use instead of designing your own custom signup page. If you want to offer signup and login options, and you only need to customize the application name, logo and background color, then Universal Login via an Auth0 login page might be an easier option to implement. 
