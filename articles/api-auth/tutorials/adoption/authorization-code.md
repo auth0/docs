@@ -19,42 +19,40 @@ This document describes the differences of this flow between the legacy and OIDC
 
 ## Authentication request
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#request-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#request-oidc" data-toggle="tab">OIDC-conformant</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="request-legacy" class="tab-pane active">
-      <pre class="text hljs"><code>GET /authorize?
+<code-block>
+  <code-block-tab data-title="Legacy">
+
+  ```text
+  GET /authorize?
     response_type=code
     &scope=openid email favorite_color offline_access
     &client_id=123
     &state=af0ifjsldkj
     &redirect_uri=https://app.example.com/callback
-    &device=my-device-name</code></pre>
-    <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
-    </ul>
-    </div>
-    <div id="request-oidc" class="tab-pane">
-      <pre class="text hljs"><code>GET /authorize?
+    &device=my-device-name
+  ```
+
+  - The `device` parameter is only needed if [requesting a Refresh Token](/tokens/refresh-token) by passing the `offline_access` scope.
+
+  </code-block-tab>
+  <code-block-tab data-title="OIDC-conformant">
+
+  ```text
+  GET /authorize?
     response_type=code
     &scope=openid email offline_access
     &client_id=123
     &state=af0ifjsldkj
     &redirect_uri=https://app.example.com/callback
-    &audience=https://api.example.com </code></pre>
-    <ul>
-        <li><code>favorite_color</code> is no longer a valid scope value.</li>
-        <li>The <code>device</code> parameter is removed.</li>
-        <li>The <code>audience</code> parameter is optional.</li>
-    </ul>
-    </div>
-  </div>
-</div>
+    &audience=https://api.example.com
+  ```
+
+  - `favorite_color` is no longer a valid scope value.
+  - The `device` parameter is removed.
+  - The `audience` parameter is optional.
+
+  </code-block-tab>
+</code-block>
 
 ## Authentication response
 
@@ -86,63 +84,56 @@ Content-Type: application/json
 
 ## Code exchange response
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#exchange-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#exchange-oidc" data-toggle="tab">OIDC-conformant</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="exchange-legacy" class="tab-pane active">
-      <pre class="text hljs"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-store
-Pragma: no-cache
-{
-    "access_token": "SlAV32hkKG",
-    "token_type": "Bearer",
-    "refresh_token": "8xLOxBtZp8",
-    "expires_in": 3600,
-    "id_token": "eyJ..."
-}</code></pre>
-    <ul>
-        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
-    </ul>
-    </div>
-    <div id="exchange-oidc" class="tab-pane">
-      <pre class="text hljs"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-store
-Pragma: no-cache
-{
-    "access_token": "eyJ...",
-    "token_type": "Bearer",
-    "refresh_token": "8xLOxBtZp8",
-    "expires_in": 3600,
-    "id_token": "eyJ..."
-}</code></pre>
-        <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
-            <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
-        </ul>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Legacy">
+
+  ```text
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+  {
+      "access_token": "SlAV32hkKG",
+      "token_type": "Bearer",
+      "refresh_token": "8xLOxBtZp8",
+      "expires_in": 3600,
+      "id_token": "eyJ..."
+  }
+  ```
+
+  - The returned Access Token is only valid for calling the [/userinfo endpoint](/api/authentication#get-user-info).
+  - A Refresh Token will be returned only if a `device` parameter was passed and the `offline_access` scope was requested.
+
+  </code-block-tab>
+  <code-block-tab data-title="OIDC-conformant">
+
+  ```text
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+  {
+      "access_token": "eyJ...",
+      "token_type": "Bearer",
+      "refresh_token": "8xLOxBtZp8",
+      "expires_in": 3600,
+      "id_token": "eyJ..."
+  }
+  ```
+
+  - The returned Access Token is valid for optionally calling the API specified in the `audience` parameter and the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API uses `RS256` as the signing algorithm and `openid` is used as a `scope` parameter). If you are not implementing your own Resource Server (API), then you can use `https://{$account.namespace}/userinfo` as the `audience` parameter, which will return an opaque Access Token.
+  - A Refresh Token will be returned only if the `offline_access` scope was granted.
+  
+  </code-block-tab>
+</code-block>
 
 ## ID Token structure
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#idtoken-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#idtoken-oidc" data-toggle="tab">OIDC-conformant</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="idtoken-legacy" class="tab-pane active">
-      <pre class="json hljs"><code>{
+<code-block>
+  <code-block-tab data-title="Legacy">
+
+  ```json
+  {
     "sub": "auth0|alice",
     "iss": "https://${account.namespace}/",
     "aud": "123",
@@ -151,10 +142,14 @@ Pragma: no-cache
     "email": "alice@example.com",
     "email_verified": true,
     "favorite_color": "blue"
-}</code></pre>
-    </div>
-    <div id="idtoken-oidc" class="tab-pane">
-      <pre class="json hljs"><code>{
+  }
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="OIDC-conformant">
+
+  ```json
+  {
     "sub": "auth0|alice",
     "iss": "https://${account.namespace}/",
     "aud": "123",
@@ -163,32 +158,31 @@ Pragma: no-cache
     "email": "alice@example.com",
     "email_verified": true,
     "https://app.example.com/favorite_color": "blue"
-}</code></pre>
-        <ul>
-            <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
-        </ul>
-    </div>
-  </div>
-</div>
+  }
+  ```
+
+  - The `favorite_color` claim must be namespaced and added through a rule.
+  
+  </code-block-tab>
+</code-block>
 
 ## Access Token structure (optional)
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#accesstoken-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#accesstoken-oidc" data-toggle="tab">OIDC-conformant</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="accesstoken-legacy" class="tab-pane active">
-      <pre class="text hljs"><code>SlAV32hkKG</code></pre>
-      <ul>
-        <li>The returned Access Token is opaque and only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-      </ul>
-    </div>
-    <div id="accesstoken-oidc" class="tab-pane">
-      <pre class="json hljs"><code>{
+
+<code-block>
+  <code-block-tab data-title="Legacy">
+
+  ```text
+  SlAV32hkKG
+  ```
+
+  - The returned Access Token is opaque and only valid for calling the [/userinfo endpoint](/api/authentication#get-user-info).
+
+  </code-block-tab>
+  <code-block-tab data-title="OIDC-conformant">
+
+  ```json
+  {
     "sub": "auth0|alice",
     "iss": "https://${account.namespace}/",
     "aud": [
@@ -199,13 +193,13 @@ Pragma: no-cache
     "exp": 1482816809,
     "iat": 1482809609,
     "scope": "openid email"
-}</code></pre>
-        <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
-        </ul>
-    </div>
-  </div>
-</div>
+  }
+  ```
+
+  - The returned Access Token is valid for optionally calling the API specified in the `audience` parameter and the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API uses `RS256` as the signing algorithm and `openid` is used as a `scope` parameter). If you are not implementing your own Resource Server (API), then you can use `https://{$account.namespace}/userinfo` as the `audience` parameter, which will return an opaque Access Token.
+  
+  </code-block-tab>
+</code-block>
 
 ## Further reading
 
