@@ -123,19 +123,19 @@ The template used for this message can be customized on the [Dashboard](${manage
 
 1. **Is the user notified at every login?**
 
-We send one email every hour; if a user tries to login 200 times in 1h 30 mins, we send 2 emails.
+We send one email every hour, regardless of the number of logins. For example, if a user tries to log in 200 times in 1 hour and 30 minutes, we will send two emails.
 
 2. **Is there a limit to the number of times a user will be notified?**
 
-Once per hour.
+Users will only be notified once per hour.
 
 3. **How long is the reset password link, included in the breached password email, valid for?**
 
-Five days.
+Password reset links are valid for five days.
 
 4. **Is there a test dataset of breached passwords?**
 
-You can test with `leak-test@example.com - Paaf213XXYYZZ`. 
+You can test with **leak-test@example.com** as the email and **Paaf213XXYYZZ** as the password. 
 
 5. **Does the breached password detection work when logging in using the Resource Owner password grant?**
 
@@ -145,11 +145,10 @@ Yes.
 
 Yes.
 
-7. **What 'RedirectTo' URL is applicable to the **Change password** link included in the breached password notification email?**
+7. **What Redirect URL applies to the *Change password* link included in the breached password notification email?**
 
-RedirectTo URL is the one mentioned under **Emails > Templates > Change Password template** field.
+The **RedirectTo** URL is the URL listed in the Dashboard in [Emails > Templates > Change Password Template](${manage_url}/#/emails).
 
-8. **Is there a way to configure the RedirectTo URL and Change password link duration?**
+8. **Is there a way to configure the Redirect URL and length of time the change password link is valid?**
 
-You can configure both those values by going to **Emails > Templates > Change Password template** fields for them.
-
+You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).
