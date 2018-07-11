@@ -4,6 +4,7 @@ topics:
   - email
   - spa
 contentType: how-to
+useCase: customize-emails
 ---
 # Single-Page App Email Redirect Issue
 

@@ -9,6 +9,9 @@ topics:
   - oidc
   - apis
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # APIs
 
@@ -54,9 +57,6 @@ Once you do so you will be navigated to the *Quick Start* of your API. Here you 
 
 ![API Quick Starts](/media/articles/api/overview/quickstarts-view.png)
 
-::: note
-Keep in mind that we are working on building quickstarts for more stacks, apart from those currently available.
-:::
 
 The other available views for your API are:
 
@@ -64,9 +64,9 @@ The other available views for your API are:
 
 - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
-- **Machine to Machine Applications**: lists your Machine to Machine Applications. You can authorize which Machine to Machine Applications can request Access Tokens for your API. You can optionally select a subset of the defined scopes to further limit the access that an authorized your application has. Only Machine to Machine Applications require explicit permission. That is because, when you authorize a Machine to Machine Applications to access an API, Auth0 is creating an Application Grant for that application. For more details on this case refer to: [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+- **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled* for [Regular Web Applications](/applications/webapps) and [Machine to Machine Applications](/applications/machine-to-machine). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to  limit your authorized application's access. 
 
-- **Test**: from this view you can execute a sample Client Credentials flow with any of your Authorized Machine to Machine Applications to check that everything is working as expected.
+- **Test**: from this view, you can execute a sample Client Credentials flow with any of your authorized applications to check that everything is working as expected.
 
 ### API Settings
 

@@ -12,6 +12,9 @@ topics:
     - enterprise
     - sharepoint
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to SharePoint Apps

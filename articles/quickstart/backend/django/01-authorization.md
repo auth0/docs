@@ -7,6 +7,8 @@ topics:
     - django
 github:
     path: 01-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

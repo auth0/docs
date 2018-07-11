@@ -3,6 +3,10 @@ description: How to log out of SAML providers
 topics:
   - saml
   - logout
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Logout
 

@@ -5,6 +5,10 @@ url: /multifactor-authentication/duo
 topics:
   - mfa
   - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Duo Security

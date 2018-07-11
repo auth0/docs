@@ -6,6 +6,8 @@ topics:
     - appliance
     - updates
 contentType: how-to
+useCase: appliance
+applianceId: appliance10
 ---
 # Updating the PSaaS Appliance
 
@@ -88,7 +90,7 @@ Please remember that you are responsible for testing and ensuring that all of yo
 
 ## Downtime
 
-During an upgrade, we expect there to be some downtime. For single-node clusters, we expect there to be 3-5 minutes of downtime. For multi-node clusters, we can perform updates sequentially, preventing downtime. There will, however, be a period between 10-30 seconds where the node being updated will not process new requests (all other nodes remain active). 
+During an upgrade, we expect there to be some downtime. For single-node clusters, we expect there to be 3-5 minutes of downtime. For multi-node clusters, we can perform updates sequentially, where users may see up to 30 seconds of downtime.
 
 Downtime occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
 

@@ -6,6 +6,8 @@ topics:
     - infrastructure
     - dns
 contentType: reference
+useCase: appliance
+applianceId: appliance31
 ---
 
 <!-- markdownlint-disable MD033 -->

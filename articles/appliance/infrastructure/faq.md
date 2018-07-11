@@ -5,6 +5,8 @@ topics:
     - appliance
     - infrastructure
 contentType: reference
+useCase: appliance
+applianceId: appliance33
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions

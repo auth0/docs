@@ -12,6 +12,9 @@ topics:
 contentType: 
     - index
     - how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Azure Active Directory (Classic Portal)

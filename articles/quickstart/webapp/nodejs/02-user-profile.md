@@ -6,6 +6,8 @@ topics:
   - quickstarts
   - webapp
   - user-profile
+contentType: tutorial
+useCase: quickstart
 github: 
   path: 02-User-Profile
 ---

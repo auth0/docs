@@ -9,6 +9,10 @@ contentType:
     - index
     - concept
     - how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 <!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">

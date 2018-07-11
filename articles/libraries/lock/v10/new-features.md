@@ -6,6 +6,10 @@ toc: true
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # New Features in Lock 10
 

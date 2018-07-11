@@ -10,6 +10,8 @@ topics:
   - login
 github:
   path: Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'ASP.NET', callback: 'http://localhost:PORT/LoginCallback.ashx' }) %>
 

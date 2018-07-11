@@ -6,6 +6,7 @@ topics:
   - design
   - multi-tenancy
 contentType: concept
+useCase: strategize
 ---
 # Using Auth0 with Multi-Tenant Applications
 

@@ -286,7 +286,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 ### More Information
 
 - [Calling APIs from a Service](/api-auth/grant/client-credentials)
-- [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
+- [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
 

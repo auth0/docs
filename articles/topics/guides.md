@@ -10,6 +10,8 @@ topics:
   - mfa
   - email
   - guides
+contentType: index
+useCase: development
 ---
 
 <div class="topic-page-header">

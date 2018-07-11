@@ -7,6 +7,12 @@ topics:
   - lock
   - ios
   - delegation
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Delegation API

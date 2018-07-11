@@ -12,6 +12,8 @@ hybrid: true
 image: /media/platforms/ionic.jpeg
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   use: native-platforms/ionic3/use
 seo_alias: ionic3

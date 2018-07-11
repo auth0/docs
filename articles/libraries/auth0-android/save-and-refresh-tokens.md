@@ -6,6 +6,8 @@ topics:
   - libraries
   - android
   - tokens
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Saving and Renewing Tokens
 

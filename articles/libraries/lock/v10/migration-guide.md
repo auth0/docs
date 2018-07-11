@@ -6,6 +6,13 @@ topics:
   - libraries
   - lock
   - migrations
+contentType:
+  - concept
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Lock 9 to Lock 10 Migration Guide
 

@@ -4,6 +4,11 @@ description: An overview of Auth0’s onboarding program for enterprise customer
 topics:
   - appliance
   - onboarding
+contentType:
+  - concept
+useCase:
+  - appliance
+applianceId: appliance67
 ---
 # Auth0 Sprint Onboarding
 

@@ -11,6 +11,8 @@ framework:
 image: /media/platforms/asp.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/wpf-winforms/dependencies
   setup: native-platforms/wpf-winforms/setup

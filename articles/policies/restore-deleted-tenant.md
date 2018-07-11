@@ -4,6 +4,10 @@ topics:
     - auth0-policies
     - tenants
     - tenant-restoration
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Tenant Restoration Policy

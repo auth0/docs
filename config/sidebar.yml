@@ -860,11 +860,11 @@ articles:
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
-      - title: Useful Tips
-        url: /pre-deployment/prelaunch-tips
-      
-      - title: Run Tests
-        url: /pre-deployment/how-to-run-test
+      - title: "Run Checks"
+        url: "/pre-deployment/how-to-run-test"
+        
+      - title: "Pre-Launch Tips"
+        url: "/pre-deployment/prelaunch-tips"
 
   - title: "Professional Services"
     url: "/services"

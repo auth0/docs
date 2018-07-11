@@ -5,6 +5,12 @@ topics:
   - rules
   - hooks
   - extensions 
+contentType:
+  - index
+useCase:
+  - extensibility-rules
+  - extensibility-hooks
+  - extensibility-extensions
 ---
 
 # Extensibility

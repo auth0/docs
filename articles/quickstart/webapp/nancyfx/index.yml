@@ -4,6 +4,8 @@ author:
 image: /media/platforms/nancyfx.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/nancyfx/dependencies
   setup: server-platforms/nancyfx/setup

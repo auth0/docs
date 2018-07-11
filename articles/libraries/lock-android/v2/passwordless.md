@@ -7,6 +7,11 @@ topics:
   - lock
   - android
   - passwordless
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless
 

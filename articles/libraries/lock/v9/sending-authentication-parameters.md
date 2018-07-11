@@ -4,6 +4,10 @@ description: Supported parameters that can be used with Lock V9.
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Authentication Parameters
 

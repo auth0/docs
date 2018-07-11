@@ -8,6 +8,8 @@ framework:
 image: /media/platforms/jquery.svg
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: application-platforms/jquery/dependencies
   setup: application-platforms/jquery/setup

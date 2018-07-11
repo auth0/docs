@@ -10,6 +10,8 @@ topics:
     - web-api
 github:
     path: Quickstart/01-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

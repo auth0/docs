@@ -4,6 +4,10 @@ crews: crew-2
 topics:
   - metadata
   - lock
+contentType:
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # How to use Metadata with Lock Library

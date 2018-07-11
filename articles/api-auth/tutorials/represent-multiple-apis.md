@@ -5,6 +5,9 @@ topics:
   - oidc
   - apis
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # How to Represent Multiple APIs Using a Single Auth0 API

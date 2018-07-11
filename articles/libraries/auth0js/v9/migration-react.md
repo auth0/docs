@@ -7,6 +7,11 @@ topics:
   - auth0js
   - migrations
   - react
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating React Applications to Auth0.js v9
 

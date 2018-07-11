@@ -7,6 +7,11 @@ topics:
   - lock
   - ios
   - swift
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Using Swift

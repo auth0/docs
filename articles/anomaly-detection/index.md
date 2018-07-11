@@ -9,6 +9,7 @@ contentType:
     - index
     - reference
     - how-to
+useCase: customize-anomaly-detection
 ---
 
 # Anomaly Detection
@@ -118,3 +119,36 @@ The template used for this message can be customized on the [Dashboard](${manage
 
 [Learn more about Customizing your Emails](/email/templates)
 
+## FAQs
+
+1. **Is the user notified at every login?**
+
+We send one email every hour, regardless of the number of logins. For example, if a user tries to log in 200 times in 1 hour and 30 minutes, we will send two emails.
+
+2. **Is there a limit to the number of times a user will be notified?**
+
+Users will only be notified once per hour.
+
+3. **How long is the reset password link, included in the breached password email, valid for?**
+
+Password reset links are valid for five days.
+
+4. **Is there a test dataset of breached passwords?**
+
+You can test with **leak-test@example.com** as the email and **Paaf213XXYYZZ** as the password. 
+
+5. **Does the breached password detection work when logging in using the Resource Owner password grant?**
+
+Yes.
+
+6. **Does the breached password detection feature work with a custom database?**
+
+Yes.
+
+7. **What Redirect URL applies to the *Change password* link included in the breached password notification email?**
+
+The **RedirectTo** URL is the URL listed in the Dashboard in [Emails > Templates > Change Password Template](${manage_url}/#/emails).
+
+8. **Is there a way to configure the Redirect URL and length of time the change password link is valid?**
+
+You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).

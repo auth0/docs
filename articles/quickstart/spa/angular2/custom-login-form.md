@@ -10,6 +10,8 @@ topics:
 github:
   branch: embedded-login
   path: 02-Custom-Login-Form
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_custom_login_preamble') %>
 

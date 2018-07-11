@@ -9,6 +9,8 @@ topics:
   - objective-c
 github:
     path: 07-Linking-Accounts
+contentType: tutorial
+useCase: quickstart
 ---
 
 ## Before You Start

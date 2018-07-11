@@ -12,6 +12,9 @@ topics:
     - enterprise
     - microsoft
     - o365
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Microsoft Office 365
 

@@ -6,6 +6,8 @@ topics:
   - authentication
   - oauth2
 contentType: index
+useCase:
+  - add-login
 ---
 
 # Application Authentication

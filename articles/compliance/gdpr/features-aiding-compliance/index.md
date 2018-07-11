@@ -8,6 +8,7 @@ topics:
 contentType: 
     - concept
     - index
+useCase: compliance
 ---
 # How Auth0 Can Help With GDPR Compliance
 

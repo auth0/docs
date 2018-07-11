@@ -7,6 +7,7 @@ topics:
   - tokens
   - apis
 contentType: concept
+useCase: strategize
 ---
 # Web Apps vs Web APIs / Cookies vs Tokens
 

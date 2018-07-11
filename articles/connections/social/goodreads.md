@@ -9,6 +9,9 @@ topics:
   - social
   - goodreads
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Goodreads
 

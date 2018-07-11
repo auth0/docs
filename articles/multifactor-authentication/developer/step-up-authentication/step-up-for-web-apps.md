@@ -6,6 +6,11 @@ topics:
   - step-up-authentication
   - web-apps
 toc: true
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Step-up Authentication for Web Apps
 

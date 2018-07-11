@@ -7,6 +7,8 @@ topics:
   - quickstarts
   - webapp
   - aspnet-core
+contentType: tutorial
+useCase: quickstart
 ---
 
 ## Seed Project

@@ -7,6 +7,8 @@ topics:
   - webapp
   - login
   - user-profile
+contentType: tutorial
+useCase: quickstart
 github:
   path: 03-User-Profile
 ---

@@ -6,6 +6,11 @@ topics:
   - libraries
   - lock
   - ios
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Sending Authentication Parameters

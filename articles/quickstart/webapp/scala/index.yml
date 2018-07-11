@@ -4,6 +4,8 @@ author:
 image: /media/platforms/play.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/scala/dependencies
   setup: server-platforms/scala/setup

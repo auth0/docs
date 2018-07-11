@@ -7,6 +7,8 @@ topics:
     - falcor
 github:
   path: 01-Authorization-RS256
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

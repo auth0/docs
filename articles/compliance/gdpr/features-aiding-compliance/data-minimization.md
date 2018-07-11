@@ -6,6 +6,7 @@ topics:
     - compliance
     - gdpr
 contentType: how-to
+useCase: compliance
 ---
 # GDPR: Data Minimization
 

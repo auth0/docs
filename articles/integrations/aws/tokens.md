@@ -5,6 +5,11 @@ topics:
   - integrations
   - aws
   - tokens
+contentType: tutorial
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 # Call AWS APIs and Resources Securely with Tokens
 

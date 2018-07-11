@@ -5,6 +5,8 @@ topics:
     - appliance
     - instrumentation
 contentType: how-to
+useCase: appliance
+applianceId: appliance42
 ---
 
 # PSaaS Appliance: Adding Users to Grafana

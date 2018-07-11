@@ -7,6 +7,8 @@ topics:
     - backend
     - java
     - spring-security
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_api_using') %>

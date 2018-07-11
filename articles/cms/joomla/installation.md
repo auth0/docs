@@ -4,6 +4,8 @@ topics:
     - joomla
     - cms
 contentType: how-to
+useCase:
+  - add-login
 ---
 
 # Joomla Installation

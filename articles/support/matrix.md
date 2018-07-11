@@ -6,6 +6,10 @@ classes: support-matrix-page
 topics:
     - support
     - support-matrix
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Auth0 Product Support Matrix
 

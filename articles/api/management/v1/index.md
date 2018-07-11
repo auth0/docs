@@ -6,14 +6,12 @@ topics:
 contentType: 
     - reference
     - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)
 
-::: warning
-This version of the Management API has been deprecated.
-Please use the [new version](/api/v2) instead.
-:::
+<%= include('../../../_includes/_version_warning_api') %>
 
 ## Authentication
 

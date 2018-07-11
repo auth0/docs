@@ -13,6 +13,8 @@ author:
 image: /media/platforms/php.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/php-laravel/dependencies
   setup: server-apis/php-laravel/setup

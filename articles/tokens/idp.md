@@ -5,6 +5,11 @@ topics:
   - tokens
   - idp
   - access-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # Identity Provider Access Tokens
 

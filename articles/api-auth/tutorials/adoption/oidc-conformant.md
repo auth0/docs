@@ -5,6 +5,9 @@ topics:
   - api-authentication
   - oidc
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant applications

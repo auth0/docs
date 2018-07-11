@@ -6,6 +6,10 @@ url: /libraries/auth0-swift
 topics:
   - libraries
   - swift
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
 # Auth0.swift
 

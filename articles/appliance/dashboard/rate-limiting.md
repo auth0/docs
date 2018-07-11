@@ -6,6 +6,8 @@ topics:
     - dashboard
     - rate-limiting
 conceptType: concept
+useCase: appliance
+applianceId: appliance23
 ---
 
 # Auth0 Appliance Dashboard: Rate Limiting

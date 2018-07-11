@@ -5,11 +5,12 @@ topics:
   - apis
   - management-api
 contentType: reference
+useCase: invoke-api
 ---
 
 # Management API v1 Use Cases
 
-Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1.
+Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1. Otherwise, we recommend that you use the [new version](/api/v2) instead.
 
 The features only available in Management API v1 include:
 

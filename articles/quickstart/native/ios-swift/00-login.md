@@ -9,6 +9,8 @@ topics:
   - swift
 github:
   path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('_includes/_login_centralized') %>

@@ -7,6 +7,9 @@ topics:
   - authorization-code
   - pkce
 contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 

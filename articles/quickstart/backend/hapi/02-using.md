@@ -6,6 +6,8 @@ topics:
     - quickstart
     - backend
     - hapi
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_api_using') %> 

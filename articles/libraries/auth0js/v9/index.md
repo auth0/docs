@@ -6,6 +6,10 @@ description: How to install, initialize and use auth0.js v9
 topics:
   - libraries
   - auth0js
+contentType:
+  - index
+  - how-to
+useCase: add-login
 ---
 # Auth0.js v9 Reference
 

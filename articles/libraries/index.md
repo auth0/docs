@@ -10,7 +10,6 @@ topics:
 contentType: 
     - index
     - concept
-    - reference
 ---
 
 <div class="topic-page-header">
@@ -41,7 +40,7 @@ contentType:
   </li>
 </ul>
 
-## Lock links and support status
+### Lock repositories and support status
 
 <%= include('../_includes/_libraries_support_lock') %>
 
@@ -68,7 +67,7 @@ contentType:
 
 <%= include('../_includes/_libraries_support_sdks') %>
 
-### Framework/Platform integration SDK support status
+### Platform integration repositories and support status
 
 <%= include('../_includes/_libraries_support_frameworks') %>
 

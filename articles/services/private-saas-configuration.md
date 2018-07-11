@@ -6,6 +6,10 @@ topics:
   - design
   - deployment
   - configuration
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Advisory Hours: Private SaaS reconfiguration

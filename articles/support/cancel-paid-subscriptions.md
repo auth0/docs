@@ -5,6 +5,11 @@ topics:
     - support
     - subscriptions
     - cancellation
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Cancel your Auth0 Subscription

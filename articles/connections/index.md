@@ -6,6 +6,9 @@ topics:
 contentType: 
     - index
     - reference
+useCase:
+  - customize-connections
+  - add-idp
 ---
 
 # Identity Providers Supported by Auth0

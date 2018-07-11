@@ -7,6 +7,8 @@ topics:
 contentType: 
     - concept
     - index
+useCase: appliance
+applianceId: appliance51
 ---
 
 # PSaaS Appliance: Webtasks

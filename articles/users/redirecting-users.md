@@ -5,6 +5,11 @@ topics:
   - users
   - user-management
   - redirection
+contentType:
+  - how-to
+  - concept
+useCase:
+  - manage-users
 ---
 # Redirect Users After Login
 

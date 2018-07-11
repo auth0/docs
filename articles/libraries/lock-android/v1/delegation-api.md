@@ -7,6 +7,11 @@ topics:
   - lock
   - delegation
   - android
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Delegation API
 

@@ -7,6 +7,7 @@ topics:
     - authorization-api
     - apis
 contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 APIs

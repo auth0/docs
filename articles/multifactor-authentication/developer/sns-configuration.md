@@ -4,6 +4,11 @@ topics:
   - mfa
   - guardian
   - amazon-sns
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Configuring Amazon SNS
 

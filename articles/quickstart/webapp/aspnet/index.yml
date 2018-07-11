@@ -2,6 +2,8 @@ title: ASP.NET (System.Web)
 image: /media/platforms/asp.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/aspnet/dependencies
   setup: server-platforms/aspnet/setup

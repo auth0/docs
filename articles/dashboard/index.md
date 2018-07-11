@@ -7,6 +7,7 @@ topics:
 contentType: 
     - index
     - how-to
+useCase: manage-accounts
 ---
 
 <div class="topic-page-header">

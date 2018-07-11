@@ -3,6 +3,8 @@ description: How to configure a WS-Fed application to use Auth0 as an identity p
 topics:
   - integrations
   - ws-fed
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # How to configure a WS-Fed application

@@ -2,6 +2,12 @@
 title: Legacy Lock API Deprecation
 description: This article covers the Legacy Lock API deprecation and gives direction as to migration paths and changes required.
 toc: true
+contentType:
+  - concept
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Legacy Lock API Deprecation
 
@@ -19,8 +25,12 @@ If your applications match any of the following cases, you are affected:
 
 If you do not use the above libraries and do not specifically call the above endpoints, you are not affected. No libraries which are not specifically named are affected by this vulnerability, or in turn, by the migration.
 
-::: panel Legacy Lock API Enabled
-If you see the warning panel `Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated.` when you login to the Dashboard, it is because you have not turned off the Legacy Lock API switch in your [advanced settings](${manage_url}/#/tenant/advanced). If you are unaffected by the migration, or have completed it, you should be able to turn that setting off and remove the warning.
+::: panel-warning Dashboard Warning Banner - Legacy Lock API Enabled
+You may see this warning panel when you log in to the Dashboard: 
+
+_Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated._
+
+This is because you have not turned off the Legacy Lock API switch in your [Advanced Settings](${manage_url}/#/tenant/advanced). If you are not affected by the migration, or have already completed it, turn that setting off to remove the warning.
 :::
 
 ### If you already use Universal Login / Hosted Login Page
@@ -175,6 +185,8 @@ Please take a look at the [Deprecation Error Reference](/errors/deprecation-erro
 ### How to test whether you are ready before the removal of service date
 
 Auth0 has provided a toggle in the tenant settings in the [Dashboard](${manage_url}) to allow customers to turn off the legacy endpoints manually for their tenant ahead of the deprecation deadline of July 16, 2018. Navigate to the tenant settings screen, **Advanced** tab and scroll down to the block of migration toggles.
+
+![Allowed Web Origins](/media/articles/libraries/lock/legacy-lock-api-off.png)
 
 Turn off the **Legacy Lock API** toggle to stop your tenant from being able to use those endpoints. This toggle allows you to test the removal of the deprecated endpoints with the ability to turn them back on if you encounter issues.
 

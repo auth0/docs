@@ -10,6 +10,10 @@ topics:
     - implicit-grant
     - angular2
 contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # SPA + API: Angular 2 Implementation for the SPA

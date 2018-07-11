@@ -2,6 +2,12 @@
 description: Overview of scopes with a client-side authorization transaction.
 topics:
   - scopes
+contentType:
+  - reference
+  - concept
+  - index
+useCase:
+  - development
 ---
 
 # Scopes

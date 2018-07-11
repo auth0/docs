@@ -3,6 +3,10 @@ description: How to customize SAML assertions
 topics:
   - saml
   - saml-assertions
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Customize SAML Assertions

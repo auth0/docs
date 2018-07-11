@@ -4,6 +4,11 @@ decription: How to upgrade or change your Auth0 subscription.
 topics:
     - support
     - subscriptions
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 # Change or Upgrade Your Auth0 Subscription
 

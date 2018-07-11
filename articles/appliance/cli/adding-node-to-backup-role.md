@@ -7,6 +7,8 @@ topics:
     - cli
     - nodes
 contentType: how-to
+useCase: appliance
+applianceId: appliance11
 ---
 
 # PSaaS Appliance: Adding a Node to the Backup Role

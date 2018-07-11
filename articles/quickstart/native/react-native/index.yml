@@ -16,6 +16,8 @@ hybrid: true
 image: /media/platforms/react.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   setup: native-platforms/reactnative/setup
   use: native-platforms/reactnative/use

@@ -2,6 +2,8 @@ title: PHP (Laravel)
 image: /media/platforms/php.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 author:
   name: Josh Cunningham
   email: josh.cunningham@auth0.com

@@ -18,13 +18,14 @@ topics:
     - ios
     - swift
 contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless on iOS with TouchID
 
 <!-- markdownlint-disable -->
 
 ::: warning
-This feature is disabled for new tenants as of June 8th 2017. Any tenant created after that date won't have the necessary legacy [grant types](/applications/application-grant-types) to use Touch ID. This document is offered as reference for older implementations.
+Touch ID with Auth0 has been deprecated. This document is offered as reference for older implementations.
 :::
 
 ::: note

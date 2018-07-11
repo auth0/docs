@@ -5,6 +5,8 @@ topics:
     - appliance
     - backups
 contentType: concept
+useCase: appliance
+applianceId: appliance1
 ---
 
 # PSaaS Appliance Administration: Appliance Backups

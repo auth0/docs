@@ -7,6 +7,8 @@ topics:
     - backend
     - aspnetcore
     - web-api
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('../_includes/_api_using') %>

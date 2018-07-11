@@ -5,6 +5,7 @@ logo: java
 topics:
   - java
 contentType: reference
+useCase: strategize
 ---
 
 # Java SDK Developer Center

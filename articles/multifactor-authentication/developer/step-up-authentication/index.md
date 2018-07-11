@@ -4,6 +4,11 @@ description: Describes using acr_values and acr claims to perform step-up authen
 topics:
   - mfa
   - step-up-authentication
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Step-up Authentication
 

@@ -5,6 +5,10 @@ topics:
   - user-management
   - search
   - unbounce
+contentType:
+  - how-to
+useCase:
+  - manage-users
 ---
 # Get User Information on Unbounce Landing Pages
 

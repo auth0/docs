@@ -7,6 +7,9 @@ topics:
   - migrations
   - spa
   - universal-login
+contentType:
+    - how-to
+useCase: migrate
 ---
 # Migrate Single Page Applications using Lock 9 to Universal Login
 

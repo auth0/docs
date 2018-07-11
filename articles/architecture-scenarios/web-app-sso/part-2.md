@@ -8,6 +8,10 @@ topics:
     - authorization-code
     - lockjs
 contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # SSO for Regular Web Apps: Auth0 Configuration
 

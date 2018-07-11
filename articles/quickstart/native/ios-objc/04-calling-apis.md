@@ -9,6 +9,8 @@ topics:
   - objective-c
 github:
     path: 04-Calling-APIs
+contentType: tutorial
+useCase: quickstart
 ---
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 

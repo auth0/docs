@@ -7,6 +7,8 @@ topics:
     - custom-domains
 contentType: 
     - index
+useCase: appliance
+applianceId: appliance16
 ---
 
 # Private SaaS (PSaaS) Appliance: Custom Domains

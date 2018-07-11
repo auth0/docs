@@ -7,6 +7,12 @@ topics:
   - lock
   - ios
   - i18n
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Internationalization

@@ -7,6 +7,11 @@ topics:
   - lock
   - ios
   - passwords
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock iOS: Password Reset
 

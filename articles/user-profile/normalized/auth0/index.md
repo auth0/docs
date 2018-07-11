@@ -6,6 +6,12 @@ topics:
   - normalized-user-profile
   - users
   - auth0-user-profiles
+contentType:
+  - index
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 
 # Auth0 Normalized User Profile

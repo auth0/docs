@@ -5,6 +5,8 @@ topics:
   - dashboard
   - users
 contentType: how-to
+useCase:
+  - manage-users
 ---
 
 # Create Users using the Dashboard

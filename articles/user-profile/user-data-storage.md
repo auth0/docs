@@ -11,6 +11,11 @@ topics:
     - ios
     - nodejs
     - api
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # User Data Storage Guidance

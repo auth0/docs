@@ -10,6 +10,8 @@ topics:
   - nancyfx
 github:
   path: 00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3000/callback' }) %>
 

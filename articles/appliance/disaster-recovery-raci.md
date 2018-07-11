@@ -6,6 +6,8 @@ topics:
     - disaster-recovery
     - raci
 contentType: reference
+useCase: appliance
+applianceId: appliance55
 ---
 
 <!-- markdownlint-disable MD033 -->

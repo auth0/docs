@@ -5,6 +5,9 @@ topics:
   - pkce
   - api-authorization
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Calling APIs from Mobile Apps
 

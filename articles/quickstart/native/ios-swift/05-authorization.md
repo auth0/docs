@@ -9,6 +9,8 @@ topics:
   - swift
 github:
   path: 05-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.

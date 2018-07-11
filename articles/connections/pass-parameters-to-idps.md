@@ -2,6 +2,9 @@
 title: Pass Parameters to Identity Providers
 description: How to pass parameters to an Identity Provider API
 contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Pass Parameters to Identity Providers
 

@@ -5,6 +5,8 @@ topics:
     - appliance
     - remote-access
 contentType: reference
+useCase: appliance
+applianceId: appliance63
 ---
 # PSaaS Appliance Remote Access Options
 

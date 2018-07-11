@@ -6,6 +6,8 @@ topics:
     - dashboard
     - nodes
 contentType: concept
+useCase: appliance
+applianceId: appliance21
 ---
 
 # Auth0 Appliance Dashboard: Nodes

@@ -4,6 +4,8 @@ author:
 image: /media/platforms/service-stack.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/servicestack/dependencies
   setup: server-platforms/servicestack/setup

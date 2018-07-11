@@ -5,6 +5,8 @@ topics:
     - appliance
     - infrastructure
 contentType: concept
+useCase: appliance
+applianceId: appliance35
 ---
 # PSaaS Appliance Deployment Architecture
 

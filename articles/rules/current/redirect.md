@@ -4,6 +4,11 @@ topics:
   - rules
   - extensibility
   - redirection
+contentType:
+  - concept
+  - how-to
+useCase:
+  - extensibility-rules
 ---
 # Redirect Users from Rules
 

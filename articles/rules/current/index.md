@@ -4,6 +4,12 @@ toc: true
 topics:
   - rules
   - extensibility
+contentType:
+  - reference
+  - concept
+  - index
+useCase:
+  - extensibility-rules
 ---
 # Rules
 

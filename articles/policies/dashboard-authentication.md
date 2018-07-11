@@ -4,6 +4,10 @@ crews: crew-2
 topics:
     - auth0-policies
     - dashboard
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Dashboard Authentication Policy

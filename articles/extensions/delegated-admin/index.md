@@ -5,6 +5,11 @@ toc: true
 topics:
   - extensions
   - delegated-admin
+contentType:
+  - how-to
+  - concept
+  - index
+useCase: extensibility-extensions
 ---
 
 # Delegated Administration

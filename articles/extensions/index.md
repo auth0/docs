@@ -3,6 +3,9 @@ description: Extensions enable you to install applications or run commands/scrip
 toc: true
 topics:
   - extensions
+contentType:
+  - index
+useCase: extensibility-extensions
 ---
 # Auth0 Extensions
 

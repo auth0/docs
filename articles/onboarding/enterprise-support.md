@@ -5,6 +5,11 @@ description: Outlines the Auth0 enterprise support options, definitions, coverag
 topics:
   - appliance
   - onboarding 
+contentType:
+  - concept
+useCase:
+  - appliance
+applianceId: appliance66
 ---
 # Enterprise Support Guidance
 

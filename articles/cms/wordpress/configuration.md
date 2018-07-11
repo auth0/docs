@@ -4,6 +4,12 @@ topics:
     - wordpress
     - cms
 contentType: how-to
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # Configuration of the Login by Auth0 WordPress Plugin
@@ -238,8 +244,6 @@ social Connections from working properly.
 * **Custom signup fields:** This field is the JSON that describes the custom signup fields for lock. It should be a valid json and allows the use of functions (for validation). [More info here](/libraries/lock/v10/new-features#custom-sign-up-fields).
 
 * **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
-
-* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (such as: `{"disableResetAction": true }`).
 
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
 

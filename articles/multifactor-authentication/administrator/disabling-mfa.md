@@ -3,6 +3,10 @@ description: How to Disable Guardian and the other types of MFA.
 topics:
   - mfa
   - guardian
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Disable Guardian and other MFA
 

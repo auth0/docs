@@ -5,6 +5,8 @@ topics:
     - appliance
     - dashboard
 contentType: how-to
+useCase: appliance
+applianceId: appliance7
 ---
 
 # PSaaS Appliance Administration: Manage the Dashboard

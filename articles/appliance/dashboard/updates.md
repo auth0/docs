@@ -6,6 +6,8 @@ topics:
     - dashboard
     - updates
 contentType: reference
+useCase: appliance
+applianceId: appliance27
 ---
 
 # PSaaS Appliance Dashboard: Updates

@@ -6,6 +6,13 @@ topics:
   - lock
   - android
   - lock-ui
+contentType:
+  - how-to
+  - concept
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Customize Your UI
 

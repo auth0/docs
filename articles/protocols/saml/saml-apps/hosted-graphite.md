@@ -5,9 +5,13 @@ topics:
     - saml
     - identity-providers
     - hosted-graphite
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

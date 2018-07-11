@@ -4,6 +4,10 @@ toc: true
 topics:
   - saml
   - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # SAML SSO with Auth0 as Service Provider and as an Identity Provider

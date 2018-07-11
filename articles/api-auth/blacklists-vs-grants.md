@@ -7,6 +7,9 @@ topics:
   - blacklists
   - application-grants
 contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Blacklists and Application Grants

@@ -4,6 +4,7 @@ topics:
     - security
     - passwords
 contentType: concept
+useCase: customize-anomaly-detection
 ---
 
 # Breached Password Security

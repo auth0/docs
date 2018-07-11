@@ -6,6 +6,12 @@ topics:
   - libraries
   - lock
   - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Custom Fields at Signup

@@ -9,6 +9,8 @@ topics:
   - tokens
 github:
     path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
 <%= include('../_includes/_token_renewal_preamble') %>
 

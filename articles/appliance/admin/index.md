@@ -7,6 +7,8 @@ topics:
     - appliance
     - administration
 contentType: index
+useCase: appliance
+applianceId: appliance4
 ---
 
 # PSaaS Appliance: Administrator's Manual

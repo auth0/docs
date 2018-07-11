@@ -9,6 +9,8 @@ topics:
 contentType: 
     - index
     - reference
+useCase: appliance
+applianceId: appliance34
 ---
 
 # Private SaaS (PSaaS) Appliance Infrastructure Requirements

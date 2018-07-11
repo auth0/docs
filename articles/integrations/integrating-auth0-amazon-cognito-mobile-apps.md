@@ -5,6 +5,8 @@ topics:
   - amazon
   - cognito
   - oidc
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Integrate Auth0 with Amazon Cognito
 

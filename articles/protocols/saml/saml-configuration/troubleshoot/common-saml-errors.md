@@ -4,6 +4,11 @@ topics:
   - saml
   - sso
   - errors
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Common SAML Errors

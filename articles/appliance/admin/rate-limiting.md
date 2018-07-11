@@ -5,6 +5,8 @@ topics:
     - appliance
     - rate-limiting
 contentType: how-to
+useCase: appliance
+applianceId: appliance9
 ---
 # PSaaS Appliance: Rate Limiting
 

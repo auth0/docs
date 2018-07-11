@@ -5,6 +5,7 @@ topics:
     - compliance
     - gdpr
 contentType: concept
+useCase: compliance
 ---
 # General Data Protection Regulation (GDPR) - A Summary
 

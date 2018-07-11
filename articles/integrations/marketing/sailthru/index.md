@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - sailthru
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Sailthru Integration

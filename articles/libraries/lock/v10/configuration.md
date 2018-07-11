@@ -5,6 +5,10 @@ description: Lock 10 has many configurable options that allow you to change the 
 topics:
   - libraries
   - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Configuration Options
 

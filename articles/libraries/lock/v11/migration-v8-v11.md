@@ -7,6 +7,11 @@ topics:
   - libraries
   - lock
   - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Lock v8 to v11
 

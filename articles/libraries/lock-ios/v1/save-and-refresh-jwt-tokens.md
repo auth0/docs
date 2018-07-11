@@ -7,6 +7,11 @@ topics:
   - lock
   - ios
   - tokens
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Saving and Refreshing JWT Tokens

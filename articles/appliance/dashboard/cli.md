@@ -6,6 +6,8 @@ topics:
     - dashboard
     - cli
 contentType: concept
+useCase: appliance
+applianceId: appliance18
 ---
 
 # PSaaS Appliance Dashboard: CLI

@@ -4,6 +4,12 @@ toc: true
 topics:
   - tokens
   - refresh-tokens
+contentType:
+  - how-to
+  - concept
+  - index
+useCase:
+  - invoke-api
 ---
 # Refresh Token
 

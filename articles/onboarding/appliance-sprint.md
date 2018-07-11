@@ -5,6 +5,11 @@ description: PSaaS Appliance Sprint is Auth0’s onboarding program for enterpri
 topics:
   - appliance
   - onboarding
+contentType:
+  - concept
+useCase:
+  - appliance
+applianceId: appliance64
 ---
 
 # PSaaS Appliance Deployment Project

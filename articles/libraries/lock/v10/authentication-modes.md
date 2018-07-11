@@ -5,6 +5,10 @@ toc: true
 topics:
   - libraries
   - lock
+contentType:
+  - concept
+useCase:
+  - add-login
 ---
 # Lock: Authentication Modes
 

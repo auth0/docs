@@ -8,6 +8,8 @@ topics:
     - backend
     - aspnetcore
     - web-api
+contentType: tutorial
+useCase: quickstart
 ---
 
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.

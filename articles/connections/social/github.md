@@ -11,6 +11,9 @@ topics:
   - social
   - github
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to GitHub
 

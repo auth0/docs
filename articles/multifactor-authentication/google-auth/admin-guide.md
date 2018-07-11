@@ -4,6 +4,10 @@ topics:
   - mfa
   - google
   - google-autheticator
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator for Administrators
@@ -51,7 +55,6 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'google-authenticator',
         // issuer: 'Label on Google Authenticator App', // optional
-        // key: 'YOUR_KEY_HERE', //  optional, the key to use for TOTP. by default one is generated for you
 
         // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details

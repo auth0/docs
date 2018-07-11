@@ -5,6 +5,11 @@ topics:
   - libraries
   - lock
   - error-messages
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Customizing Lock Error Messages
 

@@ -3,6 +3,10 @@ description: Training covering fundamentals of the Auth0 service.
 topics:
   - professional services
   - auth0-101
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Training: Auth0 Introduction

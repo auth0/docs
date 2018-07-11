@@ -2,6 +2,8 @@ title: Python
 image: /media/platforms/python.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/python/dependencies
   setup: server-platforms/python/setup

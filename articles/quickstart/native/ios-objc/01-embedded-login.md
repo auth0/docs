@@ -10,6 +10,8 @@ topics:
 github:
   path: 01-Embedded-Login
   branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
 
 <%= include('_includes/_login_embedded') %>

@@ -11,6 +11,7 @@ topics:
     - passwordless
     - sms
 contentType: how-to
+useCase: customize-connections
 ---
 
 # Authenticate users with a one-time code via SMS

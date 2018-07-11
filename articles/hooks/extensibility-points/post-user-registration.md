@@ -6,6 +6,9 @@ toc: true
 topics:
     - hooks
     - extensibility-points   
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
 # Extensibility Point: Post-User Registration

@@ -4,6 +4,10 @@ topics:
   - professional services
   - architecture
   - solutions-architecture
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Architectural Design Sessions

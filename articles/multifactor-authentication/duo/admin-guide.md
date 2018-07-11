@@ -3,6 +3,10 @@ description:  Information for how to use Duo Security for administrators.
 topics:
   - mfa
   - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Duo for Administrators

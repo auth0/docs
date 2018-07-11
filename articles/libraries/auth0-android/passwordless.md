@@ -6,6 +6,8 @@ topics:
   - libraries
   - android
   - passwordless
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Passwordless Authentication
 

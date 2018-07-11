@@ -11,9 +11,13 @@ topics:
     - api-auth
     - authorization-code
     - lockjs
-contentType: 
-    - index
-    - tutorial
+contentType:
+  - tutorial
+  - index
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Single Sign-On for Regular Web Apps

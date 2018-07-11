@@ -3,6 +3,8 @@ description: How to authenticate and authorize a Tessel device with Auth0.
 topics:
   - integrations
   - tessel
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Authenticating & Authorizing a Tessel device with Auth0
 

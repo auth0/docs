@@ -5,6 +5,9 @@
   - oidc
   - scopes
 contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Restrict Application or User Requests for API Scopes

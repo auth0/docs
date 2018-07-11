@@ -6,6 +6,8 @@ topics:
     - marketing
     - salesforce
     - marketing-cloud
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Salesforce Marketing Cloud Integration

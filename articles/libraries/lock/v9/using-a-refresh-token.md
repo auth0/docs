@@ -4,6 +4,10 @@ description: Getting and using a Refresh Token with Lock.
 topics:
   - libraries
   - lock
+contentType:
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: Refresh Tokens
 

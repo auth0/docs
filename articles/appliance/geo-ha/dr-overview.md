@@ -6,6 +6,8 @@ topics:
     - geo-ha
     - disaster-recovery
 contentType: reference
+useCase: appliance
+applianceId: appliance29
 ---
 
 <!-- markdownlint-disable MD033 -->

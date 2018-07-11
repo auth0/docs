@@ -5,6 +5,8 @@ toc: true
 topics:
     - marketing
     - salesforce
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Salesforce Integration

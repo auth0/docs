@@ -4,6 +4,10 @@ description: How to install the Authorization Extension v2
 topics:
   - extensions
   - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Migrate from Version 1 to Version 2

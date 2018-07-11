@@ -10,6 +10,9 @@ topics:
     - connections
     - criipto
 contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Log in with Norwegian BankID through Auth0

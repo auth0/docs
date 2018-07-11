@@ -5,6 +5,12 @@ topics:
   - normalized-user-profile
   - users
   - oidc-user-profiles
+contentType:
+  - index
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 # User Profiles Returned from OIDC-Compliant Pipelines
 

@@ -4,20 +4,17 @@ topics:
   - client-credentials
   - api-authorization
 contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
-# Calling APIs from a Service
+# Client Credentials Grant
 
-<%= include('../../_includes/_pipeline2') %>
+The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) allows an application to request an Access Token using its __Client Id__ and __Client Secret__. It is used for non interactive applications (a CLI, a daemon, or a Service running on your backend) where the token is issued to the application itself, instead of an end user.
 
-The OAuth 2.0 grant that machine to machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
+In order to be able to perform the Client Credentials Grant, the Application needs to have the [Client Credentials grant type](/applications/application-grant-types) enabled. Machine to Machine Applications and Regular Web Applications have it enabled by default. 
 
-::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
-:::
-
-## Overview of the flow
-
-With the **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) a Machine to Machine Client (a CLI, a daemon, or a Service running on your backend), can directly ask Auth0 for an Access Token, by using its client credentials (__Client Id__ and __Client Secret__) to authenticate. In this case the token represents the client itself, instead of an end user.
+## Client Credentials Grant Flow
 
 ![Client Credentials Grant Flow](/media/articles/api-auth/client-credentials-grant.png)
 
@@ -28,12 +25,12 @@ With the **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https:
 1. The application can use the Access Token to call the API on behalf of itself.
 
 ::: note
-In OAuth 2.0 terms, the non interactive app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+In OAuth 2.0 terms, the application is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
 
 ## How to implement the flow
 
-For details on how to implement this using Auth0, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials). Before you do so, you have to set up the Grant first either [using the Dashboard](/api-auth/config/using-the-auth0-dashboard) or [using the Management API](/api-auth/config/using-the-management-api).
+For details on how to implement this using Auth0, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials).
 
 ## Keep reading
 

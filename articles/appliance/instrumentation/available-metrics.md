@@ -5,6 +5,8 @@ topics:
     - appliance
     - instrumentation
 contentType: reference
+useCase: appliance
+applianceId: appliance43
 ---
 
 # PSaaS Appliance: Metrics Available via Instrumentation

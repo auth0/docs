@@ -6,6 +6,9 @@ description: Working with Hooks
 beta: true
 topics:
     - hooks
+contentType:
+  - index
+useCase: extensibility-hooks
 ---
 
 <div class="topic-page-header">

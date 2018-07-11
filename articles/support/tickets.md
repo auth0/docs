@@ -4,6 +4,11 @@ topics:
     - support
     - support-tickets
     - tickets
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Open and Manage Support Tickets

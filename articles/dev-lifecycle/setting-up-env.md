@@ -4,6 +4,7 @@ topics:
     - dev-tools
     - local-env
 contentType: how-to
+useCase: development
 ---
 # Set Up Multiple Environments
 
@@ -18,7 +19,7 @@ Moving your tenant to a Development environment will impact [rate limits](https:
 The example above uses a simple naming convention to distinguish each environment, you can name your multiple environments anyway you prefer. No need to use this naming convention, though it is the one recommended.
 
 ::: note
-If you have a subscription plan costing at least **$167 (USD) per month**, you can request a [child account](/dev-lifecycle/child-tenants) that is identical to your Production account for use in a development/staging/testing environment. This includes paid/upgraded features, as well as individual configuration options, such as Rules. Free accounts do *not* include a child account.
+If you have a subscription plan costing at least **$167 (USD) per month**, you can request a [child account](/dev-lifecycle/child-tenants) that is identical to your Production account in terms of paid/upgraded features for use in a development/staging/testing environment. Free accounts do *not* include a child account.
 :::
 
 ## Set the Environment
