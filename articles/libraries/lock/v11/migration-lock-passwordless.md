@@ -43,64 +43,56 @@ You can import Auth0LockPasswordless in the same ways as you would normally impo
 
 If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The difference is that you'll provide your options in the constructor, like we do with `Auth0Lock`:
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#cdn-before" data-toggle="tab">Before</a></li>
-      <li><a href="#cdn-after" data-toggle="tab">After</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="cdn-before" class="tab-pane active">
-    <pre class="hljs html"><code>
-    &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-      var lock = new Auth0LockPasswordless(clientID, domain);
-    &lt;/script&gt;
-    </code></pre>
-    </div>
-    <div id="cdn-after" class="tab-pane">
-    <pre class="hljs html"><code>
-    &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-      // example use of options
-      var options = {
-        closable: false
-      }
-      var lock = new Auth0LockPasswordless(clientID, domain, options);
-    &lt;/script&gt;
-    </code></pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Before">
+
+  ```html
+  &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0LockPasswordless(clientID, domain);
+  &lt;/script&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="After">
+
+  ```html
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    // example use of options
+    var options = {
+      closable: false
+    }
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+  &lt;/script&gt;
+  ```
+
+  </code-block-tab>
+</code-block>
 
 #### Using npm + module bundler
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#npm-before" data-toggle="tab">Before</a></li>
-      <li><a href="#npm-after" data-toggle="tab">After</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="npm-before" class="tab-pane active">
-    <pre class="hljs js"><code>
-    import Auth0LockPasswordless from 'auth0-lock-passwordless';
-    var lock = new Auth0LockPasswordless(clientID, domain);
-    </code></pre>
-    </div>
-    <div id="npm-after" class="tab-pane">
-    <pre class="hljs js"><code>
-    import {Auth0LockPasswordless} from 'auth0-lock';
-    var options = {
-      closable: false
-    };
-    var lock = new Auth0LockPasswordless(clientID, domain, options);
-    </code></pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Before">
+
+  ```js
+  import Auth0LockPasswordless from 'auth0-lock-passwordless';
+  var lock = new Auth0LockPasswordless(clientID, domain);
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="After">
+
+  ```js
+  import {Auth0LockPasswordless} from 'auth0-lock';
+  var options = {
+    closable: false
+  };
+  var lock = new Auth0LockPasswordless(clientID, domain, options);
+  ```
+
+  </code-block-tab>
+</code-block>
 
 ### Initialization options
 
@@ -109,66 +101,58 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
 - `code` if you want to use an Email Code
 - `link` if you want to use a Magic Link
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#method-code" data-toggle="tab">PasswordlessMethod: Code</a></li>
-      <li><a href="#method-link" data-toggle="tab">PasswordlessMethod: Link</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="method-code" class="tab-pane active">
-    <pre class="hljs js"><code>
-    var options = {
-      passwordlessMethod: 'code'
-    };
-    var lock = new Auth0LockPasswordless(clientID, domain, options);
-    </code></pre>
-    </div>
-    <div id="method-link" class="tab-pane">
-    <pre class="hljs js"><code>
-    // example use of options
-    var options = {
-      passwordlessMethod: 'link'
-    };
-    var lock = new Auth0LockPasswordless(clientID, domain, options);
-    </code></pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="PasswordlessMethod: Code">
+
+  ```js
+  var options = {
+    passwordlessMethod: 'code'
+  };
+  var lock = new Auth0LockPasswordless(clientID, domain, options);
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="PasswordlessMethod: Link">
+
+  ```js
+  // example use of options
+  var options = {
+    passwordlessMethod: 'link'
+  };
+  var lock = new Auth0LockPasswordless(clientID, domain, options);
+  ```
+
+  </code-block-tab>
+</code-block>
 
 ### Choose between SMS or email
 
 We recommend that you setup which passwordless connections you want enabled in [the dashboard](${manage_url}/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [allowedConnections](/libraries/lock/v11/customization#allowedconnections-array-) option.
 If you have both `sms` and `email` passwordless connections enabled in the dashboard, `Auth0LockPasswordless` will use `email` by default.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#sms-enabled" data-toggle="tab">SMS Enabled</a></li>
-      <li><a href="#email-enabled" data-toggle="tab">Email Enabled</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="sms-enabled" class="tab-pane active">
-    <pre class="hljs js"><code>
-    var options = {
-      allowedConnections: ['sms']
-    };
-    var lock = new Auth0LockPasswordless(clientID, domain, options);
-    </code></pre>
-    </div>
-    <div id="email-enabled" class="tab-pane">
-    <pre class="hljs js"><code>
-    var options = {
-      allowedConnections: ['email'],
-      passwordlessMethod: 'code'
-    };
-    var lock = new Auth0LockPasswordless(clientID, domain, options);
-    </code></pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="SMS Enabled">
+
+  ```js
+  var options = {
+    allowedConnections: ['sms']
+  };
+  var lock = new Auth0LockPasswordless(clientID, domain, options);
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Email Enabled">
+
+  ```js
+  var options = {
+    allowedConnections: ['email'],
+    passwordlessMethod: 'code'
+  };
+  var lock = new Auth0LockPasswordless(clientID, domain, options);
+  ```
+
+  </code-block-tab>
+</code-block>
 
 ### Show the widget
 
