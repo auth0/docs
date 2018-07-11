@@ -34,7 +34,7 @@ Please do *not* submit an Urgent ticket for non-production environments. Urgent 
 
 ## Special procedures for critical issues impacting production applications for PSaaS Appliance customers
 
-PSaaS Appliance customers should use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) to log a critical (urgent) production support issue. As part of the onboarding procedure a cloud account is created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
+PSaaS Appliance customers must use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) to log a critical support issue. As part of the onboarding procedure, a cloud account is created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
 
 ::: note
 Using Support Center requires a cloud account setup. If you are unsure about this, please try logging in at the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) or check with your Auth0 Customer Success Manager.
