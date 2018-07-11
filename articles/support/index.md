@@ -44,7 +44,7 @@ Auth0 offers the following support plans:
 </table>
 
 ### No plan
-If you do not have a support plan subscription, you have access to the Auth0 Community. Response times may vary and are not guaranteed.
+If you do not have a support plan subscription, you have access to the Auth0 Community and documentation. Response times may vary and are not guaranteed.
 
 :::panel Trial subscriptions
 New Auth0 customers receive Standard Support during the 22-day trial period. Customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url}).
@@ -73,7 +73,9 @@ You can add a Premier Success support option to your subscription. With that opt
 
 * Weekly operations reviews with a dedicated Customer Success Manager
 * Issue tracking dashboard
-* 24/7/365 phone support  
+* 24x7x365 phone support
+
+[Learn more about services available with Premier Success](/services/premier-success).  
 
 ## Support channels
 
@@ -115,11 +117,11 @@ Using this page, you can:
 * See the account details for users
 * Revoke privileges
 
-## Support program features
+## Support Program features
 
 The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
 
-Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
+Your sales order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
 
 | Support Feature | Standard | Enterprise/Preferred | With Premier Success |
 | - | - | - | - |
@@ -192,9 +194,9 @@ For severity level 4 defects, the solution will be defined to include one or mor
 
 ## Support hours
 
-Auth0 will provide support for severity level 1 defects on a 24x7x365 basis.
+Auth0 provides support for severity level 1 defects on a 24x7x365 basis.
 
-For all other defects, Auth0 will provide support during the hours specified below:
+For all other defects, Auth0 provides support during the hours specified below:
 
 | Standard | Enterprise/Preferred | w/Preferred |
 | - | - | - |
@@ -206,11 +208,11 @@ We provide all technical support in English, but we will make an effort to accom
 
 ## Upgrades
 
-During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you.
+During the subscription term, Auth0 provides or installs updates if and when they are commercially available at no additional cost to you.
 
 ## Demand services
 
-You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutually agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
+You may request assistance from Auth0 for services that are outside the scope of the support program.  Auth0 makes resources available for mutually agreeable time periods to provide such assistance.  Auth0 invoices you, and you pay for these services (“Demand Services”) at Auth0’s applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
 
 ## Pricing
 
