@@ -73,7 +73,7 @@ You can add a Premier Success support option to your subscription. With that opt
 
 * Weekly operations reviews with a dedicated Customer Success Manager
 * Issue tracking dashboard
-* 24x7x365 phone support
+* 24x7 phone support
 
 [Learn more about services available with Premier Success](/services/premier-success).  
 
