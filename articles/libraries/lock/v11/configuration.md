@@ -91,7 +91,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
-| [clientBaseUrl](#clientbaseurl-string-) | Override your application's base URL |
+| [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
 | [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
@@ -846,15 +846,21 @@ var options = {
 };
 ```
 
+## Passwordless Options
+
+### passwordlessMethod {String}
+
+When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a code or a magic link to authenticate the user. Available values for email connections are `code` and `link`. The option defaults to `code`, and passwordless with SMS connections will always use `code`.
+
 ## Other Options
 
-### clientBaseUrl {String}
+### configurationBaseUrl {String}
 
-This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
+This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set to something else instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
 
 ```js
 var options = {
-  clientBaseUrl: "http://www.example.com"
+  clientBaseUrl: "https://www.example.com"
 };
 ```
 
@@ -864,7 +870,7 @@ Overrides the language source url for Auth0's provided translations. By default,
 
 ```js
 var options = {
-  languageBaseUrl: "http://www.example.com"
+  languageBaseUrl: "https://www.example.com"
 };
 ```
 
