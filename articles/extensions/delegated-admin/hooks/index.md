@@ -1,6 +1,16 @@
 ---
 description: How to customize the behavior of the Delegated Administration extension using Hooks
 toc: true
+topics:
+  - extensions
+  - delegated-admin
+  - users
+  - hooks
+contentType:
+  - how-to
+  - concept
+  - index
+useCase: extensibility-extensions
 ---
 
 # Delegated Administration: Hooks
