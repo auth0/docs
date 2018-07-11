@@ -63,7 +63,7 @@ contentType:
   </li>
 </ul>
 
-### SDK links and support status
+### SDK repositories and support status
 
 <%= include('../_includes/_libraries_support_sdks') %>
 
