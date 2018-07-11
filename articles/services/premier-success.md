@@ -55,7 +55,7 @@ The Business Review is a quarterly onsite review session with your Auth0 Premier
 * Expansion of the value proposition from client perspective
 * Additional use cases you might be exploring
 * Product roadmap
-* Support, product usage and NPS scorecards
+* Support, product usage, and NPS scorecards
 
 ## Engagement Model
 
@@ -79,7 +79,6 @@ Your Premier Success Team will develop, track, and deliver a strategic Success P
 
 An Operations and Dashboard Review is provided monthly. The goal of this review is to better understand and align with you around issues, upcoming activities, Auth0 change management, and issue trending/analysis. Key topics include:
 
-* Support ticket review and analysis
 * Scheduling and preparations for upcoming customer activities 
 * Proactive updates on upcoming Auth0 changes 
 
