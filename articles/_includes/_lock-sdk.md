@@ -1,14 +1,15 @@
-
-<% if (meta.path !== "articles/libraries/lock/v11") { %>
-  <p>For more information on using Lock v11 <a href="/libraries/lock">see the documentation.</a></p>
-<% } %>
+<div>
+  <% if (meta.path !== "articles/libraries/lock/v11") { %>
+    <p>For more information on using Lock v11 <a href="/libraries/lock">see the documentation.</a></p>
+  <% } %>
+</div>
 
 <code-block>
   <code-block-tab data-title="Lock (Modal)">
 
   ```html
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${lock_url}"></script>
+  <script>
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
       auth: {
         redirectUrl: '${account.callback}',
@@ -18,19 +19,19 @@
         }
       }
     });
-  &lt;/script&gt;
-  &lt;button onclick=&quot;lock.show();&quot;&gt;Login&lt;/button&gt;
+  </script>
+  <button onclick="lock.show();">Login</button>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Lock (Inline)">
 
   ```html
-  &lt;div id=&quot;root&quot; style=&quot;width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;&quot;&gt;
+  <div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;">
     embedded area
-  &lt;/div&gt;
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  </div>
+  <script src="${lock_url}"></script>
+  <script>
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
       container: 'root',
       auth: {
@@ -42,15 +43,15 @@
       }
     });
     lock.show();
-  &lt;/script&gt;
+  </script>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Passwordless (SMS)">
 
   ```html
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${lock_url}"></script>
+  <script>
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
           allowedConnections: ['sms'],             // Should match the SMS connection name  
           responseType: 'token id_token',
@@ -67,16 +68,16 @@
       lock.show();
     };
 
-  &lt;/script&gt;
-  &lt;button onclick=&quot;window.open();&quot;&gt;SMS&lt;/button&gt;
+  </script>
+  <button onclick="window.open();">SMS</button>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Passwordless (Magic Link)">
 
   ```html
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${lock_url}"></script>
+  <script>
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
       passwordlessMethod: "link",              // Sets Lock to use magic link
       responseType: 'token id_token',
@@ -91,16 +92,16 @@
     function open() {
       lock.show();
     }
-  &lt;/script&gt;
-  &lt;button onclick=&quot;window.open();&quot;&gt;Magic Link&lt;/button&gt;
+  </script>
+  <button onclick="window.open();">Magic Link</button>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Passwordless (Email Code)">
 
   ```html
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${lock_url}"></script>
+  <script>
     var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
       allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
       passwordlessMethod: 'code',              // If not specified, defaults to 'code'
@@ -116,24 +117,24 @@
     function open() {
       lock.show();
     }
-  &lt;/script&gt;
-  &lt;button onclick=&quot;window.open();&quot;&gt;Email Code&lt;/button&gt;
+  </script>
+  <button onclick="window.open();">Email Code</button>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Custom UI">
 
   ```html
-  &lt;button class=&quot;signin-google&quot;&gt;Sign in with Google (redirect)&lt;/button&gt;&lt;br&gt;
-  &lt;button class=&quot;signin-google-popup&quot;&gt;Sign in with Google (popup)&lt;/button&gt;&lt;br&gt;
-  &lt;br&gt;&lt;p&gt;--- or ---&lt;/p&gt;
-  &lt;label&gt;Email&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;email&quot;&gt;&lt;br&gt;
-  &lt;label&gt;Password&lt;/label&gt;&lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;
-  &lt;button class=&quot;signin-db&quot;&gt;Sign in with Email/Password&lt;/button&gt;
+  <button class="signin-google">Sign in with Google (redirect)</button><br>
+  <button class="signin-google-popup">Sign in with Google (popup)</button><br>
+  <br><p>--- or ---</p>
+  <label>Email</label><input type="text" id="email"><br>
+  <label>Password</label><input type="password" id="password"><br>
+  <button class="signin-db">Sign in with Email/Password</button>
 
-  &lt;script src=&quot;${auth0js_url}&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${auth0js_url}"></script>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script>
     var webAuth = new auth0.WebAuth({
       domain:         '${account.namespace}',
       clientID:       '${account.clientId}',
@@ -170,18 +171,18 @@
         console.log(err);
       }
     });
-  &lt;/script&gt;
+  </script>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="Plain Links">
 
-  ```md
+  ```text
   https://${account.namespace}/authorize?response_type=code
-  &nbsp;&nbsp;&amp;scope=openid%20profile
-  &nbsp;&nbsp;&amp;client_id=${account.clientId}
-  &nbsp;&nbsp;&amp;redirect_uri=${account.callback}
-  &nbsp;&nbsp;&amp;connection=CONNECTION_NAME
+    &scope=openid%20profile
+    &client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &connection=CONNECTION_NAME
   ```
 
   </code-block-tab>

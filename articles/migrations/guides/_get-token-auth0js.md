@@ -1,6 +1,6 @@
 <code-block>
   <code-block-tab data-title="Legacy (ID Token)">
-  
+
   ```js
   // get an ID Token
   var webAuth = new auth0.WebAuth({

@@ -47,24 +47,24 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
   <code-block-tab data-title="Before">
 
   ```html
-  &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js"></script>
+  <script>
     var lock = new Auth0LockPasswordless(clientID, domain);
-  &lt;/script&gt;
+  </script>
   ```
 
   </code-block-tab>
   <code-block-tab data-title="After">
 
   ```html
-  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+  <script src="${lock_url}"></script>
+  <script>
     // example use of options
     var options = {
       closable: false
     }
     var lock = new Auth0LockPasswordless(clientID, domain, options);
-  &lt;/script&gt;
+  </script>
   ```
 
   </code-block-tab>
