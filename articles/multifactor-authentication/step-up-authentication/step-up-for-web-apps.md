@@ -43,46 +43,38 @@ For more information on the signature verification and claims validation, see [I
 
 In the snippet below you can see how an ID Token's payload is if the user has authenticated with MFA, and how it is if they have not.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#with-mfa" data-toggle="tab">ID Token with MFA</a></li>
-      <li><a href="#without-mfa" data-toggle="tab">ID Token without MFA</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="with-mfa" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-{
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838054,
-  "exp": 1522874054,
-  "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
-  "amr": [
-    "mfa"
-  ]
-}
-        </code>
-      </pre>
-    </div>
-    <div id="without-mfa" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-{
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838197,
-  "exp": 1522874197
-}
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="ID Token with MFA">
+
+  ```text
+  {
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838054,
+    "exp": 1522874054,
+    "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
+    "amr": [
+      "mfa"
+    ]
+  }
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="ID Token without MFA">
+
+  ```text
+  {
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838197,
+    "exp": 1522874197
+  }
+  ```
+
+  </code-block-tab>
+</code-block>
 
 ## Example
 

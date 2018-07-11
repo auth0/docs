@@ -1,0 +1,188 @@
+
+<% if (meta.path !== "articles/libraries/lock/v11") { %>
+  <p>For more information on using Lock v11 <a href="/libraries/lock">see the documentation.</a></p>
+<% } %>
+
+<code-block>
+  <code-block-tab data-title="Lock (Modal)">
+
+  ```html
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+      auth: {
+        redirectUrl: '${account.callback}',
+        responseType: 'code',
+        params: {
+          scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+        }
+      }
+    });
+  &lt;/script&gt;
+  &lt;button onclick=&quot;lock.show();&quot;&gt;Login&lt;/button&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Lock (Inline)">
+
+  ```html
+  &lt;div id=&quot;root&quot; style=&quot;width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;&quot;&gt;
+    embedded area
+  &lt;/div&gt;
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+      container: 'root',
+      auth: {
+        redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+        responseType: 'token id_token',
+        params: {
+          scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+        }
+      }
+    });
+    lock.show();
+  &lt;/script&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Passwordless (SMS)">
+
+  ```html
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+          allowedConnections: ['sms'],             // Should match the SMS connection name  
+          responseType: 'token id_token',
+          auth: {
+            redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+            params: {
+              scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+            }          
+          }
+        }
+    );
+
+    function open() {
+      lock.show();
+    };
+
+  &lt;/script&gt;
+  &lt;button onclick=&quot;window.open();&quot;&gt;SMS&lt;/button&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Passwordless (Magic Link)">
+
+  ```html
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+      passwordlessMethod: "link",              // Sets Lock to use magic link
+      responseType: 'token id_token',
+      auth: {
+        redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+        params: {
+          scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+        }          
+      }
+    });
+
+    function open() {
+      lock.show();
+    }
+  &lt;/script&gt;
+  &lt;button onclick=&quot;window.open();&quot;&gt;Magic Link&lt;/button&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Passwordless (Email Code)">
+
+  ```html
+  &lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+      allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+      passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+      responseType: 'token id_token',
+      auth: {
+        redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+        params: {
+          scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+        }          
+      }
+    });
+
+    function open() {
+      lock.show();
+    }
+  &lt;/script&gt;
+  &lt;button onclick=&quot;window.open();&quot;&gt;Email Code&lt;/button&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Custom UI">
+
+  ```html
+  &lt;button class=&quot;signin-google&quot;&gt;Sign in with Google (redirect)&lt;/button&gt;&lt;br&gt;
+  &lt;button class=&quot;signin-google-popup&quot;&gt;Sign in with Google (popup)&lt;/button&gt;&lt;br&gt;
+  &lt;br&gt;&lt;p&gt;--- or ---&lt;/p&gt;
+  &lt;label&gt;Email&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;email&quot;&gt;&lt;br&gt;
+  &lt;label&gt;Password&lt;/label&gt;&lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;
+  &lt;button class=&quot;signin-db&quot;&gt;Sign in with Email/Password&lt;/button&gt;
+
+  &lt;script src=&quot;${auth0js_url}&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var webAuth = new auth0.WebAuth({
+      domain:         '${account.namespace}',
+      clientID:       '${account.clientId}',
+      redirectUri:    '${account.callback}'
+    });
+    // sign-in with social provider with plain redirect
+    $('.signin-google').on('click', function() {
+      webAuth.authorize({
+        connection: 'google-oauth2' // use connection identifier
+      });
+    });
+    // sign-in with social provider using a popup (window.open)
+    $('.signin-google-popup').on('click', function() {
+      webAuth.popup.authorize({
+        connection: 'google-oauth2'
+      });
+    });
+
+    $('.signin-db').on('click', function() {
+      webAuth.login({
+        realm: 'tests',
+        username: 'testuser',
+        password: 'testpass',
+      });
+    });
+    // Parse the authentication result
+    webAuth.parseHash((err, authResult) => {
+      if (authResult) {
+        // Save the tokens from the authResult in local storage or a cookie
+        localStorage.setItem('access_token', authResult.accessToken);
+        localStorage.setItem('id_token', authResult.idToken);
+      } else if (err) {
+        // Handle errors
+        console.log(err);
+      }
+    });
+  &lt;/script&gt;
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Plain Links">
+
+  ```md
+  https://${account.namespace}/authorize?response_type=code
+  &nbsp;&nbsp;&amp;scope=openid%20profile
+  &nbsp;&nbsp;&amp;client_id=${account.clientId}
+  &nbsp;&nbsp;&amp;redirect_uri=${account.callback}
+  &nbsp;&nbsp;&amp;connection=CONNECTION_NAME
+  ```
+
+  </code-block-tab>
+</code-block>

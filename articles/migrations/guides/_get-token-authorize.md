@@ -1,40 +1,32 @@
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#${idPrevious}" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#${idCurrent}" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="${idPrevious}" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  scope=openid
-  &response_type=id_token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-    <div id="${idCurrent}" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  audience=https://${account.namespace}/api/v2/
-  &scope=${scope}
-  &response_type=token%20id_token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Legacy (ID Token)">
+
+  ```text
+  https://${account.namespace}/authorize?
+    scope=openid
+    &response_type=id_token
+    &client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &nonce=CRYPTOGRAPHIC_NONCE
+    &state=OPAQUE_VALUE
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Current (Access Token)">
+
+  ```text
+  https://${account.namespace}/authorize?
+    audience=https://${account.namespace}/api/v2/
+    &scope=${scope}
+    &response_type=token%20id_token
+    &client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &nonce=CRYPTOGRAPHIC_NONCE
+    &state=OPAQUE_VALUE
+  ```
+
+  </code-block-tab>
+</code-block>
 
 In order to get an Access Token that can access the Management API:
 - We set the `audience` to `https://${account.namespace}/api/v2/`

@@ -37,126 +37,117 @@ The process of linking accounts merges two existing user profiles into a single 
 
 In the example below you can see how the resulting linked profile will be for the sample primary and secondary accounts.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#profile-primary" data-toggle="tab">Profile of primary account</a>
-      </li>
-      <li><a href="#profile-secondary" data-toggle="tab">Profile of secondary account</a>
-      </li>
-      <li><a href="#profile-linked" data-toggle="tab">Linked profile</a>
-      </li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div class="tab-pane active" id="profile-primary">
-      <pre class="hl">
-        <code>{
-  "email": "your0@email.com",
-  "email_verified": true,
-  "name": "John Doe",
-  "given_name": "John",
-  "family_name": "Doe",
-  "picture": "https://lh3.googleusercontent..../photo.jpg",
-  "gender": "male",
-  "locale": "en",
-  "user_id": "google-oauth2|115015401343387192604",
-  "identities": [
-    {
+<code-block>
+  <code-block-tab data-title="Profile of primary account">
+
+  ```json
+  {
+    "email": "your0@email.com",
+    "email_verified": true,
+    "name": "John Doe",
+    "given_name": "John",
+    "family_name": "Doe",
+    "picture": "https://lh3.googleusercontent..../photo.jpg",
+    "gender": "male",
+    "locale": "en",
+    "user_id": "google-oauth2|115015401343387192604",
+    "identities": [
+      {
+          "provider": "google-oauth2",
+          "user_id": "115015401343387192604",
+          "connection": "google-oauth2",
+          "isSocial": true
+      }
+    ],
+    "user_metadata": {
+      "color": "red"
+    },
+    "app_metadata": {
+      "roles": [
+          "Admin"
+      ]
+    },
+    ...
+  }
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Profile of secondary account">
+
+  ```json
+  {
+    "phone_number": "+14258831929",
+    "phone_verified": true,
+    "name": "+14258831929",
+    "updated_at": "2015-10-08T18:35:18.102Z",
+    "user_id": "sms|560ebaeef609ee1adaa7c551",
+    "identities": [
+      {
+          "user_id": "560ebaeef609ee1adaa7c551",
+          "provider": "sms",
+          "connection": "sms",
+          "isSocial": false
+      }
+    ],
+    "user_metadata": {
+        "color": "blue"
+    },
+    "app_metadata": {
+        "roles": [
+            "AppAdmin"
+        ]
+    },
+    ...
+  }
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Linked profile">
+
+  ```json
+  {
+    "email": "your@email.com",
+    "email_verified": true,
+    "name": "John Doe",
+    "given_name": "John",
+    "family_name": "Doe",
+    "picture": "https://lh3.googleusercontent.../photo.jpg",
+    "gender": "male",
+    "locale": "en",
+    "user_id": "google-oauth2|115015401343387192604",
+    "identities": [
+      {
         "provider": "google-oauth2",
         "user_id": "115015401343387192604",
         "connection": "google-oauth2",
         "isSocial": true
-    }
-  ],
-  "user_metadata": {
-    "color": "red"
-  },
-  "app_metadata": {
-    "roles": [
-        "Admin"
-    ]
-  },
-  ...
-}
-        </code>
-      </pre>
-    </div>
-    <div class="tab-pane" id="profile-secondary">
-      <pre class="hl">
-        <code>{
-  "phone_number": "+14258831929",
-  "phone_verified": true,
-  "name": "+14258831929",
-  "updated_at": "2015-10-08T18:35:18.102Z",
-  "user_id": "sms|560ebaeef609ee1adaa7c551",
-  "identities": [
-    {
+      },
+      {
+        "profileData": {
+            "phone_number": "+14258831929",
+            "phone_verified": true,
+            "name": "+14258831929"
+        },
         "user_id": "560ebaeef609ee1adaa7c551",
         "provider": "sms",
         "connection": "sms",
         "isSocial": false
-    }
-  ],
-  "user_metadata": {
-      "color": "blue"
-  },
-  "app_metadata": {
-      "roles": [
-          "AppAdmin"
-      ]
-  },
-  ...
-}
-        </code>
-      </pre>
-    </div>
-    <div class="tab-pane" id="profile-linked">
-      <pre class="hl">
-        <code>{
-  "email": "your@email.com",
-  "email_verified": true,
-  "name": "John Doe",
-  "given_name": "John",
-  "family_name": "Doe",
-  "picture": "https://lh3.googleusercontent.../photo.jpg",
-  "gender": "male",
-  "locale": "en",
-  "user_id": "google-oauth2|115015401343387192604",
-  "identities": [
-    {
-      "provider": "google-oauth2",
-      "user_id": "115015401343387192604",
-      "connection": "google-oauth2",
-      "isSocial": true
+      }
+    ],
+    "user_metadata": {
+        "color": "red"
     },
-    {
-      "profileData": {
-          "phone_number": "+14258831929",
-          "phone_verified": true,
-          "name": "+14258831929"
-      },
-      "user_id": "560ebaeef609ee1adaa7c551",
-      "provider": "sms",
-      "connection": "sms",
-      "isSocial": false
-    }
-  ],
-  "user_metadata": {
-      "color": "red"
-  },
-  "app_metadata": {
-      "roles": [
-          "Admin"
-      ]
-  },
-  ...
-}
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+    "app_metadata": {
+        "roles": [
+            "Admin"
+        ]
+    },
+    ...
+  }
+  ```
+
+  </code-block-tab>
+</code-block>
 
 Note that:
 

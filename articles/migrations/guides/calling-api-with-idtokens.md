@@ -108,49 +108,41 @@ In the example below, we want to use the [GET User by ID endpoint](/api/manageme
 
 On the `Legacy (ID Token)` script you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` script you can see the new approach that gets an Access Token as well.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#token-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#token-access-token" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="token-id-token" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-POST https://${account.namespace}/oauth/token
-Content-Type: application/json
-{
-  "grant_type": "password",
-  "username": "USERNAME",
-  "password": "PASSWORD",
-  "scope": "openid",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-}
-        </code>
-      </pre>
-    </div>
-    <div id="token-access-token" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-POST https://${account.namespace}/oauth/token
-Content-Type: application/json
-{
-  "grant_type": "password",
-  "username": "USERNAME",
-  "password": "PASSWORD",
-  "audience": "https://${account.namespace}/api/v2/",
-  "scope": "read:current_user",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-}
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Legacy (ID Token)">
+
+  ```text
+  POST https://${account.namespace}/oauth/token
+  Content-Type: application/json
+  {
+    "grant_type": "password",
+    "username": "USERNAME",
+    "password": "PASSWORD",
+    "scope": "openid",
+    "client_id": "${account.clientId}",
+    "client_secret": "YOUR_CLIENT_SECRET",
+  }
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Current (Access Token)">
+
+  ```text
+  POST https://${account.namespace}/oauth/token
+  Content-Type: application/json
+  {
+    "grant_type": "password",
+    "username": "USERNAME",
+    "password": "PASSWORD",
+    "audience": "https://${account.namespace}/api/v2/",
+    "scope": "read:current_user",
+    "client_id": "${account.clientId}",
+    "client_secret": "YOUR_CLIENT_SECRET",
+  }
+  ```
+
+  </code-block-tab>
+</code-block>
 
 In order to get an Access Token that can access the Management API:
 - We set the `audience` to `https://${account.namespace}/api/v2/`

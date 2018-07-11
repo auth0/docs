@@ -89,44 +89,36 @@ The `context.request.query.scope` property contains all the scopes that the auth
 
 Next you need to configure your application to send the appropriate authentication request, depending on the action that the user wants to perform. Notice that the only difference between the two authentication requests (with or without MFA) is the scope `transfer:funds`.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#without-mfa" data-toggle="tab">Authenticate without MFA</a></li>
-      <li><a href="#with-mfa" data-toggle="tab">Authenticate with MFA</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="without-mfa" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  audience=https://my-banking-api
-  &scope=openid%20view:balance
-  &response_type=id_token%20token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-    <div id="with-mfa" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-https://${account.namespace}/authorize?
-  audience=https://my-banking-api
-  &scope=openid%20view:balance%20transfer:funds
-  &response_type=id_token%20token
-  &client_id=${account.clientId}
-  &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
-  &state=OPAQUE_VALUE
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Authenticate without MFA">
+
+  ```text
+  https://${account.namespace}/authorize?
+    audience=https://my-banking-api
+    &scope=openid%20view:balance
+    &response_type=id_token%20token
+    &client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &nonce=CRYPTOGRAPHIC_NONCE
+    &state=OPAQUE_VALUE
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Authenticate with MFA">
+
+  ```text
+  https://${account.namespace}/authorize?
+    audience=https://my-banking-api
+    &scope=openid%20view:balance%20transfer:funds
+    &response_type=id_token%20token
+    &client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &nonce=CRYPTOGRAPHIC_NONCE
+    &state=OPAQUE_VALUE
+  ```
+
+  </code-block-tab>
+</code-block>
 
 - Set `audience` to the **Identifier** of your API (find it at [API Settings](${manage_url}/#/apis/)). We set ours to `https://my-banking-api`
 - The `response_type` is set to `id_token token` so we get both an ID Token and an Access Token in the response

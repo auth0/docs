@@ -194,32 +194,24 @@ Use the sample script that follows as a guide. On the **Legacy (ID Token)** pane
 
 Once you have the Access Token, you can call the [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint of the Management API, using it in the `Authorization` header.
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#unlink2-id-token" data-toggle="tab">Legacy (ID Token)</a></li>
-      <li><a href="#unlink2-access-token" data-toggle="tab">Current (Access Token)</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="unlink2-id-token" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
-Authorization: 'Bearer ID_TOKEN-OR-ACCESS_TOKEN'
-        </code>
-      </pre>
-    </div>
-    <div id="unlink2-access-token" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
-Authorization: 'Bearer ACCESS_TOKEN'
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
+<code-block>
+  <code-block-tab data-title="Legacy (ID Token)">
+
+  ```text
+  DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
+  Authorization: 'Bearer ID_TOKEN-OR-ACCESS_TOKEN'
+  ```
+
+  </code-block-tab>
+  <code-block-tab data-title="Current (Access Token)">
+
+  ```text
+  DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
+  Authorization: 'Bearer ACCESS_TOKEN'
+  ```
+
+  </code-block-tab>
+</code-block>
 
 ## Keep reading
 
