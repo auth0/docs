@@ -23,21 +23,9 @@ contentType:
 
 <%= include('../_includes/_lock_auth0js_deprecations_notice') %>
 
-## Options for adding Auth0 to your web applications
+<%= include('../_includes/_embedded_login_warning') %>
 
-You can use Auth0 [Universal Login](/hosted-pages/login) to add Auth0 to your web apps to prevent the pitfalls of [cross-origin authentication](/cross-origin-authentication). The login page uses the Lock widget by default to authenticate users. There are also templates for Lock Passwordless and for a custom UI built with the Auth0.js SDK available. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page).
-
-If Universal Login does not meet your requirements, Auth0 also provides other options to assist with authentication.
-
-* [Lock](#lock) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.
-* [Auth0 SDKs](#auth0-sdks) are client-side libraries that do not come with a user interface. These allow for expanded customization to the behavior and appearance of the login process.
-* [Authentication API](/api/authentication) allows you to integrate applications with Auth0 without using the Auth0 libraries.
-
-The best option to choose will depend on the needs of your app. Check out [When to Use Lock](/libraries/when-to-use-lock) for more information to help you decide between using Lock or an SDK.
-
-## Lock
-
-The Lock widget is a simple way to integrate Auth0 into existing projects and provide a frictionless login and signup experience for your application. Lock provides your users with a customizable UI with which to authenticate within your application.
+## Lock 
 
 ### Lock documentation
 
@@ -53,13 +41,11 @@ The Lock widget is a simple way to integrate Auth0 into existing projects and pr
   </li>
 </ul>
 
-### Lock links and support status
+## Lock links and support status
 
 <%= include('../_includes/_libraries_support_lock') %>
 
 ## Auth0 SDKs
-
-Auth0 SDKs do not include a UI. Use an SDK with your custom UI.
 
 ### SDK documentation
 
