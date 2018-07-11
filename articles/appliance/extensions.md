@@ -16,6 +16,8 @@ applianceId: appliance58
 
 While using [Extensions](/extensions) in the PSaaS Appliance is very similar to using Extensions in the multi-tenant installation of Auth0, there are some differences.
 
+You may receive updates to Extensions at any time without prior notice.
+
 ## Configure Extensions
 
 Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
