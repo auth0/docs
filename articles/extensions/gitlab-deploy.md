@@ -9,17 +9,17 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# GitLab Deployments
+# GitLab deployments
 
 The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Database Connection scripts and hosted pages from GitLab to Auth0. You can configure a GitLab repository, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
-## Configure the Auth0 Extension
+## Configure the Auth0 extension
 
-To install and configure this extension, click on the **GitLab Deployments** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
+1. To install and configure this extension, click on the **GitLab Deployments** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
 
 ![Install extension popup window](/media/articles/extensions/gitlab-deploy/install-extension.png)
 
-Set the following configuration variables:
+2. Set the following configuration variables:
 
 * **GITLAB_REPOSITORY**: The name of your GitLab repository.
 * **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
@@ -27,43 +27,47 @@ Set the following configuration variables:
 * **GITLAB_TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
 * **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
 
-Once you have provided this information, click **Install**.
+3. Once you have provided this information, click **Install**.
 
-### Configure a GitLab Token
+### Configure a GitLab token
 
-Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.com/profile/personal_access_tokens).
+1. Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.com/profile/personal_access_tokens).
 
-Create a new Access Token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
+2. Create a new Access Token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
+
+::: panel-warning API access
+Make sure that you create the token with the `api (Access the authenticated user's API )` permission in Gitlab settings. If your Gitlab token does not contain the necessary permissions, you may receive a 'rejecting request of a tenant under quarantine' message because there was some uncaught error in the extension causing the webtask context to be quarantined. 
+:::
 
 ![Generate a personal Access Token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
 
-Go back to the [Extensions](${manage_url}/#/extensions) page and set this value at the **Gitlab_Token** configuration variable.
+3. Go back to the [Extensions](${manage_url}/#/extensions) page and set this value at the **Gitlab_Token** configuration variable.
 
-## Authorize Access
+## Authorize access
 
-Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
+1. Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
 ![](/media/articles/extensions/gitlab-deploy/installed-extensions-view.png)
 
-Click on the row for the **GitLab Deployments** extension. The first time you click on your installed extension, you will be asked to grant it to access your GitLab account.
+2. Click on the row for the **GitLab Deployments** extension. The first time you click on your installed extension, you will be asked to grant it to access your GitLab account.
 
 ![](/media/articles/extensions/gitlab-deploy/user-consent.png)
 
-Once you agree, you will be directed to the **GitLab Integration** page.
+3. Once you agree, you will be directed to the **GitLab Integration** page.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-integration-page.png)
 
-Copy the **Payload URL** and **Secret** values. You will use them in order to configure the GitLab Webhook in the next step.
+4. Copy the **Payload URL** and **Secret** values. You will use them in order to configure the GitLab Webhook in the next step.
 
 ## Configure the GitLab Webhook
 
 Once you have configured your Auth0 Extension, you will need to configure the GitLab Webhook to complete the integration.
 
-In your GitLab Repository, click on the gear icon near the top right of the page to open the menu. Click on **Webhooks**.
+1. In your GitLab repository, click on the gear icon near the top right of the page to open the menu. Click on **Webhooks**.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-settings-menu.png)
 
-Set the following configuration variables:
+2. Set the following configuration variables:
 
 * **URL**: Set the value of the **Payload URL** from the previous step.
 * **Secret Token**: Set the value of the **Secret** from the previous step.
@@ -72,7 +76,7 @@ Set the following configuration variables:
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-add-webhook.png)
 
-Click **Add Webhook** to save your changes.
+3. Click **Add Webhook** to save your changes.
 
 ## Deployment
 
@@ -91,11 +95,11 @@ The **Deploy** button on the **Deployments** tab of the extension allows you to 
 To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
 :::
 
-### Deploy Database Connection Scripts
+### Deploy Database Connection scripts
 
-To deploy Database Connection scripts, you must first create a directory under `database-connections`. The name of the directory must match **exactly** the name of your [database connection](${manage_url}/#/connections/database) in Auth0. You can create as many directories as you have Database Connections.
+1. To deploy Database Connection scripts, you must first create a directory under `database-connections`. The name of the directory must match **exactly** the name of your [database connection](${manage_url}/#/connections/database) in Auth0. You can create as many directories as you have Database Connections.
 
-Under the created directory, create one file for each script you want to use. The allowed scripts are:
+2. Under the created directory, create one file for each script you want to use. The allowed scripts are:
 
 - `get_user.js`
 - `create.js`
@@ -108,7 +112,7 @@ For a generic Custom Database Connection, only the `login.js` script is required
 
 You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db). While the samples were authored for GitHub, it will work for a GitLab integration as well.
 
-### Deploy Hosted Pages
+### Deploy hosted pages
 
 The supported hosted pages are:
 - `error_page`
@@ -131,7 +135,7 @@ To enable the page the `error_page.json` would contain the following:
 }
 ```
 
-### Deploy Rules
+### Deploy rules
 
 To deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitLab repository. Each Rule must be in its own `.js` file.
 
@@ -168,19 +172,21 @@ __set-country.json__
 
 You can find a `login_success` example in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/rules). While the sample was authored for GitHub, it will work for a GitLab integration as well.
 
-#### Set Rule Order
+#### Set rule order
 
-To avoid conflicts, you are cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
+To avoid conflicts, you cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
 
-#### Set the Stage
+#### Set the stage
 
 After you deploy a Rule, you cannot change its stage, or the area where the Rule executes.
 
 If you need the rule to execute in a different stage, you must create a new Rule with the updated stage and delete the original Rule.
 
-Please note that you may have only a single Rule for the `user_registration` and `login_failure` stages.
+::: note
+You may have only a single Rule for the `user_registration` and `login_failure` stages.
+:::
 
-## Track Deployments
+## Track deployments
 
 To track your deployments, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the row for the **GitLab Deployments** extension, and select the **Deployments** tab. You will see a list of all deployments.
 
