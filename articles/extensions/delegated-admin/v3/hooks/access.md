@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Access Hook
 
-Because the [Filter Hook](/extensions/delegated-admin-hooks/filter) only applies filtering logic, you'll need a second layer of logic to determine if the current user (or the person acting as the administrator) is allowed to access a specific user. 
+Because the [Filter Hook](/extensions/delegated-admin/v3/hooks/filter) only applies filtering logic, you'll need a second layer of logic to determine if the current user (or the person acting as the administrator) is allowed to access a specific user. 
 
 The **Access Hook** allows you to determine if the current user is allowed to read, delete, block, unblock, or update a specific user.
 

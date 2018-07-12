@@ -181,4 +181,4 @@ The following Hooks are available for use with your Delegated Administration ext
 * [The Filter Hook](/extensions/delegated-admin/v3/hooks/filter)
 * [The Memberships Query Hook](/extensions/delegated-admin/v3/hooks/membership)
 * [The Settings Query Hook](/extensions/delegated-admin/v3/hooks/settings)
-* [The Write Hook](/extensions/delegated-admin/hooks/v3/write)
+* [The Write Hook](/extensions/delegated-admin/v3/hooks/write)
