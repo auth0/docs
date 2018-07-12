@@ -68,7 +68,7 @@ In the settings for your API, go to the *Scopes* tab. In this section you can ad
 
 ## Create the Application
 
-When creating an API in the Auth0 Dashboard, a test application for the API will automatically be generated. In the Auth0 Dashboard, navigate to the [Application Section](${manage_url}/#/applications) and you will see the test application for the Timesheets API.
+When creating a new application in the Auth0 Dashboard, a test application for the API will automatically be generated. In the Auth0 Dashboard, navigate to the [Application Section](${manage_url}/#/applications) and you will see the test application for the Timesheets API.
 
 ![Machine to Machine Application](/media/articles/architecture-scenarios/server-api/non-interactive-client.png)
 
