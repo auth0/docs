@@ -1,6 +1,5 @@
 ---
 description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
-url: /extensions/delegated-admin
 toc: true
 topics:
   - extensions
@@ -53,6 +52,22 @@ You will also need to configure the **Allowed Logout URLs**:
 | USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin` |
 | Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin` |
+
+For those who have [migrated to Node.js v8](/migrations/guides/extensibility-node8), the URLs are slightly different:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
+
+You will also need to configure the **Allowed Logout URLs**:
+ 
+| Location | Allowed Logout URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
 Copy the **Client ID** value.
 
@@ -151,6 +166,8 @@ Set the following configuration variables:
 - **TITLE** (optional): Set a title for your Application. It will be displayed at the header of the page.
 
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
+
+- **SEARCH_ENGINE** (optional): Most tenants should use the default search engine; if you're not, you can specify you choice here.
 
 Once done, click **Install**. Your extension is now ready to use!
 
