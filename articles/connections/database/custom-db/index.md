@@ -21,7 +21,7 @@ Here are some things to know before you begin the process of setting up your dat
 
 * You'll write your database action scripts in JavaScript. The scripts run in a [Webtask](https://webtask.io/) environment that supports JavaScript and [select Node.js libraries](https://tehsis.github.io/webtaskio-canirequire/).
 
-* Auth0 provides [custom script templates](/connections/database/custom-db/templates/index) for most of the commonly-used databases, including:
+* Auth0 provides [custom script templates](/connections/database/custom-db/templates) for most of the commonly-used databases, including:
 
   * ASP.NET Membership Provider
   * MongoDB
