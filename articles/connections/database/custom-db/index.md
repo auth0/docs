@@ -19,9 +19,9 @@ In this tutorial, you'll learn how to connect your user database to Auth0 and co
 
 Here are some things to know before you begin the process of setting up your database for use as an identity provider.
 
-* You'll write your database action scripts in JavaScript. The scripts run in a [Webtask](https://webtask.io/) environment that supports JavaScript and [select Node.js libraries}(https://tehsis.github.io/webtaskio-canirequire/).
+* You'll write your database action scripts in JavaScript. The scripts run in a [Webtask](https://webtask.io/) environment that supports JavaScript and [select Node.js libraries](https://tehsis.github.io/webtaskio-canirequire/).
 
-* Auth0 provides custom script templates for most of the commonly-used databases, including:
+* Auth0 provides [custom script templates](/connections/database/custom-db/templates/index) for most of the commonly-used databases, including:
 
   * ASP.NET Membership Provider
   * MongoDB
