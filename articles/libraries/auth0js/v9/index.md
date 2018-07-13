@@ -17,6 +17,8 @@ Auth0.js is a client-side library for Auth0. It is recommended for use in single
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
 
+<%= include('../../../_includes/_embedded_login_warning') %>
+
 ## Ready-to-go example
 
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
