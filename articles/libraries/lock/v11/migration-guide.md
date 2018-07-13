@@ -20,10 +20,12 @@ useCase:
 
 ## Should I migrate to v11?
 
-Everyone should migrate to v11. All previous versions are deprecated, and will be removed from service July 16, 2018. For applications that use Lock within an Auth0 login page, this migration is recommended; for applications with Lock embedded within them, this migration is mandatory.
+Everyone should migrate to v11. All previous versions are deprecated, and the Legacy Lock API was disabled on July 16, 2018. For applications that use Lock within an Auth0 login page, this migration is recommended; for applications with Lock embedded within them, this migration is mandatory.
 
-::: note
-Previously, deprecated Lock versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date has been extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting). Customers are still encouraged to migrate applications to the latest version **as soon as possible** in order to ensure that applications continue to function properly. 
+::: panel Legacy Lock API Removed from Service
+Previously, deprecated Lock versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date was extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting).
+
+As of July 16, 2018, the Legacy Lock API has been disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
 :::
 
 ## Migration instructions
