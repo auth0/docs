@@ -9,9 +9,9 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# GitLab deployments
+# GitLab Deployments
 
-The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Database Connection scripts and hosted pages from GitLab to Auth0. You can configure a GitLab repository, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
+The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Database Connection scripts, and hosted pages from GitLab to Auth0. You can configure a GitLab repository, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
 ## Configure the Auth0 extension
 
@@ -36,7 +36,7 @@ The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Datab
 2. Create a new Access Token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
 
 ::: panel-warning API access
-Make sure that you create the token with the `api (Access the authenticated user's API )` permission in Gitlab settings. If your Gitlab token does not contain the necessary permissions, you may receive a 'rejecting request of a tenant under quarantine' message because there was some uncaught error in the extension causing the webtask context to be quarantined. 
+Make sure that you create the token with the `api (Access the authenticated user's API )` permission in Gitlab settings. If your Gitlab token does not contain the necessary permissions, you may receive a "rejecting request of a tenant under quarantine" message because there was some uncaught error in the extension causing the Webtask context to be quarantined. 
 :::
 
 ![Generate a personal Access Token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
@@ -89,7 +89,7 @@ Your repository should have a predefined structure:
 
 With each commit you push to your configured GitLab repository, the webhook will call the extension to initiate a deployment if changes were made to these predefined directories.
 
-The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages and Database Connection scripts that you already have in your GitLab repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
+The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages, and Database Connection scripts that you already have in your GitLab repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
 ::: panel-warning Full Deployment
 To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
