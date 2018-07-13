@@ -22,7 +22,7 @@ contentType:
 
 <%= include('../_includes/_lock_auth0js_deprecations_notice') %>
 
-<%= include('../../_includes/_embedded_login_warning') %>
+<%= include('../_includes/_embedded_login_warning') %>
 
 ## Lock 
 

@@ -17,7 +17,7 @@ useCase:
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
 
-<%= include('/_includes/_embedded_login_warning') %>
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Lock Installation
 
