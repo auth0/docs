@@ -30,7 +30,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [SQL Server](/connections/database/custom-db/templates/create#sql-server)
 * [Windows Azure SQL Database](/connections/database/custom-db/templates/create#windows-azure-sql-database)
 * [Request with Basic Auth](/connections/database/custom-db/templates/create#request-with-basic-auth)
-* [Stormpath](/connections/database/custom-db/templates/create#stormpath)
 :::
 
 ### JavaScript
