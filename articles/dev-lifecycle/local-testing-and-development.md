@@ -6,7 +6,7 @@ topics:
 contentType: how-to
 useCase: development
 ---
-# Work with Auth0 locally
+# Work with Auth0 Locally
 
  In most cases, authenticating users through Auth0 requires an Internet connection. However, you can still develop and test apps that use Auth0 locally. In some cases, you might not need access to an Internet connection.
 
