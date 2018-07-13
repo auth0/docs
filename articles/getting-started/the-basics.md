@@ -51,7 +51,7 @@ In our example, `Example-Co` picked the name `example-co` and Americas as their 
 
 ### Custom domains
 
-You can use a custom domain, such as `example-co.com`. This comes with an additional cost. 
+We recommend the use of custom domains, such as `example-co.com`, in your production environments to provide your users with the most secure and seamless experience. This comes with an additional cost. 
 
 If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
 - The cloud managed by Auth0
