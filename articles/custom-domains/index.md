@@ -121,15 +121,11 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 - If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
 - If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 
-2. **What about support for other features?**
-  
-We are planning to support several additional features in the future, including WS-Fed applications and enterprise and Passwordless connections.
-
-3. **How many custom domains can I use per tenant?**
+2. **How many custom domains can I use per tenant?**
 
 Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
 
-4. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
+3. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
 
 We cannot provide a static list of IP addresses as they are subject to change. Our recommendation is to whitelist your custom domain instead.
 
