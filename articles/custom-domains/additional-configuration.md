@@ -56,7 +56,7 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
 If you use [Auth0.js](/libraries/auth0js) on the hosted login page, you need to set the `overrides` option like this:
 
 ```js
-var webAuth = new new auth0.WebAuth({
+var webAuth = new auth0.WebAuth({
   clientID: config.clientID, 
   domain: config.auth0Domain, 
   //code omitted for brevity
