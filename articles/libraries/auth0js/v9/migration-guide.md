@@ -21,13 +21,15 @@ useCase:
 
 Everyone should migrate to v9. All previous versions are deprecated, and will be removed from service July 16, 2018. For applications that use Auth0.js within an Auth0 login page, this migration is recommended; for applications with Auth0.js embedded within them, this migration is mandatory.
 
-::: note
-Previously, deprecated Auth0.js versions were planned to be removed from service on April 1, 2018. However, the Removal of Service date has been extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting). Customers are still encouraged to migrate applications to the latest version **as soon as possible** in order to ensure that applications continue to function properly. 
+::: panel Legacy Lock API Removed from Service
+Previously, the Legacy Lock API (used by deprecated versions of Auth0.js) was planned to be removed from service on April 1, 2018. However, the Removal of Service date was extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting).
+
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
 :::
 
 ## Migration Instructions
 
-The documents below describe all the changes that you should be aware of when migrating from different versions of auth0.js to v9. Make sure you go through the relevant guide(s) before upgrading.
+The documents below describe all the changes that you should be aware of when migrating from different versions of Auth0.js to v9. Make sure you go through the relevant guide(s) before upgrading.
 
 * [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
     * [Recommendations for migrating from Auth0.js v8 when SSO is required](/guides/login/migration-sso)
