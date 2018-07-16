@@ -24,7 +24,7 @@ Everyone should migrate to v9. All previous versions are deprecated, and will be
 ::: panel Legacy Lock API Removed from Service
 Previously, the Legacy Lock API (used by deprecated versions of Auth0.js) was planned to be removed from service on April 1, 2018. However, the Removal of Service date was extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting).
 
-As of the week of July 16, 2018, the Legacy Lock API will be disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. This is a soft removal, so you will have a brief grace period during which you can temporarily re-enable the feature in order to make any necessary changes. See the [soft removal announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more details.
 :::
 
 ## Migration Instructions
