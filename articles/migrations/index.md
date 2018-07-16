@@ -61,7 +61,7 @@ Previously, these endpoints were planned to be removed from service on April 1, 
 Customers are still encouraged to migrate applications to the latest version of Lock 11 and Auth0.js 9 **as soon as possible** in order to ensure that applications continue to function properly.
 
 :::note
-As of July 16, 2018, the Legacy Lock API has been disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
 :::
 
 Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) for instructions on upgrading your Auth0 implementation!

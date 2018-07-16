@@ -14,7 +14,7 @@ useCase:
 On April 4, 2018, Auth0 [publicly disclosed a vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). That vulnerability resulted in the deprecation of two endpoints in the Auth0 API, and the libraries and SDKs which used those endpoints. Due to this vulnerability, those endpoints (and thus, the deprecated versions of the libraries) were removed from service on **July 16, 2018**.
 
 :::note
-As of July 16, 2018, the Legacy Lock API has been disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. You can temporarily re-enable it in order to make any necessary changes or finish your migration, but on July 30th it will be disabled permanantly. See [the announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more information.
 :::
 
 The purpose of this guide is to help you to select the best migration path for your application(s) if you are impacted by the deprecation notice. 
