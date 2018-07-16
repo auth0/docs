@@ -56,11 +56,15 @@ For more information on this migration and the steps you should follow to upgrad
 
 We are continually improving the security of our service. As part of this, we are deprecating some endpoints (/usernamepassword/login and /ssodata) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8.
 
-Previously, these endpoints were planned to be removed from service on April 1, 2018. However, the Removal of Service date for those endpoints has been extended to **July 16, 2018**.
+Previously, these endpoints were planned to be removed from service on April 1, 2018. However, the Removal of Service date for those endpoints was extended to **July 16, 2018**.
 
 Customers are still encouraged to migrate applications to the latest version of Lock 11 and Auth0.js 9 **as soon as possible** in order to ensure that applications continue to function properly.
 
-Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) for instructions on upgrading your Auth0 implementation prior to **July 16, 2018**.
+:::note
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. This is a soft removal, so you will have a brief grace period during which you can temporarily re-enable the feature in order to make any necessary changes. See the [soft removal announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more details.
+:::
+
+Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) for instructions on upgrading your Auth0 implementation!
 
 #### Am I affected by the change?
 

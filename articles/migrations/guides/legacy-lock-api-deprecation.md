@@ -11,7 +11,11 @@ useCase:
 ---
 # Legacy Lock API Deprecation
 
-On April 4, 2018, Auth0 [publicly disclosed a vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). That vulnerability resulted in the deprecation of two endpoints in the Auth0 API, and the libraries and SDKs which used those endpoints. Due to this vulnerability, those endpoints (and thus, the deprecated versions of the libraries) will be removed from service on **July 16, 2018**.
+On April 4, 2018, Auth0 [publicly disclosed a vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). That vulnerability resulted in the deprecation of two endpoints in the Auth0 API, and the libraries and SDKs which used those endpoints. Due to this vulnerability, those endpoints (and thus, the deprecated versions of the libraries) were removed from service on **July 16, 2018**.
+
+:::note
+As of the week of July 16, 2018, the Legacy Lock API will be disabled. This is a soft removal, so you will have a brief grace period during which you can temporarily re-enable the feature in order to make any necessary changes. See the [soft removal announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more details.
+:::
 
 The purpose of this guide is to help you to select the best migration path for your application(s) if you are impacted by the deprecation notice. 
 
@@ -57,7 +61,7 @@ If neither of these recommendations (Universal Login or embedded + custom domain
 
 ## What do I do?
 
-All applications _must_ stop using the deprecated endpoints / library versions prior to **July 16, 2018**, when they will be removed from service and those applications will cease to work correctly. There are two options for migration:
+All applications _must_ stop using the deprecated endpoints / library versions, as they have been removed from service as of July 16, 2018, and those applications will cease to work correctly. There are two options for migration:
 
 ### 1. Migrate to Universal Login
 
@@ -140,7 +144,7 @@ Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custo
 
 #### Single Page Applications
 
-If a user navigates to a new page in a Single Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in auth0.js v8 or prior. The /ssodata endpoint is deprecated and will be removed from service on **July 16, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
+If a user navigates to a new page in a Single Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in auth0.js v8 or prior. The /ssodata endpoint is deprecated and was removed from service on **July 16, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
 
 ::: note
 The `getSSOData()` and `checkSession()` functions should only be used from a Single Page Application
