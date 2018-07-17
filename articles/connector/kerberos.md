@@ -54,7 +54,7 @@ On the other hand, when users are not in the corporate network (for example, at 
 ## Auto-login with Lock
 
 ::: warning
-Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature which works in Lock 10  but is disabled in Lock 11 when using it in Embedded Login scenarios.
+Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature that works in Lock 10, but is *disabled* in Lock 11 when Lock 11 is used in Embedded Login scenarios.
 :::
 
 When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
