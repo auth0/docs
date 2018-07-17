@@ -1,9 +1,21 @@
 ---
 title: Authenticate Users Using Your Database
-connection: custom
+connection: Custom Database
 image: /media/connections/mysql.svg
-description: Learn how to authenticate users using your database as an identity provider.
+alias: custom-database
+seo_alias: custom-database
+description: How to authenticate users using your database as an identity provider.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Authenticate Users Using Your Database
 
