@@ -46,13 +46,13 @@ Before we edit the file we should back it up.
 ```bash
 sudo cp /etc/apache2/mods-available/auth_openidc.conf /etc/apache2/mods-available/auth_openidc.conf.old
 ```
-Now you can replace the information in your .conf file with the code below. It should be pre-populated with your specific `OIDCProviderMetadataURL` and `OIDCClientID`, however you will need to add in your `OIDCClientSecret`, `OIDCRedirectURI` and `OIDCCryptoPassphrase`. You should change the scope so it is relevant to your project. Read up on it [here](https://auth0.com/docs/scopes/current#api-scopes), before making that decision.
+Now you can replace the information in your .conf file with the code below. It should be pre-populated with your specific `OIDCProviderMetadataURL` and `OIDCClientID`, however you will need to add in your `OIDCClientSecret`, `OIDCRedirectURI` and `OIDCCryptoPassphrase`. You should change the scope so it is relevant to your project. Read up on it [here](/current#api-scopes), before making that decision.
 
 ${snippet(meta.snippets.setup)}
 
 You can find documentation on what some of this code means in your auth_openidc.conf.old or on [GitHub here](https://github.com/zmartzone/mod_auth_openidc/blob/master/auth_openidc.conf).
 
-For clarification on redirecting I found [this](https://auth0.com/docs/users/redirecting-users) helpful.
+For clarification on redirecting I found [this](/redirecting-users) helpful.
 
 ## Configuring Auth0 Settings
 
