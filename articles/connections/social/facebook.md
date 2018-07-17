@@ -58,6 +58,8 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 ::: panel Find your Auth0 domain name
 If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Tenant Name** in the top right corner. Your Auth0 domain is this name (for example `exampleco-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://exampleco-enterprises.auth0.com/login/callback`.
+
+Note that if you are using the [custom domains](/custom-domains) feature, your Redirect URI will instead be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 :::
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
