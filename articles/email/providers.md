@@ -144,6 +144,10 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ## Configure SparkPost
 
+::: note
+You must create your SparkPost account in the US region; Auth0 does not currently support EU-based SparkPost accounts.
+:::
+
 1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or login. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
 
     ![](/media/articles/email/providers/sparkpost-api-key-creation.png)
