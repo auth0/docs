@@ -23,8 +23,8 @@ Set the following configuration variables:
 
 * **BITBUCKET_REPOSITORY**: the repository from which you want to deploy your Rules and Database Connection scripts (this can be either a public or private repository);
 * **BITBUCKET_BRANCH**: the branch the extension will monitor for changes;
-* **BITBUCKET_USER**: the username used to access the Bitbucket account;
-* **BITBUCKET_PASSWORD**: the password associated with the username used to access the Bitbucket account;
+* **BITBUCKET_USER**: the username used to access the Bitbucket account; (this is not an email, it's just the username)
+* **BITBUCKET_PASSWORD**: an app password you create through the bitbucket settings to grant permissions to certain apps (https://bitbucket.org/account/user/Yourusername/app-passwords);
 * **SLACK_INCOMING_WEBHOOK**: the Webhook URL for Slack used to notify you of successful and failed deployments.
 
 Once you have provided this information, click **Install**.
