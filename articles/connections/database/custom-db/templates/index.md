@@ -1,5 +1,11 @@
 ---
 description: Custom DB script templates
+topics:
+    - connections
+    - custom-database
+contentType: index
+useCase:
+    - customize-connections
 ---
 # Custom Database Script Templates
 

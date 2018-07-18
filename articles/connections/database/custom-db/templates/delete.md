@@ -1,6 +1,12 @@
 ---
 description: Custom DB script templates for user deletion
 toc: true
+topics:
+    - connections
+    - custom-database
+contentType: how-to
+useCase:
+    - customize-connections
 ---
 # Custom Database Script Templates: Delete Users
 

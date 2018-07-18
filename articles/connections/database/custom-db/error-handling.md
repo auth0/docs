@@ -1,6 +1,12 @@
 ---
 description: Learn how to handle errors when using your database as an identity provider.
 crews: crew-2
+topics:
+    - connections
+    - custom-database
+contentType: how-to
+useCase:
+    - customize-connections
 ---
 # Custom Database Error Handling
 

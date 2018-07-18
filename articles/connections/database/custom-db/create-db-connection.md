@@ -4,7 +4,7 @@ toc: true
 topics:
     - connections
     - custom-database
-contentType: tutorial
+contentType: how-to
 useCase: customize-connections
 ---
 Create an Auth0 database connection
