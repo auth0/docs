@@ -49,7 +49,7 @@ For more information on calling APIs from Client-side Web Apps, please see [Call
 
 The first thing you need to do is to create a new applications in Auth0. An Auth0 applications maps to your application and allows it to use Auth0 for authentication.
 
-Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applicationss](${manage_url}/#/applicationss) menu option on the left. Create a new Application by clicking on the **Create Applications** button.
+Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Applications** button.
 
 The **Create Applications** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Applications Type** and click on the **Create** button to create the new applications.
 
