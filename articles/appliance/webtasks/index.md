@@ -46,11 +46,11 @@ You may use Webtasks by calling its endpoints directly. This can be done using t
 
 ### Node.js Modules
 
-Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the PSaaS Appliance.
+Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://auth0-extensions.github.io/canirequire/) are available for the PSaaS Appliance.
 
-To see which modules are available for Webtasks running on PSaaS Appliance instances, execute the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your PSaaS Appliance instance.
+To see which modules are available for Webtasks running on PSaaS Appliance instances, execute the [`List Modules` Webtask](https://github.com/auth0-extensions/canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your PSaaS Appliance instance.
 
-First, copy locally the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js), either by downloading the file or by copying this code:
+First, copy locally the [`List Modules` Webtask](https://github.com/auth0-extensions/canirequire/blob/gh-pages/tasks/list_modules.js), either by downloading the file or by copying this code:
 
 ```js
 'use npm';
