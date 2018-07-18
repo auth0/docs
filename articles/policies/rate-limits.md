@@ -11,10 +11,6 @@ topics:
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-::: note
-If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
-:::
-
 ::: warning
 Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
 :::
@@ -286,3 +282,7 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
 :::note
 (*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::
+
+## Rate Limits on Database Logins
+
+For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information on this, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
