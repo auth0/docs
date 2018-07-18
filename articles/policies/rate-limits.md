@@ -15,8 +15,8 @@ useCase:
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-::: note
-If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
 :::
 
 ## Limits
@@ -75,7 +75,7 @@ The following rate limits apply:
 
 - For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
@@ -194,10 +194,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: warning
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
-
 <table class="table">
   <thead>
     <tr>
@@ -290,3 +286,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
 :::note
 (*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::
+
+## Limits on Database Logins
+
+For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
