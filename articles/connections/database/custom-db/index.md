@@ -43,6 +43,8 @@ Here are some things to know before you begin the process of setting up your dat
 
 * [Update Users Using Your Database](/user-profile/customdb) has information on updating user profile fields.
 
+### Keep reading
+
 ::: next-steps
 * [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection)
 * [Write custom database action scripts](/connections/database/custom-db/templates)
