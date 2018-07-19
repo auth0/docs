@@ -7,7 +7,11 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-Create an Auth0 database connection
+# Create an Auth0 database connection
+
+If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. In this tutorial, we'll show you how to [create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
+
+## Step 1: Create and configure a custom database connection
 
 The first thing you will do is create a database connection in Auth0:
 
@@ -122,6 +126,10 @@ This script assumes that you have a **users** table containing these columns. Th
 
 Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
 
+### User Metadata and Custom Databases
+
+Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/metadata#metadata-and-custom-databases).
+
 ## Step 3: Add configuration parameters
 
 You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts, and you can access them using the global configuration object.
@@ -150,3 +158,5 @@ In this article, we showed you how to configure your database for use with Auth0
 1. Created an Auth0 database connection
 2. Created database action scripts
 3. Added configuration parameters
+
+At this point, your database is now ready to act as an Auth0 identity provider.
