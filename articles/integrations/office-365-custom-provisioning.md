@@ -62,7 +62,7 @@ In the code you'll also see that the rule will wait about 15 seconds after the u
 function (user, context, callback) {
   // Require the Node.js packages that we are going to use.
   // Check this website for a complete list of the packages available:
-  // https://tehsis.github.io/webtaskio-canirequire/
+  // https://auth0-extensions.github.io/canirequire/
   var rp = require('request-promise');
   var uuidv4 = require('uuid');
 

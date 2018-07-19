@@ -28,7 +28,7 @@ In this tutorial you'll learn how to connect your user database to Auth0 and con
 
 Here are some things to know before you start this process.
 
-* Database action scripts are written in Javascript and run in a [Webtask](https://webtask.io/) environment. In the environment you can use the full JavaScript language and [these Node.js libraries](https://tehsis.github.io/webtaskio-canirequire/).
+* Database action scripts are written in Javascript and run in a [Webtask](https://webtask.io/) environment. In the environment you can use the full JavaScript language and [these Node.js libraries](https://auth0-extensions.github.io/canirequire/).
 * Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 * You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
 * The [Update Users Using Your Database](/user-profile/customdb) article has information on updating user profile fields.
