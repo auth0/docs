@@ -108,11 +108,6 @@ Below is a quick overview of reasons you might want to use Lock, versus using an
             <td class="success text-center">Yes</td>
         </tr>
         <tr>
-            <td>Adapts to a simpler process for username/password and social provider authentication</td>
-            <td class="danger text-center">No</td>
-            <td class="success text-center">Yes</td>
-        </tr>
-        <tr>
             <td>Handles multiple databases or Active Directory connections</td>
             <td class="danger text-center">No</td>
             <td class="success text-center">Yes</td>
