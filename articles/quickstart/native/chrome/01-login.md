@@ -257,7 +257,7 @@ In the **Allowed Callback URLs** section, whitelist your callback URL.
 https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
 ```
 
-In the **Allowed Origins** section, whitelist your chrome extension as an origin.
+In the **Allowed Origins (CORS)** section, whitelist your chrome extension as an origin.
 
 ```bash
 chrome-extension://<YOUR_EXTENSION_ID>
