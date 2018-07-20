@@ -11,7 +11,7 @@ contentType:
 useCase:
   - add-idp
 ---
-# Configuring OneLogin as an Identity Provider
+# Configure OneLogin as an Identity Provider
 
 In this article, we will cover how you can configure OneLogin for use with Auth0 as a SAML Identity Provider.
 
@@ -39,7 +39,7 @@ Download the X.509 certificate **onelogin.pem**.
 
 At this point, you will take the information you just collected to configure Auth0.
 
-## Configure the connection using the Auth0 dashboard
+## Step 2: Configure the connection using the Auth0 dashboard
 
 Log in to the Auth0 Dashboard, and go to [Connections > Enterprise > SAMLP Identity Provider](${manage_url}/#/connections/enterprise). Click on the **plus icon** to create a new connection.
 
@@ -75,7 +75,7 @@ On the **Configuration** tab:
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-set-values.png)
 
-## Test your connection
+## Step 3: Test your connection
 
 Before testing your connection:
 
