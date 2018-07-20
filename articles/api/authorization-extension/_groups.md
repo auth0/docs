@@ -326,7 +326,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-PUT https://{extension_url}/groups/{group_id}/mappings
+PATCH https://{extension_url}/groups/{group_id}/mappings
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
 {
