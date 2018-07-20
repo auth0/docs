@@ -46,7 +46,7 @@ The Arbiter does not store data or execute application logic, but acts as a witn
 
 Since the Arbiter isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
 
-Outbound [Internet Connectivity](/appliance/infrastructure/network#internet-connectivity) is needed from the Arbiter to allow for system updates.
+You must enable outbound [internet connectivity](/appliance/infrastructure/network#internet-connectivity) from the Arbiter for system updates.
 
 ### Global Load Balancer/DNS Failover Configuration
 
