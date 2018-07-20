@@ -46,6 +46,8 @@ The Arbiter does not store data or execute application logic, but acts as a witn
 
 Since the Arbiter isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
 
+You must enable outbound [internet connectivity](/appliance/infrastructure/network#internet-connectivity) from the Arbiter for system updates.
+
 ### Global Load Balancer/DNS Failover Configuration
 
 You will need to deploy a global load balancer that supports an active/standby configuration. This will be configured to begin using the secondary site if the primary site load balancer is unavailable.
