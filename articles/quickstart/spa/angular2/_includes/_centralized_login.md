@@ -28,12 +28,10 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: <YOUR AUTH0 CLIENT ID>,
-    domain: <YOUR AUTH0 DOMAIN>,
+    clientID: '${account.clientId}',
+    domain: '${account.namespace}',
     responseType: 'token id_token',
-    audience: `https://${<YOUR AUTH0 DOMAIN>}/userinfo`,
-    redirectUri: <YOUR AUTH0 ALLOWED CALLBACK URL>,
-    scope: 'openid'
+    redirectUri: 'http://localhost:3000/callback',
   });
 
   constructor(public router: Router) {}
@@ -45,7 +43,7 @@ export class AuthService {
 ```
 
 ::: note
-When testing locally using `localhost:<PORT NUMBER>`, ensure that the `callbackURL` includes the correct port number that you configured with your callback URLs in your Auth0 application settings. 
+If you specified a different `redirectUri` in the Auth0 application settings, please ensure that you update it in the `auth0.WebAuth` configuration shown above. 
 :::
 
 Register `AuthService` as a provider with the appropriate module. Since, `AuthService` uses `Router` from `@angular/router`, be sure that the module imports and initializes `RouterModule`, like so:
