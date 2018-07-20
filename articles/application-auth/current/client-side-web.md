@@ -9,7 +9,7 @@ topics:
   - implicit
 contentType: 
     - concept
-    - how-to
+    - tutorial
 useCase:
   - add-login
 ---

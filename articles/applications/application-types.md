@@ -77,21 +77,25 @@ First-party and third-party refer to the ownership of the application. This has 
 
 ### First-party applications
 
-First-party applications are those controlled by the same organization or person who owns the Auth0 domain. For example, if you wanted to access the Contoso API, you'd use a first-party applications to log into `contoso.com`.
+First-party applications are controlled by the same organization or person who owns the Auth0 domain.
 
-All applications created via the [Dashboard](${manage_url}/#/applications) are first-party by default.
+Example: You own Contoso and want to access the Contoso API. So you log into `contoso.com` with a first-party application.
+
+By default, all applications created via the [Dashboard](${manage_url}/#/applications) are first-party.
 
 ### Third-party applications
 
-Third-party applications are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party applications enable external parties or partners to access protected resources behind your API securely. For example, if you were to create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you would use a third-party applications. 
+Third-party applications are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party applications enable external parties or partners to securely access protected resources behind your API.
 
-Third-party applications must be created through the [Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`.
+Example: You create a developer center that allows users to obtain credentials so they can integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub). Their apps should log into your API as third-party applications.
+
+Third-party applications must be created through the [Management API](/api/management/v2#!/Clients/post_clients) and are done so by setting `is_first_party` to `false`.
 
 Third party applications have the following characteristics:
 
-- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create an applications, but each applications relies on the final user to provide consent.
-- The [ID Tokens](/tokens/id-token) generated for these applications, hold minimum user profile information.
-- They can use only tenant level connections (domain connections). These are sources of users, configured in the tenant's [dashboard](${manage_url}) as connections. These connections are enabled for every third party applications and can be also enabled for selected first party (standard) applications.
+- They cannot skip user consent when consuming APIs. This is for security purposes since anyone can create an application, but each application relies on the end user to provide consent.
+- The [ID Tokens](/tokens/id-token) generated for these applications hold minimum user profile information.
+- They can use only tenant-level [connections](/applications/connections) (domain connections), which are automatically enabled for every third-party application and can be enabled for select first-party (standard) applications.
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
   - [PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options).
 - They cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the applications should be granted the `current_user_*` scopes, as required by each endpoint.

@@ -10,13 +10,13 @@ useCase:
   - enable-mobile-auth
 ---
 
-# Enable Android App Links Support for your Auth0 Application
+# Enable Android App Links
 
 The following document outlines how to configure [Android App Links](https://developer.android.com/training/app-links/index.html) for your Auth0 application.
 
 Android App Links allow an application to designate itself as the default handler of a given type of link. For example, clicking a URL in an email would open the link in the designated application.
 
-## Provide Your App's Package Name and Certificate Fingerprint
+## Configure your app link
 
 You can establish the app link with Auth0 using [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}).
 
@@ -44,7 +44,7 @@ For more information on signing certificates, check out the [Sign Your App](http
 
 Click **Save Changes** when done.
 
-## Test Your App Link
+## Test your app link
 
 You can test your app link by navigating to the following URL using your browser:
 

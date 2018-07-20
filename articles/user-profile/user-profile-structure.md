@@ -1,21 +1,15 @@
 ---
-title: Structure of the User Profile
-description: This page lists the attributes that are available on the Auth0 user profile
+description: Lists the attributes that are available on the Auth0 user profile
 topics:
     - users
     - user-management
     - user-profiles
     - user-profile-structure
-contentType:
-  - concept
-  - reference
-useCase:
-  - manage-users
+contentType: reference
+useCase: manage-users
 ---
 
-# Structure of the User Profile
-
-The Auth0 user profile is the set of attributes that contains specific information about a user. User profile information may include the user's name, email address, contact information, and so on.
+# User Profile Structure
 
 The following attributes are available on the user profile.
 
@@ -67,9 +61,8 @@ The following attributes are available on the user profile.
 
 * `username` (unique): The user's username.
 
-Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
-](/users/search/best-practices).
+Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more information on the endpoints you can use to retrieve users, see [User Search Best Practices](/users/search/best-practices).
 
-## Blacklisting user attributes
-
-If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/tutorials/blacklisting-attributes).
+::: panel Blacklist user attributes
+If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details, see [Blacklist User Attributes](/security/blacklist-user-attributes).
+:::

@@ -5,8 +5,12 @@ toc: true
 topics:
   - design
   - mobile
-contentType: reference
-useCase: strategize
+contentType: concept
+useCase: 
+  - strategize
+  - add-login
+  - build-an-app
+  - enable-mobile-auth
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 

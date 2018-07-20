@@ -4,19 +4,20 @@
   - api-authentication
   - oidc
   - scopes
-contentType: how-to
-useCase:
+  contentType: 
+  - how-to
+  useCase:
   - secure-api
   - call-api
 ---
 
 # Restrict Application or User Requests for API Scopes
 
-By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes#api-scopes). If you would like to restrict access to the API's scopes based on the user's role, application association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes#api-scopes). To restrict access to the API's scopes based on the user's role, application association, location, and so on, use [rules](/rules). If a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
 ## Example: Deny access based on the API audience
 
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the `audience` parameter. In this example, we deny access to all users, if the API they are trying to access has the `audience` set to `http://todoapi2.api`.
+This demonstrates how you deny access to an API depending on the `audience` parameter. In this example, we deny access to all users if the API they are trying to access has the `audience` set to `http://todoapi2.api`.
 
 ```js
 function (user, context, callback) {
@@ -45,7 +46,7 @@ The value of an API's `audience` is displayed at the **API Audience** field, at 
 
 ## Example: Deny access based on the Client ID
 
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the application the user is associated with. In this example, we deny access to all users, if the application through which they login, has an ID equal to `CLIENT_ID` (this is equivalent to disabling **all** Connections for the application).
+This demonstrates how you deny access to an API depending on the application with which the user is associated. In this example, we deny access to all users if the application through which they log in has an ID equal to `CLIENT_ID`. (This is equivalent to disabling **all** Connections for the application.)
 
 ```js
 function (user, context, callback) {
@@ -66,5 +67,5 @@ function (user, context, callback) {
 ```
 
 ::: note
-The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Applications](${manage_url}/#/applications).
+The value of a client's ID is displayed in the **Client ID** field at [Dashboard > Applications](${manage_url}/#/applications).
 :::

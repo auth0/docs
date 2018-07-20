@@ -20,7 +20,7 @@ useCase:
   - build-an-app
 ---
 
-# SPA + API
+# Implement SPA + API
 
 In this scenario, we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow adding timesheet entries for an employee or a contractor.
 

@@ -3,6 +3,7 @@ description: Overview of API scopes
 topics:
   - scopes
 contentType:
+  - reference
   - how-to
 useCase:
   - development
