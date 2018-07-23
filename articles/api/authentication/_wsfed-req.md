@@ -64,12 +64,12 @@ This endpoint accepts a WS-Federation request to initiate a login.
 ## Get Metadata
 
 ```http
-GET https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
+GET https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml'
+  --url 'https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
 <% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
