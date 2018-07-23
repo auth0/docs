@@ -94,7 +94,7 @@ router.get(
     redirectUri: env.AUTH0_CALLBACK_URL,
     audience: 'https://' + env.AUTH0_DOMAIN + '/userinfo',
     responseType: 'code',
-    scope: 'openid'
+    scope: 'openid email profile'
   }),
   function(req, res) {
     res.redirect('/');

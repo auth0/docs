@@ -6,12 +6,14 @@ topics:
   - quickstarts
   - webapp
   - login
+  - user profile
   - nodejs
 contentType: tutorial
 useCase: quickstart
 github:
-    path: 01-Login
+    path: 01-Login-profile
 ---
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('_includes/_login') %>
+<%= include('_includes/_user_profile') %>
