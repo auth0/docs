@@ -22,8 +22,6 @@ If you cannot use universal login with your application, review the following fo
 * [Lock](/libraries/lock)
 * [Auth0.js](/libraries/auth0js)
 
-## Implement SSO
-
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/sso/introduction">Introduction to Single Sign On with Auth0</a>
