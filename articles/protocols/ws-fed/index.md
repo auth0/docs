@@ -27,7 +27,7 @@ You can find all available options for configuring WS-Federation under the [adva
 You will need to configure the **Relying Party**, which can be done using the following metadata endpoint:
 
 ```text
-https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
+https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
 You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the SAML token, as well as other lower-level WS-Fed and SAML-P settings.
@@ -52,7 +52,7 @@ If you're using using Auth0 with an identity provider that utilizes the WD-Feder
 
 Click **Save** to proceed. You will then be presented with the instructions you need to finish configuring the integration.
 
-The Federation Metadata file contains information about the the identity provider's certificates. If you provide the Federation Metadata endpoint (typically of the form ending with **/FederationMetadata/2007-06/FederationMetadata.xml**), Auth0 can check daily for changes in the configuration, such as the addition of a new signing certificate that was added in preparation for a rollover.
+The Federation Metadata file contains information about the the identity provider's certificates. If you provide the Federation Metadata endpoint (typically of the form ending with `/FederationMetadata/2007-06/FederationMetadata.xml`), Auth0 can check daily for changes in the configuration, such as the addition of a new signing certificate that was added in preparation for a rollover.
 
 Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
 
