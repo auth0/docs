@@ -13,7 +13,7 @@ android {
 }
 dependencies {
   //---> Add the next line
-  compile 'com.auth0.android:auth0:1.+'
+  implementation 'com.auth0.android:auth0:1.+'
   //<---
 }
 ```
