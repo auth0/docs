@@ -9,7 +9,6 @@ contentType:
 useCase:
   - integrate-saas-sso
 ---
-
 # Set Up Single Sign On with Auth0
 
 This tutorial covers implementing Single Sign On (SSO) with Auth0.
@@ -18,29 +17,38 @@ This tutorial covers implementing Single Sign On (SSO) with Auth0.
 For information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
 :::
 
-## 1. Configure the Connection
+## 1. Configure the connection
 
-Before enabling SSO on a [Application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
+Before enabling SSO on a [Client](/clients), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers ensure the Connection is not using [developer keys](/connections/social/devkeys).
+For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
 
-## 2. Enable SSO for the Application
+## 2. Enable SSO for the client
 
-Navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application to enable SSO on.
+Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you're working.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
+Under the **Sessions** section, toggle and activate **Enable SSO**.
 
-![](/media/articles/sso/single-sign-on/sso-flag.png)
+Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
+
+| Setting | Description |
+| - | - |
+| Max Cookie Lifetime | The maximum length of time for which the SSO cookie issued by Auth0 is valid. **This setting should not exceed 3 days!** |
+| Force Login if Inactive for N Hours | The amount of time (during which the user is inactive) that must elapse before Auth0 forces the user to login |
+
+![SCREENSHOT FORTHCOMING]()
 
 ::: note
-You can also set the Application's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
-## 3. Configure SSO Session Length
+Scroll to the bottom, and click **Save** to proceed.
 
-When the SSO flag is set for an Application, Auth0 maintains an SSO session for any user authenticating via that Application. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+## 3. Configure SSO session length
+
+When SSO is enabled for a Client, Auth0 maintains an SSO session for any user authenticating via that Client. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
 
 To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
@@ -50,7 +58,7 @@ SSO session cookies expire after **3 days** of inactivity. For example, if no ap
 
 The session inactivity duration (3 days) and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
 
-## 4. Check the User's SSO Status from the Application
+## 4. Check the user's SSO status from the client
 
 Whenever you need to determine the user's SSO status, you'll need to check the following:
 
