@@ -11,7 +11,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-    path: 01-Login-profile
+    path: 01-Login
 ---
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
