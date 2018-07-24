@@ -97,7 +97,6 @@ router.get('/', function(req, res, next) {
 router.get(
   '/login',
   passport.authenticate('auth0', {
-    responseType: 'code',
     scope: 'openid email profile'
   }),
   function(req, res) {
