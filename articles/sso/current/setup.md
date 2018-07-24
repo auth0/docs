@@ -29,16 +29,16 @@ Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Cli
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-Under the **Sessions** section, toggle and activate **Enable SSO**.
+Under the **Log In Session Management** section, toggle and activate **Skip confirmation dialog during SSO**.
 
 Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
 
 | Setting | Description |
 | - | - |
-| Max Cookie Lifetime | The maximum length of time for which the SSO cookie issued by Auth0 is valid. **This setting should not exceed 3 days!** |
-| Force Login if Inactive for N Hours | The amount of time (during which the user is inactive) that must elapse before Auth0 forces the user to login |
+| Inactivity timeout | The maximum length of time that can elapse without user activity before the user is asked to log in again. **This setting cannot exceed 3 days!** |
+| Require log in after | The length of time that elapses before Auth0 forces the user to log in again (regardless of activity) |
 
-![SCREENSHOT FORTHCOMING]()
+![](/media/articles/sso/sso-session-mgmt-1.png)
 
 ::: note
 You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
