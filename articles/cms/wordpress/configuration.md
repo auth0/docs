@@ -50,7 +50,7 @@ First, we'll check for the Application created for your WordPress site.
     ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
     
     ::: warning
-These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information. 
+    These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information. 
     :::
 
     
