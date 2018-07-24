@@ -410,24 +410,33 @@ public function register()
 
 To configure CORS, you should add the `laravel-cors` dependency. You can [check it out here](https://github.com/barryvdh/laravel-cors).
 
-After installation, add the following to the configuration file for `CORS`:
+After installation, add `HandleCors` middleware in the application's global middleware stack:
 
 ```php
-'defaults' => array(
-    'supportsCredentials' => false,
-    'allowedOrigins' => array(),
-    'allowedHeaders' => array(),
-    'allowedMethods' => array(),
-    'exposedHeaders' => array(),
-    'maxAge' => 0,
-    'hosts' => array(),
-),
+// app/Http/Kernel.php
 
-'paths' => array(
-    '*' => array(
-        'allowedOrigins' => array('*'),
-        'allowedHeaders' => array('Content-Type', 'Authorization', 'Accept'),
-        'allowedMethods' => array('POST', 'PUT', 'GET', 'DELETE')
-    ),
-),
+protected $middleware = [
+    // ...
+    \Barryvdh\Cors\HandleCors::class,
+];
+```
+
+Add the following to the configuration file for `CORS`:
+
+```php
+// config/cors.php
+
+<?php
+
+return [
+
+    'supportsCredentials' => true,
+    'allowedOrigins' => ['http://localhost:3000'],
+    'allowedOriginsPatterns' => [],
+    'allowedHeaders' => ['*'],
+    'allowedMethods' => ['*'],
+    'exposedHeaders' => [],
+    'maxAge' => 0,
+
+];
 ```
