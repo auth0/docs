@@ -154,6 +154,7 @@ block content
 ```
 
 To have full access to the user profile on `userProfile`, stringify the `user` object. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
+Call `ensureLoggedIn` to make sure the user is logged in order to access certain routes and redirect to the login page if not.
 
 ```js
 // routes/user.js
