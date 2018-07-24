@@ -58,7 +58,7 @@ Now that you've configured your Auth0 Client, you can continue configuring your 
 
   ![Home page before logging in](/media/articles/sso/v2/spa/before-login.png)
 
-## Silent Authentication
+## Silent authentication
 
 Because client applications cannot query Auth0 directly to determine if users are logged in via SSO, the apps must redirect users to Auth0 for SSO authentication.
 
@@ -68,7 +68,7 @@ One way to avoid redirection while still determining a user's SSO status is via 
 
 Silent Authentication allows you to implement an authentication flow where Auth0 replies only with redirects and never presents a login page to your users.
 
-### Configure Silent Authentication
+### Configure silent authentication
 
 To bypass displaying the Lock screen when logging in a user, you must:
 
@@ -110,7 +110,7 @@ For requests received with the parameter **prompt=none**, Auth0 redirects to the
 
 Regardless of which outcome occurs, the sample app's [**postMessage()** function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
 
-### Silent Authentication using Auth0.js
+### Silent authentication using the auth0.js library
 
 Users of the **Auth0.js** library have access to [the **checkSession()** method](/libraries/auth0js#using-checksession-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
@@ -141,7 +141,7 @@ Once you've provided correct credentials, the app will indicate if you've succes
 
 If silent authentication succeeds, however, the app stores the token and its expiration date in your local storage.
 
-## Successful Authentication Response
+## Successful authentication response
 
 If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the **access_token** from the hash fragment of the returned URL:
 
@@ -177,13 +177,13 @@ You can test this using the sample app. If you're already logged in, you can req
 
 At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you did not see the Lock screen asking for your credentials.
 
-## Further Actions
+## Further actions
 
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
 If your Access Tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
 
-## Single Logout
+## Single logout
 
 If the user logs out of **app1.com**, then you'll want the user's tokens cleaned up on **app2.com** and **app3.com**.
 
