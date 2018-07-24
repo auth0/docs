@@ -77,10 +77,7 @@ You can also embed the login dialog directly in your application using the [Lock
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
-Add a route called `/login`. Use the `env` object to set the following properties for your application: 
-* Client ID
-* Domain
-* Callback URL
+Add a route called `/login`.
 
 The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the login page.
 
@@ -91,12 +88,6 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-const env = {
-  AUTH0_CLIENT_ID: '${account.clientId}',
-  AUTH0_DOMAIN: '${account.namespace}',
-  AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
-};
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -106,9 +97,6 @@ router.get('/', function(req, res, next) {
 router.get(
   '/login',
   passport.authenticate('auth0', {
-    clientID: env.AUTH0_CLIENT_ID,
-    domain: env.AUTH0_DOMAIN,
-    redirectUri: env.AUTH0_CALLBACK_URL,
     responseType: 'code',
     scope: 'openid email profile'
   }),
