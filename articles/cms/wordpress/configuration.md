@@ -48,7 +48,12 @@ First, we'll check for the Application created for your WordPress site.
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
     ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
+    
+    ::: warning
+    These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information. 
+    :::
 
+    
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
 1. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
