@@ -17,7 +17,11 @@ github:
 
 ## Configure Node to Use Auth0 
 
-Install the necessary middleware.
+Install the necessary middleware:
+
+* `passport` - an authentication middleware for Node.js
+* `passport-auth0` - the Auth0 authentication strategy for Passport.js
+* `connect-ensure-login` - a middleware to ensure the user is logged in order to access certain routes
 
 ```bash
 # installation with npm
