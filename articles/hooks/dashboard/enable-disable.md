@@ -7,8 +7,7 @@ topics:
 contentType: how-to
 useCase: extensibility-hooks
 ---
-
-# Enable or Disable Hooks Using the Dashboard
+# Enable or Disable Hooks
 
 You can use the Management Dashboard to enable/disable Hooks. Each extensibility point may be associated with **zero** or **one** active Hook.
 
