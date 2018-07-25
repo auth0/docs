@@ -3,7 +3,6 @@ description: >-
   Hooks are JavaScript functions executed as part of the user
   authentication flow. They allow you to customize and extend Auth0's
   capabilities, and you can chain them together for modular coding.
-beta: true
 topics:
     - hooks
 contentType:

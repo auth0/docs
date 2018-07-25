@@ -1,7 +1,6 @@
 ---
 description: How to use the Command-Line Interface with Hooks
 url: /hooks/cli
-beta: true
 topics:
     - hooks
     - cli

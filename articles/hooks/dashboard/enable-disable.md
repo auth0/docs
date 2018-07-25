@@ -1,6 +1,5 @@
 ---
 description: How to enable or disable Hooks using the Management Dashboard
-beta: true
 topics:
     - hooks
     - dashboard

@@ -1,6 +1,5 @@
 ---
 description: How to edit Hooks using the Management Dashboard
-beta: true
 topics:
     - hooks
     - dashboard

@@ -3,7 +3,6 @@ url: /hooks
 classes: topic-page
 title: Hooks
 description: Working with Hooks
-beta: true
 topics:
     - hooks
 contentType:

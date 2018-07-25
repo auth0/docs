@@ -2,7 +2,6 @@
 title: Using the Credentials Exchange Extensibility Point
 description: The credentials-exchange extensibility point for use with Hooks
 toc: true
-beta: true
 topics:
     - hooks
     - extensibility-points

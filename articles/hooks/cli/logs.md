@@ -1,6 +1,5 @@
 ---
 description: How to get Hooks logs using the Auth0 Command-Line Interface
-beta: true
 topics:
     - hooks
     - cli
