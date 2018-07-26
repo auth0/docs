@@ -797,7 +797,7 @@ module.exports = [
   },
   {
     from: '/tutorials/setup-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
@@ -1290,7 +1290,19 @@ module.exports = [
   },
   {
     from: '/tutorials/step-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentications',
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-apis',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-apis'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps'
   },
   {
     from: '/quickstart/spa/angular2/00-login',
@@ -1615,10 +1627,6 @@ module.exports = [
   {
     from: '/i18n/i18n-custom-login-page',
     to: '/i18n'
-  },
-  {
-    from: '/multifactor-authentication/developer/step-up-with-acr',
-    to: '/multifactor-authentication/developer/step-up-authentication'
   },
   {
     from: '/users/bulk-importing-users-into-auth0',
