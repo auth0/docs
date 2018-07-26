@@ -22,13 +22,13 @@ A customer may request a tenant restoration if the tenant was deleted by human e
 
 ## Considerations
 
-* We support tenant restoration for all paying customers.
+* Tenant restoration cannot be completed for appliance customers.
 
-* Tenant restoration is not supported for non-paying customers.
+* Tenant restoration is not supported for customers on a free plan.
 
-* The restoration can take up to seven days, for paying customers.
+* The restoration can take up to seven days.
 
-* Tenant restoration will be allowed if the request is made before 20 days have passed from the date the tenant was deleted.
+* Tenant restoration is only possible if the request is made within 20 days from when the tenant was deleted.
 
 ## How to request
 
