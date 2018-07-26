@@ -1293,7 +1293,7 @@ module.exports = [
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
-    from: '/multifactor-authentication/developer/step-up-authentications',
+    from: '/multifactor-authentication/developer/step-up-authentication',
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
