@@ -22,7 +22,9 @@ A customer may request a tenant restoration if the tenant was deleted by human e
 
 ## Considerations
 
-* We support tenant restoration for all paying customers.
+* We support tenant restoration for all paying customers in our Cloud service.
+
+* Tenant restoration is not supported for Appliance customers.
 
 * Tenant restoration is not supported for non-paying customers.
 
