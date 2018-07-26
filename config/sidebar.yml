@@ -532,14 +532,14 @@ articles:
         url: "/multifactor-authentication/yubikey"
         
       - title: "Step-up Authentication"
-        url: "/multifactor-authentication/developer/step-up-authentication"
+        url: "/multifactor-authentication/step-up-authentication"
         children:
           - title: "Step-up Authentication for Web Apps"
-            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps"
+            url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
             hidden: true
           
           - title: "Step-up Authentication for APIs"
-            url: "/multifactor-authentication/developer/step-up-authentication/step-up-for-apis"
+            url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
             hidden: true
 
       - title: "API"
