@@ -30,7 +30,9 @@ A customer may request a tenant restoration if the tenant was deleted by human e
 
 * The restoration can take up to seven days, for paying customers.
 
-* Tenant restoration will be allowed if the request is made before 20 days have passed from the date the tenant was deleted.
+* Tenant restoration is only possible if the request is made before 10 days have passed from the date the tenant was deleted.
+
+* Warning: It's possible that not all data can be successfully recovered.
 
 ## How to request
 
