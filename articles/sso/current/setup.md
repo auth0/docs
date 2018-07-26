@@ -19,36 +19,44 @@ For information on SSO Integrations, check out the [Single Sign On Integrations]
 
 ## 1. Configure the connection
 
-Before enabling SSO on a [Client](/clients), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
+Before enabling SSO on an [application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
 For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
 
-## 2. Enable SSO for the client
+## 2. Enable SSO for the application
 
-Navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you're working.
+Navigate to the Applications section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Application with which you're working.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-Under the **Log In Session Management** section, toggle and activate **Skip confirmation dialog during SSO**.
-
-Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
+Scroll down to the **Log In Session Management** section and set the following values:
 
 | Setting | Description |
 | - | - |
 | Inactivity timeout | The maximum length of time that can elapse without user activity before the user is asked to log in again. **This setting cannot exceed 3 days!** |
 | Require log in after | The length of time that elapses before Auth0 forces the user to log in again (regardless of activity) |
 
-![](/media/articles/sso/sso-session-mgmt-1.png)
+![](/media/articles/sso/sso-session-mgmt-2.png)
 
-::: note
-You can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
-:::
+### Legacy Tenants
+
+If you are working with a legacy tenant, you may see a slightly different view on the Dashboard.
+
+Under the **Log In Session Management** section, you will see a toggle that allows you to activate/deactivate the **Skip confirmation dialog during SSO** feature.
+
+Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
+
+![](/media/articles/sso/sso-session-mgmt-1.png)
 
 Scroll to the bottom, and click **Save** to proceed.
 
+### Use the Management API
+
+If you would prefer to not use the Dashboard, you can set your application's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+
 ## 3. Configure SSO session length
 
-When SSO is enabled for a Client, Auth0 maintains an SSO session for any user authenticating via that Client. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+When SSO is enabled for an Application, Auth0 maintains an SSO session for any user authenticating via that Application. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
 
 To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
@@ -58,7 +66,7 @@ SSO session cookies expire after **3 days** of inactivity. For example, if no ap
 
 The session inactivity duration (3 days) and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
 
-## 4. Check the user's SSO status from the client
+## 4. Check the user's SSO status from the application
 
 Whenever you need to determine the user's SSO status, you'll need to check the following:
 
