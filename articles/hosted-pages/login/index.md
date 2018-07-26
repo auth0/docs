@@ -26,7 +26,7 @@ Auth0's Universal Login is the most secure way to authenticate users for your ap
 
 Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
 
-Users will see the login page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
+Users will see the login page, typically with either the Lock widget or with your custom UI. Once they log in, they will be redirected back to your application.
 
 However if the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
 
@@ -42,7 +42,7 @@ Additionally, Universal Login is the best (and often only) way to implement Sing
 
 If you want to use single sign-on, you should use Universal Login rather than an embedded login solution. With Universal Login, when a user logs in via the login page, a cookie will be created and stored. On future calls to the `/authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually log in. 
 
-This behavior occurs in logins pages (that have not been customized to alter behavior) without the need for changes to the page code itself. This is a simple two step process:
+This behavior occurs in login pages (that have not been customized to alter behavior) without the need for changes to the page code itself. This is a simple two step process:
 
 1. Enable SSO for the application in the [Dashboard](${manage_url}). Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
@@ -85,9 +85,9 @@ In order to get started customizing the login page, you'll first want to choose 
 
 ### 3. Customization
 
-You can customize the login page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications. Note that the Lock library can also be used for embedded login, so some language in the Lock documentation reflects that use case.
+You can customize the login page right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications. Note that the Lock library can also be used for embedded login, so some language in the Lock documentation reflects that use case.
 
-Remember that the login page customizations are per **tenant** rather than per application, so all changes to the page's appearance and/or behavior will apply to **all** login actions on your tenant. When necessary, you can provide different pages to different applications via a method discussed later in this document.
+Remember that the login page customizations are per **tenant** rather than per application. All changes to the page's appearance and/or behavior will apply to **all** login actions on your tenant. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
 ### 4. Authorization parameters
 
