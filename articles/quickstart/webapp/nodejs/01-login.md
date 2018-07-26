@@ -129,11 +129,6 @@ router.get(
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Specify a `profile` Scope
-
-After the user has authenticated, every express request has a `user` object with the entire user profile. 
-By default, it is a minimal profile.
-
 ## Display User Information
 
 Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
