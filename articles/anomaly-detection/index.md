@@ -102,7 +102,7 @@ You can use the toggle to disable all the actions of a certain shield. Or to ena
 Then you can use the toggle to enable/disable an action.
 
 ::: warning
-We do not recommend making changes to your anomaly detection features via the Management API
+We do not recommend making changes to your anomaly detection features via the Management API.
 :::
 
 ### Brute-force Protection
