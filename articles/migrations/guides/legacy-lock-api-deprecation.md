@@ -130,7 +130,7 @@ A few specific items are changing with the new versions / endpoints. If you use 
 * [How to check for an existing session](#session-management)
 * [How to log users out](#how-to-log-users-out)
 
-### How to get user info
+## How to get user info
 
 Once a user has been authenticated, an application may wish to retrieve information about a user. The recommended way to do this now is via the [/userinfo](/api/authentication#get-user-info) endpoint. If you are using Auth0.js v8 or v9 and using the [userInfo()](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) method, you already have made this change.
 
@@ -150,13 +150,13 @@ If a user navigates to a new page in a Single Page Application, your application
 The `getSSOData()` and `checkSession()` functions should only be used from a Single Page Application
 :::
 
-##### checkSession
+##### checkSession()
 
 * The Auth0.js `checkSession()` function can be used to check whether or not a user has an existing session in Auth0.
 * Invoking the `checkSession()` function will trigger an /authorize call, which will in turn result in the execution of [rules](/rules).
 * The new `checkSession()` function is more lightweight and should be used as a replacement for `getSSOData()` unless `getSSOData()` features are needed.
 
-##### getSSOData
+##### getSSOData()
 
 * The Auth0.js v9 `getSSOData()` function will continue to work, but it now [behaves differently than in the past](/libraries/auth0js/v9/migration-v8-v9#review-calls-to-getssodata-).
 * In Auth0.js v9, `getSSOData()` will check if a user has an existing session and perform a further check to determine if the user is the same one as in the last interactive authentication transaction. This supports Lock’s feature of showing the last logged-in user to facilitate subsequent logins.
@@ -179,6 +179,16 @@ Customers with web applications which call the API from their backend should use
 ### How to log users out
 
 The deprecation does not require any changes for [logout](/logout), but if a custom domain has been configured and is used when invoking authentication, the /logout endpoint should be invoked using the custom domain as well.
+
+### Using Lock with AD/LDAP and Kerberos
+
+If your application is using Lock in embedded mode with the goal of detecting IP ranges with AD/LDAP + Kerberos, this will no longer work.
+
+The solution for the Kerberos case is to [migrate to Universal Login](#1-migrate-to-universal-login). Lock will no longer attempt to detect an IP range by itself when embedded in an application. However, when using Universal Login with Lock inside your hosted login page, it will use the /user/ssodata endpoint (which still works from within the login page), and that endpoint will still return “true” when the user is in the Kerberos IP range. That means that using Universal Login you can:
+
+* Use `getSSOData()` to achieve an automatic login
+* Use Lock and get the **Use Windows Authentication** button (log in with Kerberos).
+
 
 ## Troubleshooting
 
