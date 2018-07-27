@@ -27,7 +27,7 @@ You can create a new database connection and manage existing ones in the [Dashbo
 Typical database connection scenarios include:
 
 * [Using the Auth0 user store](#using-the-auth0-user-store)
-* [Using your own user store](#using-your-own-store)
+* [Using your own user store](#using-your-own-user-store)
 * [Migrating to Auth0 from a custom user store](#migrating-to-auth0-from-a-custom-user-store)
 * [Requiring a username for users](/connections/database/require-username)
 
