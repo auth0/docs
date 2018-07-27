@@ -1,6 +1,5 @@
 ---
 title: Authenticate Users Using Your Database
-connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
 description: Learn how to authenticate users using your database as an identity provider.
