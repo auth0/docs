@@ -62,7 +62,7 @@ Where:
   Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments.
   :::
 
-* `state`: An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value must be used by the application to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
+* `state`: An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value must be used by the application to [prevent CSRF attacks](/protocols/oauth-state).
 
 * `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
@@ -76,7 +76,14 @@ For example:
 
 ## 2. Extract the Access Token
 
-After Auth0 has redirected back to the app, you can extract the `access_token` from the hash fragment of the URL:
+After Auth0 has redirected back to the app, the hash fragment of the URL contains the following parameters:
+- `id_token`: contains an [ID Token](/tokens/id-token) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
+- `access_token`: contains an [Access Token](/tokens/access-token) and is present if the request parameter `response_type` included the value `token`
+- `token_type`: denotes the type of the [Access Token](/tokens/access-token)
+- `expires_in`: the lifetime in seconds of the access token. For example, the value `3600` denotes that the [Access Token](/tokens/access-token) will expire in one hour from the time the response was generated
+- `state`: present in the response if the `state` parameter was present in the request. Holds the exact value received from the client in the request.
+
+You can extract the `access_token`, and other parameters, from the hash fragment of the URL:
 
 ```js
 function getParameterByName(name) {
