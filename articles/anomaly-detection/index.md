@@ -25,6 +25,7 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 ## Shields
 
 ### Brute-Force Protection
+
 There are two different triggers for the brute-force protection shield, for two slightly different attack scenarios.
 
 **Trigger:** *10* failed login attempts into a single account from the same IP address.
@@ -45,7 +46,6 @@ If this block is triggered, it can be cleared the following ways:
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
-
 **Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. Or *50* sign ups attempts per minute from the same IP address.
 
 **Actions:**
@@ -55,6 +55,14 @@ If this block is triggered, it can be cleared the following ways:
 If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
 
 Auth0 does email the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
+
+#### Enable or Disable Brute Force Protection
+
+By default, brute force protection is enabled for all connections.
+
+Each connection has a flag called `brute_force_protection` that you can use to disable brute force protection. If this flag is set to `true`, then brute force protection is enabled *even if general brute force protection is enabled*.
+
+We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute force protection for the connection), but if you do, you will be able to change this in the Dashboard. There will be a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
 
 #### Restrictions Regarding Brute-Force Protection
 
@@ -83,7 +91,7 @@ This block remains in place until the user changes their password.
 Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/resources/videos/learn-about-breached-password-detection).
 :::
 
-## Setting Your Preferences
+## Set your anomaly detection preferences
 
 To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.
 
@@ -92,6 +100,10 @@ To customize the **actions** that get taken from the **triggers**, go to the [An
 You can use the toggle to disable all the actions of a certain shield. Or to enable/disable certain actions, click on the shield that has the action in it that you wish to change.
 
 Then you can use the toggle to enable/disable an action.
+
+::: warning
+We do not recommend making changes to your anomaly detection features via the Management API.
+:::
 
 ### Brute-force Protection
 
