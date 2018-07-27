@@ -44,6 +44,10 @@ The basic claim returned for the `openid` scope is the `sub` claim, which unique
 - `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
 - `email`: will request the `email` and `email_verified` claims.
 
+::: note
+If you asked for the `profile` scope, and you got the error `Usage of scope 'openid profile' is not recommended`, it means that you are using our legacy pipeline under which this scope returns all the user attributes in the token (see [Requesting specific claims](/scopes/legacy#requesting-specific-claims)). For information on how to migrate to the current pipeline, see [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
+
 ### Example: Ask for Standard Claims
 
 In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
