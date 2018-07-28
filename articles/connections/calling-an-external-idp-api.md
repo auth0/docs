@@ -80,7 +80,7 @@ The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 
 
 #### Token expiration
 
-The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time.
+The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time. The maximum value you can set is 2592000 seconds (30 days) however our recommendation is to keep the default value.
 
 ::: panel-warning Security warning
 These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
