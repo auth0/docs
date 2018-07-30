@@ -5,21 +5,16 @@ classes: topic-page
 title: Analytics Integrations
 topics:
   - analytics
-contentType: index
+contentType: concept
 useCase:
   - manage-analytics
   - analyze-external-analytics
 ---
 
-<div class="topic-page-header">
-  <div data-name="example" class="topic-page-badge"></div>
-  <h1>Analytics Integrations</h1>
-  <p>
-    How to setup and configure analytics integrations with Auth0.
-  </p>
-</div>
+# Analytics Integrations
 
 Analytics tools help you track users on your site or application. The Auth0 Analytics integrations enable you to capture and measure identity specific events. You can use this data to create funnels, measure user retention, and improve your sign up flow.
+
 
 <ul class="topic-links">
   <li>

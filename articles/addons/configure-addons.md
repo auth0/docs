@@ -1,19 +1,15 @@
 ---
 url: /addons
-description: How to setup Application Addons, like Amazon Web Services and Azure Blob Storage, with your Auth0 app.
+description: How to configure third-party addons with your Auth0 application.
 topics:
     - addons
 contentType: 
-    - index
-    - how-to
+   - how-to
+   - task
 useCase: integrate-third-party-apps
 ---
 
-# Auth0 Application Addons
-
-Addons are plugins associated with an Application in Auth0. Usually, they are 3rd party APIs used by the application that Auth0 generates Access Tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so on).
-
-## How to configure an Addon
+# Configure Auth0 Application Addons
 
 Go to [Dashboard > Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons) page and use the toggle to enable the add-on you want to configure.
 
@@ -21,7 +17,7 @@ Go to [Dashboard > Applications > Settings > Addons](${manage_url}/#/application
 
 Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it in the dashboard.
 
-## Additional information for specific Addons
+## Related topics
 
 - Amazon Web Services: For more info on how to use delegation with the AWS API Gateway, see the [AWS API Gateway](/integrations/aws-api-gateway/delegation) Tutorial
 - [Azure Blob Storage](/addons/azure-blob-storage)
