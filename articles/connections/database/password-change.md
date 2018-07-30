@@ -1,7 +1,7 @@
 ---
 title: Changing a User's Password
 description: This document explains the ways you can reset the passwords for users of your Auth0 applications.
-crews: crew-2
+toc: true
 topics:
     - connections
     - database
@@ -10,14 +10,14 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Changing a User's Password
+# Change a User's Password
 
 :::panel-warning Notice
 This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock 8, check the notice panels like this one for information on differences between the two flows.
 
 To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable **Change Password flow v2** and use the latest version of Lock. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
+We strongly encourage you to enable **Change Password flow v2**. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
 :::
 
 You can change your users' passwords using one of the following methods.
@@ -148,3 +148,12 @@ You can change the content of the Change Password emails in the  [Emails > Templ
 ::: note
 Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
 :::
+
+## Automatic password expiration after X days
+
+Currently, there is no built-in functionality for automatic password expiration. However we have a pre-defined [rule](/rules) you can use to achieve the same result.
+
+1. Go to [Dashboard > Rules](${manage_url}/#/rules)
+2. Click **+ Create Rule**
+3. Click the template **Check Last Password Reset**
+4. Modify the script according to your requirements and click **Save**
