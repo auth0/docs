@@ -12,7 +12,7 @@ useCase:
 
 # Application Authentication
 
-Auth0 uses [OpenID Connect]() and [OAuth 2.0]() to authenticate users and get their authorization to access protected resources. 
+Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. 
 
 We support common scenarios for mobile, desktop, server-side, or client-side applications.
 
