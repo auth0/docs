@@ -14,9 +14,15 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-When a custom API receives a request with a bearer [Access Token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request **must** be rejected.
+When a custom API receives a request with a bearer [Access Token](/tokens/access-token), the first thing to do is to validate the token. 
 
-This document lists all the validations that your API should perform:
+At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt) which must be validated before use.
+
+:::note
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that your implementation follows our legacy pipeline. For info on how to use the latest and more secure pipeline, see our [OIDC Conformant Authentication Adoption Guide](/api-auth/tutorials/adoption#terminology).
+:::
+
+Validating the token consists of a series of steps, and if any of these fails, then the request **must** be rejected. This document lists all the validations that your API should perform:
 
 - Check that the JWT is well formed
 - Check the signature
