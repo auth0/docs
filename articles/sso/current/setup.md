@@ -25,7 +25,7 @@ For Social Identity Providers, make sure the Connection is not using [developer 
 
 ## 2. Enable SSO for the application
 
-Navigate to the Applications section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Application with which you're working.
+Navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 

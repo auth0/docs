@@ -33,24 +33,24 @@ This article shows you how to implement OIDC-compliant Single Sign On via [Silen
 
 This document assumes that you're using port *3000* when running the sample.
 
-If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the **auth0-variables.js**, **callback.html**, and **index.js** files) and configure your Auth0 Client.
+If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the **auth0-variables.js**, **callback.html**, and **index.js** files) and configure your Auth0 application.
 
 ## Configure the sample application
 
-If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one:
+If you don't already have an Auth0 application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one:
 
-1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
+1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
-2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
+2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
 
-3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) 
-page. Add **http://localhost:3000** and **http://localhost:3000/callback.html** to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+3. Navigate to the [Auth0 application Settings](${manage_url}/#/Applications/${account.clientId}/settings) 
+page. Add **http://localhost:3000** and **http://localhost:3000/callback.html** to the Allowed Callback URLs field of your [Auth0 application Settings](${manage_url}/#/Applications/${account.clientId}/settings).
 
-4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the **Advanced Settings** section. Under the **OAuth** tab, enable the **OIDC Conformant** Flag under the **OAuth** area of **Advanced Settings**.
+4. Scroll to the bottom of the [Settings](${manage_url}/#/Applications/${account.clientId}/settings) page, where you'll find the **Advanced Settings** section. Under the **OAuth** tab, enable the **OIDC Conformant** Flag under the **OAuth** area of **Advanced Settings**.
 
-Now that you've configured your Auth0 Client, you can continue configuring your sample.
+Now that you've configured your Auth0 application, you can continue configuring your sample.
 
-1. Update the **auth0-variables.js** file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${account.clientId}/settings).
+1. Update the **auth0-variables.js** file included in the sample repository with your Auth0 Domain and the ID of the Auth0 application you're using. These values can be found in your [Auth0 application's Settings page](${manage_url}/#/Applications/${account.clientId}/settings).
 
 2. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port 3000.
 
