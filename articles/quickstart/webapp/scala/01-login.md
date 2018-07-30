@@ -15,7 +15,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Scala', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure Scala to Use Auth0 
+## Configure Scala to Use Auth0
 
 ### Add the Auth0 Callback Handler
 
@@ -42,15 +42,16 @@ import play.api.mvc.Controller
 import helpers.Auth0Config
 
 class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
-  
-  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async {
-    if (stateOpt == cache.get("state")) {
+
+  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async { request =>
+    val sessionId = request.session.get("id").get
+    if (stateOpt == cache.get(sessionId + "state")) {
       (for {
         code <- codeOpt
       } yield {
-        getToken(code).flatMap { case (idToken, accessToken) =>
+        getToken(code, sessionId).flatMap { case (idToken, accessToken) =>
           getUser(accessToken).map { user =>
-            cache.set(idToken + "profile", user)
+            cache.set(request.session.get("id").get + "profile", user)
             Redirect(routes.User.index())
               .withSession(
                 "idToken" -> idToken,
@@ -67,7 +68,7 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
     }
   }
 
-  def getToken(code: String): Future[(String, String)] = {
+  def getToken(code: String, sessionId: String): Future[(String, String)] = {
     val config = Auth0Config.get()
     var audience = config.audience
     if (config.audience == ""){
@@ -85,18 +86,20 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
           "audience" -> audience
         )
       )
-      
+
     tokenResponse.flatMap { response =>
       (for {
         idToken <- (response.json \ "id_token").asOpt[String]
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
-        Future.successful((idToken, accessToken)) 
+        cache.set(sessionId + "id_token", idToken)
+        cache.set(sessionId + "access_token", accessToken)
+        Future.successful((idToken, accessToken))
       }).getOrElse(Future.failed[(String, String)](new IllegalStateException("Tokens not sent")))
     }
-    
+
   }
-  
+
   def getUser(accessToken: String): Future[JsValue] = {
     val config = Auth0Config.get()
     val userResponse = ws.url(String.format("https://%s/userinfo", config.domain))
@@ -124,6 +127,7 @@ import play.api.mvc.Controller
 import helpers.Auth0Config
 import java.security.SecureRandom
 import java.math.BigInteger
+import java.util.UUID.randomUUID
 
 class Application @Inject() (cache: CacheApi) extends Controller {
 
@@ -142,12 +146,14 @@ class Application @Inject() (cache: CacheApi) extends Controller {
       }
     }
     val state = RandomUtil.alphanumeric()
+
     var audience = config.audience
-    cache.set("state", state)
     if (config.audience == ""){
-      audience = String.format("https://%s/userinfo",config.domain)
+      audience = String.format("https://%s/userinfo", config.domain)
     }
 
+    val id = randomUUID().toString
+    cache.set(id + "state", state)
     val query = String.format(
       "authorize?client_id=%s&redirect_uri=%s&response_type=code&scope=openid profile&audience=%s&state=%s",
       config.clientId,
@@ -155,7 +161,7 @@ class Application @Inject() (cache: CacheApi) extends Controller {
       audience,
       state
     )
-    Redirect(String.format("https://%s/%s",config.domain,query))
+    Redirect(String.format("https://%s/%s", config.domain, query)).withSession("id" -> id)
   }
 }
 ```
@@ -192,8 +198,8 @@ import play.api.cache._
 class User @Inject() (cache: CacheApi) extends Controller {
   def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
     Action { request =>
-      (request.session.get("idToken").flatMap { idToken =>
-        cache.get[JsValue](idToken + "profile")
+      (request.session.get("id").flatMap { id =>
+        cache.get[JsValue](id + "profile")
       } map { profile =>
         f(request)
       }).orElse {
@@ -201,10 +207,10 @@ class User @Inject() (cache: CacheApi) extends Controller {
       }.get
     }
   }
-  
+
   def index = AuthenticatedAction { request =>
-    val idToken = request.session.get("idToken").get
-    val profile = cache.get[JsValue](idToken + "profile").get
+    val id = request.session.get("id").get
+    val profile = cache.get[JsValue](id + "profile").get
     Ok(views.html.user(profile))
   }
 }
@@ -233,13 +239,13 @@ Add the `logout` action in the `Application` controller.
 // app/controllers/Application.scala
 
 class Application @Inject() (cache: CacheApi) extends Controller {
-  
+
   //...
-  
+
   def logout = Action {
     val config = Auth0Config.get()
     Redirect(String.format(
-      "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:9000",
+      "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:3000",
       config.domain,
       config.clientId)
     ).withNewSession
@@ -268,8 +274,8 @@ You can add the following `Action` to check if the user is authenticated. If not
 
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
-    (request.session.get("idToken").flatMap { idToken =>
-      cache.getAs[JsValue](idToken + "profile")
+    (request.session.get("id").flatMap { id =>
+      cache.getAs[JsValue](id + "profile")
     } map { profile =>
       f(request)
     }).orElse {
@@ -279,8 +285,8 @@ def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = 
 }
 
 def index = AuthenticatedAction { request =>
-  val idToken = request.session.get("idToken").get
-  val profile = cache.getAs[JsValue](idToken + "profile").get
+  val id = request.session.get("id").get
+  val profile = cache.getAs[JsValue](id + "profile").get
   Ok(views.html.user(profile))
 }
 ```
