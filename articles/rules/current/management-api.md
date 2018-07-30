@@ -14,9 +14,15 @@ useCase:
 ---
 # Use the Management API in Rules
 
-You have limited access to the [Management API](/api/management/v2) inside Rules. In particular, the version of the Node.js client library available from rules only allow you to update the user's `app_metadata` and `user_metadata` as descibed in [User Metadata in Rules](/rules/current/metadata-in-rules).
+When you write [Rules](/rules), you can use the `auth0` object to update a user's `app_metadata` or `user_metadata` (for details on how to do that, see [User Metadata in Rules](/rules/current/metadata-in-rules)).
 
-## Accessing a Newer Version of the Node.js Client Library
+If you wish to access more [Management API](/api/management/v2) endpoints inside Rules, you have to use another version of the library.
+
+:::warning
+[Searching for users](/users/search/best-practices) inside Rules may affect the performance of your logins and we advise against it. 
+:::
+
+## How to access a newer version of the library
 
 You can load a newer version of the Auth0 Node.js client library by requiring the specific version on the library. The sample code below loads version `2.6.0` of the library, then query the list of users and log the users to the console (to be inspected with the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs)):
 
