@@ -178,7 +178,7 @@ Where:
 - **client_secret**: Alphanumeric 64-bit client secret. This value is used by clients to authenticate to the [token endpoint](/api/authentication#get-token) and for signing and validating [ID Tokens](/tokens/id-token).
 - **client_secret_expires_at**: Time at which the `client_secret` will expire. For Auth0 this value will always be zero (`0`) which means that the client never expires.
 
-Make a note of the Client ID and Secret, as these are the most important pieces for executing [authentication](/client-auth) and [authorization](/api-auth) flows.
+Make a note of the Client ID and Secret, as these are the most important pieces for executing [authentication](/application-auth) and [authorization](/api-auth) flows.
 
 Also, keep in mind that third-party developers are not allowed to modify the client settings. In case this is necessary, they need to contact the tenant owner with their request.
 
