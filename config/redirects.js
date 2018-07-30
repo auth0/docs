@@ -918,7 +918,7 @@ module.exports = [
   },
   {
     from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
-    to: '/client-auth/current/server-side-web'
+    to: '/application-auth/current/server-side-web'
   },
   {
     from: '/oauth-implicit-protocol',
