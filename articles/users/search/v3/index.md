@@ -31,7 +31,7 @@ In this article you'll learn how to search for users and sort the results.
 
 When you query for users with the [list or search users](/api/management/v2#!/Users/get_users) endpoint, you can retrieve maximum 1000 users. If you exceed this threshold, redefine your search. If you need a full export of your users, use instead the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
 
-If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, redefine your search.
+If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
 ## Search for users
 
