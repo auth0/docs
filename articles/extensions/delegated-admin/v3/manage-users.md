@@ -19,7 +19,7 @@ By default, all users are displayed, but you can filter the displayed list by co
 
 ## Available User Actions in the Delegated Administration Dashboard
 
-The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](/extensions/delegated-admin/hooks/v3/access).
+The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](/extensions/delegated-admin/hooks/v3/hooks/access).
 
 <table class="table">
   <tbody>
