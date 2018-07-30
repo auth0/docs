@@ -16,11 +16,11 @@ useCase:
 
 # Authentication for Client-side Web Apps
 
-The Auth0 OAuth 2.0 authentication endpoints support Client-side Web Applications. These applications are also referred to as JavaScript or Single Page Applications.
+You can use the Auth0 Authentication API to create client-side web applications that use [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources.
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the Callback URL, returning an [ID Token](/tokens/id-token) and [Access Token](/tokens/access-token) in the hash fragment of the request.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, get their authorization for the resources your app wants to access, and then redirect the user back to a pre-configured callback URL, returning an [ID Token](/tokens/id-token) and [Access Token](/tokens/access-token) in the hash fragment of the request.
 
 ## The Authentication Flow
 

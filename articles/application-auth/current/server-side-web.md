@@ -15,11 +15,13 @@ useCase:
 
 # Authentication for Server-side Web Apps
 
-You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 authorization to authenticate users.
+You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 and OpenID Connect to authenticate users and get their authorization to access protected resources.
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an authorization `code` in the query string parameters of the Callback URL. This `code` can then be exchanged for an [ID Token](/tokens/id-token) which contains the identity of the user.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
+
+You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/access-token).
 
 ## The Authentication Flow
 
