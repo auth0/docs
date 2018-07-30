@@ -8,6 +8,10 @@ You can also create a custom login for prompting the user for their username and
 
 ### Install and configure the OpenID Connect middleware
 
+::: note
+  This quickstart makes use of OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently making use of OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
+:::
+
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware which is available in the `Microsoft.Owin.Security.OpenIdConnect` NuGet package, so install that first:
 
 ```bash
