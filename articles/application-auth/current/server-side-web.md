@@ -21,7 +21,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/access-token).
+You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/access-token).
 
 ## The Authentication Flow
 
