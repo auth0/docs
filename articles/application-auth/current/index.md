@@ -12,7 +12,9 @@ useCase:
 
 # Application Authentication
 
-Auth0 uses the OAuth 2.0 protocol for authentication and authorization. We support common OAuth 2.0 scenarios for Mobile Applications, Desktop Applications, Server-side web applications or Client-side Web Applications.
+Auth0 uses [OpenID Connect]() and [OAuth 2.0]() to authenticate users and get their authorization to access protected resources. 
+
+We support common scenarios for mobile, desktop, server-side, or client-side applications.
 
 You can get more details on implementing these flows by following one of the following links:
 
