@@ -14,7 +14,7 @@ useCase:
 
 Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. 
 
-We support common scenarios for mobile, desktop, server-side, or client-side applications.
+We support scenarios for mobile, desktop, server-side, or client-side applications.
 
 You can get more details on implementing these flows by following one of the following links:
 
