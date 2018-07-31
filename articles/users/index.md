@@ -57,6 +57,20 @@ useCase:
     <p>
       Learn about the metadata fields available in the user profile, as well as when to use which.
     </p>
+  </li>  
+  <li>
+    <i class="icon icon-budicon-715"></i>User Export
+    <p>
+      Learn how to export users from Auth0.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/search/best-practices#user-export">Export Users with the Management API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/extensions/user-import-export">User Import / Export Extension</a>
+      </li>
+    </ul>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/migrations">User Migration</a>
