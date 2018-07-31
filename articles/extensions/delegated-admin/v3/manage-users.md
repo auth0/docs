@@ -73,8 +73,15 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
         <th>Yes</th>
     </tr>
+    <tr>
+        <th>Change Profile</th>
+        <th>Yes</th>
+        <th>Yes</th>
+    </tr>
   </tbody>
 </table>
+
+The *Change Profile* option is available only if you have configured custom fields.
 
 Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.
 
