@@ -190,7 +190,7 @@ You can add custom user information in the user metadata section by performing a
 let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .patch(profile.sub, userMetadata: ["country": "United Kingdom"])
     .start { result in
         switch result {
@@ -214,7 +214,7 @@ Retrieving the `user_metadata` dictionary:
 let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .get(profile.sub, fields: ["user_metadata"], include: true)
     .start { result in
         switch result {
