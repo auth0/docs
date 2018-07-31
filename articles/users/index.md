@@ -59,7 +59,7 @@ useCase:
     </p>
   </li>  
   <li>
-    <i class="icon icon-budicon-715"></i>User Export</a>
+    <i class="icon icon-budicon-715"></i>User Export
     <p>
       Learn how to export users from Auth0.
     </p>
