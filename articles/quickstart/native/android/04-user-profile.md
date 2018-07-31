@@ -18,7 +18,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
 ## Before You Start
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API applications, you need a valid Access Token and ID Token.
+Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and [Session Handling](/quickstart/native/android/03-session-handling) tutorials. To call the API applications, you need a valid Access Token.
 :::
 
 Before launching the login process, you need to make sure the authorization server allows you to read and edit the current user profile. To do that, ask for the `openid profile email read:current_user update:current_user_metadata` scope and the Management API audience, which happens to include the User Info audience as well. Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email offline_access read:current_user update:current_user_metadata")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
