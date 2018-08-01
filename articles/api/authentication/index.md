@@ -47,10 +47,6 @@ contentType:
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_impersonation') %>
-</div>
-
-<div class="api-section" data-section="none">
   <%= include('./_application-reg') %>
 </div>
 
@@ -72,11 +68,14 @@ contentType:
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
 </div>
-<div class="api-section" data-section="none">
+<div class="api-section" data-section="legacy">
   <%= include('./legacy/_linking') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>
+</div>
+<div class="api-section" data-section="legacy">
+  <%= include('./legacy/_impersonation') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_resource-owner') %>
