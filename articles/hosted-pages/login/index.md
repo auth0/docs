@@ -126,6 +126,8 @@ var webAuth = new auth0.WebAuth(params);
 [...]
 ```
 
+To send additional parameters to the login page, use the `additionalParameters` property, during the initialization.
+
 ::: panel-warning Customization and deprecation notes
 By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, your tenant logs will show deprecation notes (`Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.`). Additionally, after **July 16, 2018**, the application will no longer work until the login page customizations are fixed.
 :::
