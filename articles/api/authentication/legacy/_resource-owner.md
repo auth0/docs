@@ -89,7 +89,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test, and **Connection** to the name of the connection to use.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
 

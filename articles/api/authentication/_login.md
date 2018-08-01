@@ -69,13 +69,13 @@ Social connections only support browser-based (passive) authentication because m
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
 - If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the Access Token and ID Token in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
@@ -150,14 +150,14 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the Access Token and ID Token in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
@@ -236,7 +236,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
@@ -244,7 +244,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 ### Remarks
 
 - If no `connection` is specified, it will redirect to the [Login Page](https://${account.namespace}/login) and show the Login Widget.
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the Access Token and ID Token in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
