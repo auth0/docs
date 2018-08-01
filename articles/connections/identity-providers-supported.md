@@ -4,7 +4,7 @@ description: Auth0 is an identity hub that supports the many authentication prov
 topics:
   - connections
 contentType: 
-    - index
+    - concept
     - reference
 useCase:
   - customize-connections
