@@ -1,17 +1,17 @@
 ---
-description: Tutorial on implementing Single Sign On (SSO) with Auth0.
+description: Tutorial on configuring Single Sign On (SSO)
 toc: true
 topics:
   - sso
-  - sso-setup
+  - sso-configuration
 contentType:
   - how-to
 useCase:
   - integrate-saas-sso
 ---
-# Set Up Single Sign On with Auth0
+# Configure Single Sign On (SSO)
 
-This tutorial covers implementing Single Sign On (SSO) with Auth0.
+This tutorial covers configuring Single Sign On (SSO).
 
 ::: note
 For information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
@@ -23,50 +23,40 @@ Before enabling SSO on an [application](/applications), create and configure a C
 
 For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
 
-## 2. Enable SSO for the application
+## 2. Configure SSO
 
-Navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working.
-
-![](/media/articles/sso/single-sign-on/clients-dashboard.png)
-
-Scroll down to the **Log In Session Management** section and set the following values:
+Auth0 maintains an SSO session for any user authenticating via that Application. Auth0 maintains two pieces of information:
 
 | Setting | Description |
 | - | - |
 | Inactivity timeout | The maximum length of time that can elapse without user activity before the user is asked to log in again. **This setting cannot exceed 3 days!** |
 | Require log in after | The length of time that elapses before Auth0 forces the user to log in again (regardless of activity) |
 
+To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+
 ![](/media/articles/sso/sso-session-mgmt-2.png)
 
-### Legacy Tenants
+Please note that any time a user performs a new standard login resets the SSO session.
 
-If you are working with a legacy tenant, you may see a slightly different view on the Dashboard.
+### Addendum: SSO Configuration for Legacy Tenants
 
-Under the **Log In Session Management** section, you will see a toggle that allows you to activate/deactivate the **Skip confirmation dialog during SSO** feature.
-
-Two additional SSO-related settings should appear. You can change them, or you can leave the defaults as is.
+In addition to the settings available under tenant settings, legacy tenants may see slightly different options available for SSO under [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 ![](/media/articles/sso/sso-session-mgmt-1.png)
 
-Scroll to the bottom, and click **Save** to proceed.
+While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature.
 
-### Use the Management API
+If you opt to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
 
-If you would prefer to not use the Dashboard, you can set your application's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
 
-## 3. Configure SSO session length
+![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-When SSO is enabled for an Application, Auth0 maintains an SSO session for any user authenticating via that Application. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign Up** feature.
 
-To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+![](/media/articles/sso/single-sign-on/sso-flag.png)
 
-![](/media/articles/sso/single-sign-on/accountsettings-ssotimeout.png)
-
-SSO session cookies expire after **3 days** of inactivity. For example, if no application (in the same browser) on a user's machine performs a login using the SSO session then the cookie expires after 3 days, even though a server side session might persist. Performing a new standard login would reset the SSO session.
-
-The session inactivity duration (3 days) and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
-
-## 4. Check the user's SSO status from the application
+## 3. Check the user's SSO status from the application
 
 Whenever you need to determine the user's SSO status, you'll need to check the following:
 
