@@ -23,11 +23,13 @@ Your application can use this parameter in order to:
 
 - Restore the previous state of your application.
 
-## Format
+## Format and Limitations
 
 For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
 
 This field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded JSON object that can hold multiple values, [such as a return URL](/tutorials/redirecting-users).
+
+Note that the allowed length for state is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
 
 ## How to use the parameter against CSRF attacks
 
