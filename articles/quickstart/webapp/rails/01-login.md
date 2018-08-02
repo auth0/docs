@@ -56,7 +56,7 @@ class Auth0Controller < ApplicationController
     session[:userinfo] = request.env['omniauth.auth']
 
     # Redirect to the URL you want after successful auth
-    redirect_to '/dashboard'
+    redirect_to '/dashboard/show'
   end
 
   def failure
@@ -69,8 +69,8 @@ end
 Replace the generated routes on `routes.rb` with the following:
 
 ```ruby
-get "/auth/oauth2/callback" => "auth0#callback"
-get "/auth/failure" => "auth0#failure"
+get 'auth/oauth2/callback' => 'auth0#callback'
+get '/auth/failure' => 'auth0#failure'
 ```
 
 ## Trigger Authentication
@@ -111,14 +111,13 @@ Create a file called `show.html.erb` to add the template for `show` action. Add 
 
 ```html
 <!-- app/views/home/show.html.erb -->
-
-<section class="jumbotron text-center">
-  <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
-  <h1>RoR Auth0 Sample</h1>
-  <p>Step 1 - Login.</p>
-  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
-</section>
+<h2><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
+<h1>RoR Auth0 Sample</h1>
+<p>Step 1 - Login.</p>
+<a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
 ```
+
+Alternatively, you can add a link to the `/auth/auth0` path anywhere in an existing template.
 
 ### Check the User's Authentication Status
 
@@ -143,7 +142,7 @@ end
 Use the following command to create the controller for the dashboard view:
 
 ```bash
-rails generate controller dashboard show --skip-template-engine --skip-assets
+rails generate controller dashboard show --skip-assets
 ```
 
 Include the `concern` in the newly-created controller to prevent unauthenticated users from accessing its routes:
@@ -157,6 +156,15 @@ class DashboardController < ApplicationController
   def show
   end
 end
+```
+
+Add the session data for `userinfo` to the dashboard view to see what is returned.
+
+```
+# app/views/dashboard/show.html.erb
+
+<h1>Dashboard#show</h1>
+<%= session[:userinfo].inspect %>
 ```
 
 ### Display Error Descriptions
