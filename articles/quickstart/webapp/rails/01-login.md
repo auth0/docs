@@ -21,11 +21,11 @@ github:
 
 To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
 
+${snippet(meta.snippets.dependencies)}
+
 ::: note
 If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 :::
-
-${snippet(meta.snippets.dependencies)}
 
 ### Initialize Omniauth Auth0
 
@@ -42,10 +42,10 @@ This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.c
 Use the following command to create the controller that will handle the Auth0 callback:
 
 ```bash
-rails generate controller auth0 callback failure --skip-template-engine --skip-assets
+rails generate controller auth0 --skip-template-engine --skip-assets
 ```
 
-In the newly created controller, add a callback success and failure handler.
+In the newly created controller, add success and failure callback handlers.
 
 ```ruby
 # app/controllers/auth0_controller.rb
@@ -56,7 +56,7 @@ class Auth0Controller < ApplicationController
     session[:userinfo] = request.env['omniauth.auth']
 
     # Redirect to the URL you want after successful auth
-    redirect_to '/dashboard/show'
+    redirect_to '/dashboard'
   end
 
   def failure
@@ -66,16 +66,20 @@ class Auth0Controller < ApplicationController
 end
 ```
 
-Replace the generated routes on `routes.rb` with the following:
+Replace the generated routes with the following:
 
 ```ruby
-get 'auth/oauth2/callback' => 'auth0#callback'
-get '/auth/failure' => 'auth0#failure'
+# config/routes.rb
+
+Rails.application.routes.draw do
+  get 'auth/oauth2/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
+end
 ```
 
 ## Trigger Authentication
 
-Create a file called `session_helper.rb`:
+Create a helper file called `session_helper.rb`:
 
 ```ruby
 # app/helpers/session_helper.rb
@@ -84,44 +88,45 @@ module SessionHelper
   def get_state
     state = SecureRandom.hex(24)
     session['omniauth.state'] = state
-
     state
   end
 end
 ```
 
-Use the following command to create the controller that will handle user login:
+Now, we need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app. 
+
+Run the following command to generate the homepage controller and views:
 
 ```bash
-rails generate controller home
+rails generate controller home show --skip-assets
 ```
 
-In the controller `home_controller.rb` add the `show` action.
-
-```ruby
-# app/controllers/home_controller.rb
-
-class HomeController < ApplicationController
-  def show
-  end
-end
-```
-
-Create a file called `show.html.erb` to add the template for `show` action. Add a link to `/auth/auth0` to trigger user login.
+Add the following to the generated `show.html.erb` file:
 
 ```html
 <!-- app/views/home/show.html.erb -->
-<h2><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
+<img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
 <h1>RoR Auth0 Sample</h1>
 <p>Step 1 - Login.</p>
-<a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+<a href="/auth/auth0">Login</a>
 ```
 
-Alternatively, you can add a link to the `/auth/auth0` path anywhere in an existing template.
+Finally, point the `root` path to generated controller:
+
+```ruby
+# config/routes.rb
+
+Rails.application.routes.draw do
+  root 'home#show'
+  # ...
+end
+```
+
+Run `bin/rails server` and go to [localhost:3000](http://localhost:3000) in your browser. You should see the Auth0 logo and a link to log in.
 
 ### Check the User's Authentication Status
 
-You can use a controller `concern` to control access to routes that require the user to be authenticated.
+You can use a controller `concern` to control access to routes that require the user to be authenticated:
 
 ```ruby
 # app/controllers/concerns/secured.rb
@@ -139,13 +144,13 @@ module Secured
 end
 ```
 
-Use the following command to create the controller for the dashboard view:
+Now generate a controller for the dashboard view that users will see once they are authenticated:
 
 ```bash
 rails generate controller dashboard show --skip-assets
 ```
 
-Include the `concern` in the newly-created controller to prevent unauthenticated users from accessing its routes:
+Include the `concern` in the this new controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
 # app/controllers/dashboard_controller.rb
@@ -158,7 +163,7 @@ class DashboardController < ApplicationController
 end
 ```
 
-Add the session data for `userinfo` to the dashboard view to see what is returned.
+Add the session data for `userinfo` to the dashboard view to see what is returned:
 
 ```
 # app/views/dashboard/show.html.erb
@@ -166,6 +171,22 @@ Add the session data for `userinfo` to the dashboard view to see what is returne
 <h1>Dashboard#show</h1>
 <%= session[:userinfo].inspect %>
 ```
+
+Finally, adjust your routes to point `/dashboard` to this new, secured controller:
+
+```bash
+# config/routes.rb
+
+Rails.application.routes.draw do
+  # ...
+  get 'dashboard' => 'dashboard#show'
+  # ...
+end
+```
+
+With the Rails server still running, go to [localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser and you should be redirected to the homepage. 
+
+Click the **Login** link and log in or sign up. Accept the consent modal that appears (for `localhost` only) and you should end up on at `/dashboard` with your user info showing. 
 
 ### Display Error Descriptions
 
