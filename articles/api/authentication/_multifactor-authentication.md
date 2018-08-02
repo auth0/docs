@@ -104,7 +104,7 @@ If OTP is supported by the user and you don't want to request a different factor
 |:-----------------|:------------|
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The token received from `mfa_required` error. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 | `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
 | `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
@@ -193,7 +193,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
@@ -300,7 +300,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA, use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
@@ -382,7 +382,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user.
 
@@ -497,7 +497,7 @@ To access this endoint, you must set an [Access Token](/tokens/access-token) at 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
 | `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"` or `"sms"`. Required if `authenticator_types` include `oob`. |
 | `phone_number` | The phone number to use for SMS. Required if `oob_channel` includes `sms`. |
