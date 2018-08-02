@@ -38,6 +38,6 @@ Click **Enroll your device now.**
 
 Follow the on-screen instructions to complete your enrollment.
 
-# Support-Only Users
+## Support-Only Users
 
-If you want to allow employees of your organization to have access to our [Support Center](https://support.auth0.com), but you don't want to give them complete Administrator access over the tenant or a particular application, you can alternatively add them as Support-Only users. If that's the case, please follow the instructions described [here](https://auth0.com/docs/support#add-support-only-users).
+If you want to allow employees of your organization to have access to our [Support Center](https://support.auth0.com), but you don't want to give them complete Administrator access over the tenant or a particular application, you can alternatively add them as Support-Only users. If that's the case, please follow the instructions described in our [Support Options](/support#add-support-only-users) documentation.
