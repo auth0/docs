@@ -88,7 +88,7 @@ Also, more than often the email which receives the receipt is the one that creat
 
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
-An active user is a user that has authenticated with a username/password combination, a Passwordless connection, or any social provider in the last 30 days.
+An active user is a user that has authenticated with a username/password combination, a Passwordless connection, or any social provider in the last calendar month.
 
 Auth0 counts users on a per-tenant basis. That means that somebody who logs in to multiple applications still counts as one user as long as you've created all of the applications using a single tenant.
 
