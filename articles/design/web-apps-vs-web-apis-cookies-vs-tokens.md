@@ -16,7 +16,7 @@ useCase: strategize
 * **Web APIs**, on the other hand, represent for us a new breed of applications, typically single page apps (like Angular, Ember, Backbone, and so on) or native mobile apps (like iOS, Android, and so on) which consume APIs (written in Node, Ruby, ASP.NET or even a mix of those) and will benefit from **token based authentication**.
 
 ::: note
-Before moving forward, you might want to read these articles for more context: [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/) and  [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
+Before moving forward, you might want to read this article for more context: [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
 :::
 
 * **Cookie-based authentication** is implemented by each web platform differently, but at the end of the day, they all end up setting some cookie (tied to a session on the server) which represents the "authenticated user". On each request, that cookie is sent and the session is deserialized from some store (in memory if it's a single server or some persistent storage if it's a server farm). We provide SDKs for most of the platforms that will tie into the corresponding authentication subsystem (such as passport on node, IPrincipal on .NET or Java, and so on).
