@@ -59,7 +59,7 @@ Once you have provided this information, click the **Install** button to finish 
 
 The integration between Auth0 and Sumo Logic is now in place!
 
-## How to use Your Installed Extension
+## How to view the results
 
 The integration you just setup, created a scheduled job that will be responsible to export the logs.
 
@@ -80,7 +80,7 @@ That's it, you are done! You can now navigate to [Sumo Logic](https://www.sumolo
 
 ![View Auth0 logs in Sumo Logic screen](/media/articles/extensions/sumologic/auth0-logs-at-sumologic.png)
 
-## Auth0 Dashboard
+## Use the Auth0 Dashboard
 
 Here, at Auth0, we have been using the Auth0 to Sumo Logic extension ourselves since it was first released, and it's proven to be very useful for staying on top of what's happening with our own Auth0 accounts and our internal users. Sumo Logic makes it easy to see the latest failed logins, find and alert on error messages, create charts to visualize trends, or even do complex statistical analysis on your data.
 
