@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 
 # Auth0 Logs to Sumo Logic
 
-The _Auth0 Logs to Sumo Logic_ is a scheduled job that takes all of your Auth0 logs and exports them to [Sumo Logic](https://www.sumologic.com/). This document will guide you through the process of setting up this integration.
+The Auth0 Logs to Sumo Logic is a scheduled job that takes all of your Auth0 logs and exports them to [Sumo Logic](https://www.sumologic.com/). This document will guide you through the process of setting up this integration.
 
 ## Step 1: Create a Sumo Logic HTTP endpoint
 
