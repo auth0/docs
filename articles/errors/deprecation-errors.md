@@ -91,4 +91,4 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 
 ## Legacy Lock API troubleshooting
 
-For tenant log entries regarding the Legacy Lock API, the referrer as well as information about the SDK being used are returned in the entry, in order to assist with troubleshooting. This information can help narrow down which applications might still be using outdated libraries, and which libraries they are using.
+Tenant log entries regarding the Legacy Lock API may include the referrer and information about the SDK used. This information can be used to see if any of your applications use outdated libraries.
