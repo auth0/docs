@@ -51,9 +51,6 @@ At this point you should set the following configuration parameters:
 - **SUMOLOGIC_URL**: Your Sumo Logic HTTP Collector Endpoint. Set the value you copied at the previous step.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Sumo Logic.
 - **LOG_TYPES**: The events for which logs should be exported.
-
-You can also specify the following optional configuration parameters:
-
 - **START_FROM**: The `log_id` of the log you would like to start sending from. Default is to start with the oldest available log.
 - **SLACK_INCOMING_WEBHOOK_URL**: Send reports from the extension to the specific Slack webhook.
 - **SLACK_SEND_SUCCESS**: Send even more stuff to Slack. Useful for troubleshooting.
