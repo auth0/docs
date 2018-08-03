@@ -6,6 +6,7 @@ topics:
 contentType:
   - how-to
 useCase: extensibility-extensions
+toc: true
 ---
 
 # Auth0 Logs to Sumo Logic
