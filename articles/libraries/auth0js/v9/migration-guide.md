@@ -19,13 +19,7 @@ useCase:
 
 ## Should I migrate to v9?
 
-Everyone should migrate to v9. All previous versions are deprecated, and will be removed from service July 16, 2018. For applications that use Auth0.js within an Auth0 login page, this migration is recommended; for applications with Auth0.js embedded within them, this migration is mandatory.
-
-::: panel Legacy Lock API Removed from Service
-Previously, the Legacy Lock API (used by deprecated versions of Auth0.js) was planned to be removed from service on April 1, 2018. However, the Removal of Service date was extended to **July 16, 2018** due to a [mitigation of the risks posed by deprecated versions](/cross-origin-authentication/fingerprinting).
-
-As of the week of July 16, 2018, the Legacy Lock API will be disabled. This is a soft removal, so you will have a brief grace period during which you can temporarily re-enable the feature in order to make any necessary changes. See the [soft removal announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more details.
-:::
+Everyone should migrate to v9. All previous versions are deprecated, and the deprecated endpoints used by them were removed from service on August 6, 2018. For applications that use Auth0.js within an Auth0 login page, this migration is recommended; for applications with Auth0.js embedded within them, this migration is mandatory.
 
 ## Migration Instructions
 
@@ -55,6 +49,6 @@ You have already migrated to Auth0.js 9 but you still see this error in your log
 Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
 ```
 
-These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. If this happens after **July 16, 2018** the user will not be able to log in. 
+These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in. 
 
 Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.
