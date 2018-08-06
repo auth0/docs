@@ -2,6 +2,13 @@
 title: Configuring the Authorization Extension
 description: How to configure the Authorization Extension
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Configuration
@@ -67,8 +74,5 @@ You can open it up to see the exact rules configuration.
 * [Enable API Access to the Extension](/extensions/authorization-extension/v2/api-access)
 * [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
 * [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
+* [Set Up the Authorization Extension](/extensions/authorization-extension/v2/implementation/setup)
 :::
-
-<%= include('./_stepnav', {
- prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/installation"]
-}) %>

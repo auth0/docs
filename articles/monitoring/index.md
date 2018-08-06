@@ -2,6 +2,14 @@
 title: Monitoring Auth0
 description: Monitoring Your Auth0 Implementation
 classes: topic-page
+topics:
+  - monitoring
+contentType:
+  - index
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - integrate-analytics
 ---
 
 <div class="topic-page-header">

@@ -15,23 +15,23 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 ## Authentication methods
 
 There are three ways to authenticate with this API: 
-- with an OAuth2 access token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the access token)
-- with your Client Id and Client Secret credentials
-- only with your Client Id
+- with an OAuth2 Access Token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
+- with your Client ID and Client Secret credentials
+- only with your Client ID
 
 Each endpoint supports only one option.
 
 ### OAuth2 token
 
-In this case, you have to send a valid [access token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an access token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
-### Client Id and Client Secret
+### Client ID and Client Secret
 
-In this case, you have to send your Client Id and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential clients (such as clients that are able to hold credentials in a secure way without exposing them to unauthorized parties).
+In this case, you have to send your Client ID and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential applications (such as applications that are able to hold credentials in a secure way without exposing them to unauthorized parties).
 
-### Client Id
+### Client ID
 
-For public clients (such as clients that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client Id. An example is the [Implicit Grant](#implicit-grant).
+For public applications (such as applications that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client ID. An example is the [Implicit Grant](#implicit-grant).
 
 ## Parameters
 
@@ -53,6 +53,8 @@ For each endpoint you will find sample snippets you can use, in three available 
 - HTTP request
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use the [Auth0.js library](/libraries/auth0js), Node.js code or simple JavaScript
+
+Each request should be sent with a Content-Type of `application/json`.
 
 ## Testing
 
@@ -77,7 +79,7 @@ We have preconfigured a collection that you can [download](https://app.getpostma
 
 ## Errors
 
-When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your client can tell what the problem is.
+When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your applications can tell what the problem is.
 
 If you get an `4xx` HTTP response code, then you can assume that there is a bad request from your end. In this case, check the [Standard Error Responses](#standard-error-responses) for more context. 
 

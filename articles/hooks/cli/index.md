@@ -2,9 +2,16 @@
 description: How to use the Command-Line Interface with Hooks
 url: /hooks/cli
 beta: true
+topics:
+    - hooks
+    - cli
+contentType:
+    - how-to
+    - index
+useCase: extensibility-hooks
 ---
 
-# Auth0 Command-Line Interface
+# Work with Hooks using the CLI
 
 The Auth0 Command-Line Interface (CLI) allows you to create, edit, enable/disable, and delete Hooks associated with specific extensibility points within the Auth0 platform. You can also use the CLI to identify Hooks and gather real-time logging information.
 
@@ -28,7 +35,3 @@ The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is t
 * [Edit Existing Hooks](/hooks/cli/edit)
 * [Enable/Disable Existing Hooks](/hooks/cli/enable-disable)
 * [Identify and Get Log Data from Your Hooks](/hooks/cli/logs)
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/hooks"]
-}) %>

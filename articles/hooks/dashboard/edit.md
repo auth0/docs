@@ -1,9 +1,13 @@
 ---
 description: How to edit Hooks using the Management Dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
+contentType: how-to
+useCase: extensibility-hooks
 ---
-
-# Edit Existing Hooks Using the Dashboard
+# Edit Hooks
 
 You can edit the code for your existing Hook using the [Webtask Editor](https://webtask.io/docs/editor). To open up the Webtask Editor:
 
@@ -51,7 +55,3 @@ You can rename your Hook using the Management Dashboard.
 3. Click **Rename**. You will see a dialog pop up, asking you for the **Current Name** of the Hook, as well as the **New Name** you want to use. Click **Rename** when you have populated both values.
 
 ![Rename Hooks prompt](/media/articles/hooks/rename-hook.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/dashboard"]
-}) %>

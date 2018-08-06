@@ -2,8 +2,17 @@
 section: libraries
 toc: true
 description: Details on the Lock V10 API.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: API Reference
+
+<%= include('../../../_includes/_version_warning_lock') %>
 
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
@@ -20,7 +29,7 @@ Lock has many methods, features, and configurable options. This reference is des
 new Auth0Lock(clientID, domain, options)
 ```
 
-Initializes a new instance of `Auth0Lock` configured with your client's `clientID` and your account's `domain` from your [Auth0](${manage_url}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${manage_url}/#/applications).
+Initializes a new instance of `Auth0Lock` configured with your application's `clientID` and your account's `domain` from your [Auth0](${manage_url}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${manage_url}/#/applications).
 
 - **clientId {String}**: Required parameter. Your application's _clientId_ in Auth0.
 - **domain {String}**: Required parameter. Your Auth0 _domain_. Usually _your-account.auth0.com_.

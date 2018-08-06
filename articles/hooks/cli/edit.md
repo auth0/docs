@@ -1,9 +1,14 @@
 ---
 description: How to edit Hooks using the Auth0 Command-Line Interfance
 beta: true
+topics:
+    - hooks
+    - cli
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
-# Edit Existing Hooks Using the Auth0 Command-Line Interface
+# Edit Existing Hooks
 
 ::: note
 All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
@@ -48,7 +53,3 @@ If you created your Hook early on during the beta testing period, your Webtask E
 If you [provisioned a secret to your Hook](/hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 
   ![Webtask Editor Secrets pane](/media/articles/hooks/webtask-editor-secrets.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/cli"]
-}) %>

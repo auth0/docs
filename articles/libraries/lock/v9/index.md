@@ -3,10 +3,18 @@ section: libraries
 description: Lock V9 documentation
 title: Lock 9 for Web
 toc: true
+topics:
+  - libraries
+  - lock
+contentType:
+  - index
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock 9 for Web
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 

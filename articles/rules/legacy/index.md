@@ -1,6 +1,14 @@
 ---
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
+topics:
+  - rules
+  - extensibility
+contentType:
+  - reference
+  - how-to
+useCase:
+  - extensibility-rules
 ---
 
 # Rules
@@ -9,7 +17,7 @@ toc: true
 This document covers an outdated version of the Auth0 authentication pipeline and the way rules can be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
+**Rules** are functions written in JavaScript that are executed when a user authenticates to your application. They run once the authentication process is complete and you can use them to customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
 
 ![Rules Flow](/media/articles/rules/flow.png)
 
@@ -33,7 +41,7 @@ Among many possibilities, Rules can be used to:
 
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 
@@ -275,7 +283,7 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
 
-For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
+For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/).
 
 ## Read more
 

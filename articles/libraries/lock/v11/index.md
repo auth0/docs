@@ -4,10 +4,20 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - index
+useCase:
+  - add-login
 ---
 # Lock v11 for Web
 
-Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration) and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
+Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Lock Installation
 
@@ -55,7 +65,9 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
-Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+<%= include('../../../_includes/_embedded_login_warning') %>
+
+Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
@@ -65,7 +77,7 @@ Make sure you read about the [limitations of cross-origin authentication](/cross
 
 ### 1. Initializing Lock
 
-First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 application, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
 
 ```js
 // Initializing our Auth0Lock
@@ -75,7 +87,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
 Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
 
@@ -149,7 +161,7 @@ var passwordlessOptions = {
 ```
 
 ::: note
-Remember to enable the passwordless connection of your choice in the [Dashboard](${manage_url}) under **Connections -> Passwordless**, and then to enable it for your client, that way when Lock tries to use it, it is already set up and linked to the client.
+Remember to enable the passwordless connection of your choice in the [Dashboard](${manage_url}) under **Connections -> Passwordless**, and then to enable it for your application, that way when Lock tries to use it, it is already set up and linked to the application.
 :::
 
 If you choose to use `email`, you have one more option to select - whether you wish your users to receive a code to input, or a "magic link" to use. This is done via the `passwordlessMethod` option, which takes values of `code` or `link`.
@@ -166,7 +178,14 @@ var passwordlessOptions = {
 ```js
 var passwordlessOptions = {
   allowedConnections: ['email'],
-  passwordlessMethod: 'code'
+  passwordlessMethod: 'code',
+  auth: {
+    redirectUrl: 'http://localhost:3000/callback',   
+    responseType: 'token id_token',
+    params: {
+      scope: 'openid email'               
+    }          
+  }
 }
 
 var lockPasswordless = new Auth0LockPasswordless(
@@ -175,6 +194,10 @@ var lockPasswordless = new Auth0LockPasswordless(
  passwordlessOptions
 );
 ```
+
+<%= include('../../_includes/_embedded_sso') %>
+
+<%= include('../../../_includes/_co_authenticate_errors', { library : 'Lock v11'}) %>
 
 ## Browser Compatibility
 

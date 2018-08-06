@@ -1,5 +1,10 @@
 ---
 description: Auth0 recommends you setup a fake SMTP server while in development or testing.
+topics:
+  - email
+  - smtp
+contentType: how-to
+useCase: customize-emails
 ---
 
 # Set Up a Test SMTP Provider

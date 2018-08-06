@@ -7,6 +7,14 @@ alias:
   - pingfederate
 seo_alias: ping-federate
 description: Create a connection between a PingFederate Server and Auth0.
+topics:
+    - connections
+    - enterprise
+    - pingfederate
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your PingFederate Server to Auth0

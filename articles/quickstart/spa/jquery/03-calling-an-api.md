@@ -1,25 +1,27 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - jquery
+  - api
+github:
+  path: 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope in `auth0.WebAuth`
+## Configure your Application
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`. Add your scopes to the `scope` key. 
 
@@ -39,13 +41,13 @@ var webAuth = new auth0.WebAuth({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-To attach the user's access token to HTTP calls as an `Authorization` header, add the header as an option to your requests.
+To attach the user's Access Token to HTTP calls as an `Authorization` header, add the header as an option to your requests.
 
 ::: note
 We recommend you implement a custom function that adds the header automatically. 
 :::
 
-Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's access token in local storage. To secure the request, attach the access token as the `Authorization` header.
+Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If you want to secure the request, you can do it if there is a user's Access Token in local storage. To secure the request, attach the Access Token as the `Authorization` header.
 
 ```js
 // app.js

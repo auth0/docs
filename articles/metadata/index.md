@@ -2,6 +2,14 @@
 description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
 crews: crew-2
 toc: true
+topics:
+  - metadata
+contentType:
+  - reference
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
 # Metadata
 
@@ -31,16 +39,16 @@ When you use the [Authentication API](/api/authentication), you can use the [Sig
 For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 :::note
-You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID token](/rules#copy-user-metadata-to-id-token).
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID Token](/rules#copy-user-metadata-to-id-token).
 :::
 
 You can use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
 
 | **Endpoint** | **Description** |
 |--|--|
-| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/search#users-by-id). |
-| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/search#users-by-email).|
-| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
+| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/search/best-practices#users-by-id). |
+| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/search/best-practices#users-by-email).|
+| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search/best-practices#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
 | [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users).|
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
 
@@ -203,6 +211,38 @@ lock.getUserInfo(accessToken, function(error, profile) {
 ::: note
 For details on how to use Lock to authenticate users and access their profile information, check out the [Lock documentation](/libraries/lock).
 :::
+
+## Metadata and Custom Databases
+
+If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
+
+For example, you would *not* use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+Instead, you would use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "metadata": {
+        "plan": "full"
+    }
+}
+```
 
 ## Keep Reading
 

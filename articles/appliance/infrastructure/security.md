@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about security
+topics:
+    - appliance
+    - infrastructure
+    - security
+contentType: reference
+useCase: appliance
+applianceId: appliance40
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Security and Access
@@ -9,7 +16,7 @@ description: PSaaS Appliance infrastructure information about security
 
  ## SSL Certificates
 
-You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/appliance/webtask/dedicated-domains). 
+You need to create and install a unique SSL certificate for each PSaaS Appliance (such as your production cluster, your development node, or your QA environment). You need additional certificates if your environments require [extensions](/extensions) or you use [custom domains](/appliance/custom-domains). If you are using extensions, please see [Webtask with Dedicated Domains](/appliance/webtasks/dedicated-domains). 
 
  ::: note
    If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
@@ -51,9 +58,9 @@ If you are behind a transparent proxy, you will need to:
 * obtain certificate(s) for your proxy created by a public certificate authority.
 * add an exception so that the PSaaS Appliance instance(s) may get through the proxy unauthenticated.
 
-## HTTPS
+## HTTPS or TLS
 
-Please ensure that your network is configured such that the PSaaS Appliance exposes HTTPS to end users only.
+Users must connect to the PSaaS Appliance using secure protocols (HTTPS or TLS). Depending on your network design, you could terminate the Secure Channel at the load balancer or at the PSaaS Appliance. In both cases your SSL/TLS certificate must be locally installed on the PSaaS Appliance.
 
 ## SMTP
 

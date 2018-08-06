@@ -1,22 +1,27 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
+topics:
+  - integrations
+  - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Connecting Provider Hosted Apps to SharePoint Online
 
-Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to call SharePoint APIs.
+Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an Access Token you can the use to call SharePoint APIs.
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
-## 1. Register your client in Auth0
+## 1. Register your application in Auth0
 
-Just register a new client in Auth0 as you would normally do: __Clients > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
+Just register a new application in Auth0 as you would normally do: __Applications > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
 
-## 2. Create a Package for your client
+## 2. Create a package for your application
 
-You need to obtain a __Client ID__ and a __Client Secret__ for your client. There are many ways of registering your client depending on the expected usage.
+You need to obtain a __Client ID__ and a __Client Secret__ for your application. There are many ways of registering your application depending on the expected usage.
 
 ::: note
-[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your client in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
+[This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your application in SharePoint. This step in the tutorial will use the simplest form: using self-registration in a specific tenant (yours).
 :::
 
 ### Open SharePoint Online
@@ -71,12 +76,12 @@ You will need:
 * `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (such as when pressing the 'Try' button on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
 
 
-Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the access token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
+Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the Access Token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
 
 ![](/media/articles/integrations/sharepoint-apps/8Xp6x.png)
 
 ::: note
-Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (such as lists).
+Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host`, and `site`. These will allow you to call back SharePoint APIs (such as lists).
 :::
 
 ```text

@@ -2,6 +2,14 @@
 section: libraries
 description: Details about Authentication Modes with Lock v11.
 toc: true
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
 ---
 # Lock Authentication Modes
 

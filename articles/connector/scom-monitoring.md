@@ -1,5 +1,14 @@
 ---
 description: How to monitor the AD/LDAP Connector with System Center Operations Manager.
+topics:
+  - connector
+  - ad/ldap
+  - scom
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Monitoring the AD/LDAP Connector with System Center Operations Manager

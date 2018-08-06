@@ -1,5 +1,12 @@
 ---
-  description: How to use Home Realm Discovery with SAML
+description: How to use Home Realm Discovery with SAML
+topics:
+  - saml
+  - home-realm-discovery
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Select from Multiple Identity Providers

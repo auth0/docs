@@ -2,6 +2,15 @@
 url: /appliance/geo-ha
 section: appliance
 description: Descriptions of Appliance Geo HA
+topics:
+    - appliance
+    - geo-ha
+    - disaster-recovery
+contentType: 
+    - index
+    - reference
+useCase: appliance
+applianceId: appliance30
 ---
 
 # Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)
@@ -25,15 +34,19 @@ The standard configuration is a stretched cluster that consists of the following
 
 The standby data center instances possess the same PSaaS Appliance configuration as the primary data center instances, and continuous synchronization ensure that the data on the primary and standby data centers mirror each other. The GEOHA stretched cluster should be in the same provider (all nodes in AWS or all nodes in Azure or all nodes on-prem).
 
-The arbiter does not store data or execute application logic, but acts as a witness between the primary and standby data centers. By independently verifying if a data center is down or not, it prevents both from becoming active (such a scenario is known as the "split-brain" condition).
-
 ::: note
   Ports 27017 and 7777 must be open between all instances in the cluster.
 :::
 
 ### Arbiter
 
-The Arbiter node acts as an independent witness to the primary and secondary data centers. Since it isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
+The Arbiter node acts as an independent witness to the primary and secondary data centers.
+
+The Arbiter does not store data or execute application logic, but acts as a witness between the primary and standby data centers. By independently verifying if a data center is down or not, it prevents both from becoming active (such a scenario is known as the "split-brain" condition).
+
+Since the Arbiter isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
+
+You must enable outbound [internet connectivity](/appliance/infrastructure/network#internet-connectivity) from the Arbiter for system updates.
 
 ### Global Load Balancer/DNS Failover Configuration
 

@@ -1,8 +1,12 @@
 ---
 title: Configure Custom Domains with Self-Managed Certificates
 description: How to create custom domains with self-managed certificates
-beta: true
 toc: true
+topics:
+  - custom-domains
+  - certificates
+contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains with Self-Managed Certificates
 
@@ -12,10 +16,6 @@ Choose this option if:
 
 * You want to have more control of your certificates (such as choosing your own CA or certificate expiration)
 * You want to enable additional monitoring over your API calls to Auth0
-
-::: warning
-Custom Domains is a beta feature available only for public-cloud tenants [with their environment tag set as **Development**](/dev-lifecycle/setting-up-env).
-:::
 
 ## Prerequisites
 

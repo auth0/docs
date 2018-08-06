@@ -2,6 +2,14 @@
 description: If you are new to Auth0 start here for a list of resources that can get you started
 title: Getting Started
 classes: topic-page
+topics:
+  - auth0-101
+contentType:
+  - concept
+  - index
+useCase:
+  - strategize
+  - get-started
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
@@ -41,9 +49,5 @@ Let's get started!
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/deployment-models">Deployment Models</a>
     <p>Read about the four different deployment models that Auth0 offers.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/videos">Developer Videos</a>
-    <p>A selection of videos showing developers how to perform common tasks with Auth0.</p>
   </li>
 </ul>

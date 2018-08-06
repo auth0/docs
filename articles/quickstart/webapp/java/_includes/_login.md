@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 
 The Login project sample has the following structure:
 
@@ -35,10 +35,9 @@ The project contains also four servlets:
 
 Lastly, the project defines a helper class: the `AuthenticationControllerProvider.java` which will be in charge of creating new instances of `AuthenticationController`. Because this controller is very simple and doesn't keep any context it can be safely reused. You can also choose to create a new one every time it's needed.
 
+## Trigger Authentication
 
-## Authenticate the User
-
-Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our client properties and create a new instance of this controller:
+Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our application properties and create a new instance of this controller:
 
 ```java
 String domain = getServletConfig().getServletContext().getInitParameter("com.auth0.domain");
@@ -84,7 +83,6 @@ public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExce
 It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
 
-
 ## Display the Home Page
 
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeServlet` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
@@ -110,7 +108,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean appRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 

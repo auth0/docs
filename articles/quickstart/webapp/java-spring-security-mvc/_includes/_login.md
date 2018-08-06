@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 The Login project sample has the following structure:
 
 ```text
@@ -40,7 +40,7 @@ The project contains also five Controllers:
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
 
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations.
 
@@ -88,7 +88,7 @@ public AuthenticationController authenticationController() throws UnsupportedEnc
 }
 ```
 
-To authenticate the users you will redirect them to the **Auth0 Hosted Login Page** which uses the best version available of [Lock](/lock). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+To authenticate the users you will redirect them to the login page which uses [Lock](/libraries/lock/v10). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -101,7 +101,7 @@ protected String login(final HttpServletRequest req) {
 }
 ```
 
-After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *id_token* and set it to the `SecurityContextHolder`. You can modify this class to accept *access_token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
+After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *ID Token* and set it to the `SecurityContextHolder`. You can modify this class to accept an *Access Token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
 
 ```java
 @RequestMapping(value = "/callback", method = RequestMethod.GET)
@@ -142,7 +142,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean bootRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the framework to the Auth0 Hosted Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the framework to the login page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 

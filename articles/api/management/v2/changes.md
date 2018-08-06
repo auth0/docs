@@ -3,6 +3,11 @@ description: Describes the major differences between Auth0's Management API v1 a
 section: apis
 crews: crew-2
 toc: true
+topics:
+    - management-api
+    - apis
+contentType: reference
+useCase: invoke-api
 ---
 # Management API v1 vs v2
 
@@ -11,13 +16,13 @@ This document describes the major differences between Auth0's Management API v1 
 ## tl;dr
 
 * v2 uses JWTs instead of opaque tokens.
-* v2 allows you to send an `id_token` to perform operations on the user to which the `id_token` refers.
+* v2 allows you to send an ID Token to perform operations on the user to which the ID Token refers.
 * v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
 * Fewer endpoints on existing features make development easier.
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
 * New formats for `user_id` (available as `v2_id` with the "usr\_" prefix) and `clientID` (with the "cli\_" prefix) recognize the entity type based on its id.
 * Improved input validation and error messages.
-* Only one connection is exposed per tenant, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
+* Only one connection is exposed per tenant, instead of one per application. To enable/disable a connection for an application, use the `enabled_clients` property.
 * When updating field values, v2 removes fields with `null` values, instead of storing them with the value `null`
 
 ### User endpoints
@@ -49,7 +54,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
 
 
-### Client endpoints
+### Application endpoints
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
@@ -90,36 +95,23 @@ Logs endpoints have not been implemented in Management API v2. Logs must first b
 
 ## Authentication mechanism
 
-Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
+Auth0's API v1 requires sending an Access Token obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
-As explained in [Using JSON Web Tokens as API Keys](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/), Auth0's API v2 allows you to issue an API JWT of specific scope, referred to below as `api_jwt_token`. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer {api_jwt_token}`.
-
-### Scopes
+Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
 To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 
-### The id_token and special scopes
-
-An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
-```
-{
-  "iss": "https://contoso.auth0.com/",
-  "sub": "google-oauth2|200076635456998357447",
-  "aud": "rs3sdOssVWaZlg0PzyPtIgWFCzcurlm5",
-  "exp": 1418452802,
-  "iat": 1418416802
-}
-```
-
-When this token is sent to the API in the `Authorization` header (`Authorization: Bearer {id_token}`), the following scopes will be granted automatically:
+There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
 
 * `read:current_user`
 * `update:current_user_identities`
 * `create:current_user_metadata`
 * `update:current_user_metadata`
 * `delete:current_user_metadata`
+* `create:current_user_device_credentials`
+* `delete:current_user_device_credentials`
 
-Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
+So, for example, if the Access Token contains the scope `update:current_user_metadata` then it can be used to update the metadata of the currently logged-in user. If, on the other hand, it contains the scope `update:users_app_metadata` it can be used to update the metadata of any user.
 
 ## User metadata
 
@@ -181,11 +173,11 @@ User data previously stored under `metadata` will be available under `app_metada
 
 ## Connections
 
-For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's clients.
+For every tenant-created, named connection, Management API v1 exposes an individual connection for each of the tenant's applications.
 
-However, given a named connection, Management API v2 exposes only one connection per tenant. Management of connection-enabled clients is performed using the `enabled_clients` property.
+However, given a named connection, Management API v2 exposes only one connection per tenant. Management of connection-enabled applications is performed using the `enabled_clients` property.
 
-For example, to create a connection that is enabled for clients `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV`:
+For example, to create a connection that is enabled for applications `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV`:
 
 ```text
 curl -H "Authorization: Bearer {API_TOKEN}" -X POST -H "Content-Type: application/json"

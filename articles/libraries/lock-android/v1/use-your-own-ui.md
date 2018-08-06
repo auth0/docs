@@ -1,6 +1,18 @@
 ---
 title: Lock Android v1 Customize Your UI
 description: Customize the UI of Lock in your App
+topics:
+  - libraries
+  - lock
+  - android
+  - lock-ui
+contentType:
+  - how-to
+  - concept
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Customize Your UI
 
@@ -134,8 +146,8 @@ public void onEvent(AuthenticationEvent event) {
 ## Social Authentication
 
 ::: warning
-This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature.
-We recommend using browser-based flows, as explained in [Authentication with Auth0 Hosted Login Page](/libraries/auth0-android/v2#authentication-with-auth0-hosted-login-page).
+This feature relies on a deprecated grant type. Applications created after June 8th 2017 won't be able to use this feature.
+We recommend using browser-based flows, as explained in [Authentication via Universal Login](/libraries/auth0-android#authentication-via-universal-login).
 :::
 
 Include the following libraries in your `build.gradle`:

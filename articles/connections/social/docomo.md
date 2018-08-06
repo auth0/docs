@@ -5,6 +5,14 @@ image: /media/connections/daccount.png
 seo_alias: docomo
 description: How to obtain a Client ID and Client Secret for Docomo dAccount.
 toc: true
+topics:
+  - connections
+  - social
+  - docomo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Docomo dAccount
@@ -27,7 +35,7 @@ Fill out the form by providing the following information:
 --------|------------
 Service name (サービス名) | Your application's name.
 Service overview (サービス概要) | A brief description of your application.
-Access token lifetime (アクセストークン有効期間 秒) | The lifetime of your access token in seconds.
+Access Token lifetime (アクセストークン有効期間 秒) | The lifetime of your Access Token in seconds.
 Redirect URI (リダイレクトURI) | The callback url for your application (`https://${account.namespace}/login/callback`)
 Available scopes (利用可能スコープ) | The scopes for the information you are requesting for your app.
 
@@ -47,7 +55,7 @@ This page will contain your **Client ID (クライアントID)** and **Client Se
 
 ## 3. Setup the Connection to Auth0
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the **NTT Docomo** connection.
 
@@ -55,7 +63,7 @@ Enter your **Client ID** and **Client ID** from the dAccount Connect service you
 
 ![Paste your Client ID and Client Secret](/media/articles/connections/social/docomo/enter-keys.png)
 
-Next on the **Clients** tab, enable which of your clients will be able to use this connection. After enabling the clients, click **SAVE**.
+Next on the **Clients** tab, enable which of your applications will be able to use this connection. After enabling the applications, click **SAVE**.
 
 ## 4. Test the Connection
 

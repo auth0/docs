@@ -1,31 +1,41 @@
 ---
-title: Call APIs from Highly Trusted Clients
-description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
+title: Call APIs from Highly Trusted Applications
+description: Describes how to call APIs from highly trusted applications using the Resource Owner Password Grant.
+topics:
+  - implicit
+  - api-authorization
+  - resource-owner-password
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
-# Call APIs from Highly Trusted Clients
+# Call APIs from Highly Trusted Applications
 
 <%= include('../../_includes/_pipeline2') %>
 
-Highly trusted applications can use this flow to access APIs. In this case, the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0. 
+Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
-It is imperative that the client is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead. 
+You should use this flow **only if** the following apply:
+- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
 
 ::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
 ## Overview
 
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token, and optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an Access Token, and optionally a Refresh Token. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
 
-This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived access token or refresh token.
+This grant type can eliminate the need for the application to store the user credentials for future use, by exchanging the credentials with a long-lived Access Token or Refresh Token.
 
 ![Resource Owner Password Grant](/media/articles/api-auth/password-grant.png)
 
- 1. The end user enters the credentials into the client application.
- 1. The client forwards the credentials to Auth0.
- 1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
- 1. The client can use the `access_token` to call the API on behalf of the end user.
+ 1. The end user enters the credentials into the application.
+ 1. The application forwards the credentials to Auth0.
+ 1. Auth0 validates the information and returns an Access Token, and optionally a Refresh Token.
+ 1. The application can use the Access Token to call the API on behalf of the end user.
 
 ::: note
 In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
@@ -45,7 +55,7 @@ For more information on how to implement this extension grant refer to [Executin
 
 ## Scopes
 
-Due to the implied trust in these grants (a user providing his or her password to a client), the `access_token` returned will include all of the available scopes defined for the audience API. A client can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
+Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
 ## Rules
 
@@ -66,6 +76,6 @@ For details on how to implement multifactor authentication, refer to [Multifacto
 ::: next-steps
 * [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 * [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
-* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 * [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)
 :::

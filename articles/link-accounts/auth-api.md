@@ -1,11 +1,19 @@
 ---
 description: How to link accounts using the Authentication API (Deprecated)
+topics:
+  - authentication-api
+  - account-linking
+contentType:
+  - reference
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Link Accounts using Authentication API (Deprecated)
 
 ::: warning
-This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
+This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
 :::
 
 ## Link through Auth0 Login Widget
@@ -71,7 +79,7 @@ The SDK for your platform should make the `access_token` available in simplest w
   var strategy = new Auth0Strategy({
      domain:       '${account.namespace}',
      clientID:     '${account.clientId}',
-     clientSecret: '${account.clientSecret}',
+     clientSecret: 'YOUR_CLIENT_SECRET',
      callbackURL:  '${account.callback}',
      passReqToCallback: true //need this to save the accessToken to session
     },

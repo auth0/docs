@@ -1,5 +1,13 @@
 ---
 description: How to setup Microsoft Office 365 custom provisioning.
+topics:
+  - integrations
+  - microsoft
+  - office-365
+contentType:
+  - how-to
+  - concept
+useCase: integrate-saas-sso
 ---
 
 # Office 365 Custom Provisioning
@@ -39,7 +47,7 @@ The following rule shows the provisioning process:
 
  1. If the user comes from the AD connection, skip the provisioning process (because this will be handled by DirSync)
  2. If the user was already provisioned in Azure AD, just continue with the login transaction.
- 3. Get an access token of the Graph API using the Azure AD Client ID and Key
+ 3. Get an Access Token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
  5. Assign a license to the user.
  6. Continue with the login transaction.
@@ -54,7 +62,7 @@ In the code you'll also see that the rule will wait about 15 seconds after the u
 function (user, context, callback) {
   // Require the Node.js packages that we are going to use.
   // Check this website for a complete list of the packages available:
-  // https://tehsis.github.io/webtaskio-canirequire/
+  // https://auth0-extensions.github.io/canirequire/
   var rp = require('request-promise');
   var uuidv4 = require('uuid');
 
@@ -62,7 +70,7 @@ function (user, context, callback) {
   var AUTH0_AD_CONNECTION = 'FabrikamAD';
   // The client_id of your Office 365 SSO integration
   // You can get it from the URL when editing the SSO integration,
-  // it will look like 
+  // it will look like
   // https://manage.auth0.com/#/externalapps/{the_client_id}/settings
   var AUTH0_OFFICE365_CLIENT_ID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
   // The main domain of our company.
@@ -119,7 +127,7 @@ function (user, context, callback) {
     .then(connectWithUser)
     .catch(callback);
 
-  // Requests an access_token to interact with Windows Graph API.
+  // Requests an Access Token to interact with Windows Graph API.
   function getAzureADToken() {
     var options = {
       method: 'POST',
@@ -139,7 +147,7 @@ function (user, context, callback) {
     return rp(options);
   }
 
-  // Gets the access_token requested above and assembles a new request
+  // Gets the Access Token requested above and assembles a new request
   // to provision the new Microsoft AD user.
   function createAzureADUser(response) {
     token = response.access_token;
@@ -267,7 +275,7 @@ https://${account.namespace}/login?client=AUTH0_OFFICE365_CLIENT_ID&protocol=wsf
 ```
 
 ::: panel AUTH0_OFFICE365_CLIENT_ID
-The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see a URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
 :::
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.

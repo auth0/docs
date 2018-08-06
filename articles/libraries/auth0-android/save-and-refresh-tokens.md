@@ -2,10 +2,16 @@
 section: libraries
 description: Keeping your user logged in with Auth0.Android
 toc: true
+topics:
+  - libraries
+  - android
+  - tokens
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Saving and Renewing Tokens
 
-When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new user token, without forcing the user to perform authentication again.
+When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new user token, without forcing the user to perform authentication again.
 
 ## Credentials Manager
 

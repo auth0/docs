@@ -1,18 +1,17 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic access token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to a jQuery application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - jquery
+  - tokens
+github:
+  path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal
@@ -43,7 +42,7 @@ You can define any timing mechanism you want. You can choose any library that ha
 
 To the `app.js` file, add a variable called `tokenRenewalTimeout`. The variable refers to the `setTimeout` call used to schedule the renewal. Next, add a function called `scheduleRenewal` to set up the time when authentication is silently renewed.
 
-The function subtracts the current time from the access token's expiry time and calculates delay. 
+The function subtracts the current time from the Access Token's expiry time and calculates delay. 
 
 The `setTimeout` call uses the calculated delay and makes a call to `renewToken`. 
 
@@ -72,7 +71,7 @@ You can now include a call to the `scheduleRenewal` function in the `setSession`
 
 // ...
 function setSession(authResult) {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   var expiresAt = JSON.stringify(
     authResult.expiresIn * 1000 + new Date().getTime()
   );

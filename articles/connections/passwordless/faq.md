@@ -1,3 +1,11 @@
+---
+title: Passwordless FAQ
+topics:
+    - connections
+    - passwordless
+contentType: reference
+useCase: customize-connections
+---
 # Passwordless FAQ
 
 ## General Questions
@@ -20,7 +28,7 @@ Websites and web applications are trending toward longer session expirations so 
 
 ### Q: Is it difficult for users to become accustomed to passwordless login?
 
-**A:** Passwordless login is so simple that most users will immediately get it. The user experience is nearly effortless, especially with *magic links* in emails or with Apple *Touch ID*. For most end-users, a passwordless login is easier than recalling a hard-to-remember password.
+**A:** Passwordless login is so simple that most users will immediately get it. The user experience is nearly effortless, especially with *magic links* in emails. For most end-users, a passwordless login is easier than recalling a hard-to-remember password.
 
 ### Q: How is passwordless login different from a social login?
 
@@ -80,27 +88,9 @@ Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, an
 
 ### Q: How can I use Passwordless as another factor in multi-factor authentication?
 
-**A:** While Auth0’s passwordless connections (including SMS, email, and Apple *Touch ID*) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](/mfa).
+**A:** While Auth0’s passwordless connections (including SMS and email) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](/mfa).
 
 In future versions of passwordless connections, supported MFA providers will be built-in.
-
-### Q: What are the advantages of Apple *Touch ID* for passwordless authentication?
-
-**A:** Apple’s *Touch ID* fingerprint identity system is an easy way for users to identify themselves to their iPhone or iPad equipped with a fingerprint scanner. To the user, the application unlocks with the touch of a finger.
-
-After a one-time enrollment process, each time the user logs into your app, the *Touch ID* passwordless library uses the matched fingerprint to retrieve a private key saved in the IOS key store. *Touch ID* then generates and signs a JWT with that private key and sends it to Auth0. Auth0 validates the JWT with the user’s saved public key, and returns a token authenticating the user.
-
-The disadvantage of *Touch ID* as a means of authenticating users is that it only works on native IOS apps installed on later-model iPhones and iPads. It does not work on other devices, like Android, nor can it protect a website or web application. Also, a backup password authentication mechanism must be available to handle new or lost devices. Auth0 makes it simple to link accounts so that you can offer *Touch ID* on Apple devices, and SMS or email-based passwordless logins for other mobile platforms and the web.
-
-Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very simple UI that is easily styled to your brand identity. You can implement passwordless login for your IOS app with just a few lines of code.
-
-### Q: Does the Passwordless Lock Widget support Apple *Touch ID*?
-
-**A:** No. For *Touch ID* passwordless logins, the standard Auth0 IOS lock widget provides all the same benefits. The web-based passwordless lock widget doesn’t support *Touch ID*.
-
-### Q: Can I combine email or SMS Passwordless authentication with Apple *Touch ID*?
-
-**A:** Instead of using a backup password to handle new or lost devices, you can use the email or SMS passwordless login and link the two user identities through Auth0’s account linking feature. Your application will recognize the same authenticated user whether they log in through *Touch ID*, or through email or SMS.
 
 ### Q: What happens if a user changes email or phone number?
 
@@ -118,7 +108,7 @@ Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very sim
 
 ### Q: How does the system prevent an intercepted one-time code or link from being used to establish an unauthorized session?
 
-**A:** Think of an intercepted code or link as similar to a compromised email account or stolen phone. Once the link or code is in the wrong hands, it can be used to log in as that user. But codes and links have a short time-to-live (typically 5 minutes) and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a brief window. Security experts strongly recommend using encrypted end-to-end communication between email servers and clients to prevent the easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. Implementation of multi-factor *step-up* authentication for sensitive data or actions will reduce this risk as well.
+**A:** Think of an intercepted code or link as similar to a compromised email account or stolen phone. Once the link or code is in the wrong hands, it can be used to log in as that user. But codes and links have a short time-to-live (typically 5 minutes) and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a brief window. Security experts strongly recommend using encrypted end-to-end communication between email servers and applications to prevent the easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. Implementation of multi-factor *step-up* authentication for sensitive data or actions will reduce this risk as well.
 
 ### Q: How could I use Passwordless sign in with *step-up* multi-factor authentication to improve security for more sensitive data or actions?
 
@@ -141,3 +131,7 @@ Since you are using Auth0 passwordless logins, there are no passwords to phish, 
 ### Q: How does the system protect against brute-force attacks (code guessing)?
 
 **A:** The 6-digit numeric codes are one-time use and expire in a short time (5 minutes by default). In addition, Auth0 includes rate-limiting and IP address blocking after several failed attempts. Accordingly, it is impractical to brute-force guess these codes. The application owner will be notified by email of any attempt and can unblock the IP address for a legitimate user.
+
+### Q: Our company uses an email security system that scans URLs and invalidates the token. What can we do?
+
+**A:** The only solution to this is to ask your users to whitelist the passwordless emails.

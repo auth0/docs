@@ -1,6 +1,15 @@
 ---
 section: libraries
 description: How to select different connection types for multiple login options with Lock V11.
+topics:
+  - libraries
+  - lock
+  - connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - customize-connections
 ---
 # Selecting the Connection in Lock
 

@@ -18,7 +18,6 @@ const apiNames = [
   'php',
   'python',
   'rails',
-  'relay',
   'ruby',
   'salesforce-sandbox',
   'salesforce',
@@ -79,7 +78,7 @@ module.exports = [
   },
   {
     from: '/firebaseapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/ionic-tutorial',
@@ -167,15 +166,15 @@ module.exports = [
   },
   {
     from: '/salesforcesandboxapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/salesforceapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/sapapi-tutorial',
-    to: '/clients/addons'
+    to: '/applications/addons'
   },
   {
     from: '/servicestack-tutorial',
@@ -479,6 +478,49 @@ module.exports = [
     to: '/connections/passwordless/ios-sms-objc'
   },
 
+/* --- Clients --- */
+
+  {
+    from: '/clients',
+    to: '/applications'
+  },
+  {
+    from: '/clients/addons',
+    to: '/applications/addons'
+  },
+  {
+    from: '/clients/client-grant-types',
+    to: '/applications/application-grant-types'
+  },
+  {
+    from: '/clients/client-types',
+    to: '/applications/application-types'
+  },
+  {
+    from: '/clients/connections',
+    to: '/applications/connections'
+  },
+  {
+    from: '/clients/enable-android-app-links',
+    to: '/applications/enable-android-app-links'
+  },
+  {
+    from: '/clients/enable-universal-links',
+    to: '/applications/enable-universal-links'
+  },
+  {
+    from: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-application-secret',
+    to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/clients/client-settings',
+    to: '/applications/application-settings'
+  },
+
   /* --- Scenarios to Tutorials --- */
 
   {
@@ -503,10 +545,6 @@ module.exports = [
   {
     from: ['/scenarios-mqtt', '/scenarios/mqtt'],
     to: '/tutorials/authenticating-devices-using-mqtt'
-  },
-  {
-    from: '/scenarios/multi-tenant-saas-azure-ad',
-    to: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory'
   },
   {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
@@ -759,7 +797,7 @@ module.exports = [
   },
   {
     from: '/tutorials/setup-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
@@ -879,8 +917,8 @@ module.exports = [
     to: '/dev-centers/java'
   },
   {
-    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol'],
-    to: '/protocols/oauth2/oauth-web-protocol'
+    from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
+    to: '/application-auth/current/server-side-web'
   },
   {
     from: '/oauth-implicit-protocol',
@@ -893,10 +931,6 @@ module.exports = [
   {
     from: '/metadata/apiv2',
     to: '/metadata/management-api'
-  },
-  {
-    from: '/applications',
-    to: '/clients'
   },
   {
     from: '/saml-apps',
@@ -1115,22 +1149,6 @@ module.exports = [
     to: '/api-auth/tutorials/implicit-grant'
   },
   {
-    from: '/connections/passwordless/spa-sms',
-    to: '/connections/passwordless/spa-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/spa-email-code',
-    to: '/connections/passwordless/spa-email-code/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-sms',
-    to: '/connections/passwordless/regular-web-app-sms/v8'
-  },
-  {
-    from: '/connections/passwordless/regular-web-app-email-code',
-    to: '/connections/passwordless/regular-web-app-email-code/v8'
-  },
-  {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
   },
@@ -1211,10 +1229,6 @@ module.exports = [
     to: '/quickstart/backend/rails'
   },
   {
-    from: '/quickstart/backend/relay/00-getting-started',
-    to: '/quickstart/backend/relay'
-  },
-  {
     from: '/quickstart/backend/ruby/00-getting-started',
     to: '/quickstart/backend/ruby'
   },
@@ -1276,7 +1290,19 @@ module.exports = [
   },
   {
     from: '/tutorials/step-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication',
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-apis',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-apis'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps'
   },
   {
     from: '/quickstart/spa/angular2/00-login',
@@ -1427,10 +1453,6 @@ module.exports = [
     to: '/support/troubleshooting-with-har-files',
   },
   {
-    from: '/tutorials/custom-mfa-rules',
-    to: '/multifactor-authentication/custom-mfa-rules',
-  },
-  {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
   },
@@ -1451,10 +1473,6 @@ module.exports = [
     to: '/integrations/authenticating-devices-using-mqtt',
   },
   {
-    from: '/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory',
-    to: '/integrations/building-multi-tenant-saas-applications-with-azure-active-directory',
-  },
-  {
     from: '/tutorials/creating-users-in-the-management-portal',
     to: '/dashboard/creating-users-in-the-management-portal',
   },
@@ -1472,7 +1490,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/clients/how-to-update-client-secret',
+    to: '/applications/how-to-update-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1604,15 +1622,11 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/clients/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
     to: '/i18n'
-  },
-  {
-    from: '/multifactor-authentication/developer/step-up-with-acr',
-    to: '/multifactor-authentication/developer/step-up-authentication'
   },
   {
     from: '/users/bulk-importing-users-into-auth0',
@@ -1641,5 +1655,197 @@ module.exports = [
   {
     from: `/connections/grean/nemid`,
     to: `/connections/criipto/nemid`
-  }
+  },
+  {
+    from: '/sso/current/integrations',
+    to: '/integrations/sso'
+  },
+  {
+    from: '/sso/current/integrations/ad-rms',
+    to: '/integrations/sso/ad-rms'
+  },
+  {
+    from: '/sso/current/integrations/box',
+    to: '/integrations/sso/box'
+  },
+  {
+    from: '/sso/current/integrations/cloudbees',
+    to: '/integrations/sso/cloudbees'
+  },
+  {
+    from: '/sso/current/integrations/concur',
+    to: '/integrations/sso/concur'
+  },
+  {
+    from: '/sso/current/integrations/disqus',
+    to: '/integrations/sso/disqus'
+  },
+  {
+    from: '/sso/current/integrations/dropbox',
+    to: '/integrations/sso/dropbox'
+  },
+  {
+    from: '/sso/current/integrations/dynamics-crm',
+    to: '/integrations/sso/dynamics-crm'
+  },
+  {
+    from: '/sso/current/integrations/echosign',
+    to: '/integrations/sso/echosign'
+  },
+  {
+    from: '/sso/current/integrations/egnyte',
+    to: '/integrations/sso/egnyte'
+  },
+  {
+    from: '/sso/current/integrations/new-relic',
+    to: '/integrations/sso/new-relic'
+  },
+  {
+    from: '/sso/current/integrations/office-365',
+    to: '/integrations/sso/office-365'
+  },
+  {
+    from: '/sso/current/integrations/salesforce',
+    to: '/integrations/sso/salesforce'
+  },
+  {
+    from: '/sso/current/integrations/slack',
+    to: '/integrations/sso/slack'
+  },
+  {
+    from: '/sso/current/integrations/springcm',
+    to: '/integrations/sso/springcm'
+  },
+  {
+    from: '/sso/current/integrations/zendesk',
+    to: '/integrations/sso/zendesk'
+  },
+  {
+    from: '/sso/current/integrations/zoom',
+    to: '/integrations/sso/zoom'
+  },
+  {
+    from: '/guides/login/centralized-vs-embedded',
+    to: '/guides/login/universal-vs-embedded'
+  },
+  {
+    from: '/guides/login/migration-embedded-centralized',
+    to: '/guides/login/migration-embedded-universal'
+  },
+  {
+    from: '/api/management/v2/user-search',
+    to: '/users/search/v2'
+  },
+  {
+    from: '/api/management/v2/query-string-syntax',
+    to: '/users/search/v2/query-syntax'
+  },
+  {
+    from: '/api-auth/dynamic-application-registration',
+    to: '/api-auth/dynamic-client-registration'
+  },
+  {
+    from: '/videos/rules',
+    to: '/rules/current#video-using-rules'
+  },
+  {
+    from: `/guides/login/migration-embedded-centralized`,
+    to: `/guides/login/migration-embedded-universal`
+  },
+  {
+    from: `/link-accounts/auth-api`,
+    to: `/link-accounts`
+  },
+  {
+    from: '/videos/session-and-cookies',
+    to: '/security/store-tokens#understanding-sessions-and-cookies'
+  },
+  {
+    from: '/support/sla',
+    to: '/support/sld'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api',
+    to: '/architecture-scenarios/mobile-api'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api',
+    to: '/architecture-scenarios/server-api'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api',
+    to: '/architecture-scenarios/spa-api'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso',
+    to: '/architecture-scenarios/web-app-sso'
+  },
+  {
+    from: '/architecture-scenarios/application/web-saml',
+    to: '/architecture-scenarios/web-saml'
+  },
+  {
+    from: '/architecture-scenarios/business/b2b-b2e',
+    to: '/architecture-scenarios/b2b-b2e'
+  },,
+  {
+    from: '/architecture-scenarios/business/b2b',
+    to: '/architecture-scenarios/b2b'
+  },
+  {
+    from: '/architecture-scenarios/business/b2c',
+    to: '/architecture-scenarios/b2c'
+  },
+  {
+    from: '/architecture-scenarios/business/b2e',
+    to: '/architecture-scenarios/b2e'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+    to: '/architecture-scenarios/mobile-api/mobile-implementation-android'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/server-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/server-api/cron-implementation-python',
+    to: '/architecture-scenarios/server-api/cron-implementation-python'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
+    to: '/architecture-scenarios/spa-api/spa-implementation-angular2'
+  },
+  {
+    from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
+    to: '/architecture-scenarios/spa-api/api-implementation-nodejs'
+  },
+  {
+    from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
+    to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
+  },
+  {
+     from: '/applications/application-settings/non-interactive',
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/machine-to-machine',
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/native',
+     to: '/applications/native#settings'
+   },
+   {
+     from: '/applications/application-settings/regular-web-app',
+     to: '/applications/webapps#settings'
+   },
+   {
+     from: '/applications/application-settings/single-page-app',
+     to: '/applications/spa#settings'
+   }
 ];

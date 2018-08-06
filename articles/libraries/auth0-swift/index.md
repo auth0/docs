@@ -3,6 +3,13 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
+topics:
+  - libraries
+  - swift
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
 # Auth0.swift
 
@@ -68,7 +75,7 @@ You will need to add an `Auth0.plist` file, containing your Auth0 client id and 
 
 ### Web-based Auth (iOS Only)
 
-First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
 ```text
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
@@ -108,12 +115,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-#### Authenticate with Auth0 hosted login page
+#### Authenticate with Universal Login
 
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](/hosted-pages/login).
+The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [Universal Login](/hosted-pages/login).
 
 ::: note
-To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Client > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 ```swift
@@ -136,7 +143,7 @@ If you need help between the two types of login flows, refer to [Browser-Based v
 
 #### Authenticate with a specific Auth0 connection
 
-The `connection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the Hosted Login page, with all of the connections which are enabled for this client.
+The `connection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the login page, with all of the connections which are enabled for this application.
 
 ```swift
 Auth0

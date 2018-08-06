@@ -1,13 +1,22 @@
 ---
 description: This page details Auth0's Load Testing Policy.
+topics:
+    - auth0-policies
+    - load-testing
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Load Testing Policy
 
 Load testing against the Auth0 production cloud service is not permitted at any time, as stated in our [Terms of Service](https://auth0.com/terms).
 
-Customers who have purchased an enterprise support plan that includes load testing may request one load test (with up to 2 repeats) to conduct load testing against an Auth0 test instance.
+However, customers who have purchased an Enterprise subscription may request one load test (with up to 2 repeats) to conduct load testing against an Auth0 test instance. For load tests that require more than 100 RPS a separate environment will have to be created and it will have a different time schedule than normal load tests.
 
+Note that Auth0 reserves the right to reject the load test request, or ask for modifications to the load test plans.
 ## How to request
 
 * Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}).
@@ -30,7 +39,7 @@ The load testing request must include the following information:
 * The Auth0 tenant to be used during the test
 * The requested duration of the test (2 hour maximum)
 * The Auth0 features, such as rules, email, used during the test
-* The Auth0 API endpoints to be used
+* The Auth0 API methods and endpoints to be used, for example `GET /api/v2/clients`
 * The types of Auth0 connections involved in the test
 * Which Auth0 Rules, if any, will execute during the test
 * Which Custom DB, if any, will be used
@@ -50,15 +59,9 @@ Note that load testing will require customer to:
 * Establish a mechanism for testing that emails arrived
 
 ## Limitations
-Auth0 reserves the right to reject or request modifications to load test plans.
+Auth0 reserves the right to reject the load testing request, or ask for modifications to load test plans.
 
 A load testing approval will specify pre-arranged dates/times in which load testing can be performed.  All load testing must be limited to those pre-arranged dates/times. Load testing windows will be a maximum of 2 hours in duration. Failure to abide by this policy may result in temporary blocking of access to an tenant until the issue is remediated.
 
 ## Effectivity
-This policy is effective April 4, 2016
-
-
-
-
-
-
+This policy is effective April 4, 2016. It has been updated on July 27th, 2018.

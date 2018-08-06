@@ -4,6 +4,11 @@ classes: topic-page
 title: Hooks
 description: Working with Hooks
 beta: true
+topics:
+    - hooks
+contentType:
+  - index
+useCase: extensibility-hooks
 ---
 
 <div class="topic-page-header">
@@ -17,12 +22,6 @@ beta: true
 ## What are Hooks?
 
 When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
-
-### Hooks vs. Rules
-
-Hooks will eventually replace [Rules](/rules), the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
-
-If you created your Hook early on during the beta testing period, your Webtask Editor window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
 
 ## Work with Hooks
 

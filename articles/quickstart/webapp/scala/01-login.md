@@ -1,29 +1,29 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to add user login to a Scala Play application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - scala
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 00-Starter-Seed
 ---
+<%= include('../_includes/_getting_started', { library: 'Scala', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-scala-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Scala 2.11.7',
-    'Typesafe Activator 1.3.7',
-    'Play framework 2.4.6'
-  ]
-}) %>
+## Configure Scala to Use Auth0 
 
-<%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
-
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
 ```scala
-// controllers/Callback.scala
+// app/controllers/Callback.scala
+
 package controllers
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -113,7 +113,8 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
 In the `Application` controller add `login` action to log the user in.
 
 ```scala
-// controllers/Application.scala
+// app/controllers/Application.scala
+
 package controllers
 
 import javax.inject.Inject
@@ -162,7 +163,8 @@ class Application @Inject() (cache: CacheApi) extends Controller {
 In the `index` view add a link to `login` route.
 
 ```html
-<!-- views/index.scala.html -->
+<!-- app/views/index.scala.html -->
+
 <div class="login-box auth0-box before">
   <img src="https://i.cloudup.com/StzWWrY34s.png" />
   <h3>Auth0 Example</h3>
@@ -171,25 +173,20 @@ In the `index` view add a link to `login` route.
 </div>
 ```
 
-## Access User Information
+## Display User Information
 
 You can access the user information from the `cache`.
 
 ```scala
-// controllers/User.scala
+// app/controllers/User.scala
+
 package controllers
 
 import javax.inject.Inject
-import play.api._
 import play.api.mvc._
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import play.api.http.{MimeTypes, HeaderNames}
-import play.api.libs.ws.WS
-import play.api.mvc.{Results, Action, Controller}
+import play.api.mvc.{Action, Controller}
 import play.api.libs.json._
 import play.api.cache._
-import play.api.Play.current
 
 
 class User @Inject() (cache: CacheApi) extends Controller {
@@ -216,7 +213,8 @@ class User @Inject() (cache: CacheApi) extends Controller {
 Display the user information in the `user` view.
 
 ```scala
-// views/user.html.scala
+// app/views/user.scala.html
+
 @(profile: JsValue)
 
 @main("Auth0 Play2 Scala Sample","home") {
@@ -232,7 +230,7 @@ To log the user out, you have to clear the data from the session, and redirect t
 Add the `logout` action in the `Application` controller.
 
 ```scala
-// controllers/Application.scala
+// app/controllers/Application.scala
 
 class Application @Inject() (cache: CacheApi) extends Controller {
   
@@ -250,13 +248,14 @@ class Application @Inject() (cache: CacheApi) extends Controller {
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
 
 In the `user` view add a link to `logout` route.
 
 ```html
-<!-- views/user.scala.html -->
+<!-- app/views/user.scala.html -->
+
 <a href="/logout" class="btn btn-lg">Logout</a>
 ```
 
@@ -265,7 +264,8 @@ In the `user` view add a link to `logout` route.
 You can add the following `Action` to check if the user is authenticated. If not, redirect them to the login page:
 
 ```scala
-// controllers/User.scala
+// app/controllers/User.scala
+
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
     (request.session.get("idToken").flatMap { idToken =>

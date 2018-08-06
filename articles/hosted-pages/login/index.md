@@ -1,164 +1,198 @@
 ---
-title: Hosted Login Page
-description: How to use the Hosted Login Page
+title: Universal Login
+description: How to use Universal Login
 toc: true
 crews: crew-2
+topics:
+  - login
+  - universal-login
+  - auth0js
+  - lock
+  - hosted-pages
+contentType:
+  - concept
+  - index
+useCase: customize-hosted-pages
 ---
-# Hosted Login Page
+# Universal Login
 
-## About the Hosted Login Page
+## About Universal Login
 
-Auth0's Hosted Login Page is the most secure way to easily authenticate users for your applications. The Hosted Login Page is easily customizable right from the [Dashboard](${manage_url}). By default, the Hosted Login Page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the Hosted Login Page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
+Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). By default, the login page internally uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace the standard Lock widget with the Lock (Passwordless Mode) widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
-If you cannot use the Hosted Login Page, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
+![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
-![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
+### How does Universal Login work
 
-### How Does the Hosted Login Page Work
+Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
 
-Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. It can also be accessed via a request, in the following format:
+Users will see the login page, typically with either the Lock widget or with your custom UI. Once they log in, they will be redirected back to your application.
 
-```text
-https://${account.namespace}/login?client=${account.clientId}
-```
+However if the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
 
-Users will see the Hosted Login Page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
+## Why use Universal Login
 
-::: warning
-If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the Hosted Login Page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
-:::
+Why use Universal Login rather than embedding login functionality within your application?
 
-#### Single Sign-On (SSO)
+Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using Universal Login for the authentication process with Auth0 prevents that from ever being a concern. Additionally, Universal Login is often easier to implement, especially if a custom UI is not required in your login page.
 
-If you want to use single sign on, you should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
+Additionally, Universal Login is the best (and often only) way to implement Single Sign-On and Passwordless connections on native platforms (such as iOS and Android).
 
-This behavior occurs without modification to the actual Hosted Login Page. This is a simple two step process:
+### Single Sign-On (SSO)
 
-1. Enable SSO for the client in the [Dashboard](${manage_url}) (Go to the Client's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
+If you want to use single sign-on, you should use Universal Login rather than an embedded login solution. With Universal Login, when a user logs in via the login page, a cookie will be created and stored. On future calls to the `/authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually log in. 
+
+This behavior occurs in login pages (that have not been customized to alter behavior) without the need for changes to the page code itself. This is a simple two step process:
+
+1. Enable SSO for the application in the [Dashboard](${manage_url}). Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note 
 For more details about how SSO works, see the [SSO documentation](/sso).
 :::
 
-### Why Use the Hosted Login Page
+### Passwordless on native platforms
 
-Why use the Hosted Login Page rather than embedding your login functionality within your application?
+Currently, Universal Login is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. If your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use Universal Login and call the `/authorize` endpoint. You can learn more about this from one of our [quickstarts](/quickstart/native).
 
-Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using the Hosted Login Page for the authentication process with Auth0 prevents that from ever being a concern. Additionally, the Hosted Login Page is very easy to implement, especially if a custom UI is not required.
+## What the Universal Login Page is not intended for
 
-### What the Hosted Login Page is Not Intended For
+Another important thing to remember is what the Universal Login Page is **not** intended for. The login page presented during Universal Login is intended to be only for signups and authentication. Attempting to host any significant amount of application logic in the login page is not advised.
 
-An important thing to remember is that the Hosted Login Page is intended to be only for signups and authentication. Attempting to host any significant amount of application logic in the Hosted Login Page is not advised.
+The login page is truly a single page constructed within the editor, so all custom styling and includes will need to be put into the single editor window. Hosting other files or images along with the login page is not possible, so those will need to be hosted in the application itself, or elsewhere.
 
-The Hosted Login Page is truly a single page constructed within the editor, so all custom styling and includes will need to be put into the single editor window. Hosting other files or images along with the Hosted Login Page is not possible, so those will need to be hosted in the application itself, or elsewhere.
+## How to customize your login page
 
-### Passwordless on Native Platforms
+### 1. Enable customization on the login page
 
-Currently, the Hosted Login Page is the **only** way to use [Passwordless](/connections/passwordless) authentication on Native platforms. So if your use case is a native iOS or Android application, for example, and you intend to implement Passwordless, you will need to use the Hosted Login Page.
+In the [Dashboard](${manage_url}), you can enable a custom login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
 
-## How to Use the Hosted Login Page
+![Login Page](/media/articles/hosted-pages/login.png)
 
-### 1. Enable the Hosted Login Page
+Note that the login page works for basic use cases without being customized. The script is kept up to date automatically. However, when the customization toggle is flipped on, you then become responsible for the updating and maintenance of the script, as it can no longer be automatically updated by Auth0. The templates are provided as guidelines to assist you, but this is worth noting. 
 
-In the [Dashboard](${manage_url}), you can enable a custom Hosted Login Page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
+::: note
+If, after looking at the page code and customization options, you decide **not** to customize your login page, you should disable the **Customize Login Page** toggle, to allow your page to receive the automatic updates it might need from Auth0.
+:::
 
-![Hosted Login Page](/media/articles/hosted-pages/login.png)
+### 2. Choose a technology
 
-### 2. Choose a Technology
-
-In order to get started using the Hosted Login Page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
+In order to get started customizing the login page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
 - [Lock](/hosted-pages/login/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
-- [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same style of interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
+- [Lock (Passwordless Mode)](/hosted-pages/login/lock-passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
 - [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
 
 ### 3. Customization
 
-You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
+You can customize the login page right from the editor. If you use Lock, you can alter its behavior and appearance with [configuration options](/libraries/lock/configuration). If you are building a custom UI, you can style the login page to your own specifications. Note that the Lock library can also be used for embedded login, so some language in the Lock documentation reflects that use case.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
+Remember that the login page customizations are per **tenant** rather than per application. All changes to the page's appearance and/or behavior will apply to **all** login actions on your tenant. When necessary, you can provide different pages to different applications via a method discussed later in this document.
 
-#### Query String Parameters
+### 4. Authorization parameters
 
-You can add query string parameters to the URL you are using to call your Hosted Login Page from your application, and use those items to customize its behavior or appearance.
+Customizations may alter the general user interface look and feel and behavior, but should not try to alter authorization parameters (such as `clientID`, `callbackURL`, `state`). 
+Authorization parameters are passed through the `@@config@@` placeholder. Make sure your code uses the parameters provided in the `config` object (including `config.internalOptions`) to initialize Lock or Auth0.js as shown in the default templates.
 
-For example, you can pass the parameter `title` in your request as a query parameter, and then access it in your Hosted Login Page Code by using `config.extraParams.title`.
+#### When using Lock v11
 
-The `config` object contains the set of configuration values that adjusts the behavior of the Hosted Login Page at runtime. Set the `config` object up in the Hosted Login Page editor so that you can access the config parameters to use in your page:
+```js
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
+var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+  auth: {
+    redirectUrl: config.callbackURL,
+    responseType: (config.internalOptions || {}).response_type ||
+      (config.callbackOnLocationHash ? 'token' : 'code'),
+    params: config.internalOptions
+  },
+  assetsUrl:  config.assetsUrl,
+  [...] 
+```
+
+#### When using Auth0.js v9
+
+```js
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
+var params = Object.assign({
+  domain: config.auth0Domain,
+  clientID: config.clientID,
+  redirectUri: config.callbackURL,
+  responseType: 'code'
+}, config.internalOptions);
+
+var webAuth = new auth0.WebAuth(params);
+[...]
+```
+
+::: panel-warning Customization and deprecation notes
+By default, `state` and `_csrf` parameters are included in the `config.internalOptions` object. If this object is removed or altered during customization, your tenant logs will show deprecation notes (`Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.`). Additionally, after **July 16, 2018**, the application will no longer work until the login page customizations are fixed.
+:::
+
+#### Parameters for the /authorize endpoint
+
+If you initiate Universal Login via the `/authorize` endpoint, whether by an SDK like Auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the login page. However, parameters passed to the `/authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
+
+The `config` object contains the set of configuration values that adjusts the behavior of the login page at runtime. You can decode the `config` object in the login page editor so that you can access the config parameters to use in your page:
 
 ```js
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ```
 
-After which you can set the value of your Lock Widget's title (or use the value to alter the title of your own custom coded UI):
-
-```js
-if (config.extraParams.title) {
-  languageDictionary = { title: config.extraParams.title };
-} 
-```
-
-#### Parameters for the Authorize Endpoint
-
-If you choose to initiate the Hosted Login Page via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the Hosted Login Page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
-
-The `config` object contains the set of configuration values that adjusts the behavior of the Hosted Login Page at runtime. Set the `config` object up in the Hosted Login Page editor so that you can access the config parameters to use in your page:
-
-```js
-var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-```
-
-The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `authorize` endpoint and show the Hosted Login Page. 
-
-##### Login Hint
-
-For example, suppose you wanted to add a login hint to your page; it can be done simply by passing the `login_hint` parameter to your `authorize` call:
-
-```js
-webAuth.authorize({
-  login_hint: "Here is a cool login hint"
-});
-```
-
-You will then be able to access the value of `login_hint` within the Hosted Login Page editor by using `config.extraParams.login_hint`.
+The below examples assume that you are using [Auth0.js](/libraries/auth0js) within your application to call the `/authorize` endpoint and show the login page. 
 
 ##### Callback URL
 
-Once authentication has been performed using the Hosted Login Page, your user will then be redirected to the default callback URL set in your [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings). You can also pass a specific `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
+Once authentication has been performed using Universal Login, your user will then be redirected to the default callback URL set in your [Application's settings page](${manage_url}/#/applications/${account.clientId}/settings). You can also pass a specific `redirect_uri` option to `authorize()` when calling it from your application, and then access the value you passed to the login page within the login page editor by referring to `config.callbackURL`.
 
 ::: note
-Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings).
+Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Application's settings page](${manage_url}/#/applications/${account.clientId}/settings).
 :::
 
 ```js
+// Using Auth0.js to call the login page from inside your application
 webAuth.authorize({
   redirect_uri: "http://example.com/foo"
 });
 ```
 
-## Configure Multiple Pages by Using Separate Tenants
+## Error handling
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page. 
+If errors occur, the login page will still reroute to the callback URL, but will include the errors (and descriptions, if any) in the query for your application to handle.
+
+## Configure multiple pages by using separate tenants
+
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page. 
 
 In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
 
 Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
 
-Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of clients, users, settings, and so on as these things are not shared between tenants.
+Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
 
-### Creating New Tenants
+### Creating new tenants
 
-If your use case requires separate sets of custom pages, let's see how you would go about creating them.
+If your use case requires separate sets of custom pages, the following example indicates how you would organize them.
 
-If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
+If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) each using separate ones, you would do the following:
 
-- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will all share.
-- Create a second tenant, configure a new client for `app4`, and configure the hosted login page for this client.
-- Create a third tenant, configure a new client for `app5`, and configure the hosted login page for this client.
+- If you already have an account, you already have a tenant configured. Configure three applications under this tenant; one to represent each app (`app1`, `app2`, `app3`). You will also configure one login page which these three applications will all share.
+- Create a second tenant, configure a new application for `app4`, and configure the login page for this tenant.
+- Create a third tenant, configure a new application for `app5`, and configure the login page for this tenant.
 
-To create a new tenant go to the [Dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
+::: note
+You can [configure different administrators for each tenant](/tutorials/manage-dashboard-admins) if you desire.
+:::
+
+#### How to create a new tenant
+
+To create a new tenant go to the [Dashboard](${manage_url}), and using the top right menu, click on the **Create tenant** option.
 
 ![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
 
-You can easily switch between tenants using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
+You can also switch between tenants using the same top right menu on the [Dashboard](${manage_url}). 
+
+## Incorrect implementations
+
+The login page should **not** be implemented by calling its URL directly. This circumvents the Universal Login approach, does not allow for SSO (as the  `/authorize` endpoint is not hit), and is **not supported**. Note that this also applies to users who **bookmark the login page directly**. Users should bookmark your application, or your internal login page, but not the actual Universal Login Page.

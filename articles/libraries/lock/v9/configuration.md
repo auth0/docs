@@ -1,10 +1,18 @@
 ---
 section: libraries
 description: How to configure user options with Lock V9
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: User configurable options
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 The **Auth0Lock** can be customized through the `options` parameter sent to the `.show()` methods.
 

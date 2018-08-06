@@ -2,6 +2,16 @@
 section: libraries
 title: Logging in Lock for iOS v2
 description: Logging in Lock for iOS v2
+topics:
+  - libraries
+  - lock
+  - ios
+  - logs
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Logging in Lock for iOS v2
 

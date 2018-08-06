@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Security Vulnerability for auth0.js < 9.3"
+    tags:
+      - security
+      - bulletin
+      - auth0.js
+    description: |
+      A new security bulletin was added, documenting a vulnerability identified for auth0.js versions prior to 9.3: [Security Vulnerability for auth0.js < 9.3](https://auth0.com/docs/security/bulletins/cve-2018-7307).
+      

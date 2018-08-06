@@ -2,6 +2,14 @@
 description: Roadmap of what you need to do to add authentication to your app and secure your APIs with Auth0
 toc: true
 public: false
+topics:
+  - auth0-101
+  - auth0-basics
+contentType: concept
+useCase:
+  - strategize
+  - development
+  - get-started
 ---
 # The Implementation Process - UNDER CONSTRUCTION
 
@@ -15,7 +23,7 @@ Auth0 ships [SDKs for all major platforms](/support/matrix#sdks) (.NET, Java, PH
 
 Auth0 also supports other common identity protocols, such as [WS-Federation](/protocols/ws-fed) and [SAML](/protocols/saml). Applications that are already "claims enabled" can easily connect to Auth0.
 
-The **best** solution for integrating Auth0 with your application is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and circumvents the dangers of cross-origin authentication. The Hosted Login Page uses the [Lock](/libraries/lock) widget to allow your users to authenticate by default, but has other starting templates as well. You can customize the login page in the [Hosted Pages Editor](${manage_url}/#/login_page) in your dashboard.
+The **best** solution for integrating Auth0 with your application is to use Auth0's [Universal Login](/hosted-pages/login). Using Universal Login is a much less complicated process, and circumvents the dangers of cross-origin authentication. Universal Login uses the [Lock](/libraries/lock) widget to allow your users to authenticate by default, but has other starting templates as well. You can customize the login page in the [Dashboard](${manage_url}/#/login_page).
 
 ## Access your APIs
 

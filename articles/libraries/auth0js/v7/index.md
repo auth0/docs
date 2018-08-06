@@ -2,13 +2,18 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v7
+topics:
+  - libraries
+  - auth0js
+contentType:
+  - index
+  - how-to
+useCase: add-login
 ---
 
 # Auth0.js v7 Reference
 
-::: version-warning
-This document covers an outdated version of auth0.js. We recommend you to <a href="/libraries/auth0js">upgrade to v9</a>.
-:::
+<%= include('../../../_includes/_version_warning_auth0js') %>
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
@@ -61,7 +66,7 @@ If you are using [browserify](http://browserify.org/), you will want to install 
 The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
 :::
 
-Construct a new instance of the Auth0 client as follows:
+Construct a new instance of the Auth0 application as follows:
 
 ```html
 <script src="${auth0js_urlv7}"></script>
@@ -188,7 +193,7 @@ You can also request scopes that are not were not configured for the connection.
   });
 ```
 
-Trigger the login with offline mode support to get the `refresh_token`
+Trigger the login with offline mode support to get the Refresh Token
 
 ```js
 $('.login-dbconn').click(function () {
@@ -399,7 +404,7 @@ How does control return back to your app after a login has been attempted?  This
 
 The default mode of the `login` method is Redirect Mode. Here two separate "redirect" actions will occur when `login` is called. First, the browser will navigate to a separate login page to collect the user's credentials. Once the user successfully logs in, the browser will redirect the user *back* to your application via the `callbackURL`.
 
-For example, let's say you've initialized your Auth0 client as shown in the [Initialize](#initialize) section above. Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
+For example, let's say you've initialized your Auth0 application as shown in the [Initialize](#initialize) section above. Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
 
 ```js
 auth0.login({
@@ -409,7 +414,7 @@ auth0.login({
 
 ##### Single Page Apps
 
-If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page. And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an `access_token` and `id_token` (the JWT). After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
+If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page. And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an Access Token and ID Token (the JWT). After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
 
 ```js
 $(function () {
@@ -449,7 +454,7 @@ If there is no hash, `result` will be null.  If the hash contains the JWT, the `
 
 ##### Regular Web Apps
 
-If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie. In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 client is created:
+If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie. In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 application is created:
 
 ```js
 var auth0 = new Auth0({
@@ -463,7 +468,7 @@ var auth0 = new Auth0({
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
 ::: panel Authorization Code Grant
-Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an Access Token and ID Token and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
 :::
 
 #### Popup Mode
@@ -587,7 +592,7 @@ And if you don't want that redirect to occur (for example, you have a Single Pag
 
 ### Response configuration
 
-By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an access token. The access token can be obtained directly if you provide the `responseType: 'token'` option. In this case the access token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an `id_token`.
+By default, after a successful login, the browser is redirected back to the `callbackURL` with an authorization `code` included in the `query` string. This `code` is then used by a server to obtain an Access Token. The Access Token can be obtained directly if you provide the `responseType: 'token'` option. In this case the Access Token will be included in the fragment (or hash) part of the `callbackURL`. Finally, you can specify `responseType: 'id_token'` if you just need an ID Token.
 
 ```js
 var auth0 = new Auth0({
@@ -667,7 +672,7 @@ If you just want to get a new token for an addon that you've activated, you can 
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The ID Token you have now
   api: 'firebase', // This defaults to the first active addon if any or you can specify this
   "scope": "openid profile"         // default: openid
 };
@@ -681,9 +686,9 @@ If you want to get the token for another API or App:
 
 ```js
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "your ID Token", // The ID Token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'The other client id'
+  targetClientId: 'The other application id'
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
@@ -691,7 +696,7 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 });
 ```
 
-### Refresh token
+### Refresh Token
 
 If you want to refresh your existing (not expired) token, you can just do the following:
 
@@ -701,7 +706,7 @@ auth0.renewIdToken(current_id_token, function (err, delegationResult) {
 });
 ```
 
-If you want to refresh your existing (expired) token, if you have the refresh_token, you can call the following:
+If you want to refresh your existing (expired) token, if you have the Refresh Token, you can call the following:
 
 ```js
 auth0.refreshToken(refresh_token, function (err, delegationResult) {

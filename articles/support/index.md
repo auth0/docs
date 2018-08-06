@@ -2,6 +2,12 @@
 url: /support
 toc: true
 description: Explains the different types of support options provided by Auth0.
+topics:
+    - support
+contentType:
+  - index
+useCase:
+  - support
 ---
 # Support Options
 
@@ -12,22 +18,24 @@ The following page contains information about the Auth0 support program.
 Auth0 offers the following support plans:
 
 <table class="table">
-  <tr>
-    <th>No Plan</th>
-    <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
-  </tr>
-  <tr>
-    <th>Standard Support</th>
-    <td>For customers with a paid (non-Enterprise) subscription plan or those in the initial trial period.</td>
-  </tr>
-  <tr>
-    <th>Enterprise Support</th>
-    <td>For customers with an Enterprise subscription plan.</td>
-  </tr>
-  <tr>
-    <th>Preferred Support</th>
-    <td>For customers with an Enterprise subscription plan that have added the Preferred Support option.</td>
-  </tr>
+  <tbody>
+    <tr>
+      <th>No Plan</th>
+      <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
+    </tr>
+    <tr>
+      <th>Standard Support</th>
+      <td>For customers with a paid (non-Enterprise) subscription plan or those in the initial trial period.</td>
+    </tr>
+    <tr>
+      <th>Enterprise Support</th>
+      <td>For customers with an Enterprise subscription plan.</td>
+    </tr>
+    <tr>
+      <th>Preferred Support</th>
+      <td>For customers with an Enterprise subscription plan that have added the Preferred Support option.</td>
+    </tr>
+  </tbody>
 </table>
 
 ### No Support
@@ -119,38 +127,42 @@ Your Sales Order will indicate whether you are subscribed to the **Standard** Su
 Auth0 will assign all Defects one of four response priorities, dependent upon the problems caused by the Defect. Auth0 may re-assign prioritization levels assigned by you in Auth0’s trouble ticketing system, to reflect the problem descriptions below. Auth0’s assignment will be consistent with the problem descriptions described below. Priority categories are as follows:
 
 <table class="table">
-  <tr>
-    <th style="width: 15%">Severity Level</th>
-    <th style="width: 85%">Description</th>
-  </tr>
-  <tr>
-    <td>1 (Urgent)</td>
-    <td><b>Emergency Issue</b>. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
-  </tr>
-  <tr>
-    <td>2 (High)</td>
-    <td><b>Significant Business Impact</b>. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
-  </tr>
-  <tr>
-    <td>3 (Normal)</td>
-    <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented <b>or</b> an inquiry by your representatives regarding general technical issues/questions</td>
-  </tr>
-  <tr>
-    <td>4 (Low)</td>
-    <td><b>Minor Problem / Enhancement Request</b>. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
-  </tr>
+  <thead>
+    <tr>
+      <th style="width: 15%">Severity Level</th>
+      <th style="width: 85%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 (Urgent)</td>
+      <td><b>Emergency Issue</b>. Defect resulting in full or partial system outage or a condition that makes the Auth0 Platform unusable or unavailable in production for all of your Users.</td>
+    </tr>
+    <tr>
+      <td>2 (High)</td>
+      <td><b>Significant Business Impact</b>. Defect resulting in a condition where major functionality is impacted or significant performance degradation is experienced; issue is persistent and affects many Users and/or major functionality.</td>
+    </tr>
+    <tr>
+      <td>3 (Normal)</td>
+      <td><b>Minor Feature / Function Issue / General Question</b>. Defect results in a component of the Auth0 Platform not performing as expected or documented <b>or</b> an inquiry by your representatives regarding general technical issues/questions</td>
+    </tr>
+    <tr>
+      <td>4 (Low)</td>
+      <td><b>Minor Problem / Enhancement Request</b>. Information requested on Auth0 Platform capabilities, navigation, installation, or configuration; enhancement request.</td>
+    </tr>
+  </tbody>
 </table>
 
 ### Defect Responses
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Defect Severity Level | Target Response Time (Standard) | Target Response Time (Enterprise) | Target Response Time (Preferred) | Solution Definition (one or more of the following) |
-| - | - | - | - | - |
-| 1 (Urgent) | 1 business hours | 30 minutes | 30 minutes | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| 2 (High) | 4 business hours | 2 hours | 1 hour | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| 3 (Normal) | 1 business day | 12 hours | 8 hours | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| 4 (Low) | 2 business days | 24 hours | 12 hours | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+| Defect Severity Level & Business Impact| Standard Target Response Time | Enterprise Target Response Time | Preferred Target Response Time | Solution Definition (one or more of the following) |
+| --- | --- | --- | --- | --- |
+| **1 (Urgent)**<br>Emergency Issue | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| **2 (High)**<br>Significant Business Impact | 4 business hours<br>6AM to 6PM, Mon to Fri (local time) | 2 hours<br>24 hours a day, Mon to Fri (local time) | 1 hour<br>24 hours a day, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| **3 (Normal)**<br>Minor Feature / Function Issue, General Question | 1 business day<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | 8 hours<br>24 hours a day, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
+| **4 (Low)**<br>Minor Problem, Enhancement Request | 2 business days<br>6AM to 6PM, Mon to Fri (local time) | 24 hours<br>24 hours a day, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
@@ -168,7 +180,7 @@ We provide all technical support in English, but we will make an effort to accom
 
 ## Upgrades
 
-During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you. 
+During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you.
 
 ## Demand Services
 

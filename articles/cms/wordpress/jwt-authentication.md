@@ -1,5 +1,15 @@
 ---
 description: Explains how to install the WordPress JWT Authentication and integration with the Auth0 plugin.
+topics:
+    - wordpress
+    - cms
+contentType: how-to
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 
 # WordPress JWT Authentication
@@ -53,3 +63,15 @@ Vydcvl6gpWNeUE
 
 - [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
 - [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
+
+## Keep Reading
+
+More information on the Login by Auth0 WordPress plugin:
+
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Install the plugin](/cms/wordpress/installation)
+* [Configure the plugin](/cms/wordpress/configuration)
+* [Troubleshooting](/cms/wordpress/troubleshoot)
+* [Extend the plugin](/cms/wordpress/extending)
+:::

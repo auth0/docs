@@ -2,12 +2,20 @@
 section: libraries
 title: Lock Passwordless for iOS
 description: Using Passwordless authentication with Lock for iOS v2
+topics:
+  - libraries
+  - lock
+  - ios
+  - passwordless
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Passwordless for iOS
 
-::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
-:::
+<%= include('../../../_includes/_native_passwordless_warning') %>
 
 Lock Passwordless handles passwordless authentication using email and sms connections.
 
@@ -30,7 +38,7 @@ Lock
 
 ### Passwordless Method
 
-When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/clients/enable-universal-links) you can add the following:
+When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/applications/enable-universal-links) you can add the following:
 
 ```swift
 .withOptions {

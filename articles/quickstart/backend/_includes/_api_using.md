@@ -1,6 +1,6 @@
 ## Calling the API from your application
 
-You can call the API from your client application by passing an access token in the `Authorization` header of your HTTP request as a Bearer token. 
+You can call the API from your application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token.
 
 ```har
 {
@@ -12,58 +12,62 @@ You can call the API from your client application by passing an access token in 
 }
 ```
 
-The exact implementation will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant client Quickstarts which contain detailed instructions:
+## Obtaining an Access Token
+
+If you are calling the API from a Single Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
 
 * [Single Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
 
-## Obtaining an access token for testing
+If you are calling the API from a command line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
 
-If you want to test your API outside your application, for example from the command line or a tool like Postman, you can obtain an access token using the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
-
-You can also obtain an access token using [cUrl](https://curl.haxx.se/) by using the [Client Credentials](/api/authentication#client-credentials) or [Resource Owner Password](api/authentication#resource-owner-password) authorization flows.
-
-**1. Using Client Credentials**
-
-```text
-curl --request POST \
-  --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
-  --data '{ "client_id":"YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "audience": "YOUR_API_AUDIENCE", "grant_type": "client_credentials" }'
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+  }
+}
 ```
 
-When using the Client Credentials flow, you will need to register a [Non Interactive Client](/clients). You should then subsequently use the **Client ID** and **Client Secret** of this Non Interactive Client when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
+:::note
+Auth0 customers are billed based on the number of Machine to Machine Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
+:::
 
-**2. Using Resource Owner Password**
+For testing purposes, you can also get an Access Token from the **Test** tab in your [API settings](${manage_url}/#/apis).
 
-```text
-curl --request POST \
-  --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
-  --data '{ "client_id":"${account.clientId}", "client_secret": "${account.clientSecret}", "audience": "YOUR_API_AUDIENCE", "grant_type": "password", "username": "USERNAME", "password": "PASSWORD", "scope": "SCOPE" }'
-```
-
-## Test Your API with cURL
-
-You can test your API using [cURL](https://curl.haxx.se/) using an access token you obtained before.
+## Test Your API 
 
 **1. Calling the secure endpoint**
 
-You can make a request to the `/api/private` endpoint without passing any access token:
+You can make a request to the `/api/private` endpoint without passing any Access Token:
 
-```text
-curl -i http://localhost:3010/api/private
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private"
+}
 ```
 
 The API will return a 401 HTTP (Unauthorized) status code:
 
 ![Response for unauthorized API request](/media/articles/server-apis/using/private-unauthorized.png)
 
-Once again, make the same request but this time pass along the access token as a Bearer token in the **Authorization** header of the request:
+Once again, make the same request but this time pass along the Access Token as a Bearer token in the **Authorization** header of the request:
 
-```text
-curl -i http://localhost:3010/api/private \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
+  ]
+}
 ```
 
 This time the API will return a successful response:
@@ -72,11 +76,16 @@ This time the API will return a successful response:
 
 **2. Testing the scoped endpoint**
 
-To test the endpoint that require a scope, pass the access token containing the correct scope as a Bearer token in the Authorization header:
+To test the endpoint that require a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
-```text
-curl -i http://localhost:3010/api/private-scoped \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:3010/api/private-scoped",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
+  ]
+}
 ```
 
 If the required scope is present, the API call is successful:

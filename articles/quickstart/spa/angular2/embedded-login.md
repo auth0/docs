@@ -1,20 +1,20 @@
 ---
 title: Embedded Login
-description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
+description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - login
+github: 
+  branch: embedded-login
+  path: 01-Embedded-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '01-Embedded-Login',
-  branch: 'embedded-login',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
-As an alternative to Auth0's centralized login page, the Lock widget can be embedded directly in your application.
+As an alternative to Auth0's Universal Login page, the Lock widget can be embedded directly in your application.
 
 <%= include('../_includes/_install_lock') %>
 
@@ -33,17 +33,16 @@ The best way to manage and coordinate the tasks necessary for user authenticatio
 
 import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 import Auth0Lock from 'auth0-lock';
 
 @Injectable()
 export class AuthService {
 
   lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
-    oidcConformant: true,
     autoclose: true,
     auth: {
-      redirectUrl: 'http://localhost:4200/callback',
+      redirectUrl: 'http://localhost:3000/callback',
       responseType: 'token id_token',
       audience: `https://${account.namespace}/userinfo`,
       params: {
@@ -74,7 +73,7 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
@@ -92,7 +91,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
@@ -220,8 +219,10 @@ public handleAuthenticationWithHash(): void {
   this
     .router
     .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
+    .pipe(
+      filter(event => event.constructor.name === 'NavigationStart'),
+      filter(event => (/access_token|id_token|error/).test(event.url))
+    )
     .subscribe(() => {
       this.lock.resumeAuth(window.location.hash, (error, authResult) => {
         if (error) return console.log(error);

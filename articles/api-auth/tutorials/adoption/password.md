@@ -1,11 +1,19 @@
 ---
 title: OIDC-conformant Resource Owner Password Credentials exchange
+topics:
+  - api-authentication
+  - oidc
+  - resource-owner-password
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Resource Owner Password Credentials exchange
 
 <%= include('./_about.md') %>
 
-The [Resource Owner Password Credentials exchange](/api-auth/grant/password) is used by highly-trusted clients to provide active authentication. Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0. It authenticates users with a single request, exchanging their password credentials for a token.
+The [Resource Owner Password Credentials exchange](/api-auth/grant/password) is used by highly-trusted applications to provide active authentication. Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0. It authenticates users with a single request, exchanging their password credentials for a token.
 
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
@@ -32,7 +40,7 @@ Content-Type: application/json
   "device": "my-device-name"
 }</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -81,8 +89,8 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned access token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="response-oidc" class="tab-pane">
@@ -98,16 +106,16 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
-        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/clients/client-types#public-clients">public client</a>.</li>
-        <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
+        <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>The ID Token will be forcibly signed using RS256 if requested by a <a href="/applications/application-types#public-applications">public application</a>.</li>
+        <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
     </div>
   </div>
 </div>
 
 
-## ID token structure
+## ID Token structure
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -141,14 +149,14 @@ Pragma: no-cache
     "https://app.example.com/favorite_color": "blue"
 }</code></pre>
         <ul>
-            <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/api-auth/client-types">public client</a>.</li>
+            <li>The ID Token will be forcibly signed using RS256 if requested by a <a href="/api-auth/application-types">public application</a>.</li>
             <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
         </ul>
     </div>
   </div>
 </div>
 
-## Access token structure (optional)
+## Access Token structure (optional)
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -161,7 +169,7 @@ Pragma: no-cache
     <div id="accesstoken-legacy" class="tab-pane active">
       <pre class="text hljs"><code>SlAV32hkKG</code></pre>
       <ul>
-        <li>The returned access token is opaque and only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>The returned Access Token is opaque and only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
       </ul>
     </div>
     <div id="accesstoken-oidc" class="tab-pane">
@@ -178,8 +186,8 @@ Pragma: no-cache
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned access token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) as well as the resource server specified by the <code>audience</code> parameter.</li>
-            <li>Note that an opaque access token could still be returned if /userinfo is the only specified audience.</li>
+            <li>The returned Access Token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) as well as the resource server specified by the <code>audience</code> parameter.</li>
+            <li>Note that an opaque Access Token could still be returned if /userinfo is the only specified audience.</li>
         </ul>
     </div>
   </div>

@@ -1,16 +1,28 @@
 ---
 title: User Data Storage Guidance
-description: Demonstrating the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
+description: Demonstrates the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
 toc: true
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - data-storage
+    - swift
+    - ios
+    - nodejs
+    - api
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # User Data Storage Guidance
 
-Auth0 provides multiple places to store data used to authenticate a Client's users. This document covers best practices on how to store your data securely and efficiently. Additionally, this document uses a sample Client (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
+Auth0 provides multiple places to store data used to authenticate an Application's users. This document covers best practices on how to store your data securely and efficiently. It uses a sample Application (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
 
-:::panel Example: Mobile Music Application
-The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) for a visualization of the Client's overall structure.
-:::
+The sample Application is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the application's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
 
 ## Where should I store my authentication data?
 
@@ -30,17 +42,17 @@ Any data you store in Auth0 that's *not* already a part of the user profile shou
 
 These fields contain JSON snippets and can be used during the Auth0 authentication process.
 
-### App Metadata
+### App metadata
 
 You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
 
-* Permissions: privileges granted to certain users allowing them rights within the Client that others do not have;
+* Permissions: privileges granted to certain users allowing them rights within the Application that others do not have;
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
 For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#metadata-restrictions).
 
-#### Example: `app_metadata` for a Mobile Music Application
+#### Example: App metadata for a mobile music application
 
 The following data points from our mobile music application appropriate to store in `app_metadata`:
 
@@ -116,7 +128,7 @@ function (user, context, callback) {
 }
 ```
 
-The second rule gets the `app_metadata` field and assigns the `roles` array to a field in the user object so it can be accessed without calling `app_metadata` on the client. The `scope` parameter can then specify `roles` upon the user logging in without including everything in `app_metadata` in the user object:
+The second rule gets the `app_metadata` field and assigns the `roles` array to a field in the user object so it can be accessed without calling `app_metadata` on the application. The `scope` parameter can then specify `roles` upon the user logging in without including everything in `app_metadata` in the user object:
 
 ```js
 function(user, context, callback) {
@@ -132,7 +144,7 @@ After we've implemented these two rules, the app recognizes whether the user is 
 
 ![](/media/articles/tutorials/data-scenarios/3-home.png)
 
-### User Metadata
+### User metadata
 
 The following data points from our mobile music application are appropriate to store in `user_metadata`:
 
@@ -142,7 +154,7 @@ The following data points from our mobile music application are appropriate to s
 
 Note that, unlike the data points for `app_metadata`, the user can easily and readily change those stored in `user_metadata`.
 
-#### Example: `user_metadata` for a Mobile Music Application
+#### Example: User metadata for a mobile music application
 
 We can let the user change their `displayName`, which is the name the user sees upon logging in and is displayed to other users of the app.
 
@@ -182,15 +194,15 @@ To save the changes to the database, the application makes a call to the [Get a 
 
 This is followed by a call to the [Update a User](/api/management/v2#!/Users/patch_users_by_id) endpoint to update the `user_metadata` field:
 
-'''har
+```har
 {
   "method": "PATCH",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
     "name": "Authorization",
-    "value": "Bearer ABCD"
+    "value": "Bearer YOUR_ACCESS_TOKEN"
   }, {
     "name": "Content-Type",
     "value": "application/json"
@@ -204,19 +216,21 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
   "bodySize": -1,
   "comment": ""
 }
-'''
+```
 
-## Why shouldn't I put all my Client's data in the Auth0 data store?
+You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/tokens).
+
+## Why shouldn't I put all my Application's data in the Auth0 data store?
 
 Because the Auth0 data store is customized for authentication data, storing anything beyond the default user information should be done only in limited cases. Here's why:
 
-* **Scalability**: The Auth0 data store is limited in scalability, and your Client's data may exceed the appropriate limits. By using an external database, you keep your Auth0 data store simple, while the more efficient external database contains the extra data;
+* **Scalability**: The Auth0 data store is limited in scalability, and your Application's data may exceed the appropriate limits. By using an external database, you keep your Auth0 data store simple, while the more efficient external database contains the extra data;
 * **Performance**: Your authentication data is likely accessed at lower frequencies than your other data. The Auth0 data store isn't optimized for high frequency use, so you should store data that needs to be retrieved more often elsewhere;
 * **Flexibility**: Because the Auth0 data store was built to accomodate only user profiles and their associated metadata, you are limited in terms of the actions you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
 
 ### Example
 
-We need to associate a user's music with that user, but this information is not required for authentication. Here's how to store this information in a separate database that is integrated with the backend of our Client.
+We need to associate a user's music with that user, but this information is not required for authentication. Here's how to store this information in a separate database that is integrated with the backend of our Application.
 
 The user's unique identifier is their [user_id](/user-profile/normalized#storing-user-data). Here is a sample row from the `songs` table in our database:
 
@@ -227,7 +241,7 @@ The user's unique identifier is their [user_id](/user-profile/normalized#storing
 The Node.js backend authenticates requests to the URI associated with getting the user’s personal data from the database by validating a JSON Web Token.
 
 ::: note
-[Learn about token-based authentication and how to implement JWT in your Clients.](/jwt)
+[Learn about token-based authentication and how to implement JWT in your Applications.](/jwt)
 :::
 
 Here is the code implementing JWT validation from the [Node.js seed project](/quickstart/backend/nodejs):
@@ -249,7 +263,7 @@ app.use('/playlists', authenticate, playlists);
 app.use('/displayName', authenticate, displayName);
 ```
 
-We can add functionality to handle different data requests from our Client. For example, if we receive a `GET` request to `/secured/getFavGenre`, the API calls the `queryGenre()` function, which queries the database for and responds with the user’s favorite genre.
+We can add functionality to handle different data requests from our Application. For example, if we receive a `GET` request to `/secured/getFavGenre`, the API calls the `queryGenre()` function, which queries the database for and responds with the user’s favorite genre.
 
 ```swift
 @IBAction func getGenre(sender: AnyObject) {
@@ -268,7 +282,7 @@ We can add functionality to handle different data requests from our Client. For 
 The function `buildAPIRequest()` takes the path and HTTP method of the request as parameters and builds a request using the base URL of our Node.js API that's hosted on Heroku.
 :::
 
-In the Client, the `getGenre()` function makes a request to the API and changes the app's interface to display the request response to `/genres/getFav`. The backend retrieves the required data for this action using the `queryGenre()` function and returns the results to the Client:
+In the Application, the `getGenre()` function makes a request to the API and changes the app's interface to display the request response to `/genres/getFav`. The backend retrieves the required data for this action using the `queryGenre()` function and returns the results to the Application:
 
 ```js
 function queryGenre(user_id, res){

@@ -3,9 +3,15 @@ title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
 toc: true
 beta: true
+topics:
+    - hooks
+    - extensibility-points
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
-# Extensibility Point: Pre-User Registration
+# Pre-User Registration
 
 For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
 
@@ -19,7 +25,7 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function.
 
 ```js
 /**
@@ -32,7 +38,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {string} user.phoneNumber - phone number
 @param {boolean} user.phoneNumberVerified - is phone number verified?
 @param {object} context - Auth0 connection and other context info
-@param {string} context.requestLanguage - language of the client agent
+@param {string} context.requestLanguage - language of the application agent
 @param {object} context.connection - information about the Auth0 connection
 @param {object} context.connection.id - connection id
 @param {object} context.connection.name - connection name
@@ -59,13 +65,24 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 ### Response
 
-The default response object every time the Hook runs is as follows:
+The default response object every time the Hook runs is similar to the following:
 
 ```json
 {
   "user": {
-    "user_metadata": "object",
-    "app_metadata": "object",
+    "tenant": "my-tenant",
+    "username": "user1",
+    "password": "xxxxxxx",
+    "email": "user1@foo.com",
+    "emailVerified": false,
+    "phoneNumber": "1-000-000-0000",
+    "phoneNumberVerified": false,
+    "user_metadata": {
+      "hobby": "surfing"
+    },
+    "app_metadata": {
+      "plan": "full"
+    }
   }
 }
 ```
@@ -82,7 +99,7 @@ Metadata property names must not start with the `$` character or contain the `.`
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
@@ -146,7 +163,3 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 ::: note
 The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
 :::
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/extensibility-points"]
-}) %>

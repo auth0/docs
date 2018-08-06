@@ -6,11 +6,20 @@ seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - google
+    - google-apps
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your Google App with Auth0
 
-You can connect your Auth0 Client to Google Apps by providing the Google *Client ID* and *Client Secret* to Auth0.
+You can connect your Auth0 Application to Google Apps by providing the Google *Client ID* and *Client Secret* to Auth0.
 
 ## Generate the Google Client ID and Client Secret
 
@@ -57,6 +66,10 @@ Google may show an "unverified app" screen before displaying the consent screen 
     * **Authorized JavaScript origins:** `https://${account.namespace}`
     * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
 
+    ::: note
+    If you are using the [custom domains](/custom-domains) feature, you will need to use your custom domain in the redirect URI in the following format: `https://<YOUR_CUSTOM_DOMAIN>/login/callback`.
+    :::
+
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
   ![OAuth Client ID and Secret](/media/articles/connections/social/google/oauth-client-info.png)
@@ -80,55 +93,45 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 ## Enable and Configure the Auth0 Enterprise Connection
 
 1. Log in to your Auth0 account, and navigate to [Enterprise Connections](${manage_url}/#/connections/enterprise).
-2. Scroll down to the row for Google Apps, and click the **Settings** gear icon.
+2. Scroll down to the row for Google Apps, and click the **Add New** plus icon.
 
   ![Enterprise Connections](/media/articles/connections/enterprise/google/enterprise-connections.png)
 
-  You will see the *Configuration* page for the Google Apps Connection.
+  You will see the *Settings* page for the Google Apps Connection.
 
   ![Google Apps Enterprise Connection Configuration](/media/articles/connections/enterprise/google/google-apps-connection-settings.png)
 
-3. On the Configuration screen, provide the following information:
+3. On the Settings screen, provide the following information:
 
-    * **Client ID**: the Client ID for your Google Apps Account
-    * **Client Secret**: the Client Secret for your Google Apps Account
-    * **Attributes**: the flag that indicates how much information you want stored in the Auth0 User Profile. Select one of the two options:
-      * **Basic Profile**: includes the `email` and the `email verified` flag
-      * **Extended Profile**: includes the name, public profile URL, photo, gender, birthdate, country, language, and timezone
-    * **Extended Attributes**: select one or more of the following flags to bring the corresponding information to Auth0
-      * **Groups**: the distribution list(s) to which the user belongs
-      * **Is Domain Administrator**: whether the user is a domain administrator or not
-      * **Is Account Suspended**: whether the user's account is suspended or not
-      * **Agreed to Terms**: whether the user's agreed to the terms of service or not
-    * **Enable Users API**: the flag that indicates whether you've chosen to enable the ability to make calls to the Google Directory API
+| Parameter | Description |
+| - | - |
+| **Google Apps Domain** | the Google Apps domain you're using for authentication |
+| **Domain Aliases** (optional) | a comma-separated list of domains registered as aliases for the primary domain |
+| **Client ID** | the Client ID for your Google Apps Account |
+| **Client Secret** | the Client Secret for your Google Apps Account |
+| **Attributes** | the flag that indicates how much information you want stored in the Auth0 User Profile. Select one of the two options: **Basic Profile** (includes the `email` and the `email verified` flag) or **Extended Profile** (includes the name, public profile URL, photo, gender, birthdate, country, language, and timezone) |
+| **Extended Attributes: Groups** | the distribution list(s) to which the user belongs |
+| **Extended Attributes: Is Domain Administrator** | whether the user is a domain administrator or not |
+| **Extended Attributes: Is Account Suspended**  | whether the user's account is suspended or not |
+| **Extended Attributes: Agreed to Terms** | whether the user's agreed to the terms of service or not |
+| Enable Users API | the flag that indicates whether you've chosen to enable the ability to make calls to the Google Directory API |
 
-    Click **Save** when you're done.
+Click **Save** when you're done.
 
-4. At this point, you've finished configuring your Google Apps Enterprise Connection. To use it, you'll need to *create* a Connection. You can do this by returning to the [Enterprise Connections](${manage_url}/#/connections/enterprise) page, scrolling down to the row for Google Apps, and clicking on the **Plus** icon. This brings up the *Create Google Apps Connection* window.
-
-  ![Google Apps Enterprise Create Connection Settings](/media/articles/connections/enterprise/google/create-connection.png)
-
-5. On the *Create Google Apps Connection* window, provide the following information:
-
-    * **Google Apps Domain**: the Google Apps domain you're using for authentication
-    * **Domain Aliases** (optional): a comma-separated list of domains registered as aliases for the primary domain
-
-    Click **Save**.
-
-6. You will need to configure your settings so that your app can use Google's Admin APIs. If you're the administrator, you can click **Continue** on the Connection's *Settings* page to do so. If not, provide the URL you're given to your administrator so that they can adjust the required Settings.
+4. You will need to configure your settings so that your app can use Google's Admin APIs. If you're the administrator, you can click **Continue** on the Connection's *Settings* page to do so. If not, provide the URL you're given to your administrator so that they can adjust the required Settings.
 
   ![Google Apps Enterprise Connection Administrator Settings](/media/articles/connections/enterprise/google/config-settings.png)
 
-## Enable the Connection for Your Auth0 Client
+## Enable the Connection for Your Auth0 Application
 
-To use your newly-created Connection, you'll need to enable it for your Auth0 Client(s).
+To use your newly-created Connection, you'll need to enable it for your Auth0 Application(s).
 
-1. Go to the [Clients](${manage_url}/#/clients) page of the Management Dashboard.
-2. Select the Client for which you want to enable the Connection.
-3. Click the **Connections** icon for your Client.
+1. Go to the [Applications](${manage_url}/#/applications) page of the Management Dashboard.
+2. Select the Application for which you want to enable the Connection.
+3. Click the **Connections** icon for your Application.
 4. Scroll down to the *Enterprise* section of the Connections page, and find your Google Apps Connection. Click the slider to enable the Connection. If successful, the slide turns green.
 
-![Auth0 Client Connections](/media/articles/connections/enterprise/google/client-connection.png)
+![Auth0 Application Connections](/media/articles/connections/enterprise/google/client-connection.png)
 
 At this point, your users will be able to log in using their Google App credentials.
 

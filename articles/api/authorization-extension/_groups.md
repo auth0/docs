@@ -69,7 +69,7 @@ Use this endpoint to retrieve all groups.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -78,7 +78,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 
 ## Get a single Group
 
@@ -111,7 +111,7 @@ Use this endpoint to get a single group based on its unique identifier. Add "?ex
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -120,7 +120,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to retrieve. |
 
 ## Create Group
@@ -161,7 +161,7 @@ Use this endpoint to create a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">create:groups</span>
 
@@ -170,7 +170,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `name` <br/><span class="label label-danger">Required</span> | The name of the new group |
 | `description` | A description of the new group |
 
@@ -209,7 +209,7 @@ Use this endpoint to delete a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">delete:groups</span>
 
@@ -218,7 +218,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to delete |
 
 ## Update Group
@@ -264,7 +264,7 @@ Use this endpoint to update the name or the description of a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -273,7 +273,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to update |
 | `name` <br/><span class="label label-danger">Required</span> | The updated group name |
 | `description` <br/><span class="label label-danger">Required</span> | The updated group description |
@@ -309,7 +309,7 @@ Use this endpoint to retrieve the mappings of a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -318,7 +318,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
 
 ## Create Group Mappings
@@ -326,7 +326,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-PUT https://{extension_url}/groups/{group_id}/mappings
+PATCH https://{extension_url}/groups/{group_id}/mappings
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
 {
@@ -359,7 +359,7 @@ Group Mappings allow you to dynamically "add" users to different Groups based on
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -368,7 +368,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
 | `groupName` <br/><span class="label label-danger">Required</span> | Group to add the users to |
 | `connectionName` <br/><span class="label label-danger">Required</span> | Connection for the mapping |
@@ -414,7 +414,7 @@ Use this endpoint to delete one or more group mappings from a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -423,7 +423,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to delete |
 
 ## Get Group Members
@@ -488,7 +488,7 @@ Use this endpoint to get the members for a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -497,7 +497,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose members you want to retrieve |
 
 ## Add Group Members
@@ -537,7 +537,7 @@ Use this endpoint to add one or more members in a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -546,7 +546,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{user_id}` | Id of the user to add in a group |
 
@@ -587,7 +587,7 @@ Use this endpoint to remove one or more members from a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -596,7 +596,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
 
 ## Get Nested Group Members
@@ -643,7 +643,7 @@ Use this endpoint to get the nested members for a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -652,7 +652,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Get Nested Groups
@@ -691,7 +691,7 @@ Use this endpoint to get the nested groups for a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -700,7 +700,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Add Nested Groups
@@ -741,7 +741,7 @@ Use this endpoint to add nested groups.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -750,7 +750,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{group_id_to_add}` | List of group IDs that you want to add in the group |
 
@@ -791,7 +791,7 @@ Use this endpoint to remove one or more nested groups.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -800,7 +800,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove other group members |
 | `{NESTED_GROUP_ID}` <br/><span class="label label-danger">Required</span> | The id of the group to remove |
 
@@ -842,7 +842,7 @@ Use this endpoint to get the roles for a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -851,7 +851,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Add Group Roles
@@ -891,7 +891,7 @@ Use this endpoint to add roles to a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -900,7 +900,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{role_id}` | List of role IDs to add in the group |
 
@@ -941,7 +941,7 @@ Use this endpoint to remove one or more groups roles.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">update:groups</span>
 
@@ -950,7 +950,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The IDs of the roles to be removed from the group |
 
@@ -1019,7 +1019,7 @@ Use this endpoint to get the nested roles for a group.
 
 ### Scopes
 
-The [access token](#get-an-access-token) should have the following scopes:
+The [Access Token](#get-an-access-token) should have the following scopes:
 
 <span class="badge">read:groups</span>
 
@@ -1028,5 +1028,5 @@ The [access token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |

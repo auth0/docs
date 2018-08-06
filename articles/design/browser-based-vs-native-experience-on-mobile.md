@@ -2,6 +2,11 @@
 title: Browser-Based vs. Native Login Flows on Mobile Devices
 description: This article covers the pros and cons between a browser-based vs. native experience when implementing Auth0 on a mobile device
 toc: true
+topics:
+  - design
+  - mobile
+contentType: reference
+useCase: strategize
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 
@@ -22,7 +27,7 @@ If you have a suite of mobile applications (such as Google Drive, Google Docs/Sh
 If your suite uses a wholly native experience, your users have to enter their credentials for each of your apps. However, if you use a browser-based UX, you can implement SSO to reduce the number of times the user has to log in.
 
 ::: note
-You can implement SSO with native apps by storing refresh tokens on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
+You can implement SSO with native apps by storing Refresh Tokens on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
 :::
 
 ## SSO across devices/desktops/laptops
@@ -33,9 +38,9 @@ While SmartLock is not yet universal, using browser-based login flows allows you
 
 ## Phishing and security issues
 
-With a native login flow, there's no way to avoid an unauthorized party from decompiling or intercepting traffic to/from your app to obtain the Client ID and authentication URL. Using these pieces of information, the unauthorized party can then create a rogue app, upload it to an app store, and use it to phish users for the username/passwords and access tokens.
+With a native login flow, there's no way to avoid an unauthorized party from decompiling or intercepting traffic to/from your app to obtain the Client ID and authentication URL. Using these pieces of information, the unauthorized party can then create a rogue app, upload it to an app store, and use it to phish users for the username/passwords and Access Tokens.
 
-Using a browser-based flow protects you from this, since the callback URL is linked to the app through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/clients/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
+Using a browser-based flow protects you from this, since the callback URL is linked to the app through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/applications/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
 
 ## Implementation time
 
@@ -45,7 +50,7 @@ By default, [Lock](/libraries/lock) provides the UX, but you can customize it co
 
 ## Automatic improvements
 
-By relying on a centralized login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
+By relying on a Universal Login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
 
 ## Load time and user experience
 

@@ -2,10 +2,18 @@
 section: libraries
 description: Lock v9 doc on the different types of authentication modes.
 toc: true
+topics:
+  - libraries
+  - lock
+contentType:
+  - concept
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: Authentication Modes
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 After Auth0 Lock is opened, you can choose any of the Identity Providers (IdP) that Auth0 has, to Login. Depending on how the IdP Web/App is opened, a different authentication mode is used.
 
@@ -44,7 +52,7 @@ lock.show();
 
 ### Example: Redirect Mode in Regular Web Apps
 
-When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an access_token to get the user information](/protocols#3-getting-the-access-token).
+When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an Access Token to get the user information](/protocols#3-getting-the-access-token).
 
 This means that in this case, only redirect mode makes sense.
 

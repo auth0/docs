@@ -1,5 +1,13 @@
 ---
-description: Describes the call APIs from mobile apps using the  Authentication Code Grant (PKCE).
+description: Describes the call APIs from mobile apps using the Authentication Code Grant (PKCE).
+topics:
+  - authorization-code
+  - pkce
+  - api-authorization
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Calling APIs from Mobile Apps
 
@@ -17,7 +25,7 @@ The [Authorization Code Grant](/api-auth/grant/authorization-code) has some secu
 
 The **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, the Client creates, for every authorization request, a cryptographically random key called `code_verifier` and its transformed value called `code_challenge`, which is sent to Auth0 to get the `authorization_code`. When the Client receives the `authorization_code`, it will send the code and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
+With PKCE, the application creates, for every authorization request, a cryptographically random key called `code_verifier` and its transformed value called `code_challenge`, which is sent to Auth0 to get the `authorization_code`. When the application receives the `authorization_code`, it will send the code and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
 
 ![Authorization Code Grant using PKCE](/media/articles/api-auth/authorization-code-grant-pkce.png)
 
@@ -27,9 +35,9 @@ With PKCE, the Client creates, for every authorization request, a cryptographica
 
  3. The native app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0. This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-).
 
- 4. Auth0 validates this information and returns an `access_token` (and optionally a `refresh_token`).
+ 4. Auth0 validates this information and returns an Access Token (and optionally a Refresh Token).
 
- 5. The native app can use the `access_token` to call the API on behalf of the user.
+ 5. The native app can use the Access Token to call the API on behalf of the user.
 
 ::: note
 In OAuth 2.0 terms, the native app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
@@ -50,7 +58,7 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 ::: next-steps
 - [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Application Authentication for Mobile & Desktop Apps](/application-auth/mobile-desktop)
 - [Tokens used by Auth0](/tokens)
 :::

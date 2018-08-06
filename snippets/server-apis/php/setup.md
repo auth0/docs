@@ -21,7 +21,7 @@
 
     // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
-    $secret = '${account.clientSecret}';
+    $secret = 'YOUR_CLIENT_SECRET';
     $client_id = '${account.clientId}';
     $decoded_token = null;
     try {

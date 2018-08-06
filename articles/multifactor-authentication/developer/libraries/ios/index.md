@@ -2,6 +2,15 @@
 title: Getting Started with Guardian for iOS
 url: /multifactor-authentication/developer/libraries/ios
 description: Installation, usage, and configuration options guide for Guardian for iOS
+topics:
+  - mfa
+  - guardian
+  - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for iOS

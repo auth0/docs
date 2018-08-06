@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: The PSaaS Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
+topics:
+    - appliance
+contentType: concept
+useCase: appliance
+applianceId: appliance52
 ---
 
 # PSaaS Appliance Overview
@@ -25,9 +30,7 @@ If you choose to deploy to your own cloud environment or data center, you supply
 
 You may deploy the PSaaS Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the PSaaS Appliance deployment models. The following table shows the configuration options:
 
-::: zoomable
-![PSaaS Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
-:::
+<img src="/media/articles/appliance/Appliance-HA-Options.svg" alt="PSaaS Appliance HA Options" data-zoomable>
 
 <!-- markdownlint-disable MD033 -->
 <table class="table">
@@ -76,7 +79,7 @@ If Auth0 is managing a dedicated environment for you, Auth0 will obtain your con
 
 ### Connectivity
 
-During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can block Internet access to the PSaaS Appliance.
+During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can [continue to operate with limited internet access](/appliance/infrastructure/internet-restricted-deployment).
 
 For normal maintenance, Auth0 will access the Management Dashboard (either over a temporary SSH connection or through remote control software) to apply the update. Auth0 will also need SSH access in the event that updates to the PSaaS Appliance are necessary. If you expose API endpoints to be used for monitoring, Auth0 will collect this information to proactively monitor PSaaS Appliance behavior for you.
 
@@ -88,9 +91,7 @@ The typical update cycle is once per month. You can control and which version is
 
 The diagram below details a few of these dependencies:
 
-::: zoomable
-![Appliance Overview](/media/articles/appliance/overview.svg)
-:::
+<img src="/media/articles/appliance/overview.svg" alt="Appliance Overview" data-zoomable>
 
 ## Monitoring and Support
 

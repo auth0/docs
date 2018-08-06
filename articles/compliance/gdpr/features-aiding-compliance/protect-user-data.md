@@ -1,9 +1,14 @@
 ---
-title: GDPR Compliance: Protect and secure user data
+title: "GDPR: Protect and secure user data"
 description: This article discusses how customers can use Auth0 to better protect and secure their user's personal data
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: concept
+useCase: compliance
 ---
-# GDPR Compliance: Protect and secure user data
+# GDPR: Protect and secure user data
 
 As per article 32 of GDPR, you must implement appropriate security measures in order to ensure a level of security appropriate to the risk, including (but not limited to):
 
@@ -13,11 +18,11 @@ As per article 32 of GDPR, you must implement appropriate security measures in o
 
 There are several Auth0 features than can help you achieve that, like user profile encryption, brute-force protection, breached password detection, step-up authentication, and more.
 
+<%= include('./_legal-warning.md') %>
+
 ## Encrypt user profile information
 
-You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality.
-
-To decrypt your data, you can use the **Decrypt sensitive data from the user profile** built-in [rules](/rules) template.
+<%= include('./_encrypt-data.md') %>
 
 ## Enable brute-force protection
 
@@ -66,9 +71,11 @@ For information on how to use them see [Password Strength](/connections/database
 
 ## Step-up authentication
 
-With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [multifactor authentication](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then authenticating with one more factor (for example, a code sent via SMS) is required.
+With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [Multifactor Authentication (MFA)](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then they must authenticate with one more factor (for example, a code sent via SMS).
 
-For implementation details, and a sample application that shows how to implement step-up with Auth0, see [Step-up Authentication with custom Multifactor Authentications Rules](/multifactor-authentication/custom-mfa-rules).
+You can check if a user has logged in with MFA by reviewing the contents of their ID Token or Access Token. You can then configure your application to deny access to sensitive resources if the token indicates that the user did not log in with MFA.
+
+For details see [Step-up Authentication](/multifactor-authentication/developer/step-up-authentication).
 
 ## Availability and resilience
 
@@ -86,8 +93,3 @@ You decide which deployment model works best for you based on your business and 
 For more information on Auth0 architecture, see [Availability & Trust](https://auth0.com/availability-trust).
 
 For more information on the available deployment models of Auth0, see [Auth0 Deployment Models](/getting-started/deployment-models).
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

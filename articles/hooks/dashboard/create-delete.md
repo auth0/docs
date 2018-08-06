@@ -1,9 +1,13 @@
 ---
 description: How to create new Hooks using the Management Dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
+contentType: how-to
+useCase: extensibility-hooks
 ---
-
-# Create a New Hook Using the Dashboard
+# Create a New Hook
 
 You can create new Hooks using the Auth0 Management Dashboard.
 
@@ -43,7 +47,3 @@ Auth0 automatically enables the first Hook you create for an extensibility point
 4. Confirm that you want to delete your Hook by clicking **YES, DELETE HOOK**.
 
 ![Delete Hook Confirmation](/media/articles/hooks/delete-hook.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/dashboard"]
-}) %>

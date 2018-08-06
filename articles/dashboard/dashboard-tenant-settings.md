@@ -1,6 +1,11 @@
 ---
 description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
 toc: true
+topics:
+  - dashboard
+  - tenants
+contentType: reference
+useCase: manage-accounts
 ---
 # Tenant Settings in the Auth0 Dashboard
 
@@ -25,10 +30,10 @@ Click **SAVE** when finished to submit your changes.
 
 ### API Authorization Settings
 
-**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [access tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
+**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
 
 ::: note
-This setting is equivalent to appending the audience to every authorization request made to the tenant for every client. This will cause new behaviour that might result in breaking changes for some of your clients. Please contact support if you require assistance.
+This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behaviour that might result in breaking changes for some of your applications. Please contact support if you require assistance.
 :::
 
 **Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
@@ -81,9 +86,9 @@ This is the session timeout for the Auth0 session. You can configure separately 
 
 Learn more about [Single Sign On](/sso/current).
 
-### Global Client Information
+### Global Application Information
 
-![](/media/articles/tutorials/tenant-settings/global-client-information.png)
+![](/media/articles/tutorials/tenant-settings/global-application-information.png)
 
 The **Global Client ID** and **Global Client Secret** are used to generate tokens for legacy Auth0 APIs. Typically, you will not need these values. If you need to have the global client secret changed, please [contact support](https://support.auth0.com).
 
@@ -93,4 +98,4 @@ The **Global Client ID** and **Global Client Secret** are used to generate token
 
 You can configure how the Change Password widget will look like at the [Password Reset](${manage_url}/#/password_reset) tab inside the [Hosted Pages](${manage_url}/#/login_page) section of the dashboard.
 
-**Enable Client Connections**: This flag determines whether all current connections shall be enabled when a new [Client](${manage_url}/#/clients) is created.
+**Enable Application Connections**: This flag determines whether all current connections shall be enabled when a new [Application](${manage_url}/#/applications) is created.

@@ -6,12 +6,20 @@ seo_alias: github
 index: 7
 description: How to add GitHub login to your app and access their API
 toc: true
+topics:
+  - connections
+  - social
+  - github
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to GitHub
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
 
-This doc refers to the steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+This doc refers to the steps to connect your application. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Add a new application
 

@@ -1,5 +1,12 @@
 ---
 description: How to set your API methods to use your custom authorizer
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # AWS API Gateway Tutorial, Part 4: Secure the API Using Custom Authorizers
@@ -34,7 +41,7 @@ Click the **check mark** icon to save your choice of custom authorizer. Make sur
 
 ## Deploy the API
 
-To make your changes public, you'll need to [deploy your API](/integrations/aws-api-gateway-2/part-2#deploy-the-api).
+To make your changes public, you'll need to [deploy your API](/integrations/aws-api-gateway/custom-authorizers/part-2#deploy-the-api).
 
 If successful, you'll be redirected to the **Test Stage Editor**. Copy down the **Invoke URL** provided in the blue ribbon at the top, since you'll need this to test your deployment.
 

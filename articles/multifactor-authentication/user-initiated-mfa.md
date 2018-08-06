@@ -2,6 +2,12 @@
 title: User-Initiated Multifactor Authentication (MFA)
 description: How to set up user-initiated multifactor authentication
 toc: true
+topics:
+    - mfa
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # User-Initiated Multifactor Authentication
 
@@ -29,7 +35,7 @@ To help you get started, you'll see a template you can modify. Additional templa
 
 As an example, the follow code snippet calls for MFA when:
 
-* The client specified is used
+* The application specified is used
 * The user's `app_metadata` has a `use_mfa` flag set to `true`
 
 Finally, if the two parameters above are met, MFA occurs every login.
@@ -37,8 +43,8 @@ Finally, if the two parameters above are met, MFA occurs every login.
 ```js
 function (user, context, callback) {
 
-    // run only for the specified clients
-    var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+    // run only for the specified applications
+    var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
     
     if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
         if (user.app_metadata && user.app_metadata.use_mfa){
@@ -61,9 +67,9 @@ function (user, context, callback) {
 
 In this step, we'll add functionality within the user creation/login process that flags users for MFA.
 
-You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2) during the user creation process. The only scope that you need to grant to the issued token is `update:users_app_metadata`.
+You'll need to [get an Access Token](/api/management/v2/tokens) to call the [Management API](/api/management/v2) during the user creation process. The only scope that you need to grant to the issued token is `update:users_app_metadata`.
 
-Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `useMfa = true`.
+Using this token, you can place a flag on app_metadata that indicates whether MFA is needed whenever that user logs in.  More specifically, you'll be programmatically setting their the user's `app_metadata` field with `use_mfa = true`.
 
 You can do this by making the appropriate `PATCH` call to the [Update a User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id). Note that the body of the call omits most of the extra details (such as email and phone number) you might need to include.
 
@@ -80,7 +86,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"blocked\": false, \"email_verified\": false, \"email\": \"\", \"verify_email\": false, \"phone_number\": \"\", \"phone_verified\": false, \"verify_phone_number\": false, \"password\": \"\", \"verify_password\": false,\"user_metadata\": {},\"app_metadata\": { \"useMfa\": true }, \"connection\": \"\", \"username\": \"\",\"client_id\": \"DaM8...rdyX\"}"
+		"text": "{ \"blocked\": false, \"email_verified\": false, \"email\": \"\", \"verify_email\": false, \"phone_number\": \"\", \"phone_verified\": false, \"verify_phone_number\": false, \"password\": \"\", \"verify_password\": false,\"user_metadata\": {},\"app_metadata\": { \"use_mfa\": true }, \"connection\": \"\", \"username\": \"\",\"client_id\": \"DaM8...rdyX\"}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
@@ -92,7 +98,7 @@ You can do this by making the appropriate `PATCH` call to the [Update a User end
 
 In this step, we'll initiate Guardian Enrollment for users who have been flagged for MFA. Note that you can use any MFA provider that integrates with Auth0 -- you do not necessarily have to use Guardian.
 
-You'll need to [get an access token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the access token when you make the initial request in the [previous step](#flag-new-users-for-mfa) in lieu of making two separate requests, each resulting in a token with a different scope.
+You'll need to [get an Access Token](/api/management/v2/tokens) to call the [Management API](/api/management/v2). The only scope that you need to grant to the issued token is `create:guardian_enrollment_tickets`. You might consider adding both scopes to the Access Token when you make the initial request in the [previous step](#flag-new-users-for-mfa) in lieu of making two separate requests, each resulting in a token with a different scope.
 
 You can enroll a user in Guardian MFA by making the appropriate `POST` call to the [Create a Guardian Enrollment Ticket endpoint of the Management API](/api/management/v2#!/Guardian/post_ticket).
 

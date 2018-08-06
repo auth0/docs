@@ -5,6 +5,14 @@ image: /media/connections/shopify.png
 seo_alias: shopify
 description: How to connect your Auth0 app to Shopify.
 toc: true
+topics:
+  - connections
+  - social
+  - shopify
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Shopify

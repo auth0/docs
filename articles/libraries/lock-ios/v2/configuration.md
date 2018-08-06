@@ -4,6 +4,16 @@ toc: true
 url: /libraries/lock-ios/v2/configuration
 title: Lock for iOS v2 Configuration Options
 description: Behavior configuration options available with Lock v2 for iOS
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Configuration Options
@@ -39,7 +49,7 @@ Allows Lock to be dismissed by the user. By default this is `false`.
 
 ### scope
 
-Scope used for authentication. By default is `openid`. It will return not only the **access\_token**, but also an **id_token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
+Scope used for authentication. By default is `openid`. It will return not only the **Access Token**, but also an **ID Token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
 
 ```swift
 .withOptions {
@@ -49,7 +59,7 @@ Scope used for authentication. By default is `openid`. It will return not only t
 
 #### Refresh Tokens
 
-Specifying the `offline_access` scope in your Lock options will allow a [refresh token](/tokens/refresh-token) to be returned along with the access\_token and the id\_token. Refresh tokens can be saved and used to acquire a new access token when the old one expires. For more information about using refresh tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement refresh tokens, or at the [Swift QuickStart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of refresh tokens.
+Specifying the `offline_access` scope in your Lock options will allow a [Refresh Token](/tokens/refresh-token) to be returned along with the access\_token and the id\_token. Refresh Tokens can be saved and used to acquire a new Access Token when the old one expires. For more information about using Refresh Tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement Refresh Tokens, or at the [Swift QuickStart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of Refresh Tokens.
 
 ### termsOfService
 

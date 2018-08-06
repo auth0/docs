@@ -1,6 +1,6 @@
-<%= include('../../_includes/_login_preamble', { library: 'Ember' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Ember' } )%>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `auth` and the filename will be `auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -42,12 +42,12 @@ export default Service.extend({
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Authentication Functions
+## Handle Authentication Tokens
 
 Add some additional methods to the `auth` service to fully handle authentication in the app.
 
 ```js
-// app.js
+// app/services/auth.js
 
 import Ember from 'ember';
 import config from 'auth0-ember-samples/config/environment';
@@ -91,7 +91,7 @@ export default Service.extend({
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
+      // Set the time that the Access Token will expire at
       let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
@@ -100,7 +100,7 @@ export default Service.extend({
   },
 
   logout() {
-    // Clear access token and ID token from local storage
+    // Clear Access Token and ID Token from local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
@@ -108,7 +108,7 @@ export default Service.extend({
 
   isNotExpired() {
     // Check whether the current time is past the
-    // access token's expiry time
+    // Access Token's expiry time
     let expiresAt = this.getSession().expires_at;
     return new Date().getTime() < expiresAt;
   }
@@ -119,15 +119,15 @@ export default Service.extend({
 The file now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
+* `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 * `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
 
 ### About the Authentication Service
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and log out.
 
@@ -139,13 +139,13 @@ Provide a template with controls for the user to log in and log out.
 </div>
 ```
 
-The `action` added to the **Log In** control makes the appropriate call to the `login` method in `auth.js` to allow the user to log in. When the **Log In** control is clicked, the user will be redirected to Auth0's hosted login page.
+The `action` added to the **Log In** control makes the appropriate call to the `login` method in `auth.js` to allow the user to log in. When the **Log In** control is clicked, the user will be redirected to the login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
+### Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
 
 Call `handleAuthentication` in `app.js` so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 
@@ -180,7 +180,7 @@ export default Route.extend({
 });
 ```
 
-## Create a Protected Route
+### Create a Protected Route
 
 After a user authenticates and returns to your application, you may wish to send them to a protected route. The transition logic is demonstrated above in the `transitionTo` call after authentication. Add a new route called `protected` and check whether the user is authenticated before allowing them to see it.
 
@@ -220,7 +220,3 @@ Add a template for this route.
 ```
 
 Notice that there is also a `Log Out` control in this route which has an `action` of `logout`. This will call the `logout` method on the `auth` service allowing the user to log out.
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-community/ember-simple-auth-auth0/tree/develop/tests/dummy).

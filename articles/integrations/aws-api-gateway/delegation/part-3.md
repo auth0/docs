@@ -1,6 +1,13 @@
 ---
-title: Amazon API Gateway Tutorial - Building the Client App
+title: Amazon API Gateway Tutorial - Building the App
 description: Step 3 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
@@ -8,9 +15,9 @@ description: Step 3 of Amazon API Gateway Tutorial
 Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
 :::
 
-## Step 3 - Build the Client Application
+## Step 3 - Build the Application
 
-In this step, you will build a single page, serverless client application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
+In this step, you will build a single page, serverless application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
 ### 1. Set Up Your Sample Application
 
@@ -22,7 +29,7 @@ For a simple starter app, download this seed project.
   path: 'examples/api-gateway/client'
 }) %>
 
-Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Client `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/clients) for the client in question).
+Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Application `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/applications) for the application in question).
 
 ::: panel AWS S3 bucket
 Be sure that you have [created the AWS S3 bucket configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
@@ -33,9 +40,9 @@ aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
 ```
 :::
 
-Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Client you are using) Connection. To fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
+Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Application you are using) Connection. To fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
 
-Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Client. Your website's URL should look something like this:
+Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Application. Your website's URL should look something like this:
 
 `http://your-bucket.s3-website-us-east-1.amazonaws.com`
 
@@ -55,7 +62,7 @@ At this point, you have authentication set up with Auth0, and you have an OpenId
 
 ![S3 website directory structure](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain an AWS access token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
+You can use Auth0's delegation capability to obtain an AWS Access Token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
 
 Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a Social Connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 
@@ -128,7 +135,7 @@ Optionally, you can set a breakpoint in the browser at `store.set('awstoken', de
 }
 ```
 
-If you don't see these values, be sure that you have the *Amazon Web Services addon* enabled in the *Addons* tab for your Auth0 Client.
+If you don't see these values, be sure that you have the *Amazon Web Services addon* enabled in the *Addons* tab for your Auth0 Application.
 
 ### Display Pets with the AWS API Service
 
@@ -142,7 +149,7 @@ To add the API code for adding a call to your service, copy the contents of *api
 * `lib` folder;
 * `README.md`.
 
-There is already a `README.md` in the `pets` directory, so you will need to rename one of the files to keep both in the directory. The `README.md` for the API gateway explains how to use the API client from your Auth0 Client.
+There is already a `README.md` in the `pets` directory, so you will need to rename one of the files to keep both in the directory. The `README.md` for the API gateway explains how to use the API application from your Auth0 Application.
 
 Open the `index.html` file located in the root of your `pets` folder to add all of the scripts listed at the top of the API readme to `index.html`:
 
@@ -193,7 +200,7 @@ Copy the updated code to your S3 bucket. Refresh the page to see two animals lis
 
 ### Update Pets with the AWS API Service
 
-Now that you have a working Auth0 Client with the API Gateway, you will add a method for updating the `pets` table.
+Now that you have a working Auth0 Application with the API Gateway, you will add a method for updating the `pets` table.
 
 Modify the `putPets` method logic to update pets using your API function. This function will be used for both adding and removing pets.
 

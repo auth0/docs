@@ -1,9 +1,14 @@
 ---
 description: How to create/delete Hooks using the Auth0 Command-Line Interfance
 beta: true
+topics:
+    - hooks
+    - cli
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
-# Create/Delete Hooks Using the Auth0 Command-Line Interface
+# Create/Delete Hooks
 
 ::: note
 The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli`, and you can obtain it from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
@@ -32,7 +37,3 @@ At this point, you have created a new, disabled Hook using the `pre-user-registr
 If you need to delete an existing Hook, you can do so using the following command:
 
 `auth0 rm my-extension-1 -p auth0-default`
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/cli"]
-}) %>

@@ -2,6 +2,14 @@
 title: How to implement the Implicit Grant
 description: How to execute an Implicit Grant flow from a SPA Client application.
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - implicit
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # How to implement the Implicit Grant
 
@@ -15,7 +23,7 @@ The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/
 
 Before you begin this tutorial, do the following:
 
-* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
 * [Register your API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization
@@ -31,7 +39,7 @@ https://${account.namespace}/authorize?
   response_type=YOUR_RESPONSE_TYPE&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
@@ -41,17 +49,17 @@ Where:
 
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
-* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`.
+* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token` to get only an Access Token, `id_token` to get only an ID Token (if you don't plan on accessing an API), or `id_token token` to get both an ID Token and an Access Token.
 
-* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+* `client_id`: Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings). 
+* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The Access Token (and optionally an ID Token) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
   ::: warning
   Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments.
   :::
 
-* `state`: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
+* `state`: An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value must be used by the application to [prevent CSRF attacks](/protocols/oauth-state).
 
 * `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
@@ -65,7 +73,14 @@ For example:
 
 ## 2. Extract the Access Token
 
-After Auth0 has redirected back to the app, you can extract the `access_token` from the hash fragment of the URL:
+After Auth0 has redirected back to the app, the hash fragment of the URL contains the following parameters:
+- `id_token`: contains an [ID Token](/tokens/id-token) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
+- `access_token`: contains an [Access Token](/tokens/access-token) and is present if the request parameter `response_type` included the value `token`
+- `token_type`: denotes the type of the [Access Token](/tokens/access-token)
+- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/access-token) will expire in one hour from the time the response was generated
+- `state`: present in the response if the `state` parameter was present in the request. Holds the exact value received from the client in the request.
+
+You can extract the `access_token`, and other parameters, from the hash fragment of the URL:
 
 ```js
 function getParameterByName(name) {
@@ -84,11 +99,11 @@ function getIdToken() {
 $(function () {
   var access_token = getAccessToken();
 
-  // Optional: an id_token will be returned by Auth0
+  // Optional: an ID Token will be returned by Auth0
   // if your response_type argument contained id_token
   var id_token = getIdToken();
 
-  // Use the access token to make API calls
+  // Use the Access Token to make API calls
   // ...
 });
 ```
@@ -98,7 +113,7 @@ $(function () {
 Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ``` js
-// Use the access token to make API calls
+// Use the Access Token to make API calls
 $('#get-appointments').click(function(e) {
   e.preventDefault();
 
@@ -128,12 +143,18 @@ If you need to authenticate your users without a login page (for example, when t
 
 For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
+## Sample application
+
+For an example implementation see the [SPA + API](/architecture-scenarios/application/spa-api) architecture scenario.
+
+This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
+
 ## Keep reading
 
 ::: next-steps
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

@@ -2,6 +2,18 @@
 section: libraries
 toc: true
 description: Migration Guide from lock-passwordless to Lock v11 with Passwordless Mode
+topics:
+  - libraries
+  - lock
+  - migrations
+  - passwordless
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - add-login
+  - migrate
 ---
 # Migration Guide for lock-passwordless to Lock v11 with Passwordless Mode
 
@@ -80,7 +92,7 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
     </div>
     <div id="npm-after" class="tab-pane">
     <pre class="hljs js"><code>
-    import Auth0LockPasswordless from 'auth0-lock/passwordless';
+    import {Auth0LockPasswordless} from 'auth0-lock';
     var options = {
       closable: false
     };

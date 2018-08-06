@@ -1,11 +1,20 @@
 ---
 description: How to call AWS APIs and Resources Using Tokens
 toc: true
+topics:
+  - integrations
+  - aws
+  - tokens
+contentType: tutorial
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 # Call AWS APIs and Resources Securely with Tokens
 
 ::: panel-warning Legacy Grant Types
-As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their clients, which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](/clients/client-grant-types#secure-alternatives-to-the-legacy-grant-types). If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
+As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their applications, which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](/applications/application-grant-types#secure-alternatives-to-the-legacy-grant-types). If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
 Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). These credentials can then be used to call the AWS API of any Auth0-supported [identity provider](/identityproviders).
@@ -25,12 +34,12 @@ Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-
 For detailed instructions on configuring delegation, see [How to Set Up AWS for Delegated Authentication](/aws-api-setup).
 :::
 
-Log in to Auth0's Management Dashboard, navigate to the [Clients](${manage_url}/#/clients) area, and find the [client](/clients) associated with your app. Click on **Settings** and click over to the **Addons** tab. Enable the **Amazon Web Services** addon.
+Log in to Auth0's Management Dashboard, navigate to the [Applications](${manage_url}/#/applications) area, and find the [application](/applications) associated with your app. Click on **Settings** and click over to the **Addons** tab. Enable the **Amazon Web Services** addon.
 
 ![](/media/articles/integrations/aws/aws-addon.png)
 
 ::: panel Username Length with AWS
-Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application. 
+Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application.
 :::
 
 #### IAM policy
@@ -63,7 +72,7 @@ The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated u
 
 ### Get the AWS Token for an Authenticated User
 
-When a user successfully authenticates, Auth0 returns an `id_token`, which is a [JWT](/jwt)). This `id_token` is then used to request an Auth0 and AWS token using the delegation endpoint.
+When a user successfully authenticates, Auth0 returns an ID Token, which is a [JWT](/jwt)). This ID Token is then used to request an Auth0 and AWS token using the delegation endpoint.
 
 Here is a sample request on the delegation endpoint:
 
@@ -87,10 +96,10 @@ Here is a sample request on the delegation endpoint:
 
 | Parameters | Description |
 | - | - |
-| `client_id` | The ID of your Auth0 client |
+| `client_id` | The ID of your Auth0 application |
 | `grant_type` | Set as `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| `id_token` | The existing ID token for the user requesting access |
-| `target` | The target client's ID |
+| `id_token` | The existing ID Token for the user requesting access |
+| `target` | The target application's ID |
 | `api_type` | The API the user wants to call (this must be `aws`) |
 
 AWS also requires the **role** and **principal** ARN values. You can set these values using [rules](/rules). The following is a sample rule that you can use. [Copy the provider  (for use as the principle ARN) and role ARN values](/aws-api-setup#copy-the-arn-values), and paste them into the sample where it currently says `[omitted]`:
@@ -165,7 +174,7 @@ The result of calling the delegation endpoint will contain the AWS token in the 
 ```
 
 :::panel Auth0 Libraries
-The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
+The [Auth0 application libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
 
 Additionally, AWS requires two additional parameters: **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate ARN values where the sample currently says `[omitted]` via [Rules](${manage_url}/#/rules). If you do not have these values, please see [Copy the ARN Values](/aws-api-setup#copy-the-arn-values) section of the AWS setup doc.
 :::

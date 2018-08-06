@@ -1,11 +1,18 @@
 ---
 description: Guide on how to use the hosted password reset page
 crews: crew-2
+topics:
+  - password-reset
+  - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 
 # Password Reset Page
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
+
+This article will help you learn how to configure the custom Password Reset page. If you are trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 
 ## Enable the Custom Password Reset Page
 
@@ -44,7 +51,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   <script>
     new Auth0ChangePassword({
       container:         "change-password-widget-container",     // required
-      email:             '{{email}}',                            // DO NOT CHANGE THIS
+      email:             "{{email}}",                            // DO NOT CHANGE THIS
       csrf_token:        '{{csrf_token}}',                       // DO NOT CHANGE THIS
       ticket:            '{{ticket}}',                           // DO NOT CHANGE THIS
       password_policy:   '{{password_policy}}',                  // DO NOT CHANGE THIS

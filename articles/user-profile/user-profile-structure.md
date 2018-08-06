@@ -1,68 +1,71 @@
 ---
 title: Structure of the User Profile
-description: This page lists the attributes that are available on the User Profile.
+description: This page lists the attributes that are available on the Auth0 user profile
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - user-profile-structure
+contentType:
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 
 # Structure of the User Profile
 
-The following attributes are available on the [User Profile](/user-profile):
+The Auth0 user profile is the set of attributes that contains specific information about a user. User profile information may include the user's name, email address, contact information, and so on.
 
-::: note
-The User Details page will show `pending` when a user is first created until they have logged in for the first time.
-:::
+The following attributes are available on the user profile.
 
-* `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
+* `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more info see [Metadata](/metadata).
 
-* `blocked`*: the `true/false` value indicating if the user has been blocked;
+* `blocked`: The `true/false` value indicating if the user has been blocked.
 
-* `created_at`: the timestamp of when the user profile was first created;
+* `created_at`: The timestamp of when the user profile was first created.
 
-* `email` (unique): the user's email address
+* `email` (unique): The user's email address.
 
-* `email_verified`: the `true/false` value indicating if the user has verified their email address;
+* `email_verified`: The `true/false` value indicating if the user has verified their email address.
 
-* `identities`: the array of objects with information about the user's identities:
+* `identities`: The array of objects with information about the user's identities:
 
-    * `connection`: the name of the connection used to authenticate the user;
-    * `isSocial`: the `true/false` value indicating if the connection is a social one or not;
-    * `provider`: the entity that is authenticating the user (such as Facebook, Twitter, and so on);
-    * `user_id`: the user's unique identifier for this connection/provider.
+    * `connection`: The name of the connection used to authenticate the user
+    * `isSocial`: The `true/false` value indicating if the connection is a social one or not
+    * `provider`: The entity that is authenticating the user (such as Facebook, Twitter, and so on)
+    * `user_id`: The user's unique identifier for this connection/provider
 
 
-* `multifactor`: the list of multifactor providers in which the user is enrolled;
+* `multifactor`: The list of multifactor providers in which the user is enrolled.
 
-* `last_ip`*: the IP address associated with the user's last login;
+* `last_ip`: The IP address associated with the user's last login.
 
-* `last_login`*: the timestamp of when the user last logged in;
+* `last_login`: The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
 
-* `logins_count`*: the number of times the user has logged in;
+* `logins_count`: The number of times the user has logged in.
 
-* `name`: the user's name;
+* `name`: The user's name.
 
-* `nickname`: the user's nickname;
+* `nickname`: The user's nickname.
 
-* `phone_number`: the user's phone number;
+* `phone_number`: The user's phone number.
 
-* `phone_verified`: the `true/false` value indicating whether the user's phone number has been verified (only valid for users with SMS connections);
+* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified (only valid for users with SMS connections).
 
-* `picture`: the user's profile picture, [click here to learn more about the picture field](/user-profile/user-picture);
+* `picture`: [The user's profile picture](/user-profile/user-picture).
 
-* `updated_at`: the timestamp of when the user's profile was last updated/modified;
+* `updated_at`: The timestamp of when the user's profile was last updated/modified.
 
-* `user_id` (unique): the user's unique identifier;
+* `user_id` (unique): The user's unique identifier.
 
-* `user_metadata`: the custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses);
+* `user_metadata`: The custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses). For more info see [Metadata](/metadata).
 
-* `username` (unique): the user's username.
+* `username` (unique): The user's username.
 
-::: note
-In cases where you are accessing the User Profile from inside a [Rule](/rules) using the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rule since Rules execute after the actual login.
-:::
+Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
+](/users/search/best-practices).
 
-::: note
-Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [/userinfo endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
-:::
-
-## Blacklisting User Attributes
+## Blacklisting user attributes
 
 If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/tutorials/blacklisting-attributes).

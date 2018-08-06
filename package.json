@@ -12,8 +12,8 @@
     "*.md": "markdownlint"
   },
   "engines": {
-    "node": "6.11.1",
-    "yarn": "1.2.1"
+    "node": "8.9.4",
+    "yarn": "1.3.2"
   },
   "devDependencies": {
     "commander": "^2.8.1",

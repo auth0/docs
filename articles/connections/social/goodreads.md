@@ -4,6 +4,14 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
+topics:
+  - connections
+  - social
+  - goodreads
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Goodreads
 
@@ -100,7 +108,7 @@ JSON.stringify(`function(token, tokenSecret, ctx, cb) {
 
 ## 5. Test the connection
 
-You can use the [/authorize endpoint](/api/authentication?shell#authorize-client) with custom `client_id` and `connection` parameters to test your connection. For example:
+You can use the [/authorize endpoint](/api/authentication?shell#authorize-application) with custom `client_id` and `connection` parameters to test your connection. For example:
 
 ```text
 https://${account.namespace}/authorize?

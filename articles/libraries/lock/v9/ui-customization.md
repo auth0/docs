@@ -1,10 +1,17 @@
 ---
 section: libraries
 description: Customizing how Lock with CSS and Javascript
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Customize the look and feel
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 You can apply your own styles to the elements of the Lock.
 

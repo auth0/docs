@@ -1,12 +1,19 @@
 ---
 section: libraries
-description: Getting and using a refresh token with Lock.
+description: Getting and using a Refresh Token with Lock.
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+useCase:
+  - add-login
 ---
-# Lock: Refresh tokens
+# Lock: Refresh Tokens
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
-Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new `id_token` (`JWT`) anytime we want.
+Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new ID Token (JWT) anytime we want.
 
 ::: warning
 This means that if the `refreshToken` gets compromised, unless we revoke that token, somebody would be able to get a new JWT forever.
@@ -14,7 +21,7 @@ This means that if the `refreshToken` gets compromised, unless we revoke that to
 
 ## 1. Getting the Refresh Token
 
-In order to be able to get the refresh token, all we need to do is add the scope `offline_access` when calling the `showSignin` or `showSignup` method. Optionally, we can specify a `device` name so that the user knows which device has a Refresh Token created. If not set, it'll be automatically calculated for you.
+In order to be able to get the Refresh Token, all we need to do is add the scope `offline_access` when calling the `showSignin` or `showSignup` method. Optionally, we can specify a `device` name so that the user knows which device has a Refresh Token created. If not set, it'll be automatically calculated for you.
 
 ````js
 lock.showSignin({

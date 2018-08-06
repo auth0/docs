@@ -1,13 +1,20 @@
 ---
-title: GDPR Compliance: Data Minimization
+title: "GDPR: Data Minimization"
 description: This article discusses how customers can minimize the personal data they collect for processing and ensure their security
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: how-to
+useCase: compliance
 ---
-# GDPR Compliance: Data Minimization
+# GDPR: Data Minimization
 
 According to Article 5 of GDPR, the personal data you collect must be limited to what is necessary for processing and must be kept only as long as needed. Appropriate security must be ensured during data processing, including protection against unauthorised or unlawful processing and against accidental loss, destruction, or damage.
 
 There are several Auth0 features than can help you achieve these goals, like account linking, user profile encryption, and more.
+
+<%= include('./_legal-warning.md') %>
 
 ## Restrict user profile information
 
@@ -20,9 +27,7 @@ To limit the amount of personal information in the Auth0 user profile, you can:
 
 ## Encrypt user profile information
 
-You can encrypt user information before you save it in the user profile. You can use any encryption mechanism you like prior to storing data in the metadata fields, or you can use the built-in [rules](/rules) template **Encrypt sensitive data in the user profile** to implement this functionality.
-
-To decrypt your data, you can use the Decrypt sensitive data from the user profile built-in [rules](/rules) template.
+<%= include('./_encrypt-data.md') %>
 
 ## Use account linking
 
@@ -118,8 +123,3 @@ You should minimize any sensitive information contained in URLs that might be ca
 - Configure enterprise identity providers to control what data is returned to Auth0
 - Specify what data you want to collect from the social provider and negotiate any particular terms around social login with the social provider around use of the data they will get around your users’ login
 :::
-
-<%= include('../_stepnav', {
- prev: ["Go back", "/compliance/gdpr/features-aiding-compliance"],
- navHeader: "Auth0 Features and GDPR Compliance"
-}) %>

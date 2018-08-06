@@ -1,21 +1,30 @@
 ---
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
+topics:
+  - rules
+  - extensibility
+contentType:
+  - reference
+  - concept
+  - index
+useCase:
+  - extensibility-rules
 ---
 # Rules
 
-**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. They are executed after the authentication and before the authorization.
-
-Rules allow you to easily customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
+**Rules** are functions written in JavaScript that are executed when a user authenticates to your application. They run once the authentication process is complete and you can use them to customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
 
 ![Rule Flow](/media/articles/rules/flow.png)
 
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
 1. The user authenticates successfully.
-1. The tokens ([id_token](/tokens/id-token) and/or [access_token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
+1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
 
-Among many possibilities, Rules can be used to:
+## What can I use rules for?
+
+Among many possibilities, rules can be used to:
 
 * __Profile enrichment__: query for information on the user from a database/API, and add it to the user profile object.
 * Create __authorization rules__ based on complex logic (anything that can be written in JavaScript).
@@ -25,13 +34,13 @@ Among many possibilities, Rules can be used to:
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
 * Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
-* Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
+* Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
 
-## Video: Using Rules
+## Video: Using rules
 
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 
@@ -39,29 +48,21 @@ A Rule is a function with the following arguments:
 
 * `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
-    ::: note
-    Rules execute after the actual login, so for the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rules.
-    :::
-
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
 * `callback`: a function to send back potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the Dashboard.
 
-::: note
-You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
-:::
+Select an empty rule to start from scratch, or use one of the templates. Name your rule, keeping in mind that it can only contain alphanumeric characters, spaces and '-', and cannot start, nor end, with '-' or spaces.
+
+For more examples see our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
 ### Hello World
 
-::: panel Namespace Identifiers
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-:::
-
-This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
+This rule will add a `hello` claim (with the value `world`) to the ID Token that will be afterwards sent to the application.
 
 ```js
 function (user, context, callback) {
@@ -71,10 +72,10 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `access_token`.
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or Access Token.
 
-::: note
-You can add `console.log` lines for [debugging](#debugging) or use the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
+::: panel Namespace Identifiers
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
 ### Add roles to a user
@@ -109,7 +110,7 @@ At the beginning of the rules pipeline, John's `context` object will be:
 }
 ```
 
-After the rule executes, the `context` object will have the added namespaced claim as part of the `id_token`:
+After the rule executes, the `context` object will have the added namespaced claim as part of the ID Token:
 
 ```json
 {
@@ -125,7 +126,7 @@ After the rule executes, the `context` object will have the added namespaced cla
 }
 ```
 
-When your application receives the `id_token`, it will verify and decode it, in order to access this added custom claim. The payload of the decoded `id_token` will be similar to the following sample:
+When your application receives the ID Token, it will verify and decode it, in order to access this added custom claim. The payload of the decoded ID Token will be similar to the following sample:
 
 ```json
 {
@@ -143,7 +144,7 @@ When your application receives the `id_token`, it will verify and decode it, in 
 }
 ```
 
-For more information on the `id_token` refer to [ID Token](/tokens/id-token).
+For more information on the ID Token, refer to [ID Token](/tokens/id-token).
 
 ::: note
 Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
@@ -151,7 +152,7 @@ Properties added in a rule are __not persisted__ in the Auth0 user store. Persis
 
 ### Deny access based on a condition
 
-In addition to adding claims to the `id_token`, you can return an *access denied* error.
+In addition to adding claims to the ID Token, you can return an *access denied* error.
 
 ```js
 function (user, context, callback) {
@@ -171,12 +172,12 @@ Error reporting to the app depends on the protocol. OpenID Connect apps will rec
 
 ### Copy User Metadata to ID Token
 
-This will read the `favorite_color` user metadata, and add it as a namespaced claim at the `id_token`.
+This will read the `favorite_color` user metadata, and add it as a namespaced claim at the ID Token.
 
 ```js
 function(user, context, callback) {
 
-  // copy user metadata value in id_token
+  // copy user metadata value in ID Token
   context.idToken['http://fiz/favorite_color'] = user.user_metadata.favorite_color;
 
   callback(null, user, context);
@@ -185,7 +186,7 @@ function(user, context, callback) {
 
 ### API Authorization: Modify Scope
 
-This will override the returned scopes of the `access_token`. The rule will run after user authentication and before authorization.
+This will override the returned scopes of the Access Token. The rule will run after user authentication and before authorization.
 
 ```js
 function(user, context, callback) {
@@ -201,19 +202,19 @@ The user will be granted three scopes: `array`, `of`, and `strings`.
 
 ### API Authorization: Add Claims to Access Tokens
 
-This will add one custom namespaced claim at the `access_token`.
+This will add one custom namespaced claim at the Access Token.
 
 ```js
 function(user, context, callback) {
 
-  // add custom claims to access token
+  // add custom claims to Access Token
   context.accessToken['http://foo/bar'] = 'value';
 
   callback(null, user, context);
 }
 ```
 
-After this rule executes, the `access_token` will contain one additional namespaced claim: `http://foo/bar=value`.
+After this rule executes, the Access Token will contain one additional namespaced claim: `http://foo/bar=value`.
 
 ### Using the Configuration Object
 
@@ -304,7 +305,9 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
     ![Try this Rule](/media/articles/rules/try-rule.png)
 
-1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+    Please note that this feature functions outside the context of a specific client. That is, it uses a default **All Applications** client application. Because you are unable to configure parameters for this default application, y ou may run into issues if your rule depends on data that would otherwise be provided when called from an actual application.
+
+1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions. For more info see [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
 1. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
   For example:
@@ -327,7 +330,6 @@ The code sandbox Rules run on allows storing _expensive_ resources that will sur
 This example, shows how to use the `global` object to keep a mongodb connection:
 
 ```js
-
 ...
 
 //If the db object is there, use it.
@@ -348,16 +350,17 @@ function query(db, cb){
 });
 
 ...
-
 ```
 
 Notice that the code sandbox in which Rules run on, can be recycled at any time. So your code __must__ always check `global` to contain what you expect.
 
+<%= include('../../_includes/_ip_whitelist') %>
+
 ## Available modules
 
-For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
+For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox based on [Extend](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=docs-rules). 
 
-For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
+Within the sandbox, you can access the full power of Node.js with a large number of Node.js modules. For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/) and [Additional Modules Available in Rules](/appliance/modules).
 
 ## Keep reading
 

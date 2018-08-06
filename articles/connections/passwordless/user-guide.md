@@ -1,3 +1,14 @@
+---
+title: Passwordless Authentication User Guide
+topics:
+    - connections
+    - passwordless
+contentType:
+    - concept
+    - how-to
+    - reference
+useCase: customize-connections
+---
 # User Guide: Passwordless
 
 If you are using an app that allows for **Passwordless** authentication, you can register using either your **email address** or your **mobile phone number** instead of a login/password combination. Depending on which piece of information you provide, you will then access the app using a link that has been emailed to you or by providing a code that has been emailed or sent to you via SMS.

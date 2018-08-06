@@ -3,10 +3,17 @@ section: libraries
 description: Lock V9 API Reference
 title: Lock 9 API Reference
 toc: true
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock 9: API Reference
 
-<%= include('../_includes/_lock-version-9') %>
+<%= include('../../../_includes/_version_warning_lock') %>
 
 ## Methods
 

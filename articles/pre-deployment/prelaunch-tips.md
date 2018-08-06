@@ -1,6 +1,15 @@
 ---
-title: Pre-launch Tips 
+title: Pre-Launch Tips 
 description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
+topics:
+    - pre-deployment
+    - pre-launch
+    - tips-and-tricks
+    - production-checks
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Pre-Launch Tips 
@@ -33,7 +42,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Adequately protect any client secret values.
 
-* Check your [grant types](/clients/client-grant-types) for your clients. Make sure you have the right ones enabled and more importantly, disable any grant types that aren't needed.
+* Check your [grant types](/applications/application-grant-types) for your applications. Make sure you have the right ones enabled and more importantly, disable any grant types that aren't needed.
 
 * If you make use of [user_metadata](/metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
 
@@ -45,7 +54,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Review your [list of rules](${manage_url}/#/rules) and make sure only the appropriate rules are turned on. 
 
-* Review your rule code, any custom DB scripts and any custom code in the hosted login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
+* Review your rule code, any custom DB scripts and any custom code in the login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
 
 * Configure your application name, support URL and support email in the [Tenant Settings General](${manage_url}/#/tenant) section so when an error occurs your end users will be directed to an appropriate page.
 

@@ -1,5 +1,13 @@
 ---
 description: How to enable and use push notifications for Guardian.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Guardian Push Notifications
 

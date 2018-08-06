@@ -1,21 +1,22 @@
 ---
 title: Login
-description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - golang
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 01-Login
 ---
+<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-web-app',
-  path: '01-Login',
-	requirements: [
-		'Go 1.5.3 and up'
-	]
-}) %>
+## Configure Go to Use Auth0 
 
-<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
-
-## Add Dependencies
+### Add Dependencies
 
 Install the following dependencies using `go get`.
 
@@ -25,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 This example uses `mux` for routing but you can use whichever router you want.
 :::
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
@@ -119,12 +120,11 @@ Remember to set this handler to the `/callback` path:
 
 ${snippet(meta.snippets.setup)}
 
-
-## Triggering the Login
+## Trigger Authentication
 
 Create a file called `login.go` in the `routes/login` folder, and add `LoginHandler` function to handle `/login` route.
 
-This function sets the configuration for [OAuth2 Go](https://godoc.org/golang.org/x/oauth2) to get the authorization url, and redirect user to Auth0's  [hosted login page](/hosted-pages/login).
+This function sets the configuration for [OAuth2 Go](https://godoc.org/golang.org/x/oauth2) to get the authorization url, and redirects the user to the [login page](/hosted-pages/login).
 
 ```go
 // routes/login/login.go
@@ -206,7 +206,7 @@ Add a link to `/login` route in the `index.html` template.
 </div>
 ```
 
-## Accessing User Information
+## Display User Information
 
 You can access the user information via the `profile` you stored in the session previously.
 
@@ -276,7 +276,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
 
 Add the function to `mux` handle `/logout` route.
@@ -284,7 +284,7 @@ Add the function to `mux` handle `/logout` route.
 ```go
 // server.go
 
-r.HandleFunc("/login", login.LoginHandler)
+r.HandleFunc("/logout", logout.LogoutHandler)
 ```
 
 Create a file called `user.js` in the folder `public`, and add the code to remove the cookie from logged user.
@@ -301,9 +301,9 @@ $(document).ready(function() {
 This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) to cookie handling. You need to add `js.cookie.js` file in the `public` folder to use it.
 :::
 
-## Optional Steps
+### Optional Steps
 
-### Checking if the User is Authenticated
+#### Checking if the User is Authenticated
 
 We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
 

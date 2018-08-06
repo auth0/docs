@@ -3,6 +3,14 @@ url: /jwt
 title: JSON Web Tokens (JWT) in Auth0
 description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to fully understand JWTs.
 toc: true
+topics:
+  - tokens
+  - jwt
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 
 # JSON Web Tokens (JWT) in Auth0
@@ -11,7 +19,7 @@ toc: true
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
-<%= include('../videos/_video', { id: 'dxfz716cw9' }) %>
+<%= include('../_includes/_video', { id: 'dxfz716cw9' }) %>
 
 ## What is JSON Web Token?
 
@@ -19,7 +27,7 @@ JSON Web Token (JWT) is an open standard ([RFC 7519](https://tools.ietf.org/html
 
 Let's explain some concepts of this definition further.
 
-- **Compact**: Because of its smaller size, JWTs can be sent through an URL, POST parameter, or inside an HTTP header. Additionally, the smaller size means transmission is fast.
+- **Compact**: Because of its smaller size, JWTs can be sent through a URL, POST parameter, or inside an HTTP header. Additionally, the smaller size means transmission is fast.
 
 - **Self-contained**: The payload contains all the required information about the user, avoiding the need to query the database more than once.
 
@@ -74,7 +82,7 @@ The JWT specification defines seven claims that can be included in a token. Thes
 * exp
 * nbf
 * iat
-* jtw
+* jti
 
 For your specific use case, you might then use what are called **public claim names**. Examples of these include:
 
@@ -183,7 +191,7 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 ## Read More
 
 ::: next-steps
-* [JWT Handbook](https://auth0.com/e-books/jwt-handbook)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
 :::

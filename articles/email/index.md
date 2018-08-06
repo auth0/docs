@@ -1,6 +1,13 @@
 ---
 url: /email
 description: Auth0 built-in email services.
+topics:
+  - email
+contentType:
+    - index
+    - reference
+    - how-to
+useCase: customize-emails
 ---
 
 # Emails in Auth0
@@ -18,6 +25,8 @@ When you first create your application Auth0 provides a built-in email provider 
 * You will be restricted to sending no more than **ten emails per minute**, regardless of email type.
 
 * Your ability to send email from your tenant may be reduced (or even temporarily blocked) if your emails result in high bounce rates.
+
+![Test Email](/media/articles/email/index/email-notification.png)
 
 To remove these restrictions in your testing or to setup your production level emails, you have to set up your own email provider:
 

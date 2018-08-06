@@ -2,6 +2,14 @@
 title: Troubleshooting the Active Directory/LDAP Connector
 description: Common issues and troubleshooting information for the Active Directory/LDAP Connector.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+contentType: reference
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 # Troubleshooting the Active Directory/LDAP Connector
 

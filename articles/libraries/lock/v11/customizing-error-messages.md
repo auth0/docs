@@ -1,6 +1,15 @@
 ---
 section: libraries
 description: Customizing error messages with Lock v11
+topics:
+  - libraries
+  - lock
+  - error-messages
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Customizing Lock Error Messages
 
@@ -31,6 +40,25 @@ var lock = new Auth0Lock(
   '${account.namespace}',
   options
 );
+```
+
+If you are returning custom error codes from a [rule](/rules) or a [custom database script](/connections/database/custom-db#error-handling), you can also add the error messages in the dictionary:
+
+```js
+//custom database script: getUser
+function getByEmail (email, callback) {
+  callback(new ValidationError('custom-error-code', 'Some custom message'));
+}
+```
+
+```js
+languageDictionary: {
+  error: {
+    forgotPassword: {
+      "custom-error-code": "Your custom error message"
+    }
+  }
+}
 ```
 
 These errors will be shown on the widget header.

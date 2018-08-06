@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: This document covers the software used for Instrumentation.
+topics:
+    - appliance
+    - instrumentation
+contentType: reference
+useCase: appliance
+applianceId: appliance44
 ---
 
 # PSaaS Appliance: Instrumentation Components

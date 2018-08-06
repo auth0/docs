@@ -1,8 +1,18 @@
 ---
 section: libraries
 description: Customizing the appearance of your Lock widget can be important for branding and a cohesive UI, and this resource highlights the ways in which you can do so while implementing Lock in your project.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: UI Customization
+
+<%= include('../../../_includes/_version_warning_lock') %>
 
 You can customize the appearance of your Lock widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
 
@@ -20,7 +30,7 @@ There are a couple of theming options currently available, namespaced under the 
 
 ![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
 
-The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
+The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {

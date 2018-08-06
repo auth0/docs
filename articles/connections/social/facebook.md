@@ -6,12 +6,20 @@ image: /media/connections/facebook.png
 seo_alias: facebook
 description: This article shows you how to connect your app to Facebook
 toc: true
+topics:
+  - connections
+  - social
+  - facebook
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Facebook
 
-This article describes how to add login with Facebook to your app. It also discusses how you can get an access token in order to access the Facebook API.
+This article describes how to add login with Facebook to your app. It also discusses how you can get an Access Token in order to access the Facebook API.
 
-First you need to connect your Auth0 client to Facebook. This is summarized in the following steps:
+First you need to connect your Auth0 application to Facebook. This is summarized in the following steps:
 
 - Setup a Facebook app
 - Get your Facebook **App ID** and **App Secret**
@@ -40,9 +48,9 @@ On the **Product Setup** page that follows, click **Set Up** under **Facebook Lo
 
 Next choose the type of application, for this tutorial we have selected **Web**.
 
-The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Client OAuth Settings** page:
+The **Quickstart** for **Facebook Login** will appear. Under the **Facebook Login** menu on the left, click on **Settings** to open the **Application OAuth Settings** page:
 
-![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
+![Application OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
 Enter the following URL in the **Valid OAuth redirect URIs** field:
 
@@ -50,6 +58,8 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 ::: panel Find your Auth0 domain name
 If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Tenant Name** in the top right corner. Your Auth0 domain is this name (for example `exampleco-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://exampleco-enterprises.auth0.com/login/callback`.
+
+Note that if you are using the [custom domains](/custom-domains) feature, your Redirect URI will instead be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 :::
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
@@ -70,7 +80,7 @@ Click **Settings** in the left nav. On this page you can retrieve your **App ID*
 
 Click **Show** to reveal the **App Secret** (you may be required to re-enter your Facebook password).
 
-In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the box with the **Facebook** logo.
 
@@ -86,9 +96,9 @@ Select all the **Attributes** and **Permissions** you want to enable.
 Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
 :::
 
-Then click the **Clients** tab and select the applications you wish to enable this connection for.
+Then click the **Applications** tab and select the applications you wish to enable this connection for.
 
-![Enable clients](/media/articles/connections/social/facebook/enable-clients.png)
+![Enable applications](/media/articles/connections/social/facebook/enable-applications.png)
 
 When finished click **Save**.
 

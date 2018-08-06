@@ -1,9 +1,14 @@
 ---
 description: How to get Hooks logs using the Auth0 Command-Line Interface
 beta: true
+topics:
+    - hooks
+    - cli
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
-# Get Log Information About Hooks Using the Auth0 Command-Line Interface
+# Get Log Information About Hooks
 
 ::: note
 All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
@@ -17,7 +22,3 @@ You can use the Auth0 CLI to gather information about your Hooks:
   `auth0 ls -p auth0-default`
 * To access logs containing real-time data on your Hooks:
   `auth0 logs -p auth0-default`
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/cli"]
-}) %>

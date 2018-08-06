@@ -1,6 +1,14 @@
 ---
 description: How to use Auth0 with Microsoft Azure.
 url: /azure-tutorial
+topics:
+  - integrations
+  - microsoft
+  - azure
+contentType:
+- how-to
+- index
+useCase: integrate-saas-sso
 ---
 # Using Auth0 with Microsoft Azure
 

@@ -1,9 +1,13 @@
 ---
 description: How to enable or disable Hooks using the Management Dashboard
 beta: true
+topics:
+    - hooks
+    - dashboard
+contentType: how-to
+useCase: extensibility-hooks
 ---
-
-# Enable or Disable Existing Hooks Using the Dashboard
+# Enable or Disable Hooks
 
 You can use the Management Dashboard to enable/disable Hooks. Each extensibility point may be associated with **zero** or **one** active Hook.
 
@@ -36,7 +40,3 @@ You will now see a green dot next to the name of the Hook, indicating that it's 
 4. Confirm your selection by clicking **YES, DISABLE HOOK**.
 
   ![Confirm Hook to Disable](/media/articles/hooks/disable-hook.png)
-
-<%= include('./_stepnav', {
- prev: ["Go back", "/hooks/dashboard"]
-}) %>
