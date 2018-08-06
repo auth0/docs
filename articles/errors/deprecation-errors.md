@@ -47,7 +47,7 @@ Customers can also use the Management API to search through logs for such messag
 
 To check your logs using the Management API, go to the [Management API](/api/management/v2).
 
-If you have not already done so, [get and set up your API token](/api/management/v2/tokens#get-a-token-manually) in the API explorer.
+If you have not already done so, [get and get an API token](/api/management/v2/tokens).
 
 ![Management API - Token Setup](/media/articles/errors/libraries/management-api-set-token.png)
 
