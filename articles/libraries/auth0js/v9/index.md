@@ -87,6 +87,22 @@ There are two required parameters that must be passed in the `options` object wh
 Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
 :::
 
+##### Additional parameters
+
+If you want to send additional parameters to the [login page](/hosted-pages/login), use the `additionalParameters` property, during the initialization. For example, the following sample script sends the additional parameter `my_param` with the value `true`.
+
+```html
+<script type="text/javascript">
+  var webAuth = new auth0.WebAuth({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    additionalParameters: {
+      my_param: 'true',
+    }
+  });
+</script>
+```
+
 ##### Scope
 
 The default `scope` value in Auth0.js v9 is `openid profile email`.
