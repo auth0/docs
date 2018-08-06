@@ -39,10 +39,14 @@ To create and authorize a Machine to Machine Application for the Management API:
 Note, that each Machine to Machine Application that accesses an API, has to be granted a set of scopes. This application that we just created has been granted __all__ the Management API scopes. This means that it can access all the endpoints.
 
 ::: panel What are the scopes?
-The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create applications, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
+The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create applications, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
 :::
 
 If you have multiple applications that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Machine to Machine Application for each. For example, if one application is to read and create users (`create:users`, `read:users`) and another to read and create applications (`create:clients`, `read:clients`) create two Applications (one for user scopes, one for applications) instead of one.
+
+:::panel-info How do I know which scopes I must set?
+Go to the [Management API Explorer](/api/management/v2#!) and find the endpoint you want to call. Each endpoint has a section called **Scopes** and there you can find listed all the scopes that this endpoint requires. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`.
+:::
 
 ## Get a token for test
 
