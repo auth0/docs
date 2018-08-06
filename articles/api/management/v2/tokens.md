@@ -277,7 +277,7 @@ If we decode the Access Token and review its contents we can see the following:
 }
 ```
 
-Notice that the `aud` is set to your tenant's API URI, the `scope` to `${scope}`, and the `sub` to the user ID of the logged in user.
+Notice that the `aud` is set to your tenant's API URI, the `scope` to `read:current_user`, and the `sub` to the user ID of the logged in user.
 
 Once you have the Access Token you can use it to call the endpoint. Use the Access Token in the `Authorization` header of the request.
 
