@@ -165,11 +165,11 @@ end
 
 Add the session data for `userinfo` to the dashboard view to see what is returned:
 
-```
+```ruby
 # app/views/dashboard/show.html.erb
 
 <h1>Dashboard#show</h1>
-<%= session[:userinfo].inspect %>
+${ '<%= session[:userinfo].inspect %>' }
 ```
 
 Finally, adjust your routes to point `/dashboard` to this new, secured controller:
