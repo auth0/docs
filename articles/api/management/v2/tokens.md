@@ -111,8 +111,8 @@ The request parameters are:
 
 | __Request Parameter__ | __Description__ |
 | __grant_type__ | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`. |
-| __client_id__ | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
-| __client_secret__ | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_id__ | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_secret__ | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
 
 The response will contain a [signed JWT](/jwt), when it expires, the scopes granted, and the token type.
@@ -166,9 +166,9 @@ This python script gets a Management API v2 Access Token, uses it to call the [G
 
 Before you run it make sure that the following variables hold valid values:
 - `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
-- `DOMAIN`: The __Domain__ of the Machine to Machine Application you created at [this step](#1-create-an-application).
-- `CLIENT_ID`: The __Client ID__ of the Machine to Machine Application you created at [this step](#1-create-an-application).
-- `CLIENT_SECRET`: The __Client Secret__ of the Machine to Machine Application you created at [this step](#1-create-an-application).
+- `DOMAIN`: The __Domain__ of the Machine to Machine Application you created at [this step](#before-you-start).
+- `CLIENT_ID`: The __Client ID__ of the Machine to Machine Application you created at [this step](#before-you-start).
+- `CLIENT_SECRET`: The __Client Secret__ of the Machine to Machine Application you created at [this step](#before-you-start).
 
 ```python
 def main():
