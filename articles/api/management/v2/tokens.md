@@ -226,7 +226,7 @@ The method we showed in the previous section cannot be used from Single Page App
 You can still get tokens for the Management API from the frontend, but very limited in scope. You can access only certain scopes and update only the logged-in user's data. In detail, you can access the following scopes, and hence endpoints:
 
 | **Endpoint** | **Scope for current user** |
-|-|-|-|
+|-|-|
 | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) | `read:current_user` |
 | [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | `read:current_user` |
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | `update:current_user_identities` |
