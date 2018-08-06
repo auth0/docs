@@ -15,25 +15,41 @@ The Login project sample has the following structure:
 ------------ CallbackServlet.java
 ------------ LoginServlet.java
 ------------ LogoutServlet.java
+------------ RootServlet.java
 ---- webapp
 ------ WEB-INF
 -------- jsp
 ---------- home.jsp
+---------- login.jsp
 -------- web.xml
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+The project contains two JSP:
+- `home.jsp`: Display the tokens associated to the user after a successful login and provide the option to logout.
+- `login.jsp`: Display the start page and provide the login option.
 
 The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
 
-The project contains also four servlets:
+The project contains also five servlets:
 - `LoginServlet.java`: Invoked when the user attempts to login. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
+- `RootServlet`: Redirects the user to `login.jsp` resource.
 
 Lastly, the project defines a helper class: the `AuthenticationControllerProvider.java` which will be in charge of creating new instances of `AuthenticationController`. Because this controller is very simple and doesn't keep any context it can be safely reused. You can also choose to create a new one every time it's needed.
+
+## Display the Login Page
+
+In the `RootServlet` class we will display JSP login page.
+
+```java
+@Override
+public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, res);
+}
+```
 
 ## Trigger Authentication
 
