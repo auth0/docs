@@ -27,7 +27,7 @@ The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client
 You can get a new token either [using the dashboard](/api/management/v2/tokens#get-a-token-manually) (if you use the API sporadically) or [by configuring a server process](/api/management/v2/tokens#automate-the-process) (if you need a token frequently) that will get a new token every 24 hours.
 
 ::: note
-For details on how to follow this new process refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+For details on how to follow this new process refer to [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 :::
 
 #### Why this changed
