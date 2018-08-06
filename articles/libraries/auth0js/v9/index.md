@@ -116,6 +116,7 @@ The `authorize()` method can be used for logging in users via [Universal Login](
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 | `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
+| `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
 
