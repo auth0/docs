@@ -1,7 +1,6 @@
 ---
 description: Details on how to generate and use a token for the Auth0 Management APIv2
 section: apis
-crews: crew-2
 toc: true
 topics:
   - apis
@@ -12,59 +11,60 @@ contentType:
     - how-to
 useCase: invoke-api
 ---
-# The Auth0 Management APIv2 Token
+# How to Get an Access Token for the Management API
 
-In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as __Auth0 Management APIv2 Token__. This token is a [JWT](/jwt), it contains specific granted permissions (known as __scopes__), and it is signed with an application API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need to authenticate. For this you need a token, which we call the __Auth0 Management API Token__. 
 
-There are two ways to get a Management APIv2 Token:
-- [get one manually using the Dashboard](#get-a-token-manually), or
-- [automate the process](#automate-the-process) (build a simple command line tool that generates tokens).
+This token is a [JSON Web Token](/jwt) and it contains specific granted permissions (known as __scopes__).
 
-In this article we will see how you can do either.
+## How to get and use tokens
 
-## Get a token manually
+If you want to quickly call an endpoint for test purposes, then you can [get a token manually using the Dashboard](#get-a-token-for-test).
 
-Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
+For production use however, the recommended best practice is to [get short-lived tokens programmatically](#get-a-token-for-production). 
 
-### 1. Create and Authorize an Application
+## Before you start
 
-First, you need to create and authorize a [Machine to Machine Application](/applications/machine-to-machine). We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
+In this section we will see some configuration you must do in the Auth0 [Dashboard](${manage_url}) the first time you want to get a token for the Management API. You won't have to do this again, unless you create a new tenant.
 
-To create and authorize a Machine to Machine Application for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+You must create and authorize a [Machine to Machine Application](/applications/machine-to-machine). We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have.
 
-Click the button __Create & Authorize a Test Application__.
+To create and authorize a Machine to Machine Application for the Management API:
+1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer)
+2. Click the button __Create & Authorize a Test Application__
+3. That's it! A new application has been created and it's authorized to access the Management API
 
 ![Create and Authorize Application](/media/articles/api/tokens/create-authorize-client.png)
 
-That's it! A new application has been created and it's authorized to access the Management API.
-
-Note, that each Machine to Machine Application that accesses an API, has to be granted a set of scopes. This application that we just created has been granted __all__ the APIv2 scopes. This means that it can access all the endpoints.
+Note, that each Machine to Machine Application that accesses an API, has to be granted a set of scopes. This application that we just created has been granted __all__ the Management API scopes. This means that it can access all the endpoints.
 
 ::: panel What are the scopes?
 The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create applications, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
 :::
 
-::: note
-If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Machine to Machine Application for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create applications (`create:clients`, `read:clients`) create two Applications (one for user scopes, one for applications) instead of one.
+If you have multiple applications that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Machine to Machine Application for each. For example, if one application is to read and create users (`create:users`, `read:users`) and another to read and create applications (`create:clients`, `read:clients`) create two Applications (one for user scopes, one for applications) instead of one.
+
+## Get a token for test
+
+:::note
+If this the first time you are trying to get a token for your tenant, then you must do some [configuration steps](#before-you-start) before you continue in this section.
 :::
 
-### 2. Get the Token
+Let's see how you can get a token manually. Remember, this is only for test purposes. You shouldn't get manually long-lived tokens and use them in your applications, since this is cancelling out the security advantages that tokens offer. 
 
-A token is automatically generated and displayed at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+To manually get a token, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer). A token is automatically generated and displayed there. 
 
-This token has by default an expiration time of __24 hours__ (86400 seconds). After that the token will expire and you will have to get a new one.
+Click __Copy Token__. You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
-To change that, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
+![Test Application](/media/articles/api/tokens/copy-token.png)
+
+Note that this token has by default an expiration time of __24 hours__ (86400 seconds). After that the token will expire and you will have to get a new one. To change that, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
 
 :::warning
 These tokens **cannot be revoked** so long expiration times are not recommended. Instead we recommend that you use short expiration times and issue a new one every time you need it.
 :::
 
-![Test Application](/media/articles/api/tokens/copy-token.png)
-
-Click __Copy Token__. You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
-
-### 3. Use the Token
+### Use the token
 
 You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need:
 - The Management API v2 token you just got.
@@ -79,15 +79,15 @@ Once you have this information you are ready to call the API. Follow these steps
 
 ![Set the Token](/media/articles/api/tokens/set-token.png)
 
-## Automate the Process
+## Get a token for production
 
-[The manual process](#get-a-token-manually) might work for you if you want to test an endpoint or invoke it sporadically. But if you need to make scheduled frequent calls then you have to build a simple CLI that will provide you with a token automatically (and thus simulate a non-expiring token).
-
-::: panel Prerequisites
-Before you proceed with the implementation, you must have [created and authorized a Machine to Machine Application](#1-create-and-authorize-an-application). The Application should have all the required scopes for the endpoints you mean to access.
+:::note
+If this the first time you are trying to get a token for your tenant, then you must do some [configuration steps](#before-you-start) before you continue in this section.
 :::
 
-### 1. Get a Token
+[The manual process](#get-a-token-for-test) might work for you if you want to test an endpoint. But if you need to make scheduled frequent calls then you have to build a process that will provide you with a token automatically (and thus simulate a non-expiring token).
+
+### Step 1. Get a token
 
 To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Machine to Machine Application you created at [this step](#1-create-and-authorize-an-application).
 
@@ -108,12 +108,14 @@ The payload should be in the following format:
 ```
 
 The request parameters are:
-- `grant_type`: Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`.
-- `client_id`: This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings).
-- `client_secret`: This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings).
-- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
 
-The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires, the scopes granted, and the token type.
+| __Request Parameter__ | __Description__ |
+| __grant_type__ | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`. |
+| __client_id__ | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_secret__ | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#1-create-an-application). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
+
+The response will contain a [signed JWT](/jwt), when it expires, the scopes granted, and the token type.
 
 ```json
 {
@@ -126,9 +128,9 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 
 From the above we can see that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
-### 2. Use the Token
+### Step 2. Use the token
 
-To use this token, just include it in the `Authorization` header of your request .
+To use this token, include it in the `Authorization` header of your request.
 
 ```har
 {
@@ -155,10 +157,8 @@ For example, in order to [Get all applications](/api/management/v2#!/Clients/get
 ```
 
 ::: note
-  You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
+You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the __get curl command__ link at the __Test this endpoint__ section.
 :::
-
-That's it! You are done!
 
 ### Sample Implementation: Python
 
@@ -218,7 +218,7 @@ if __name__ == '__main__':
 ## Frequently Asked Questions
 
 __How long is the token valid for?__</br>
-The Management APIv2 token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
+The Management API token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
 
 __The old way of generating tokens was better, since the token never expired. Why was this changed?__</br>
 The old way of generating tokens was insecure since the tokens had an infinite lifespan. The new implementation allows tokens to be generated with specific scopes and expirations. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
@@ -227,11 +227,11 @@ __Can I change my token's validity period?__</br>
 You cannot change the default validity period, which is set to 24 hours. However, if you get a token manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) you can change the expiration time for the specific token. Note though, that your applications should use short-lived tokens to minimize security risks.
 
 __Can I refresh my token?__</br>
-You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
+You cannot renew a Management API token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I revoke it?__</br>
-You cannot directly revoke a Management APIv2 token, thus we recommend a short validity period.
-Note that deleting the application grant will prevent *new tokens* from being issued to the application. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 application using the dashboard](${manage_url}/#/apis/management/authorized-applications).
+You cannot directly revoke a Management API token, thus we recommend a short validity period.
+Note that deleting the application grant will prevent *new tokens* from being issued to the application. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the API application using the dashboard](${manage_url}/#/apis/management/authorized-applications).
 
 __My Client Secret was compromised! What should I do?__</br>
 You need to change the secret immediately. Go to your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Note that previously issued tokens will continue to be valid until their expiration time.
@@ -239,9 +239,9 @@ You need to change the secret immediately. Go to your [Application's Settings]($
 ## Keep reading
 
 ::: next-steps
-* [Changes in Auth0 Management APIv2 Tokens](/api/management/v2/tokens-flows)
+* [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
 * [Calling APIs from a Service](/api-auth/grant/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 * [Information on the query string syntax](/api/management/v2/query-string-syntax)
-* [Search for Users](/api/management/v2/user-search)
+* [Search for Users](/users/search)
 :::
