@@ -1,14 +1,13 @@
 ---
+title: Blacklist User Attributes
 description: How to blacklist user attributes that you do not want to save in Auth0 databases
-toc: true
-crews: crew-2
 topics:
   - security
   - security-bulletins
   - blacklisting
   - users
 contentType:
-  - reference
+  - how-to
 useCase:
   - development
 ---
@@ -16,19 +15,11 @@ useCase:
 
 If there are user fields that should not be stored in Auth0 databases due to privacy reasons, you can blacklist them.
 
-## Use the Management API
-
 To blacklist attributes make a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API.
 
-### Step 1. Get a token
+1. Get a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. You can either get one manually from the Dashboard, or automate the process by building a simple command line tool that generates tokens. For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
-First, you need a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. 
-
-You can either get one manually from the Dashboard, or automate the process (for example, by building a simple command line tool that generates tokens). For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
-
-### Step 2. Call the API
-
-One you have the token (and the list of attributes to be blacklisted), you are ready to call the API. 
+2. Call the API. 
 
 Here is a sample HTTP request that blacklists two attributes: `ethnicity` and `gender`.
 

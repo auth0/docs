@@ -1,40 +1,29 @@
 ---
 name: User Search Best Practices
-description: Best practices when searching for users in Auth0
+description: Best practices to use when searching for users in Auth0.
 url: /users/search/best-practices
 toc: true
 topics:
   - users
   - user-management
   - search
-contentType:
-  - how-to
-  - reference
-  - concept
+contentType: reference
 useCase:
   - manage-users
 ---
 
 # User Search Best Practices
 
-Auth0 provides multiple endpoints you can use to retrieve users. Each one offers slightly different functionality, and in this document, we'll cover the best practices for using each of the endpoints.
-
-## User search options
-
-Currently, Auth0 offers three different ways by which you can search for users:
+Auth0 offers different ways by which you can search for users:
 
 * [Users](#users)
 * [Users by ID](#users-by-id)
 * [Users by Email](#users-by-email)
 * [User Export](#user-export)
 
-::: note
-The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (simply replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
-:::
+The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
 
-### Definitions
-
-In this document, we use the terms **eventually consistent** and **immediately consistent**.
+## Terminology
 
 * **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
 
@@ -59,7 +48,7 @@ To optimize the performance of your user searches, we don't recommend:
 * Polling the search APIs
 * Using large metadata field (try to keep metadata fields to 2 KB or less)
 
-## Users
+## Users endpoint
 
 The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows you to retrieve a list of users. Using this endpoint, you can:
 
@@ -130,7 +119,7 @@ We do **not** recommend that you use this endpoint for:
 * Operations that require user search as part of authentication processes - please use the [Users by Email endpoint](#users-by-email) or the [Users by ID endpoint](#users-by-id) for such actions
 * Searching for Users for [Account Linking](/link-accounts) by Email - please use the [Users by Email endpoint](#users-by-email) for such actions
 
-## Users by ID
+## Users by ID endpoint
 
 The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
 
@@ -189,7 +178,7 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
 * User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
-## Users by email
+## Users by email endpoint
 
 The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address.
 
@@ -250,7 +239,7 @@ The Users by Email endpoint is immediately consistent, and as such, we recommend
 * User searches run during the authentication process 
 * User searches run as part of the account linking process.
 
-## User export
+## User export endpoint
 
 The [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint allows you to create a job that exports all users associated with a [connection](/identityproviders).
 
@@ -391,7 +380,7 @@ In this case, for the same example we used before, the request will look like th
 }
 ```
 
-### Get the results
+### Get results
 
 Once you've created your job to export your users, you can check on its status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). 
 

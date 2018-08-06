@@ -1,6 +1,6 @@
 ---
-description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
-toc: true
+title: User Profile Overview
+description: Explains the basics of a User profile.
 topics:
     - users
     - user-management
@@ -10,22 +10,23 @@ contentType:
 useCase:
   - manage-users
 ---
-
-# User Profile: In-Depth Details
+# User Profile Overview
 
 The Auth0 **User Profile** is a set of attributes about a user, such as first name, last name, email address, and nickname. The attributes may also include information from social providers, such as a person's contacts or their profile picture, or in the case of Enterprise users, company identifiers such as an employee number or the name of the department to which an employee belongs.
 
-## Sources of User Profile Data
+Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
+
+## User profile data sources
 
 User Profile attributes may come from multiple sources. A core set of attributes will come from the service, such as Facebook or LinkedIn, that authenticates a user. Alternatively, the authentication service might be an enterprise provider, such as Active Directory, or a SAML-compliant authentication service operated by a business or other organization.
 
 Other types of authentication services include custom databases, web services, and the database that is included as part of the Auth0 service. These authentication services are also called providers, authentication providers or identity providers (often referred to as IDPs). Within Auth0, they are called **Connections**, because Auth0 connects to them to authenticate a user.
 
-## Normalized User Profile
+## User Profile data normalization
 
 Auth0 supports [a wide variety of Connections](/identityproviders). Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the [Normalized User Profile](/user-profile/normalized).
 
-## Caching of the User Profile in Auth0
+## User Profile caching
 
 Auth0 caches the User Profile received from a Connection prior to passing it on to the calling application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
 
@@ -33,7 +34,7 @@ The User Profile is cached for several reasons. First, caching allows you the op
 
 You may delete a user's cached profile via the Auth0 Dashboard or the Management API.
 
-## Structure of User Profile Data
+## User Profile data structure
 
 There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
 
@@ -59,13 +60,13 @@ Lastly, there is a section called `Identity Provider Attributes`. Here you will 
 
 Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.
 
-## Storing Custom Profile Data
+## Custom User Profile data storage
 
 You can use `user_profile` to store custom attributes such as the user's favorite color or phone number.
 
 Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information.
 
-## Application Access to User Profile
+## User Profile application access
 
 The User Profile will be provided to an app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
 
@@ -77,7 +78,7 @@ One SDK is the Auth0 Lock widget, which provides a user login interface:
 
 Alternatively, if you'd like your web app to have a custom login UI, you can use [auth0.js](/libraries/auth0js), a headless JavaScript library for Auth0, which invokes authentication flow (as well as other tasks) and receives a User Profile object in return.
 
-## Management API Access to User Profiles
+## User Profile Management API access
 
 Auth0 provides a REST API that allows applications and services to access and manipulate the User Profile object.
 
@@ -101,7 +102,7 @@ There are three other types of tokens that can be returned during authentication
 
 For more information on tokens and claims see the [Token Overview](/tokens).
 
-## Modification of User Profiles
+## User Profile data modification
 
 The information contained in a User Profile and in an ID Token can be modified in a number of ways.
 
@@ -148,7 +149,7 @@ The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as
 
 The [`/tokeninfo`](/api/authentication/reference#get-token-info) endpoint takes as input the Auth0 ID Token and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
 
-### Creating Users in a Custom Database
+### Custom database scripts
 
 The above APIs are used for creating and managing users in the Auth0 Database. If a [custom database](/connections/database/mysql) is used as the Connection, scripts must be written to implement lifecycle events such as Create, Login, Verify, Delete and Change Password. Auth0 provides templates for these scripts, but they must be modified as needed for the particular database and schema in use by a particular customer.
 
@@ -159,43 +160,39 @@ The custom DB templates are accessed via
 
 If additional attributes need to be added to the profile, this can be done with Rules, as explained below.
 
-### Rules
+### User Profile rules
 
 The Auth0 Rules feature is a powerful capability which allows developers to extend the core functionality of Auth0. Rules execute after a user has been authenticated and can be used to augment the User Profile during the authentication transaction, and optionally persist those changes back to Auth0.
 
 Auth0 provides several sample rules to provide examples of how to achieve certain results. In the Auth0 dashboard, these samples can be viewed by clicking on "Rules" and "NEW RULE". There are several samples in the "ENRICH PROFILE" section that show how to add User Profile attributes.
 
-#### Persistent vs Transient profiles
+* The "ADD ATTRIBUTES TO A USER FOR SPECIFIC CONNECTION" sample shows how to add attributes to a User Profile for a particular login transaction. These attributes will not be persisted in the cached User Profile, so they will not be visible to any other authentication transactions.
 
-The "ADD ATTRIBUTES TO A USER FOR SPECIFIC CONNECTION" sample shows how to add attributes to a User Profile for a particular login transaction. These attributes will not be persisted in the cached User Profile, so they will not be visible to any other authentication transactions.
+* The "ADD PERSISTENT ATTRIBUTES TO THE USER" sample shows how to use the `updateUserMetadata` function within a rule to persist the altered User Profile data to the cache of the user's profile data stored in the Auth0 database. This mechanism can be used to alter the `user_metadata` section of the User Profile.
 
-The "ADD PERSISTENT ATTRIBUTES TO THE USER" sample shows how to use the `updateUserMetadata` function within a rule to persist the altered User Profile data to the cache of the user's profile data stored in the Auth0 database. This mechanism can be used to alter the `user_metadata` section of the User Profile.
-
-The "SET ROLES TO A USER" sample shows how to use the `updateAppMetadata` function within a rule to persist changes to the `app_metadata` section of the User Profile to the cached User Profile in the Auth0 database.
+* The "SET ROLES TO A USER" sample shows how to use the `updateAppMetadata` function within a rule to persist changes to the `app_metadata` section of the User Profile to the cached User Profile in the Auth0 database.
 
 The altered `user_metadata` and `app_metadata` information that is written to the Auth0 User Profile will be visible by subsequent authentication transactions. Mechanisms for viewing User Profile data that do not occur in the context of an authentication transaction, such as viewing profile information in the Auth0 dashboard, will not show the results of modifications made in Rules, unless those modifications are persisted as described above.
 
 Finally, as with API calls, altering the User Profile in Auth0 does not alter core data sourced from the original Connection.
 
-More info:
+The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If an application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/api/authentication/reference#get-user-info) authentication endpoint.
+
+When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/api/authentication/reference#get-token-info) authentication endpoint, or the Auth0 Dashboard.
+
+For more details, see:
 
 * [Rules](/rules)
 * [User profile metadata in rules](/rules/metadata-in-rules)
 * [Altering SAML authentication assertion attributes/claims for a SAML app](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md)
 
-### Rules and their Usage
-
-The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If an application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/api/authentication/reference#get-user-info) authentication endpoint.
-
-When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/api/authentication/reference#get-token-info) authentication endpoint, or the Auth0 Dashboard.
-
-## Mapping User Profile Attributes in AD/LDAP Connector
+## User Profile attribute mapping in AD/LDAP Connector
 
 For Active Directory or any other LDAP connections that use the Auth0 AD/LDAP connector, there is a mechanism for mapping User Profile attributes in the directory service to the Auth0 User Profile. This mapping takes place when a user authenticates via such a Connection and attributes specified in this mapping are reflected in the Auth0 User Profile.
 
 This mapping is implemented in a file called `profileMapper.js` located in the installation directory of the AD/LDAP connector.
 
-## Mapping User Profile Attributes in SAML Assertions
+## User Profile Attribute mapping in SAML Assertions
 
 If the SAML protocol is used between Auth0 and the application, there are two places where user attribute mapping can occur.
 
@@ -212,3 +209,13 @@ Users may log into an application initially via one Connection (such as a databa
 Note that the User Profile attributes from the multiple providers are not merged. The core User Profile attributes will be sourced from the first provider used.
 
 Information on linking accounts and examples of profiles are located [here](/link-accounts).
+
+## Keep reading
+
+::: next-steps
+* [User Profile Attributes](/user-profile/user-profile-structure)
+* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Metadata](/metadata)
+* [User Profile: In-Depth Details](/user-profile/user-profile-details)
+* [Update Users using a Custom Database](/user-profile/customdb)
+:::
