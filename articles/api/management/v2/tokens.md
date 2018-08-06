@@ -44,7 +44,7 @@ The scopes are permissions that should be granted by the owner. Each [Auth0 Mana
 
 If you have multiple applications that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Machine to Machine Application for each. For example, if one application is to read and create users (`create:users`, `read:users`) and another to read and create applications (`create:clients`, `read:clients`) create two Applications (one for user scopes, one for applications) instead of one.
 
-:::panel-info How do I know which scopes I must set?
+:::panel How do I know which scopes I must set?
 Go to the [Management API Explorer](/api/management/v2#!) and find the endpoint you want to call. Each endpoint has a section called **Scopes** and there you can find listed all the scopes that this endpoint requires. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`.
 :::
 
