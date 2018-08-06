@@ -431,6 +431,10 @@ webAuth.checkSession(
 Note that `checkSession()` triggers any [rules](/rules) you may have set up, so you should check on your rules in the [Dashboard](${manage_url}/#/rules) prior to using it.
 :::
 
+::: note
+Note that `checkSession()` requires a `redirectUri` that matches one of the allowed URLs in the **Allowed Callback URLs** setting for your application, but it does not load the URL you provide. You can provide `redirectUri` in either the call to `checkSession()` or the call to `new WebAuth()`.
+:::
+
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
 However, the browser **must** have third-party cookies enabled. Otherwise, **checkSession()** is unable to access the current user's session (making it impossible to obtain a new token without displaying anything to the user). The same will happen if users have [Safari's ITP enabled](/api-auth/token-renewal-in-safari).
