@@ -10,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Why you should always use Access Tokens to secure an API
+# Why you Should Always Use Access Tokens to Secure an API
 
 <%= include('../_includes/_pipeline2') %>
 
