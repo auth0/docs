@@ -34,13 +34,13 @@ OAuth 2.0 is used to __grant authorization__. It allows you to authorize Web App
 
 OpenID Connect builds on OAuth 2.0. It enables you, as the user, to **verify your identity** and to give some basic profile information without sharing your credentials.
 
-### An example of how OpenID Connect and OAuth 2.0 are used
+## An example of how these protocols are used
 
 Let's say that you use a to-do application that allows you to log in using your Google credentials. You are asked to provide permission for the to-do app to read and write to your Google Calendar. Then, with this app, you can push to-do items, such as calendar entries, to your Google Calendar.
 
 The portion of the login process where you "prove" your identity is implemented using OpenID Connect, while the part of the login process where you authorize the to-do application to modify your Google Calendar by adding entries is implemented using OAuth 2.0. 
 
-### The role of tokens
+## The role of tokens
 
 You may have noticed that we've used the phrase **without sharing your credentials** several times in the paragraph above. How does this work?
 
@@ -68,7 +68,7 @@ Whenever the to-do app wants to write to your Google Calendar, it will send a re
 Your clients should treat Access Tokens as opaque strings, since they are meant for APIs. Your client should *not* attempt to decode them or expect to receive tokens in a particular format.
 :::
 
-## How NOT to use each token
+## How NOT to use tokens
 
 Now that we've seen some ways in which we can use tokens, let's talk about when they should **not** be used.
 
