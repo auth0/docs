@@ -20,7 +20,7 @@ github:
 
 ### Install the dependencies
 
-To follow along this guide, install the following dependencies.
+To get started, install the following dependencies.
 
 * [passport](http://www.passportjs.org/) - an authentication middleware for Node.js
 * [passport-auth0](https://github.com/auth0/passport-auth0) - an Auth0 authentication strategy for Passport
@@ -37,7 +37,7 @@ yarn add passport passport-auth0 express-session connect-ensure-login
 
 ### Configure express-session
 
-In `app.js`, include the `express-session` module and configure it. The `secret` parameter is a secret string that will be used to sign the session ID cookie. Please use a custom value.
+In `app.js`, include the `express-session` module and configure it. The `secret` parameter is a secret string that is used to sign the session ID cookie. Please use a custom value.
 
 ```js
 // app.js
@@ -61,7 +61,7 @@ app.use(session(sess));
 
 ### Configure Passport with the application settings
 
-In `app.js`, include the `passport` and `passport0-auth0`modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
+In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
 
 ```js
 // app.js
@@ -91,9 +91,9 @@ app.use(passport.session());
 
 ### Storing and retrieving user data from the session
 
-In a typical web application, the credentials used to authenticate a user will only be transmitted during the login request. If authentication succeeds, a session will be established and maintained via a cookie set in the user's browser. Each subsequent request will not contain credentials, but rather the unique cookie that identifies the session.
+In a typical web application, the credentials used to authenticate a user are only transmitted during the login request. If authentication succeeds, a session is established and maintained via a cookie set in the user's browser. Each subsequent request does not contain credentials, but rather the unique cookie that identifies the session.
 
-In order to support login sessions, Passport will serialize and deserialize user instances to and from the session. Optionally, you may want to serialize only a subset to reduce the footprint, i.e., `user.id`.
+To support login sessions, Passport serializes and deserializes user instances to and from the session. Optionally, you may want to serialize only a subset to reduce the footprint, i.e., `user.id`.
 
 ```js
 //app.js
@@ -110,19 +110,19 @@ passport.deserializeUser(function(user, done) {
 
 ### Add the routes
 
-In this example, we will implement the following routes:
+In this example, we implement the following routes:
 
-* a route `/login`, that will trigger authentication by calling Passport's `authenticate` method. The user will be redirected to the login page.
-* a route `/callback`, where the user will be returned to by Auth0 after authenticating. It will redirects the user to the profile page.
+* a route `/login`, that triggers the authentication by calling Passport's `authenticate` method. The user is redirected to the login page.
+* a route `/callback`, where the user is returned to by Auth0 after authenticating. It redirects to the profile page.
 * a `/user` route, to display the user's profile.
 * a route `/logout`, that closes the local user session and redirects the user again to the root index `/`.
 
-In the authentication step, make sure to pass the scope parameter with values `openid email profile` in order to access email and the other attributes stored in the user profile. This will be needed in order to display the user's information on the profile page.
+In the authentication step, make sure to pass the scope parameter with values `openid email profile` to access email and the other attributes stored in the user profile. This is needed to display the user's information on the profile page.
 
 The user's profile route should only be accessible if the user is logged in. Use the `ensureLoggedIn` middleware for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
 
 :::note
-This tutorial implements logout by closing the local user session. After logging out, the user will continue to have an open session in the Auth0 authentication server. For other implementations please refer to [our logout docs](https://auth0.com/docs/logout). 
+This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to [our logout docs](https://auth0.com/docs/logout). 
 :::
 
 Create a new router `routes/auth.js`:
@@ -189,7 +189,7 @@ app.use('/', authRouter);
 
 ### Implement a helper function to check the user session
 
-In the views and layouts, we will need to conditionally render content depending on if a user is logged in or not.
+In the views and layouts, we need to conditionally render content depending on if a user is logged in or not.
 Add a helper function to check if the user is persisted in the session or not.
 
 ```js
@@ -213,7 +213,7 @@ app.use('/', authRouter);
 
 ### Implement navigation links 
 
-In your views, use the function defined in the previous step to render links to login, logout an user profile, depending on the case.
+In your views, use the function defined in the previous step to render links to login, logout and user profile, depending on the case.
 Add the navigation links to the application layout `views/layout.pug`.
 
 ```pug
