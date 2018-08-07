@@ -5,7 +5,7 @@ budicon: 500
 ---
 
 ::: note
-The `Auth0-ASPNET-Owin` NuGet package has unresolved security issues and has been deprecated. See the [Auth0 Security Bulletin CVE 2018-15121](https://auth0.com/docs/security/bulletins/cve-2018-15121) for more details.
+The `Auth0-ASPNET-Owin` NuGet package has unresolved security issues and has been deprecated. See the [Auth0 Security Bulletin CVE 2018-15121](/security/bulletins/cve-2018-15121) for more details.
 :::
 
 Previously, Auth0 maintained a NuGet package with OWIN middleware which developers could use to integrate Auth0 into the ASP.NET (OWIN) applications. With the move to OWIN 4, the built-in OpenID Connect middleware was re-evaluated, and the decision was made to instead use this middleware as opposed to the custom Auth0 middleware.
