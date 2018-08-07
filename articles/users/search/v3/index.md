@@ -24,7 +24,7 @@ In this article you'll learn how to search for users and sort the results.
 
 * Review the [User Search Query Syntax](/users/search/query-syntax).
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
-* You'll need a token to make requests to the Management API. Check out [the Auth0 Management APIv2 token](/api/management/v2/tokens) for more information.
+* You'll need a token to make requests to the Management API. Check out [How to Get an Access Token for the Management API](/api/management/v2/tokens) for more information.
 * To perform user search requests the `read:users` [scope](/scopes/) is required.
 
 ## Limitations

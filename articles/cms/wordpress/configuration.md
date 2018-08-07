@@ -155,7 +155,7 @@ See our [dedicated page on Social Connections](/identityproviders#social) for de
 
 * **Cache Time (minutes):** How long the JWKS information should be stored.
 
-* **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/tokens#get-a-token-manually) with the appropriate scopes listed here.
+* **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/tokens) with the appropriate scopes listed here.
 
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
 

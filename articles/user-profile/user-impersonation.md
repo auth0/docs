@@ -126,7 +126,7 @@ You can use one of two methods to locate the `user_id` of a given user that you 
 
 #### Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) documentation.
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
