@@ -17,6 +17,7 @@ The Login project sample has the following structure:
 ------------ HomeController.java
 ------------ LoginController.java
 ------------ LogoutController.java
+------------ RootController.java
 ---- resources
 ------ application.properties
 ------ auth0.properties
@@ -24,14 +25,18 @@ The Login project sample has the following structure:
 ------ WEB-INF
 -------- jsp
 ---------- home.jsp
+---------- login.jsp
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+The project contains two JSP:
+- `home.jsp`: Display the tokens associated to the user after a successful login and provide the option to logout.
+- `login.jsp`: Display the start page and provide the login option.
 
 The project contains a Filter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginController`. This Filter is set on the `AppConfig.java` class.
 
-The project contains also five Controllers:
+The project contains also six Controllers:
+- `RootServlet`: Redirects the user to `login.jsp` resource.
 - `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
@@ -39,6 +44,16 @@ The project contains also five Controllers:
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
 Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
+
+## Display the Login Page
+
+In the `RootServlet` class we will display JSP login page.
+```java
+@Override
+public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, res);
+}
+```
 
 ## Trigger Authentication
 
