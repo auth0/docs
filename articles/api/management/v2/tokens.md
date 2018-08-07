@@ -114,6 +114,7 @@ The payload should be in the following format:
 The request parameters are:
 
 | __Request Parameter__ | __Description__ |
+| ------ | ----------- |
 | __grant_type__ | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`. |
 | __client_id__ | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __client_secret__ | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
