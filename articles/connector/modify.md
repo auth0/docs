@@ -97,9 +97,9 @@ The `config.json` file is the AD/LDAP Connector's main configuration file. You c
 | `LDAP_BIND_USER` | The user for binding a connection to LDAP. | |
 | `LDAP_HEARTBEAT_SECONDS` | Time in seconds to keep the LDAP connection open. | |
 | `LDAP_SEARCH_ALL_QUERY` | The LDAP query used to list all users in the LDAP store. | `(objectCategory=person)` |
-| `LDAP_SEARCH_GROUPS` | The LDAP query used to find groups in the LDAP store. | `(member:1.2.840.113556.1.4.1941:={0})` |
+| `LDAP_SEARCH_GROUPS` | The LDAP query used to find groups in the LDAP store. For example: `(&(objectCategory=group)(member={0}))` | `(member:1.2.840.113556.1.4.1941:={0})` |
 | `LDAP_SEARCH_QUERY` | The LDAP query used to find users in the LDAP store. | `(&(objectCategory=person)(anr={0}))` |
-| `LDAP_USER_BY_NAME` | The LDAP query used to find the user during authentication. This setting lets you specify which attribute is considered the user's username. For example, like the common name: the sAMAccountName, UPN, et cetera. This setting also supports multiple values for an OR search, for example: `"(|(sAMAccountName={0})(userPrincipleName={0}))"` | `(sAMAccountName={0})` |
+| `LDAP_USER_BY_NAME` | The LDAP query used to find the user during authentication. This setting lets you specify which attribute is considered the user's username. For example, like the common name: the sAMAccountName, UPN, et cetera. This setting also supports multiple values for an OR search, for example: `(|(sAMAccountName={0})(userPrincipleName={0}))` | `(sAMAccountName={0})` |
 | `LDAP_URL` | The LDAP connection string. For example: `ldap://fabrikam-dc.fabrikam.local`. | |
 | `PORT` | The port the server runs on when Kerberos or Client Certificate Authentication is enabled. | |
 | `PROVISIONING_TICKET` | The Auth0 provisioning ticket used to communicate with Auth0. | |
