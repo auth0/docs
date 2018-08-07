@@ -16,9 +16,9 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure Node.js to Use Auth0 
+## Configure Node.js to use Auth0
 
-### Install the Dependencies
+### Install the dependencies
 
 To follow along this guide, install the following dependencies.
 
@@ -59,7 +59,7 @@ if (app.get('env') === 'production') {
 app.use(session(sess));
 ```
 
-### Configure Passport with the Application Settings
+### Configure Passport with the application settings
 
 In `app.js`, include the `passport` and `passport0-auth0`modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
 
@@ -89,7 +89,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-### Storing and Retrieving User Data from the Session
+### Storing and retrieving user data from the session
 
 In a typical web application, the credentials used to authenticate a user will only be transmitted during the login request. If authentication succeeds, a session will be established and maintained via a cookie set in the user's browser. Each subsequent request will not contain credentials, but rather the unique cookie that identifies the session.
 
@@ -106,9 +106,9 @@ passport.deserializeUser(function(user, done) {
 });
 ```
 
-## Implementing Login, User Profile and Logout
+## Implement login, user profile and logout
 
-### Adding the Routes
+### Add the routes
 
 In this example, we will implement the following routes:
 
@@ -187,7 +187,7 @@ app.use('/', authRouter);
 //..
 ```
 
-### Implement a Helper Function to Check User Session
+### Implement a helper function to check the user session
 
 In the views and layouts, we will need to conditionally render content depending on if a user is logged in or not.
 Add a helper function to check if the user is persisted in the session or not.
@@ -211,7 +211,7 @@ app.use('/', authRouter);
 //..
 ```
 
-### Implement Navigation Links 
+### Implement navigation links 
 
 In your views, use the function defined in the previous step to render links to login, logout an user profile, depending on the case.
 Add the navigation links to the application layout `views/layout.pug`.
@@ -232,7 +232,7 @@ Add the navigation links to the application layout `views/layout.pug`.
     block content
 ```
 
-### Implement the User Profile View 
+### Implement the user profile view 
 
 Create a `views/user.pug` template. Present the information by accessing `user` or the pre-populated `userProfile` variable with the stringified user profile.
 
@@ -250,7 +250,7 @@ block content
   pre #{userProfile}
 ```
 
-## See it in Action
+## See it in action
 
 Start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the _Login_ link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
