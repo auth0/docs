@@ -59,7 +59,7 @@ if (app.get('env') === 'production') {
 app.use(session(sess));
 ```
 
-### Configure Passport with the Auth0 Strategy and Your Auth0 Application Settings
+### Configure Passport with the Application Settings
 
 In `app.js`, include the `passport` and `passport0-auth0`modules, configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Load the `passport.initialize()` and `passport.session()` middlewares to initialize Passport with persistent login sessions. 
 
