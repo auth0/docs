@@ -9,7 +9,11 @@ useCase:
 ---
 # API Scopes
 
-Scopes allow you to define the API data accessible to your applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+API scopes allow you to define the API data accessible to your applications. 
+
+## Background
+
+When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
 Once you create an API and define the scopes, the applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
 
