@@ -218,6 +218,7 @@ app.use('/', authRouter);
 ### Implement Navigation Links 
 
 In your views, use the function defined in the previous step to render links to login, logout an user profile, depending on the case.
+Add the navigation links to the application layout `views/layout.pug`.
 
 ```pug
 // views/layout.pug
@@ -235,9 +236,9 @@ In your views, use the function defined in the previous step to render links to 
     block content
 ```
 
-## Display User Information
+### Implement the User Profile view 
 
-Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
+Create a `views/user.pug` template. Present the information by accessing `user` or the pre-populated `userProfile` variable with the stringified user profile.
 
 ```pug
 // views/user.pug
