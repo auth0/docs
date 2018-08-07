@@ -61,7 +61,7 @@ app.use(session(sess));
 
 ### Configure Passport with the Application Settings
 
-In `app.js`, include the `passport` and `passport0-auth0`modules, configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Load the `passport.initialize()` and `passport.session()` middlewares to initialize Passport with persistent login sessions. 
+In `app.js`, include the `passport` and `passport0-auth0`modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
 
 Please use the client secret from the application settings in your Auth0 dashboard.
 
@@ -115,16 +115,16 @@ passport.deserializeUser(function(user, done) {
 In this example, we will implement the following routes:
 
 * a route `/login`, that will trigger authentication by calling Passport's `authenticate` method. The user will be redirected to the login page.
-* a route `/callback`, that will be finalize the authentication when the user returns from the Auth0 login page and redirects to the profile page on sucessful login.
+* a route `/callback`, where the user will be returned to by Auth0 after authenticating. It will redirects the user to the profile page.
 * a `/user` route, to display the user's profile.
 * a route `/logout`, that closes the local user session and redirects the user again to the root index `/`.
 
-In the authentication step, make sure to pass the scope parameter with values `openid email profile` in order to access email and the other attributes stored in the user profile within the tenant. This will be needed in order to display the user's information on the profile page.
+In the authentication step, make sure to pass the scope parameter with values `openid email profile` in order to access email and the other attributes stored in the user profile. This will be needed in order to display the user's information on the profile page.
 
 The user's profile route should only be accessible if the user is logged in. Use the `ensureLoggedIn` middleware for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
 
 :::note
-This tutorial implements logout by closing the local user session. After logging out, the user will continue to have an open session at the tenant level. For other implementations please refer to [our logout docs](https://auth0.com/docs/logout). 
+This tutorial implements logout by closing the local user session. After logging out, the user will continue to have an open session in the Auth0 authentication server. For other implementations please refer to [our logout docs](https://auth0.com/docs/logout). 
 :::
 
 Create a new router `routes/auth.js`:
@@ -172,7 +172,7 @@ router.get('/logout', (req, res) => {
 module.exports = router;
 ```
 
-Include this new router in your app, by requiring the file in the top section of  `app.js`:
+Include this new router in your app, by requiring the file in the top section of `app.js`:
 
 ```js
 // app.js
@@ -188,8 +188,6 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 //..
 ```
-
-![login page](/media/articles/web/hosted-login.png)
 
 ### Implement a Helper Function to Check User Session
 
@@ -236,7 +234,7 @@ Add the navigation links to the application layout `views/layout.pug`.
     block content
 ```
 
-### Implement the User Profile view 
+### Implement the User Profile View 
 
 Create a `views/user.pug` template. Present the information by accessing `user` or the pre-populated `userProfile` variable with the stringified user profile.
 
@@ -253,3 +251,9 @@ block content
   h2 User Profile
   pre #{userProfile}
 ```
+
+## See it in Action
+
+Start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the _Login_ link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+
+![login page](/media/articles/web/hosted-login.png)
