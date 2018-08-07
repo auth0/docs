@@ -17,11 +17,9 @@ useCase:
 ---
 # Connect your app to Instagram
 
-This article describes how to add login with Instagram to your app. It also discusses how you can get an Access Token in order to access the Instagram API.
+This article describes how to add login with Instagram to your application.
 
-First you have to follow all the steps required by the Graph API in order to register a new client. 
-
-Once you do that you will get the **Client ID** and **Client Secret** for your new client. You will have to copy the
+First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
 
 - Follow all the steps required by the Graph API in order to register a new client
 - Get the **Client ID** and **Client Secret** for your new client from the [Facebook Developers page](https://developers.facebook.com/)
