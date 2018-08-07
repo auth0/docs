@@ -14,6 +14,7 @@ The Login project sample has the following structure:
 -------------- HomeController.java
 -------------- LoginController.java
 -------------- LogoutController.java
+-------------- RootController.java
 ------------ security
 -------------- AppConfig.java
 -------------- TokenAuthentication.java
@@ -25,20 +26,33 @@ The Login project sample has the following structure:
 ------ WEB-INF
 -------- jsp
 ---------- home.jsp
+---------- login.jsp
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the user information associated to the token after a successful login and provide the option to logout.
+The project contains two JSP:
+- `home.jsp`: Display the tokens associated to the user after a successful login and provide the option to logout.
+- `login.jsp`: Display the start page and provide the login option.
 
 The access control is handled by the Spring Security framework. A few rules in the `AppConfig.java` class will suffice to check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected by the `ErrorController` to the `LoginController`.
 
 The project contains also five Controllers:
+- `RootServlet`: Redirects the user to `login.jsp` resource.
 - `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
+## Display the Login Page
+
+In the `RootServlet` class we will display JSP login page.
+```java
+@Override
+public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, res);
+}
+```
 
 ## Trigger Authentication
 
