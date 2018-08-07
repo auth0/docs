@@ -63,8 +63,6 @@ app.use(session(sess));
 
 In `app.js`, include the `passport` and `passport0-auth0`modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
 
-Please use the client secret from the application settings in your Auth0 dashboard.
-
 ```js
 // app.js
 var Auth0Strategy = require('passport-auth0'),
@@ -74,7 +72,7 @@ var Auth0Strategy = require('passport-auth0'),
 var strategy = new Auth0Strategy({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
-  clientSecret: 'YOUR_CLIENT_SECRET',
+  clientSecret: 'YOUR_CLIENT_SECRET', // Replace this with the client secret for your app
   callbackURL: 'http://localhost:3000/callback'
  },
  function(accessToken, refreshToken, extraParams, profile, done) {
