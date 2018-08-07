@@ -75,8 +75,8 @@ Internet connectivity is required for an update to work.
 
 The `config.json` file is the AD/LDAP Connector's main configuration file. You can this to make advanced changes that are not available via the AD/LDAP **Connector Admin Console**. The file is located in the install directory for the AD/LDAP Connector. The following settings are supported in this file:
 
-| Setting       | Description   | Default  |
-| ------------- |:-------------:| -----:|
+| Setting       | Description | Default  |
+|---------------|-------------|----------|
 | `AD_HUB` | The Auth0 endpoint to which the connector will connect. This value is maintained by the connector. | |
 | `CA_CERT` | An authority certificate or array of authority certificates to check the remote host against. | |
 | `CLIENT_CERT_AUTH` | Specifies if **Client Certificate Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector. | |
