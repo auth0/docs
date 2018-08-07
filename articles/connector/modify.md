@@ -112,6 +112,8 @@ The `config.json` file is the AD/LDAP Connector's main configuration file. You c
 | `TENANT_SIGNING_KEY` | Your Auth0 tenant used to verify JWTs.
 | `WSFED_ISSUER` | The issuer being set in the WS-Federation responses. If a connection is configured with email domains, the first email domain configured in Auth0 will be used as issuer. | `urn:auth0` |
 
+Check out [Active Directory: LDAP Syntax Filters](https://social.technet.microsoft.com/wiki/contents/articles/5392.active-directory-ldap-syntax-filters.aspx) for more information on LDAP queries.
+
 ## Point an AD/LDAP Connector to a new connection
 
 Sometimes you will need to point your AD/LDAP Connector instance to a new connection in Auth0. For instance: If you have migrated to a new Auth0 tenant, or if you changed the name of the Auth0 connection.
