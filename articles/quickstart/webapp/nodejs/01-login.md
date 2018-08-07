@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login, logout and profile to a Node.js Express application.
+description: This tutorial demonstrates how to add user login, logout, and profile to a Node.js Express application.
 budicon: 448
 topics:
   - quickstarts
@@ -30,7 +30,11 @@ To get started, install the following dependencies.
 ```bash
 # installation with npm
 npm install passport passport-auth0 express-session connect-ensure-login --save
+```
 
+or
+
+```bash
 # installation with yarn
 yarn add passport passport-auth0 express-session connect-ensure-login
 ```
@@ -61,7 +65,7 @@ app.use(session(sess));
 
 ### Configure Passport with the application settings
 
-In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions. 
+In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
 
 ```js
 // app.js
@@ -112,20 +116,20 @@ passport.deserializeUser(function(user, done) {
 
 In this example, we implement the following routes:
 
-* a route `/login`, that triggers the authentication by calling Passport's `authenticate` method. The user is redirected to the login page.
-* a route `/callback`, where the user is returned to by Auth0 after authenticating. It redirects to the profile page.
-* a `/user` route, to display the user's profile.
-* a route `/logout`, that closes the local user session and redirects the user again to the root index `/`.
+* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the login page as required.
+* `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
+* `/user` displays the user's profile.
+* `/logout` closes the local user session and redirects the user again to the root index `/`.
 
-In the authentication step, make sure to pass the scope parameter with values `openid email profile` to access email and the other attributes stored in the user profile. This is needed to display the user's information on the profile page.
+In the authentication step, make sure to pass the `scope` parameter with values `openid email profile` to access email and the other attributes stored in the user profile. This is needed to display the user's information on the profile page.
 
-The user's profile route should only be accessible if the user is logged in. Use the `ensureLoggedIn` middleware for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
+The `/user` route (the user's profile) should only be accessible if the user is logged in. Use the `ensureLoggedIn` middleware for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
 
 :::note
-This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to [our logout docs](https://auth0.com/docs/logout). 
+This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to the [logout documentation](/logout). 
 :::
 
-Create a new router `routes/auth.js`:
+Create a new router `routes/auth.js` to contain the above routes.
 
 ```js
 // routes/auth.js
@@ -170,7 +174,7 @@ router.get('/logout', (req, res) => {
 module.exports = router;
 ```
 
-Include this new router in your app, by requiring the file in the top section of `app.js`:
+Include the new router in your app, by requiring the file in the top section of your `app.js`:
 
 ```js
 // app.js
@@ -190,7 +194,7 @@ app.use('/', authRouter);
 ### Implement a helper function to check the user session
 
 In the views and layouts, we need to conditionally render content depending on if a user is logged in or not.
-Add a helper function to check if the user is persisted in the session or not.
+You can do this by adding a helper function to check if the user is persisted in the session or not.
 
 ```js
 // app.js
@@ -213,8 +217,9 @@ app.use('/', authRouter);
 
 ### Implement navigation links 
 
-In your views, use the function defined in the previous step to render links to login, logout and user profile, depending on the case.
-Add the navigation links to the application layout `views/layout.pug`.
+In your views, use the helper function defined in the previous step to determine which navigational links to render, depending on whether the user is logged in or not.
+
+Add these navigation links to the application layout `views/layout.pug`.
 
 ```pug
 // views/layout.pug
@@ -224,9 +229,9 @@ Add the navigation links to the application layout `views/layout.pug`.
     a(href="/") Home
     if loggedIn
       a(href="/user") Profile
-      a(href="/logout") Logout
+      a(href="/logout") Log Out
     else
-      a(href="/login") Login
+      a(href="/login") Log In
     
     // ...
     block content
@@ -234,7 +239,7 @@ Add the navigation links to the application layout `views/layout.pug`.
 
 ### Implement the user profile view 
 
-Create a `views/user.pug` template. Present the information by accessing `user` or the pre-populated `userProfile` variable with the stringified user profile.
+Create a `views/user.pug` template. Present the information by accessing the `user` object or the pre-populated `userProfile` variable, which contains the stringified user profile.
 
 ```pug
 // views/user.pug
@@ -252,6 +257,6 @@ block content
 
 ## See it in action
 
-Start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the _Login_ link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+Start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
 ![login page](/media/articles/web/hosted-login.png)
