@@ -18,14 +18,14 @@ github:
 
 ## Configure Node.js to Use Auth0 
 
-### Install and load the Dependencies
+### Install the Dependencies
 
 To follow along this guide, install the following dependencies.
 
 * [passport](http://www.passportjs.org/) - an authentication middleware for Node.js
 * [passport-auth0](https://github.com/auth0/passport-auth0) - an Auth0 authentication strategy for Passport
-* [express-session](https://www.npmjs.com/package/express-session) - an Express middleware to manage sessions
-* [connect-ensure-login](https://github.com/jaredhanson/connect-ensure-login) - a middleware to ensure the user is logged in order to access certain routes
+* [express-session](https://www.npmjs.com/package/express-session) - a middleware to manage sessions
+* [connect-ensure-login](https://github.com/jaredhanson/connect-ensure-login) - a middleware to ensure a user must be logged in, in order to access certain routes
 
 ```bash
 # installation with npm
