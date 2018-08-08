@@ -49,6 +49,7 @@ In the newly created controller, add success and failure callback handlers.
 
 ```ruby
 # app/controllers/auth0_controller.rb
+
 class Auth0Controller < ApplicationController
   def callback
     # This stores all the user information that came from Auth0
@@ -105,6 +106,7 @@ Add the following to the generated `show.html.erb` file:
 
 ```html
 <!-- app/views/home/show.html.erb -->
+
 <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
 <h1>RoR Auth0 Sample</h1>
 <p>Step 1 - Login.</p>
@@ -165,7 +167,7 @@ end
 
 Add the session data for `userinfo` to the dashboard view to see what is returned:
 
-```ruby
+```html
 <!-- app/views/dashboard/show.html.erb -->
 
 <h1>Dashboard#show</h1>
@@ -174,7 +176,7 @@ ${ '<%= session[:userinfo].inspect %>' }
 
 Finally, adjust your routes to point `/dashboard` to this new, secured controller:
 
-```bash
+```ruby
 # config/routes.rb
 
 Rails.application.routes.draw do
@@ -190,9 +192,11 @@ Click the **Login** link and log in or sign up. Accept the consent modal that ap
 
 ### Display Error Descriptions
 
-Configure the application to display errors by adding the following to `config/environments/production.rb`:
+Configure the application to display errors by adding the following to the `production` environment config:
 
 ```ruby
+# config/environments/production.rb
+
 OmniAuth.config.on_failure = Proc.new { |env|
   message_key = env['omniauth.error.type']
   error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
@@ -228,12 +232,14 @@ Under some configurations, Ruby may not be able to find certification authority 
 Download the CA certs bundle to the project directory:
 
 ```bash
-$ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
+curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 ```
 
 Add this initializer to `config/initializers/fix_ssl.rb`:
 
 ```ruby
+# config/initializers/fix_ssl.rb
+
 require 'open-uri'
 require 'net/https'
 
