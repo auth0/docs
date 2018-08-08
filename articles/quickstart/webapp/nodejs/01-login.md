@@ -32,13 +32,6 @@ To get started, install the following dependencies.
 npm install passport passport-auth0 express-session connect-ensure-login --save
 ```
 
-or
-
-```bash
-# installation with yarn
-yarn add passport passport-auth0 express-session connect-ensure-login
-```
-
 ### Configure express-session
 
 In `app.js`, include the `express-session` module and configure it. The `secret` parameter is a secret string that is used to sign the session ID cookie. Please use a custom value.
