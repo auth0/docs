@@ -166,7 +166,7 @@ end
 Add the session data for `userinfo` to the dashboard view to see what is returned:
 
 ```ruby
-${ '<%# app/views/dashboard/show.html.erb %>' }
+<!-- app/views/dashboard/show.html.erb -->
 
 <h1>Dashboard#show</h1>
 ${ '<%= session[:userinfo].inspect %>' }
