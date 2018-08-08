@@ -1,25 +1,27 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - apis
+github:
+  path : 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope in `auth0.WebAuth`
+## Configure your Application
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
 Add your scopes to the `scope` key.
@@ -36,7 +38,7 @@ auth0 = new auth0.WebAuth({
 
 <%= include('../_includes/_calling_api_use_rules') %>
 
-## Add `HttpClientModule`
+### Add `HttpClientModule`
 
 <%= include('../_includes/_calling_api_access_token') %>
 
@@ -60,7 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 ```
 
-## Make Authenticated Calls with `HttpHeaders`
+## Call the API
 
 You can now use `HttpClient` and `HttpHeaders` to make secure calls to your API from anywhere in the application.
 
@@ -70,7 +72,11 @@ If you have an API that sends messages from the protected `/private` endpoint, y
 // src/app/ping/ping.component.ts
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+interface IApiResponse {
+  message: string;
+}
 
 // ...
 export class PingComponent {
@@ -83,18 +89,26 @@ export class PingComponent {
   public securedPing(): void {
     this.message = '';
     this.http
-      .get(`<%= "${this.API_URL}" %>/private`, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access_token'))
+      .get<IApiResponse>(`<%= "${this.API_URL}" %>/private`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
       })
-      .pipe(
-        map(res => res.json()),
-        catchError(error => console.log(error))
-      )
       .subscribe(
         data => this.message = data.message,
         error => this.message = error
       );
   }
+
+  public securedScopedPing(): void {
+    this.message = '';
+    this.http
+      .get<IApiResponse>(`<%= "${this.API_URL}" %>/private-scoped`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
+    })
+      .subscribe(
+        data => this.message = data.message,
+        error => this.message = error
+      );
+    }
 }
 ```
 

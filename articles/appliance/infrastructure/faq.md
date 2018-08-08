@@ -1,6 +1,12 @@
 ---
 description: This page answers several common questions regarding the PSaaS Appliance infrastructure.
 section: appliance
+topics:
+    - appliance
+    - infrastructure
+contentType: reference
+useCase: appliance
+applianceId: appliance33
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions
@@ -29,13 +35,18 @@ If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required certificate(
 Webtasks and web extensions require this due to Node.js security requirements.
 
 #### Can I whitelist specific IP addresses on my firewall to the Internet sites the PSaaS Appliance requires outbound access to?
-For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required. For certain protocols, Internet connectivity is required during operation (such as social connections or emails).
+
+For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required.
+
+For certain protocols, [Internet connectivity is required during operation](/appliance/infrastructure/internet-restricted-deployment) (such as social connections or emails).
+
+Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
 
 #### Can I use Lock with my PSaaS Appliance implementation?
 
 Yes, you can use Lock with your PSaaS Appliance implementation.
 
-However, if you choose to operate your applications connected to the PSaaS Appliance in an Internet-restricted environment, you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
+However, if you choose to operate your applications connected to the [PSaaS Appliance in an Internet-restricted environment](/appliance/infrastructure/internet-restricted-deployment), you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
 
 If you choose this option, you are responsible for ensuring that your copy of the Lock source code stays up-to-date.
 
@@ -82,3 +93,7 @@ To assist in the rebuilding of the environment, we would need to have an active 
 #### What are the legal terms of the Private SaaS Appliance?
 
 You can read the PSaaS Appliance terms [here](https://auth0.com/legal/baseline/PSaaS).
+
+#### Does the PSaaS Appliance require internet access?
+
+Please refer to [our documentation on the internet-related requirements](/appliance/infrastructure/internet-restricted-deployment) for the PSaaS Appliance.

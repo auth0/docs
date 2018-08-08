@@ -22,6 +22,6 @@
 
 <context-param>
     <param-name>auth0.client_secret</param-name>
-    <param-value>${account.clientSecret}</param-value>
+    <param-value>YOUR_CLIENT_SECRET</param-value>
 </context-param>
 ```

@@ -1,12 +1,22 @@
 ---
+title: Rate Limit Policy For Auth0 APIs
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+toc: true
+topics:
+    - auth0-policies
+    - rate-limits
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
-# Auth0 API Rate Limit Policy
+# Rate Limit Policy For Auth0 APIs
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-::: note
-If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
 :::
 
 ## Limits
@@ -63,9 +73,9 @@ The rate limits for this API defer depending on whether your tenant is free or p
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
@@ -87,14 +97,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   </thead>
   <tbody>
   <tr>
-      <td>Client Grants</td>
+      <td>Application Grants</td>
       <td>/client-grants</td>
       <td>/client-grants</td>
       <td>/client-grants/{id}</td>
       <td>/client-grants/{id}</td>
   </tr>
   <tr>
-      <td>Clients</td>
+      <td>Applications</td>
       <td>/client <br />/client/{id}</td>
       <td>/client</td>
       <td>/client/{id}</td>
@@ -184,10 +194,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: warning
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
-
 <table class="table">
   <thead>
     <tr>
@@ -232,6 +238,13 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
+    <td>Get Passwordless Code or Link</td>
+    <td>/passwordless/start</td>
+    <td>IP</td>
+    <td>All</td>
+    <td>50 requests per hour</td>
+  </tr>
+  <tr>
     <td>Get Token</td>
     <td>/oauth/token</td>
     <td>(any request)</td>
@@ -261,7 +274,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>10 requests per second</td>
   </tr>
   <tr>
-    <td>Json Web Token Keys</td>
+    <td>JSON Web Token Keys</td>
     <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>
@@ -273,3 +286,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
 :::note
 (*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::
+
+## Limits on Database Logins
+
+For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).

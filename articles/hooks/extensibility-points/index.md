@@ -2,6 +2,13 @@
 description: The extensibility points for use with Hooks
 url: /hooks/extensibility-points
 beta: true
+topics:
+    - hooks
+    - extensibility-points
+contentType:
+  - index
+  - concept
+useCase: extensibility-hooks
 ---
 
 # Extensibility Points

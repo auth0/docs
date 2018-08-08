@@ -1,9 +1,14 @@
 ---
 description: How to enable/disable Hooks using the Auth0 Command-Line Interfance
 beta: true
+topics:
+    - hooks
+    - cli
+contentType: how-to
+useCase: extensibility-hooks
 ---
 
-# Enable or Disable Existing Hooks Using the Auth0 Command-Line Interface
+# Enable or Disable Hooks
 
 ::: note
 All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).

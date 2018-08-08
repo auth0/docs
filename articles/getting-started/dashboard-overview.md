@@ -2,6 +2,14 @@
 title: Dashboard Overview
 description: Learn the basics of the Auth0 Dashboard
 toc: true
+topics:
+  - auth0-101
+  - dashboard
+contentType:
+    - how-to
+useCase:
+    - manage-accounts
+    - get-started
 ---
 # Dashboard Overview
 
@@ -28,7 +36,7 @@ The matrix that follows offers a brief overview of the different dashboard scree
             <td colspan="3"><%= include('./_list-processes', {"screen": "dashboard"}) %></td>
         </tr>
         <tr>
-            <th><i class="icon icon-budicon-375"></i>&nbsp;Clients</th>
+            <th><i class="icon icon-budicon-375"></i>&nbsp;Applications</th>
             <td colspan="3"><%= include('./_list-processes', {"screen": "clients"}) %></td>
         </tr>
         <tr>
@@ -90,7 +98,7 @@ The matrix that follows offers a brief overview of the different dashboard scree
 
 On the top right you can see your tenant's name and icon, and a little arrow. This arrow displays a drop-down menu that you can use to configure different aspects of your account:
 
-- **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create a client for `tenant-A`, you will not see it listed for `tenant-B`. If you have more than one tenant, you will find this switching option handy. 
+- **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create an application for `tenant-A`, you will not see it listed for `tenant-B`. If you have more than one tenant, you will find this switching option handy. 
 - **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/dashboard-tenant-settings).
 - **Invite users to this tenant**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
 - **Create tenant**: Use this to [create a new tenant](/getting-started/the-basics#account-and-tenants).

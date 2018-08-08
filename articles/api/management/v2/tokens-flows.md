@@ -3,6 +3,12 @@ description: Describes what changed in the flow for generating Auth0 Management 
 section: apis
 crews: crew-2
 toc: true
+topics:
+  - apis
+  - management-api
+  - tokens
+contentType: concept
+useCase: invoke-api
 ---
 # Changes in Auth0 Management APIv2 Tokens
 
@@ -18,10 +24,8 @@ That way was very easy but it was also __very insecure__. So we changed it.
 
 The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client-credentials).
 
-You can get a new token either [using the dashboard](/api/management/v2/tokens#get-a-token-manually) (if you use the API sporadically) or [by configuring a server process](/api/management/v2/tokens#automate-the-process) (if you need a token frequently) that will get a new token every 24 hours.
-
 ::: note
-For details on how to follow this new process refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+For details on how to follow this new process refer to [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 :::
 
 #### Why this changed
@@ -89,11 +93,11 @@ To generate a token follow the next steps:
 
   Where:
 
-  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
   - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
-  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
+  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create applications, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 
   - __iat__: The time at which the token was issued. It must be a number containing a `NumericDate` value, for example `1487260214` (which maps to `Thu, 16 Feb 2017 15:50:14 GMT`). You can use an [epoch converter](http://www.epochconverter.com/) to get this value.
 
@@ -130,6 +134,6 @@ To generate a token follow the next steps:
 
   - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
-  - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
+  - We want this token in order to call the [Get all applications](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 
   - The token expires in one year (`expiresIn: '1y'`).

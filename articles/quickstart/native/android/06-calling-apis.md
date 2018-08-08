@@ -1,25 +1,21 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls.
 seo_alias: android
 budicon: 546
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 06-Calling-APIs
+contentType: tutorial
+useCase: quickstart
 ---
 
 You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 This tutorial shows you how to access protected resources in your API.
-
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '06-Calling-APIs',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>__
 
 ## Before You Start
 
@@ -46,25 +42,24 @@ private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
-                  .withScheme("demo")
-                  .withAudience(API_IDENTIFIER)
-                  .start(LoginActivity.this, new AuthCallback() {
-                      @Override
-                      public void onFailure(@NonNull Dialog dialog) {
-                        // Show error Dialog to user
-                      }
+        .withScheme("demo")
+        .withAudience(API_IDENTIFIER)
+        .start(LoginActivity.this, new AuthCallback() {
+            @Override
+            public void onFailure(@NonNull Dialog dialog) {
+                // Show error Dialog to user
+            }
 
-                      @Override
-                      public void onFailure(AuthenticationException exception) {
-                        // Show error to user
-                      }
+            @Override
+            public void onFailure(AuthenticationException exception) {
+                // Show error to user
+            }
 
-                      @Override
-                      public void onSuccess(@NonNull Credentials credentials) {
-                          // Store credentials
-                          // Navigate to your main activity
-                      }
-                });
+            @Override
+            public void onSuccess(@NonNull Credentials credentials) {
+                // Verify tokens and Store credentials
+            }
+    });
 }
 ```
 
@@ -122,4 +117,4 @@ client.newCall(request).enqueue(new Callback() {
 });
 ```
 
-You need to configure your backend application to protect your API endpoints with the key for your Auth0 client, API identifier and API scopes. In this example, you can use the user's Access Token issued by Auth0 to call your own APIs.
+You need to configure your backend application to protect your API endpoints with the key for your Auth0 application, API identifier and API scopes. In this example, you can use the user's Access Token issued by Auth0 to call your own APIs.

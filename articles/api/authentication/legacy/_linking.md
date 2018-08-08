@@ -2,8 +2,6 @@
 
 ## Link
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -26,7 +24,7 @@ This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 
-This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
+This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the Access Token that was returned on login success.
 
 
 ### Request Parameters
@@ -34,15 +32,15 @@ This endpoint will trigger the login flow to link an existing account with a new
 | Parameter        | Description |
 |:-----------------|:------------|
 | `response_type`<br/><span class="label label-danger">Required</span>  | Use `code` for server side flows, `token` for client side flows |
-| `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `client_id`<br/><span class="label label-danger">Required</span>      | The `client_id` of your application |
+| `connection`     | The name of the connection configured to your application. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`<br/><span class="label label-danger">Required</span>   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
 
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
 
 ### More Information
@@ -54,13 +52,11 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ## Unlink
 
-<h5 class="code-snippet-title">Examples</h5>
-
 ```http
 POST https://${account.namespace}/login/unlink
 Content-Type: application/json
 {
-  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity Access Token
   "user_id": "LINKED_USER_ID" // (provider|id)
 }
 ```
@@ -109,7 +105,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `Access Token` |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 

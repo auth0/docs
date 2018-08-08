@@ -8,6 +8,14 @@ alias:
 seo_alias: 37signals
 description: How to obtain a Client Id and Client Secret for 37Signals.
 toc: true
+topics:
+  - connections
+  - social
+  - 37signals
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to 37Signals

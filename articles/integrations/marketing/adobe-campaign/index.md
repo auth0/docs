@@ -2,6 +2,12 @@
 title: Adobe Campaign Integration
 description: Learn how to import your Auth0 user data into Adobe Campaign.
 toc: true
+topics:
+    - marketing
+    - adobe
+    - adobe-campaign
+contentType: how-to
+useCase: integrate-marketing
 ---
 
 # Adobe Campaign Integration

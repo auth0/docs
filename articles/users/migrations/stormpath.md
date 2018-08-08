@@ -3,6 +3,16 @@ title: Migrate Users from Stormpath to Auth0
 description: Auth0 supports automatic migration of users to Auth0 from external applications such as Stormpath. This feature adds your users to the Auth0 database as each person logs in and avoids asking your users to reset their passwords due to migration.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - migrations
+  - stormpath
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Migrate Users from Stormpath to Auth0
@@ -35,11 +45,11 @@ On the **Settings** page for your database connection, enable the **Import Users
 
 ![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
 
-### 3. Enable Clients
+### 3. Enable Applications
 
-Navigate to the **Clients** tab of your database connection. Here you can choose the clients which will use the database connection.
+Navigate to the **Applications** tab of your database connection. Here you can choose the applications which will use the database connection.
 
-![Database Connection Clients](/media/articles/users/migrations/enable-clients.png)
+![Database Connection Applications](/media/articles/users/migrations/enable-clients.png)
 
 ### 4. Create the Login Script
 

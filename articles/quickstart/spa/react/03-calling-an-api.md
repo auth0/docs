@@ -1,25 +1,27 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - react
+  - apis
+github:
+  path: 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope in `auth0.WebAuth`
+## Configure your Application
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
 Add your scopes to the `scope` key.
@@ -61,6 +63,13 @@ class Ping extends Component {
     axios.get(`<%= "${API_URL}" %>/private`, { headers })
       .then(response => this.setState({ message: response.data.message }))
       .catch(error => this.setState({ message: error.message }));
+  }
+  securedScopedPing() {
+      const { getAccessToken } = this.props.auth;
+      const headers = { 'Authorization': `Bearer <%= "${getAccessToken()}" %>`}
+      axios.get(`<%= "${API_URL}" %>/private-scoped`, { headers })
+        .then(response => this.setState({ message: response.data.message }))
+        .catch(error => this.setState({ message: error.message }));
   }
 }
 

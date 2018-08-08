@@ -1,6 +1,13 @@
 ---
 description: An in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber
 section: appliance
+topics:
+    - appliance
+    - disaster-recovery
+    - raci
+contentType: reference
+useCase: appliance
+applianceId: appliance55
 ---
 
 <!-- markdownlint-disable MD033 -->

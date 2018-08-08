@@ -1,6 +1,14 @@
 ---
 section: libraries
 description: How to configure user options with Lock V9
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: User configurable options
 

@@ -1,24 +1,35 @@
 ---
 title: Calling your APIs with Auth0 tokens
 description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
+topics:
+  - tokens
+  - access-tokens
+  - id-tokens
+  - scopes
+  - api-authentication
+  - oidc
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Call your APIs with Auth0 tokens
 
 <%= include('./_about.md') %>
 
-With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
+With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID Tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
 
 ## OIDC-conformant pipeline and tokens
 
 In the OIDC-conformant pipeline, **ID Tokens should never be used as API tokens**.
 
-Instead, client applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain Access Tokens for your APIs.
+Instead, applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain Access Tokens for your APIs.
 
-You get simpler API integration since your APIs are no longer tied to the client applications that make calls to it. You're also enabling [machine-to-machine integration scenarios](/api-auth/grant/client-credentials), since clients
-can authenticate as themselves](/api-auth/grant/client-credentials (that is, they are not acting on behalf of any user) to programmatically and securely obtain an API token.
+You get simpler API integration since your APIs are no longer tied to the applications that make calls to it. You're also enabling [machine to machine integration scenarios](/api-auth/grant/client-credentials), since applications
+can authenticate as themselves (that is, they are not acting on behalf of any user) to programmatically and securely obtain an API token.
 
 For example, [the Auth0 Management API is already defined as a resource server on your
-Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize clients seeking access to obtain API tokens with specific scopes in a secure way.
+Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize applications seeking access to obtain API tokens with specific scopes in a secure way.
 
 ### Access vs. ID Tokens
 
@@ -43,11 +54,11 @@ One way to understand how Access and ID Tokens differ in their behavior is to lo
 }
 ```
 
-The sample above shows the contents of an ID Token. ID Tokens are meant only for **authenticating** the users to the **client**.
+The sample above shows the contents of an ID Token. ID Tokens are meant only for **authenticating** the users to the **application**.
 
-Note that the audience value (located in the **aud** claim) of the token is set to the client's identifier. This means that only this specific client should consume the token.
+Note that the audience value (located in the **aud** claim) of the token is set to the application's identifier. This means that only this specific application should consume the token.
 
-You can think of the ID Token as a performance optimization that allows clients to obtain user profile information without making additional requests after the completion of the authentication process. ID Tokens should never be used to obtain direct access to resources or to make authorization decisions.
+You can think of the ID Token as a performance optimization that allows applications to obtain user profile information without making additional requests after the completion of the authentication process. ID Tokens should never be used to obtain direct access to resources or to make authorization decisions.
 
 **The Access Token**
 
@@ -68,9 +79,9 @@ Let's now take a look at the contents of an Access Token:
 }
 ```
 
-The Access Token is meant to **authorize** the user to the **API (resource server)**. As such, the token is **Completely opaque to clients** -- clients should not care about the contents of the token.
+The Access Token is meant to **authorize** the user to the **API (resource server)**. As such, the token is **Completely opaque to applications** -- applications should not care about the contents of the token.
 
-The token does not contain any information about the user except for the user ID (located in the **sub** claim). The token only contains authorization information about the actions that client is allowed to perform at the API (such permissions are referred to as **scopes**).
+The token does not contain any information about the user except for the user ID (located in the **sub** claim). The token only contains authorization information about the actions that application is allowed to perform at the API (such permissions are referred to as **scopes**).
 
 In many cases, you may find it useful to retrieve additional user information. You can do this by calling the [/userinfo API endpoint](/api/authentication#get-user-info) with the Access Token. Be sure that the API for which the Access Token is issued uses the **RS256** signing algorithm.
 
@@ -80,16 +91,16 @@ With the OIDC-conformant pipeline, the **scope** parameter [behaves differently]
 
 The scope parameter in the OIDC-conformant pipeline determines:
 
-* The permissions that an authorized client should have for a given resource server
-* Which standard profile claims should be included in the ID token (if the user consents to provide this information to the client)
+* The permissions that an authorized application should have for a given resource server
+* Which standard profile claims should be included in the ID Token (if the user consents to provide this information to the application)
 
-If you have multiple client apps calling an API under a single client ID, you should represent each client app with a single Auth0 client, each of which can interact with the resource server representing the API on which these apps depend.
+If you have multiple apps calling an API under a single client ID, you should represent each application with a single Auth0 application, each of which can interact with the resource server representing the API on which these apps depend.
 
-Similarly, if you use [delegation to exchange tokens obtained by one client for tokens for a different client](/tokens/delegation), you should also be using a multi-client solution, each authenticating to the same resource server.
+Similarly, if you use [delegation to exchange tokens obtained by one application for tokens for a different application](/tokens/delegation), you should also be using a multi-application solution, each authenticating to the same resource server.
 
-If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID tokens are:
+If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID Tokens are:
 
-* Processed only by the client
+* Processed only by the application
 * Not sent to any external services
 
 ::: note

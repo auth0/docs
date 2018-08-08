@@ -93,10 +93,10 @@ The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the de
 
 ## Add Authentication with Auth0
 
-We recommend using universal login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
+We recommend using Universal Login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
 
 ::: note
-You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible.
 To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form).
 :::
 
@@ -108,11 +108,7 @@ Then present the hosted login screen, like this:
 
 ${snippet(meta.snippets.use)}
 
-::: note
-This snippet sets the `audience` to ensure an OIDC compliant response. This can also be achieved by enabling the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Client > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
-:::
-
-Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
+Upon successful authentication the user's `credentials` will be returned, containing an Access Token, an ID Token and an `expires_in` value.
 
 ::: note
 For more information on the `accessToken`, refer to [Access Token](/tokens/access-token).

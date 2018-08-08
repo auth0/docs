@@ -1,6 +1,12 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to use the Auth0 Nginx SDK to add authentication and authorization to your API.
+topics:
+    - quickstart
+    - backend
+    - nginx
+contentType: tutorial
+useCase: quickstart
 ---
 
 ::: panel-info System Requirements
@@ -29,7 +35,7 @@ http {
 
 ## Configure `nginx-jwt` with your Auth0 account
 
-1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Auth0 Client Secret (`${account.clientSecret}`).
+1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Client Secret.
 1. Expose this environment variable to the Nginx server:
 
 ```lua
@@ -63,7 +69,7 @@ Click [here](https://github.com/auth0/nginx-jwt#usage) for more usage examples.
 
 ## Call Your API
 
-You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT ID Token.
 
 ```har
 {

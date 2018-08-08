@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about virtual machines
+topics:
+    - appliance
+    - infrastructure
+    - virtual-machines
+contentType: reference
+useCase: appliance
+applianceId: appliance41
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Virtual Machines

@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Activity page
+topics:
+    - appliance
+    - dashboard
+contentType: concept
+useCase: appliance
+applianceId: appliance17
 ---
 
 # PSaaS Appliance Dashboard: Activity

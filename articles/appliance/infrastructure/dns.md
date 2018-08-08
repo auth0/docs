@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about DNS
+topics:
+    - appliance
+    - infrastructure
+    - dns
+contentType: reference
+useCase: appliance
+applianceId: appliance31
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -15,7 +22,9 @@ DNS records must be finalized for all of the tenants prior to PSaaS Appliance de
 
 You’ll need one certificate per environment (such as if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
 
-If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
+If you’d like to use a [Webtask Dedicated Domain](/appliance/webtasks/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
+
+Dedicated and non-dedicated host names must be unique.
 
 ## Sample DNS Naming Scheme
 
@@ -23,11 +32,11 @@ If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated
   <tbody>
     <tr>
         <th>Management Dashboard</th>
-        <td>manage-project.yourdomain.com</td>
+        <td>manage.yourdomain.com</td>
     </tr>
     <tr>
         <th>Configuration</th>
-        <td>config-project.yourdomain.com</td>
+        <td>config.yourdomain.com</td>
     </tr>
     <tr>
         <th>Webtask</th>
@@ -35,30 +44,30 @@ If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated
     </tr>
     <tr>
         <th>App Tenant(s)</th>
-        <td>app1-project.yourdomain.com; <br /> app2-project.yourdomain.com <br />...and so on</td>
+        <td>identity.yourdomain.com (for example); <br /> app-project.yourdomain.com (if you want more than 1 App tenant) <br />...and so on</td>
     </tr>
   </tbody>
 </table>
 
-For a dev/test non-production PSaaS Appliance a common practice is to append “-dev” to the hostname component in the domain name:
+For a dev/test non-production PSaaS Appliance a common practice is to include "dev” in the domain name:
 
 <table class="table">
   <tbody>
     <tr>
         <th>Management Dashboard (Dev)</th>
-        <td>manage-dev-project.yourdomain.com</td>
+        <td>manage.dev.yourdomain.com</td>
     </tr>
     <tr>
         <th>Configuration (Dev)</th>
-        <td>config-dev-project.yourdomain.com</td>
+        <td>config.dev.yourdomain.com</td>
     </tr>
     <tr>
         <th>Webtask (Dev)</th>
-        <td>webtask-dev.yourdomain.com</td>
+        <td>webtask.dev.yourdomain.com</td>
     </tr>
     <tr>
         <th>App Tenant(s) (Dev)</th>
-        <td>app1-dev-project.yourdomain.com; <br /> app2-dev-project.yourdomain.com <br />...and so on</td>
+        <td>identity.dev.yourdomain.com (for example); <br /> app-name.dev.yourdomain.com (if you want more than 1 App tenant)<br />...and so on</td>
     </tr>
   </tbody>
 </table>
@@ -67,7 +76,6 @@ For a dev/test non-production PSaaS Appliance a common practice is to append “
 
 * **Configuration**: highly-privileged tenant used to do the PSaaS Appliance baseline configuration and for managing the security of other tenants;
 * **App**: the name of your application;
-* **Project**: the name of the overarching project or department;
 * **yourdomain.com**: your organization's domain name.
 
 ![](/media/articles/appliance/infrastructure/appliance-dns.png)
@@ -179,4 +187,4 @@ Suppose these were your standard domains:
   </tbody>
 </table>
 
-Please note that all tenant names are derived from the base Configuration Tenant. However, you may set your custom domain to point toward any of your tenants (in the example above, `new-name.not-example.com` maps to `auth.example.com`, and the latter may be used by your clients).
+Please note that all tenant names are derived from the base Configuration Tenant. However, you may set your custom domain to point toward any of your tenants (in the example above, `new-name.not-example.com` maps to `auth.example.com`, and the latter may be used by your applications).

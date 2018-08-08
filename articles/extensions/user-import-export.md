@@ -2,6 +2,12 @@
 title: User Import / Export Extension
 toc: true
 description: The User Import / Export is an extension that allows you to import / export users from or to any database you have configured in your account.
+topics:
+  - extensions
+  - user-import-export
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 # User Import / Export
 
@@ -51,7 +57,7 @@ By default, any time you open the extension, you'll see the **User Import** scre
 
 To import your users, drag and drop a valid JSON file ([schema and examples here](/tutorials/bulk-importing-users-into-auth0)) onto the area that says **Drop your file here, or click to select**. Alternatively, you can click on this area to browse your files and select the appropriate JSON file. The JSON file should contain the list of users that you are planning to import.
 
-Select the database connection for which your users will be imported. Please make sure that the connection you choose has been enabled for at least one client.
+Select the database connection for which your users will be imported. Please make sure that the connection you choose has been enabled for at least one application.
 
 ![](/media/articles/extensions/user-import-export/ready-for-import.png)
 

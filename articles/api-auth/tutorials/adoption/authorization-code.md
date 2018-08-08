@@ -1,12 +1,20 @@
 ---
 description: OIDC-conformant Authorization Code grant
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Authorization Code grant
 
 <%= include('./_about.md') %>
 
-The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side clients that are capable of securely storing secrets, or by [native clients through PKCE](/api-auth/grant/authorization-code-pkce).
+The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/api-auth/grant/authorization-code-pkce).
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request

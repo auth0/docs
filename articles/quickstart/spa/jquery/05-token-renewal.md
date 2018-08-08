@@ -1,18 +1,17 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to a jQuery application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - jquery
+  - tokens
+github:
+  path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'jQuery 3.2.1'
-  ]
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal

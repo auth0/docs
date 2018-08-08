@@ -1,6 +1,13 @@
 ---
 description: Step 3 of Amazon API Gateway Tutorial
 toc: true
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 
@@ -39,7 +46,7 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 4. Test the custom authorizer locally.
 
-a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your client's type, trust level, or overall end-user experience. 
+a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your application's type, trust level, or overall end-user experience. 
 
 You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
 
@@ -159,7 +166,7 @@ Now that you've configured your custom authorizer for your environment and teste
 | - | - |
 | **Name** | A name for your Lambda function, such as `jwtRsaCustomAuthorizer` |
 | **Description** | A description for your Lambda function (optional) |
-| **Runtime** | Select `Node.js 4.3` |
+| **Runtime** | Select `Node.js 8.10` |
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-14.png)
 

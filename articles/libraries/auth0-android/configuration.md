@@ -2,6 +2,11 @@
 section: libraries
 toc: true
 description: How to configure Auth0.Android to meet your application's needs
+topics:
+  - libraries
+  - android
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Configuration Options
 
@@ -21,7 +26,7 @@ WebAuthProvider.init(account)
 
 Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms.
 
-Before you can use `Code Grant` in Android, make sure to go to your [Dashboard](${manage_url}/#/clients) and check in the client's settings that `Client Type` is `Native`.
+Before you can use `Code Grant` in Android, make sure to go to your [Dashboard](${manage_url}/#/applications) and check in the application's settings that `Application Type` is `Native`.
 
 ```java
 WebAuthProvider.init(account)
@@ -67,7 +72,7 @@ WebAuthProvider.init(account)
 
 ## withScheme
 
-If you are not using Android "App Links" or you want to use a different scheme for the redirect URI, then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted **Allowed Callback URLs** on the [Dashboard](${manage_url}) in the Client's settings to match the chosen scheme.
+If you are not using Android "App Links" or you want to use a different scheme for the redirect URI, then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted **Allowed Callback URLs** on the [Dashboard](${manage_url}) in the Application's settings to match the chosen scheme.
 
 ```java
 WebAuthProvider.init(account)

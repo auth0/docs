@@ -1,5 +1,13 @@
 ---
 description: Project to assist customers with common performance testing needs, including a correct planning, and test automation guidance.
+topics:
+  - professional services
+  - performance
+  - scalability
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Performance and Scalability

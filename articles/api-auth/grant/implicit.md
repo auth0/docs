@@ -2,6 +2,13 @@
 title: Call APIs from Client-side Web Apps
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 toc: true
+topics:
+  - implicit
+  - api-authorization
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Call APIs from Client-side Web Apps
 
@@ -15,22 +22,22 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview
 
-The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the client app receives an [access_token](/tokens/access-token) directly, without the need for an `authorization_code`. This happens because the client app, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no Refresh Tokens for are returned, for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
+The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the application receives an [Access Token](/tokens/access-token) directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no Refresh Tokens are returned for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
 
-Once the user authenticates, the client app receives the `access_token` in the hash fragment of the URI. The client app can now use this `access_token` to call the API on behalf of the user.
+Once the user authenticates, the application receives the Access Token in the hash fragment of the URI. The application can now use this Access Token to call the API on behalf of the user.
 
 ![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
  1. The app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#implicit-grant)), so the user can authenticate.
 
- 1. Auth0 authenticates the user. The first time the user goes through this flow a consent page will be shown where the permissions, that will be given to the Client, are listed (for example: post messages, list contacts, and so forth).
+ 1. Auth0 authenticates the user. The first time the user goes through this flow a consent page will be shown where the permissions, that will be given to the Application, are listed (for example: post messages, list contacts, and so forth).
 
- 1. Auth0 redirects the user to the app with an [access_token](/tokens/access-token) (and optionally an [id_token](/tokens/id-token)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
+ 1. Auth0 redirects the user to the app with an [Access Token](/tokens/access-token) (and optionally an [ID Token](/tokens/id-token)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
 
- 1. The app can use the `access_token` to call the API on behalf of the user.
+ 1. The app can use the Access Token to call the API on behalf of the user.
 
 ::: note
-In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+In OAuth 2.0 terms, the web app is the Application, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
 
 ## How to implement the flow
@@ -45,7 +52,7 @@ For details on how to implement this, refer to [How to implement the Implicit Gr
 
 ## Silent Authentication
 
-If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new `access_token` (thus simulate refreshing an expired token), you can use Silent Authentication.
+If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new Access Token (thus simulate refreshing an expired token), you can use Silent Authentication.
 
 For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
@@ -56,5 +63,5 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 * [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 * [How to configure an API in Auth0](/apis)
 * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
+* [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
 :::

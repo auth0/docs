@@ -1,6 +1,13 @@
 ---
 title: Adding a generic OAuth1 Authorization Server to Auth0
 description: How to add a generic Oauth1 Authorization Server to Auth0.
+topics:
+  - connections
+  - oauth1
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
 
@@ -18,7 +25,7 @@ curl -X POST
 ```
 
 :::note
-Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 :::
 
 ```json

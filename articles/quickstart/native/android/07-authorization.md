@@ -3,20 +3,17 @@ title: Authorization
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 budicon: 500
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+  path: 07-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny access to your content to different users based on the level of access they have.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '07-Authorization',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>__
 
 ## Before You Start
 
@@ -40,7 +37,7 @@ function (user, context, callback) {
   if (user.email && user.email.indexOf('@admin.com') > -1) {
       roles.push('admin');
   }
-  //Set the role claim in the id_token
+  //Set the role claim in the ID Token
   context.idToken[claimName] = roles;
 
   callback(null, user, context);
@@ -60,18 +57,30 @@ The rule can be customized to grant the user different roles other than the ones
 
 Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login) tutorial), save them to access them at any time.
 
-The ID Token is a [JSON Web Token](/jwt) that holds several claims, like the one with the roles set on this tutorial. Use a *JWT decoding library* like [this one](https://github.com/auth0/JWTDecode.Android) to obtain the roles and perform the access control.
+The claims added to the ID Token via a Rule are included in the userinfo endpoint response. Use the Access Token to call this endpoint and obtain the user roles.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
-JWT idToken = new JWT(CredentialsManager.getCredentials(this).getIdToken());
-final List<String> roles = idToken.getClaim("https://access.control/roles").asList(String.class);
 
-if (!roles.contains("admin")) {
-  // User is not authorized
-} else {
-  // User is authorized  
-}
+authenticationClient.userInfo(accessToken)
+  .start(new BaseCallback<UserProfile, AuthenticationException>() {
+      @Override
+      public void onSuccess(UserProfile userInfo) {
+        //Obtain the claim from the "extra info" of the user info
+        List<String> roles = userInfo.getExtraInfo().containsKey("https://access.control/roles") ? (List<String>) userInfo.getExtraInfo().get("https://access.control/roles") : Collections.<String>emptyList();
+
+        if (!roles.contains("admin")) {
+          // User is not authorized
+        } else {
+          // User is authorized  
+        }
+      }
+
+      @Override
+      public void onFailure(AuthenticationException error) {
+          // Show error
+      }
+  });
 ```
 
 ## Restrict Content Based On Access Level

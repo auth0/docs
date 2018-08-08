@@ -1,6 +1,9 @@
 ---
 title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">
@@ -32,6 +35,10 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_saml-sso') %>
 </div>
 
@@ -40,11 +47,7 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_impersonation') %>
-</div>
-
-<div class="api-section" data-section="none">
-  <%= include('./_client-reg') %>
+  <%= include('./_application-reg') %>
 </div>
 
 <span data-section-label="api-authz">API Authorization</span>
@@ -65,11 +68,14 @@ fullWidth: true
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
 </div>
-<div class="api-section" data-section="none">
+<div class="api-section" data-section="legacy">
   <%= include('./legacy/_linking') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>
+</div>
+<div class="api-section" data-section="legacy">
+  <%= include('./legacy/_impersonation') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_resource-owner') %>

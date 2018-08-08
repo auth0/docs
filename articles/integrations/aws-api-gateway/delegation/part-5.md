@@ -1,6 +1,13 @@
 ---
 title: Amazon API Gateway Tutorial - Flowing Identity
 description: Step 5 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
@@ -82,7 +89,7 @@ The code adds functionality to extract information from and validate the JWT. By
 
 >For more information about token verification, see [Identity Protocols Supported by Auth0](/protocols).
 
-Update `auth0-variables.js` with your secret key, which can be found on the *Settings* tab of your Client in the Auth0 Dashboard:
+Update `auth0-variables.js` with your secret key, which can be found on the *Settings* tab of your Application in the Auth0 Dashboard:
 
 ```js
 var env={};

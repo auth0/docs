@@ -1,6 +1,14 @@
 ---
 description: How to create and test an Active Directory Domain Controller.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 # Creating a Test Active Directory Domain Controller
 
@@ -105,9 +113,9 @@ You can run your VM on any cloud platform, but this guide will walk through how 
 
 To ensure that everything is working using your Auth0 account, we're going to configure your **Default App** in Auth0 to use your new **Active Directory / LDAP** Connection, and use the `/authorize` endpoint to initiate an authentication flow.
 
-1. Using the [Auth0 Management Dashboard](${manage_url}), navigate to your [Clients](${manage_url}/#/clients).
+1. Using the [Auth0 Management Dashboard](${manage_url}), navigate to your [Applications](${manage_url}/#/applications).
 1. Click the **Settings** icon of your **Default App**
-1. Add `http://jwt.io` to the list of the Client's **Allowed Callback URLs**.
+1. Add `http://jwt.io` to the list of the Application's **Allowed Callback URLs**.
 1. Click the **Connections** tab.
 1. Under **Enterprise**, enable the `auth0-test-ad` **Active Directory / LDAP** connection.
 1. Test the authentication flow by opening the following link in your browser:

@@ -1,6 +1,13 @@
 ---
 description: How to read and update user metadata with Lock.
 crews: crew-2
+topics:
+  - metadata
+  - lock
+contentType:
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # How to use Metadata with Lock Library
@@ -59,5 +66,5 @@ Here is a sample request, that adds the user's home address as a second-level pr
 ```
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. For more information see [How to Get an Access Token for the Management API](/api/management/v2/tokens)
 :::

@@ -1,6 +1,12 @@
 ---
 description: Overview of Microsoft Office 365 Integration with Auth0.
 toc: true
+topics:
+  - integrations
+  - microsoft
+  - office-365
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Office 365 Integration
 
@@ -76,7 +82,7 @@ Set-MsolDomainAuthentication
     -Authentication Federated
     -PassiveLogOnUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi"
     -ActiveLogonUri "https://fabrikam.auth0.com/yNqQMENaYIONxAaQmrct341tZ9joEjTi/trust/usernamemixed?connection=FabrikamAD"
-    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
+    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
     -SigningCertificate "MIID..."
     -IssuerUri "urn:fabrikam"
     -LogOffUri "https://fabrikam.auth0.com/logout"

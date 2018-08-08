@@ -2,6 +2,13 @@
 section: appliance
 description: This document details the requirements for the Auth0 Dedicated Cloud Service.
 toc: true
+topics:
+    - appliance
+    - private-cloud
+    - requirements
+contentType: reference
+useCase: appliance
+applianceId: appliance61
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 
@@ -39,7 +46,7 @@ You will also need names for the Management Dashboard, Webtask endpoints, Webtas
 
 |   | Description |
 | - | ----------- |
-| Management Dashboard | The Management Dashboard is your web client's management interface. You'll typically choose the name **manage**, but you can use something else if needed |
+| Management Dashboard | The Management Dashboard is your web application's management interface. You'll typically choose the name **manage**, but you can use something else if needed |
 | Webtask Endpoints | The Webtask DNS is used for web extensions and external use of Webtasks. You'll typically use the name **webtask**, but you can use something else if needed |
 | Webtask Dedicated Domain | Beginning with Appliance version 13451, Webtask may now be configured on a dedicated domain. This enables safely using extensions in multi-tenant environments in the same manner as the Auth0 Public Cloud Service. Auth0 will set up a DNS zone to host the name entries for each tenant. Auth0 recommends `*.wt.<customer_env>.auth0.com`. |
 | App Tenant | The App Tenant is the initial tenant where your applications reside. The is the tenant your users will interact with primarily, and you'll manage this using the Management Dashboard and API.
@@ -70,7 +77,7 @@ The Management Dashboard, Webtask, and App Tenant(s) **must** be a part of the s
 
 The hostname (such as **manage-project**.yourdomain.auth0.com) must be at least three characters long and must **not** contain any underscores(_).
 
-The word `login` is reserved and **cannot** be used.
+The word `login` is reserved and **cannot** be used. Please also refer to the [full list of reserved words](/appliance/infrastructure/dns#hostnames).
 
 The domain name you use for tenants hosted in the Dedicated Cloud Service **cannot** be the same as any you're using for tenants hosted in the Public Cloud Service. 
 
@@ -82,9 +89,9 @@ We will need the email addresses for the administrators of the **Manage** and **
 
 ### Group Email Address
 
-Auth0 will provide a daily performance report of your PSaaS Appliance service, which is sent to an email address (with a group alias) specified by you.
+Auth0 will provide a daily uptime report of your PSaaS Appliance service, which is sent to an email address (with a group alias) specified by you.
 
-In the event that there is an issue, this email address is the one we will use to notify you.
+In the event that there is an issue, you can specify a group alias to receive alerts.
 
 ### SMTP Settings
 
@@ -99,15 +106,15 @@ We will need the following SMTP-related values:
 * Username
 * Password
 
-## Custom Domains
+## Custom Domain
 
 ::: note
-Custom domains are optional, and Auth0 SLAs do **not** cover this portion of the PSaaS Appliance infrastructure.
+A custom domain is optional, and Auth0 SLAs do **not** cover this portion of the PSaaS Appliance infrastructure.
 :::
 
-You can configure custom domain names for your app tenants' domains. 
+You can configure a single custom domain name for your app tenants' domains. 
 
-If you choose to use custom domains, you'll need to manage your DNS name records, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entries that alias the Auth0 identity.
+If you choose to use a custom domain, you'll need to manage the DNS name record, [SSL Certificate](/appliance/infrastructure/security#ssl-certificates), and add the appropriate DNS entry that alias the Auth0 identity.
 
 For example, you'll need to map `identity.<your_name>.auth0.com` to `identity.<your_name>.com`.
 

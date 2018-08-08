@@ -8,7 +8,7 @@ Each step within this quickstart guide (starting with **Login**) contains a down
 
 Each tutorial will require you to use the [react-native-auth0](https://github.com/auth0/react-native-auth0) toolkit. This toolkit enables you to communicate efficiently with many of the [Auth0 API](/api/info) functions and enables you to integrate the Login.
 
-## Create a Client
+## Create an Application
 
 If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 

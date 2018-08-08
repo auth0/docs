@@ -2,9 +2,16 @@
 description: How to use the Command-Line Interface with Hooks
 url: /hooks/cli
 beta: true
+topics:
+    - hooks
+    - cli
+contentType:
+    - how-to
+    - index
+useCase: extensibility-hooks
 ---
 
-# Auth0 Command-Line Interface
+# Work with Hooks using the CLI
 
 The Auth0 Command-Line Interface (CLI) allows you to create, edit, enable/disable, and delete Hooks associated with specific extensibility points within the Auth0 platform. You can also use the CLI to identify Hooks and gather real-time logging information.
 

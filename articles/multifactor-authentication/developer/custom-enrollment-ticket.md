@@ -1,5 +1,16 @@
 ---
-description: Describes how to create an enrollment ticket from api
+description: Describes how to create an enrollment ticket from API
+topics:
+  - mfa
+  - step-up-authentication
+  - api
+  - custom-enrollment
+  - tickets
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Custom Enrollment
 

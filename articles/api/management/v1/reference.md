@@ -2,9 +2,16 @@
 description: Management API V1 reference page.
 section: apis
 toc: true
+topics:
+  - apis
+  - management-api
+contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 Management API Reference
+
+<%= include('../../../_includes/_version_warning_api') %>
 
 ### API endpoint
 
@@ -31,7 +38,7 @@ A token is obtained using the POST method:
 ```text
 POST https://${account.namespace}/oauth/token
 Content-type: application/x-www-form-urlencoded
-client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&type=web_server&grant_type=client_credentials
 ```
 
 The response body of this POST is a JSON object:
@@ -46,11 +53,11 @@ The response body of this POST is a JSON object:
 Here is a simple example using cURL:
 
 ```text
-curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
+curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&type=web_server&grant_type=client_credentials"
 ```
 
 ### Headers
-The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
+The `Authorization` header is the only accepted header and is used in place of the query string to send the Access Token. All content is  returned in JSON. The `Accept` header is ignored for now.
 
 ```text
 Authorization: bearer {ACCESS-TOKEN}

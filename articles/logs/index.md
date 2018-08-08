@@ -2,18 +2,24 @@
 description: How to view log data, lists log event types.
 url: /logs
 crews: crew-2
+topics:
+  - logs
+contentType:
+  - concept
+  - how-to
+  - reference
+useCase:
+  - analyze-logs
+  - integrate-analytics
 ---
 
 # Logs
 
-Using the Auth0 Dashboard, you can pull log data on:
-
-* Actions performed by administrators using the Dashboard;
-* Authentications made by your users.
+Using the [Dashboard](${manage_url}), you can pull log data on actions performed by administrators using the Dashboard, and authentications made by your users.
 
 ## How to View Log Data
 
-The **Logs** page of the [Auth0 Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Clients, Connections, and Rules.
+The **Logs** page of the [Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
 ![](/media/articles/logs/dashboard-logs.png)
 
@@ -27,25 +33,26 @@ The length of time log data is stored varies depending on your plan.
 
 Plan | Log Retention
 -----|--------------
-Developer | 2 Days
-Developer Pro | 10 Days
-Enterprise | 30 Days
+Free | 2 days
+Developer | 2 days
+Developer Pro | 10 days
+Enterprise | 30 days
 
 ### How do I view or export log file data?
 
 If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
-* Store the data yourself;
-* Transmit the data to an external service such as Splunk (consider using the [Auth0 Logs to Splunk Extension](/extensions/splunk)).
+* Store the data yourself
+* Send the data to an external service such as Splunk (consider using the [Auth0 Logs to Splunk Extension](/extensions/splunk))
 
-#### Retrieving Logs from the Management API
+#### Retrieving logs from the Management API
 
 You can use the Management API v2 retrieve your logs. There are the two available endpoints, each providing slightly different quantities of information:
 
 * [/api/v2/logs](/api/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries;
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided ID.
 
-## Log Data Event Listing
+## Log data event listing
 
 The following table lists the codes associated with the appropriate log events.
 
@@ -62,7 +69,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/user-profile) |
-| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified client | [Clients](/clients#client-settings) |
+| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/applications#application-settings) |
 | `fcoa` | Failed cross-origin authentication | | |
 | `fcp` | Failed Change Password | | [Changing a User's Password](/connections/database/password-change) |
 | `fcph` | Failed Post Change Password Hook | | |
@@ -106,13 +113,14 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multifactor Authentication](/multifactor-authentication) |
 | `gd_user_delete` | User delete | Deleted multifactor user account. | [User Profile](/user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
-| `limit_mu` | Blocked IP Address | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
+| `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
-| `limit_wc` | Blocked Account | | [Anomaly Detection](/anomaly-detection) |
-| `pwd_leak` | Breached password | | |
+| `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
+| `pwd_leak` | Breached password | Someone behind the IP address: `ip` attempted to login with a leaked password. | [Anomaly Detection](/anomaly-detection) |
 | `s` | Success Login | Successful login event. | |
 | `sapi` | Success API Operation | | |
 | `sce` | Success Change Email | | [Emails in Auth0](/email) |
+| `scoa` | Success cross-origin authentication | | |
 | `scp` | Success Change Password | | |
 | `scph` | Success Post Change Password Hook | | |
 | `scpn` | Success Change Phone Number | | |
@@ -140,7 +148,7 @@ The following table lists the codes associated with the appropriate log events.
 | `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
 | `w` | Warnings During Login | | |
 
-### Tools to Process Logs
+### Tools to process logs
 
 * [Auth0 Logs Processor](https://www.npmjs.com/package/auth0-logs-processor)
 * [GitHub Repo for the Auth0 Logs Processor](https://github.com/auth0/logs-processor)

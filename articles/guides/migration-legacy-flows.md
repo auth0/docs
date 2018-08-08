@@ -3,6 +3,16 @@ section: libraries
 title: Migrating from Legacy Authentication Flows
 description: How to migrate from Legacy Authentication Flows
 toc: true
+topics:
+    - migrations
+    - lock
+    - auth0js
+    - tokens
+    - user-profiles
+contentType:
+    - how-to
+    - concept
+useCase: migrate
 ---
 # Migrating from Legacy Authentication Flows
 
@@ -14,7 +24,7 @@ Legacy applications used [Refresh Tokens](/tokens/refresh-token) and the `refres
 
 ```js
 function renewToken() {
-    // Assumes the refresh_token is stored in localStorage
+    // Assumes the Refresh Token is stored in localStorage
     refresh_token = localStorage.getItem('refresh_token');   
     auth0.refreshToken(refresh_token, function (err, delegationResult) {
         if (!err)
@@ -22,9 +32,9 @@ function renewToken() {
             var expires_at = JSON.stringify(
                     delegationResult.expires_in* 1000 + new Date().getTime())
                 ;
-            // Assumes you want to keep the time the token will expire 
-            // and the id_token in localStorage
-            localStorage.setItem('expires_at', expires_at); 
+            // Assumes you want to keep the time the token will expire
+            // and the ID Token in localStorage
+            localStorage.setItem('expires_at', expires_at);
             localStorage.setItem('id_token', delegationResult.id_token);
         }
     );
@@ -52,25 +62,25 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis) and we recommend you to start using [Access Tokens](/tokens/access-token).
+Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis), and we recommend that you start using [Access Tokens](/tokens/access-token).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-        {
-            auth: {
-                audience: 'https::/mydomain.com/api',
-            }
-        }
-    );
+  auth: {
+    audience: 'https://mydomain.com/api',
+  }
+});
 ```
 
 If you specify an audience, then the OIDC flow will be triggered and the user profile data returned by Auth0 in ID Tokens or from `/userinfo` will be OIDC conformant. If your application is using any non-standard claim from the user profile, it will break. For more information on how to deal with this issue, refer to the [User Profiles](#user-profiles) section.
 
 You can check the **Calling an API** section of our [SPA Quickstarts](/quickstart/backend) for more information on how to call APIs from SPAs. You will also need to migrate your backend API implementation to use Access Tokens. You can look at our [API Quickstarts](/quickstart/backend) for instructions on how to do this.
 
-## User Profiles 
+## User Profiles
+
+The legacy authentication flows that allow ID Tokens and the `/userinfo` endpoint to include the complete user profile are being deprecated. Make sure the `Legacy User Profile` toggle is turned off after completing the migration to the new OIDC-conformant APIs.
 
 When using the legacy authentication flows, the entire user profile is returned in ID Tokens and from `/userinfo`, as demonstrated below.
 
@@ -122,15 +132,15 @@ Another approach to get the full user profile is to use the [Management API](/ap
 
 ## User Profile with Management API
 
-In the legacy flows, the [Management API](/api/management/v2) supported authentication with an `id_token`. This approach has been deprecated, and now you need to call it with an `access_token`.
+In the legacy flows, the [Management API](/api/management/v2) supported authentication with an ID Token. This approach has been deprecated, and now you need to call it with an Access Token.
 
-To get an `access_token`, you need to ask Auth0 for one using the `https://${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
+To get an Access Token, you need to ask Auth0 for one using the `https://${account.namespace}/api/v2/` audience. Auth0 does not currently support specifying two audiences when authenticating, so you will need to still use your application's API audience when initializing Lock or auth0.js. Once the user is authenticated, you can use `checkSession` to retrieve a Management API `access_token`, and then call the [getUser() endpoint](/api/management/v2#!/Users/get_users_by_id).
 
 ```js
 function getUserUsingManagementApi() {
     webAuth.checkSession(
       {
-        audience: `https://${account.namespace}/api/v2/˜`,
+        audience: `https://${account.namespace}/api/v2/`,
         scope: 'read:current_user'
       },
       function(err, result) {
@@ -156,7 +166,7 @@ function getUserUsingManagementApi() {
   }
   ```
 
-You can can ask for the following scopes:
+You can ask for the following scopes:
 
 * `read:current_user`
 * `update:current_user_identities`

@@ -1,13 +1,17 @@
 ---
 description: An overview of the Auth0 Management API v1 which has been deprecated.
+topics:
+  - apis
+  - management-api
+contentType: 
+    - reference
+    - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)
 
-::: warning
-This version of the Management API has been deprecated.
-Please use the [new version](/api/v2) instead.
-:::
+<%= include('../../../_includes/_version_warning_api') %>
 
 ## Authentication
 
@@ -16,7 +20,7 @@ Please use the [new version](/api/v2) instead.
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an `access_token`. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
+Auth0 API requires an Access Token. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token
@@ -28,7 +32,7 @@ Content-Type: application/json
 }
 ```
 
-Once authenticated, the `access_token` can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
+Once authenticated, the Access Token can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
 
 
 ## Users
@@ -73,7 +77,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/refresh_tokens being used by the user.
+Gets all devices/Refresh Tokens being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices
@@ -145,13 +149,13 @@ Authorization: Bearer {token}
 
 <div class="row api-explorer-row api-get">
   <div class="span8 col-sm-8 api-method"><span class="verb get">GET</span> /api/clients/{client-id}/users</div>
-  <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all users from a specific client</div>
+  <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all users from a specific application</div>
 </div>
 
-Gets all users who have logged in with a specific client
+Gets all users who have logged in with a specific application
 
 ```text
-GET /api/clients//users
+GET /api/clients/users
 Authorization: Bearer {token}
 ```
 
@@ -462,7 +466,7 @@ Content-Type: application/json
 }
 ```
 
-## Clients
+## Applications (Clients)
 
 <div class="row api-explorer-row api-get">
   <div class="span8 col-sm-8 api-method"><span class="verb get">GET</span> /api/clients</div>
@@ -481,7 +485,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Creates a new applications/APIs</div>
 </div>
 
-Create a client. The body of the request can include the `name` and `callbacks` parameters.
+Create an application. The body of the request can include the `name` and `callbacks` parameters.
 
 ```text
 POST /api/clients
@@ -498,13 +502,13 @@ Content-Type: application/json
   <div class="span4 col-sm-4 api-description" style="text-align:right">Updates an applications/APIs</div>
 </div>
 
-Update a client. The body of the request must include the `name` and `callbacks` parameters. Does not overwrite the entire client, only the provided values.
+Update an application. The body of the request must include the `name` and `callbacks` parameters. Does not overwrite the entire application, only the provided values.
 Additionally the `signingKey` can be overwritten using this method (not provided for trial for safety reasons). Possible formats are:
 *   `"signingKey": { cert: "%CERT_STRING%" } // using a cert`
 *   `"signingKey": { key: "%KEY_STRING%" } // using a private key`
 *   `"signingKey": { pkcs7: "%PKCS7_STRING%" } // using a pkcs7`
 *
-WARNING! Changing the `signingKey` for the globalClient will change it for all clients.
+WARNING! Changing the `signingKey` for the globalClient will change it for all applications.
 
 ```text
 PATCH /api/clients/{client-id}
@@ -698,8 +702,8 @@ The following is a description of the values returned by the request:
 *   `logs`: A collection of log entries.
     *   `date`: The moment when the event occured.
     *   `connection`: The connection related to the event.
-    *   `client_id`: The id of the client related to the event.
-    *   `client_name`: The name of the client related to the event.
+    *   `client_id`: The id of the application related to the event.
+    *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
     *   `user_id`: The user id releated to the event.
     *   `user_name`: The user name releated to the event.
@@ -745,7 +749,7 @@ Retrieves data about log entries based on the specified parameters. Log entries 
 Possible values for `field` are:
 *   `date`: The moment when the event occured.
 *   `connection`: The connection related to the event.
-*   `client_name`: The name of the client related to the event.
+*   `client_name`: The name of the application related to the event.
 *   `user_name`: The user name releated to the event.
 
 ```text
@@ -762,8 +766,8 @@ The following is a description of the values returned by the request:
 *   `logs`: A collection of log entries.
     *   `date`: The moment when the event occured.
     *   `connection`: The connection related to the event.
-    *   `client_id`: The id of the client related to the event.
-    *   `client_name`: The name of the client related to the event.
+    *   `client_id`: The id of the application related to the event.
+    *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
     *   `user_id`: The user id releated to the event.
     *   `user_name`: The user name releated to the event.
@@ -828,8 +832,8 @@ The following is a description of the values returned by the request:
 *   `logs`: A collection of log entries.
     *   `date`: The moment when the event occured.
     *   `connection`: The connection related to the event.
-    *   `client_id`: The id of the client related to the event.
-    *   `client_name`: The name of the client related to the event.
+    *   `client_id`: The id of the application related to the event.
+    *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
     *   `user_id`: The user id releated to the event.
     *   `user_name`: The user name releated to the event.
@@ -885,8 +889,8 @@ The following is a description of the values returned by the request:
 *   `logs`: A collection of log entries.
     *   `date`: The moment when the event occured.
     *   `connection`: The connection related to the event.
-    *   `client_id`: The id of the client related to the event.
-    *   `client_name`: The name of the client related to the event.
+    *   `client_id`: The id of the application related to the event.
+    *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
     *   `user_id`: The user id releated to the event.
     *   `user_name`: The user name releated to the event.

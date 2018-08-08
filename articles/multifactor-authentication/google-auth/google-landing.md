@@ -2,11 +2,17 @@
 title: Multifactor Authentication - Google Authenticator
 description: Links to Google Authentication with Auth0 documentation for each type of user role.
 url: /multifactor-authentication/google-authenticator
+topics:
+  - mfa
+  - google
+  - google-autheticator
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator
-
-<%= include('./_deprecation-notice.md') %>
 
 Google Authenticator is a mobile application made by Google that implements two-step verification.  Authenticator provides a six to eight digit one-time password which users must provide in addition to their username and password to log into an application.
 

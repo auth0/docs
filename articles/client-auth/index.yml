@@ -1,9 +1,0 @@
-versioning:
-    baseUrl: client-auth
-    current: current
-    versions:
-      - legacy
-      - current
-    defaultArticles:
-      legacy: index
-      current: index

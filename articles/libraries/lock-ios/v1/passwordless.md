@@ -2,6 +2,16 @@
 section: libraries
 title: Passwordless in Lock iOS v1
 description: How to implement Passwordless authentication in Lock v1
+topics:
+  - libraries
+  - lock
+  - ios
+  - passwordless
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Passwordless in Lock iOS v1
 

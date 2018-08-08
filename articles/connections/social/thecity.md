@@ -5,6 +5,14 @@ image: /media/connections/thecity.png
 seo_alias: thecity
 description: How to obtain an App ID and Secret with The City.
 toc: true
+topics:
+  - connections
+  - social
+  - thecity
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to The City

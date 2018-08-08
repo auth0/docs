@@ -1,5 +1,12 @@
 ---
 description:  Information for how to use Duo Security for developers.
+topics:
+  - mfa
+  - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Duo for Developers
@@ -21,7 +28,7 @@ After you toggle the slider to enable using Duo, a portal displays a code editin
 ```JS
 function (user, context, callback) {
 
-  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
   // run only for the specified clients
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
@@ -82,7 +89,7 @@ Replace the three fields in the code snippet, and click **SAVE**.
 ### Use Duo only for Specified Users
 
 #### Based on your Application
-To use Duo for logins only for the specified clients, replace `REPLACE_WITH_YOUR_CLIENT_ID` field with the Client ID of the application you wish to use. You can find your Client ID(s) under the [Applications](${manage_url}/#/applications) section of the dashboard and then clicking the application you wish to use.
+To use Duo for logins only for the specified applications, replace `REPLACE_WITH_YOUR_CLIENT_ID` field with the Client ID of the application you wish to use. You can find your Client ID(s) under the [Applications](${manage_url}/#/applications) section of the dashboard and then clicking the application you wish to use.
 
 To use Duo for users of all your applications, you can comment or remove the sections regarding `CLIENTS_WITH_MFA`.
 

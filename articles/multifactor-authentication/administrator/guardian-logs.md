@@ -1,5 +1,15 @@
 ---
 description: Guardian Logging
+topics:
+  - mfa
+  - guardian
+  - logging
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
+  - analyze-auth0-analytics
 ---
 # Tracking your Users' MFA Events
 

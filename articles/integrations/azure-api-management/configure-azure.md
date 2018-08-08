@@ -1,6 +1,13 @@
 ---
 description: Configure Azure to accept Auth0 for use as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
 toc: true
+topics:
+    - integrations
+    - azure
+    - api-management
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # Configure Azure
 
@@ -93,18 +100,18 @@ Set the following parameters:
 | --------- | ----------- |
 | Name | A descriptive name for your authorization server, such as `Auth0` |
 | Description | A description for your authorization server, such as `Auth0 API Authentication` |
-| Client registration page URL | The page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
+| Application registration page URL | The page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
 | Authorization code grant types | The grant type used for authorization. Select `authorization code` |
 | Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/api-auth/tutorials/authorization-code-grant#1-get-the-user-s-authorization) |
 | Authorization request method | The HTTP method used by Azure to make the authorization request. By default, this is `GET` |
 | Token endpoint URL | The endpoint used to exchange authorization grants for Access Tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
-| Client authentication methods | Method used to authenticate the client; Auth0's is `BASIC` |
+| Application authentication methods | Method used to authenticate the application; Auth0's is `BASIC` |
 | Access Token sending method | The location of the Access Token in the sending method (typically the **Authorization header**) |
 | Default scope | Specify a default scope (if necessary) |
 
-Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Client we previously registered](/integrations/azure-api-management/configure-auth0#step-1-create-an-api-and-non-interactive-client). You can find both values in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Application we previously registered](/integrations/azure-api-management/configure-auth0#step-1-create-an-api-and-machine-to-machine-application). You can find both values in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Copy this URL, since you'll need to provide this URI in your Auth0 Client Settings page in the Allowed Callback URLs section.
+Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Copy this URL, since you'll need to provide this URI in your Auth0 Application Settings page in the Allowed Callback URLs section.
 
 ::: note
 If you're using the [resource owner password](/api-auth/grant/password) flow, you'll need to provide the **resource owner username** and **resource owner password** instead of the client ID and secret.
@@ -116,7 +123,7 @@ When complete, click **Save** to persist your changes.
 
 ### Set the Allowed Callback URL
 
-You'll need to provide the **redirect URI** that was auto-generated during the OAuth 2.0 authorization server setup process to Auth0. Log into the Management Dashboard, and navigate to **Clients**. Select your Client, and click **Settings**. Paste the URL into the **Allowed Callback URLs** field.
+You'll need to provide the **redirect URI** that was auto-generated during the OAuth 2.0 authorization server setup process to Auth0. Log into the Management Dashboard, and navigate to **Applications**. Select your Application, and click **Settings**. Paste the URL into the **Allowed Callback URLs** field.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/set-callback-url.png)
 

@@ -3,6 +3,13 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
+topics:
+  - libraries
+  - android
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
 # Auth0.Android
 
@@ -42,7 +49,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 
 ## Initialize Auth0
 
-Save your client information in the `strings.xml` file using the following names:
+Save your application information in the `strings.xml` file using the following names:
 
 ```xml
 <resources>
@@ -66,14 +73,14 @@ It is strongly encouraged that this SDK be used in [OIDC Conformant mode](/api-a
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 //Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
-//Use the account in the API clients
+//Use the account in the API applications
 ```
 
 Passwordless authentication **cannot be used** with this flag set to `true`. For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
 
 ## Authentication via Universal Login
 
-First go to the [Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+First go to the [Dashboard](${manage_url}/#/applications) and go to your application's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
 ```
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -162,7 +169,7 @@ To ensure an Open ID Connect compliant response you must either set an `audience
 
 ## Using the Authentication API
 
-The Authentication Client provides methods to accomplish authentication and related tasks. Create a new instance by passing in the Auth0 object created in the previous step.
+The Authentication Application provides methods to accomplish authentication and related tasks. Create a new instance by passing in the Auth0 object created in the previous step.
 
 ```java
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
@@ -170,7 +177,7 @@ AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 
 ### Get user information
 
-To get the information associated with a given user's `access_token`, you can call the `userInfo` endpoint, passing the token.
+To get the information associated with a given user's Access Token, you can call the `userInfo` endpoint, passing the token.
 
 ```java
 authentication

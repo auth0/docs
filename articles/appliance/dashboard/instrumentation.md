@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: Overview on instrumentation in the PSaaS Appliance
+topics:
+    - appliance
+    - dashboard
+    - instrumentation
+contentType: concept
+useCase: appliance
+applianceId: appliance20
 ---
 
 # PSaaS Appliance Dashboard: Instrumentation

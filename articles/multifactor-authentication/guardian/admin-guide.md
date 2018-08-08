@@ -1,6 +1,14 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
 toc: true
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Administrators
@@ -80,13 +88,13 @@ Click **SAVE**.
 
 ## Customize MFA for Select Users
 
-Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts.
+Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet that you can edit to ensure that MFA is applied to the appropriate Applications. By default, Auth0 enables Guardian for all accounts.
 
 ```js
 function (user, context, callback) {
 
-  //var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
-  // run only for the specified clients
+  //var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
+  // run only for the specified applications
   // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){
@@ -108,7 +116,7 @@ If you choose to selectively apply MFA, you will need the appropriate `clientID`
 
 More specifically, you will uncomment and populate the following line of the **Customize MFA** snippet with the appropriate client IDs:
 
-`var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];`
+`var CLIENTS_WITH_MFA = ['REPLACE_WITH_CLIENT_ID'];`
 
 By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) for details
 

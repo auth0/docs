@@ -1,5 +1,11 @@
 ---
 title: Using Passwordless Authentication on a Single Page Application
+topics:
+    - connections
+    - passwordless
+    - spa
+contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless Authentication on a SPA
 

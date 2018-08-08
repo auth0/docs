@@ -1,9 +1,17 @@
 ---
 title: Google Apps SAML Configuration
 description: Google Apps SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - google-apps
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./\_header')}
+<%= include('./_header') %>
 
 ```json
 {

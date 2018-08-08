@@ -2,6 +2,11 @@
 title: Browser-Based vs. Native Login Flows on Mobile Devices
 description: This article covers the pros and cons between a browser-based vs. native experience when implementing Auth0 on a mobile device
 toc: true
+topics:
+  - design
+  - mobile
+contentType: reference
+useCase: strategize
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 
@@ -35,7 +40,7 @@ While SmartLock is not yet universal, using browser-based login flows allows you
 
 With a native login flow, there's no way to avoid an unauthorized party from decompiling or intercepting traffic to/from your app to obtain the Client ID and authentication URL. Using these pieces of information, the unauthorized party can then create a rogue app, upload it to an app store, and use it to phish users for the username/passwords and Access Tokens.
 
-Using a browser-based flow protects you from this, since the callback URL is linked to the app through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/clients/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
+Using a browser-based flow protects you from this, since the callback URL is linked to the app through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/applications/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
 
 ## Implementation time
 
@@ -45,7 +50,7 @@ By default, [Lock](/libraries/lock) provides the UX, but you can customize it co
 
 ## Automatic improvements
 
-By relying on a universal login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
+By relying on a Universal Login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your app before you can use this functionality.
 
 ## Load time and user experience
 

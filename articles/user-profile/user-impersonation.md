@@ -1,36 +1,94 @@
 ---
-description: This page explains how to impersonate a user, often used for testing and troubleshooting purposes.
+description: This page explains how to impersonate a user, a feature often used for testing and troubleshooting purposes.
 toc: true
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - impersonation
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
-# User Impersonation
+# User impersonation
 
-::: warning
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the **Sign in as User** button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
-:::
+<%= include('../_includes/_deprecate-impersonation.md') %>
 
-Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can log in to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
+In this article, we will cover:
 
-Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following:
+* Why you might use impersonation
+* How you can use impersonation
+* What the risks of using impersonation are
+* Go through a sample implementation
 
-- Detailed auditing of who impersonated when.
-- Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
-- Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
+## Why impersonation
+
+Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation, administrators can:
+
+* Log in to an app as a specific user
+* See everything exactly as that user sees it
+* Do everything exactly as that user does it
+
+Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following features and information:
+
+* Detailed auditing of who impersonated when
+* Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data
+* Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works
 
 ::: note
-Any [Rules](/rules) that you've implemented will run when you impersonate a user, including any actions that update the user.
+Any [Rules](/rules) that you have implemented will run when you impersonate a user, including any actions that update the user.
 :::
 
-## Use the Dashboard
+## Limitations
 
-Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the client you want to log in to using the dropdown menu.
+Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
+
+## Enable impersonation
+
+::: warning
+Impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response. By using impersonation, you acknowledge that you understand and accept these risks.
+:::
+
+If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
+
+```javascript
+var data = webAuth.parseHash(
+  {
+    ...
+    __enableIdPInitiatedLogin: true
+    ...
+  }
+```
+
+If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
+
+```javascript
+const lock = new Auth0Lock(clientID, domain, options)
+```
+
+Here's the flag itself:
+
+```javascript
+var options = {
+    _enableIdPInitiatedLogin: true
+};
+```
+
+Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+
+## Use the dashboard
+
+Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the application you want to log in to using the dropdown menu.
 
 ![Click Sign in as User](/media/articles/user-profile/user2.png)
 
 ::: panel I can't see this button
 In order to see this button the following conditions should apply:
 - Impersonation should be enabled for your tenant (see panel at the top of this page)
-- The Clients registered in the tenant must have at least one __callback URL__ listed
-- The Clients must have the connections turned on that the users who are to be impersonated belong to
+- The Applications registered in the tenant must have at least one __callback URL__ listed
+- The Applications must have the connections turned on that the users who are to be impersonated belong to
 :::
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
@@ -41,7 +99,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 Impersonating a user using the [Dashboard](${manage_url}) will not return an [ID Token](/tokens/id-token) to your application by default. There are two ways to achieve this. You can alter the **Response Type** setting in the impersonation menu's [Advanced Settings](#advanced-settings) from `Code` to `Token` (**Sign in as user** -> **Show Advanced Settings**). Alternatively, you can add `additionalParameters.scope: "openid"` to the request body while calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually.
 :::
 
-### Advanced Settings
+### Advanced settings
 
 When impersonating a user in Dashboard, after clicking **Sign in as User** you will see a link to expand "Advanced Settings".
 
@@ -54,21 +112,21 @@ This reveals fields to make it easier to [impersonate a User using the Impersona
 - **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
 - **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
-## Use the Impersonation API
+## Use the impersonation API
 
 You can also use the [Impersonation API](/api/authentication/reference#impersonation). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
 
-## Sample Implementation
+## Sample implementation
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`. You will need to locate the `user_id` of the user you wish to impersonate, either via the Dashboard or the Management API. Next, you will need to obtain an authorization code via the impersonation endpoint. Finally, you will need to exchange your code for a valid Access Token, and your impersonation process will be complete. You can walk through the steps below which use the example `app1` and `app2`.
 
-### 1. Find the User Id
+### 1. Find the user ID
 
 You can use one of two methods to locate the `user_id` of a given user that you want to impersonate. You can either use the Management API v2 to retrieve it, or you can use the Dashboard.
 
 #### Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) documentation.
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
@@ -118,7 +176,7 @@ The data part of the request should include the following:
 
 The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
 
-The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+The `callback_url` must match what is defined in your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 There are various possible values for `scope`:
 
@@ -155,13 +213,19 @@ Replace the required values as follows:
 - `PROTOCOL_TO_USE`: the protocol to use against the identity provider, for example `oauth2`
 - `IMPERSONATOR_ID`: the `user_id` of the impersonator
 
-Upon successful authentication, a URL will be returned as response that will look like the following:
+A successful response returns a URL which can be used to authenticate as the user. The URL should look something like this:
+
+```text
+https://${account.namespace}/users/IMPERSONATOR_ID/impersonate?&abc=XYZ123
+```
+
+Perform a GET request on the URL you received to get a new URL with a `code` and `state` value. The response should look like the following:
 
 ```text
 ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 ```
 
-- `${account.callback}` is the URL you specified as `callback_url` (and configured in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings))
+- `${account.callback}` is the URL you specified as `callback_url` (and configured in your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings))
 - `state` should match the `state` value you sent with your request
 - `code` is the authorization code you need
 
@@ -184,7 +248,7 @@ If not you should send a `POST` request to the [Token endpoint in Auth0](/api/au
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
@@ -208,9 +272,9 @@ Content-Type: application/json
 
 Congratulations, you are done!
 
-## Keep Reading
+## Keep reading
 
 ::: next-steps
-- [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
+- [Troubleshooting? This is what you shouldn’t do](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
 - [Identity Protocols supported by Auth0](/protocols)
 :::

@@ -1,5 +1,14 @@
 ---
 title: Using Passwordless Authentication on Android
+topics:
+    - connections
+    - passwordless
+    - android
+    - sms
+    - mobile
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
 # Passwordless Authentication on Android
 

@@ -1,5 +1,13 @@
 ---
 description: Reset a User's MFA
+topics:
+  - mfa
+  - guardian
+  - user-management
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Resetting a User's multifactor account
 
