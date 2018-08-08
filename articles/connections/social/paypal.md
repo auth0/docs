@@ -46,9 +46,7 @@ If you would like to control the scope of access to customer data (such as profi
 
 ![](/media/articles/connections/social/paypal/log-in-with-paypal.png)
 
-For your Sandbox Account to work, you must select **Advanced Options** and check Full Name, Date of birth, Timezone, Locale, and Language because Auth0 requires this Basic Profile information.
-
-![](https://d2w9rnfcy7mm78.cloudfront.net/1871507/original_12c26dcd9414b2e3fbf0c368c7d1976d.png)
+For your Sandbox Account to work, check the Full Name, Date of birth, Timezone, Locale, and Language because Auth0 requires this Basic Profile information.
 
 Click **Save**:
 
