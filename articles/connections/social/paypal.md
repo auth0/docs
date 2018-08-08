@@ -74,11 +74,7 @@ This allows you to test your connection to see if it has been configured properl
 
 ::: note
 The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
-
-To login with your Sandbox app, configure your Sanbox Account with a password so that you can login. Under Sandbox, click Accounts, click your sandbox account email address, click Profile, click Change Password, add your password, then save.
 :::
-
-![](https://d2w9rnfcy7mm78.cloudfront.net/1871532/original_264ceb73bf45f03b37b388ff1c7d7f86.png)
 
 ## Additional Information
 
