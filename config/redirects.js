@@ -282,6 +282,11 @@ module.exports = [
   /* --- Two-step quickstarts to single-step quickstarts --- */
 
   {
+    from: '/quickstart/webapp/nodejs/02-user-profile',
+    to: '/quickstart/webapp/nodejs/01-login'
+  },
+
+  {
     from: [
       '/quickstart/hybrid',
       '/quickstart/native-mobile'
