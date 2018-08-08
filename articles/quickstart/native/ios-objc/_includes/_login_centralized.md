@@ -84,10 +84,6 @@ Then, add the following `UIApplicationDelegate` method:
 }
 ```
 
-::: note
-To configure callback, you must configure your callback URL first. Read about the Callback URL in the [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls) step.
-:::
-
 ## Implement Login
 
 ${snippet(meta.snippets.setup)}

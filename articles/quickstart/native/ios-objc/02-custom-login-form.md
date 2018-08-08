@@ -103,7 +103,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 ## Perform Social Authentication
 
 ::: note
-Please ensure you have configured your callback URL as show in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+Please ensure you have configured your callback URL as show in [Configure Callback](/quickstart/native/ios-swift#configure-callback-urls).
 :::
 
 Add the following function in your application's `AppDelegate`:
