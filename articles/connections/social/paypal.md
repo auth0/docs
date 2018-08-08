@@ -12,7 +12,7 @@ toc: true
 
 To configure an OAuth connection with PayPal, register your Auth0 Client on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 
-## 1. Registering Your Auth0 Client Using the PayPal Developer Portal
+## 1. Register your app at the PayPal Developer Portal
 
 Go to the [PayPal Developer Portal](https://developer.paypal.com/) and log in with your PayPal credentials. Click on **Dashboard** in the upper-right corner.
 
@@ -26,19 +26,15 @@ On the **Create New App** page, provide a value for **App Name** and click **Cre
 
 ![](/media/articles/connections/social/paypal/create-new-app.png)
 
-## 2. Obtain Your PayPal Client ID and Secret
+## 2. Get your PayPal Client ID and Secret
 
 Once PayPal has created your app, you will be shown the API credentials for this particular application. Copy both the **Client ID** and **Secret** values (the Secret value is initially hidden) for later use.
 
 ![](/media/articles/connections/social/paypal/api-creds.png)
 
-::: note
-Note that you default to editing your Sandbox account. Switch to your live account by toggling to "Live" on the top right of the page.
-:::
+Note that by default you are editing your Sandbox account. Switch to your live account by toggling to **Live** on the top right of the page.
 
-![](https://d2w9rnfcy7mm78.cloudfront.net/1871502/original_5c259228b7f3373bcf3d7c955c1d40cc.png)
-
-## 3. Provide PayPal with Information About Your Auth0 Client
+## 3. Provide PayPal with information about your app
 
 Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter the following value:
 
@@ -56,7 +52,7 @@ For your Sandbox Account to work, you must select **Advanced Options** and check
 
 Click **Save**:
 
-## 4. Provide Your PayPal Client Id and Secret to Your Auth0 Client
+## 4. Provide your PayPal Client Id and Secret to your Auth0 client
 
 Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard. Under the **Social** page, click to enable **PayPal**.
 
@@ -66,7 +62,7 @@ Paste in the **Client Id** and **Secret** from the **PayPal Developer Portal** i
 
 ![](/media/articles/connections/social/paypal/paypal-settings.png)
 
-## 5. Enable and Test the Connection
+## 5. Enable and test the connection
 
 Switch the **Paypal** connection in the dashboard to enabled. Then under **Clients**, choose which of your clients you want to enable this connection and then click **SAVE**.
 
