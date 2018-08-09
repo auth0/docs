@@ -42,7 +42,7 @@ This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.c
 Use the following command to create the controller that will handle the Auth0 callback:
 
 ```bash
-rails generate controller auth0 --skip-template-engine --skip-assets
+rails generate controller auth0 --skip-template-engine --skip-assets --no-helper
 ```
 
 In the newly created controller, add success and failure callback handlers.
