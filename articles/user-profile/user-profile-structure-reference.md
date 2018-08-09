@@ -1,5 +1,4 @@
 ---
-title: User Profile Structure Reference
 description: Lists the attributes that are available on the Auth0 user profile
 topics:
     - users
@@ -7,8 +6,9 @@ topics:
     - user-profiles
     - user-profile-structure
 contentType: reference
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/user-profile-structure.md
 ---
 
 # User Profile Structure Reference

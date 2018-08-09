@@ -1,13 +1,13 @@
 ---
-title: Delete Users
 description: Describes how to delete users.
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # Delete Users
 

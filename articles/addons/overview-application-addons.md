@@ -1,15 +1,15 @@
 ---
 url: /addons
-title: Auth0 Application Addon Overview
 description: Description of Auth0 Application Addons
 topics:
     - addons
 contentType: concept
 useCase: integrate-third-party-apps
-skillLevel: all
+docsv2: true
+oldDoc: /addons/index.md
 ---
 
-# Auth0 Application Addon Overivew
+# Auth0 Application Addons Overivew
 
 Addons are plugins associated with an application in Auth0. Usually they are third-party APIs used by the application for which Auth0 generates access tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, and SAP, etc.).
 

@@ -3,12 +3,14 @@ description: This article explains how to install and configure the Google Analy
 topics:
   - google
   - analytics
-  contentType: how-to
+contentType: how-to
 useCase:
   - manage-analytics
   - analyze-external-analytics
+docsv2: true
+oldDoc: /analytics/integrations/google-analytics/index.md
 ---
-# Google Analytics for Auth0
+# Install Google Analytics for Auth0
 
 This article explains how to install and configure the **Google Analytics for Auth0** integration. You can use this integration on your own page that is using Lock or you can use this on the hosted Lock pages. Additionally, you will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
 

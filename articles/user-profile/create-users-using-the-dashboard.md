@@ -1,14 +1,13 @@
 ---
-title: Creat Users Using the Dashboard
 description: How to create users and their profile details.
-toc: true
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # Create Users Using the Dashboard
 

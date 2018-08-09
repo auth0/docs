@@ -1,11 +1,16 @@
 ---
-title: Metadata Overview
-description: Metadata overview.
-topics: metadata
+description: Describes how metadata works with Auth0.
+topics: 
+   - metadata
+   - rules
+   - endpoints
+   - lock
 contentType: concept
 useCase: manage-users
+docsv2: true
+oldDoc: /metadata/index.md
 ---
-# Metadata
+# Metadata Overview
 
 Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
 

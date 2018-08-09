@@ -5,14 +5,16 @@ sitemap: true
 topics:
     - security
     - passwords
-contentType: task
+contentType: how-to
+docsv2: true
+oldDoc: /anomaly-detection/breached-passwords.md
 ---
 
 # Fix Breached Passwords
 
-I you receive an email saying "Please change your password immediately," your account may have been hacked, compromised, or stolen by a third-party application that experienced a security breach. 
+If you receive an email saying "Please change your password immediately," your account may have been hacked, compromised, or stolen by a third-party application that experienced a security breach. 
 
-The breach did not happen to this account, but based on available data, your credentials may have been released by a third party. Since many people reuse passwords, we wanted to make sure your identity stays protected.
+The breach did not happen to this account, but based on available data, your credentials may have been released by a third party. Since many people reuse passwords, we want to make sure your identity stays protected.
 
 You should also change your password at other sites that you suspect use a shared password. Here are links for password resets on commonly used sites:
 * [Google](https://www.google.com/accounts/recovery/)

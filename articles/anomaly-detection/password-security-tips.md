@@ -1,10 +1,12 @@
 ---
 title: Password Security Tips
-description: General web security tips.
+description: General password security tips.
 topics:
     - security
     - passwords
 contentType: reference
+docsv2: true
+oldDoc: /anomaly-detection/breached-passwords.md
 ---
 
 # Password Security Tips

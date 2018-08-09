@@ -1,13 +1,13 @@
 ---
-title: Redirect Users After Login
 description: How to redirect users to URLs that have not been whitelisted
 topics:
   - users
   - user-management
   - redirection
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /users/redirecting-users.md
 ---
 # Redirect Users After Login
 

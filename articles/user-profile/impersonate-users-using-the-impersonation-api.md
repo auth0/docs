@@ -1,5 +1,4 @@
 ---
-title: Impersonate Users Using the Impersonation API
 description: This page explains how to impersonate a user using the Impersonation API.
 topics:
     - users
@@ -7,8 +6,9 @@ topics:
     - user-profiles
     - impersonation
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/user-impersonation.md
 ---
 # Impersonate Users Using the Impersonation API
 

@@ -1,6 +1,5 @@
 ---
-title: User Data Storage Best Practices
-description: Demonstrates the best practices for using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
+description: Demonstrates the best practices for using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
 toc: true
 topics:
     - users
@@ -11,9 +10,10 @@ topics:
     - ios
     - nodejs
     - api
-contentType: concept
-useCase:
-  - manage-users
+contentType: reference
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/user-data-storage.md
 ---
 
 # User Data Storage Best Practices

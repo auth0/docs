@@ -1,10 +1,10 @@
 ---
-title: Metadata Field Name Rules
 description: Rules for naming metadata fields.
-toc: true
 topics: metadata
 contentType: reference
 useCase: manage-users
+docsv2: true
+oldDoc: /metadata/index.md
 ---
 # Metadata Field Name Rules
 
@@ -97,7 +97,7 @@ When setting the `user_metadata` field with the [Authentication API Signup endpo
 ## Keep Reading
 
 ::: next-steps
-* [Updating Metadata with Auth0 APIs](/metadata/management-api)
-* [User Data Storage Guidance](/user-profile/user-data-storage)
-* [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
+* [Updating Metadata with Auth0 APIs](/metadata/apis)
+* [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+* [Change User Pictures](/user-profile/change-user-pictures)
 :::

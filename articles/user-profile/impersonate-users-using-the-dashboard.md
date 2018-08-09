@@ -1,13 +1,13 @@
 ---
-title: Impersonate Users Using the Dashboard
 description: Describes how to impersonate users using the Dashboard to view their information as they would see it. 
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # Impersonate Users Using the Dashboard
 
