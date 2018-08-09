@@ -275,6 +275,5 @@ Congratulations, you are done!
 ## Keep reading
 
 ::: next-steps
-- [Troubleshooting? This is what you shouldn’t do](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
 - [Identity Protocols supported by Auth0](/protocols)
 :::
