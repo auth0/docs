@@ -398,6 +398,28 @@ add_filter( 'auth0_state_cookie_name', 'auth0_theme_hook_prefix_cookie_name' );
 add_filter( 'auth0_nonce_cookie_name', 'auth0_theme_hook_prefix_cookie_name' );
 ```
 
+### auth0_settings_constant_prefix
+
+Use this filter to change the prefix for the constant used to override plugin settings. Please note that this filter **must** run before `WP_Auth0::init()` so it should be located in an [MU plugin](https://codex.wordpress.org/Must_Use_Plugins).
+
+```php
+/**
+ * Prefix used for constant-based options.
+ *
+ * @param string $prefix - Constant prefix to modify or replace.
+ *
+ * @return string
+ */
+function auth0_theme_hook_settings_constant_prefix( $prefix ) {
+	// Replace the prefix with something else.
+	// return 'AUTH_ENV_';
+
+	// Prefix the prefix.
+	return 'PREFIX_' . $prefix;
+}
+// add_filter( 'auth0_settings_constant_prefix', 'auth0_theme_hook_settings_constant_prefix' );
+``` 
+
 ## Additional Extensions
 
 Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php).
