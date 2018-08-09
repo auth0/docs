@@ -1,30 +1,28 @@
 ---
 description: Guide on how to use the hosted password reset page
-crews: crew-2
 topics:
   - password-reset
   - hosted-pages
 contentType: how-to
 useCase: customize-hosted-pages
 ---
-
 # Password Reset Page
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
 This article will help you learn how to configure the custom Password Reset page. If you are trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 
-## Enable the Custom Password Reset Page
+## Enable the Password Reset Page
 
 Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your Hosted Password Reset Page by flipping the toggle switch.
 
 ![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
 
-## Edit the Custom Password Reset Page
+## Edit the Password Reset Page
 
 Once you've enabled the Password Reset Page for your tenant, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
 
-### Custom Variables
+### Custom variables
 
 You can use JavaScript to retrieve the following custom variables:
 
@@ -100,7 +98,15 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
   </script>
 ```
 
-## Revert Your Changes
+## Set the minimum password length value
+
+[](/connections/database/password-strength)
+
+Customers using custom password reset templates who want to use of the new password length parameter need to update their templates to include the newest library version (1.5) and add the password_complexity_options options to leverage the new parameter. No changes are required if the customers want to continue using their existing password policy.
+
+If the customer does not update the custom hosted page and attempts to set a password length independently (via API or UI), the independent option will be ignored.
+
+## Revert your changes
 
 If you'd like to revert to an earlier design, you have two options:
 
