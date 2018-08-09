@@ -1,9 +1,12 @@
 ---
-title: Read Metadata
 description: Read metadata using rules and Auth0 APIs.
-topics: metadata
+topics: 
+   - metadata
+   - rules
 contentType: how-to
 useCase: manage-users
+docsv2: true
+oldDoc: /metadata/index.md
 ---
 ## Read Metadata
 
@@ -50,7 +53,7 @@ With Management APIv1, all metadata was stored in the `metadata` field. Data sto
 ## Keep Reading
 
 ::: next-steps
-* [Updating Metadata with Auth0 APIs](/metadata/management-api)
-* [User Data Storage Guidance](/user-profile/user-data-storage)
-* [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
+* [Updating Metadata with Auth0 APIs](/metadata/apis)
+* [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+* [Change a User's Picture](/user-profile/change-user-pictures)
 :::

@@ -1,5 +1,4 @@
 ---
-title: Create Users
 description: How to create user accounts from within the Auth0 Dashboard.
 crews: crew-2
 topics:
@@ -8,6 +7,8 @@ topics:
 contentType: how-to
 useCase:
   - manage-users
+docsv2: true
+oldDoc: /dashboard/creating-users-in-the-management-portal.md
 ---
 
 # Create Users
@@ -43,5 +44,5 @@ You will be directed to the newly-created User Details page. The word 'pending' 
 ## Keep reading
 
 ::: next-steps
-* [Learn more about managing your Users](/user-profile)
+* [Learn more about managing your users](/user-profile/overview-user-profile.md)
 :::

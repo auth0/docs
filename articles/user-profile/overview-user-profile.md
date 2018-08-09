@@ -1,14 +1,15 @@
 ---
-title: User Profile Overview
 description: Explains the basics of a User profile.
 topics:
     - users
     - user-management
     - user-profiles
-contentType:
-  - concept
-useCase:
-  - manage-users
+contentType: concept
+useCase: manage-users
+docsv2: true
+oldDoc: 
+   - /user-profile/index.md
+   - /user-profile/user-profile-details.md
 ---
 # User Profile Overview
 

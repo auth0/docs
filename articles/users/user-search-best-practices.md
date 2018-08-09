@@ -1,5 +1,4 @@
 ---
-name: User Search Best Practices
 description: Best practices to use when searching for users in Auth0.
 url: /users/search/best-practices
 toc: true
@@ -8,8 +7,9 @@ topics:
   - user-management
   - search
 contentType: reference
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /users/search-best-practices.md
 ---
 
 # User Search Best Practices

@@ -1,5 +1,4 @@
 ---
-title: Progressive Profiling
 description: Describes how to implement progressive profiling in your website or application.
 topics:
     - users
@@ -7,8 +6,8 @@ topics:
     - user-profiles
     - progressive-profiling
 contentType: concept
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
 ---
 # Progressive Profiling
 

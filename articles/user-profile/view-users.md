@@ -1,13 +1,13 @@
 ---
-title: View Users
 description: How to view users and their profile details.
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # View Users
 

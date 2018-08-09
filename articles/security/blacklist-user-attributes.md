@@ -1,15 +1,16 @@
 ---
-title: Blacklist User Attributes
 description: How to blacklist user attributes that you do not want to save in Auth0 databases
 topics:
   - security
   - security-bulletins
   - blacklisting
   - users
-contentType:
-  - how-to
-useCase:
-  - development
+contentType: how-to
+useCase: 
+   - development
+   - manage-users
+docsv2: true
+oldDoc: /security/blacklisting-attributes.md
 ---
 # Blacklist User Attributes
 

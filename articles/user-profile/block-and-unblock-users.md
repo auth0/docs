@@ -1,13 +1,13 @@
 ---
-Title: Block and Unblock Users
 description: Describes how to block and unblock users. 
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
-useCase:
-  - manage-users
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # Block and Unblock Users
 

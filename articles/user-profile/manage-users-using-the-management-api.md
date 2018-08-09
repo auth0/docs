@@ -1,17 +1,13 @@
 ---
-title: Manage Users Using the Management API
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
-toc: true
 topics:
     - users
     - user-management
     - user-profiles
-contentType:
-  - concept
-  - how-to
-  - index
-useCase:
-  - manage-users
+contentType: how-to
+useCase: manage-users
+docsv2: true
+oldDoc: /user-profile/index.md
 ---
 # Manage Users Using the Management API
 

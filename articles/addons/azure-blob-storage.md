@@ -15,6 +15,7 @@ articles:
 contentType: reference
 description: This example shows how to authorize Azure Blob Storage.
 useCase: integrate-third-party-apps
+docsv2: true
 ---
 
 # Azure Blob Storage Addon

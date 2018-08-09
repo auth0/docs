@@ -5,10 +5,12 @@ classes: topic-page
 topics:
     - compliance
     - gdpr
-contentType: 
-    - index
-    - concept
-useCase: compliance
+contentType: concept
+useCase: 
+    - compliance
+    - manage-users
+Docsv2: true
+oldDoc: /compliance/gdpr/index.md
 ---
 
 <div class="topic-page-header">

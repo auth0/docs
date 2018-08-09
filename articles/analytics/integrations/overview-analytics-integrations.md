@@ -2,13 +2,15 @@
 url: /analytics/integrations
 section: articles
 classes: topic-page
-title: Analytics Integrations
+description: Describes how analytics tools help track users on sites and applications.  
 topics:
   - analytics
 contentType: concept
 useCase:
   - manage-analytics
   - analyze-external-analytics
+docsv2: true
+oldDoc: /analytics/integrations/index.md
 ---
 
 # Analytics Integrations
