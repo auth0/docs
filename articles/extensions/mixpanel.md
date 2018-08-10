@@ -36,13 +36,16 @@ In order to acquire the **MIXPANEL_TOKEN** and **MIXPANEL_KEY** information, nav
 
 ## Using Your Installed Extension
 
-To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Auth0 Dashboard](${manage_url}), click on the **Installed Extensions** link, and select the **Auth0 Logs to Mixpanel** line. There you can see the job you just created, modify its state by toggling the **State** switch, see when the next run is due and what was the result of the last execution.
+To view all jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Auth0 Dashboard](${manage_url}), click on the **Installed Extensions** link, and select the **Auth0 Logs to Mixpanel** line. There you can see the alls job and failed jobs. You can also view the logs of these runs. 
 
-![](/media/articles/extensions/mixpanel/view-cron-jobs.png)
+![](https://i.imgur.com/QfyLvlk.png)
 
-You can view more details by clicking on the job you created. In this page you can view details for each execution, reschedule, access realtime logs, and more.
 
-![](/media/articles/extensions/mixpanel/view-cron-details.png)
+You can create a cron webtask (that will run every 10 minutes) or view more details around existing cron webtasks. In the terminal, you can view details for each execution, reschedule, access realtime logs, and more.
+
+![](https://i.imgur.com/bJAgboz.png)
+
+**https://manage.auth0.com/#/cron - deprecated
 
 That's it, you are done! You can now navigate to [Mixpanel](https://mixpanel.com) and view your [Auth0 Logs](${manage_url}/#/logs).
 
