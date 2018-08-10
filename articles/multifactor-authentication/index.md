@@ -5,7 +5,7 @@ url: /multifactor-authentication
 topics:
     - mfa
 contentType:
-  - index
+  - reference
 useCase:
   - customize-mfa
 ---
