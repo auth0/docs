@@ -10,14 +10,14 @@ useCase:
   - enable-mobile-auth
 ---
 
-# Enable Universal Links Support for your Auth0 Application in Xcode
+# Enable Universal Links
 
-Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Application settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
+Because universal links establish a verified relationship between domains and applications, both your Auth0 Application settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
 
-* `Team ID`;
-* `Bundle identifier`.
+* `Team ID`
+* `Bundle identifier`
 
-## Find Your Apple `Team ID` and `Bundle Identifier`
+## Find your Apple Team ID and Bundle Identifier
 
 To find your Apple `Team ID`, go to your [Apple developer account summary page](https://developer.apple.com/membercenter/index.action#accountSummary).
 
@@ -25,7 +25,7 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 ![](/media/articles/applications/bundle-id.png)
 
-## Provide Your Apple `Team ID` and `Bundle Identifier` to Auth0
+## Configure your Universal Link
 
 You can establish the universal link from the Auth0 side using [Applications](${manage_url}/#/clients) page of the [Management Dashboard](${manage_url}).
 
@@ -43,7 +43,7 @@ Select the *Mobile Settings* tab and provide the **Team ID** and the **App bundl
 
 Click **Save Changes** when done.
 
-## Test Your Universal Link
+## Test your Universal Link
 
 To test this, check whether the universal links apple app site association file is available for your application. Go to your browser and open: https://YOURACCOUNT.auth0.com/apple-app-site-association (replace YOURACCOUNT with your Auth0 account name).
 
