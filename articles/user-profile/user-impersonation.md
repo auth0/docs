@@ -271,9 +271,3 @@ Content-Type: application/json
 ```
 
 Congratulations, you are done!
-
-## Keep reading
-
-::: next-steps
-- [Identity Protocols supported by Auth0](/protocols)
-:::
