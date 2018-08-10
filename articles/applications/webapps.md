@@ -1,6 +1,11 @@
 ---
 description: Explains the basics of creating and using Auth0 Regular Web Applications applications.
 toc: true
+contentType:
+    - reference
+useCase:
+  - add-login
+  - build-an-app
 ---
 # Regular Web Applications
 
