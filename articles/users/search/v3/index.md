@@ -177,8 +177,9 @@ The user search engine v2 has been deprecated as of **June 6th 2018** and will b
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
 * Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
+* Wildcards may only be used for prefix matching against the field value with literal strings, or for more than three contiguous characters. For example, `name:j*`, `name:*joh`, and `name:*joh*` are allowed, but `name:*j`, and `name:*jo*` are not.
+* The `.raw` field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the `.raw` suffix.
 * The `_missing_` filter is not supported, consider using `NOT _exists_:...` instead.
-* The `.raw` suffix is not necessary anymore.
 
 ### Queries to migrate
 

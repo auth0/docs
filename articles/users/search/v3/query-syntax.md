@@ -70,7 +70,7 @@ For example, to find users with the name `jane smith`, use `q=name:"jane smith"`
 
 ## Wildcards
 
-Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`.
+Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`, but it may only be used for prefix matching against the field value with literal strings, or for more than three contiguous characters. For example, `name:j*`, `name:*joh`, and `name:*joh*` are allowed, but `name:*j`, and `name:*jo*` are not.
 
 The question mark character (`?`), is currently not supported.
 
@@ -97,6 +97,8 @@ For example, to find all users whose names start with `john`, use `q=name:john*`
     ]
 }
 ```
+
+Wildcard searches are not available on [user metadata](/metadata) fields.
 
 ## Ranges
 
@@ -127,3 +129,5 @@ For example, to find all users with more than 100 logins, use `q=logins_count:{1
     ]
 }
 ```
+
+Range searches are not available on [user metadata](/metadata) fields.
