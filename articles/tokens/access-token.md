@@ -6,10 +6,11 @@ topics:
   - tokens
   - access-tokens
 contentType:
-  - how-to
   - concept
 useCase:
+  - build-an-api
   - invoke-api
+  - secure-an-api
 ---
 # Access Token
 
