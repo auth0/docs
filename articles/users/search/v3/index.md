@@ -173,11 +173,12 @@ For more information on the `page`, `per_page` and other parameters, see the [Ma
 
 The user search engine v2 has been deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there's a few things you should know:
 
+* You must update all your calls to the `GET /api/v2/users` endpoint to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
 * Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
-* Wildcards may only be used for prefix matching against the field value with literal strings, or for more than three contiguous characters. For example, `name:j*`, `name:*joh`, and `name:*joh*` are allowed, but `name:*j`, and `name:*jo*` are not.
+* Wildcards can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
 * The `.raw` field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the `.raw` suffix.
 * The `_missing_` filter is not supported, consider using `NOT _exists_:...` instead.
 
@@ -192,6 +193,7 @@ Search by date | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
 Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
 String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
 Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
+Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `name:*ab*` | _(not supported)_
 
 ## Next steps
 
