@@ -134,7 +134,7 @@ If you want to use SAML identity providers (IdPs) with your custom domain, you m
 
 Alternatively, you can use signed requests to fulfill this requirement:
 
-- Once your custom domain is set up, go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains) and download the certificate from the link under the **Sign Request** toggle
+- Download the signing certificate from `https://<TENANT>.auth0.com/pem`. Note that `https://<YOUR-CUSTOM-DOMAIN>.com/pem` will return the same certificate.
 - Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
 - The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
 - Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
