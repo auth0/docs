@@ -25,18 +25,16 @@ When working on your user creation script, keep in mind that:
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
-::: next-steps
-* [JavaScript](/connections/database/custom-db/templates/verify#javascript)
-* [ASP.NET Membership Provider (MVC3 - Universal Providers)](/connections/database/custom-db/templates/verify#asp-net-membership-provider-mvc3-universal-providers-)
-* [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/verify#asp-net-membership-provider-mvc4-simple-membership-)
-* [MongoDB](/connections/database/custom-db/templates/verify#mongodb)
-* [MySQL](/connections/database/custom-db/templates/verify#mysql)
-* [Oracle](/connections/database/custom-db/templates/verify#oracle)
-* [PostgreSQL](/connections/database/custom-db/templates/verify#postgresql)
-* [SQL Server](/connections/database/custom-db/templates/verify#sql-server)
-* [Windows Azure SQL Database](/connections/database/custom-db/templates/verify#windows-azure-sql-database)
-* [Request with Basic Auth](/connections/database/custom-db/templates/verify#request-with-basic-auth)
-:::
+* [JavaScript](#javascript)
+* [ASP.NET Membership Provider (MVC3 - Universal Providers)](#asp-net-membership-provider-mvc3-universal-providers-)
+* [ASP.NET Membership Provider (MVC4 - Simple Membership)](#asp-net-membership-provider-mvc4-simple-membership-)
+* [MongoDB](#mongodb)
+* [MySQL](#mysql)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
+* [SQL Server](#sql-server)
+* [Windows Azure SQL Database](#windows-azure-sql-database)
+* [Request with Basic Auth](#request-with-basic-auth)
 
 ### JavaScript
 
