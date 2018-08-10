@@ -43,5 +43,5 @@ useCase:
 ## Data privacy
 
 <%= include('../_includes/_topic-links', { links: [
-  'security/blacklisting-attributes'
+  'security/blacklist-user-attributes'
 ] }) %>
