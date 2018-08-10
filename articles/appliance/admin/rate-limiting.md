@@ -10,7 +10,7 @@ applianceId: appliance9
 ---
 # PSaaS Appliance: Rate Limiting
 
-Beginning with PSaaS Appliance build `6576`, rate limits for API endpoints can be enabled and configured in the Dashboard. Rate limiting in the PSaaS Appliance is done using [limitd](https://github.com/limitd/limitd#buckets).
+Rate limits for API endpoints can be enabled and configured in the Dashboard. Rate limiting in the PSaaS Appliance is done using [limitd](https://github.com/limitd/limitd#buckets).
 
 ## Enable and Configure Rate Limiting
 
