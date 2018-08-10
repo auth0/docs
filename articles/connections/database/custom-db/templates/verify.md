@@ -26,8 +26,8 @@ When working on your user creation script, keep in mind that:
 Auth0 provides sample scripts for use with the following languages/technologies:
 
 * [JavaScript](#javascript)
-* [ASP.NET Membership Provider (MVC3 - Universal Providers)](#aspnet-membership-provider-mvc3---universal-providers)
-* [ASP.NET Membership Provider (MVC4 - Simple Membership)](#aspnet-membership-provider-mvc4---simple-membership)
+* [ASP.NET Membership Provider (MVC3 - Universal Providers)](#asp-net-membership-provider-mvc3-universal-providers-)
+* [ASP.NET Membership Provider (MVC4 - Simple Membership)](#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](#mongodb)
 * [MySQL](#mysql)
 * [Oracle](#oracle)
