@@ -37,7 +37,9 @@ You can use JavaScript to retrieve the following custom variables:
 | `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
 | `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
 | `lang` | The user's language | 
-| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
+| `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
+| `password_complexity_options` | Object containing settings for the password complexity requirements |
+| `min_length` | The minimum length required for newly-created passwords. Can range from 1 to 128 characters in length |
 
 ::: note
 You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
@@ -102,9 +104,45 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
 
 [](/connections/database/password-strength)
 
-Customers using custom password reset templates who want to use of the new password length parameter need to update their templates to include the newest library version (1.5) and add the password_complexity_options options to leverage the new parameter. No changes are required if the customers want to continue using their existing password policy.
+Customers currently using a customized Password Reset Page who want to use the new password length parameter must:
 
-If the customer does not update the custom hosted page and attempts to set a password length independently (via API or UI), the independent option will be ignored.
+1. Update their templates to include library version 1.5 or later
+2. Add `password_complexity_options` to leverage the new parameter
+
+If you do not update the Password Reset Page, Auth0 ignores any attempt to set the minimum password length.
+
+### Step 1: Update the change password library version
+
+To use the new minimum password length feature, you should update the change password library used to version 1.5 (or later):
+
+```text
+<script src="https://cdn.auth0.com/js/change-password-1.4.0.min.js"></script>
+```
+
+### Step 2: Add `password_complexity_options` to leverage the new parameter
+
+You'll need to add `password_complexity_options` to leverage the new parameter. Add this option to the page's script as follows:
+
+```text
+<script>
+
+    //code omitted for brevity
+
+    new Auth0ChangePassword({
+      container:                    "change-password-widget-container",     // required
+      email:                        '{{email}}',                            // DO NOT CHANGE THIS
+      csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
+      ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
+      password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
+      password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
+      
+      //code omitted for brevity
+    
+    });
+  </script>
+```
+
+Scroll to the bottom and click **Save**.
 
 ## Revert your changes
 
