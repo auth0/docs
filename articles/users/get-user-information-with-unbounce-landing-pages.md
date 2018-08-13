@@ -7,7 +7,6 @@ topics:
   - unbounce
 contentType: how-to
 useCase: manage-users
-docsv2: true
 ---
 # Get User Information on Unbounce Landing Pages
 

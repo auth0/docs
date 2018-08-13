@@ -9,8 +9,6 @@ contentType: how-to
 useCase: 
    - development
    - manage-users
-docsv2: true
-oldDoc: /security/blacklisting-attributes.md
 ---
 # Blacklist User Attributes
 

@@ -7,7 +7,6 @@ topics:
     - progressive-profiling
 contentType: concept
 useCase: manage-users
-docsv2: true
 ---
 # Progressive Profiling
 

@@ -5,10 +5,7 @@ topics:
   - dashboard
   - users
 contentType: how-to
-useCase:
-  - manage-users
-docsv2: true
-oldDoc: /dashboard/creating-users-in-the-management-portal.md
+useCase: manage-users
 ---
 
 # Create Users

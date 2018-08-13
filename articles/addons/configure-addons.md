@@ -5,8 +5,6 @@ topics:
     - addons
 contentType: how-to
 useCase: integrate-third-party-apps
-docsv2: true
-oldDoc: /addons/index.md
 ---
 
 # Configure Auth0 Application Addons

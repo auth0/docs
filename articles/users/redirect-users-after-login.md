@@ -7,7 +7,6 @@ topics:
 contentType: how-to
 useCase: manage-users
 docsv2: true
-oldDoc: /users/redirecting-users.md
 ---
 # Redirect Users After Login
 

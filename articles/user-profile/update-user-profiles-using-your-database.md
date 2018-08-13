@@ -9,10 +9,9 @@ contentType:
   - how-to
 useCase:
   - manage-users
-docsv2: true
 ---
 
-# Update Users Using Your Database
+# Update User Profiles Using Your Database
 
 You can update user profiles when using [your own database as an identity provider](/connections/database/custom-db) by:
 

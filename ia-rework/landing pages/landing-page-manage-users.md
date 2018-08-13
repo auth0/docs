@@ -25,10 +25,10 @@ useCase: manage-users
 Auth0 provides many ways to manage your users.
 
 - Fix breached passwords and password security tips
-- Identify providers supported
+- Identity providers supported
 - Create users
 - User metadata: read metadata, field name rules, blacklisting metadata
-- User profiles: Dashboard (create, via, impersonate, delete), block and unblock, Auth0 Management API, manage access to applications, progressive profiling, user data storage, Auth0 Impersonation API, change user pictures, user profile structure reference
+- User profiles: Dashboard (create, view, impersonate, delete), block and unblock, Auth0 Management API, manage access to applications, progressive profiling, user data storage, Auth0 Impersonation API, change user pictures, user profile structure reference
 - Redirect users after login
 - Search users
 - GDPR considerations

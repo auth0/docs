@@ -7,8 +7,6 @@ contentType: how-to
 useCase:
   - manage-analytics
   - analyze-external-analytics
-docsv2: true
-oldDoc: /analytics/integrations/google-analytics/index.md
 ---
 # Install Google Analytics for Auth0
 

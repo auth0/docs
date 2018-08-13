@@ -8,8 +8,6 @@ topics:
   - search
 contentType: reference
 useCase: manage-users
-docsv2: true
-oldDoc: /users/search-best-practices.md
 ---
 
 # User Search Best Practices

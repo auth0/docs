@@ -11,8 +11,6 @@ contentType:
 useCase:
   - customize-connections
   - add-idp
-docsv2: true
-oldDoc: /connections/index.md
 ---
 
 # Identity Providers Supported by Auth0
