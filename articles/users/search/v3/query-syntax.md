@@ -70,7 +70,7 @@ For example, to find users with the name `jane smith`, use `q=name:"jane smith"`
 
 ## Wildcards
 
-Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`, but it may only be used for prefix matching against the field value with literal strings, or for more than three contiguous characters. For example, `name:j*`, `name:*joh`, and `name:*joh*` are allowed, but `name:*j`, and `name:*jo*` are not.
+Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`. They can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
 
 The question mark character (`?`), is currently not supported.
 
