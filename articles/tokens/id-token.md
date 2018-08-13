@@ -5,10 +5,10 @@ topics:
   - tokens
   - id-tokens
 contentType:
-  - how-to
   - concept
 useCase:
-  - invoke-api
+  - add-login
+  - build-an-app
 ---
 # ID Token
 
