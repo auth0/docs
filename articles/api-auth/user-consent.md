@@ -69,15 +69,15 @@ Once consent has been given, the user will no longer see the consent dialog on s
 
 ## Scope Descriptions 
 
-By default, the consent page will use the scopes names to prompt for user consent. As showcased in the example below, scopes should be defined with in the <resource>:<action> format.
+By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **resource_name:action** format.
 
 ![API Scopes](/media/articles/api-auth/consent-scopes.png)
 
-The consent page will group scopes with the same resource in a single line, detailing all actions. In the example above, it will display "Posts: read and write your posts".
+The consent page groups scopes for the same resource and displays all actions for that resource in a single line. For example, the configuration above would result in **Posts: read and write your posts**.
 
-You can change this behavior to display the 'Description' field instead. You can enable this behavior by setting the tenant flag `use_scope_descriptions_for_consent` to true. Given that the setting is at the tenant level, it will affect the consent prompts for all APIs.
+If you would like to display the **Description** field instead, you can do so by setting the tenant's **use_scope_descriptions_for_consent** to **true. This will affect consent prompts for all of the APIs on that tenant.
 
-At the moment, this can only be done with API call:
+To set the **use_scope_descriptions_for_consent** flag, you will need to make the appropriate call to the API:
 
 ```har
 {
