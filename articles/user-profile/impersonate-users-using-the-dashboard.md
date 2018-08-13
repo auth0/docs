@@ -6,8 +6,6 @@ topics:
     - user-profiles
 contentType: how-to
 useCase: manage-users
-docsv2: true
-oldDoc: /user-profile/index.md
 ---
 # Impersonate Users Using the Dashboard
 

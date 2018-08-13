@@ -5,8 +5,6 @@ topics:
     - addons
 contentType: concept
 useCase: integrate-third-party-apps
-docsv2: true
-oldDoc: /addons/index.md
 ---
 
 # Auth0 Application Addons Overivew

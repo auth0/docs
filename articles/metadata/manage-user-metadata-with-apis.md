@@ -1,5 +1,4 @@
 ---
-title: How to Work With User Metadata Using the Auth0 APIs
 description: How to create and update metadata using the Auth0 APIs.
 crews: crew-2
 toc: true
@@ -7,15 +6,13 @@ topics:
   - metadata
   - apis
   - management-api
-contentType:
-  - reference
-  - how-to
+contentType: how-to
 useCase:
   - manage-users
 ---
-# How to Create and Update User Metadata With the Auth0 APIs
+# Manage User Metadata with Auth0 APIs
 
-In this article, we will cover how you can create and update metadata using the [Authentication](/api/authentication) and [Management](/api/management/v2) APIs.
+You can create and update metadata using the [Authentication](/api/authentication) and [Management](/api/management/v2) APIs.
 
 ## Authentication API
 
@@ -33,7 +30,7 @@ Using [Auth0's Management APIv2](/api/management/v2), you can create a user and 
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 :::
 
-### Set Metadata Fields on Creation
+### Set metadata fields on creation
 
 To create a user with the following profile details:
 
@@ -75,7 +72,7 @@ You would make the following `POST` call to the [Create User endpoint of the Man
 }
 ```
 
-### Retrieve User Metadata
+### Retrieve metadata
 
 To retrieve a user's metadata make a `GET` request to the [Get User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id).
 
@@ -134,7 +131,7 @@ The response will be as follows:
 }
 ```
 
-### Update User Metadata
+### Update metadata
 
 You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 
@@ -209,7 +206,7 @@ The user's profile will now appear as follows:
 When you send a `PATCH` call in which you have set a property's value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata itself with an empty object removes the metadata completely (see [Deleting](#deleting)).
 :::
 
-#### Merging
+#### Merge metadata
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
@@ -252,7 +249,7 @@ Therefore, the corresponding `PATCH` call to the API would be:
 }
 ```
 
-#### Deleting
+#### Delete metadata
 
 Patching the metadata with an empty object removes the metadata completely. For example, sending this body removes everything in `app_metadata`:
 

@@ -1,13 +1,11 @@
 ---
-description: How to create users and their profile details.
+description: How to add users and their profile details.
 topics:
     - users
     - user-management
     - user-profiles
 contentType: how-to
 useCase: manage-users
-docsv2: true
-oldDoc: /user-profile/index.md
 ---
 # Create Users Using the Dashboard
 
@@ -26,7 +24,7 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 * **Repeat Password**: retype the user's password to ensure that you entered the password correctly.
 * **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your tenant. The connection you use must be associated with an Application.
 
-Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
+Fill in the required information and click **Save** to add the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
 ::: note
 The User Details page will show `pending` when a user is first created until they have logged in for the first time.

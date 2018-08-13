@@ -6,8 +6,6 @@ topics:
     - security
     - passwords
 contentType: how-to
-docsv2: true
-oldDoc: /anomaly-detection/breached-passwords.md
 ---
 
 # Fix Breached Passwords

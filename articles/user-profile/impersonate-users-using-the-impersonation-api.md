@@ -7,8 +7,6 @@ topics:
     - impersonation
 contentType: how-to
 useCase: manage-users
-docsv2: true
-oldDoc: /user-profile/user-impersonation.md
 ---
 # Impersonate Users Using the Impersonation API
 

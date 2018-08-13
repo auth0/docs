@@ -11,7 +11,6 @@ topics:
   - odata
 useCase: integrate-third-party-apps
 contentType: reference
-docsv2: true
 ---
 
 # SAP OData Addon

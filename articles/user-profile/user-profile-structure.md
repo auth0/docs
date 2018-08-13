@@ -7,11 +7,9 @@ topics:
     - user-profile-structure
 contentType: reference
 useCase: manage-users
-docsv2: true
-oldDoc: /user-profile/user-profile-structure.md
 ---
 
-# User Profile Structure Reference
+# User Profile Structure
 
 The following attributes are available on the user profile.
 

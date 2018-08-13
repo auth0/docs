@@ -9,8 +9,6 @@ contentType: concept
 useCase:
   - manage-analytics
   - analyze-external-analytics
-docsv2: true
-oldDoc: /analytics/integrations/index.md
 ---
 
 # Analytics Integrations

@@ -12,8 +12,6 @@ topics:
     - api
 contentType: reference
 useCase: manage-users
-docsv2: true
-oldDoc: /user-profile/user-data-storage.md
 ---
 
 # User Data Storage Best Practices

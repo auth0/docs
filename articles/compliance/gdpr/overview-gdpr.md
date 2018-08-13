@@ -9,8 +9,6 @@ contentType: concept
 useCase: 
     - compliance
     - manage-users
-Docsv2: true
-oldDoc: /compliance/gdpr/index.md
 ---
 
 <div class="topic-page-header">

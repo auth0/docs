@@ -14,7 +14,6 @@ articles:
 contentType: reference
 useCase: integrate-third-party-apps
 description: Use the Auth0 to authenticate and authorize Azure Service Bus.
-docsv2: true
 ---
 
 # Azure Service Bus Addon
