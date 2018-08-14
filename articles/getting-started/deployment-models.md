@@ -55,8 +55,8 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
+            <td>Scheduled with Customer. <br /><br />Minimum 1/quarter, except critical updates (such as security or performance patches)</td>
+            <td>Scheduled with Customer. <br /><br />Minimum 1/quarter, except critical updates (such as security or performance patches)</td>
         </tr>
         <tr>
             <th class="info"><strong>Deployment Configurations</strong></th>
