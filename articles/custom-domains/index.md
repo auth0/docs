@@ -108,6 +108,10 @@ This means the verification process is complete and within 1 to 2 minutes, your 
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
 
+::: warning
+Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
+:::
+
 ### Step 3: Additional configuration steps
 
 There may be additional steps you must complete depending on which Auth0 features you are using. See the [Additional Configuration for Custom Domains](/custom-domains/additional-configuration) document for more information.
