@@ -94,7 +94,7 @@ The process in order to do that, looks like the following:
 1. If the authentication is successful, retrieve the value once you get the callback from Auth0
 1. Redirect the user to the page
 
-How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format)).
+How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format-and-limitations)).
 
 ## How to get the parameter value in a rule
 
