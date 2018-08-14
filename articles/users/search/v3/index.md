@@ -195,6 +195,19 @@ String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
 Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `name:*ab*` | _(not supported)_
 
+### Leverage your tenant logs to find usage of User Search v2
+
+You can leverage the [logs](/logs) to find calls to the `/api/v2/users` endpoint that use the User Search v2 engine. Those logs will help you identify where code changes might be needed in your applications.
+
+Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:"The User Search v2 engine is deprecated"`. Logs will provide additional information in the description field, in the following cases:
+- Queries that might produce different results in v3
+- Queries with syntax incompatible with v3
+- Queries that do not meet the paging requirements of v3
+
+If no additional details are specified in the log, it's likely that your queries are compatible with v3. The recommendation is that you still test the queries before deploying your changes to production.
+
+Please note that only one log of the same type is generated per hour.
+
 ## Next steps
 
 ::: next-steps
