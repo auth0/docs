@@ -24,7 +24,7 @@ This tutorial will show you how to set up your API with API Gateway, create and 
 
 More specifically, the custom authorizers will:
 
-1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API
+1. Confirm that the Access Token has been passed via the `Authorization` header of the request to access the API
 2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/jwks)
 3. Ensure the Access Token has the required Issuer `iss` and Audience `aud` claims
 
