@@ -206,7 +206,7 @@ Use the following query to retrieve all the logs related to User Search v2: `typ
 
 If no additional details are specified in the log, it's likely that your queries are compatible with v3. The recommendation is that you still test the queries before deploying your changes to production.
 
-Please note that only one log of the same type is generated per hour.
+Please note that only one log of the same type will generated within 60 minutes. This means that even though you may be doing multiple calls to the User Search endpoint, you will only see one log of each type per hour.
 
 ## Next steps
 
