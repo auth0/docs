@@ -12,15 +12,15 @@ useCase:
 
 We have identified a weakness in a particular account linking flow that could allow it to be misused in specific circumstances. We have found no evidence that this has been used maliciously but have decided to deprecate the flow to prevent that ever happening.
 
-Therefore, Auth0 requires customers using the affected account linking flow to migrate to a more secure implementation within 60 days of receiving this notification. Migration paths are provided in this guide, which should not result in any lost functionality.
+Therefore, Auth0 requires customers using the affected account linking flow to migrate to a more secure implementation before October 19th, 2018. Migration paths are provided in this guide, which should not result in any lost functionality.
 
-After 60 days, the affected account linking flow will be disabled and customers using it will experience run-time errors.
+On October 19th, 2018 or anytime after, the affected account linking flow will be disabled and customers using it will experience run-time errors.
 
-## Am I affected?
+## Am I impacted?
 
-You are affected if you call the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using a token (ID or Access Token) with the scope `update:current_user_identities` in the Authorization header and include the secondary account's `user_id` in the payload.
+You are impacted if you call the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using a token (ID or Access Token) with the scope `update:current_user_identities` in the Authorization header and include the secondary account's `user_id` in the payload.
 
-No other use cases are affected.
+No other use cases are impacted.
 
 ## What should I do?
 
