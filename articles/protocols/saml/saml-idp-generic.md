@@ -59,7 +59,9 @@ The Service Provider will need a certificate from Auth0.
 
 You can download this certificate from the **Applications > Addons > Usage** screen. This certificate will be used to validate the signature of the SAML Authentication Assertions sent from Auth0 to the Service Provider.
 
-If the Service Provider asks for an Issuer, this can also be obtained from the same screen.
+If the Service Provider asks for an Issuer, this can also be obtained from the same screen. 
+
+See a list of the [SSO integrations that have built-in Auth0 support](/saml-configuration/auth0-as-identity-provider).
 
 ## 4. Test
 
