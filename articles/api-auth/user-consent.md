@@ -78,7 +78,7 @@ By default, the consent page will use the scopes' names to prompt for the user's
 
 The consent page groups scopes for the same resource and displays all actions for that resource in a single line. For example, the configuration above would result in **Posts: read and write your posts**.
 
-If you would like to display the **Description** field instead, you can do so by setting the tenant's **use_scope_descriptions_for_consent** to **true. This will affect consent prompts for all of the APIs on that tenant.
+If you would like to display the **Description** field instead, you can do so by setting the tenant's **use_scope_descriptions_for_consent** to **true**. This will affect consent prompts for all of the APIs on that tenant.
 
 To set the **use_scope_descriptions_for_consent** flag, you will need to make the appropriate call to the API:
 
