@@ -19,10 +19,10 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 
 ## Open a new ticket
 
-1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Open Ticket** button. If you don't see this button, then you do not have access to support (only paying and trial customers have). In this case you can use our [Community](https://community.auth0.com/) instead (click **Ask our Community**).
+1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Open Ticket** button. If you don't see this button, then you do not have access to support (only paying and trial customers have access to Support). In this case you can use our [Community](https://community.auth0.com/) instead (click **Ask our Community**).
 ![Support Center](/media/articles/support/open-ticket.png)
 1. Choose the **Affected Tenant** from the dropdown menu.
-1.  Under **Issue Type** select the type of issue that best fits your case.
+1. Under **Issue Type** select the type of issue that best fits your case.
 * Public Cloud Support Incident
 * Appliance Support Incident 
 * Enhancement/Feature Request
@@ -35,7 +35,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
             * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacting some users/feature(s)
             * **Urgent: Production Application Offline** - Your Production application is experiencing a critical outage impacting all users
-        *  Depending on the issue type you chose, after you select the severity, you may need to answer the **What can we help you with?** (Customer reason). Choose one of the following:
+        *  Depending on the issue type you chose after you select the severity, you may need to answer the **What can we help you with?** (Customer reason). Choose one of the following:
             * **Something is broken**
             * **How to** 
             * **Enhancement/Feature Request**
@@ -56,7 +56,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
     * **Vulnerability Reports or Legal Issues** - You would like to report security vulnerabilities or legal questions
     * **Other** - You have a question that does not fall under any of the above categories
 ::: note
-Selection of severity is not available to Trial Tenants or if you select any of the following issue types: **Enhancement/Feature Request**, **Billing or Payment**, **Compliance/Legal**.
+Selection of severity is not available to Trial Tenants or those who have selected any of the following issue types: **Enhancement/Feature Request**, **Billing or Payment**, **Compliance/Legal**.
 :::
 1. Next, provide a clear summary of the question/issue in the **Subject** field.
 1. In the **Description** box, provide as much detail as possible about the issue. When writing in this box, you can style your text with [Markdown](https://guides.github.com/features/mastering-markdown) and preview what you have written by clicking on **Preview**.
