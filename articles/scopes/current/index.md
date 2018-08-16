@@ -1,6 +1,6 @@
 ---
 title: Scopes
-description: Overview of scopes.
+description: Overview of scopes
 toc: true
 topics:
   - scopes
@@ -13,9 +13,9 @@ useCase:
 ---
 # Scopes
 
-The OAuth2 protocol is a delegated authorization mechanism, where an application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the application a more restricted set of credentials than those of the user.
+The OAuth 2.0 protocol is a delegated authorization mechanism, where an application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the application a more restricted set of credentials than those of the user.
 
-The `scope` parameter allows the application to express the desired scope of the access request. In turn, the `scope` parameter can be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
+The **scope** parameter allows the application to express the desired scope of the access request. The **scope** parameter can also be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
 
 You can use scopes to:
 

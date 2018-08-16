@@ -16,9 +16,9 @@ The basic (and required) scope for OpenID Connect is the `openid` scope. This sc
 In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
 
 * [Standard](#standard-claims) (which means that they meet OIDC specification)
-* [Custom](#custom-claims)
+* [Custom](/scopes/current/custom-claims)
 
-## Standard Claims
+## Standard claims
 
 OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the application with user details such as email, name and picture.
 
@@ -27,7 +27,7 @@ The basic claim returned for the `openid` scope is the `sub` claim, which unique
 - `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
 - `email`: will request the `email` and `email_verified` claims.
 
-## Example: Ask for Standard Claims
+## Example: ask for standard claims
 
 In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
 

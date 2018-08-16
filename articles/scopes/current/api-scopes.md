@@ -13,11 +13,12 @@ API scopes allow you to define the API data accessible to your applications.
 
 ## Background
 
-When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+When you [create an API in Auth0](/apis), you can use scopes to control how and what someone can access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
 
-Once you create an API and define the scopes, the applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
+* `read:contacts` 
+* `delete:contacts`
 
-If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
+If you wanted to expand [our example on asking for standard claims](/scopes/current/oidc-scopes#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
 
 ```text
 https://${account.namespace}/authorize?
@@ -30,7 +31,7 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-Note the differences between the two examples. In the latest, we want to get an Access Token, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
+Note the differences between the example above and the example on asking for standard claims. In the example above, we want to get an Access Token, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
 
 - `audience`: New parameter added for this example. Its value is the unique identifier of the API we want to get access to.
 
@@ -38,7 +39,7 @@ Note the differences between the two examples. In the latest, we want to get an 
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an ID Token. The Access Token will be sent to the API as credentials.
 
-## Define Scopes Using the Dashboard
+## Define scopes using the Dashboard
 
 ::: warning
 By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
@@ -57,7 +58,7 @@ Click **Add** when you've provided the requested values.
 
 ![API Scopes](/media/articles/scopes/api-scopes.png)
 
-## Limiting API Scopes being Issued
+## Limiting API scopes being issued
 
 An application can request any scope and the user will be prompted to approve those scopes during the authorization flow. This may not be a desirable situation, as you may want to limit the scopes based on, for example, the permissions (or role) of a user.
 
