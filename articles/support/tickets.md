@@ -35,7 +35,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
             * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacting some users/feature(s)
             * **Urgent: Production Application Offline** - Your Production application is experiencing a critical outage impacting all users
-        *  Depending on the issue type you chose after you select the severity, you may need to answer the **What can we help you with?** (Customer reason). Choose one of the following:
+        *  Depending on the issue type you chose after you select the severity, you may need to answer the **What can we help you with?**. Choose one of the following:
             * **Something is broken**
             * **How to** 
             * **Enhancement/Feature Request**
