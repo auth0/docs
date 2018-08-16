@@ -45,16 +45,15 @@ As a secondary point of escalation, PSaaS Appliance customers can also send an e
 ### To log a critical support issue in Support Center
 
 1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
-2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
-3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your PSaaS Appliance installation.**
-4. For **Environment**, select your Production environment.
-5. For **What can we help you with?** select `Auth0 Service Issue`.
-6. For **Severity** select `Urgent`
+2. Click on the [Open Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
+3. Select your **Associated Support Cloud Tenant**, **Affected Root Tenant Authority**,  and **Affected Tenant**. Affected Root Tenant Authority and Affected Tenant are optional. 
+4. For **What can we help you with?** select `Appliance Support Incident`.
+5. For **Severity** select `Urgent`
   ::: note
   If you don't select `Urgent`, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if, for example, you set Severity to `High` but later realize that the situation is critical, you need to create a new ticket with `Severity` set to Urgent.
   :::
-7. Complete an appropriate **Subject** title.
-8. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
+6. Complete an appropriate **Subject** title.
+7. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
 
 ### Information to provide when logging an issue by email
 
