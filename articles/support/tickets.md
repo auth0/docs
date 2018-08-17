@@ -23,14 +23,9 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 ![Support Center](/media/articles/support/open-ticket.png)
 1. Choose the **Affected Tenant** from the dropdown menu.
 1. Under **Issue Type** select the type of issue that best fits your case.
-* Public Cloud Support Incident
-* Appliance Support Incident 
-* Enhancement/Feature Request
-* Billing or Payment 
-* Compliance/Legal
 ![Issue types](/media/articles/support/issue-types.png)
-    * **Auth0 Service Issue** - Choose this if something isn’t working correctly or you need help using a feature or getting something working.
-        * With Service Issues, you will be asked to select a severity:
+    * **Public Cloud Support Incident** or **Appliance Support Incident** - (the second option is only available to Appliance customers)
+        * If you are not a Trial Tennant, you will be asked to select a severity:
             *  **Low: Product Question** - You have questions about how things work, whether we support something
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
             * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacting some users/feature(s)
