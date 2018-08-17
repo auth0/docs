@@ -1,5 +1,5 @@
 ---
-title: Dynamic Application Registration
+title: Dynamic Client Registration
 description: How to dynamically register applications with Auth0 using the Management API
 crews: crew-2
 toc: true
@@ -11,11 +11,11 @@ useCase:
   - call-api
 ---
 
-# Dynamic Application Registration
+# Dynamic Client Registration
 
 <%= include('../_includes/_pipeline2') %>
 
-Dynamic Application Registration enables you to register applications dynamically. These applications can be either [first-party or third-party applications](/applications/application-types#first-vs-third-party-applications).
+Dynamic Client Registration enables you to register applications dynamically. These applications can be either [first-party or third-party applications](/applications/application-types#first-vs-third-party-applications).
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 
