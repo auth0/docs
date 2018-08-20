@@ -80,10 +80,6 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-::: note
-To configure callback, you must configure your callback URL first. Read about the Callback URL in the [Configure Callback](/quickstart/native/ios-swift/getting-started#configure-callback-urls) step.
-:::
-
 ## Implement Login
 
 First, import the `Auth0` module in the file where you want to present the login page:
