@@ -32,6 +32,6 @@ However the callback URL is not necessarily the same URL to which you want users
 To redirect authenticated users to a URL that is *not* the callback URL, you can store the desired URL:
 
 - In web storage (for single page apps, running on the browser), or
-- In a a cookie (for regular web apps, running on the server)
+- In a cookie (for regular web apps, running on the server)
 
 You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want.
