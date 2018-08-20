@@ -21,7 +21,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 
 1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **Open Ticket** button. If you don't see this button, then you do not have access to support (only paying and trial customers have access to Support). In this case you can use our [Community](https://community.auth0.com/) instead (click **Ask our Community**).
 ![Support Center](/media/articles/support/open-ticket.png)
-1. Choos **Affected Tenant** from the dropdown menu.
+1. Choose **Affected Tenant** from the dropdown menu.
 1. Under **Issue Type** select the type of issue that best fits your case.
 ![Issue types](/media/articles/support/issue-types.png)
     * **Public Cloud Support Incident** or **Appliance Support Incident** - (the second option is only available to Appliance customers)
