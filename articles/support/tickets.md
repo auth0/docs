@@ -30,19 +30,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
             * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacting some users/feature(s)
             * **Urgent: Production Application Offline** - Your Production application is experiencing a critical outage impacting all users
-        *  Depending on the issue type you chose after you select the severity, you may need to answer the **What can we help you with?**. Choose one of the following:
-            * **Public Cloud Support Incident**
-            * **Appliance Support Incident** 
-            * **Enhancement/Feature Request**
-            * **Billing or Payment**
-            * **Compliance/Legal**
-            * **Outage**
-            * **Do not understand self-service resources**
-            * **Enterprise Connections**
-            * **SDK/Library**
-            * **Management API**
-            * **Custom DB Connection**
-            * **SSO Integrations**
+        *  Depending on the issue type you chose, after you select the severity you may need to answer the **What can we help you with?** question. Choose the answer that best matches your issue. 
 ![Customer Reason](/media/articles/support/customer-reason.png)
         * After you make your selection, you can choose to answer some follow-up questions to further refine your request. You can also choose to skip this step by clicking the toggle. 
 ![Follow-up questions](/media/articles/support/follow-up.png)
@@ -54,7 +42,7 @@ Selection of severity is not available to Trial Tenant customers or those who ha
 :::
 1. Next, provide a clear summary of the question/issue in the **Subject** field.
 1. In the **Description** box, provide as much detail as possible about the issue. When writing in this box, you can style your text with [Markdown](https://guides.github.com/features/mastering-markdown) and preview what you have written by clicking on **Preview**.
-    When writing your description, please try to include (if applicable):
+    When writing your description, please try to include the following information (if applicable):
     * What were you trying to do?
     * What did you expect to happen?
     * Where did things go wrong?
