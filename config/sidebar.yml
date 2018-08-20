@@ -180,8 +180,8 @@ articles:
       - title: "APIs & Trusted Applications"
         url: "/api-auth/grant/password"
 
-      - title: "Dynamic Application Registration"
-        url: "/api-auth/dynamic-application-registration"
+      - title: "Dynamic Client Registration"
+        url: "/api-auth/dynamic-client-registration"
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
