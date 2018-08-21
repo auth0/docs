@@ -67,3 +67,7 @@ The **APIs** tab:
 ![M2M APIs](/media/articles/applications/m2m-apis.png)
 
 For example, you can authorize the same Machine to Machine Application to call both your own API and the Auth0 Management API.
+
+::: note
+Customers can see Machine to Machine usage report in Support Center: https://support.auth0.com/reports/quota. (Notice is not *user* count, but “Number of access tokens issued by Auth0 for the client credentials grant, per calendar month, per tenant.“)
+:::
