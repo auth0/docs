@@ -14,6 +14,10 @@ You'll need to define a Regular Web Application if you want to integrate Auth0 w
 
 <%= include('./application-settings/_token-endpoint-auth-method') %>
 
+::: note
+The allowed limit for each field (i.e. allowed callback URLs, allowed web origins, allowed logout URLs) is 100
+:::
+
 <%= include('./application-settings/_settings-pt2') %>
 
 ### Advanced Settings
