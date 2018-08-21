@@ -175,7 +175,7 @@ The user search engine v2 has been deprecated as of **June 6th 2018** and will b
 
 * You must update all your calls to the `GET /api/v2/users` endpoint to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
-* v3 limits the number of users you can retrieve to 1000. See [page results](#page-results).
+* v3 limits the number of users you can retrieve to 1000 (see [page results](#page-results)). If you are reaching this limit, we recommend that you redefine your search query to obtain more granular results. If you need a list of more than 1000 users at a given time, we recommend that you use the [export job](/api/management/v2#!/Jobs/post_users_exports) API endpoint or [User Import / Export extension](/extensions/user-import-export) instead.
 * Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
 * Wildcards can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
@@ -194,6 +194,20 @@ Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
 String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
 Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
 Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `name:*ab*` | _(not supported)_
+
+### Leverage your tenant logs to find usage of User Search v2
+
+You can leverage the [logs](/logs) in the [Dashboard](${manage_url}/#/logs) to find calls to the `/api/v2/users` endpoint that use the User Search v2 engine. Those logs will help you identify where code changes might be needed in your applications.
+
+Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:"The User Search v2 engine is deprecated"`. The logs will provide additional information in the description field, in the following cases:
+
+- Queries that might produce different results in v3
+- Queries with syntax incompatible with v3
+- Queries that do not meet the paging requirements of v3
+
+If no additional details are specified in the log entries, it's likely that your queries are compatible with v3. Our recommendation, however, is still that you test the queries before deploying your changes to production.
+
+Please note that only one log of the same type will generated within 60 minutes. This means that even though you may be doing multiple calls to the User Search endpoint, you will only see one log of each type per hour.
 
 ## Next steps
 
