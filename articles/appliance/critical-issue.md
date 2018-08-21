@@ -45,16 +45,15 @@ As a secondary point of escalation, PSaaS Appliance customers can also send an e
 ### To log a critical support issue in Support Center
 
 1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
-2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
-3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your PSaaS Appliance installation.**
-4. For **Environment**, select your Production environment.
-5. For **What can we help you with?** select `Auth0 Service Issue`.
-6. For **Severity** select `Urgent`
+2. Click on the [Open Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
+3. Select your **Associated Support Cloud Tenant**, **Affected Root Tenant Authority** (optional), and **Affected Tenant** (optional).
+4. For **What can we help you with?** select **Appliance Support Incident**.
+5. For **Severity** select **Urgent**.
   ::: note
-  If you don't select `Urgent`, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if, for example, you set Severity to `High` but later realize that the situation is critical, you need to create a new ticket with `Severity` set to Urgent.
+  If you don't select **Urgent**, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if, for example, you set Severity to `High` but later realize that the situation is critical, you need to create a new ticket with `Severity` set to Urgent.
   :::
-7. Complete an appropriate **Subject** title.
-8. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
+6. Provide an appropriate **Subject** title.
+7. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
 
 ### Information to provide when logging an issue by email
 
@@ -67,7 +66,7 @@ To speed resolution, please provide the following when logging an issue via emai
 
 When an issue has been logged correctly:
 
-* it will be acknowledged immediately by email and assigned a ticket ID number. Additional information may be requested.
+* It will be acknowledged immediately by email and assigned a ticket ID number. Additional information may be requested.
 * A responding Auth0 support staff member may contact you via email and/or direct you to join a private Slack channel and/or a Zoom web conference to facilitate faster communications.  However, it’s important to remember you should not initiate requests for help via a Slack channel - only via the methods outlined above. Slack channels may not be actively monitored.
 * In addition to communications over a web conference or Slack, to preserve a record of an issue, any critical information, such as log files, symptoms, and so on should be sent as updates to the ticket via support center.  Any conclusions or next steps should be added to the ticket as well.
 * Upon resolution of the issue, an Auth0 support staff member will ask the customer for confirmation the issue has been resolved to their satisfaction and the ticket will be closed only when customer has responded and confirmed issue is resolved.
