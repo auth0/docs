@@ -196,7 +196,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless. Option name is `passwordless_enabled`.
 
-* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information). You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor). Option name is `mfa`.
+* **Multi-factor Authentication (MFA):** Enable this option for multi-factor authentication with Google Authenticator. (See [Multi-factor Authentication in Auth0](/multifactor-authentication) for more information). You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor). Option name is `mfa`.
 
 * **FullContact Integration:** Enable this option to fill your user profiles with the data provided by FullContact. A valid FullContact API key is required. For more information, see [Augment User Profile with FullContact](/scenarios/mixpanel-fullcontact-salesforce#2-augment-user-profile-with-fullcontact-). Option name is `fullcontact` for the setting and `fullcontact_apikey` for the API key field that appears when this is on.
 

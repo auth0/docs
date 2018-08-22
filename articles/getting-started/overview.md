@@ -36,7 +36,7 @@ Take a look at just a few of the use cases for which you can use Auth0:
 - You want to act proactively and block suspicious IP addresses if they make consecutive failed login attempts, in order to avoid DDoS attacks.
 - You are part of a large organization who wants to federate their existing enterprise directory service to allow employees to log in to the various internal and third-party applications using their existing enterprise credentials.
 - You don't want (or you don't know how) to implement your own user management solution. Password resets, creating, provisioning, blocking, and deleting users, and the UI to manage all these. You just want to focus on your app.
-- You want to enforce [multifactor authentication](/multifactor-authentication) when your users want to access sensitive data.
+- You want to enforce [multi-factor authentication](/multifactor-authentication) when your users want to access sensitive data.
 - You are looking for an identity solution that will help you stay on top of the constantly growing compliance requirements of SOC2, GDPR, OpenID Connect and others.
 - You want to use analytics to track users on your site or application. You plan on using this data to create funnels, measure user retention, and improve your sign up flow.
 

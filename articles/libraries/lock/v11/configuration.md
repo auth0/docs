@@ -579,7 +579,7 @@ When the `responseType` is set to `code`, Lock will never show the **Last time y
 Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
 
 ::: warning
-Failing to set this to true will result in multifactor authentication not working correctly.
+Failing to set this to true will result in multi-factor authentication not working correctly.
 :::
 
 ```js

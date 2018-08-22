@@ -63,7 +63,7 @@ Where:
 
 - Only root fields (such as `user.name` or `user.email`) can be blacklisted
 - When you blacklist attributes, they will be still be available via rules and outgoing tokens. However, if any of the following apply, the blacklist attributes will **not** be included in tokens:
-  - You have enabled multifactor authentication
+  - You have enabled multi-factor authentication
   - You have performed a redirect via rules
   - Your app is using delegation (and you haven't set `scope = passthrough`)
   - Your app is using impersonation
