@@ -80,21 +80,7 @@ end
 
 ## Trigger Authentication
 
-Create a helper file called `session_helper.rb`:
-
-```ruby
-# app/helpers/session_helper.rb
-
-module SessionHelper
-  def get_state
-    state = SecureRandom.hex(24)
-    session['omniauth.state'] = state
-    state
-  end
-end
-```
-
-Now, we need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app. 
+We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app. 
 
 Run the following command to generate the homepage controller and views:
 
