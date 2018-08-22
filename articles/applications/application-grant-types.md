@@ -55,9 +55,9 @@ The following `grant_types`, are either:
 | `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
 | `refresh_token` | [Use a Refresh Token](/tokens/refresh-token/current#use-a-refresh-token) |
 | `http://auth0.com/oauth/grant-type/password-realm` | [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support) |
-| `http://auth0.com/oauth/grant-type/mfa-oob` | [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
-| `http://auth0.com/oauth/grant-type/mfa-otp` | [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
-| `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
+| `http://auth0.com/oauth/grant-type/mfa-oob` | [Multi-factor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
+| `http://auth0.com/oauth/grant-type/mfa-otp` | [Multi-factor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
+| `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multi-factor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
 
 The following are legacy grant types:
 

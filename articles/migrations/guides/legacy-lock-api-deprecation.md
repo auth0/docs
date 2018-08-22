@@ -62,7 +62,7 @@ Universal Login is **strongly** recommended for most use cases because it [offer
 * Fully customizable in terms of colors, text, logos, buttons as well as [custom domain](/custom-domains).
 * Provides proper cache control to avoid browsers caching old versions.
 * Can leverage either the [Lock Widget](/libraries/lock) or [Auth0.js SDK](/libraries/auth0js) for flexibility in appearance and function.
-* Works with any type of Auth0 connection as well as [multifactor authentication](/multifactor-authentication).
+* Works with any type of Auth0 connection as well as [multi-factor authentication](/multifactor-authentication).
 
 #### Universal Login migration guides
 

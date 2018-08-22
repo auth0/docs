@@ -31,7 +31,7 @@ In this case, the user successfully logs in with the idp, but a successful login
 
   * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-  * If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+  * If you've enabled [multi-factor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
 
 * If you're using an Auth0 Database Connection **or** a remote SAML connection:
 

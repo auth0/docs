@@ -95,23 +95,23 @@ The following table lists the codes associated with the appropriate log events.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_enrollment_complete` | Guardian enrollment complete | | |
 | `gd_module_switch` | Module switch | | |
 | `gd_otp_rate_limit_exceed` | Too many failures | | |
-| `gd_recovery_failed` | Recovery failed | Multifactor recovery code failed. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_recovery_rate_limit_exceed` | Too many failures | Multifactor recovery code has failed too many times. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_recovery_succeed` | Recovery success | Multifactor recovery code succeeded authorization. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent with Guardian. | [Auth0 Guardian](/multifactor-authentication/guardian) |
 | `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/guardian/admin-guide#support-for-sms) |
-| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_start_enroll` | Enroll started | Multifactor authentication enroll has started. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_tenant_update` | Guardian tenant update | | [Auth0 Guardian](/multifactor-authentication/guardian) |
-| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_user_delete` | User delete | Deleted multifactor user account. | [User Profile](/user-profile) |
+| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |

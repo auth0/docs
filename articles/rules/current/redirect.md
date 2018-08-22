@@ -17,7 +17,7 @@ useCase:
 Rules can also be used to programatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
 
 * Requiring users to provide additional verification when logging in from unknown locations.
-* Implementing custom verification mechanisms (such as proprietary multifactor authentication providers).
+* Implementing custom verification mechanisms (such as proprietary multi factor authentication providers).
 * Forcing users to change passwords.
 
 ::: panel-warning Redirect Rules

@@ -18,7 +18,7 @@ Auth0 offers you the ability to display customized pages containing Auth0-relate
 
 * [Login](/hosted-pages/login)
 * [Password Reset](/hosted-pages/password-reset)
-* [Guardian Multifactor](/hosted-pages/guardian)
+* [Guardian Multi-factor](/hosted-pages/guardian)
 * [Error pages](/hosted-pages/error-pages)
 
 While Auth0 hosts your custom pages, you can still [manage your pages using the version control system of your choice](/hosted-pages/version-control).
@@ -39,5 +39,5 @@ For detailed instructions on how to customize each type of hosted page, please s
 
 * [Login Page](/hosted-pages/login)
 * [Password Reset Page](/hosted-pages/password-reset)
-* [Guardian Multifactor Authentication Page](/hosted-pages/guardian)
+* [Guardian Multi-factor Authentication Page](/hosted-pages/guardian)
 * [Error Pages](/error-pages)

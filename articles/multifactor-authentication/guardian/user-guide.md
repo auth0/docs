@@ -126,7 +126,7 @@ If you know you are selecting the correct connection, make sure that your mobile
 
 ### Transaction Expiration
 
-For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification.
+For all types of multi-factor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification.
 
 If using SMS, make sure you are not [exceeding rate limits](#sms-rate-limits).
 

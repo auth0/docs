@@ -24,13 +24,13 @@ To add an Admin, enter the email of the account and then select the applications
 If you're an app-specific administrator, pages to which you don't have access (such as APIs, Rules, Hooks, Hosted Pages, and so on) may appear blank.
 :::
 
-The MFA indicator will indicate whether an Admin has enabled their account for [Multifactor Authentication](/multifactor-authentication), which they can do in their Account Settings.
+The MFA indicator will indicate whether an Admin has enabled their account for [Multi-factor Authentication](/multifactor-authentication), which they can do in their Account Settings.
 
 ![Dashboard Admins with MFA Indicator](/media/articles/tutorials/dashboard-admins.png)
 
-## Enrolling in Multifactor Authentication
+## Enrolling in Multi-factor Authentication
 
-The admin can self-enroll for multifactor authentication. To begin, they should click on their user name in the top right and going to **View Profile** in the dropdown menu.
+The admin can self-enroll for multi-factor authentication. To begin, they should click on their user name in the top right and going to **View Profile** in the dropdown menu.
 
 Click **Enroll your device now.**
 

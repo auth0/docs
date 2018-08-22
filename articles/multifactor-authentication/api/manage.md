@@ -1,5 +1,5 @@
 ---
-title: Manage the Authenticators for Multifactor Authentication
+title: Manage the Authenticators for Multi-factor Authentication
 description: How to manage your MFA authenticators
 beta: true
 topics:
@@ -15,7 +15,7 @@ useCase:
 
 # Manage the Authenticators
 
-Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multifactor authentication (MFA).
+Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multi-factor authentication (MFA).
 
 ## Before you start
 

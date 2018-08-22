@@ -1,6 +1,6 @@
 ---
 title: Step-up Authentication for Web Apps
-description: Describes how to check if a user has logged in your web app with Multifactor Authentication by examining their ID Token
+description: Describes how to check if a user has logged in your web app with Multi-factor Authentication by examining their ID Token
 topics:
   - mfa
   - step-up-authentication
@@ -16,7 +16,7 @@ useCase:
 
 With Step-up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
-For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using Multifactor Authentication (MFA).
+For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using Multi-factor Authentication (MFA).
 
 When a user logs in you can get an [ID Token](/tokens/id-token) which is a [JSON Web Token](/jwt) that contains information relevant to the user's session, in the form of claims.
 
@@ -94,13 +94,13 @@ This tutorial assumes that you have already done the following:
 
 - [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a regular web app
 - [Create a database connection](${manage_url}/#/connections/database)
-- [Enable Multifactor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
 
 ### 1. Create the rule
 
 First we will create a rule that will challenge the user to authenticate with MFA when the web app asks for it.
 
-Go to [Dashboard > Multifactor Auth](${manage_url}/#/guardian) and modify the script as follows.
+Go to [Dashboard > Multi-factor Auth](${manage_url}/#/guardian) and modify the script as follows.
 
 ```js
 function (user, context, callback) {

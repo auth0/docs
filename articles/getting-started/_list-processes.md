@@ -23,7 +23,7 @@
 <% } else if (screen === "hooks") { %>
   Here you can configure Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). This way you can customize the behavior of Auth0 when you use Database Connections. [More info on Hooks](/hooks).
 <% } else if (screen === "mfa") { %>
-  Use this page to configure Multifactor Authentication (MFA) for your apps. This way you can add an additional factor to conventional logins to prevent unauthorized access. You can use Push Notifications, SMS or both. [More info on MFA](/multifactor-authentication).
+  Use this page to configure Multi-factor Authentication (MFA) for your apps. This way you can add an additional factor to conventional logins to prevent unauthorized access. You can use Push Notifications, SMS or both. [More info on MFA](/multifactor-authentication).
 <% } else if (screen === "hlp") { %>
   Here you can create a login page where you can redirect to authenticate your users. The page can be customized with HTML and CSS and will be hosted by Auth0. By using centralized authentication, your app will be more secure and you will be able to implement SSO very easily. Other than the login, you can also add pages for the Password Reset process, MFA, and error pages. [More info on Hosted Pages](/hosted-pages).
 <% } else if (screen === "emails") { %>
