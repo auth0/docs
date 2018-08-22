@@ -46,7 +46,7 @@ In addition to the settings available under tenant settings, legacy tenants may 
 
 While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature.
 
-If you opt to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
+If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
 
 To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
 

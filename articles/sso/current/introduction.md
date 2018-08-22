@@ -51,7 +51,7 @@ Let's look at an example of how the SSO flow looks when using Auth0 and the [Loc
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
 1. Once the user has logged in, Auth0 will set an SSO cookie.
-1. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+1. Auth0 will also redirect back to your web application and will return an ID Token containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
@@ -64,6 +64,6 @@ Please note that the user is never shown a login screen at any point during the 
 
 ## SSO with native platforms
 
-Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the universal login for authentication.
+Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the Universal Login for authentication.
 
-The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of universal login for authentication from their respective platforms.
+The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of Universal Login for authentication from their respective platforms.

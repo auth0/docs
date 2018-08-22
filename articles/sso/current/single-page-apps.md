@@ -183,11 +183,11 @@ If your authentication flow triggers an error (indicating unsuccessful authentic
 
 If your Access Tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
 
-## Single logout
+## Single log out
 
 If the user logs out of **app1.com**, then you'll want the user's tokens cleaned up on **app2.com** and **app3.com**.
 
-To implement [Single Log Out](/logout), you need to check periodically to see if Auth0 has expired the SSO session. If so, remove the token from the application's local storage to ensure that the local session clears.
+To implement [single log out](/logout), you need to check periodically to see if Auth0 has expired the SSO session. If so, remove the token from the application's local storage to ensure that the local session clears.
 
 ```js
 // check every 15 minutes if the SSO session is still active
