@@ -25,7 +25,7 @@ When using the Guardian multi-factor application, by default users are given the
 
 For other types of MFA, users are remembered for 30 days by default, or when `allowRememberBrowser` is explicitly set to `true`. You can disable this by setting `allowRememberBrowser` to `false`.
 
-Note that some older rules may use the field `ignoreCookie` here. While deprecated, that field will still function as expected, and will force multifactor authentication at every login.
+Note that some older rules may use the field `ignoreCookie` here. While deprecated, that field will still function as expected, and will force multi-factor authentication at every login.
 
 ```JS
 function (user, context, callback) {

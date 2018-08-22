@@ -114,7 +114,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
 </html>
 ```
 
-Since this hosted page is used for displaying the Guardian widget in both enrollment and standard multifactor login scenarios, it's important to note that the existence of the `ticket` variable can be used to determine which scenario is being used, and to control the content accordingly.
+Since this hosted page is used for displaying the Guardian widget in both enrollment and standard multi-factor login scenarios, it's important to note that the existence of the `ticket` variable can be used to determine which scenario is being used, and to control the content accordingly.
 
 For example, the following code could be used to used to alter the message:
 

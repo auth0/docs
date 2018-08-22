@@ -22,7 +22,7 @@ useCase:
 Use Rules to:
 - [Add roles to a user based on conditions](/rules#add-roles-to-a-user)
 - [Deny access based on conditions](/rules#deny-access-based-on-a-condition)
-- [Enable multifactor authentication based on context](/multifactor-authentication/custom) (such as last login, IP address of the user, location, and so on)
+- [Enable multi-factor authentication based on context](/multifactor-authentication/custom) (such as last login, IP address of the user, location, and so on)
 - [Redirect users before the authentication transaction is complete](/rules/redirect)
 - [and more](https://github.com/auth0/rules/tree/master/rules)
 

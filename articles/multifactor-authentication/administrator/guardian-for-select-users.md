@@ -30,6 +30,6 @@ function (user, context, callback) {
 }
 ```
 
-If you choose to selectively apply multifactor authentication, you simply set the appropriate `user_id` values, and the code will be executed as part of a [Rule](/rules) whenever a user logs in.
+If you choose to selectively apply multi-factor authentication, you simply set the appropriate `user_id` values, and the code will be executed as part of a [Rule](/rules) whenever a user logs in.
 
 Once you have finished making your desired changes, click **Save**.

@@ -13,7 +13,7 @@ useCase:
 
 ## Enabling Duo for MFA
 
-To turn on Duo for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Duo for two-step verification, first visit the [Multi-factor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 

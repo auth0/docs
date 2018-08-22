@@ -1,5 +1,5 @@
 ---
-title: Multifactor Authentication - Google Authenticator
+title: Multi-factor Authentication - Google Authenticator
 description: Links to Google Authentication with Auth0 documentation for each type of user role.
 url: /multifactor-authentication/google-authenticator
 topics:

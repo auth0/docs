@@ -1,6 +1,6 @@
 ---
-title: Multifactor Authentication in Auth0
-description: The basics of multifactor authentication and the different methods of implementing it with Auth0.
+title: Multi-factor Authentication in Auth0
+description: The basics of multi-factor authentication and the different methods of implementing it with Auth0.
 url: /multifactor-authentication
 topics:
     - mfa
@@ -10,9 +10,9 @@ useCase:
   - customize-mfa
 ---
 
-# Multifactor Authentication in Auth0
+# Multi-factor Authentication in Auth0
 
-Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
+Multi-factor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
 
 * **Knowledge**: Something the user knows (such as a password)
 * **Possession**: Something the user has (such as a cell phone)
@@ -71,8 +71,8 @@ You may [configure rules](/rules) for custom MFA processes, which allow you to d
 
 ## MFA Using a Custom Provider
 
-For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
+For a detailed look at implementing a custom MFA provider, see [Multi-factor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
 
 ## User-initiated MFA
 
-For details on how to implement user-initiated MFA, so you can flag users for MFA as part of the user creation/login process, refer to [User-Initiated Multifactor Authentication](/multifactor-authentication/user-initiated-mfa).
+For details on how to implement user-initiated MFA, so you can flag users for MFA as part of the user creation/login process, refer to [User-Initiated Multi-factor Authentication](/multifactor-authentication/user-initiated-mfa).
