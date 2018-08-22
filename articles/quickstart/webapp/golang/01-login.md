@@ -73,12 +73,12 @@ import (
 
 func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("${account.namespace}")
+	domain := "${account.namespace}"
 
 	conf := &oauth2.Config{
-		ClientID:     os.Getenv("${account.clientId}"),
-		ClientSecret: os.Getenv("YOUR_CLIENT_SECRET"),
-		RedirectURL:  os.Getenv("http://localhost:3000/callback"),
+		ClientID:     "${account.clientId}",
+		ClientSecret: "YOUR_CLIENT_SECRET",
+		RedirectURL:  "http://localhost:3000/callback",
 		Scopes:       []string{"openid", "profile"},
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://" + domain + "/authorize",
@@ -168,13 +168,13 @@ import (
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("${account.namespace}")
-	aud := os.Getenv("YOUR_API_AUDIENCE")
+	domain := "${account.namespace}"
+	aud := "YOUR_API_AUDIENCE"
 
 	conf := &oauth2.Config{
-		ClientID:     os.Getenv("${account.clientId}"),
-		ClientSecret: os.Getenv("YOUR_CLIENT_SECRET"),
-		RedirectURL:  os.Getenv("http://localhost:3000/callback"),
+		ClientID:     "${account.clientId}",
+		ClientSecret: "YOUR_CLIENT_SECRET",
+		RedirectURL:  "http://localhost:3000/callback",
 		Scopes:       []string{"openid", "profile"},
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://" + domain + "/authorize",
@@ -282,7 +282,7 @@ import (
 
 func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("AUTH0_DOMAIN")
+	domain := "${account.namespace}"
 
 	var Url *url.URL
 	Url, err := url.Parse("https://" + domain)
@@ -294,7 +294,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 	Url.Path += "/v2/logout"
 	parameters := url.Values{}
 	parameters.Add("returnTo", "http://localhost:3000")
-	parameters.Add("client_id", os.Getenv("${account.clientId}"))
+	parameters.Add("client_id", "${account.clientId}")
 	Url.RawQuery = parameters.Encode()
 
 	http.Redirect(w, r, Url.String(), http.StatusTemporaryRedirect)
