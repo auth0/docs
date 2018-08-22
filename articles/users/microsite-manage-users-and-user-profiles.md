@@ -41,7 +41,7 @@ You can manage users with the Auth0 Dashboard or Management API. These are all t
 
 You can also choose to impersonate users to view how they will interact with your interface.
 
-Auth0 * Progressive profiling
+You can customize your user profiles by using progressive profiling.
 
 <details>
   <summary>
@@ -73,15 +73,25 @@ If you want to jump right in you can start implementing the login flow by follow
 
 ::: half-panel
 ## How-tos
-* link
-* link
-* link
+* [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
+* [Create Users Using the Dashboard](/dashboard/create-users)
+* [View User Profiles](/user-profile/view-users)
+* [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+* [Impersonate Users Using the Dashboard](/user-profile/impersonate-users-using-the-dashboard)
+* [Impersonate Users Using the Impersonation API](/user-profile/impersonate-users-using-the-impersonation-api)
+* [Block and Unblock Users](/user-profile/block-and-unblock-users)
+* [Delete Users](/user-profile/delete-users)
+* [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
+* [Manage User Access to Applications](/user-profile/manage-user-access-to-applications)
+* [Change User Pictures](/user-profile/change-user-pictures)
+* [Get User Information with Unbounce Landing Pages](/users/get-user-information-with-unbounce-landing-pages)
+* [Redirect Users After Login](/users/redirect-users-after-login)
 :::
 
 ::: half-panel
 ## Concepts
-* [Metadata Overview](/metadata/overview-metadata)
 * [User Profile Overview](/user-profile/overview-user-profile)
+* [Metadata Overview](/metadata/overview-metadata)
 * [Progressive Profiling](/user-profile/progressive-profiling)
 * [GDPR Overview](/compliance/overview-gdpr)
 :::

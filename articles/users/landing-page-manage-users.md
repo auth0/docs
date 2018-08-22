@@ -28,7 +28,7 @@ Welcome! Auth0 provides many ways to manage your users and their profile data.
 
 ## What can I do with Auth0?
 
-Auth0 provides simple-to-use tools to help you manage user identities including adding or removing users, modifying user profile and authorization attributes, and identifying root-cause login issues in minutes with a simple, intuitive and powerful web interface. 
+Auth0 provides simple-to-use tools to help you [manage user identities](/users/microsite-manage-users-and-user-profiles) including adding or removing users, modifying user profile and authorization attributes, and identifying root-cause login issues in minutes with a simple, intuitive and powerful web interface. 
 
 ## How can I connect users to my identify platform?
 
