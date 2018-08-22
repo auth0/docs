@@ -2,9 +2,8 @@
 title: Manage My Users
 description: Learn about Auth0 features for managing users.
 toc: true
-contentType: 
-   - concept
-   - landing-page
+contentType: concept
+template: landing-page
 topics:
    - users
    - identity providers
