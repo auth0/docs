@@ -13,16 +13,7 @@ useCase:
 
 # IdP-Initiated SSO
 
-If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
-
-```javascript
-var data = webAuth.parseHash(
-  {
-    ...
-    __enableIdPInitiatedLogin: true
-    ...
-  }
-```
+<%= include('../../_includes/_enable_idp_initiated.md') %>
 
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
