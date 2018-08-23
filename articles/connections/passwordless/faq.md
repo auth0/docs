@@ -1,12 +1,12 @@
 ---
-title: Passwordless FAQ
+title: Passwordless FAQs
 topics:
     - connections
     - passwordless
 contentType: reference
 useCase: customize-connections
 ---
-# Passwordless FAQ
+# Passwordless FAQs
 
 ## General Questions
 
