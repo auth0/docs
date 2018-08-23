@@ -12,7 +12,7 @@ useCase:
   - integrate-saas-sso
 ---
 
-# Enable SSO to the AWS Console
+# Configure SSO with the AWS Console
 
 By integrating Auth0 with AWS, you'll allow your users to log in to AWS using any supported [identity provider](/identityproviders). 
 

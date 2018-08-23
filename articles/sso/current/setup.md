@@ -1,56 +1,62 @@
 ---
-description: Tutorial on implementing Single Sign On (SSO) with Auth0.
+description: Tutorial on configuring Single Sign On (SSO)
 toc: true
 topics:
   - sso
-  - sso-setup
+  - sso-configuration
 contentType:
   - how-to
 useCase:
   - integrate-saas-sso
 ---
+# Configure Single Sign On (SSO)
 
-# Set Up Single Sign On with Auth0
-
-This tutorial covers implementing Single Sign On (SSO) with Auth0.
+This tutorial covers configuring Single Sign On (SSO).
 
 ::: note
 For information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
 :::
 
-## 1. Configure the Connection
+## 1. Configure the connection
 
-Before enabling SSO on a [Application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
+Before enabling SSO on an [application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers ensure the Connection is not using [developer keys](/connections/social/devkeys).
+For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
 
-## 2. Enable SSO for the Application
+## 2. Configure SSO
 
-Navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application to enable SSO on.
+Auth0 maintains an SSO session for any user authenticating via that Application. Auth0 maintains two pieces of information:
 
-![](/media/articles/sso/single-sign-on/clients-dashboard.png)
-
-Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
-
-![](/media/articles/sso/single-sign-on/sso-flag.png)
-
-::: note
-You can also set the Application's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
-:::
-
-## 3. Configure SSO Session Length
-
-When the SSO flag is set for an Application, Auth0 maintains an SSO session for any user authenticating via that Application. The **SSO Cookie Timeout** setting determines how long an SSO session is valid. By default, an SSO session expires in 10080 minutes (or 7 days).
+| Setting | Description |
+| - | - |
+| Inactivity timeout | The maximum length of time that can elapse without user activity before the user is asked to log in again. **This setting cannot exceed 3 days!** |
+| Require log in after | The length of time that elapses before Auth0 forces the user to log in again (regardless of activity) |
 
 To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
-![](/media/articles/sso/single-sign-on/accountsettings-ssotimeout.png)
+![](/media/articles/sso/sso-session-mgmt-2.png)
 
-SSO session cookies expire after **3 days** of inactivity. For example, if no application (in the same browser) on a user's machine performs a login using the SSO session then the cookie expires after 3 days, even though a server side session might persist. Performing a new standard login would reset the SSO session.
+Please note that any time a user performs a new standard login resets the SSO session.
 
-The session inactivity duration (3 days) and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
+### Addendum: SSO Configuration for Legacy Tenants
 
-## 4. Check the User's SSO Status from the Application
+In addition to the settings available under tenant settings, legacy tenants may see slightly different options available for SSO under [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+
+![](/media/articles/sso/sso-session-mgmt-1.png)
+
+While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature.
+
+If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
+
+To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
+
+![](/media/articles/sso/single-sign-on/clients-dashboard.png)
+
+You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign Up** feature.
+
+![](/media/articles/sso/single-sign-on/sso-flag.png)
+
+## 3. Check the user's SSO status from the application
 
 Whenever you need to determine the user's SSO status, you'll need to check the following:
 

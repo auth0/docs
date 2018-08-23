@@ -40,16 +40,7 @@ Additionally, Universal Login is the best (and often only) way to implement Sing
 
 ### Single Sign-On (SSO)
 
-If you want to use single sign-on, you should use Universal Login rather than an embedded login solution. With Universal Login, when a user logs in via the login page, a cookie will be created and stored. On future calls to the `/authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually log in. 
-
-This behavior occurs in login pages (that have not been customized to alter behavior) without the need for changes to the page code itself. This is a simple two step process:
-
-1. Enable SSO for the application in the [Dashboard](${manage_url}). Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
-1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
-
-::: note 
-For more details about how SSO works, see the [SSO documentation](/sso).
-:::
+If you want to configure single sign-on, see the [SSO documentation](/sso) for additional details.
 
 ### Passwordless on native platforms
 
