@@ -10,27 +10,37 @@ useCase:
   - add-login
   - build-an-app
 ---
+
 # ID Token
 
-## Overview
+In this article we will discuss what an ID Token is, what it looks like, and how you can use it to retrieve information about the user that just logged in in your application.
 
-The ID Token is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of **claims**. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
+:::note
+It will be easier for you to follow this article, if you are already familiar with [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2).
+:::
 
-You can get an ID Token for a user after they successfully authenticate.
+## What is an ID Token
+
+Every time a user logs in in your application, Auth0 will send in the response an ID Token that will contain information about the logged in user. This is a [JSON Web Token (JWT)](/jwt) that contains information, like the user's name and email address, in the form of claims, which are basically name/value pairs. 
+
+Typically you extract this information and use them to customize your app's UI for your user with information like their name.
+
+The ID Token was added to the [OpenID Connect specification](/protocols/oidc) as an optimization so the application can know the identity of the user, without having to make an additional network request.
 
 ::: warning
-Υou __must__ [verify the ID Token's signature](#verify-the-signature) before storing and using it.
+Υou __must__ [verify the ID Token's signature](/tokens/validate-id-token) before you use it.
 :::
 
-You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the ID Token.
 
-The ID Token is consumed by the application and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the application can know the identity of the user, without having to make an additional network requests.
+## What an ID Token looks like
 
-::: note
-If you need a refresher on OIDC refer to [OpenID Connect](/protocols/oidc).
-:::
+An ID Token is an alphanumeric string that looks like the following:
 
-The ID Token conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
+```text
+eyJraWQiOiIxZTlnZGs3IiwiYWxnIjoiUlMyNTYifQ.ewogImlzcyI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZfV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5NzAsCiAibmFtZSI6ICJKYW5lIERvZSIsCiAiZ2l2ZW5fbmFtZSI6ICJKYW5lIiwKICJmYW1pbHlfbmFtZSI6ICJEb2UiLAogImdlbmRlciI6ICJmZW1hbGUiLAogImJpcnRoZGF0ZSI6ICIwMDAwLTEwLTMxIiwKICJlbWFpbCI6ICJqYW5lZG9lQGV4YW1wbGUuY29tIiwKICJwaWN0dXJlIjogImh0dHA6Ly9leGFtcGxlLmNvbS9qYW5lZG9lL21lLmpwZyIKfQ.rHQjEmBqn9Jre0OLykYNnspA10Qql2rvx4FsD00jwlB0Sym4NzpgvPKsDjn_wMkHxcp6CilPcoKrWHcipR2iAjzLvDNAReF97zoJqq880ZD1bwY82JDauCXELVR9O6_B0w3K-E7yM2macAAgNCUwtik6SjoSUZRcf-O5lygIyLENx882p6MtmwaL1hd6qn5RZOQ0TLrOYu0532g9Exxcm-ChymrB4xLykpDj3lUivJt63eEGGN6DH5K6o33TcxkIjNrCD4XB1CKKumZvCedgHHF3IAK4dVEDSUoGlH9z4pP_eWYNXvqQOjGs-rDaQzUHl6cQQWNiDpWOl_lxXjQEvQ
+```
+
+It contains three base64url encoded segments separated by period characters. The three segments represent a header, a payload and a signature. Hence the format of an ID Token is `Header.Payload.Signature`.
 
 - The header contains the type of token and the hash algorithm used on the contents of the token.
 
@@ -38,86 +48,29 @@ The ID Token conforms to an industry standard (IETF [RFC 7519](https://tools.iet
 
 - The signature is used by the recipient to verify that the sender of the JWT is who it says and to ensure that the message wasn't changed along the way.
 
-## Get an ID Token
-
-The ID Token can be returned when calling any of the Auth0 functions which invoke authentication. This includes calls to the Lock widget, to the auth0.js library, the [Authentication API](/api/authentication), or the libraries for other languages. You can view the implementation details for retrieving the ID Token at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
-
-## Validate an ID Token
-
-In order to validate an ID Token, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
-
-::: note
-Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the [Libraries for Token Signing/Verification section of JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
+:::note
+For more details on the ID Token's format see [JSON Web Tokens (JWT) in Auth0](/jwt).
 :::
 
-### Verify the signature
+You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the ID Token. The website also has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quickly decode a JWT to see the information it contains.
 
-The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
+### Decoding the payload
 
-Remember that the ID Token is always a JWT, and the signature is created using its header and payload, a secret and the hashing algorithm being used (as specified in the header: `HMAC`, `SHA256` or `RSA`). The way to verify it, depends on the hashing algorithm:
+When we decode an ID Token we can see the claims it contains. Typically it looks like this:
 
-- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
-- For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
-
-The most secure practice, and our recommendation, is to use `RS256`.
-
-To check or update the algorithm your Application uses go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
-
-### Validate the Claims
-
-Once the application verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
-
-- **Token expiration**: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
-
-- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
-
-- **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Application.
-
-## Control the contents of an ID Token
-
-In order to retrieve an ID Token, the `responseType` should include `id_token`, both for client-side and server-side authentication flows.
-
-The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
-- If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
-- If `scope` is set to `openid email`, then the ID Token will contain additionally the `email` and `email_verified` claims.
-- If `scope` is set to `openid profile`, then the ID Token will contain all default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
-
-If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v11/configuration#auth-object-) as follows:
-
-```js
-var options = {
-  auth: {
-    responseType: 'id_token',
-    params: {scope: 'openid email'}
-  }
-};
-
-var lock = new Auth0Lock(
-  '${account.clientId}',
-  '${account.namespace}',
-  options
-);
-
-lock.show();
+```json
+{
+  "name": "Jerrie Pelser",
+  "email": "jerrie@j...",
+  "picture": "https://s.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fje.png",
+  "iss": "https://auth0pnp.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt...",
+  "exp": 1478113129,
+  "iat": 1478077129,
+  "nonce": "..."
+}
 ```
-
-The ID Token will contain only the claims specified as the value of the `scope` parameter.
-
-### Add Custom Claims
-
-You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
-
-The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io`, and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
-
-For more information on the namespaced format of custom claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-
-For an example of how to add a custom claim, refer to [Add Custom Claims](/scopes/current#example-add-custom-claims).
-
-### ID Token Payload
-
-::: note
-The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quickly decode a JWT to see the information it contains.
-:::
 
 The payload's claims can include some or all of the following:
 
@@ -126,19 +79,52 @@ The payload's claims can include some or all of the following:
 | name | The name of the user which is returned from the Identity Provider. |
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued ID Token, this will be **the URL of your Auth0 tenant**. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)|(unique id in the provider)`, such as `github|1234567890`. |
-| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued ID Token, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Application**. |
+| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**. |
+| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**. |
+| nonce | A string value which was sent with the request to the `/authorize` endpoint. This is used to [prevent token replay attacks](/api-auth/tutorials/nonce). |
 
-The exact claims contained in the ID Token will depend on the `scope` parameter you sent to the `/authorize` endpoint. An Auth0 ID Token will always include the **registered claims** and the `sub` claim, but the others depends on the `scope`.
+## How to get an ID Token
+
+ID Tokens can be issued by Auth0, every time a user logs in in your application. This includes:
+- calls using the [Lock widget](/libraries/lock)
+- calls using the [Auth0.js library](/libraries/auth0js)
+- calls using the [Authentication API](/api/authentication)
+- or any of the other Auth0 [Libraries](/libraries)
+
+If you are using a library follow the relevant links to see how you can get one. 
+
+If you were to call the Authentication API directly to authenticate users, then you would get your ID Tokens from the [Authorization endpoint](/api/authentication#authorize-application). This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication. See the [Authorization endpoint](/api/authentication#authorize-application) documentation for a sample request and details on the parameters.
+
+### Before you use the token
+
+After you get an ID Token, and before you use it, it is imperative for security reasons, that you verify it. For information on how to do that, see [How to verify an ID Token](/tokens/validate-id-token).
+
+## How to control the contents of an ID Token
+
+In order to get an ID Token after user authentication, the `responseType` request parameter must include the value `id_token`.
+
+You can control the information that the ID Token will contain using the request parameter [scope](/scopes).
+
+| **Scope value** | **Claims included in the token** |
+|--|--|
+| `openid` | iss, sub, aud, exp, iat |
+| `openid email` | iss, sub, aud, exp, iat, email, email_verified |
+| `openid profile` | name, family_name, given_name, middle_name, nickname, preferred_username, profile, picture, website, gender, birthdate, zoneinfo, locale, updated_at|
+
+### How to add more user info in the token
+
+You can add additional information to your ID Token (in the form of claims) using [Rules](/rules).
+
+For an example, see [Custom Claims](/scopes/custom-claims).
 
 ## Token Lifetime
 
 The purpose of the ID Token is to cache user information for better performance and experience, and by default, the token is valid for 36000 seconds, or 10 hours. You may change this setting as you see fit; if there are security concerns, you may certainly shorten the time period before the token expires, but remember that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action that requires an API call.
 
-The expiration time can be changed in the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
+The expiration time can be changed in the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) screen using the **JWT Expiration (seconds)** field.
 
 There are cases where you might want to renew your ID Token. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
@@ -157,11 +143,11 @@ auth0.checkSession({
 });
 ```
 
-## Revoke access
+## How to revoke an ID Token
 
-Once issued, tokens can not be revoked in the same fashion as cookies with session ids for server-side sessions. As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
+ID Tokens cannot be revoked. Therefore, they should be issued for relatively short periods, and then [renewed](#token-lifetime) periodically if the user remains active.
 
-## Keep Reading
+## Keep reading
 
 ::: next-steps
 * [Overview of JSON Web Tokens](/jwt)
