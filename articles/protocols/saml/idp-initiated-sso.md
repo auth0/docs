@@ -13,9 +13,16 @@ useCase:
 
 # IdP-Initiated SSO
 
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
 
-<%= include('../../_includes/_deprecate-impersonation.md') %>
+```javascript
+var data = webAuth.parseHash(
+  {
+    ...
+    __enableIdPInitiatedLogin: true
+    ...
+  }
+```
 
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
