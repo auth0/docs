@@ -45,6 +45,7 @@ The documents listed below will show you how to perform all these tasks as well 
 * [Test a Partner Connection](/connections/how-to-test-partner-connection)
 * [Create Database Connections](/connections/database)
 * [Passwordless Authentication User Guide](/connections/passwordless/user-guide)
+* [Manage User Access to Applications](/user-profile/manage-user-access-to-applications)
 :::
 
 ::: half-panel
@@ -72,4 +73,4 @@ The documents listed below will show you how to perform all these tasks as well 
 
 * [Manage Users and User Profiles](microsite-manage-users-and-user-profiles)
 * [Manage User Metadata](microsite-manage-user-metadata)
-
+:::
