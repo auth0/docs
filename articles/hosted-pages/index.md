@@ -8,7 +8,9 @@ topics:
   - mfa
   - error-pages
   - hosted-pages
-contentType: index
+contentType: 
+  - index
+  - reference
 useCase: customize-hosted-pages
 ---
 
