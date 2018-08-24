@@ -9,7 +9,7 @@ topics:
   - desktop-apps
 contentType: 
     - concept
-    - how-to
+    - tutorial
 useCase:
   - add-login
 ---
