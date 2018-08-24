@@ -13,8 +13,6 @@ useCase:
 
 # IdP-Initiated SSO
 
-<%= include('../../_includes/_enable_idp_initiated.md') %>
-
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
 ![](/media/articles/protocols/saml/idp-init-sso.png)
@@ -36,3 +34,7 @@ Example Query String:
 ## Post-back URL
 
 When using **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
+
+## Lock/Auth0.js
+
+<%= include('../../_includes/_enable_idp_initiated.md') %>
