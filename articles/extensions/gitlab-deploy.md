@@ -63,7 +63,7 @@ Make sure that you create the token with the `api` permission in Gitlab settings
 
 Once you have configured your Auth0 Extension, you will need to configure the GitLab Webhook to complete the integration.
 
-1. In your GitLab repository, click on the gear icon near the top right of the page to open the menu. Click on **Webhooks**.
+1. In your GitLab repository, click on the gear (Settings) icon. In the menu that appears, click on **Integrations**. This brings up the Webhook configuration area.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-settings-menu.png)
 
@@ -76,7 +76,7 @@ Once you have configured your Auth0 Extension, you will need to configure the Gi
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-add-webhook.png)
 
-3. Click **Add Webhook** to save your changes.
+3. Scroll down, and click **Add Webhook** to save your changes.
 
 ## Deployment
 
