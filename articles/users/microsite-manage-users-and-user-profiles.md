@@ -9,7 +9,7 @@ useCase: manage-users
 ::: full-panel
 # Overview
 
-Auth0 provides the user profile to a app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the application [protocols](/protocols) supported by Auth0, however, most developers prefer to leverage the Auth0 SDKs.
+Auth0 provides the user profile to an app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the application [protocols](/protocols) supported by Auth0, however, most developers prefer to leverage the Auth0 SDKs.
 
 In order to authenticate a user and get their consent to retrieve profile information with Auth0, your application uses redirects. A high-level description of the flow is the following:
 
@@ -52,7 +52,7 @@ Use the Dashboard and the Management API to complete the following tasks:
 
 You can also choose to impersonate users to view how they will interact with your interface and you can use progressive profiling.
 
-If you want to use a custom database as the connection, you must write scripts to implement lifecycle events such as create, login, verify, delete, and change password. Auth0 provides temlates for these scripts, which you can modify for your particular database and schema. If you need to add additional attributes to the user profile, Auth0 provides Rules to allow you augment the user profile. Rulles execute after the user has been authenticated. Auth0 provides several example rules to achieve certain results. 
+If you want to use a custom database as the connection, you must write scripts to implement lifecycle events such as create, login, verify, delete, and change password. Auth0 provides templates for these scripts, which you can modify for your particular database and schema. If you need to add additional attributes to the user profile, Auth0 provides Rules to allow you augment the user profile. Rules execute after the user has been authenticated. Auth0 provides several example rules to achieve certain results. 
 :::
 
 ::: full-panel
@@ -71,20 +71,20 @@ The documents listed below will show you how to perform all these tasks as well 
 ::: half-panel
 ## How-tos
 * [Search for Users](/search/v3)
-* [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
 * [Create Users Using the Dashboard](/dashboard/create-users)
-* [View User Profiles](/user-profile/view-users)
-* [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
-* [User Import/Export Extension](/extensions/user-import-export)
-* [Impersonate Users Using the Dashboard](/user-profile/impersonate-users-using-the-dashboard)
-* [Impersonate Users Using the Impersonation API](/user-profile/impersonate-users-using-the-impersonation-api)
-* [Block and Unblock Users](/user-profile/block-and-unblock-users)
-* [Delete Users](/user-profile/delete-users)
 * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
+* [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+* [View User Profiles](/user-profile/view-users)
+* [Delete Users](/user-profile/delete-users)
 * [Change User Pictures](/user-profile/change-user-pictures)
 * [Change User Passwords](/connections/database/password-change)
 * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
 * [Redirect Users After Login](redirect-users-after-login)
+* [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
+* [Block and Unblock Users](/user-profile/block-and-unblock-users)
+* [Impersonate Users Using the Dashboard](/user-profile/impersonate-users-using-the-dashboard)
+* [Impersonate Users Using the Impersonation API](/user-profile/impersonate-users-using-the-impersonation-api)
+* [User Import/Export Extension](/extensions/user-import-export)
 * [Authorization Extension](/extensions/authorization-extension/v2)
 * [Delegated Administration Extension](/extensions/delegated-admin/v3)
 :::
@@ -92,9 +92,9 @@ The documents listed below will show you how to perform all these tasks as well 
 ::: half-panel
 ## Concepts
 * [User Profile Overview](/user-profile/overview-user-profile)
+* [Metadata Overview](/metadata/overview-metadata)
 * [Auth0 Normalized User Profile](/user-profile/normalized/auth0)
 * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
-* [Metadata Overview](/metadata/overview-metadata)
 * [Progressive Profiling](/user-profile/progressive-profiling)
 * [GDPR Overview](/compliance/overview-gdpr)
 :::
