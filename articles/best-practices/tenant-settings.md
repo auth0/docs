@@ -1,8 +1,9 @@
 ---
-description: Recommendations for configuring your Auth0 tenant.
+description: Recommended tenant settings in Auth0.
 topics:
   - best-practices
   - configuration
+  - settings
   - tenant
 contentType: 
     - index
@@ -10,10 +11,10 @@ contentType:
 useCase:
   - best-practices
   - tenant
-  - tenant-configuration
+  - tenant-settings
 ---
 
-# Best Practices: Tenant Configuration
+# Best Practices: Tenant Settings
 
 ## Specify a production tenant
 
