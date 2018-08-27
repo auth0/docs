@@ -7,7 +7,6 @@ http://localhost:5001/signin-auth0
 2) Make sure [.NET Core](https://www.microsoft.com/net/download) is installed, and run the following commands:
 
 ```bash
-dotnet restore
 dotnet run
 ```
 
