@@ -106,14 +106,14 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
 
 Customers currently using a customized Password Reset Page who want to use the new password length parameter must:
 
-1. Update their templates to include library version 1.5 or later
+1. Update their templates to include library version 1.5.1 or later
 2. Add `password_complexity_options` to leverage the new parameter
 
 If you do not update the Password Reset Page, Auth0 ignores any attempt to set the minimum password length.
 
 ### Step 1: Update the change password library version
 
-To use the new minimum password length feature, you should update the change password library used to version 1.5 (or later):
+To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
 
 ```text
 <script src="https://cdn.auth0.com/js/change-password-1.4.0.min.js"></script>
