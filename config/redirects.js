@@ -311,7 +311,11 @@ module.exports = [
     from: `/quickstart/backend/:platform/${apis}`,
     to: '/quickstart/backend/:platform'
   },
-
+  {
+    from: `/quickstart/spa/emberjs`,
+    to: '/quickstart/spa/ember'
+  },
+  
   /* --- Connections --- */
 
   {
