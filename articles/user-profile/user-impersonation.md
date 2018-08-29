@@ -51,32 +51,7 @@ Impersonation **does not work** with the [API Authorization](/api-auth) features
 Impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response. By using impersonation, you acknowledge that you understand and accept these risks.
 :::
 
-If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
-
-```javascript
-var data = webAuth.parseHash(
-  {
-    ...
-    __enableIdPInitiatedLogin: true
-    ...
-  }
-```
-
-If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
-
-```javascript
-const lock = new Auth0Lock(clientID, domain, options)
-```
-
-Here's the flag itself:
-
-```javascript
-var options = {
-    _enableIdPInitiatedLogin: true
-};
-```
-
-Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+<%= include('../_includes/_enable_idp_initiated.md') %>
 
 ## Use the dashboard
 
