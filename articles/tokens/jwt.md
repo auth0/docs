@@ -148,7 +148,7 @@ If the token is sent in the `Authorization` header, Cross-Origin Resource Sharin
 
 The following diagram shows how a JWT is obtained and used to access APIs or resources:
 
-![How a JSON Web Token works](/media/articles/jwt/jwt-diagram.png)
+![How a JSON Web Token works](/media/articles/jwt/client-credentials-grant.png)
 
 1. The application or client requests authorization to the authorization server. This is performed through one of the different authorization flows. For example, a typical [OpenID Connect](http://openid.net/connect/) compliant web application will go through the `/oauth/authorize` endpoint using the [authorization code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth).
 2. When the authorization is granted, the authorization server returns an access token to the application.
