@@ -61,5 +61,5 @@ Refresh Tokens must be stored securely by an application since they allow a user
 For more information on how to implement this using Authorization Code Grant, refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants, refer to [API Authorization](/api-auth).
 
 ::: note
-If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions) listed in this document.
+If the response did not include a Refresh Token, check that you comply with the [Restrictions](/tokens/refresh-token#restrictions-of-refresh-tokens).
 :::
