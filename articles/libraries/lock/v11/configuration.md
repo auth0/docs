@@ -295,7 +295,9 @@ Options for the `window.open` [position and size][windowopen-link] features. Thi
 
 ```js
 var options = {
-  redirect: false,
+  auth: {
+      redirect: false
+  },
   popupOptions: { width: 300, height: 400, left: 200, top: 300 }
 };
 ```
