@@ -80,7 +80,7 @@ useCase:
 More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
 :::
 
-After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](/libraries/lock-ios/save-and-refresh-jwt-tokens).
+After that, if you want to save the user's token to be able to use it later, you can [do this with Auth0.Swift](/libraries/auth0-swift/save-and-refresh-jwt-tokens).
 
 ## Social Authentication
 
