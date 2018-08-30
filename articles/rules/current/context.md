@@ -23,6 +23,7 @@ The following properties are available for the `context` object.
 
 | Name | Description |
 |-|-|
+| `tenant` | A string containing the name of the tenant |
 | `clientID` | The client id of the application the user is logging in to. |
 | `clientName` | The name of the application (as defined on the dashboard). |
 | `clientMetadata` | An object for holding other application properties. Its keys and values are strings. |
@@ -37,6 +38,9 @@ The following properties are available for the `context` object.
 | `sso` | <%= include('./_context-sso.md') %> |
 | `accessToken` | Used to add custom namespaced claims to the [Access Token](/tokens/access-token). |
 | `idToken` | Used to add custom namespaced claims to the [ID Token](/tokens/id-token). |
+| `original_protocol` | After a [redirect rule](/rules/current/redirect) has executed and the authentication transaction is resumed, this property will be populated with the original protocol used to initiate the transaction. |
+| `multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/multifactor-authentication/custom). |
+| `redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
 | `sessionID` | Unique id for the authentication session. Value is kept only if `prompt=none`. |
 | `request` | <%= include('./_context-request.md') %> |
 
@@ -44,6 +48,7 @@ The following properties are available for the `context` object.
 
 ```js
 {
+  tenant: 'mydomain',
   clientID: 'q2hn...pXmTUA',
   clientName: 'Default App',
   clientMetadata: {},
@@ -58,6 +63,9 @@ The following properties are available for the `context` object.
   sso: { with_auth0: false, with_dbconn: false, current_clients: [] },
   accessToken: {},
   idToken: {},
+  original_protocol: 'oauth2',
+  multifactor: {},
+  redirect: {},
   sessionID: 'jYA5wG...BNT5Bak',
   request:
   {
