@@ -13,6 +13,14 @@ useCase:
 
 # IdP-Initiated SSO
 
+Many instructions for setting up a SAML federation begin with SSO initiated by the service provider. The service provider redirects the user to the identity provider for the purposes of authentication. This process is commonly used for consumer-facing scenarios.
+
+However, in enterprise scenarios, it is more common to begin with the identity provider, which is the party initiating SSO, instead of the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
+
+## How to set up IDP-initiated SSO
+
+<%= include('../../_includes/_deprecate-impersonation.md') %>
+
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
 ![](/media/articles/protocols/saml/idp-init-sso.png)
