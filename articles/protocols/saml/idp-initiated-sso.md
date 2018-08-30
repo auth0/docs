@@ -15,7 +15,7 @@ useCase:
 
 Many instructions for setting up a SAML federation begin with SSO initiated by the service provider. The service provider redirects the user to the identity provider for the purposes of authentication. This process is commonly used for consumer-facing scenarios.
 
-However, in enterprise scenarios, it is more common to begin with the identity provider, which is the party initiating SSO, instead of the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
+However, in enterprise scenarios, it is more common to begin with the identity provider initiating SSO, not the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
 
 ## How to set up IDP-initiated SSO
 
