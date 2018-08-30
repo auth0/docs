@@ -7,8 +7,8 @@ toc: true
 
 When troubleshooting a SAML login, there are four primary stages to check:
 
-* Stage 1: The user is successfully redirected to an identity provider (IDP) and is able to login.
-* Stage 2: After login with the IDP, the user returns to Auth0 with a successful login event recorded.
+* Stage 1: The user is successfully redirected to an identity provider (IdP) and is able to login.
+* Stage 2: After login with the IdP, the user returns to Auth0 with a successful login event recorded.
 * Stage 3: After a successful login event in Auth0, the user profile in Auth0 is correct.
 * Stage 4: The user successfully redirects back to application and is able to access application.
 
@@ -30,11 +30,11 @@ Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise).
 
   ![](/media/articles/protocols/saml/saml-configuration/check-connection-settings.png)
 
-Check and confirm the following with the IdP adminstrator:
+Check and confirm the following with the IdP administrator:
 
-* That the Sign In URL is the correct Single sign-on (SSO) URL. This is the URL that Auth0 will redirect the user to for authention.
+* That the Sign In URL is the correct Single sign-on (SSO) URL. This is the URL that Auth0 will redirect the user to for authentication.
 * If the IdP expects HTTP-POST binding or HTTP-Redirect binding. You can switch the default binding in the __Settings__ tab.
-* If your authentication requests should be signed. If so, which signing algorithm does the IdP expect you to use? (Note that authentication requests are not commonly signed.) If you're sending signed requests, enable the Connection Settings **Sign Request** toggle and make sure the **Signing Algorithm** value matches what the IDP expects.
+* If your authentication requests should be signed. If so, which signing algorithm does the IdP expect you to use? (Note that authentication requests are not commonly signed.) If you're sending signed requests, enable the Connection Settings **Sign Request** toggle and make sure the **Signing Algorithm** value matches what the IdP expects.
 * Ask the IdP administrator to check for log entries that might provide information on the problem.
 
 ## Issue: Auth0 Logs Don't Show Successful Login Event
