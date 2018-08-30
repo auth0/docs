@@ -253,7 +253,7 @@ function verify (email, callback) {
 
   connection.query(query, email, function (err, results) {
     if (err) return callback(err);
-    if (results.length === 0) return callback();
+    if (results.affectedRows === 0) return callback();
 
     callback(null, results.length > 0);
   });
