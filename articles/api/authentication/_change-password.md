@@ -61,7 +61,7 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `client_id` | The `client_id` of your client. We strongly recommend including a Client ID so that the email template knows from which client the request was triggered. |
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password `      | The new password. See the next paragraph for the case when a password can be set. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
