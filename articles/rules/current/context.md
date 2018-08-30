@@ -26,8 +26,11 @@ The following properties are available for the `context` object.
 | `clientID` | The client id of the application the user is logging in to. |
 | `clientName` | The name of the application (as defined on the dashboard). |
 | `clientMetadata` | An object for holding other application properties. Its keys and values are strings. |
+| `connectionID` | A string containing the connection's unique identifier |
 | `connection` | The name of the connection used to authenticate the user (such as: `twitter` or `some-google-apps-domain`) |
 | `connectionStrategy` | The type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), and so on. |
+| `connectionOptions` | An object representing the options defined on the connection. `connectionOptions.tenant_domain` is a string containing the domain being used for authentication when using an Enterprise connection. `connectionOptions.domain_aliases` is an array containing the optional domains registered as aliases in addition to the primary domain (specified in the `connectionOptions.tenant_domain` property). |
+| `connectionMetadata` | An object representing metadata defined on the connection. Its keys and values are strings. |
 | `samlConfiguration` | An object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol). |
 | `protocol` | <%= include('./_context-protocol.md') %> |
 | `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
@@ -44,8 +47,11 @@ The following properties are available for the `context` object.
   clientID: 'q2hn...pXmTUA',
   clientName: 'Default App',
   clientMetadata: {},
+  connectionID: 'con_V7s88...lgW97',
   connection: 'Username-Password-Authentication',
   connectionStrategy: 'auth0',
+  connectionOptions: {},
+  connectionMetadata: {},
   samlConfiguration: {},
   protocol: 'oidc-basic-profile',
   stats: { loginsCount: 111 },
