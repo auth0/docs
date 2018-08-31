@@ -17,6 +17,8 @@ The Auth0 Command-Line Interface (CLI) allows you to create, edit, enable/disabl
 
 ## Set Up the CLI
 
+:::panel-warning Notice Tenants created after **July 16, 2018** will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. :::
+
 You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
 
 The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
