@@ -199,7 +199,7 @@ Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `na
 
 ### Impacted SDKs
 
-The following SDKs make use of the User Search engine. Make sure you are using the versions listed below (or a later version), and pass the `search_engine=v3` parameter when performing user search operations.
+The following SDKs make use of the User Search engine. If you are using them, make sure you are using the versions listed below (or a later version), and pass the `search_engine=v3` parameter when performing user search operations.
 
 SDK | Version with support for v3 | Impacted methods | Considerations
 ----|-----------------------------|------------------|---------------
@@ -209,6 +209,15 @@ SDK | Version with support for v3 | Impacted methods | Considerations
 [Auth0 .NET](https://github.com/auth0/auth0.net) | 3.0.0 or 4.0.0 | Auth0.ManagementApi.IUsersClient.GetAllAsync | Provide a `GetUsersRequest` object with `SearchEngine` = `"v3"`
 [Auth0 PHP](https://github.com/auth0/auth0-php) | 5.2.0 | Auth0.SDK.API.Management.Users.getAll | Provide the parameter `'search_engine' => 'v3'`
 [Auth0 Ruby](https://github.com/auth0/ruby-auth0) | 4.5.0 | Auth0.Api.V2.Users.users | Provide the parameter `search_engine: 'v3'`
+
+### Impacted Extensions
+
+The following Extensions make use of the User Search engine. If you have them installed, make sure you are using the versions listed below (or a later version).
+
+Extension | Version with support for v3 | Considerations
+----------|-----------------------------|---------------
+[Authorization Extension](/extensions/authorization-extension/v2) | 2.5.0 | If you use an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page.
+[Delegated Administration](/extensions/delegated-admin/v3) | 3.1 | If you use an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page. The `SEARCH_ENGINE` configuration setting no longer exists in 3.1, because User Search v3 is the only version available.
 
 ### Leverage your tenant logs to find usage of User Search v2
 
