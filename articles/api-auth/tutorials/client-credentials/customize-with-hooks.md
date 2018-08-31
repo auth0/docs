@@ -89,7 +89,9 @@ You can create more than one hooks per extensibility point but __only one__ can 
 
 ## Use the Auth0 CLI
 
-:::panel-warning Notice Tenants created after **July 16, 2018** will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. :::
+::: warning
+Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
+:::
 
 1. Make sure you have installed the Webtask CLI. You can find detailed instructions in the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
 
