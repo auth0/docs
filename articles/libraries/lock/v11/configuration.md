@@ -313,6 +313,11 @@ var options = {
 };
 ```
 
+Note: the **Last time you signed in with [...]** message will not be available under the following circumstances:
+
+- Lock used in the [hosted login page](/hosted-pages/login), when the session was established with [passwordless authentication](/connections/passwordless).
+- Lock used in an [embedded scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) with `responseType: code` ([authorization code grant flow](/api-auth/tutorials/authorization-code-grant) used in regular web apps).
+
 ## Theming Options
 
 ### theme {Object}
