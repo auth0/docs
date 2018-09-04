@@ -182,10 +182,11 @@ If you are using Internet Explorer, you may see any of the following error messa
 
 When both the Auth0 domain and the app domain are in the same trusted or local intranet zone, Internet Explorer does *not* treat the request as a cross-domain request and therefore does not send the cross-origins header.
 
-If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone.
+If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone. To do this:
 
-To do this, go to Internet Options > Security. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
-
-Next, return to the **Security** tab, and make sure the proper zone has been selected. Click **Custom Level** and look for access data sources across domains under the **Miscellaneous** section. Check the box next to **Enable.**.
+1. Go to Internet Options > Security. 
+2. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
+3. Return to the **Security** tab, and make sure the proper zone has been selected.
+4. Click **Custom Level** and look for access data sources across domains under the **Miscellaneous** section. Check the box next to **Enable.**.
 
 Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login)
