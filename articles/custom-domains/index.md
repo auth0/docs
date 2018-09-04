@@ -187,6 +187,6 @@ If you see any of these errors and you are using Embedded Login, you can move on
 1. Go to Internet Options > Security. 
 2. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
 3. Return to the **Security** tab, and make sure the proper zone has been selected.
-4. Click **Custom Level** and look for access data sources across domains under the **Miscellaneous** section. Check the box next to **Enable.**.
+4. Click **Custom Level** and look for **Access data sources across domains** under the **Miscellaneous** section. Check the radio button next to **Enable.**.
 
 Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login)
