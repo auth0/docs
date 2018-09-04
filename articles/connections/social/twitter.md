@@ -105,9 +105,12 @@ If you are seeing errors, refer to the following troubleshooting steps.
 
 ### User's email address is missing from retrieved user profile
 
+The Twitter connection type does not currently retrieves the user's email address. You can add a rule that queries for the email address using the access token returned from Twitter, and makes that email address available to the application (it will not, however, be persisted in the user profile). 
+To do so [create a new rule](${manage_url}/#/rules/create) and look for the **Get Email Address from Twitter** template under the **Enrich Profile** section.
+
 If you are using Auth0 developer keys, this functionality will not work; you will need to use your Twitter Consumer Key and Consumer Secret.
 
-Otherwise, you must explicitly request permission to retrieve user email addresses for your Twitter app:
+You must also explicitly request permission to retrieve user email addresses for your Twitter app:
 
 1. Login to [Twitter Application Management](https://apps.twitter.com).
 1. Choose your app.
