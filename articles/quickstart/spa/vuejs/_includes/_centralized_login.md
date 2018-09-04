@@ -27,7 +27,6 @@ export default class AuthService {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://${account.namespace}/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
   })

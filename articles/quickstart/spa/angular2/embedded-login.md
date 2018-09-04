@@ -44,7 +44,6 @@ export class AuthService {
     auth: {
       redirectUrl: 'http://localhost:3000/callback',
       responseType: 'token id_token',
-      audience: `https://${account.namespace}/userinfo`,
       params: {
         scope: 'openid'
       }

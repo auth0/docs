@@ -111,7 +111,6 @@ export class AuthService {
     domain: ${account.namespace},
     clientID: ${account.clientId},
     redirectUri: 'http://localhost:4200/callback',
-    audience: `https://${account.namespace}/userinfo`,
     responseType: 'token id_token'
   });
 
