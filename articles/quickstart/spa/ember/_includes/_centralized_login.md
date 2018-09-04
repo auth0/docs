@@ -24,7 +24,6 @@ export default Service.extend({
       domain: '${account.namespace}',
       clientID: '${account.clientId}',
       redirectUri: 'http://localhost:3000',
-      audience: 'https://${account.namespace}/userinfo',
       responseType: 'token id_token',
       scope: 'openid'
     });
