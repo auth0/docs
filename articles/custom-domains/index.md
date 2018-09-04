@@ -170,13 +170,22 @@ If your application issues an `/authorize` request with `audience=https://login.
 
 To fix this your app should instead use `audience=https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. You can also remove this `audience=[...]/userinfo` parameter altogether if your application is flagged as **OIDC-Conformant** in the **OAuth2** tab of the application's **Advanced Settings**.
 
-### Errors related to Internet Explorer: "No verifier returned from client"/"Origin header required."/"Failed cross origin authentication"
+### Errors related to Internet Explorer
 
-When both the Auth0 domain and the app domain are in the same trusted/local intranet zone, IE seems to treat the request as not being cross-domain, and thus it doesn't send the Origin header.
+If you are using Internet Explorer, you may see any of the following error messages:
 
-As of now we do not have any workarounds when using embedded login, except for moving one of the sites out of the Local Intranet/Trusted Zone. The other option is to remove the reliance on cross origin authentication completely by implementing universal login:
-https://auth0.com/docs/hosted-pages/login
+* "No verifier returned from client"
+* "Origin header required"
+* "Failed cross origin authentication"
 
-To fix this issue:
-1. Add your app’s domain to a zone different than the default Internet zone, e.g. Trusted Zone or Local Intranet zone. To do that, go to Internet Options, then Security tab, select Local intranet zone, click Sites, then Advanced, and add the domain
-2. Back in the Security tab, with the proper zone selected, click Custom Level, look for Access data sources across domains under Miscellaneous. Choose Enable. (see screenshot attached).
+#### Why you see these errors
+
+When both the Auth0 domain and the app domain are in the same trusted or local intranet zone, Internet Explorer does *not* treat the request as a cross-domain request and therefore does not send the cross-origins header.
+
+If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone.
+
+To do this, go to Internet Options > Security. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
+
+Next, return to the **Security** tab, and make sure the proper zone has been selected. Click **Custom Level** and look for access data sources across domains under the **Miscellaneous** section. Check the box next to **Enable.**.
+
+Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login)
