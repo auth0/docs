@@ -325,7 +325,7 @@ function changePassword (email, newPassword, callback) {
     } else {
       connection.query(query, hash, email, function (err, results) {
         if (err) return callback(err);
-        callback(null, results.length > 0);
+        callback(null, results.affectedRows > 0);
       });
     }
   });
