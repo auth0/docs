@@ -216,8 +216,8 @@ The following Extensions make use of the User Search engine. If you have them in
 
 Extension | Version with support for v3 | Considerations
 ----------|-----------------------------|---------------
-[Authorization Extension](/extensions/authorization-extension/v2) | 2.5.0 | If you use an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page.
-[Delegated Administration](/extensions/delegated-admin/v3) | 3.1 | If you use an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page. The `SEARCH_ENGINE` configuration setting no longer exists in 3.1, because User Search v3 is the only version available.
+[Authorization Extension](/extensions/authorization-extension/v2) | 2.5.0 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page.
+[Delegated Administration](/extensions/delegated-admin/v3) | 3.1 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page. The `SEARCH_ENGINE` configuration setting no longer exists in 3.1, because only User Search v3 is available.
 
 ### Leverage your tenant logs to find usage of User Search v2
 
