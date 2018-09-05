@@ -194,7 +194,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
 

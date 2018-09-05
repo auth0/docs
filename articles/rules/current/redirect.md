@@ -17,7 +17,7 @@ useCase:
 Rules can also be used to programatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
 
 * Requiring users to provide additional verification when logging in from unknown locations.
-* Implementing custom verification mechanisms (such as proprietary multifactor authentication providers).
+* Implementing custom verification mechanisms (such as proprietary multi factor authentication providers).
 * Forcing users to change passwords.
 
 ::: panel-warning Redirect Rules
@@ -163,6 +163,8 @@ function(user, context, callback) {
 You can redirect a user **once** per authentication flow. For example, if you have one rule that redirects a user, you cannot invoke a second rule to redirect the user at a later time.
 
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. Redirect rules work _only_ with browser based protocols.
+
+When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. This means that any updates made to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect won't be available.
 
 Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 

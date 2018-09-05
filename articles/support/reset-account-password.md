@@ -33,5 +33,5 @@ You can reset the password associated with your Auth0 account at any time by inv
     ![Management Dashboard Logout](/media/articles/tutorials/reset-password/message-sent.png)
 
 ::: note
-If you have enabled multifactor authentication and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
+If you have enabled multi-factor authentication and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
 :::

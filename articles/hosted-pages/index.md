@@ -22,7 +22,7 @@ You can create the following types of hosted pages:
 
 * [Login](/hosted-pages/login): 
 * [Password Reset](/hosted-pages/password-reset)
-* [Guardian Multifactor](/hosted-pages/guardian)
+* [Guardian Multi-factor](/hosted-pages/guardian)
 * [Error pages](/hosted-pages/error-pages)
 
 While Auth0 hosts your custom pages, you can still [manage your pages using the version control system of your choice](/hosted-pages/version-control).

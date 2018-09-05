@@ -7,8 +7,7 @@ topics:
 contentType: how-to
 useCase: extensibility-hooks
 ---
-
-# Edit Existing Hooks Using the Dashboard
+# Edit Hooks
 
 You can edit the code for your existing Hook using the [Webtask Editor](https://webtask.io/docs/editor). To open up the Webtask Editor:
 

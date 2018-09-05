@@ -136,7 +136,7 @@ For an example of how to add a custom claim, refer to [Add Custom Claims](/scope
 
 The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
 
-To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [Dashboard](${manage_url}/#/apis) APIs section. The default value is `24` hours (`86400` seconds).
+To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [Dashboard](${manage_url}/#/apis) APIs section. The default value is `24` hours (`86400` seconds). The maximum amount of time (in seconds) that the token can be valid after being issued is 2592000 seconds (30 days).
 
 ![Token Expiration - API](/media/articles/tokens/tokens-expiration-api.png)
 

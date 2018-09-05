@@ -58,7 +58,7 @@ The __Active Users__ functionality has been moved to the [Quota Utilization Repo
 
 ## Dashboard Admins
 
-Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
+Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multi-factor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
 
 ## Webtasks
 

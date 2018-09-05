@@ -15,11 +15,11 @@ useCase: extensibility-extensions
 
 In the Application exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
 
-By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/v3/hooks#the-filter-hook).
+By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/v3/hooks/filter).
 
 ## Available User Actions in the Delegated Administration Dashboard
 
-The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](/extensions/delegated-admin/hooks/v3/access).
+The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](/extensions/delegated-admin/v3/hooks/access).
 
 <table class="table">
   <tbody>
@@ -73,8 +73,15 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
         <th>Yes</th>
     </tr>
+    <tr>
+        <th>Change Profile</th>
+        <th>Yes</th>
+        <th>Yes</th>
+    </tr>
   </tbody>
 </table>
+
+The *Change Profile* option is available only if you have configured custom fields.
 
 Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.
 

@@ -123,18 +123,18 @@ If you use Auth0 with a custom domain to issue Access Tokens for your APIs, then
 
 ```js
 app.use(jwt({ 
-  issuer: 'https://YOUR-CUSTOM-DOMAIN',
+  issuer: 'https://<YOUR-CUSTOM-DOMAIN>',
   //code omitted for brevity
 }));
 ```
 
 ## Configure SAML identity providers
 
-If you want to use SAML identity providers (IdPs) with your custom domain, you must get the service provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata?connection=YOUR-CONNECTION-NAME`). This includes updated **Assertion Consumer Service (ACS) URLs**. Then, you have to manually update this value in your IdP(s). This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
+If you want to use SAML identity providers (IdPs) with your custom domain, you must get the service provider metadata from Auth0 (such as `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata?connection=<YOUR-CONNECTION-NAME>`). This includes updated **Assertion Consumer Service (ACS) URLs**. Then, you have to manually update this value in your IdP(s). This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
 
 Alternatively, you can use signed requests to fulfill this requirement:
 
-- Once your custom domain is set up, go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains) and download the certificate from the link under the **Sign Request** toggle
+- Download the signing certificate from `https://<TENANT>.auth0.com/pem`. Note that `https://<YOUR-CUSTOM-DOMAIN>.com/pem` will return the same certificate.
 - Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
 - The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
 - Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
@@ -149,7 +149,7 @@ If you have an IdP-initiated authentication flow, you will need to update the Id
 
 ## Configure your SAML applications
 
-If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID for the assertion returned by Auth0 will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata/<YOUR-CLIENT-ID>`). Note that the issuer entity ID for the assertion returned by Auth0 will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
 
 If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/saml/<CLIENTID>` you should use `https://<CNAME>/saml/<CLIENTID>`.
 

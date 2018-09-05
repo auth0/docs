@@ -88,8 +88,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value(value = "<%= "${auth0.issuer}" %>")
     private String issuer;
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        configuration.setAllowCredentials(true);
+        configuration.addAllowedHeader("Authorization");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.cors();
         JwtWebSecurityConfigurer
                 .forRS256(apiAudience, issuer)
                 .configure(http)

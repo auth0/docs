@@ -40,7 +40,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
 
 ### More Information

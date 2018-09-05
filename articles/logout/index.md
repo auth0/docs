@@ -120,11 +120,11 @@ When providing the URL list, you can:
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.
 :::
 
-#### Limitations
+### Limitations
 
 * The validation of URLs provided as values to the `returnTo` parameter, the querystring, and hash information provided as part of the URL are not taken into account.
 
-* The `returnTo` parameter does not work with all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
+* The behavior of federated logouts with social providers is inconsistent. Each provider will handle the `returnTo` parameter differently and for some it will not work. Please check your social provider's settings to ensure that they will accept the `returnTo` parameter and how it will behave.
 
 * The URLs provided in the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. However, do note that the scheme and host parts are case insensitive. For example, if your URL is `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` portion is case insensitive, while the `FooHoo.html` portion is case sensitive.
 
@@ -132,7 +132,7 @@ In order to avoid validation errors, make sure that you include the protocol par
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the [Dashboard](${manage_url}) for the logout to function properly.
 :::
 
-#### Facebook users
+### Additional requirements for Facebook
 
 If you are using Facebook, please be aware of the additional requirements when triggering a logout.
 
@@ -157,7 +157,7 @@ Auth0 will initiate a logout by sending a SAML logout request to the external id
 The external SAML identity provider will need to know where to send SAML logout requests (if initiating the logout) and responses. The __SingleLogout service URL__ that will consume this SAML messages is the following:
 
 ```text
-https://${account.namespace}/logout
+https://${account.namespace}/v2/logout
 ```
 
 When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings with the above URL.
@@ -186,7 +186,7 @@ If your Service Provider supports SAML Single Logout, you will need to configure
 
 #### Non Single Logout Scenario
 
-If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
+If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/v2/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
 
 ## Implementing in your Application
 
@@ -226,4 +226,3 @@ For guidance and sample code on how to implement logout functionality in your ap
 * [PHP (Symfony)](/quickstart/webapp/symfony)
 * [Python](/quickstart/webapp/python#6-logout)
 * [Ruby on Rails](/quickstart/webapp/rails/02-session-handling#logout-action)
-

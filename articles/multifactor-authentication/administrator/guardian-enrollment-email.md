@@ -31,7 +31,7 @@ Administrators can also [customize the email template](/email/templates) for the
 
 Some organizations may want to only allow users to enroll a device with Guardian via an enrollment email, and prevent users from self-enrolling upon first sign in. This is possible using the _selfServiceEnrollment_ property on a Guardian rule. When set to true, or when the property is not set, the user may self-enroll. When set to false, the user may only enroll their device via an enrollment email.
 
-To edit the rule, go to the **Multifactor Auth** section and edit appropriately.
+To edit the rule, go to the **Multi-factor Auth** section and edit appropriately.
 
 ```js
 function (user, context, callback) {

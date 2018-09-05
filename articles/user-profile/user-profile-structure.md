@@ -31,7 +31,7 @@ The following attributes are available on the user profile.
     * `user_id`: The user's unique identifier for this connection/provider
 
 
-* `multifactor`: The list of multifactor providers in which the user is enrolled.
+* `multifactor`: The list of multi-factor providers in which the user is enrolled.
 
 * `last_ip`: The IP address associated with the user's last login.
 

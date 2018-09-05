@@ -23,11 +23,13 @@ Your application can use this parameter in order to:
 
 - Restore the previous state of your application.
 
-## Format
+## Format and Limitations
 
 For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
 
 This field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded JSON object that can hold multiple values, [such as a return URL](/tutorials/redirecting-users).
+
+Note that the allowed length for state is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
 
 ## How to use the parameter against CSRF attacks
 
@@ -92,7 +94,7 @@ The process in order to do that, looks like the following:
 1. If the authentication is successful, retrieve the value once you get the callback from Auth0
 1. Redirect the user to the page
 
-How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format)).
+How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format-and-limitations)).
 
 ## How to get the parameter value in a rule
 

@@ -191,6 +191,6 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 
 * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-* If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+* If you've enabled [multi-factor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
 
 * Check that the SAML Connection works in an SP-Initiated flow by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).

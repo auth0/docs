@@ -75,10 +75,10 @@ There are two required parameters that must be passed in the `options` object wh
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
 | `clientID` | required | (String) Your Auth0 client ID |
-| `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
+| `redirectUri` | optional* | (String)  The default `redirectUri` used. Defaults to an empty string (none). **If you do not provide a global `redirectUri` value here, you will need to provide a redirectUri value for *each* method you use.** |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `responseType` | optional | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
+| `responseType` | optional* | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
 | `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
@@ -116,6 +116,7 @@ The `authorize()` method can be used for logging in users via [Universal Login](
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 | `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
+| `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
 

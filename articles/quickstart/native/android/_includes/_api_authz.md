@@ -6,7 +6,7 @@ This quickstart uses the Auth0.Android SDK to help you add authentication and AP
 
 ```gradle
 dependencies {
-    compile "com.auth0.android:auth0:1.+"
+    implementation "com.auth0.android:auth0:1.+"
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Step-up Authentication for APIs
-description: Describes how an API can check if a user has logged in with Multifactor Authentication by examining their Access Token
+description: Describes how an API can check if a user has logged in with Multi-factor Authentication by examining their Access Token
 topics:
   - mfa
   - step-up-authentication
@@ -16,7 +16,7 @@ useCase:
 
 With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
-For instance, a user may be allowed to transfer money only after they have confirmed their identity using Multifactor Authentication (MFA).
+For instance, a user may be allowed to transfer money only after they have confirmed their identity using Multi-factor Authentication (MFA).
 
 When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules). In this article we will explain how you can do that and use a sample implementation to go through the process step-by-step.
 
@@ -53,14 +53,14 @@ This tutorial assumes that you have already done the following:
 - [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a single-page web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
-- [Enable Multifactor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
 
 
 ### 1. Create the rule
 
 First we will create a rule that will challenge the user to authenticate with MFA when the `transfer:funds` scope is requested.
 
-Go to [Dashboard > Multifactor Auth](${manage_url}/#/guardian) and modify the script as follows.
+Go to [Dashboard > Multi-factor Auth](${manage_url}/#/guardian) and modify the script as follows.
 
 ```js
 function (user, context, callback) {

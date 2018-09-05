@@ -99,7 +99,7 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
 
@@ -190,7 +190,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
 
@@ -278,7 +278,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
@@ -369,7 +369,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. To add realm support use `http://auth0.com/oauth/grant-type/password-realm`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
@@ -388,7 +388,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
@@ -403,7 +403,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 ### More Information
 - [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-- [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
 
 ## Refresh Token
 
@@ -475,7 +475,7 @@ Use this endpoint to refresh an Access Token using the Refresh Token you got dur
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token, use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
 
 
@@ -485,7 +485,7 @@ Use this endpoint to refresh an Access Token using the Refresh Token you got dur
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the Refresh Token you have. Click **OAuth2 Refresh Token Exchange**.
 

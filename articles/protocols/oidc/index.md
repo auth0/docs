@@ -41,3 +41,6 @@ JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or
 
 The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [custom claims and add them to your tokens](/tokens/id-token#add-custom-claims).
 
+:::note
+Watch our 30 minute webinar tutorial [Intro to OpenID Connect](https://auth0.com/resources/webinars/intro-openid-connect) to better understand this protocol, its benefits, and how to integrate it in your app.
+:::

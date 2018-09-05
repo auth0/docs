@@ -21,7 +21,7 @@ You may change the logo and the friendly name that is displayed to your users. T
 
 ### Activate the Hosted Page
 
-Customizing the content of the Guardian widget page is possible in the [Guardian Multifactor Hosted Page](${manage_url}/#/guardian_mfa_page) by toggling __Customize Guardian Page__.
+Customizing the content of the Guardian widget page is possible in the [Guardian Multi-factor Hosted Page](${manage_url}/#/guardian_mfa_page) by toggling __Customize Guardian Page__.
 
 ![](/media/articles/mfa/guardian-mfa-hosted-page.png)
 

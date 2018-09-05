@@ -10,8 +10,7 @@ contentType:
   - index
 useCase: extensibility-hooks
 ---
-
-# Hooks: Overview
+# Overview
 
 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 

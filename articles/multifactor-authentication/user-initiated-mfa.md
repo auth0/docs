@@ -1,6 +1,6 @@
 ---
-title: User-Initiated Multifactor Authentication (MFA)
-description: How to set up user-initiated multifactor authentication
+title: User-Initiated Multi-factor Authentication (MFA)
+description: How to set up user-initiated multi-factor authentication
 toc: true
 topics:
     - mfa
@@ -9,19 +9,19 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# User-Initiated Multifactor Authentication
+# User-Initiated Multi-factor Authentication
 
-In this tutorial, we will show you how to implement and enable user-initiated multifactor authentication (MFA). We will cover how to:
+In this tutorial, we will show you how to implement and enable user-initiated multi-factor authentication (MFA). We will cover how to:
 
 * Enable MFA using Auth0's Management Dashboard
 * Programmatically flag new users for MFA
 * Set the users up to initiate MFA enrollment when logging in for the first time.
 
-## Enable Multifactor Authentication
+## Enable Multi-factor Authentication
 
-You can enable Multifactor Authentication (MFA) using the Dashboard.
+You can enable Multi-factor Authentication (MFA) using the Dashboard.
 
-Log in to your Auth0 account and navigate to the [**Multifactor Auth** page of the Management Dashboard](${manage_url}/#/guardian).
+Log in to your Auth0 account and navigate to the [**Multi-factor Auth** page of the Management Dashboard](${manage_url}/#/guardian).
 
 ![](/media/articles/mfa/mfa-home.png)
 

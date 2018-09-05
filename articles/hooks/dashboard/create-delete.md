@@ -7,8 +7,7 @@ topics:
 contentType: how-to
 useCase: extensibility-hooks
 ---
-
-# Create a New Hook Using the Dashboard
+# Create a New Hook
 
 You can create new Hooks using the Auth0 Management Dashboard.
 

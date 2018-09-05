@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description:  This tutorial demonstrates how to add authorization to a Python API built with [Flask](http://flask.pocoo.org/).
+description:  This tutorial demonstrates how to add authorization to a Python API built with Flask.
 topics:
     - quickstart
     - backend
@@ -35,7 +35,7 @@ six
 
 ### Create a Flask application
 
-Create a `server.py` file and initialize the Flask application. Set the domain, audience and the error handling.
+Create a `server.py` file and initialize the [Flask](http://flask.pocoo.org/) application. Set the domain, audience and the error handling.
 
 ```python
 # /server.py
