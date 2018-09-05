@@ -16,6 +16,8 @@ useCase:
 
 # Best Practices: Application Settings
 
+In this article, you'll learn some best practices for configuring [applications](/applications).
+
 ## Check the Client ID
 
 Confirm your application code uses the correct Client ID. You can find the Client ID in your [application's settings](${manage_url}/#/applications) on the Auth0 Dashboard.

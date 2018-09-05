@@ -11,6 +11,8 @@ useCase:
 
 # Best Practices: General Operations
 
+In this article, you'll learn some best practices for general Auth0 usage and operation.
+
 ## Capture log files 
 
 Auth0 keeps tenant [logs](/logs) for a limited amount of time. To get log data and store it elsewhere, you can use the [Management API](/api/management/v2#!/Logs/get_logs) or one of the [available extensions](/extensions#export-auth0-logs-to-an-external-service) for services such as Loggly or Splunk.

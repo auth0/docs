@@ -13,6 +13,8 @@ useCase:
 
 # Best Practices: Rules
 
+In this article, you'll learn some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/current#what-can-i-use-rules-for-) and take a look at some [examples](/rules/current#examples)
+
 ## Handle errors
 
 Make sure your rules code catches errors after calls which may trigger an error. Also, ensure every branch through the code ends with a return statement to call the callback.

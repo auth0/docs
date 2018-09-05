@@ -16,6 +16,8 @@ useCase:
 
 # Best Practices: Tenant Settings
 
+In this article, you'll learn some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).
+
 ## Specify a production tenant
 
 Visit [Auth0 Support Center > Tenants](https://support.auth0.com/tenants/public) and specify your production tenant. Production tenants get higher rate limits than non-production tenants. Only one tenant per subscription can be set as a production tenant.
