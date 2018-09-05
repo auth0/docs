@@ -13,7 +13,7 @@ Auth0 provides simple-to-use tools to help you [manage user identities](/users/m
 
 ## How can I connect users to my identify platform?
 
-[Connect users to your apps](/users/microsite-connect-users-to-your-identity-platform) using popular social media providers like Facebook and Twitter. Or, if your apps are within an enterprise, use SD, LDAP, SAML and more to authenticate users. You can create connections that don't require your users to remember passwords if that's your cup of tea. You can even specify which users have access to which apps. 
+[Connect users to your identity platforms](/users/microsite-connect-users-to-your-identity-platform) using popular social media providers like Facebook and Twitter. Or, if your apps are within an enterprise, use SD, LDAP, SAML and more to authenticate users. You can create connections that don't require your users to remember passwords if that's your cup of tea. You can even specify which users have access to which apps. 
 
 ## How can I manage my user data?
 

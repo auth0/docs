@@ -7,63 +7,74 @@ topics: users
 useCase: manage-users
 ---
 ::: full-panel
-## Overview
+# Overview
+You can manage and store data related to each of your users (that doesn't originate from identity providers) in the Auth0 data store or your own custom database. There are two kinds of metadata:
 
-*Overview here - TBD* 
+* `user_metadata`: stores user attributes (such as preferences) that do not impact users' core functionality. An authenticated user can modify this type of data. 
+* `app_metadata`: stores information (such as users' support plans, security roles, and access control groups) that can impact users' core functionality. For example, how an application functions or what the user can access. A user cannot modify this type of data. 
 
-* Manage user metadata with Lock or APIs
-      * Define user metadata on signup
-      * Read user metadata (Lock or APIs)
-      * Update user metadata (Lock or APIs)
-      * Set user metadata on creation
-      * Merge user metadata
-      * Delete user metadata
-* Field name rules
-* Blacklisting metadata
-* Store users' credentials in Auth0's data store or your own database
-* User profile structure reference
+You can search the user metadata name fields and if you have a paid subscription, you can search the app metadata fields. 
+
+Manage user metadata using Auth0 rules, the Lock widget, or APIs, depending on your need.
+
+* **Rules** are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata which, in turn, affect the results of the authorization process. For more information and examples, refer to [User Metadata in Rules](/rules/current/metadata-in-rules).
+
+* Use the **Lock** widget to add new items to user metadata and read user metadata after authentication. For more information, refer to the [Lock Reference Docs](/libraries#lock).
+
+* When you use the **Authentication API**, you can use the Signup endpoint with a database connection, to set the user metadata for a user. You can also use the Management API to retrieve, create, or update both the user metadata and app metadata. For more information and examples, refer to [Use Auth0 APIs to Manage Metadata](/metadata/apis). 
+
+Other ways to manipulate user metadata include:
+
+* Merge metadata
+* Delete metadata
+* Import/Export metadata
+* Blacklist metadata
 :::
 
 ::: full-panel
-## Learn More About Connecting Users to Your Identity Platform
+# Learn More
 
 The documents listed below will show you how to perform all these tasks as well as provide you with high-level conceptual and reference information. 
-
-* Understand the various aspects of maintaining user metadata by following our **Tutorials**. These are lessons, often accompanied by a sample implementation, meant to show what you can do with various Auth0 features.
-* Follow step-by-step instructions to accomplish specific tasks with our **How-tos**.
-* Take a dive into the world of how Auth0 helps you maintain user metadata and identity in general, by reading our **Concepts**. Here you can learn more about the standards we use, the best practices to follow and all things security.
-* Already know what to do and just need a reference guide to start coding? Check out our **References** section for API endpoints and library methods.
 :::
 
 ::: half-panel
 ## Tutorials
-* link
-* link
-* link
+
 :::
 
 ::: half-panel
 ## How-tos
-* link
-* link
-* link
+* [Read, Create or Edit Metadata](/metadata#how-to-read-create-or-edit-metadata)
+* [Use Rules to Manage Metadata](/rules/current/metadata-in-rules)
+* [Use Lock to Manage Metadata](/metadata#using-lock-to-manage-metadata)
+* [Use Auth0 APIs to Manage Metadata](/metadata/apis)
+* [User Import/Export Extension](/extensions/user-import-export)
+* [Search for Users](/search/v3)
+* [Blacklist User Attributes](/security/blacklisting-attributes)
 :::
 
 ::: half-panel
 ## Concepts
-* [User Profile Overview](/user-profile/overview-user-profile)
+* [Metadata Overview](/metadata/overview-metadata)
 * [GDPR Overview](/compliance/overview-gdpr)
 :::
 
 ::: half-panel
 ## References
 * [Metadata Field Name Rules](/metadata/metadata-field-name-rules)
+* [Metadata Restrictions](/metadata#metadata-restrictions)
+* [Metadata and Custom Databases](/metadata#metadata-and-custom-databases)
+* [Lock Library](https://github.com/auth0/lock)
+* [Lock Reference Docs](/libraries#lock)
+* [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
+* [Identity Providers Supported](/connections/identity-providers-supported)
+* [User Search Query Syntax](/search/v3/query-syntax)
+* [User Search Best Practices](/user-profile/user-search-best-practices)
 * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-* [User Profile Structure](/user-profile/user-profile-structure)
 :::
 
 ::: full-panel
-## What's Next
+# What's Next
 
 * [Manage Users and User Profiles](microsite-manage-users-and-user-profiles)
 * [Manage User Metadata](microsite-manage-user-metadata)
