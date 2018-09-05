@@ -134,6 +134,8 @@ We do **not** recommend that you use this endpoint for:
 
 The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
 
+::: note The user ID should be URL encoded since it may contain characters that do not work well in a URL. :::
+
 *Required Scopes*: `read:users`
 
 ```har
