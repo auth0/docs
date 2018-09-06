@@ -135,19 +135,11 @@ The **Try** button works for users logged in to Auth0 dashboard. You can't send 
 
 ## IdP Initiated SignOn
 
-**Beginning with auth0.js v9.3.4 and Lock v11.4.0, you must [set the `enableIdPInitiatedLogin` option](/protocols/saml/idp-initiated-sso#lock-auth0-js) to use IdP-initiated login.**
-
 Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single sign on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
 Be sure to change `YOUR_CONNECTION_NAME` to the name of your Auth0 Connection.
 
-Lastly, you'll need to select the Application to which the Auth0 redirects after it validates the SAML Response.
-
-Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider**. On the row associated with Okta, click **Settings**, and switch to the **IdP-Initiated SSO** screen.
-
-Set the **Default Application** and indicate that the **Response Protocol** is *SAML*.
-
-![Enable IDP](/media/articles/saml/identity-providers/okta/enable-idp-connection.png)
+See [IdP-Initiated SSO](/protocols/saml/idp-initiated-sso) for information on configuring your Auth0 Connection to route the incoming SAML Response.
 
 Click **Save**.
 
