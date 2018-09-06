@@ -135,9 +135,7 @@ The **Try** button works for users logged in to Auth0 dashboard. You can't send 
 
 ## IdP Initiated SignOn
 
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
-
-<%= include('../../../_includes/_deprecate-impersonation.md') %>
+**Beginning with auth0.js v9.3.4 and Lock v11.4.0, you must [set the `enableIdPInitiatedLogin` option](/protocols/saml/idp-initiated-sso#lock-auth0-js) to use IdP-initiated login.**
 
 Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single sign on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
