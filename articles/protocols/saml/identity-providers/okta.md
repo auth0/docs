@@ -141,8 +141,6 @@ Be sure to change `YOUR_CONNECTION_NAME` to the name of your Auth0 Connection.
 
 See [IdP-Initiated SSO](/protocols/saml/idp-initiated-sso) for information on configuring your Auth0 Connection to route the incoming SAML Response.
 
-Click **Save**.
-
 ## Troubleshooting
 
 The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the OpenID Connect protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
