@@ -34,5 +34,5 @@ Once you have selected the appropriate build, any **release notes** applicable w
 To begin the update, click on "Update from Internet." You will be prompted once more to confirm to ensure that the appropriate backups have been made, since PSaaS Appliance updates cannot be undone.
 
 ::: note
-For Non-production (DEV) and Production updates, please submit a [Support ticket](https://support.auth0.com/) indicating your date/time preferences for the update and Auth0 will respond to let you know when a Managed Service Engineer is available to assist with the update. For more information on updates, see [Updating the PSaaS Appliance](/appliance/admin/updating-the-appliance).
+To schedule an update for either your non-Production (Development) or Production environment(s), please submit a [Support ticket](https://support.auth0.com/) that includes your date/time preferences for the update. Auth0 will respond to let you know when a Managed Service Engineer is available to help. For more information on updates, see [Updating the PSaaS Appliance](/appliance/admin/updating-the-appliance).
 :::
