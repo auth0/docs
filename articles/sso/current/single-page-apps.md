@@ -125,6 +125,10 @@ auth0.checkSession({
 });
 ```
 
+### Polling with checkSession()
+
+<%= include('../../_includes/_checksession_polling') %>
+
 ## Run the sample application
 
 When you run the sample app for the first time, you will not have a valid Access Token. As such, the SSO login process errors when attempting silent authentication.
