@@ -54,7 +54,7 @@ There are some cases when third party cookies will not be available. Certain bro
 Using `crossOriginVerification` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome**, **Opera**, and **Safari**, when third party cookies are disabled, cross-origin authentication will not work at all unless you enable [Custom Domains](/custom-domains).
 
 ::: note
-**Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) to prevent 3rd party cookies from being useful in authentication scenarios.
+**Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/). Unfortunately, this also prevent 3rd party cookies from being useful in authentication scenarios. Here's an example of how it affects [token renewal](https://auth0.com/docs/api-auth/token-renewal-in-safari).
 :::
 
 Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
