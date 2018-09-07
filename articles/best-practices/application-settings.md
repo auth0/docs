@@ -14,7 +14,7 @@ useCase:
   - application-settings
 ---
 
-# Best Practices: Application Settings
+# Recommended Application Settings
 
 In this article, you'll learn some best practices for configuring [applications](/applications).
 

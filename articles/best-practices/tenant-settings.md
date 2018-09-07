@@ -14,7 +14,7 @@ useCase:
   - tenant-settings
 ---
 
-# Best Practices: Tenant Settings
+# Recommended Tenant Settings
 
 In this article, you'll learn some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).
 

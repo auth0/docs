@@ -835,7 +835,25 @@ articles:
           - title: "Security Advice"
             hidden: true
             url: "/compliance/gdpr/security-advice-for-customers"
-      
+  
+  - title: "Best Practices"
+    url: "/best-practices"
+    children:
+      - title: "Tenant Settings"
+        url: "/best-practices/tenant-settings"
+
+      - title: "Application Settings"
+        url: "/best-practices/application-settings"
+
+      - title: "Connection Settings"
+        url: "/best-practices/connection-settings"
+
+      - title: "General Operations"
+        url: "/best-practices/general-operations"
+
+      - title: "Rules"
+        url: "/best-practices/rules"   
+  
   - title: "Support"
     url: "/support"
     children:

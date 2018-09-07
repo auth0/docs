@@ -1,5 +1,5 @@
 ---
-description: Recommendations for using Auth0 Rules.
+description: Best practices for writing and managing Auth0 Rules.
 topics:
   - best-practices
   - rules

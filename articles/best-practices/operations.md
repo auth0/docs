@@ -1,5 +1,5 @@
 ---
-description: General recommendations for using Auth0.
+description: Best practices for general operations in Auth0.
 topics:
   - best-practices
 contentType: 
