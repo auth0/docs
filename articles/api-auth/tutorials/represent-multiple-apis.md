@@ -152,3 +152,7 @@ The app can then use the Access Token to call the API on behalf of the user.
 After logging in, you can see buttons that allow you to call either of your APIs.
 
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
+
+## Polling checkSession() to attain SSO or SLO
+
+<%= include('../../_includes/_checksession_polling') %>
