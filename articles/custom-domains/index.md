@@ -9,6 +9,10 @@ useCase: customize-domains
 ---
 # Custom Domains
 
+::: warning
+PSaaS Appliance customers should see [this page](/appliance/custom-domains) for information on using custom domains.
+:::
+
 Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain.
 
 For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
@@ -169,3 +173,24 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 If your application issues an `/authorize` request with `audience=https://login.northwind.com/userinfo`, the server will return a `Service not found: https://login.northwind.com/userinfo` error. This is because even if you set a custom domain the API identifier for the `/userinfo` endpoint remains `https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. 
 
 To fix this your app should instead use `audience=https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. You can also remove this `audience=[...]/userinfo` parameter altogether if your application is flagged as **OIDC-Conformant** in the **OAuth2** tab of the application's **Advanced Settings**.
+
+### Errors related to Internet Explorer
+
+If you are using Internet Explorer, you may see any of the following error messages:
+
+* "No verifier returned from client"
+* "Origin header required"
+* "Failed cross origin authentication"
+
+#### Why you see these errors
+
+When both the Auth0 domain and the app domain are in the same trusted or local intranet zone, Internet Explorer does *not* treat the request as a cross-domain request and therefore does not send the cross-origins header.
+
+If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone. To do this:
+
+1. Go to Internet Options > Security. 
+2. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
+3. Return to the **Security** tab, and make sure the proper zone has been selected.
+4. Click **Custom Level** and look for **Access data sources across domains** under the **Miscellaneous** section. Check the radio button next to **Enable.**.
+
+Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login)

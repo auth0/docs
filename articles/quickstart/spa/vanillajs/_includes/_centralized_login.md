@@ -21,7 +21,6 @@ window.addEventListener('load', function() {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     responseType: 'token id_token',
-    audience: 'https://${account.namespace}/userinfo',
     scope: 'openid',
     redirectUri: window.location.href
   });

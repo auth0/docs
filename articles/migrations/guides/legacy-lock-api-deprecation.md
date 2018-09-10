@@ -152,11 +152,9 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 ##### Polling for an existing session
 
-In some multi-application scenarios, where a user logging out of one application needs to be logged out of other applications, an application may have been set up to periodically poll Auth0 using `getSSOData()` to see if a session existed, and if not, log the user out of the application. 
+<%= include('../../_includes/_checksession_polling') %>
 
-Instead of doing this, applications should now use `checkSession()` instead of `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
-
-The poll interval between checks to `checkSession()` should be at least 15 minutes between calls to avoid any issues in the future with rate limiting of this call.
+This was previously done with `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
 
 #### Web applications
 

@@ -23,7 +23,6 @@ export default class Auth {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://${account.namespace}/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
   });

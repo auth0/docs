@@ -133,6 +133,10 @@ The response will contain a [signed JWT](/jwt), when it expires, the scopes gran
 
 From the above we can see that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
+#### Use Auth0's Node.js Client Library
+
+As an alternative to making HTTP calls, you can use the [node-auth0](https://www.npmjs.com/package/auth0) library to automatically [obtain tokens for the Management API](https://www.npmjs.com/package/auth0#user-content-management-api-client).
+
 ### Step 2. Use the token
 
 To use this token, include it in the `Authorization` header of your request.

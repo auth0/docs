@@ -106,6 +106,10 @@ When the Access Token has expired, silent authentication can be used to retrieve
 
 In the case of single-page applications, the [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
 
+## Polling with checkSession()
+
+<%= include('../../_includes/_checksession_polling') %>
+
 ### How to implement
 
 Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:

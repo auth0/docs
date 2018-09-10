@@ -114,7 +114,6 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Passwordless Authentication](/connections/passwordless)
 - [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
 - [Authenticate users with a one-time code via SMS](/connections/passwordless/sms)
-- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
 - [Passwordless FAQ](/connections/passwordless/faq)
 
 ## Authenticate User

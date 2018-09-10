@@ -24,11 +24,11 @@ If you wish to access more [Management API](/api/management/v2) endpoints inside
 
 ## How to access a newer version of the library
 
-You can load a newer version of the Auth0 Node.js client library by requiring the specific version on the library. The sample code below loads version `2.6.0` of the library, then query the list of users and log the users to the console (to be inspected with the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs)):
+You can load a newer version of the Auth0 Node.js client library by requiring the specific version on the library (check the [repository](https://github.com/auth0/node-auth0) for up-to-date version information). The sample code below loads version `2.9.1` of the library, then query the list of users and log the users to the console (to be inspected with the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs)):
 
 ```js
 function (user, context, callback) {
-  var ManagementClient = require('auth0@2.6.0').ManagementClient;
+  var ManagementClient = require('auth0@2.9.1').ManagementClient;
   var management = new ManagementClient({
     token: auth0.accessToken,
     domain: auth0.domain

@@ -57,7 +57,6 @@ In this tutorial, the route is `/callback`, which is implemented in the [Add a C
       clientID: '${account.clientId}',
       domain: '${account.namespace}',
       responseType: 'token id_token',
-      audience: 'https://${account.namespace}/userinfo',
       redirectUri: 'http://localhost:3000/callback',
       scope: 'openid'
     });

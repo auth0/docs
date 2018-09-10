@@ -26,6 +26,7 @@ In this article you'll learn how to search for users and sort the results.
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the [section on migrating from v2 to v3](#migrate-from-search-engine-v2-to-v3) below.
 * You'll need a token to make requests to the Management API. Check out [How to Get an Access Token for the Management API](/api/management/v2/tokens) for more information.
 * To perform user search requests the `read:users` [scope](/scopes/) is required.
+* Note that the user search engine v3 is not available in Management API v1, which is deprecated. If you are using the Management API v1, you will need to upgrade to [Management API v2](/api/management/v2) before being able to use the user search engine v3. See [Management API v1 vs v2](/api/management/v2/changes) for more information.
 
 ## Limitations
 
@@ -181,7 +182,6 @@ The user search engine v2 has been deprecated as of **June 6th 2018** and will b
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
 * Wildcards can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
 * The `.raw` field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the `.raw` suffix.
-* The `_missing_` filter is not supported, consider using `NOT _exists_:...` instead.
 
 ### Queries to migrate
 
@@ -198,7 +198,7 @@ Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `na
 
 ### Impacted SDKs
 
-The following SDKs make use of the User Search engine. Make sure you are using the versions listed below (or a later version), and pass the `search_engine=v3` parameter when performing user search operations.
+The following SDKs make use of the User Search engine. If you are using them, make sure you are using the versions listed below (or a later version), and pass the `search_engine=v3` parameter when performing user search operations.
 
 SDK | Version with support for v3 | Impacted methods | Considerations
 ----|-----------------------------|------------------|---------------
@@ -208,6 +208,15 @@ SDK | Version with support for v3 | Impacted methods | Considerations
 [Auth0 .NET](https://github.com/auth0/auth0.net) | 3.0.0 or 4.0.0 | Auth0.ManagementApi.IUsersClient.GetAllAsync | Provide a `GetUsersRequest` object with `SearchEngine` = `"v3"`
 [Auth0 PHP](https://github.com/auth0/auth0-php) | 5.2.0 | Auth0.SDK.API.Management.Users.getAll | Provide the parameter `'search_engine' => 'v3'`
 [Auth0 Ruby](https://github.com/auth0/ruby-auth0) | 4.5.0 | Auth0.Api.V2.Users.users | Provide the parameter `search_engine: 'v3'`
+
+### Impacted Extensions
+
+The following Extensions make use of the User Search engine. If you have them installed, make sure you are using the versions listed below (or a later version).
+
+Extension | Version with support for v3 | Considerations
+----------|-----------------------------|---------------
+[Authorization Extension](/extensions/authorization-extension/v2) | 2.5.0 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page.
+[Delegated Administration](/extensions/delegated-admin/v3) | 3.1 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page. The `SEARCH_ENGINE` configuration setting no longer exists in 3.1, because only User Search v3 is available.
 
 ### Leverage your tenant logs to find usage of User Search v2
 
