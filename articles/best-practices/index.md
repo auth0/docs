@@ -13,7 +13,7 @@ useCase:
 
 Learn about best practices we recommend to get the most out of Auth0.
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'best-practices/tenant-settings',
   'best-practices/application-settings',
   'best-practices/connection-settings',
