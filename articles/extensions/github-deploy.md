@@ -31,6 +31,7 @@ Set the following configuration variables:
 
 Once you have provided this information, click **Install**.
 
+
 Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the __Installed Extensions__ tab.
 
 Click on the row for the __GitHub Deployments__ extension. The first time you click on your installed extension, you will be asked to grant it to access your GitHub account.
