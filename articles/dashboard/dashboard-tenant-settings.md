@@ -84,6 +84,8 @@ Allows you to specify the **SSO Cookie Timeout**. This value is the login sessio
 
 This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
 
+Auth0 also sets a value for the session idle timeout, which is the allowed duration of inactivity for a session before a new session is required. Currently, this value is set at 7 days and is not configurable. If the **SSO Cookie Timeout** is set to longer than the idle timeout, then if the session is not used within 7 days, the session will expire and a new session must be created.
+
 Learn more about [Single Sign On](/sso/current).
 
 ### Global Application Information
