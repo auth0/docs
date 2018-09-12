@@ -5,8 +5,7 @@ topics:
   - configuration
   - application
   - settings
-contentType: 
-    - index
+contentType:
     - reference
 useCase:
   - best-practices

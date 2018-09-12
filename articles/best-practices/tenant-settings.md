@@ -5,8 +5,7 @@ topics:
   - configuration
   - settings
   - tenant
-contentType: 
-    - index
+contentType:
     - reference
 useCase:
   - best-practices

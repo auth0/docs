@@ -12,7 +12,7 @@ useCase:
 
 # Best Practices
 
-Learn about best practices we recommend to get the most out of Auth0.
+Our best practices guides have information on how to configure and use Auth0. We'll share recommended configuration settings, help you troubleshoot applications, and show you how to get the most out of different Auth0 features.
 
 <%= include('../_includes/_topic-links', { links: [
   'best-practices/tenant-settings',
