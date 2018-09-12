@@ -20,7 +20,7 @@ In this article, you'll learn some best practices for configuring [connections](
 
 ## Use your credentials for social connections
 
-Auth0 provides [default credentials](/connections/social/devkeys) for [social connections](/social/connections) to help you get started. You should replace these temporary credentials with your own to avoid restrictions.
+Auth0 provides [default credentials](/connections/social/devkeys) for [social connections](/identityproviders#social) to help you get started. You should replace these temporary credentials with your own to avoid restrictions.
 
 ## Review requested data
 
@@ -40,7 +40,7 @@ Only enable this setting for production tenants if you allow end users to sign u
 
 ## Review applications enabled for each connection
 
-For each connection, review the list of allowed applications. Make sure there are no unintended authentication paths into an application. By default, new applications have all connections enabled, which may not be appropriate.
+For each connection, review the list of allowed applications. Make sure there are no unintended authentication paths into an application. By default, new applications may have all of your tenant's connections enabled, which may not be appropriate.
 
 ## Use RSA-SHA256 for SAML connections
 

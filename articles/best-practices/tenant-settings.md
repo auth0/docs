@@ -66,8 +66,6 @@ In your [tenant's advanced settings](${manage_url}/#/tenant/advanced), turn off 
 
 If this setting is on, all configured connections are enabled for new applications you create, so users may be able to login to an application with an unintended connection. By having connections disabled by default, you can explicitly enable the connections appropriate for each application.
 
-https://auth0.com/docs/dashboard/dashboard-tenant-settings#settings
-
 ## Turn on Anomaly Detection
 
 To protect against brute force attacks, [turn on and configure Auth0 Anomaly Detection](/anomaly-detection). Also configure [Breached Password Protection](/anomaly-detection/breached-passwords) in Anomaly Detection, if you have purchased it.

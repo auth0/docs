@@ -26,7 +26,7 @@ Confirm your application code uses the correct Client ID. You can find the Clien
 
 Make sure the correct [application type](/applications/application-types) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
 
-## Flag third party applications
+## Flag third-party applications
 
 You should flag [first-party and third-party applications](/applications/application-types#first-vs-third-party-applications). First-party applications can be configured from the [Applications page](${manage_url}/#/applications) of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
 
@@ -34,7 +34,7 @@ You should flag [first-party and third-party applications](/applications/applica
 
 Set the [ID Token expiration time](/tokens/id-token#token-lifetime) in your Application Settings. By default ID Tokens expire after 10 hours.
 
-Once issued, [an ID Token cannot be revoked](/id-token#revoke-access). So use a short expiration time and renew the session, if the user remains active.
+Once issued, [an ID Token cannot be revoked](/tokens/id-token#revoke-access). So use a short expiration time and renew the session, if the user remains active.
 
 ## Do not use wildcards or localhost in callbacks or origins fields
 
@@ -54,14 +54,14 @@ Make sure that RS256 is the signature method for signing JSON Web Tokens (JWT). 
  
 [Auth0 Blog: Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/)
 
-### OIDC compliant
+### OIDC conformant
 
-If your application is not [OIDC compliant](/api-auth/intro), review the [migration steps required](/api-auth/tutorials/adoption). After review, migrate your applications to be OIDC compliant.
+If your application is not [OIDC conformant](/api-auth/intro), review the [migration steps required](/api-auth/tutorials/adoption). After review, migrate your applications to be OIDC conformant.
 
-You can test if an application is OIDC compliant by turning on the OIDC compliant toggle and testing your application.
+You can test if an application is OIDC conformant by turning on the OIDC conformant toggle and testing your application.
 
 ::: note
-This setting only applies to older tenants, created before Dec 27th 2017. Newer tenants, created after that date, can only use OIDC-compliant behavior.
+This setting only applies to older tenants, created before Dec 27th 2017. Newer tenants, created after that date, can only use OIDC conformant behavior.
 :::
 
 ## Restrict Delegation

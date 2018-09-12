@@ -13,7 +13,7 @@ useCase:
 
 # Best Practices: Rules
 
-In this article, you'll learn some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/current#what-can-i-use-rules-for-) and take a look at some [examples](/rules/current#examples)
+In this article, you'll learn some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/rules/current#what-can-i-use-rules-for-) and take a look at some [examples](/rules/current#examples)
 
 ## Handle errors
 
@@ -33,17 +33,15 @@ For example, if a rule has 3 checks to decide if it should run, the first check 
 
 Try not to use a lot of API calls in rules. Too many can slow down login response time and may cause failures during a timeout.
 
-Avoid calling the Management API in if possible, especially in high volume environments.
+Avoid calling the Management API if possible, especially in high volume environments.
 
 ## Cache results
 
-Rules have a [global variable you can use to cache information](/rules/current#cache-expensive-resources). Use it when making non-user specific API calls and cache the results between users. For example, getting an access token to your API.
+Rules have a [global variable you can use to cache information](/rules/current#cache-expensive-resources). For API calls that are not user-specific, use this variable to cache the results between users. For example, getting an access token to your API.
 
 ## Limited read or update users scopes
 
 If you use the [Management API in rules](/rules/current/management-api) for the limited scope of reading or updating the current user, use the `auth0.accessToken` variable instead. This token will suffice if you only need the `read:users` and `update:users` scopes.
-
-https://auth0.com/docs/rules/current/management-api
 
 ## Rules for specific applications
 
