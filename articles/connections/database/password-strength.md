@@ -1,7 +1,6 @@
 ---
 title: Password Strength in Auth0 Database Connections
 description: Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match OWASP password recommendations.
-crews: crew-2
 topics:
     - connections
     - database
@@ -30,14 +29,31 @@ Auth0's Password Strength feature allows you to customize the level of enforced 
 
 At each level, new passwords must meet the following criteria:
 
- * **None** (default): at least 1 character of any type.
- * **Low**: at least 6 characters.
- * **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
- * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
- * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
+* **None** (default): at least 1 character of any type.
+* **Low**: at least 6 characters.
+* **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
+* **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
+* **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
 
+## Minimum password length
 
-## Change Your Policy
+You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
+
+The minimum password length you can set is **1**, while the maximum is **128**.
+
+If you opt for a higher-level password policy, but you do not specify a minimum length value, the minimum password length for the policy level will automatically be used:
+
+| Password Policy Level | Minimum Password Length |
+| - | - |
+| None | 1 |
+| Low | 6 |
+| Fair | 8 |
+| Good | 8 |
+| Excellent | 10 |
+
+If you provide a minimum password length, this value superceeds that indicated by the password policy.
+
+## Change your policy
 
 To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
 
@@ -61,7 +77,7 @@ and on mobile:
 
 ![Auth0 Lock Password Strength checks on Mobile](/media/articles/connections/database/password-strength/moUbn4XXxR.png)
 
-## Custom Signup Errors
+## Custom signup errors
 
 Sign-up errors will return a 400 HTTP status code. The JSON response will contain `code: invalid_password` when the password does not meet the selected password policy criteria.
 
@@ -113,6 +129,6 @@ This is a sample `description` error report from a `good` policy with `hello1234
     }
 ```
 
-## Password Options
+## Password options
 
 In addition to the Password Strength feature explained here, the Password Policy settings for a database connection also include various Password Options that can further enhance your connection's password policy and ensure that your users have more secure passwords. Take a look at the [Password Options](/connections/database/password-options) documentation for more information.
