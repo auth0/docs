@@ -24,7 +24,7 @@ You can obtain JWTs for testing using any of the following methods:
 
 2. Use a browser bot (such as Selenium) to play the role of a user, log in and retrieve a JWT. While this approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
-## Use sessions with server-side spplications
+## Use sessions with server-side applications
 
 Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
