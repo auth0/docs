@@ -31,11 +31,12 @@ Alternatively, if there are any issues, `/testall` returns a `5xx` response code
 ## Monitoring Individual Nodes
 
 Typically, the above endpoint will reach the load balancer, but since a typical, highly-available deployment will have at least three nodes, Auth0 recommends monitoring those endpoints as well:
-Note: It should be http not https in below examples as https would check for the certs and will fail since we use IPs
 
 * `http://{IP Address Node 1}/testall`
 * `http://{IP Address Node 2}/testall`
 * `http://{IP Address Node 3}/testall`
+
+Be sure to use the `http` *not* `https` in your URLs.
 
 ### Non-Responsive Nodes
 
