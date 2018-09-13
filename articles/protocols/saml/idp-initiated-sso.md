@@ -19,8 +19,6 @@ However, in enterprise scenarios, it is more common to begin with the identity p
 
 ## How to set up IDP-initiated SSO
 
-<%= include('../../_includes/_deprecate-impersonation.md') %>
-
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
 ![](/media/articles/protocols/saml/idp-init-sso.png)
