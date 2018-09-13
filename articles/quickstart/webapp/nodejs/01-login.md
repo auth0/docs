@@ -85,7 +85,7 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 ```
-Please make sure these last 2 commands are in your code after the application of the express middleware (`app.use(session(sess)`).
+Please make sure these last two commands are in your code after the application of the express middleware (`app.use(session(sess)`).
 
 ### Storing and retrieving user data from the session
 
