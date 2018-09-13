@@ -30,7 +30,7 @@ To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *S
 
 4. Click **Save**.
 
-5. To get your *key* and *secret*, on the page that follows, click the name of your app under **OAuth consumers** to reveal your keys.
+5. To get your *Key* and *Secret*, on the page that follows, click the name of your app under **OAuth consumers** to reveal your keys.
 
 6. Copy your *Client Id* and *Client Secret* into Auth0. In a separate window, log in to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. Select **Bitbucket**:
 
