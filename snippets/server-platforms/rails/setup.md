@@ -7,8 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     '${account.namespace}',
     callback_path: '/auth/oauth2/callback',
     authorize_params: {
-      scope: 'openid profile',
-      audience: 'https://${account.namespace}/userinfo'
+      scope: 'openid profile'
     }
   )
 end
