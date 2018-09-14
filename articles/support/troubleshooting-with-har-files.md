@@ -59,5 +59,4 @@ For example:
 * There may be redirects to remote identity providers to prompt the user to log in.
 * Then there should be a redirect back to Auth0 `/login/callback` (`https://login.auth0.com/login/callback`).
 * Then there should be a redirect back to your application’s callback URL.
-Redirect to your callback URL
 
