@@ -47,7 +47,7 @@ You need to provide the following information for your API:
 
 - **Name**: a friendly name for the API. Does not affect any functionality.
 
-- **Identifier**: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value **cannot be modified** afterwards.
+- **Identifier**: a unique identifier for the API. Auth0 recommends using a URL. Auth0 does differentiate between URLs that include the last forward slash. For example, https://example.com and https://example.com/ are two different identifiers. The URL does not have to be a publicly available URL. Auth0 will not call your API. This value **cannot** be modified afterwards. 
 
 - **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the tenant's private key. For more details on the signing algorithms go to the [Signing Algorithms paragraph](#signing-algorithms).
 
