@@ -1856,5 +1856,9 @@ module.exports = [
    {
      from: '/applications/application-settings/single-page-app',
      to: '/applications/spa#settings'
+   },
+   {
+     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
+     to: '/hrd'
    }
 ];
