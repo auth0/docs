@@ -27,10 +27,10 @@ More specifically, each major release for the PSaaS Appliance includes fixes for
 
 ## Problems that may arise due to delayed or skipped updates
 
-By upgrading routinely, you can be assured that you are working with a copy of the PSaaS Appliance that is fully-functional and secure. Conversely, if you do not upgrade, your environment becomes, over time, one riddled with known vulnerabilities, leading to it becoming less secure.
+By upgrading routinely, you can be assured that you are working with a version of the PSaaS Appliance that is fully-functional and secure. Conversely, if you do not upgrade, your environment becomes, over time, unsupported and less secure.
 
-Furthermore, lack of updates to the PSaaS Appliance over time makes it difficult when you do get to the point where you want to update. Because updates are cumulative, skipping updates makes it more likely that a given update will introduce problematic changes to your environment. By updating at each possible opportunity, you are making incremental changes to your environment. If there were ever to be issues regarding these changes, they would tend to be less problematic overall.
+Furthermore, lack of updates to the PSaaS Appliance over time makes it difficult when you do get to the point where you want to update. Because updates are cumulative, skipping updates means that you will have more changes that need to be tested. By updating at each possible opportunity, you are making smaller changes to your environment. 
 
 ## Testing in the Development Environment to ensure smooth updates
 
-Auth0 provides a Development environment at no cost to you. The purpose of this environment is to test future upgrades to identify any issues that might pop up. Auth0 works with you to resolve any problems identified during your testing, and only when both parties are comfortable should the upgrade proceed. 
+Auth0 provides a Development environment at no cost to you. The purpose of this environment is to test future upgrades to identify any issues before updating your production environment. Auth0 works with you to resolve any problems identified during your testing, and only when both parties are comfortable should the upgrade proceed to production. 
