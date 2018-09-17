@@ -101,7 +101,19 @@ If successful, you'll receive a response like this:
 }
 ```
 
-Next the user should receive an email containing the code. Once they enter the code in your application, enrollment of the email authenticator will be complete.
+Next the user should receive an email containing the 6-digit code, which they can provide to the application. To complete enrollment of the email authenticator, make a `POST` request to the `/oauth/token` endpoint and include the provided code as the `binding_code`. Be sure to replace the placeholder values shown below as appropriate.
+
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "postData": {
+        "mimeType": "application/json",
+        "text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
+    }
+}
+```
+
 
 For more information on how to customize the email template, check out [Customizing Your Emails](/email/templates).
 
