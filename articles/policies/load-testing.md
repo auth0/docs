@@ -19,11 +19,9 @@ However, customers who have purchased an Enterprise subscription may request one
 Note that Auth0 reserves the right to reject the load test request, or ask for modifications to the load test plans.
 ## How to request
 
-* Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}).
+* Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}), under the "Public Cloud Support Incident" issue type.
 * Requests must be filed at least two (2) weeks in advance of the desired test date.
 * Requests must be approved in writing before any load/performance testing is conducted.
-
-* Customers must have configured their own email provider within the Auth0 dashboard (Email -> Providers) before a load testing request will be approved.
 
 ## Test windows
 Approved load testing windows are subject to availability of testing windows on a first-come first-served basis. Customers are encouraged to submit requests well in advance of the 2-week advance notice period.
@@ -36,7 +34,8 @@ It is common for an initial load test to experience some unexpected issues, resu
 The load testing request must include the following information:
 
 * A description of the test to be done
-* The Auth0 tenant to be used during the test
+* The name of the Auth0 tenant to be used during the test
+* The date and time when the test will be performed
 * The requested duration of the test (2 hour maximum)
 * The Auth0 features, such as rules, email, used during the test
 * The Auth0 API methods and endpoints to be used, for example `GET /api/v2/clients`
@@ -64,4 +63,4 @@ Auth0 reserves the right to reject the load testing request, or ask for modifica
 A load testing approval will specify pre-arranged dates/times in which load testing can be performed.  All load testing must be limited to those pre-arranged dates/times. Load testing windows will be a maximum of 2 hours in duration. Failure to abide by this policy may result in temporary blocking of access to an tenant until the issue is remediated.
 
 ## Effectivity
-This policy is effective April 4, 2016. It has been updated on July 27th, 2018.
+This policy is effective April 4, 2016. It has been updated on September 17th, 2018.
