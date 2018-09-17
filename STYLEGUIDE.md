@@ -155,7 +155,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Setup the login screen. | Set up the login screen. |
 | Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. |
 
-* Use "multifactor authentication" instead of "multi-factor authentication".
+* Use "multi-factor authentication" instead of "multifactor authentication".
 * Use "email address" instead of "e-mail address".
 * Use "website" instead of "web site".
 * Use "click on" when referring to text links in a webpage or UI. Use "click" when referring to a button.

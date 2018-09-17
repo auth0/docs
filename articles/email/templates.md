@@ -4,6 +4,7 @@ topics:
   - email
 contentType: how-to
 useCase: customize-emails
+toc: true
 ---
 
 # Customizing Your Emails

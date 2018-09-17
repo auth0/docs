@@ -14,7 +14,7 @@ useCase:
 
 ## Enabling Google Authenticator for MFA
 
-To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Google Authenticator for two-step verification, first visit the [Multi-factor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 
@@ -90,7 +90,7 @@ The next time the user logs in they will need to resetup their MFA just like a n
 
 ## Disabling Google Authenticator
 
-Google Authenticator can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider.
+Google Authenticator can be disabled from the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 

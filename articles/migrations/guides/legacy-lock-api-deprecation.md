@@ -11,13 +11,9 @@ useCase:
 ---
 # Legacy Lock API Deprecation
 
-On April 4, 2018, Auth0 [publicly disclosed a vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). That vulnerability resulted in the deprecation of two endpoints in the Auth0 API, and the libraries and SDKs which used those endpoints. Due to this vulnerability, those endpoints (and thus, the deprecated versions of the libraries) were removed from service on **July 16, 2018**.
+On April 4, 2018, Auth0 [publicly disclosed a vulnerability](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). That vulnerability resulted in the deprecation of two endpoints in the Auth0 API, and the libraries and SDKs which used those endpoints. These endpoints were disabled on **July 16, 2018**, beginning a [brief grace period](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) in which usage of the endpoints could be re-enabled on a per-tenant basis until a migration could be completed. The endpoints have been removed from service as of **August 6, 2018**.
 
-:::note
-As of the week of July 16, 2018, the Legacy Lock API will be disabled. This is a soft removal, so you will have a brief grace period during which you can temporarily re-enable the feature in order to make any necessary changes. See the [soft removal announcement](https://community.auth0.com/t/soft-removal-of-legacy-lock-api/12949) for more details.
-:::
-
-The purpose of this guide is to help you to select the best migration path for your application(s) if you are impacted by the deprecation notice. 
+The purpose of this guide is to help you to select the best migration path for your application(s) if you are impacted by the deprecation. 
 
 ## Am I affected?
 
@@ -28,14 +24,6 @@ If your applications match any of the following cases, you are affected:
 * Use of /user/ssodata endpoint directly from applications
 
 If you do not use the above libraries and do not specifically call the above endpoints, you are not affected. No libraries which are not specifically named are affected by this vulnerability, or in turn, by the migration.
-
-::: panel-warning Dashboard Warning Banner - Legacy Lock API Enabled
-You may see this warning panel when you log in to the Dashboard: 
-
-_Your tenant has the Legacy Lock API enabled. Please follow our Deprecation Guide then disable the Legacy Lock API in your advanced settings. The Legacy Lock API will be removed on July 16th, 2018 and your applications will no longer work if you have not fully migrated._
-
-This is because you have not turned off the Legacy Lock API switch in your [Advanced Settings](${manage_url}/#/tenant/advanced). If you are not affected by the migration, or have already completed it, turn that setting off to remove the warning.
-:::
 
 ### If you already use Universal Login / Hosted Login Page
 
@@ -61,7 +49,7 @@ If neither of these recommendations (Universal Login or embedded + custom domain
 
 ## What do I do?
 
-All applications _must_ stop using the deprecated endpoints / library versions, as they have been removed from service as of July 16, 2018, and those applications will cease to work correctly. There are two options for migration:
+All applications _must_ stop using the deprecated endpoints / library versions, as they have been removed from service as of August 6, 2018. Applications using those endpoints will no longer function correctly. There are two options for migration:
 
 ### 1. Migrate to Universal Login
 
@@ -74,7 +62,7 @@ Universal Login is **strongly** recommended for most use cases because it [offer
 * Fully customizable in terms of colors, text, logos, buttons as well as [custom domain](/custom-domains).
 * Provides proper cache control to avoid browsers caching old versions.
 * Can leverage either the [Lock Widget](/libraries/lock) or [Auth0.js SDK](/libraries/auth0js) for flexibility in appearance and function.
-* Works with any type of Auth0 connection as well as [multifactor authentication](/multifactor-authentication).
+* Works with any type of Auth0 connection as well as [multi-factor authentication](/multifactor-authentication).
 
 #### Universal Login migration guides
 
@@ -144,7 +132,7 @@ Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custo
 
 #### Single Page Applications
 
-If a user navigates to a new page in a Single Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in auth0.js v8 or prior. The /ssodata endpoint is deprecated and was removed from service on **July 16, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
+If a user navigates to a new page in a Single Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in Auth0.js v8 or prior. The /ssodata endpoint is deprecated and was removed from service on **August 6, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
 
 ::: note
 The `getSSOData()` and `checkSession()` functions should only be used from a Single Page Application
@@ -164,11 +152,9 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 ##### Polling for an existing session
 
-In some multi-application scenarios, where a user logging out of one application needs to be logged out of other applications, an application may have been set up to periodically poll Auth0 using `getSSOData()` to see if a session existed, and if not, log the user out of the application. 
+<%= include('../../_includes/_checksession_polling') %>
 
-Instead of doing this, applications should now use `checkSession()` instead of `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
-
-The poll interval between checks to `checkSession()` should be at least 15 minutes between calls to avoid any issues in the future with rate limiting of this call.
+This was previously done with `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
 
 #### Web applications
 
@@ -189,35 +175,12 @@ The solution for the Kerberos case is to [migrate to Universal Login](#1-migrate
 * Use `getSSOData()` to achieve an automatic login
 * Use Lock and get the **Use Windows Authentication** button (log in with Kerberos).
 
-
 ## Troubleshooting
 
 ### How to tell if you have deprecated usage
 
 Please take a look at the [Deprecation Error Reference](/errors/deprecation-errors) to assist with verifying that your application does, or does not, use deprecated features.
 
-### How to test whether you are ready before the removal of service date
-
-Auth0 has provided a toggle in the tenant settings in the [Dashboard](${manage_url}) to allow customers to turn off the legacy endpoints manually for their tenant ahead of the deprecation deadline of July 16, 2018. Navigate to the tenant settings screen, **Advanced** tab and scroll down to the block of migration toggles.
-
-![Allowed Web Origins](/media/articles/libraries/lock/legacy-lock-api-off.png)
-
-Turn off the **Legacy Lock API** toggle to stop your tenant from being able to use those endpoints. This toggle allows you to test the removal of the deprecated endpoints with the ability to turn them back on if you encounter issues.
-
-::: note
-Tenants created after Dec 27, 2017 were not allowed to begin usage of these deprecated features, and therefore do not have the Legacy Lock API toggle.
-:::
-
 ### Bookmarking the login page
 
 Bookmarking the Universal Login page is not supported. If a user bookmarks the login page and attempts to initiate authentication by going directly to the bookmarked URL instead of starting from the application, the following error message will be shown: `Password login is disabled for clients using externally hosted login pages with oidc_conformant flag set`.
-
-### Fingerprinting error
-
-For any customers who have not quite finished migrating away from the above deprecated features, Auth0 has [implemented a temporary solution](/cross-origin-authentication/fingerprinting) to help mitigate the severity of the issues with the deprecated endpoints. This solution relies on "fingerprinting" checks on the successive calls in an authentication transaction.  
-
-If any authentication requests are being rejected by the fingerprinting solution, they can be identified with the following query against logs:
-
-Description: "Unable to verify transaction consistency"
-
-Customers who have any transactions rejected by the fingerprinting checks should complete their upgrades to resolve the issue.

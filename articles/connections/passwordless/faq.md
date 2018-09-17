@@ -112,7 +112,7 @@ In future versions of passwordless connections, supported MFA providers will be 
 
 ### Q: How could I use Passwordless sign in with *step-up* multi-factor authentication to improve security for more sensitive data or actions?
 
-**A:** Auth0 features powerful [rules](/rules) - JavaScript snippets which run during the authentication process on the Auth0 server, and allow you to insert additional authentication elements when potentially high-risk logins are detected. For instance, if your application detects a user logging in from a previously unknown IP address with a location outside of the user’s home country, your application might request a password, or ask a security question from inside of Auth0’s authentication flow.
+**A:** Auth0 features powerful [rules](/rules) - JavaScript snippets which run during the authentication process on the Auth0 server, and allow you to insert additional authentication elements when potentially high-risk logins are detected. For instance, if your application detects a user logging in from a previously unknown IP address with a location outside of the user’s home country, your application might request a password.
 
 In future versions of passwordless logins, support for multi-factor *step-up* authentication will be added as part of the passwordless configuration options, replacing the use of rules to implement this security enhancement.
 

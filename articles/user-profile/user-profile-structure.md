@@ -37,7 +37,7 @@ The following attributes are available on the user profile.
     * `user_id`: The user's unique identifier for this connection/provider
 
 
-* `multifactor`: The list of multifactor providers in which the user is enrolled.
+* `multifactor`: The list of multi-factor providers in which the user is enrolled.
 
 * `last_ip`: The IP address associated with the user's last login.
 
@@ -48,6 +48,10 @@ The following attributes are available on the user profile.
 * `name`: The user's name.
 
 * `nickname`: The user's nickname.
+
+* `last_password_reset`: The last time the password was reset/changed.
+
+* `password_set_date`: The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
 
 * `phone_number`: The user's phone number.
 

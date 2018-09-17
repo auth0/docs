@@ -24,7 +24,7 @@ You can obtain JWTs for testing using any of the following methods:
 
 2. Use a browser bot (such as Selenium) to play the role of a user, log in and retrieve a JWT. While this approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
-## Use sessions with server-side spplications
+## Use sessions with server-side applications
 
 Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
@@ -32,7 +32,9 @@ For a high-level overview of how to do this, see [Calling APIs from Server-side 
 
 ## Use local domains with Auth0
 
-If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as callback URLs.
+If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as [callback URLs](/users/redirecting-users). For example, during development you could `http://localhost:3000/callback` as the callback URL.
+
+To set a callback URL, go to [Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the **Allowed Callback URLs** list.
 
 Because Auth0's main identity protocol is [OpenID Connect](/protocols), Auth0 never needs to directly call your application's server. Instead, Auth0 redirects users to your application's endpoint(s) with required information contained in a query string or hash fragment.
 

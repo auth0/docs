@@ -15,7 +15,7 @@ useCase:
 
 An Auth0 **Application** represents your application in Auth0. You first need to define the Application in Auth0 to then be able to add authentication to it.
 
-The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
+The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server. The key point is that applications are primarily meant for human interaction, as opposed to APIs, which provide data to applications through a standardized messaging system.
 
 ## Application Types
 

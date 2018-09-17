@@ -1,4 +1,6 @@
-<!-- markdownlint-disable -->
+::: note
+You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web Origins**, **Allowed Logout URLs**, **Allowed Origins (CORS)** fields.
+:::
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). For production environments, verify that the URLs do not point to localhost. You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 

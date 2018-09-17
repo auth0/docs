@@ -51,32 +51,7 @@ Impersonation **does not work** with the [API Authorization](/api-auth) features
 Impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response. By using impersonation, you acknowledge that you understand and accept these risks.
 :::
 
-If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
-
-```javascript
-var data = webAuth.parseHash(
-  {
-    ...
-    __enableIdPInitiatedLogin: true
-    ...
-  }
-```
-
-If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
-
-```javascript
-const lock = new Auth0Lock(clientID, domain, options)
-```
-
-Here's the flag itself:
-
-```javascript
-var options = {
-    _enableIdPInitiatedLogin: true
-};
-```
-
-Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
+<%= include('../_includes/_enable_idp_initiated.md') %>
 
 ## Use the dashboard
 
@@ -126,7 +101,7 @@ You can use one of two methods to locate the `user_id` of a given user that you 
 
 #### Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) documentation.
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
@@ -271,10 +246,3 @@ Content-Type: application/json
 ```
 
 Congratulations, you are done!
-
-## Keep reading
-
-::: next-steps
-- [Troubleshooting? This is what you shouldn’t do](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
-- [Identity Protocols supported by Auth0](/protocols)
-:::

@@ -14,9 +14,9 @@ useCase:
 
 With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
-For example, Fabrikam's Intranet requires users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) triggers a stronger authentication mechanism like multifactor authentication.
+For example, Fabrikam's Intranet requires users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) triggers a stronger authentication mechanism like multi-factor authentication.
 
-You can add step-up authentication to your app with Auth0's extensible multifactor authentication support. Your app can verify that the user has logged in using multifactor authentication (MFA) and, if not, require the user to step-up to access certain resources.
+You can add step-up authentication to your app with Auth0's extensible multi-factor authentication support. Your app can verify that the user has logged in using multi-factor authentication (MFA) and, if not, require the user to step-up to access certain resources.
 
 ![Step-up flow](/media/articles/mfa/step-up-flow.png)
 

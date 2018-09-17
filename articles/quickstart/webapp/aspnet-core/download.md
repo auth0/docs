@@ -2,12 +2,11 @@ To run the sample follow these steps:
 
 1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
 ```text
-http://localhost:5000/callback
+http://localhost:5001/signin-auth0
 ```
 2) Make sure [.NET Core](https://www.microsoft.com/net/download) is installed, and run the following commands:
 
 ```bash
-dotnet restore
 dotnet run
 ```
 

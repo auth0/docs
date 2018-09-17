@@ -14,10 +14,6 @@ useCase:
 
 # API Authentication and Authorization FAQ
 
-## Can I execute a user consent flow?
-
-Yes! We are working on creating documentation and tutorials for implementing this flow. In the meantime, if you need assistance or more information please contact our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
 ## I have an Application that needs to talk to different Resource Servers
 
 If a single Application needs Access Tokens for different resource servers, then multiple calls to `/authorize` (that is, multiple executions of the same or different Authorization Flow) needs to be performed. Each authorization will use a different value for `audience`, which will result in a different Access Token at the end of the flow.

@@ -468,7 +468,7 @@ For a full spec on every supported parameter check the wiki [article][authparams
 
 ### sso {Boolean}
 
-Sets a cookie used for single sign on. The cookie will be used later to allow `rememberLastLogin` display the **Last time you signed in with ...** message. This only applies to Database Connections when using `popup: true` and fires a popup where authentication takes place. Last but not least, it prompts for a multifactor authentication code, if enabled.
+Sets a cookie used for single sign on. The cookie will be used later to allow `rememberLastLogin` display the **Last time you signed in with ...** message. This only applies to Database Connections when using `popup: true` and fires a popup where authentication takes place. Last but not least, it prompts for a multi-factor authentication code, if enabled.
 
 ::: warning
 Failing to set this to true will result in multi-factor authentication not working correctly.

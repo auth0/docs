@@ -21,6 +21,12 @@ The Auth0 PSaaS Appliance team has ported these changes to the Appliance environ
 
 Auth0 has notified all PSaaS Appliance customers that this release is available.
 
+::: warning
+Beginning with the September 2018 major release **16999**, Node.js v4 will no longer be supported on the PSaaS Appliance. 
+
+Versions **16257** and **16793** support Node.js v4 and v8, so you should test using either version before upgrading to version **16999** or later. 
+:::
+
 ## Background
 
 The Webtask engine powering Auth0 extensibility currently utilizes Node.js v4. On 30 April 2018, [Node.js v4 went out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version.

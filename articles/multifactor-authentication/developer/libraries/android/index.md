@@ -14,9 +14,9 @@ useCase:
 ---
 
 # Guardian for Android
-The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) allows developers to create Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
+The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) allows developers to create Android apps with Guardian functionality, providing easy and secure access to multi-factor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
-More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multifactor discussion, read more [here](/multifactor-authentication).
+More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multi-factor discussion, read more [here](/multifactor-authentication).
 
 Get started using Guardian for Android below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for Android.
 
@@ -40,7 +40,7 @@ After adding your Gradle dependency, make sure to remember to sync your project 
 
 ## Dashboard Settings
 
-To enable Guardian Push Notifications for your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+To enable Guardian Push Notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
@@ -121,7 +121,7 @@ The `deviceName` and `gcmToken` are data that you must provide:
 
 ### Unenroll
 
-To disable multifactor authentication you can delete the enrollment:
+To disable multi-factor authentication you can delete the enrollment:
 
 ```java
 guardian
@@ -131,7 +131,7 @@ guardian
 
 ### Allow a login request
 
-Once you have the enrollment in place, you will receive a GCM push notification every time the user needs multifactor authentication.
+Once you have the enrollment in place, you will receive a GCM push notification every time the user needs multi-factor authentication.
 
 Guardian provides a method to parse the `Bundle` received from GCM and return a `Notification` instance ready to be used.
 

@@ -60,7 +60,7 @@ If an SSO cookie is present you can also sign the user in silently, that is, wit
 Prior to enabling SSO for a given Application, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
-To enable SSO for one of your Applications (recall that each Application is independent of one another), navigate to the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you want to use SSO.
+To configure SSO for one of your Applications (recall that each Application is independent of one another), navigate to the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you want to use SSO.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 

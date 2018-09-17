@@ -114,7 +114,6 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Passwordless Authentication](/connections/passwordless)
 - [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
 - [Authenticate users with a one-time code via SMS](/connections/passwordless/sms)
-- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
 - [Passwordless FAQ](/connections/passwordless/faq)
 
 ## Authenticate User
@@ -215,7 +214,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
 

@@ -29,7 +29,7 @@ Touch ID with Auth0 has been deprecated. This document is offered as reference f
 :::
 
 ::: note
-For an alternative approach, using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in Auth0.swift, refer to [Touch ID Authentication](/libraries/lock-ios/v2/touchid-authentication).
+For an alternative approach, using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in Auth0.swift, refer to [Touch ID Authentication](/libraries/auth0-swift/touchid-authentication).
 :::
 
 <%= include('./_using-lock-ios-touchid', { language: 'swift' }) %>

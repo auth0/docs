@@ -38,7 +38,7 @@ Login to _PingFederate_ as an administrator (the URL would be something like __h
 
 ### 3. Configure the __SP Connection__
 
-Select the __Browser SSO Profles__ as the __Connection Type__:
+Select the __Browser SSO Profiles__ as the __Connection Type__:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-2.png)
 

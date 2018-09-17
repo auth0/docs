@@ -157,7 +157,7 @@ Auth0 will initiate a logout by sending a SAML logout request to the external id
 The external SAML identity provider will need to know where to send SAML logout requests (if initiating the logout) and responses. The __SingleLogout service URL__ that will consume this SAML messages is the following:
 
 ```text
-https://${account.namespace}/logout
+https://${account.namespace}/v2/logout
 ```
 
 When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings with the above URL.
@@ -186,7 +186,7 @@ If your Service Provider supports SAML Single Logout, you will need to configure
 
 #### Non Single Logout Scenario
 
-If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
+If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/v2/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
 
 ## Implementing in your Application
 

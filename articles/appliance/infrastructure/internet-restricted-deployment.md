@@ -48,9 +48,9 @@ To properly render the Dashboard, it accesses the following sites:
 * **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service
 * **fast.fonts.net**: resources include CSS files for font support.
 
-### Multifactor Authentication (MFA)
+### Multi-factor Authentication (MFA)
 
-When using multifactor authentication (MFA), you will need internet access for Guardian MFA (both SMS and push notifications require internet connectivity).
+When using multi-factor authentication (MFA), you will need internet access for Guardian MFA (both SMS and push notifications require internet connectivity).
 
 For limited connectivity options, you may choose from:
 

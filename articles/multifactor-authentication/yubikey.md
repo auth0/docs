@@ -1,5 +1,5 @@
 ---
-description: How to implement Multifactor Authentication Using YubiKey NEO.
+description: How to implement Multi-factor Authentication Using YubiKey NEO.
 toc: true
 topics:
     - mfa
@@ -9,9 +9,9 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Multifactor Authentication with YubiKey NEO
+# Multi-factor Authentication with YubiKey NEO
 
-This tutorial shows you how to implement Multifactor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+This tutorial shows you how to implement Multi-factor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
 
 :::warning
 Binding an OTP to an identity is outside the scope of this article.
@@ -44,6 +44,10 @@ Within the code provided is a redirect URL to Auth0. It contains querystring par
 No actual key values are hard-coded into the Webtask code. Your Yubico Client ID and Secret values are referred to using `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when you created the Webtask.
 
 ### Step 2: Initialize the Webtask CLI
+
+::: warning
+Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
+:::
 
 Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 

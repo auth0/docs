@@ -13,9 +13,11 @@ useCase:
 
 # IdP-Initiated SSO
 
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+Many instructions for setting up a SAML federation begin with SSO initiated by the service provider. The service provider redirects the user to the identity provider for the purposes of authentication. This process is commonly used for consumer-facing scenarios.
 
-<%= include('../../_includes/_deprecate-impersonation.md') %>
+However, in enterprise scenarios, it is more common to begin with the identity provider initiating SSO, not the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
+
+## How to set up IDP-initiated SSO
 
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
@@ -38,3 +40,7 @@ Example Query String:
 ## Post-back URL
 
 When using **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
+
+## Lock/Auth0.js
+
+<%= include('../../_includes/_enable_idp_initiated.md') %>

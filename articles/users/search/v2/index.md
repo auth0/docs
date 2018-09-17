@@ -16,7 +16,7 @@ useCase:
 # User Search
 
 ::: version-warning
-User search v2 has been deprecated as of **June 6th 2018**. Tenants created after this date will not have the option of using it. User search v2 will be removed from service on **November 13th 2018**. We recommend that you use [User Search v3](/users/search/v3) instead.
+User search v2 has been deprecated as of **June 6th 2018**. Tenants created after this date will not have the option of using it. We recommend that you use [User Search v3](/users/search/v3) instead.
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
@@ -31,7 +31,7 @@ The user search endpoint allows you to return a maximum of **10,000** users. For
 
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
-In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
+In order to make requests to the Management API, you will need a token. Please refer to [How to Get an Access Token for the Management API](/api/management/v2/tokens) for more information.
 
 ### Search using the API Explorer
 

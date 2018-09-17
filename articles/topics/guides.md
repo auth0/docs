@@ -42,9 +42,9 @@ useCase: development
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication">Multifactor Authentication</a>
+    <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication">Multi-factor Authentication</a>
     <p>
-      Learn what multifactor authentication is and how to implement it to ensure a more secure sign on process for your users.
+      Learn what multi-factor authentication is and how to implement it to ensure a more secure sign on process for your users.
     </p>
   </li>
   <li>

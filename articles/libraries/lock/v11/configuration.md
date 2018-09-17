@@ -295,7 +295,9 @@ Options for the `window.open` [position and size][windowopen-link] features. Thi
 
 ```js
 var options = {
-  redirect: false,
+  auth: {
+      redirect: false
+  },
   popupOptions: { width: 300, height: 400, left: 200, top: 300 }
 };
 ```
@@ -310,6 +312,13 @@ var options = {
   rememberLastLogin: false
 };
 ```
+
+::: note
+The **Last time you signed in with [...]** message will not be available under the following circumstances:
+
+- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using [Passwordless authentication](/connections/passwordless).
+- You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant), which is used for Regular Web Apps).
+:::
 
 ## Theming Options
 
@@ -579,7 +588,7 @@ When the `responseType` is set to `code`, Lock will never show the **Last time y
 Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
 
 ::: warning
-Failing to set this to true will result in multifactor authentication not working correctly.
+Failing to set this to true will result in multi-factor authentication not working correctly.
 :::
 
 ```js
