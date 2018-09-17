@@ -27,7 +27,7 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 2. Go to __Tools > Web Developer > Network__
 1. Visit the page and complete the steps that trigger the issue.
 1. When complete, go back to the __Network__ tab, right click and then select **Save All As Har**.
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as remove passwords, client secrets, and so on).
+1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
 
 ### Google Chrome
 
@@ -37,7 +37,7 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 1. Check the __Preserve Log__ option to record all interactions.
 1. Visit the page and complete the steps that trigger the issue.
 1. When complete, go back to the __Network__ tab, right click and then select **Save as HAR with Content**: ![Google Dev Tools](/media/articles/tutorials/save-as-har-with-content.png)
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as remove passwords, client secrets, and so on).
+1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
 
 ### Safari
 
@@ -47,7 +47,7 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 1. Check the __Preserve Log__ option to record all interactions.
 1. Visit the page and complete the steps that trigger the issue.
 1. When complete, go back to the __Network__ tab, click __Export__ and save the HAR file.
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as remove passwords, client secrets, and so on).
+1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
 
 ## Analyze a HAR file
 
