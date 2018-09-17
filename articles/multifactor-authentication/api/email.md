@@ -16,11 +16,15 @@ useCase:
 
 In this tutorial, you'll learn how to configure your application so users can use email authenticators.
 
+::: note
+Currently, email authenticators are only supported by the multi-factor authentication (MFA) API. Users can only use email authenticators with applications using the MFA API,  but not in applications that redirect to the [hosted MFA page](/hosted-pages/guardian).
+:::
+
 <%= include('./_authenticator-before-start') %>
 
 ## 1. Enable email authenticators with the Management API
 
-Start by enabling email authenticators with the [Management API](/api/management). To do this, make a `PUT` request to the [/api/v2/guardian/factors/email](/api/management/v2/#!/Guardian/put_factors_by_name) endpoint. You'll need a [Management API Token](/api/management/v2/tokens) to perform the request:
+Start by enabling email authenticators with the [Management API](/api/management). To do this, make a `PUT` request to the [/api/v2/guardian/factors/email](/api/management/v2/#!/Guardian/put_factors_by_name) endpoint. You'll need a [Management API Token](/api/management/v2/tokens) with the `update:guardian_factors` scope to perform the request:
 
 ```har
 {
@@ -93,10 +97,13 @@ If successful, you'll receive a response like this:
 {
   "authenticator_type": "oob",
   "oob_channel": "email",
-  "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ],
-  "oob_code": "ata6daXAiOi..."
+  "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ]
 }
 ```
+
+Next the user should receive an email containing the code. Once they enter the code in your application, enrollment of the email authenticator will be complete.
+
+For more information on how to customize the email template, check out [Customizing Your Emails](/email/templates).
 
 ### Recovery Codes
 
