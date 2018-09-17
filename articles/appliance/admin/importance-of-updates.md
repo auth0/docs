@@ -11,8 +11,6 @@ applianceId: appliance75
 ---
 # Why You Should Update the PSaaS Appliance Regularly
 
-Though the Auth0 engineering team releases updates on a monthly basis, we recommend that you should plan to install updates on a monthly, bi-monthly, and quarterly basis.
-
 Though the Auth0 engineering team releases updates to the PSaaS Appliance on a monthly basis, we understand that such frequent updates to your environment (though ideal) are not always possible. Regardless, we recommend updating your PSaaS Appliance on a bi-monthly or quarterly basis at the very least.
 
 In this article, we will cover why it is essential to update your PSaaS Appliance regularly.
