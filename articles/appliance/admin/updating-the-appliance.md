@@ -11,7 +11,7 @@ applianceId: appliance10
 ---
 # Updating the PSaaS Appliance
 
-To ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis.
+To [ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes](/appliance/admin/importance-of-updates), Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis.
 
 Appliances must be updated using a **major release** at least once every **90 days**.
 
