@@ -23,6 +23,18 @@ useCase: extensibility-hooks
 
 When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 
+---
+
+<img align="right" src="/media/articles/hooks/extend-hooks.svg"> 
+
+## Hooks in your SaaS
+
+If you want to create and customize Hooks in your product, try Auth0 Extend--an embedded scripting environment for enabling customization and integration of your SaaS.
+
+[Try Extend &#9658;](https://goextend.io/)
+
+---
+
 ## Work with Hooks
 
 <ul class="topic-links">
