@@ -19,7 +19,7 @@ However, customers who have purchased an Enterprise subscription may request one
 Note that Auth0 reserves the right to reject the load test request, or ask for modifications to the load test plans.
 ## How to request
 
-* Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}), under the "Public Cloud Support Incident" issue type.
+* Customers **must** file a load testing request via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}). Under the **Issue type** field, select **Public Cloud Support Incident**.
 * Requests must be filed at least two (2) weeks in advance of the desired test date.
 * Requests must be approved in writing before any load/performance testing is conducted.
 
