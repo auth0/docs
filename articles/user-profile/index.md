@@ -47,13 +47,12 @@ The User Details page will show `pending` when a user is first created until the
 
 The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
 
-The User Details page has links for five tabs:
+The User Details page has links for four tabs:
 
 1. Details
 2. Devices
 3. History
-4. Locations
-5. Raw JSON
+4. Raw JSON
 
 #### User Details: Details
 
@@ -81,10 +80,6 @@ The logs include information about:
 * The identity provider used for authentication
 * The originating IP addresses for the events
 * Where the events originated
-
-#### User Details: Locations
-
-The Locations tab displays a map with pins indicating the user's location(s) when they logged in to the apps.
 
 #### User Details: Raw JSON
 
@@ -128,21 +123,21 @@ If a blocked user tries to access an application, they will see the error messag
 
 To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the **Actions** button. Select **Unblock User** from the dropdown menu.
 
-![Unblock a User](/media/articles/user-profile/user4.png)
+![Unblock a User](/media/articles/user-profile/user5.png)
 
 ### Delete a user
 
 To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the **Actions** button. Select **Delete User** from the dropdown menu.
 
-![Delete a User](/media/articles/user-profile/user4.png)
+![Delete a User](/media/articles/user-profile/user6.png)
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the **Yes, Delete It** button to confirm. This will permanently delete the user.
 
 ## Manage users using the Management API
 
-Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
+Alternatively, you can retrieve, create, update, or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
-First, you have to generate an Access Token to call the Management API. For information on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+First, you have to generate an Access Token to call the Management API. For information on how to do that, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 
 Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
@@ -150,11 +145,11 @@ Instead of making the HTTP calls directly, and depending on the platform you use
 
 Inside a single Auth0 tenant the users are shared between applications. The idea here is that the all the applications in a single tenant will usually belong to the same app.
 
-For total separation you can create a new tenant. To do this click on tenant name on top right of the dashboard and select **+ Create Tenant** . If you have multiple tenants, you can easily switch between them from the tenants menu.
+For total separation, you can create a new tenant. To do this, click on tenant name on the top right of the dashboard and select **+ Create Tenant** . If you have multiple tenants, you can easily switch between them from the tenants menu.
 
-If you need to restrict some users to certain applications you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
+If you need to restrict some users to certain applications, you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
-You can also restrict users from applications by configuring a new connection and only giving access to a specific application. To enable application access for a connection go to the the **Settings** section for a connection and click on the **Applications** tab, here you can enable/disable any application.
+You can also restrict users from applications by configuring a new connection and only giving access to a specific application. To enable application access for a connection, go to the the **Settings** section for a connection and click on the **Applications** tab; here you can enable/disable any application.
 
 ## Keep reading
 
