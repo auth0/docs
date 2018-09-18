@@ -849,7 +849,7 @@ articles:
         url: "/best-practices/connection-settings"
 
       - title: "General Operations"
-        url: "/best-practices/general-operations"
+        url: "/best-practices/operations"
 
       - title: "Rules"
         url: "/best-practices/rules"
