@@ -36,6 +36,18 @@ Among many possibilities, rules can be used to:
 * Enable __multifactor__ authentication, based on context (such as last login, IP address of the user, location, and so on).
 * Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
 
+---
+
+<img align="right" src="/media/articles/rules/extend-rules.svg"> 
+
+## Auth0 Rules in your SaaS
+
+If you want to create and customize Rules in your product, try Auth0 Extend--an embedded scripting environment for enabling customization and integration of your SaaS.
+
+[Try Extend &#9658;](https://goextend.io/)
+
+---
+
 ## Video: Using rules
 
 Watch this video learn all about rules in just a few minutes.
