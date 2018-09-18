@@ -8,7 +8,7 @@ useCase:
     - customize-connections
 ---
 # Custom Database Script Templates
-Auth0 provides change password script templates that you can use when implementing password changing functionality for your users with a custom database.
+Auth0 provides custom database script templates that you can use when implementing functionality for use with a custom database.
 
 ## Templates
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
