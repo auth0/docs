@@ -42,9 +42,9 @@ Among many possibilities, rules can be used to:
 
 ## Auth0 Rules in your SaaS
 
-If you want to create and customize Rules in your product, try Auth0 Extend--an embedded scripting environment for enabling customization and integration of your SaaS.
+If you like the capabilities of Rules and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
 
-[Try Extend &#9658;](https://goextend.io/)
+[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=rules-current-paragraph)
 
 ---
 
