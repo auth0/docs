@@ -367,7 +367,7 @@ function query(db, cb){
 ...
 ```
 
-Notice that the code sandbox in which Rules runs can be recycled at any time. Thus, your code __must__ always check that `global` contains what you expect.
+Notice that the code sandbox in which Rules run can be recycled at any time. Thus, your code __must__ always check that `global` contains what you expect.
 
 <%= include('../../_includes/_ip_whitelist') %>
 
