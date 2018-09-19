@@ -72,7 +72,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 
 ## Extensions in your SaaS
 
-If you want Auth0 extensibility capabilities in your product, try Auth0 Extend--an embedded scripting environment for enabling customization and integration of your SaaS.
+If you like the capabilities of Auth0 Extensions and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
 
-[Try Extend &#9658;](https://goextend.io/)
+[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=extensions-paragraph)
 
