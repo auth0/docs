@@ -340,7 +340,7 @@ You can add `console.log` lines in the Rule's code for debugging. The [Rule Edit
 
 ## Cache expensive resources
 
-The code sandbox in which Rules runs allows for storing _expensive_ resources that will survive individual execution.
+The code sandbox in which Rules run allows for storing _expensive_ resources that will survive individual execution.
 
 This example shows how to use the `global` object to keep a mongodb connection:
 
