@@ -167,6 +167,9 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 ```text
 "0 issue \"letsencrypt.org\""
 ```
+### "You should not be hitting this endpoint"
+If you see this error when configuring a custom domain, you have to do required [additional configurations](https://auth0.com/docs/custom-domains/additional-configuration) which varies dependent on your set up.
+
 
 ### "Service not found"
 
