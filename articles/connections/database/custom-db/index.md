@@ -56,7 +56,7 @@ Here are some things to know before you begin the process of setting up your dat
 
 * [Update Users Using Your Database](/user-profile/customdb) has information on updating user profile fields.
 
-<%= include('../_includes/_ip_whitelist') %>
+<%= include('../../../_includes/_ip_whitelist') %>
 
 ### Keep reading
 
