@@ -28,6 +28,10 @@ Admins can be removed by clicking the **REMOVE** button after they have been add
 If you're an app-specific administrator, pages to which you don't have access (such as APIs, Rules, Hooks, Hosted Pages, and so on) may appear blank.
 :::
 
+::: note
+If you wish to update the email address associated with an existing tenant adminstrator, you will need to invite a new dashboard aminstrator using the new email address. Once, the invite is accepted, the tenant adminstrator associated with the old email address can be removed.
+:::
+
 The MFA indicator will indicate whether an Admin has enabled their account for [Multi-factor Authentication](/multifactor-authentication), which they can do in their Account Settings.
 
 ![Dashboard Admins with MFA Indicator](/media/articles/tutorials/dashboard-admins.png)
