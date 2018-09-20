@@ -1860,5 +1860,9 @@ module.exports = [
    {
      from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
      to: '/hrd'
+   },
+   {
+     from: '/support/troubleshooting-with-har-files',
+     to: '/troubleshoot/har'
    }
 ];

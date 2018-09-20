@@ -1,13 +1,14 @@
 ---
 description: How to troubleshoot with HAR files and steps to generate a HAR file.
 topics:
-    - support
-    - har-files
+  - troubleshoot
+  - har-files
+  - http-archive
 contentType:
   - how-to
   - reference
 useCase:
-  - support
+  - troubleshoot
 ---
 
 # Troubleshooting with HAR files
