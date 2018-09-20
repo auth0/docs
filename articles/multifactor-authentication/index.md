@@ -18,6 +18,10 @@ Multi-factor Authentication (MFA) is a method of verifying a user's identity by 
 * **Possession**: Something the user has (such as a cell phone)
 * **Inheritance**: Something the user is (such as a fingerprint or retina scan)
 
+:::
+Currently we support a single MFA method at a time with [Universal Login](https://auth0.com/docs/hosted-pages/login). However, if you use [embedded login](https://auth0.com/docs/guides/login/universal-vs-embedded#embedded-login-with-auth0) we have [API support](https://auth0.com/docs/multifactor-authentication/api) for multiple authenticators for [resource owner password grant flows](https://auth0.com/docs/api-auth/tutorials/multifactor-resource-owner-password).
+:::
+
 ## Implementing MFA with Auth0
 
 Auth0 supports the following methods of implementing MFA:
