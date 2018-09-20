@@ -12,7 +12,9 @@ If you are behind a firewall, the use of the following features may require whit
 Please note that IP addresses are subject to change during [Auth0 Migrations](/migrations). The lists provided are up-to-date at the time of writing, but check the [Dashboard](${manage_url}) for the latest list.
 :::
 
-When making outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT. 
+When Auth0 makes outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT. 
+
+Please be sure to **allow** inbound connections from the region-specific set of IP addresses listed in the [Dashboard](${manage_url}). The specific set of IP addresses you should use is provided when you create your new [Custom Database Connection](${manage_url}/#/connections/database), [Hook](${manage_url}/#/hooks), or [Rule](${manage_url}/#/rules/create).
 
 The IP addresses are region-specific.
 
@@ -36,6 +38,4 @@ The IP addresses are region-specific.
 
 ### Inbound Calls
 
-IP addresses related to inbound calls to Auth0 may be variable due to the lack of fixed IP addresses on the load balancers.
-
-Please be sure to **allow** inbound connections from the region-specific set of IP addresses listed in the [Dashboard](${manage_url}). The specific set of IP addresses you should use is provided when you create your new [Custom Database Connection](${manage_url}/#/connections/database), [Hook](${manage_url}/#/hooks), or [Rule](${manage_url}/#/rules/create).
+IP addresses related to inbound calls to Auth0 may be variable due to the lack of fixed IP addresses on the load balancers. In this case firewall rules should operate on the name of the service (e.g. `<YOUR_TENANT>.auth0.com`).
