@@ -41,6 +41,10 @@ function (user, context, callback) {
 }
 ```
 
+:::
+You can checked the available library versions [here](https://auth0-extensions.github.io/canirequire/#auth0). This provides a filtered list of available libraries that can be set as required.
+:::
+
 ::: note
 The Access Token for the Management API which is available through `auth0.accessToken` is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes you can [request a token using Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
 :::
