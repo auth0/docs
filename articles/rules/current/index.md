@@ -267,6 +267,10 @@ This Rule will require that you have a `configuration` value set for the key `SL
 You need to have created at least one Rule in order for the configuration area to show up; otherwise, the Rules demo shows instead.
 :::
 
+::: note
+If you need to edit or change a configuration key's value, you must remove the existing configuration settings and replace it with updates values.
+:::
+
 ## Create Rules with the Management API
 
 Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
