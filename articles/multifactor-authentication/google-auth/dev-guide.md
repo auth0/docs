@@ -53,7 +53,7 @@ function (user, context, callback) {
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
 ::: panel Screen customization
-At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens. For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
+The Google Authenticator widget inherits from the Guardian widget. In order to customize the Google Authenticator screen, [customize the Guardian screen](https://auth0.com/docs/multifactor-authentication/administrator/customizing-widget) in your [tenant settings](https://manage.auth0.com/#/tenant).
 :::
 
 ### Configuring Google Authenticator for Select Users
