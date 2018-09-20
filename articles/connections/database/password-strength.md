@@ -61,6 +61,11 @@ and on mobile:
 
 ![Auth0 Lock Password Strength checks on Mobile](/media/articles/connections/database/password-strength/moUbn4XXxR.png)
 
+
+::: note
+When a password is rejected, the language of the notification defaults to English. If language customization is required, this should be done via client-side translation.
+:::
+
 ## Custom Signup Errors
 
 Sign-up errors will return a 400 HTTP status code. The JSON response will contain `code: invalid_password` when the password does not meet the selected password policy criteria.
