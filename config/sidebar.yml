@@ -418,7 +418,7 @@ articles:
         url: "/user-profile/user-impersonation"
 
       - title: "Delegated Administration"
-        url: "/extensions/delegated-admin"
+        url: "/extensions/delegated-admin/v3"
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
