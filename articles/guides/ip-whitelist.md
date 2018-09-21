@@ -1,3 +1,15 @@
+---
+title: Whitelist IP Addresses
+description: Identify Auth0 IP addresses to whitelist if you are behind a firewall.
+topics:
+    - connections
+    - custom-database
+    - scripts
+contentType: reference, how-to
+useCase:
+    - customize-connections
+---
+
 # Whitelist IP Addresses
 
 If you are behind a firewall, the use of the following features may require whitelisting of the appropriate Auth0 IP addresses to ensure proper functionality:
