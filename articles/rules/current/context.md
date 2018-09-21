@@ -36,7 +36,7 @@ The following properties are available for the `context` object.
 | `protocol` | <%= include('./_context-protocol.md') %> |
 | `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
 | `sso` | <%= include('./_context-sso.md') %> |
-| `accessToken` | Used to add custom namespaced claims to the [Access Token](/tokens/access-token). |
+| `accessToken` | Used to [change the returned scopes](/rules/current#api-authorization-modify-scope) of the [Access Token](/tokens/access-token) by setting the `scope` key equal to an array of permission strings. Also used to [add custom namespaced claims](/tokens/access-token#add-custom-claims) to the Access Token. |
 | `idToken` | Used to add custom namespaced claims to the [ID Token](/tokens/id-token). |
 | `original_protocol` | After a [redirect rule](/rules/current/redirect) has executed and the authentication transaction is resumed, this property will be populated with the original protocol used to initiate the transaction. |
 | `multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/multifactor-authentication/custom). |
