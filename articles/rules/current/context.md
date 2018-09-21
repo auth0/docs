@@ -45,7 +45,7 @@ The following properties are available for the `context` object.
 | `request` | <%= include('./_context-request.md') %> |
 | `primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
 
-## Sample contents
+## Sample content
 
 ```js
 {
