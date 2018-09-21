@@ -18,7 +18,7 @@ Multi-factor Authentication (MFA) is a method of verifying a user's identity by 
 * **Possession**: Something the user has (such as a cell phone)
 * **Inheritance**: Something the user is (such as a fingerprint or retina scan)
 
-:::
+::: note
 Currently, we support a single MFA method at a time with [Universal Login](/hosted-pages/login). However, if you use [embedded login](/guides/login/universal-vs-embedded#embedded-login-with-auth0), we provide [API support](/multifactor-authentication/api) for multiple authenticators for [resource owner password grant flows](/api-auth/tutorials/multifactor-resource-owner-password).
 :::
 
