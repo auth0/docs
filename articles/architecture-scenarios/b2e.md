@@ -74,10 +74,6 @@ You can also integrate purchased applications with Auth0 for single sign-on (SSO
 * Slack
 * New Relic
 
-## Portal & identity provider-initiated flows
-
-You can configure a corporate portal with links for an identity provider-initiated flow for Applications that use the SAML protocol to integrate with Auth0.  This is not supported for OIDC/OAuth applications because those protocols do not support an identity provider-initiated flow.
-
 ## Branding
 
 Branding is an important part of any application. Your logo, colors and styles should be consistent in all parts of the application. You can [customize](/libraries/custom-signup) the login, signup, and error pages displayed by Auth0 so it matches your application. Add your own logo, text, and colors. There's also I18N/L10N support for global rollouts. [Emails for verification or password resets](/email/templates) are customizable too. 
