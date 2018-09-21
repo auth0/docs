@@ -37,7 +37,7 @@ At each level, new passwords must meet the following criteria:
  * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
 
 ::: note
-Auth0 Dashboard Admins password policy will follow the **Fair** level criteria.
+The password policy for Auth0 Dashboard Admins will mirror the criteria set for the **Fair** level.
 :::
 
 ## Change Your Policy
