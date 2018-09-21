@@ -36,6 +36,9 @@ At each level, new passwords must meet the following criteria:
  * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
  * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
 
+::: note
+The password policy for Auth0 Dashboard Admins will mirror the criteria set for the **Fair** level.
+:::
 
 ## Change Your Policy
 
@@ -60,6 +63,11 @@ This is how Lock will appear on the desktop:
 and on mobile:
 
 ![Auth0 Lock Password Strength checks on Mobile](/media/articles/connections/database/password-strength/moUbn4XXxR.png)
+
+
+::: note
+If Auth0 rejects a provided password, the notification will display in English. If you would like to display notifications in another language, you will need to do so via client-side translation.
+:::
 
 ## Custom Signup Errors
 
