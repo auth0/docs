@@ -43,7 +43,7 @@ The following properties are available for the `context` object.
 | `redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
 | `sessionID` | Unique id for the authentication session. Value is kept only if `prompt=none`. |
 | `request` | <%= include('./_context-request.md') %> |
-| `primaryUser | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
+| `primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
 
 ## Sample contents
 
