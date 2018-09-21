@@ -261,14 +261,12 @@ function(user, context, callback) {
 
 This Rule will require that you have a `configuration` value set for the key `SLACK_HOOK`. At the [Rules](${manage_url}/#/rules/) page in the Dashboard, scroll down beneath your list of Rules to the configuration area. Enter `SLACK_HOOK` as the key and the Slack URL of the channel you want to post a message to as the value, then hit "Create". Now your URL will be available to all Rules via `configuration.SLACK_HOOK`. Bear in mind that `configuration` is global to all Rules on the account.
 
+To edit or change a configuration key's value, remove the existing configuration setting and replace it with the updated value.
+
 ![Rules Configuration](/media/articles/rules/rules-configuration.png)
 
 ::: note
-You need to have created at least one Rule in order to see the configuration area; otherwise, the Rules demo shows instead.
-:::
-
-::: note
-To edit or change a configuration key's value, remove the existing configuration settings and replace them with updated values.
+You need to have created at least one Rule in order to see the configuration area, otherwise, the Rules demo shows instead.
 :::
 
 ## Create Rules with the Management API
