@@ -37,5 +37,5 @@ If you have enabled multi-factor authentication and you need your account reset,
 :::
 
 ::: note
-Please note you can only reset your password when using a database connection. If you are using a social or enterprise connection, you would need to reset your password with the appropriate social identity provider.
+You can only reset your password when using a database connection. If you are using a social or enterprise connection, you will need to reset your password with the appropriate social identity provider.
 :::
