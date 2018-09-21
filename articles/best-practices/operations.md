@@ -29,7 +29,7 @@ Head over to the [Auth0 status page](http://status.auth0.com/) and sign up for n
 
 ## Store custom code in a source code repository
 
-If you have custom code for rules, hooks, custom database scripts or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has an [extension to help deploy code stored on Github](/extensions/github-deploy).
+If you have custom code for rules, hooks, custom database scripts or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has [extensions to help deploy code stored on external respositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories).
 
 If you have a full continuous integration/continuous deployment pipeline, use the [Auth0 Deploy CLI tool](https://github.com/auth0/auth0-deploy-cli) for greater flexibility.
 
