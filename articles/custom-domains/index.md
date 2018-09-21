@@ -124,9 +124,9 @@ There may be additional steps you must complete depending on which Auth0 feature
 
 1. **If I use a custom domain, will I still be able to use my ${account.namespace} domain to access Auth0?**
   
-Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are however a few exceptions:
+Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are, however, a few exceptions:
 
-- If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
+- If you are using embedded Lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
 - If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 
 2. **How many custom domains can I use per tenant?**
@@ -167,9 +167,9 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 ```text
 "0 issue \"letsencrypt.org\""
 ```
-### "You should not be hitting this endpoint"
-If you see this error when configuring a custom domain, you have to do required [additional configurations](https://auth0.com/docs/custom-domains/additional-configuration) which varies dependent on your set up.
 
+### "You should not be hitting this endpoint"
+If you see this error when configuring a custom domain, you must perform [additional configuration](/custom-domains/additional-configuration), which varies depending on your setup.
 
 ### "Service not found"
 
