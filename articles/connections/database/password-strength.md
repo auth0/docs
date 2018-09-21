@@ -63,7 +63,7 @@ and on mobile:
 
 
 ::: note
-When a password is rejected, the language of the notification defaults to English. If language customization is required, this should be done via client-side translation.
+If Auth0 rejects a provided password, the notification will display in English. If you would like to display notifications in another language, you will need to do so via client-side translation.
 :::
 
 ## Custom Signup Errors
