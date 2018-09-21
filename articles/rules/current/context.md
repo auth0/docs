@@ -15,7 +15,7 @@ When creating [Rules](/rules), one of the input arguments is `context`.
 
 This is an object containing contextual information of the current authentication transaction, such as user's IP address, application, location, and so forth.
 
-This article lists all properties that the `context` object includes. For examples on how to use them see [Rules Examples](/rules#examples).
+This article lists all properties that the `context` object includes. For examples on how to use them see [Rules Examples](/rules#examples) or visit our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
 ## List of properties
 
