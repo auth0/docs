@@ -29,7 +29,7 @@ If you're an app-specific administrator, pages to which you don't have access (s
 :::
 
 ::: note
-If you wish to update the email address associated with an existing tenant adminstrator, you will need to invite a new dashboard administrator using the new email address. Once the invite is accepted, you can remove the tenant adminstrator associated with the old email address.
+To update the email address associated with an existing tenant administrator, invite a new dashboard administrator using a new email address. Once the invite is accepted, you can remove the tenant administrator associated with the old email address.
 :::
 
 The MFA indicator will indicate whether an Admin has enabled their account for [Multi-factor Authentication](/multifactor-authentication), which they can do in their Account Settings.
