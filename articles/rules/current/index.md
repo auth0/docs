@@ -264,11 +264,11 @@ This Rule will require that you have a `configuration` value set for the key `SL
 ![Rules Configuration](/media/articles/rules/rules-configuration.png)
 
 ::: note
-You need to have created at least one Rule in order for the configuration area to show up; otherwise, the Rules demo shows instead.
+You need to have created at least one Rule in order to see the configuration area; otherwise, the Rules demo shows instead.
 :::
 
 ::: note
-If you need to edit or change a configuration key's value, you must remove the existing configuration settings and replace it with updates values.
+To edit or change a configuration key's value, remove the existing configuration settings and replace them with updated values.
 :::
 
 ## Create Rules with the Management API
