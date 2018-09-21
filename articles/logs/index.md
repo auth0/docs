@@ -17,6 +17,10 @@ useCase:
 
 Using the [Dashboard](${manage_url}), you can pull log data on actions performed by administrators using the Dashboard, and authentications made by your users.
 
+::: warning
+Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
+:::
+
 ## How to View Log Data
 
 The **Logs** page of the [Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
