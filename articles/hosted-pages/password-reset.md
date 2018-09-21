@@ -45,6 +45,10 @@ You can use JavaScript to retrieve the following custom variables:
 You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
 :::
 
+::: note
+It is currently not possible to conditionalize customizations based on Application ID (`client_id`).
+:::
+
 Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
 
 ```js
