@@ -17,3 +17,7 @@ If you are considering deleting your tenant, please see our [Resetting/Deleting 
 :::
 
 As explicitely noted during the tenant deletion process, **deleted tenants cannot be restored** at this time.
+
+::: note
+If you have deleted your tenant and you require a certain domain or unique domain for branding purposes, we recommend configuring a [custom domain](/custom-domains) for your new tenant.
+:::
