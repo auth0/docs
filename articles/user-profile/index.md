@@ -93,8 +93,6 @@ If you need to log in to your app as a user, see everything exactly as the user 
 
 Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
 
-![Impersonate a User](/media/articles/user-profile/user2.png)
-
 ::: panel I can't see the button
 Can't see the button? The following conditions are required for the button display:
 - The applications registered in the tenant must have at least one callback URL listed.
@@ -102,8 +100,6 @@ Can't see the button? The following conditions are required for the button displ
 :::
 
 A popup will display the URL to use to impersonate the user. You can copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
-
-![Impersonate a User](/media/articles/user-profile/user3.png)
 
 ::: panel Impersonation API
 You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
