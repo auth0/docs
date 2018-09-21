@@ -34,7 +34,7 @@ The following properties are available for the `context` object.
 | `connectionMetadata` | An object representing metadata defined on the connection. Its keys and values are strings. |
 | `samlConfiguration` | An object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol). |
 | `protocol` | <%= include('./_context-protocol.md') %> |
-| `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
+| `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object do not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
 | `sso` | <%= include('./_context-sso.md') %> |
 | `accessToken` | An object representing the options defined on the [Access Token](/tokens/access-token). `accessToken.scope` is an array containing permissions in string format and can be used to [change the Access Token's returned scopes](/rules/current#api-authorization-modify-scope). You can also use this object to [add custom namespaced claims](/tokens/access-token#add-custom-claims) to the Access Token. |
 | `idToken` | An object representing the options defined on the [ID Token](/tokens/id-token). Used to add custom namespaced claims to the ID Token. |
