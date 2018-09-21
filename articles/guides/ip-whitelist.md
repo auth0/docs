@@ -5,7 +5,9 @@ topics:
     - connections
     - custom-database
     - scripts
-contentType: reference, how-to
+contentType:
+    - reference
+    - how-to
 useCase:
     - customize-connections
 ---
