@@ -104,6 +104,22 @@ It is essential that you register both the Kentor Cookie Saver middleware, the c
 
 In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct [logout URL](/logout).
 
+### Web farm setup
+
+Katana, [by default](https://github.com/aspnet/AspNetKatana/blob/e2b18ec84ceab7ffa29d80d89429c9988ab40144/src/Microsoft.Owin.Host.SystemWeb/OwinAppContext.cs#L61), uses ASP.Net's machine key to protect its session cookies and other information. If you want to host your application in more than one web server and the load balancer/reverse proxy does not support session affinity, you need to make sure that you configure the same machine key for all the participants involved. 
+The [`MachineKey` element](https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) is configured as a child of the `<system.web>` element in the `web.config` file (either for the application or for the server). You'll need to [generate a machine key](https://blogs.msdn.microsoft.com/amb/2012/07/31/easiest-way-to-generate-machinekey/) and copy it to all configured servers.
+
+This a sample of what the configuration might look like (these are sample keys, you'll provide your own keys):
+
+```xml
+<system.web>
+  <machineKey 
+    validationKey="32E35872597989D14CC1D5D9F5B1E94238D0EE32CF10AA2D2059533DF6035F4F" 
+    decryptionKey="B179091DBB2389B996A526DE8BCD7ACFDBCAB04EF1D085481C61496F693DF5F4" 
+  />
+</system.web>  
+```
+
 ## Trigger Authentication
 
 ### Add Login and Logout Methods
