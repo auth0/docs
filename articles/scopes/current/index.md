@@ -19,6 +19,6 @@ The permissions represented by the Access Token in OAuth 2.0 terms are known as 
 
 You can use scopes to:
 
-- Let an application verify the identity of a user (by using [Open ID Connect](/protocols/oidc)), as well as obtain basic profile information about the user, such as their email or picture. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+- Let an application verify the identity of a user (by using [Open ID Connect](/protocols/oidc)) and get basic profile information about the user, such as their email or picture. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
 - Implement granular access control to your API. In this case, you need to define [custom scopes](/scopes/current/api-scopes) for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`.
