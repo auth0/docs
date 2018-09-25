@@ -39,11 +39,6 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
     </tr>
     <tr>
-        <th>Sign in as User (Impersonation)</th>
-        <th>Yes</th>
-        <th>No</th>
-    </tr>
-    <tr>
         <th>Block User</th>
         <th>Yes</th>
         <th>Yes</th>

@@ -39,9 +39,6 @@ useCase:
         <i class="icon icon-budicon-695"></i><a href="/user-profile/normalized/auth0">Normalized User Profiles</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/user-profile/user-impersonation">User Impersonation</a>
-      </li>
-      <li>
         <i class="icon icon-budicon-695"></i><a href="/user-profile/user-data-storage">User Data Storage</a>
       </li>
       <li>
