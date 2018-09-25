@@ -853,6 +853,18 @@ articles:
 
       - title: "Rules"
         url: "/best-practices/rules"
+
+  - title: "Troubleshoot"
+    url: "/troubleshoot"
+    children:
+      - title: "Basics"
+        url: "/troubleshoot/basics"
+
+      - title: "Issues With ..."
+        url: "/troubleshoot/issues"
+
+      - title: "HTTP Archive (HAR)"
+        url: "/troubleshoot/har"
   
   - title: "Support"
     url: "/support"
