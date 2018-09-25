@@ -1,5 +1,5 @@
 ---
-description: Explains what metadata is, the categories that Auth0 uses, and how to manage them
+description: Explains what metadata is and how to manage them
 crews: crew-2
 toc: true
 topics:
