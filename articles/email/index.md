@@ -12,7 +12,7 @@ useCase: customize-emails
 
 # Emails in Auth0
 
-An Auth0 [Database Connection](/connections/database) provides several emails as a part of its authentication flow, including verification emails, welcome emails, change password emails, and blocked account emails. When you first create your application, Auth0 provides a built-in email provider to send emails.
+An Auth0 [Database Connection](/connections/database) provides several emails as a part of its authentication flow, including verification emails, welcome emails, change password emails, breached password, and blocked account emails. The **Guardian Enrollment Email** can be sent to users in any connection.
 
 ::: warning
 Auth0's built-in email provider is not supported for use in a production environment, should be used for testing only, and has several restrictions.
