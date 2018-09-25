@@ -14,7 +14,7 @@ useCase:
 
 To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
+This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read. Before you set up the sample on your local environment, please make sure you [set up your application in Auth0](#the-auth0-application).
 
 ## The Sample Application
 

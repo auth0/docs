@@ -21,4 +21,4 @@ You can use scopes to:
 
 - Let an application authenticate users and get additional information about them, such as their email or picture. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-- Implement granular access control to your API. In this case, you need to define [custom scopes (claims)](/scopes/current/custom-claims) for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](/scopes/current/api-scopes).
+- Implement granular access control to your API. In this case, you need to define [custom scopes (claims)](/scopes/current/custom-claims) for your API in the [Dashboard](${manage_url}/#/apis) (APIs > Your API > Scopes) and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](/scopes/current/api-scopes).

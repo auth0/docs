@@ -124,9 +124,9 @@ There may be additional steps you must complete depending on which Auth0 feature
 
 1. **If I use a custom domain, will I still be able to use my ${account.namespace} domain to access Auth0?**
   
-Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are however a few exceptions:
+Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are, however, a few exceptions:
 
-- If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
+- If you are using embedded Lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
 - If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 
 2. **How many custom domains can I use per tenant?**
@@ -168,6 +168,9 @@ To add a new CAA record and whitelist `letsencrypt.org` use the following:
 "0 issue \"letsencrypt.org\""
 ```
 
+### "You should not be hitting this endpoint"
+If you see this error when configuring a custom domain, you must perform [additional configuration](/custom-domains/additional-configuration), which varies depending on your setup.
+
 ### "Service not found"
 
 If your application issues an `/authorize` request with `audience=https://login.northwind.com/userinfo`, the server will return a `Service not found: https://login.northwind.com/userinfo` error. This is because even if you set a custom domain the API identifier for the `/userinfo` endpoint remains `https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. 
@@ -193,4 +196,4 @@ If you see any of these errors and you are using Embedded Login, you can move on
 3. Return to the **Security** tab, and make sure the proper zone has been selected.
 4. Click **Custom Level** and look for **Access data sources across domains** under the **Miscellaneous** section. Check the radio button next to **Enable.**.
 
-Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login)
+Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login).
