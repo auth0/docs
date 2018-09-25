@@ -1,5 +1,5 @@
 ---
-description: Explains what metadata is and how to manage them
+description: Explains what metadata is and how to manage it.
 crews: crew-2
 toc: true
 topics:
