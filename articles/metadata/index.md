@@ -1,5 +1,5 @@
 ---
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as metadata
+description: Explains what metadata is, the categories that Auth0 uses, and how to manage them
 crews: crew-2
 toc: true
 topics:
