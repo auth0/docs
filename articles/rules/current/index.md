@@ -228,7 +228,7 @@ function(user, context, callback) {
 
 After this Rule executes, the Access Token will contain one additional namespaced claim: `http://foo/bar=value`.
 
-### Using the Configuration Object
+### Use the Configuration Object
 
 The global `configuration` object is available in your Rules if you wish to save some commonly used items, such as credentials or URLs, that might be subject to change or that you wish to keep out of your Rule code.
 

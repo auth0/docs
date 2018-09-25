@@ -129,7 +129,7 @@ The claim name must conform to a namespaced format, which basically means adding
 
 For more information on the namespaced format of custom claims, refer to [User Profile Claims and Scope](/api-auth/tutorials/adoption/scope-custom-claims).
 
-For an example of how to add a custom claim, refer to [Add Custom Claims](/scopes/current#example-add-custom-claims).
+For an example of how to add a custom claim, refer to [Add Custom Claims](/rules/current#api-authorization-add-claims-to-access-tokens).
 
 ## Lifetime
 

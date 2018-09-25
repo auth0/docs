@@ -15,7 +15,7 @@ When creating [Rules](/rules), one of the input arguments is `context`.
 
 This is an object containing contextual information of the current authentication transaction, such as user's IP address, application, location, and so forth.
 
-This article lists all properties that the `context` object includes. For examples on how to use them see [Rules Examples](/rules#examples).
+This article lists all properties that the `context` object includes. For examples on how to use them, see [Rules Examples](/rules#examples) or visit our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
 ## List of properties
 
@@ -34,17 +34,18 @@ The following properties are available for the `context` object.
 | `connectionMetadata` | An object representing metadata defined on the connection. Its keys and values are strings. |
 | `samlConfiguration` | An object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol). |
 | `protocol` | <%= include('./_context-protocol.md') %> |
-| `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object does not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
+| `stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object do not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). |
 | `sso` | <%= include('./_context-sso.md') %> |
-| `accessToken` | Used to add custom namespaced claims to the [Access Token](/tokens/access-token). |
-| `idToken` | Used to add custom namespaced claims to the [ID Token](/tokens/id-token). |
+| `accessToken` | An object representing the options defined on the [Access Token](/tokens/access-token). `accessToken.scope` is an array containing permissions in string format and can be used to [change the Access Token's returned scopes](/rules/current#api-authorization-modify-scope). You can also use this object to [add custom namespaced claims](/tokens/access-token#add-custom-claims) to the Access Token. |
+| `idToken` | An object representing the options defined on the [ID Token](/tokens/id-token). Used to add custom namespaced claims to the ID Token. |
 | `original_protocol` | After a [redirect rule](/rules/current/redirect) has executed and the authentication transaction is resumed, this property will be populated with the original protocol used to initiate the transaction. |
 | `multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/multifactor-authentication/custom). |
 | `redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
 | `sessionID` | Unique id for the authentication session. Value is kept only if `prompt=none`. |
 | `request` | <%= include('./_context-request.md') %> |
+| `primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
 
-## Sample contents
+## Sample content
 
 ```js
 {
@@ -67,6 +68,7 @@ The following properties are available for the `context` object.
   multifactor: {},
   redirect: {},
   sessionID: 'jYA5wG...BNT5Bak',
+  primaryUser: 'auth0|user123',
   request:
   {
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
