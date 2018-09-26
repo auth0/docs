@@ -204,7 +204,7 @@ SDK | Version with support for v3 | Impacted methods | Considerations
 ----|-----------------------------|------------------|---------------
 [Auth0 Java](https://github.com/auth0/auth0-java) | 1.8.0 | com.auth0.client.mgmt.UsersEntity.list | Provide a `UserFilter` with `withSearchEngine("v3")`
 [Auth0 Python](https://github.com/auth0/auth0-python) | 3.0.0 | management.Users.list | Provide the parameter `search_engine='v3'`
-[Auth0 Node](https://github.com/auth0/node-auth0) | 2.0.0 | UsersManager.getAll | Provide the parameter `search_engine:'v3'`
+[Auth0 Node](https://github.com/auth0/node-auth0) | 2.0.0 | UsersManager.getAll, ManagementClient.getUsers | Provide the parameter `search_engine:'v3'`
 [Auth0 .NET](https://github.com/auth0/auth0.net) | 3.0.0 or 4.0.0 | Auth0.ManagementApi.IUsersClient.GetAllAsync | Provide a `GetUsersRequest` object with `SearchEngine` = `"v3"`
 [Auth0 PHP](https://github.com/auth0/auth0-php) | 5.2.0 | Auth0.SDK.API.Management.Users.getAll | Provide the parameter `'search_engine' => 'v3'`
 [Auth0 Ruby](https://github.com/auth0/ruby-auth0) | 4.5.0 | Auth0.Api.V2.Users.users | Provide the parameter `search_engine: 'v3'`
