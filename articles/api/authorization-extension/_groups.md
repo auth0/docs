@@ -499,6 +499,9 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose members you want to retrieve |
+| `{page}` | The page number. One-based. |
+| `{per_page}` | The amount of entries per page. Default: `25`. Max value: `25`. |
+
 
 ## Add Group Members
 
@@ -654,6 +657,8 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
+| `{page}` | The page number. One-based. |
+| `{per_page}` | The amount of entries per page. Default: `25`. Max value: `25`. |
 
 ## Get Nested Groups
 
