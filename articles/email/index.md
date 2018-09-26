@@ -18,6 +18,8 @@ An Auth0 [Database Connection](/connections/database) provides several emails as
 Auth0's built-in email provider is not supported for use in a production environment, should be used for testing only, and has several restrictions.
 :::
 
+Auth0's built-in email provider has these restrictions:
+
 * You will not be able to use any of the email customization features. The content of the emails sent for testing will be restricted to format of the existing templates.
 
 * All emails will be sent from a predefined **from** address (`no-reply@auth0user.net`).
