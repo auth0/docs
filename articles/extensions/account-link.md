@@ -23,7 +23,7 @@ The extension will create a new **Application** named `auth0-account-link` to us
 
 ## Setup
 
-First, navigate to the [Advanced Settings](${manage_url}/#/tenant/advanced) for your tenant, scroll to the bottom of the page, and click the toggle to enable **Allow ID Tokens for Management API v2 Authentication**.
+First, navigate to the [Advanced Settings](${manage_url}/#/tenant/advanced) for your tenant. Scroll to the bottom of the page, and click the toggle to enable **Allow ID Tokens for Management API v2 Authentication**. If you're working with a newly-created tenant, you may not see this toggle. You can have this feature enabled by contacting [Support](${env.DOMAIN_URL_SUPPORT}).
 
 ### Changing the Application Name
 
