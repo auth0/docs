@@ -1,5 +1,6 @@
 ---
 description: This guide has troubleshooting tips for each authentication step and for things like getting user profile information.
+toc: true
 topics:
   - troubleshooting
   - errors
