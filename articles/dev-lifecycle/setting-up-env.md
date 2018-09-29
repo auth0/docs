@@ -26,13 +26,15 @@ If you have a subscription plan costing at least **$167 (USD) per month**, you c
 
 For each new tenant created, you should specify its environment. You can assign environment tags to your tenants to differentiate between development, staging, and production environments.
 
+::: note
+If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to `Production`.
+:::
+
 To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant and click the gear icon to bring up the **Settings** section.
 
 ![Support Center Tenants](/media/articles/clients/support-tenants.png)
 
 Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either `Development`, `Staging`, or `Production`.
-
-If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to `Production`.
 
 After selecting the environment, click on **Save Changes**.
 
@@ -55,7 +57,7 @@ function(user, context, callback){
 
 This code however is not portable since this URL will likely change from development to production.
 
-The recommended way is to navigate to the [Dashboard > Rules](${manage_url}/#/rules), scroll at the bottom of the page, set your configuration value (we will use `log_url` for the key name, and `https://someurl/log` for value), and click __Create__.
+The recommended way is to navigate to the [Dashboard > Rules](${manage_url}/#/rules), scroll to the bottom of the page, set your configuration value (we will use `log_url` for the key name, and `https://someurl/log` for value), and click __Create__.
 
 ![Rules Configuration Values](/media/articles/lifecycle/rules-conf-values.png)
 
