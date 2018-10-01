@@ -1,5 +1,6 @@
 ---
 description: Running into an issue? Here are the things you should check to narrow down and solve common issues in Auth0.
+classes: topic-page
 topics:
   - troubleshooting
   - errors
