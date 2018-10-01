@@ -133,7 +133,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Updates</td>
     <td>Outbound</td>
     <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
-    <td>80/443</td>
+    <td>443</td>
     <td>Provides update packages for PSaaS Appliance instances</td>
     <td>Yes</td>
   </tr>
