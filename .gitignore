@@ -9,14 +9,14 @@ config.json
 # IDE
 .idea
 
-#Visual Studio Code
+# Visual Studio Code
 .vscode/*
 
-#Sublime Text
+# Sublime Text
 *.sublime-project
 *.sublime-workspace
 
-#Vim
+# Vim
 *.swp
 *.swo
 Session.vim
