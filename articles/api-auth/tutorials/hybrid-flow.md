@@ -22,7 +22,7 @@ Before you begin this tutorial, please:
 * Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
 * [Register your API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
-## Get the User's Authorization
+## 1. Get the User's Authorization
 
 The first step is to get the user's consent for authentication (and possibly authorization). You can initiate the flow by sending the user to the [authorization URL](/api/authentication#authorization-code-grant)
 
@@ -34,6 +34,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
     state=YOUR_OPAQUE_VALUE
+    nonce=NONCE
 ```
 
 Where:
@@ -50,20 +51,128 @@ Where:
 
 * `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
+  ::: warning
+  Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments.
+  :::
+
+* `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
+
 For example:
 
 ```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=${account.clientId}&redirect_uri=${account.callback}">
+<a href="https://${account.namespace}/authorize?audience=https://my-api.com&scope=read:tests&response_type=code id_token&client_id=${account.clientId}&redirect_uri=${account.callback}&state=STATE&nonce=NONCE">
   Sign In
 </a>
 ```
-
-* `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
 The purpose of this call is to obtain consent from the user to invoke the API (specified in `audience`) to do certain things (specified in `scope`) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given.
 
 Note that if you alter the value in `scope`, Auth0 will require consent to be given again.
 
-## 2. Exchange the Authorization Code for an Access Token
+## 2. Parsing the Response
 
-If you have plans to call an API, you'll have returned an Authorization Code that can be exchanged with Auth0 for an Access Token.
+If your call to the `/authorize` endpoint is successful, Auth0 redirects you to a URL similar to the following:
+
+https://YOUR_REDIRECT_URI/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...qk
+
+The URL contains the following components:
+
+* The redirect URI you provided for this application
+* The Authorization Code provided by Auth0
+* The ID Token
+* The Access Token
+
+If you've returned an Access Token, you'll also receive `expires_in` and `token_type` values.
+
+More specifically, here's what you will get back (depending on the value provided in `response_type`):
+
+| Response Type | Components |
+| - | - |
+| code id_token | Authorization Code, ID Token |
+| code token | Authorization Code, Access Token |
+| code id_token token | Authorization Code, ID Token, Access Token |
+
+### Access Tokens
+
+There are two ways to get Access Tokens in the Hybrid Flow:
+
+1. By including the `token` value in the `response_type` parameter
+2. By including the `code` value in the `response_type` parameter and exchanging the received Authorization Code for an Access Token
+
+You can therefore receive two Access Tokens for a given transaction. However, it is important to keep the two separate -- we do not recommend that an Access Token obtained when `response_type=token` be used to call APIs.
+
+## 3. Exchange the Authorization Code for an Access Token
+
+You can exchange the Authorization Code for an Access Token that will allow you to call the API specified in your initial authorization call. 
+
+Using the Authorization Code (`code`) from the first step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code):
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+  }
+}
+```
+
+Where:
+
+* `grant_type`: This must be `authorization_code`.
+* `client_id`: Your application's Client ID.
+* `client_secret`: Your application's Client Secret.
+* `code`: The Authorization Code received from the initial `authorize` call.
+* `redirect_uri`: The URL must match exactly the `redirect_uri` passed to `/authorize`.
+
+The response contains the `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
+
+```js
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "refresh_token": "GEbRxBN...edjnXbL",
+  "id_token": "eyJ0XAi...4faeEoQ",
+  "token_type": "Bearer"
+}
+```
+
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
+
+::: panel-warning Security Warning
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
+:::
+
+## 4. Call the API
+
+Once the Access Token has been obtained it can be used to make calls to the API by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+
+```har
+{
+  "method": "GET",
+  "url": "https://someapi.com/api",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
+  ]
+}
+```
+
+## 5. Verify the Token
+
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+
+## Keep Reading
+
+::: next-steps
+- [How to refresh a token](/tokens/refresh-token)
+- [How to configure an API in Auth0](/apis)
+- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)
+- [Tokens used by Auth0](/tokens)
+:::
