@@ -65,7 +65,7 @@ You do not need to declare a specific `intent-filter` for your activity, because
 The `AndroidManifest.xml` file should look like this:
 
 ```xml
-// app/src/main/AndroidManifest.xml
+<!-- app/src/main/AndroidManifest.xml -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.auth0.samples">
