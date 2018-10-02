@@ -168,7 +168,7 @@ Try to keep the list length to a minimum (up to 5 links).
 ![Next steps list](https://user-images.githubusercontent.com/6318057/27233085-b116f28a-528e-11e7-9ac3-4463a9c5db3d.png)
 
 ### HTTP Request Snippets
-You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
+You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request available in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
 The library we use is [HTTP Snippet](https://github.com/Kong/httpsnippet).
 
@@ -280,7 +280,7 @@ toc: true
 
 #### URLs
 
-Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
+Document urls are by default in the same format as the folder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
 
 If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
 
@@ -368,7 +368,7 @@ To create and submit a job to Wordy:
 
 You will need to provide the following pieces of information:
 * **Language**: Set to *English (US)*.
-* **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
+* **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of language. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
 * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
 * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
@@ -474,7 +474,7 @@ hidden_articles:
 
 ### Quickstart Guidelines
 
-Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
+Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documents that should be created for each framework.
 
 #### Library References
 
@@ -484,7 +484,7 @@ Additionally, many libraries may also need manual documentation showing more sop
 
 #### Quickstarts Articles
 
-Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
+Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documents that should be created for each framework.
 
 ##### Native
 
@@ -598,7 +598,7 @@ The seed project packager service replaces placeholder configuration values with
 
 These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file. In addition to replacement in the file directly, you can also include a template file in the form of `filename.ext.example` such as `auth0-variables.js.example`. The packager will do the replacement and remove the `.example` extension from the file.
 
-**NOTE:** It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys wont get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
+**NOTE:** It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys won't get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
 
 | Key Name | Replace Value | Description |
 | :------| :-----------| :-----------|
