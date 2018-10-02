@@ -95,10 +95,10 @@ The **laravel-auth0** plugin comes with an authentication driver called `auth0`.
 
 This is adequate for basic testing or if you don't have a requirement to persist the user. At any point you can call `Auth::check()` to determine if there is a user logged in and `Auth::user()` to retrieve the wrapper with the user information.
 
-Configure the `driver` in `/config/auth.php` to use `auth0`.
+Configure the `driver` in `config/auth.php` to use `auth0`.
 
 ```php
-// /config/auth.php
+// config/auth.php
 
 // ...
 'providers' => [
