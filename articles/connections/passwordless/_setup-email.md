@@ -1,6 +1,11 @@
-### Optional: Configure an email provider
+### Configure an email provider
 
-By default, Auth0 sends the email from its own messaging provider. Optionally, you can [configure your own email provider](/email/providers) to better monitor and troubleshoot the email service.
+
+By default, Auth0 sends the email from its own SMTP provider. Auth0's built-in email infrastructure should be used for testing level emails only. You can [configure your own email provider](/email/providers) to better monitor and troubleshoot the email service as well as be able to fully customize the emails.
+
+::: note
+You will need to use your own email provider to be able to modify the `From`, `Subject` and `Body` of Passwordless emails.
+:::
 
 ### Configure the connection
 
