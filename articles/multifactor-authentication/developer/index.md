@@ -18,7 +18,7 @@ At Auth0, we believe in giving developers the tools they need to get their jobs 
 ## Getting started with Guardian within your Application
 Most often, administrators will [manage multi-factor configuration for an application](multifactor-authentication/guardian/admin-guide). For more advanced use cases, Guardian provides developers the ability to control user access directly.
 * [Example Application using Guardian for multi-factor Authentication](https://github.com/auth0/guardian-example)
-* [How to do 'Step-Up' Authentication with Guardian](/multifactor-authentication/developer/step-up-with-acr)
+* [Step-up Authentication](/multifactor-authentication/step-up-authentication)
 
 ## Customize the Guardian Widget
 Use our Guardian client libraries to apply the look-and-feel of your organization.
