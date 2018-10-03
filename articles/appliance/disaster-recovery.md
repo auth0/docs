@@ -19,7 +19,7 @@ In cases where the data centers have very low latency, you can run individual PS
 
 ## Geographic High-Availability PSaaS Appliance Implementation
 
-If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 1 minute.
+If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 10 minutes.
 
 **Advantages**:
 
