@@ -122,8 +122,8 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 | 14 plugins are available. | Fourteen plugins are available. |
 | Configure 12 50GB drives | Configure twelve 50GB drives. |
 
-* For additional information that is up to four lines long, use [notes](/CONTRIBUTING.md#note).
-* For additional information that is longer than four lines, use [panels](/CONTRIBUTING.md#panels).
+* For additional information that is up to four lines long, use [notes](CONTRIBUTING.md#note).
+* For additional information that is longer than four lines, use [panels](CONTRIBUTING.md#panels).
 * For critical security information up to four lines long, use [warnings](CONTRIBUTING.md#warning).
 * For critical security information longer than four lines, use [panel warnings](CONTRIBUTING.md#panel-warning).
 
