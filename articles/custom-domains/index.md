@@ -156,18 +156,6 @@ Please remember that it can take up to 48 hours for the DNS to be propagated.
 
 Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
 
-### Domains with existing CAA records
-
-If your domain, or the parent domain, already has a **Certification Authority Authorization** (CAA) record, then you  have to add another one for `letsencrypt.org`.
-
-The reason for that is that Auth0 uses `letsencrypt.org` to sign certificates so if it's not authorized to issue certificates for your domain, the custom domain functionality will not work for you.
-
-To add a new CAA record and whitelist `letsencrypt.org` use the following:
-
-```text
-"0 issue \"letsencrypt.org\""
-```
-
 ### "You should not be hitting this endpoint"
 If you see this error when configuring a custom domain, you must perform [additional configuration](/custom-domains/additional-configuration), which varies depending on your setup.
 
