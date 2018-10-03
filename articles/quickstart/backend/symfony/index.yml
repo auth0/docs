@@ -27,7 +27,7 @@ github:
   repo: auth0-symfony-api-samples
 requirements:
   - PHP 5.5
-  - Symfony 3.2
+  - Symfony 3.3
 next_steps:
   - path: 01-authorization
     list:
