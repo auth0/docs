@@ -98,9 +98,11 @@ Refresh Tokens allow your user to grab a new Access Token without having to ask 
 If you allowed Auth0 to send a Refresh Token whenever it grants an Access Token and an application requests it, your users can [use the Refresh Token to refresh their Access Token](/tokens/refresh-token/current#use-a-refresh-token) without going through the authorization song-and-dance again. This only works for apps using the [Resource Owner Password grant](/api-auth/grant/password), [Authorization Code grant](/api-auth/grant/authorization-code), and [Authorization Code using PKCE grant](/api-auth/grant/authorization-code-pkce), though.
 :::
 
-## What's Next?
+::: card-panel
+## What's next?
 
 Now that you have registered your API with Auth0, your next challenge will be to [validate an Access Token]() when your API receives it.
+:::
 
 ## Related Reading
 
@@ -119,3 +121,62 @@ References
 
 OAuth 2.0
 Auth0 Backend/API Quickstarts
+
+:::: card-panel--grid
+::: card-panel--half
+### Tutorials
+  * [Link](/search/v3)
+  * [Link](/anomaly-detection/breached-passwords)
+  * [Link](/user-profile/view-users)
+:::
+
+::: card-panel--half--expandable
+  ### How-tos
+  * [Search for Users](/search/v3)
+  * [Fix Breached Passwords](/anomaly-detection/breached-passwords)
+  * [View User Profiles](/user-profile/view-users)
+  * [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+  * [Create Users Using the Dashboard](/dashboard/create-users)
+  * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
+  * [Delete Users](/user-profile/delete-users)
+  * [Change User Pictures](/user-profile/change-user-pictures)
+  * [Change User Passwords](/connections/database/password-change)
+  * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
+  * [Redirect Users After Login](redirect-users-after-login)
+  * [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
+  * [Block and Unblock Users](/user-profile/block-and-unblock-users)
+  * [Impersonate Users Using the Dashboard](/user-profile/impersonate-users-using-the-dashboard)
+  * [Impersonate Users Using the Impersonation API](/user-profile/impersonate-users-using-the-impersonation-api)
+  * [User Import/Export Extension](/extensions/user-import-export)
+  * [Authorization Extension](/extensions/authorization-extension/v2)
+  * [Delegated Administration Extension](/extensions/delegated-admin/v3)
+:::
+::::
+
+:::: card-panel--grid
+::: card-panel--half
+  ### Concepts
+  * [User Profile Overview](/user-profile/overview-user-profile)
+  * [Normalized User Profile](/user-profile/normalized/auth0)
+  * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
+  * [Progressive Profiling](/user-profile/progressive-profiling)
+  * [GDPR Overview](/compliance/overview-gdpr)
+:::
+
+::: card-panel--half--expandable
+  ### References
+  * [User Profile Structure](/user-profile/user-profile-structure)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [User Search Best Practices](/user-profile/user-search-best-practices)
+  * [User Search Query Syntax](/search/v3/query-syntax)
+  * [Password Security Tips](/anomaly-detection/password-security-tips)
+  * [Identity Providers Supported](/connections/identity-providers-supported)
+  * [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
+:::
+::::
+
+::: card-panel
+  ## What's Next
+  * [Connect Users to Your Identity Platform](microsite-connect-users-to-your-identity-platform)
+  * [Manage User Metadata](microsite-manage-user-metadata)
+:::
