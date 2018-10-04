@@ -1,5 +1,6 @@
 ---
-description: Explains how to securely store tokens used in token-based authentication.
+description: In this guide we outline how to store tokens used in token-based authentication.
+toc: true
 topics:
   - security
   - security-bulletins
@@ -13,21 +14,21 @@ useCase:
 
 # Where to Store Tokens
 
-This document explains how to securely store [tokens](/tokens) used in token-based authentication.
+Not sure where to store [tokens](/tokens)? This guide outlines how to securely store tokens used in token-based authentication.
 
-## Do not store tokens in the browser
+## Don't store tokens in local storage
 
-You should not store tokens in the browser's local storage or session storage. Data stored in the browser is vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)) and malicious parties can potentially steal or alter that data.
+Browser local storage (or session storage) is not secure. Any data stored there may be vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)). If an attacker steals a token, they can gain access to and make requests to your API. Treat tokens like credit card numbers or passwords: don’t store them in local storage.
 
-## Store tokens when a backend is present
+## If a backend is present
 
-If your application has a backend server at all, then you should use the [Authorization Code flow](/application-auth/current/server-side-web) for authentication. Native applications should use the [Authorization Code flow with Proof Key for Code Exchange](/application-auth/current/mobile-desktop).
+If your application has a backend server at all, then tokens should be handled server-side using the [Authorization Code flow](/application-auth/current/server-side-web), [Authorization Code flow with Proof Key for Code Exchange](/application-auth/current/mobile-desktop), or hybrid flow.
 
-## Store tokens without a backend
+## Single page applications
 
 If you have a single page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 
-## Using Cookies
+## Using cookies
 
 You can also use cookies to store the JWT. The exact way to set a cookie depends on the client side language you are using.
 
@@ -37,8 +38,9 @@ There are different options to control the lifetime of a cookie:
 * Implement a server side check (typically done for you by the web framework in use), and you could implement expiration or sliding window expiration.
 * Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
 * Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
+* You can set the `secure=true` flag so cookies can only be set over an encrypted connection.
 
-## Understanding Sessions and Cookies
+### Understanding sessions and cookies
 
 :::warning
 Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
@@ -48,10 +50,10 @@ Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api)
 
 This video will show you how to handle session data when building a web app. It will help you understand how your application uses cookies and sessions to manage the state of an authenticated user. This video example uses Node.js with Passport, but the techniques apply to any traditional server-based web application.
 
-#### Cookie Disadvantages
+### Disadvantages of cookies
 
 *  The max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token.
-* Cookies can be vulnerable to cross-site request forgery (CSRF or XSRF) attacks. This type of attack occurs when a malicious web site causes a user’s web browser to perform an unwanted action on a trusted site where the user is currently authenticated. This is an exploit of how the browser handles cookies. Using a web app framework’s CSRF protection makes cookies a secure option for storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header.
+* Cookies can be vulnerable to cross-site request forgery (CSRF or XSRF) attacks. Using a web app framework’s CSRF protection makes cookies a secure option for storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header. You can also set the `SameSite=strict` cookie flag to prevent CSRF attacks.
 *  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent.
 
 ## Keep reading
