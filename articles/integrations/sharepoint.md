@@ -94,14 +94,43 @@ You need to add a reference to jQuery at the top of the `<body>` section of the 
 Before calling `lock.show()`, add code to modify the HTML DOM that adds the link.
 
 ```js
-lock.on('signin ready', function() {
-  $('.auth0-lock-tabs-container')
-    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' +
-            '<a class="auth0-lock-alternative-link" ' + 
-            'href="https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx">' + 
-            'Login with Windows Authentication</a>' +
-            '</p><p><span>or</span></p></div>');
-        });
+// construct Lock
+// var lock = ...
+[...]
+// One or more SharePoint client IDs here for which you want
+// a Windows Auth button
+var sharepointClientIDs = ['your_sharepoint_client_id'];
+
+if (sharepointClientIDs.indexOf(config.clientID) >= 0) {
+  lock.on('signin ready', function() { 
+    var getParameterByName = function(name) {
+      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regexS = "[\\?&]" + name + "=([^&#]*)";
+      var regex = new RegExp(regexS);
+      var results = regex.exec(window.location.search);
+      if (results == null) return null;
+      else return results[1];
+    };
+    // get the host from the callback URL
+    var parser = document.createElement('a');
+    parser.href = config.callbackURL;
+    var host = parser.host;
+    var windowsAuthURL = "https://" + host + "/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx";
+    var wctx = getParameterByName("wctx");
+    if (wctx) {
+      windowsAuthURL += "&Source=" + wctx;
+    }
+
+    $('.auth0-lock-tabs-container') 
+    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' + 
+      '<a class="auth0-lock-alternative-link" ' + 
+      'href="'+ windowsAuthURL + '">' + 
+      'Login with Windows Authentication!!!</a>' + 
+      '</p><p><span>or</span></p></div>').attr('href','https://nowhere');
+  });
+}
+
+lock.show();
 ```
 
 ![SharePoint Login Page Windows Auth](/media/articles/integrations/sharepoint/sharepoint-login-page-windows-auth.png)
