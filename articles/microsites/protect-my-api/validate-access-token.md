@@ -129,14 +129,17 @@ An application requests to access the /create endpoint, but the scope claim do
 
 ## Related reading
 
-
+:::: card-panel--grid
+::: card-panel
 ### Guides
 
 [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token)
 [Manually Verify an RS256-signed Token](/guides/manually-verify-signed-token)
 [Revoke Access to Your API](/api-auth/blacklists-vs-grants)
 [Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
+:::
 
+::: card-panel--half
 ### Concepts
 
 [Access Token](/tokens/access-token)
@@ -148,8 +151,12 @@ An application requests to access the /create endpoint, but the scope claim do
 [API Scopes](/scopes/current/api-scopes)
 [OIDC Scopes](/scopes/current/oidc-scopes)
 [Custom Claims](/scopes/current/custom-claims)
+:::
 
+::: card panel--half
 ### References
 
 [Auth0 Backend/API Quickstarts](/quickstart/backend)
 [Auth0 Authentication API](/api/authentication)
+:::
+::::
