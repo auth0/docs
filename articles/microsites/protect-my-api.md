@@ -2,31 +2,70 @@
 
 So you’ve built a shiny new API and you want to share it with the world. On second thought, you don’t want to share it with the entire world, but right now, anyone can call it. Let’s fix this by protecting your endpoints with Auth0.
 
-## What Auth0 can do for you?
-Auth0 helps you authenticate your users and issue the appropriate Access Tokens. With Access Tokens in hand, your users can then call your API.
+## What can Auth0 do for you?
+
+Auth0 helps you authenticate your users and issue the appropriate [Access Token](/tokens/access-token). With an Access Token in hand, your users can then call your API.
 
 Auth0 also helps you:
 
-- Perform step-up authentication for high-value transactions Ask for additional credentials from your users if necessary (e.g., multi-factor authentication)
-Dynamically register, as needed, applications that can then call your API
-Control access to your API by revoking permissions as needed
-Manage all of your users in a single location
+- Perform step-up authentication for high-value transactions
+- Dynamically register applications that can call your API
+- Control access to your API by revoking permissions
+- Consolidate users identity into a single source of truth
 
 ## Prerequisites
 Before we begin, you will need to:
 
-Know what scopes your API offers
-Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, you should sign up for one now.
+- [ ] Know what scopes your API offers
+- [ ] Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, you should [sign up for one now](https://auth0.com/signup).
 
 ## To Do
-Register your API with Auth0 using the Dashboard
-Specify your API's scopes
-Authorize any Machine-to-Machine applications that will call your API
-Configure additional API settings
+- [ ] Add your API in the Auth0 Dashboard
+- [ ] Specify your API's scopes
+- [ ] Authorize any machine to machine applications that will call your API
+- [ ] Configure additional API settings
 
 ## Register your API with Auth0
 
-Before you can use Auth0 to protect your API, you will need to register (configure) your API with Auth0 using the Dashboard. Below, we answer some questions that may arise as you register your API.
+Before you can use Auth0 to protect your API, you will need to [register your API with Auth0 using the Dashboard](/api-auth/guides/configure-api).
 
 ### Add your API in the Auth0 Dashboard
+
 Before anyone can call your API, they will need to get an Access Token. Later, you will need to verify this Access Token to make sure that the sender of the token is who they say they are and to ensure that the message wasn't changed along the way. The information within this token can be verified and trusted because it is digitally signed. When you are adding your API, you will need to choose which signing algorithm to use for the tokens issued for your API.
+
+::: panel
+Which signing algorithm should I choose?
+The most secure practice (and our recommendation) is to use RS256 because with RS256:
+
+- you are sure that only the holder of the private key (Auth0) can sign tokens, while anyone can check if the token is valid using the public key.
+- you can request a token that is valid for multiple audiences.
+- if the private key is compromised, you can implement key rotation. (With HS256, you would have to re-deploy the API with a new secret.)
+
+To learn more, read all about [signing algorithms](/api-auth/concepts/signing-algorithms).
+:::
+
+### Specify your API’s scopes
+
+You'll need to define the scopes Auth0's allowed to grant to your users. By default, any user associated with an Auth0 application can ask for any scope you define here. If you want to [restrict access to your API’s scopes](/api-auth/restrict-requests-for-scopes) (for example, based on a user’s role or application association), you can use rules.
+
+### Authorize any machine to machine applications that will call your API
+
+If you expect any machine to machine applications to use your API, create them in the Dashboard and authorize them to request Access Tokens through a [Client Credentials grant](/api-auth/grant/client-credentials), which issues a token to the application itself rather than to an end user. Other types of applications do not require further configuration based on the grant types they will execute.
+
+::: panel
+What are these grant types of which you speak?
+
+The [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749) describes a number of grants, or methods, that an application can use to get an Access Token.
+
+If your API doesn't require a user or the task being requested is independent of the user account life cycle (for example, an API that returns the weather or stock prices), or if your API operates within a trusted zone with the application calling it (for example, when one backend API calls another API both written and controlled by the same entity, otherwise known as a first-party application), then the [Client Credentials grant](/api-auth/grant/client-credentials) is used.
+
+If your API results vary based on the user making the request and the API requires information about who the user is that it can validate (for example, a request for a bank account balance made through an API for an online banking service), then any of the following may be used, depending on use case:
+
+- [Resource Owner Password grant](/api-auth/grant/client-credentials)
+- [Authorization Code grant](/api-auth/grant/authorization-code)
+- [Authorization Code using PKCE grant](/api-auth/grant/authorization-code)
+- [Implicit grant](/api-auth/grant/implicit)
+
+To find out more about grant types and when each one is used, our handy flowchart, [Which OAuth 2.0 Flow Should I Use?](/api-auth/grant/implicit), is a great starting point.
+:::
+
