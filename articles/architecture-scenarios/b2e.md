@@ -42,7 +42,7 @@ Auth0 can get user attributes, like groups and roles, from a directory service o
 
 ## Profile translation
 
-Sometimes a directory or identity provider returns attributes in one format, but your application uses another format. Using Auth0's [Rules](/rules/current/metadata-in-rules), you can [map and translate user profile attributes](/rules/saml-attribute-mapping). You can even translate between OIDC/OAuth, SAML, WS-Fed, and LDAP.
+Sometimes a directory or identity provider returns attributes in one format, but your application uses another format. Using Auth0's [Rules](/rules/current/metadata-in-rules), you can [map and translate user profile attributes](https://auth0.com/rules/saml-attribute-mapping). You can even translate between OIDC/OAuth, SAML, WS-Fed, and LDAP.
 
 For example, you retrieve attributes in SAML assertion format from a SAML Identity Provider. With a rule you can then translate the attributes to custom claims in an ID Token for an OIDC/OAuth application.
 
