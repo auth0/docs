@@ -48,4 +48,97 @@ To programmatically parse the Access Token, you can either:
 If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your API with Auth0. Also, since you will probably use this library again when you validate the JWT's standard claims, be aware that not all libraries validate all claims. At JWT.io, you can see which validations each library supports (look for the green check marks).
 :::
 
-### 
+### Retrieve and filter your Auth0 JSON Web Key Set (JWKS)
+Auth0 follows the JSON Web Key (JWK) specification when signing tokens. At the most basic level, your Auth0 JSON Web Key Set (JWKS) is a set of keys containing the public keys that should be used to verify the Access Token.
+
+Auth0 exposes a discovery endpoint, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (jwks_uri), which contains the JWKs used to sign all Auth0-issued JWTs for your API.
+
+::: panel How many signing keys should I expect?
+
+It's good practice to assume that multiple signing keys could be present in your JWKS. This may seem unnecessary since the Auth0 JWKS endpoint typically contains a single signing key; however, multiple keys can be found in the JWKS when rotating signing certificates.
+
+You will also probably want to filter out any keys missing a public key or a `kid` property since later, you will use the `kid` property to match the key in your JWKS with the key specified in the Access Token.
+:::
+
+::: panel Should I cache my signing keys?
+You can cache your signing keys to improve application performance and avoid running into rate limits, but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying only one more time.
+:::
+
+### Verify the Access Token's signature
+
+The last part of a JWT is the signature, which is used to verify that the token was signed by the sender and not altered in any way. You will need to Base64-decode the Access Token to do this.
+
+#### Check the signing algorithm
+
+Check that the algorithm (alg) specified in the header of the decoded Access Token matches the one you selected when you registered your API with Auth0.
+
+#### Confirm that the Access Token is correctly signed using the proper key
+
+To do this, you will need to:
+
+- Grab the `kid` property from the header of the decoded Access Token
+- Search your filtered JWKS for the key with the matching `kid` property
+- Build a certificate using the corresponding `x5c` property in your JWKS
+- Use the certificate to verify the Access Token's signature
+
+### Verify the claims found inside the Access Token
+
+Once your API verifies the token’s signature, it should check the claims contained in the decoded Access Token's payload.
+
+Check that:
+
+- the token expiration date/time (exp, Unix timestamp) has not passed
+- the issuing authority (iss) inside the token matches the issuing authority (issuer) identified in your Auth0 tenant's discovery document, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration
+- the token audience (aud) identifies the recipients for which the JWT is intended–namely, the unique identifier of your API in the Auth0 Dashboard
+
+::: panel What if my API needs user data?
+APIs should be accessed using Access Tokens, which are bearer tokens. Bearer tokens allow the bearer to access authorized resources without further identification. They may, however, contain the user_id in the sub claim. Thus, if your API needs user info, you can retrieve it by passing the Access Token to the Auth0 Authentication API /userinfo endpoint.
+
+Limitations:
+
+- The `sub` claim is empty for Client Credentials grants since these are used for machine to machine applications (to which the token is issued rather than to an end user)
+- The `scope` claim must include the value openid, and you must have selected RS256 as the signing algorithm for your API. When done, the `aud` claim of the JWT will include both your API's unique identifier and YOUR_AUTH0_DOMAIN/userinfo.
+:::
+
+### Compare permissions included in the Access Token with scopes configured for your API
+
+To check the sender's permissions, you will need to evaluate the decoded Access Token's scope claim. The scope claim contains a space-separated list of requested permissions. If the permissions contained in this list are authorized for your API, then your API can process the request.
+
+Example:
+An API provides three endpoints that allow user records to be read (/read), created (/create), or deleted (/delete).
+
+The /read endpoint requires the read:users scope
+The /create endpoint requires the create:users scope
+The /delete endpoint requires the delete:users scope
+An application requests to access the /read endpoint, and the scope claim of its Access Token includes the value read:users. Your API should allow access.
+
+An application requests to access the /create endpoint, but the scope claim does not include the value create:users. Your API should reject the request.
+
+## What's next?
+??
+
+## Related reading
+
+Guides
+
+Verify Access Tokens for Custom APIs
+Manually Verify an RS256-signed Token
+Revoke Access to Your API
+Restrict Application or User Requests for API Scopes
+
+Concepts
+
+Access Token
+Why You Should Always Use Access Tokens to Secure an API
+Signing Algorithms
+JSON Web Key Set (JWKS)
+JSON Web Tokens (JWT) in Auth0
+Scopes
+API Scopes
+OIDC Scopes
+Custom Claims
+
+References
+
+Auth0 Backend/API Quickstarts
+Auth0 Authentication API
