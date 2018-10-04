@@ -12,11 +12,12 @@ useCase: secure-api
 
 # Protect My API: Validate an Access Token
 
-So your API is configured with Auth0 and applications are now sending you requests using Access Tokens. Let’s make sure that the sender of a token is who it says it is and ensure that the message wasn't changed along the way.
+So your API is configured with Auth0 and applications are now sending you requests that include Access Tokens. Let’s make sure that the sender of a token is who it says it is and ensure that the message wasn't changed along the way.
 
 ## Prerequisites
 
 - [ ] [Register your API with Auth0](/microsites/protect-my-api/register-api-with-auth0)
+- [ ] If you are calling an API from your own application, [Call an API]()
 
 ## To do
 
