@@ -84,7 +84,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [mustAcceptTerms](#mustacceptterms-boolean-) | Whether or not terms must be accepted (checkbox) |
 | [prefill](#prefill-object-) | Prefill values for email/username fields |
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
-| [usernameStyle](#usernamestyle-string-) | Toggle "username", "email" or "username and email" |
+| [usernameStyle](#usernamestyle-string-) | Limit username field to accept only "username" values or only "email" values |
 
 ### Enterprise
 
