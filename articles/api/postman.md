@@ -1,5 +1,5 @@
 ---
-desription: This page explains how to use Postman Collections to access Auth0 APIs.
+description: This page explains how to use Postman Collections to access Auth0 APIs.
 section: apis
 topics:
     - management-api
