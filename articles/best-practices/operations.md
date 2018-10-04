@@ -25,7 +25,7 @@ Also, make sure to [configure and customize the templates](/email/templates) for
 
 ## Subscribe to updates on the Auth0 status page
 
-Head over to the [Auth0 status page](http://status.auth0.com/) and sign up for notifications. If there are any Auth0 outages, you or your support staff will be notified.
+Head over to the [Auth0 status page](https://status.auth0.com/) and sign up for notifications. If there are any Auth0 outages, you or your support staff will be notified.
 
 ## Store custom code in a source code repository
 
