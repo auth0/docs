@@ -1,4 +1,15 @@
-# Protect My API
+---
+title: Protect My API: Register Your API with Auth0
+description: Learn how to register your API with Auth0, the first step in protecting your API.
+ctaText: Quickstarts
+ctaLink: /docs/quickstart/backend
+contentType: concept
+template: microsite
+topics: api
+useCase: protect-api
+---
+
+# Protect My API: Register Your API with Auth0
 
 So you’ve built a shiny new API and you want to share it with the world. On second thought, you don’t want to share it with the entire world, but right now, anyone can call it. Let’s fix this by protecting your endpoints with Auth0.
 
