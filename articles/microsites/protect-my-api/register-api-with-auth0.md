@@ -110,24 +110,24 @@ Now that you have registered your API with Auth0, your next challenge will be to
 ::: card-panel
 ### Guides
 
-Architecture Scenario: Implement SPA + API
-Architecture Scenario: Implement Server + API
-Architecture Scenario: Implement Mobile + API
-Represent Multiple APIs Using a Single Auth0 API
+[Architecture Scenario: Implement SPA + API](/architecture-scenarios/spa-api)
+[Architecture Scenario: Implement Server + API](/architecture-scenarios/server-api)
+[Architecture Scenario: Implement Mobile + API](/architecture-scenarios/mobile-api)
+[Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
 :::
 
 ::: card-panel--half
 ### Concepts
 
-Which OAuth 2.0 Flow Should I Use?
-Signing Algorithms
-Dynamic Client Registration
+[Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
+[Signing Algorithms](/concepts/signing-algorithms)
+[Dynamic Client Registration](/api-auth/dynamic-client-registration)
 :::
 
 ::: card-panel--half
 ### References
 
-OAuth 2.0
-Auth0 Backend/API Quickstarts
+[OAuth 2.0](/protocols/oauth2)
+[Auth0 Backend/API Quickstarts](/quickstart/backend)
 :::
 ::::
