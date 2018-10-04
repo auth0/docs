@@ -129,17 +129,17 @@ An application requests to access the /create endpoint, but the scope claim do
 
 ### Concepts
 
-Access Token
-Why You Should Always Use Access Tokens to Secure an API
-Signing Algorithms
-JSON Web Key Set (JWKS)
-JSON Web Tokens (JWT) in Auth0
-Scopes
-API Scopes
-OIDC Scopes
-Custom Claims
+[Access Token](/tokens/access-token)
+[Why You Should Always Use Access Tokens to Secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+[Signing Algorithms](/concepts/signing-algorithms)
+[JSON Web Key Set (JWKS)](/jwks)
+[JSON Web Tokens (JWT) in Auth0](/jwt)
+[Scopes](/scopes/current/index)
+[API Scopes](/scopes/current/api-scopes)
+[OIDC Scopes](/scopes/current/oidc-scopes)
+[Custom Claims](/scopes/current/custom-claims)
 
 ### References
 
-Auth0 Backend/API Quickstarts
-Auth0 Authentication API
+[Auth0 Backend/API Quickstarts](/quickstart/backend)
+[Auth0 Authentication API](/api/authentication)
