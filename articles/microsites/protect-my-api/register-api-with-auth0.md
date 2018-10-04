@@ -19,7 +19,7 @@ Before we begin, you will need to:
 - [ ] Know what scopes your API offers
 - [ ] Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, you should [sign up for one now](https://auth0.com/signup).
 
-## To Do
+## To do
 - [ ] Add your API in the Auth0 Dashboard
 - [ ] Specify your API's scopes
 - [ ] Authorize any machine to machine applications that will call your API
