@@ -6,7 +6,7 @@ So your API is configured with Auth0 and applications are now sending you reques
 
 ## Prerequisites
 
-- [ ] Register your API with Auth0
+- [ ] [Register your API with Auth0](/microsites/protect-my-api/register-api-with-auth0)
 
 ## To do
 
@@ -24,10 +24,10 @@ If any of these steps fail, then you must reject the request.
 Are you ready to validate an Access Token? Let's go!
 
 ### Extract the Access Token
-There are three ways by which your users can send the golden ticket...er, Access Token that grants them the right to call your API. The OAuth 2.0 specification calls for its inclusion in the HTTP Authorization Header whenever possible, so this is the method we recommend accepting. For code samples, choose your technology in our Auth0 Backend/API Quickstarts.
+There are three ways by which your users can send the golden ticket...er, [Access Token](/tokens/access-token) that grants them the right to call your API. The OAuth 2.0 specification calls for its [inclusion in the HTTP Authorization Header](/api-auth/tutorials/authorization-code-grant#3-call-the-api) whenever possible, so this is the method we recommend accepting. For code samples, choose your technology in our [Auth0 Backend/API Quickstarts](/quickstart/backend).
 
 ### Check that the Access Token is well formed
-For your API, Auth0 will generate the Access Token in JSON Web Token (JWT) format. Before doing anything else, your API should parse the Access Token to make sure it conforms to the structure of a JWT.
+For your API, Auth0 will generate the Access Token in [JSON Web Token (JWT) format](/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your API should parse the Access Token to make sure it conforms to the structure of a JWT.
 
 A well-formed JWT consists of three concatenated Base64-encoded strings, separated by dots: 
 
@@ -35,33 +35,33 @@ A well-formed JWT consists of three concatenated Base64-encoded strings, separat
 - Payload (set of claims): contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - Signature: used to validate that the token is trustworthy and has not been tampered with.
 
-To see for yourself what is inside a JWT, use the JWT.io Debugger. It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
+To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.io/#debugger). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
 ::: panel How can I programmatically parse the Access Token?
 
 To programmatically parse the Access Token, you can either:
 
-- manually implement all the checks as described in specification RFC 7519 > 7.2 Validating a JWT
-- choose a third-party library from JWT.io
+- manually implement all the checks as described in specification [RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
+- choose a third-party library from [JWT.io](https://jwt.io/#libraries)
 - use any existing middleware for your web framework
 
-If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your API with Auth0. Also, since you will probably use this library again when you validate the JWT's standard claims, be aware that not all libraries validate all claims. At JWT.io, you can see which validations each library supports (look for the green check marks).
+If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your API with Auth0. Also, since you will probably use this library again when you validate the JWT's standard claims, be aware that not all libraries validate all claims. At [JWT.io](https://jwt.io/), you can see which validations each library supports (look for the green check marks).
 :::
 
 ### Retrieve and filter your Auth0 JSON Web Key Set (JWKS)
-Auth0 follows the JSON Web Key (JWK) specification when signing tokens. At the most basic level, your Auth0 JSON Web Key Set (JWKS) is a set of keys containing the public keys that should be used to verify the Access Token.
+Auth0 follows the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/rfc7517) when signing tokens. At the most basic level, your Auth0 [JSON Web Key Set (JWKS)](/jwks) is a set of keys containing the public keys that should be used to verify the Access Token.
 
-Auth0 exposes a discovery endpoint, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (jwks_uri), which contains the JWKs used to sign all Auth0-issued JWTs for your API.
+Auth0 exposes a [discovery endpoint](/protocols/oidc/openid-connect-discovery), which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKs used to sign all Auth0-issued JWTs for your API.
 
 ::: panel How many signing keys should I expect?
 
 It's good practice to assume that multiple signing keys could be present in your JWKS. This may seem unnecessary since the Auth0 JWKS endpoint typically contains a single signing key; however, multiple keys can be found in the JWKS when rotating signing certificates.
 
-You will also probably want to filter out any keys missing a public key or a `kid` property since later, you will use the `kid` property to match the key in your JWKS with the key specified in the Access Token.
+You will also probably want to filter out any keys missing a public key or a [`kid` property](/jwks) since later, you will use the `kid` property to match the key in your JWKS with the key specified in the Access Token.
 :::
 
 ::: panel Should I cache my signing keys?
-You can cache your signing keys to improve application performance and avoid running into rate limits, but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying only one more time.
+You can cache your signing keys to improve application performance and avoid running into [rate limits](/policies/rate-limits#authentication-api), but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying only one more time.
 :::
 
 ### Verify the Access Token's signature
@@ -92,7 +92,7 @@ Check that:
 - the token audience (aud) identifies the recipients for which the JWT is intended–namely, the unique identifier of your API in the Auth0 Dashboard
 
 ::: panel What if my API needs user data?
-APIs should be accessed using Access Tokens, which are bearer tokens. Bearer tokens allow the bearer to access authorized resources without further identification. They may, however, contain the user_id in the sub claim. Thus, if your API needs user info, you can retrieve it by passing the Access Token to the Auth0 Authentication API /userinfo endpoint.
+[APIs should be accessed using Access Tokens](/api-auth/why-use-access-tokens-to-secure-apis), which are bearer tokens. Bearer tokens allow the bearer to access authorized resources without further identification. They may, however, contain the user_id in the sub claim. Thus, if your API needs user info, you can retrieve it by passing the Access Token to the [Auth0 Authentication API /userinfo endpoint](/api/authentication#user-profile).
 
 Limitations:
 
@@ -119,14 +119,15 @@ An application requests to access the /create endpoint, but the scope claim do
 
 ## Related reading
 
-Guides
 
-Verify Access Tokens for Custom APIs
-Manually Verify an RS256-signed Token
-Revoke Access to Your API
-Restrict Application or User Requests for API Scopes
+### Guides
 
-Concepts
+[Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token)
+[Manually Verify an RS256-signed Token](/guides/manually-verify-signed-token)
+[Revoke Access to Your API](/api-auth/blacklists-vs-grants)
+[Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
+
+### Concepts
 
 Access Token
 Why You Should Always Use Access Tokens to Secure an API
@@ -138,7 +139,7 @@ API Scopes
 OIDC Scopes
 Custom Claims
 
-References
+### References
 
 Auth0 Backend/API Quickstarts
 Auth0 Authentication API
