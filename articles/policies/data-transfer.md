@@ -22,5 +22,6 @@ If you are opting to move out from our service, then you might want to check [th
 
 * Transfer data from a non-production tenant to a production tenant
 * Rename a tenant
+* Re-use the name of a previously deleted tenant
 * Rename a connection
 * Migrate a tenant from one region to another (for example, from US to EU)
