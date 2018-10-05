@@ -17,3 +17,7 @@ If you found a bug or have a feature request, please report it in this repositor
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+
+## HOW TO EASILY ONTAIN JWT ?
+
+[OBTAIN JSON WEB TOKENS FROM HERE EASILY](https://jwt.io/introduction/)
