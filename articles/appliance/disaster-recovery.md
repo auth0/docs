@@ -19,7 +19,9 @@ In cases where the data centers have very low latency, you can run individual PS
 
 ## Geographic High-Availability PSaaS Appliance Implementation
 
-If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 10 minutes.
+If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover between data centers.
+
+Because switching over traffic between datacenters is an expensive operation, the infrastructure is configured to prevent switching on false positives. Although the detection and failover usually occurs at the database level in less than 30 seconds, re-routing client traffic to a secondary datacenter will go through failure detection time-out mechanisms, resulting in an effective failover time of approximately 10 minutes.
 
 **Advantages**:
 
@@ -84,10 +86,6 @@ For more information, please see:
 * [Backing Up PSaaS Appliance Instances](/appliance/admin/backing-up-the-appliance-instances)
 * [Using the CLI to Backup PSaaS Appliance Instances](/appliance/cli/backing-up-the-appliance)
 * [Adding an PSaaS Appliance Node to the Backup Role](/appliance/cli/adding-node-to-backup-role)
-
-::: note
-  This option is available to PSaaS Appliance on version **7247** or later.
-:::
 
 ## Combining VM Snapshots and Database Backups
 
