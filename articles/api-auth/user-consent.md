@@ -72,7 +72,7 @@ Once consent has been given, the user will no longer see the consent dialog on s
 
 ## Scope Descriptions 
 
-By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **resource_name:action** format.
+By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **action:resource_name** format.
 
 ![API Scopes](/media/articles/api-auth/consent-scopes.png)
 
