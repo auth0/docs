@@ -24,7 +24,7 @@ Choose this option if:
 ## Prerequisites
 
 * You must first log into an authorized Auth0 enterprise customer account
-* You'll need to register and own the domai name to which you're mapping your Auth0 domain
+* You'll need to register and own the domain name to which you're mapping your Auth0 domain
 
 ## How to Configure Custom Domains with Self-Managed Certificates
 
