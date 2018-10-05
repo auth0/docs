@@ -26,5 +26,7 @@ For example, to save the encrypted `passportNumber` in the user's profile, send 
 }
 ```
 
-Note: Replace the `YOUR_ACCESS_TOKEN` placeholder with a token that will allow you to access this endpoint. This should be a [Management API Token](/api/management/v2/tokens), with the scopes `update:users` and `update:users_app_metadata`.
+::: note
+Replace the `YOUR_ACCESS_TOKEN` placeholder with a token that will allow you to access this endpoint. This should be a [Management API Token](/api/management/v2/tokens), with the scopes `update:users` and `update:users_app_metadata`.
+:::
 
