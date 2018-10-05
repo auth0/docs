@@ -72,4 +72,4 @@ Most user profile fields are not returned as part of [ID Token](/tokens/id-token
 
 ## Blacklisting user attributes
 
-If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/tutorials/blacklisting-attributes).
+If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/security/blacklisting-attributes).
