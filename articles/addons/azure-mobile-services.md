@@ -43,7 +43,7 @@ The important aspects of these lines are:
 
 1. The `Auth0Client` class takes 2 parameters: your `namespace` and the `clientId` of the application.
 2. There are various overloads for the  `LoginAsync` method. In the example above, all options will be presented to the user. You can use other versions of `LoginAsync` to direct login to a specific provider. For example: `LoginAsync("github")` will have users login exclusively with GitHub.
-3. The `GetDelegationToken` call exchanges the application token (received in step #2) for another token to be used for with WAMS.
+3. The `GetDelegationToken` call exchanges the application token (received in step #2) for another token to be used with WAMS.
 4. The input for the `GetDelegationToken` method is the `clientID` of your WAMS enabled app.
 5. A new `MobileServiceUser` object is created with the new information.
 
