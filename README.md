@@ -1,6 +1,8 @@
 # Auth0 Documentation
+Auth0 is an enterprise grade platform for Modern Identity.
+It Provides a universal authentication & authorization platform for web, mobile, and legacy applications.
 This is the repository for the Auth0 documentation.
-
+For More Information, check out [The official Auth0 Website.](https://auth0.com/)
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
 
 ## Running the Docs Site
