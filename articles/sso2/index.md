@@ -15,9 +15,7 @@ Single Sign On (SSO) occurs when a user logs in to one application and is then s
 
 ## SSO in Auth0
 
-The easiest and most secure way to implement SSO with Auth0 is via [Universal Login](/hosted-pages/login).
-
-If you cannot use Universal Login with your web application or single page application, you can use Embedded Login via the [Lock](/libraries/lock) or the [Auth0.js](/libraries/auth0js) libraries.
+The easiest and most secure way to implement SSO with Auth0 is via [Universal Login](/hosted-pages/login). If you cannot use Universal Login with your web application or single page application, you can use Embedded Login via the [Lock](/libraries/lock) or the [Auth0.js](/libraries/auth0js) libraries.
 
 <ul class="topic-links">
   <li>
