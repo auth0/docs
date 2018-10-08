@@ -21,8 +21,6 @@ In cases where the data centers have very low latency, you can run individual PS
 
 If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover between data centers.
 
-Because switching over traffic between datacenters is an expensive operation, the infrastructure is configured to prevent switching on false positives. Although the detection and failover usually occurs at the database level in less than 30 seconds, re-routing client traffic to a secondary datacenter will go through failure detection time-out mechanisms, resulting in an effective failover time of approximately 10 minutes.
-
 Issue detection and failover typically occur at the database level in 30 seconds or less. However, switching over and rerouting traffic from one datacenter to another is an expensive operation, so we've configured the infrastructure to detect false positives and *not* switch over in the event that one occurs. This secondary detection process reroutes client traffic through failure detection time-out mechanisms that result in an *effective* failover time of approximately ten minutes.
 
 **Advantages**:
