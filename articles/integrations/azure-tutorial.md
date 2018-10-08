@@ -16,13 +16,13 @@ From an Auth0 integration perspective, the code is the same, regardless of where
 
 To integrate applications supported by the Microsoft Azure platform, consider these tutorials:
 
-* [ASP.NET application](/server-platforms/aspnet) <br />
+* [ASP.NET application](/quickstart/backend/aspnet-core-webapi-v1_1) <br />
 Simple non-intrusive integration with any version of ASP.NET.
 
-* [Node.js application](/server-platforms/nodejs) <br />
+* [Node.js application](/quickstart/backend/nodejs) <br />
 Integration using [passport](http://passportjs.org/).
 
-* [Microsoft Azure Mobile Services](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
+* [Microsoft Azure Mobile Services](https://auth0.com/blog/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
 Blog post explaining how to integrate with a Microsoft Azure Mobile Services backend.
 
 ---
