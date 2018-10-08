@@ -54,7 +54,7 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 | Good | 8 |
 | Excellent | 10 |
 
-If you provide a minimum password length, this value superceeds that indicated by the password policy.
+If you provide a minimum password length, this value supercedes that indicated by the password policy.
 
 ## Change Your Policy
 

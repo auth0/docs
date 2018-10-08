@@ -51,7 +51,7 @@ You can view more details by clicking on the job you created. In this page you c
 
 ## Replay Logs
 
-In the event of a Logstash failure or service interuption you can replay the logs starting from the failed log.
+In the event of a Logstash failure or service interruption you can replay the logs starting from the failed log.
 
 To replay logs: 
 

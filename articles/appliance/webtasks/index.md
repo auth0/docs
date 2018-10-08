@@ -102,7 +102,7 @@ Afterwards, create a webtask profile using `wt-cli`, if you don't already have o
 wt init --container "YOUR_TENANT_NAME" --url "WEBTASK_URL" --token "eyJhbGci..." -p "a``YOUR_TENANT_NAME-default"
 ```
 
-Now you are ready to register your webtask, using the `wt create` command. This command receives as input a path or URL of the webtasks's code and provides as output the URL where the webtask is available.
+Now you are ready to register your webtask, using the `wt create` command. This command receives as input a path or URL of the webtasks' code and provides as output the URL where the webtask is available.
 
 If you saved the file under a `my-webtasks` directory as `list_modules.js` you would use the following:
 
