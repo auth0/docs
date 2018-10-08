@@ -93,7 +93,7 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 Please review [our notes on token renewal for Safari users](/api-auth/token-renewal-in-safari).
 :::
 
-Since Single Page Applications can not request or use [Refresh Tokens](https://auth0.com/docs/tokens/refresh-token/current) to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
+Since Single Page Applications cannot request or use [Refresh Tokens](https://auth0.com/docs/tokens/refresh-token/current) to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
 
 
 The [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses a silent token request in combination with `response_mode=web_message` so that the request happens in a hidden iframe. Auth0.js handles the result processing (either the token or the error code) and passes the information through a callback function provided by the application. This results in no UX disruption (no page refresh or lost state).
