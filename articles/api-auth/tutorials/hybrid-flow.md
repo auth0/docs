@@ -13,7 +13,9 @@ useCase:
 ---
 # How to Implement the Hybrid Flow
 
-The Hybrid Flow is an OIDC grant that allows you to...
+The [Hybrid Flow](/api-auth/grant/hybrid) is an OpenID Connect (OIDC) grant that enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
+
+In this article, we will show you how you can use the Hybrid Flow in Auth0.
 
 ## Prerequisites
 
@@ -174,5 +176,6 @@ For details on the validations that should be performed refer to [Verify Access 
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)
+- [Application authentication for client-side web apps](client-side-web)
 - [Tokens used by Auth0](/tokens)
 :::

@@ -11,16 +11,18 @@ useCase:
 ---
 # Call APIs Using the Hybrid Flow
 
-The Hybrid Flow is an OIDC flow that draws from the following OAuth 2.0 grants:
+The Hybrid Flow is an OpenID Connect (OIDC) flow that draws from the following:
 
-1. Authorization Code Grant
-2. Implicit Grant
+1. [Authorization Code Grant](/api-auth/grant/authorization-code)
+2. [Implicit Grant](/articles/api-auth/grant/implicit)
+
+The Hybrid Flow enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
 
 ## Background
 
-With the Authorization Code Grant, Auth0 sends you an authorization code (authorization not required), which your app then sends in to retrieve tokens (authorization required). Your application authorizes itself with a Client ID and Client Secret stored securely on your server.
+With the [Authorization Code Grant](/api-auth/grant/authorization-code), Auth0 sends you an authorization code (authorization not required), which your app then sends in to retrieve tokens (authorization required). Your application authorizes itself with a Client ID and Client Secret stored securely on your server.
 
-On the other hand, the Implicit Grant allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use Refresh Tokens.
+On the other hand, the [Implicit Grant](/articles/api-auth/grant/implicit) allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use Refresh Tokens.
 
 ## The Hybrid Flow
 
