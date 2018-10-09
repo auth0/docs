@@ -38,7 +38,7 @@ GET https://${account.namespace}/authorize
 ```
 
 ::: note
-  The specific parameters on the authentication request will depend on the specific needs of the application.
+  The individual parameters on the authentication request will depend on the specific needs of the application.
 :::
 
 The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (callback URL) using the specified `response_mode` with one of two possible responses:
