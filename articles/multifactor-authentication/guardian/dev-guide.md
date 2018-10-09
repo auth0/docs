@@ -96,6 +96,10 @@ Once you have finished making your desired changes, click **Save** so that they 
 
 ### Customizing the Guardian Screen
 
+::: note
+Customizing the Guardian page also changes the Google Authenticator UI when it's used for MFA with Auth0.
+:::
+
 You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Tenant Settings](${manage_url}/#/tenant) page. You may also reach the **Tenant Settings** page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
