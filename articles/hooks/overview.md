@@ -12,7 +12,7 @@ useCase: extensibility-hooks
 ---
 # Overview
 
-Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
+Hooks allow you to extend the Auth0 platform with custom code.
 
 Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute your custom logic.
 
