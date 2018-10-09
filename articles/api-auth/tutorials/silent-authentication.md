@@ -58,7 +58,7 @@ For example, when using the [Implicit Flow](/api-auth/grant/implicit) (`response
 
 ```text
 GET ${account.callback}
-    ?id_token=...&
+    #id_token=...&
     access_token=...&
     state=...&
     expires_in=...
@@ -72,12 +72,10 @@ If the user was not logged in via SSO or their SSO session had expired, Auth0 wi
 
 ```
 GET https://your_callback_url/
-    ?error=ERROR_CODE&
+    #error=ERROR_CODE&
     error_description=ERROR_DESCRIPTION&
     state=...
 ```
-
-When using the [Authorization Code Grant](/api-auth/grant/authorization-code), the error response parameters are returned in the query string. When using the [Implicit Grant](/api-auth/grant/implicit), they are returned in the hash fragment instead.
 
 The possible values for `ERROR_CODE` are defined by the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AuthError):
 
