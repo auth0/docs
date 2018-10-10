@@ -34,8 +34,8 @@ The steps to follow to implement this grant are the following:
 
 3. __Initiate the Authorization Request__. The regular OAuth 2.0 authorization request, with the caveat that now it includes two parameters: the `code_challenge` and the `code_challenge_method` which should be `S256`. If the authorization is successful, then Auth0 will redirect the browser to the callback with a `code` query parameter: `${account.callback}/?code=123`.
 
-::: warning
-   In order for the CLI to be able to receive the callback and retrieve the code, it should run on the web server.
+::: note
+   In order for the CLI to be able to receive the callback and retrieve the code, it needs to implement an HTTP server that corresponds to the allowed callback for the client.
 :::
 
 4. __Exchange the Authorization Code for a Token__. With the `code`, the program then uses the [/oauth/token endpoint](/api/authentication#authorization-code-pkce-) to obtain a token. In this second step, the CLI program adds a `verifier` parameter with the exact same random secret generated in step 1. Auth0 uses this to correlate and verify that the request originates from the same application. If successful the response is another JSON object, with an ID Token and Access Token. Note that if the `verifier` doesn't match with what was sent in the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-), the request will fail.
