@@ -336,10 +336,11 @@ Authorization:  'Bearer {access_token}'
 ```
 
 ```shell
-curl --request PUT \
-  --url 'https://{extension_url}/groups/{group_id}/mappings' \
+curl -v -X PATCH \
+  --url 'https://{extension_url}/api/groups/{group_id}/mappings' \
+  --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer {access_token}' \
-  --data '{"groupName": "Test", "connectionName": "google-oauth2"}'
+  --data '[{"groupName": "Test", "connectionName": "google-oauth2"}]'
 ```
 
 > RESPONSE SAMPLE:
@@ -349,13 +350,13 @@ curl --request PUT \
 ```
 
 <h5 class="http-method-box">
-  <span class="badge badge-warning" href="#create-group-mappings">PUT</span>
+  <span class="badge badge-warning" href="#create-group-mappings">PATCH</span>
   <span class="path" href="#create-group-mappings">/groups/{group_id}/mappings</span>
 </h5>
 
 Use this endpoint to create one or more mappings in a group.
 
-Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2#group-mappings).
+Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2/implementation/setup#group-mappings). 
 
 ### Scopes
 
