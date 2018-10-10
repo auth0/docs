@@ -48,7 +48,7 @@ The Message area accepts Liquid syntax. You can use this syntax, combined with e
 {% endif %}
 ```
 
-The following paramaters are available when defining the template:
+The following parameters are available when defining the template:
 
 | Exposed Parameter | Description |
 |:------------------|:---------|

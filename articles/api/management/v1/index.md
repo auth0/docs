@@ -102,7 +102,7 @@ Authorization: Bearer {token}
 </div>
 
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses Ambigous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
 *   Google Apps: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
@@ -121,7 +121,7 @@ Authorization: Bearer {token}
 
 Search users from all enterprise directories based on the specified `criteria`. The parameter is mandatory.
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses Ambigous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
 *   Google Apps: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
@@ -700,13 +700,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -747,10 +747,10 @@ Retrieves data about log entries based on the specified parameters. Log entries 
 *   `fields`: Can be used to either include or exclude the specified fields by providing a comma (,) separated list of fields, for example `at,c,cn,un`. If no list is provided all fields are included in the response.
 *   `exclude_fields`: To exclude the fields `exclude_fields=true` must be used (if not specified it defaults to false).
 Possible values for `field` are:
-*   `date`: The moment when the event occured.
+*   `date`: The moment when the event occurred.
 *   `connection`: The connection related to the event.
 *   `client_name`: The name of the application related to the event.
-*   `user_name`: The user name releated to the event.
+*   `user_name`: The user name related to the event.
 
 ```text
 GET /api/logs?page={number}&per_page={items}&sort={field}:{-1|1}&fields={fields}&exclude_fields{true|false}
@@ -764,13 +764,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -811,7 +811,7 @@ If no fields are provided a case insensitive 'starts with' search is performed o
 *   `user_name`
 
 Otherwise, you can specify multiple fields and specify the search using the `%field%:%search%`, for example: `application:node user:"John@contoso.com"`.
-Values specified without quotes are matched using a case insensitive 'starts with' search. If quotes are used a case insensitve exact search is used. If multiple fields are used, the AND operator is used to join the clauses.
+Values specified without quotes are matched using a case insensitive 'starts with' search. If quotes are used a case insensitive exact search is used. If multiple fields are used, the AND operator is used to join the clauses.
 
 ##### Available Fields
 *   `application`: Maps to the `client_name` field.
@@ -830,13 +830,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -887,13 +887,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.

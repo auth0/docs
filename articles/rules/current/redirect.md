@@ -14,7 +14,7 @@ useCase:
 
 [Rules](/rules) allow you to define arbitrary code which can be used to fulfill custom authentication and authorization requirements, log events, retrieve information from external services, and much more.
 
-Rules can also be used to programatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
+Rules can also be used to programmatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
 
 * Requiring users to provide additional verification when logging in from unknown locations.
 * Implementing custom verification mechanisms (such as proprietary multi factor authentication providers).

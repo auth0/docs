@@ -31,7 +31,7 @@ To limit the amount of personal information in the Auth0 user profile, you can:
 
 ## Use account linking
 
-Every time a user uses a connection to log in to your application, a user profile is created if it doeasn't already exist. Note that this is per connection.
+Every time a user uses a connection to log in to your application, a user profile is created if it doesn't already exist. Note that this is per connection.
 
 To better understand this, consider the following scenario. Your application offers three different options for signup:
 - sign up with email/password
@@ -63,7 +63,7 @@ You can provide search criteria using the **q** parameter and retrieve specific 
 
 To access the API, you need a [Management APIv2 token](/api/management/v2/tokens).
 
-This sample request retrieves all logs for successful logins (the event acronym for successful login is `s`). The list of fields we will retrieve per log entry is: **date**, **escription**, **client_id**, and **log_id**. 
+This sample request retrieves all logs for successful logins (the event acronym for successful login is `s`). The list of fields we will retrieve per log entry is: **date**, **description**, **client_id**, and **log_id**.
 
 ```har
 {

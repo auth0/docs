@@ -5,7 +5,7 @@ contentType: reference
 useCase: appliance
 applianceId: appliance37
 ---
-# PSaaS Appliace Deployments with Limited Internet Connectivity
+# PSaaS Appliance Deployments with Limited Internet Connectivity
 
 The Auth0 PSaaS Appliance is delivered as a managed service that can run in:
 

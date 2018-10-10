@@ -61,7 +61,7 @@ The required parameters for this connection are:
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `auth0-oidc`.
 * **options.client_id**: the `clientID` of the target Application in the OIDC Provider Auth0 tenant.
-* **options.client_secret**: the `cliendSecret` of the target Application in the OIDC Provider Auth0 tenant.
+* **options.client_secret**: the `clientSecret` of the target Application in the OIDC Provider Auth0 tenant.
 * **options.domain**: the domain of the OIDC Provider Auth0 tenant.
 
 Optionally, you can add:

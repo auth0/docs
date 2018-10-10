@@ -162,7 +162,7 @@ Auth0
 
 #### Authenticate using a specific scope
 
-Using scopes can allow you to return specific claims for specfic fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
+Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
 
 ```swift
 Auth0

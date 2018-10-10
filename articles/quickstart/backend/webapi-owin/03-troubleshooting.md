@@ -156,7 +156,7 @@ The error message to look for is the following:
 IDX10205: Issuer validation failed.
 ```
 
-The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `TokenValidationParameters.ValidIssuer` property of the `JwtBearerAuthenticationOptions` parameter passed when calling `app.UseJwtBearerAuthentication(...)`.
+The resolve this issue, ensure that you specify the correct issuer for your JWT middleware. If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `TokenValidationParameters.ValidIssuer` property of the `JwtBearerAuthenticationOptions` parameter passed when calling `app.UseJwtBearerAuthentication(...)`.
 
 If your middleware is configured for HS256 signed tokens, this means ensuring that you have passed the correct value to the constructor of `SymmetricKeyIssuerSecurityTokenProvider` which was configured as one of the `IssuerSecurityTokenProviders` for the `JwtBearerAuthenticationOptions`.
 
@@ -172,6 +172,6 @@ The error message to look for is the following:
 IDX10214: Audience validation failed.
 ```
 
-The resolve this issue, ensure that you specify the correct audience for your JWT middeware.  If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `ValidAudience` property of the `TokenValidationParameters`
+The resolve this issue, ensure that you specify the correct audience for your JWT middleware.  If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `ValidAudience` property of the `TokenValidationParameters`
 
 If your middleware is configured for HS256 signed tokens, this means ensuring that you have added the correct audience to the list of `AllowedAudiences` for the `JwtBearerAuthenticationOptions`.
