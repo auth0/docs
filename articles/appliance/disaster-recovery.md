@@ -36,7 +36,7 @@ Geo-HA involves:
 * A higher cost due to increased complexity;
 * Additional PSaaS Appliance Virtual Machines (VM) that need maintenance;
 * An additional layer in front of the load balancer for GEO failover, such as F5 Global Traffic Manager or AWS Route 53;
-* Additional configuration to handle logical corruption, since this is not a scenario that is covered by the typical setup.
+* Additional configuration to handle logical corruption.
 
 For more information, please see:
 * [Geo HA](/appliance/geo-ha)
