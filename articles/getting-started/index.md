@@ -21,9 +21,9 @@ useCase:
 
 Welcome! If you are new to Auth0, you are in the right place.
 
-This is an introduction to Auth0, and covers things like:
+This introduction to Auth0 covers things like:
 
-* What is it we do
+* What we do
 * How we can help you
 * The basic terminology we use
 * The process of implementing Auth0
