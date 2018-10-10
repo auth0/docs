@@ -69,7 +69,7 @@ The recommended way is through the [Auth0 Dashboard Rules](${manage_url}/#/rules
 
 3. Enter a name for your new rule, and click __Save__.
 
-![Enter Rule Name](/media/articles/lifecycles/rules-enter-name.png)
+![Enter Rule Name](/media/articles/lifecycle/rules-enter-name.png)
 
 4. Navigate back to [Auth0 Dashboard Rules](${manage_url}/#/rules), and scroll to the bottom of the page to set your configuration values (we will use `log_url` for the key name, and `https://someurl/log` for value), then click __Create__.
 
