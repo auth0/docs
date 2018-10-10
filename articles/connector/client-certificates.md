@@ -27,7 +27,7 @@ To activate client certificates on an AD/LDAP connection:
 
 ## Configure the certificates
 
-Once the AD/LDAP connection has been configured in Auth0 you'll need to configure the certificates in the AD/LDAP Connector. Supporting client certificates will require the following:
+Once the AD/LDAP connection has been configured in Auth0, you'll need to configure the certificates in the AD/LDAP Connector. Supporting client certificates will require the following:
 
  1. An __SSL certificate__ for the **Front Facing Url**, because the interaction between the end user and the Connector will need to happen over HTTPS.
  2. One or more __CA certificates__.
