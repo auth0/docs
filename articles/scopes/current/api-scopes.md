@@ -42,7 +42,7 @@ Note the differences between the example above and the example on asking for sta
 ## Define scopes using the Dashboard
 
 ::: warning
-By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
+By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behavior via [Rules](/rules).
 :::
 
 You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.

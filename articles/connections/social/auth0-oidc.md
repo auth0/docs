@@ -14,7 +14,7 @@ useCase:
 ---
 # Authenticate using OpenIDConnect to another Auth0 Tenant
 
-You can use application on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
+You can use an application on another Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in your current Auth0 tenant (the **Relying Party tenant**).
 
 ## Configure the OIDC Provider Auth0 Tenant
 
