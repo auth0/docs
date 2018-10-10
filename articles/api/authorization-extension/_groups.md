@@ -338,8 +338,8 @@ Authorization:  'Bearer {access_token}'
 ```shell
 curl -v -X PATCH \
   --url 'https://{extension_url}/api/groups/{group_id}/mappings' \
-  --header "Content-Type: application/json" \
-  --header "Authorization: Bearer {access_token}" \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '[{"groupName": "Test", "connectionName": "google-oauth2"}]'
 ```
 
