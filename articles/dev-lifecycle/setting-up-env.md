@@ -63,7 +63,7 @@ The recommended way is through the [Auth0 Dashboard Rules](${manage_url}/#/rules
 
 ![Create Your First Rule](/media/articles/lifecycle/rules-create-first.png)
 
-2. Choose the "empty rule" template.
+2. Choose the __empty rule__ template.
 
 ![Rules Templates](/media/articles/lifecycle/rules-template-empty.png)
 
