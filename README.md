@@ -1,7 +1,13 @@
+![Auth0 Logo](https://avatars1.githubusercontent.com/u/2824157?s=100&v=4)
 # Auth0 Documentation
 This is the repository for the Auth0 documentation.
 
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
+## Index
+1. [Running the Docs Site](#running-the-docs-site)
+2. [Isuue Reporting](#issue-reporting)
+3. [Author](#author)
+4. [License](#license)
 
 ## Running the Docs Site
 You can run and test the docs site locally (you will need access - only employees). For instructions on running the site and testing see the [README](https://github.com/auth0/auth0-docs/blob/master/README.md) (requires Auth0 team access).
