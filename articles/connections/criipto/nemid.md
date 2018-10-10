@@ -27,7 +27,7 @@ Below is an outline of the steps to get ready to accept Danish NemID logins, but
 [a short screen cast](https://criipto.com/easyid/auth0/2016/12/07/easyid-and-auth0/) at Criipto's website.
 
 ::: panel Process to use Swedish BankID in Production
-While the technical integration is simple, to use Danish NemID in production you will have to go through a formal process to register and obtain the necessary certificate to identify yourself to your users. This proces must be completed with the Danish NemID operator, Nets. 
+While the technical integration is simple, to use Danish NemID in production you will have to go through a formal process to register and obtain the necessary certificate to identify yourself to your users. This process must be completed with the Danish NemID operator, Nets. 
 More on this process can be found once you sign into the Criipto Verify service, and with the help of Criipto.
 :::
 

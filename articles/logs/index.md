@@ -142,7 +142,7 @@ The following table lists the codes associated with the appropriate log events.
 | `slo` | Success Logout | User successfully logged out | [Logout](/logout) |
 | `ss` | Success Signup | | |
 | `ssa` | Success Silent Auth | | |
-| `sui` | Success users import | Successfuly imported users | [User Import/Export](/extensions/user-import-export) |
+| `sui` | Success users import | Successfully imported users | [User Import/Export](/extensions/user-import-export) |
 | `sv` | Success Verification Email | | |
 | `svr` | Success Verification Email Request | | |
 | `sys_os_update_end` | Auth0 OS Update Ended | | |
