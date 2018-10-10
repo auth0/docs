@@ -356,7 +356,7 @@ curl -v -X PATCH \
 
 Use this endpoint to create one or more mappings in a group.
 
-Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](extensions/authorization-extension/v2/implementation/setup#group-mappings). 
+Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2/implementation/setup#group-mappings). 
 
 ### Scopes
 
