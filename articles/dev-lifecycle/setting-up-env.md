@@ -57,7 +57,7 @@ function(user, context, callback){
 
 This code, however, is not portable since this URL will likely change from development to production.
 
-The recommended way is through the [Auth0 Dashboard Rules](${manage_url}/#/rules) section. If you have not yet created a rule, you'll need to do so. (Otherwise, jump to step 4.)
+The recommended way of working with code that you need to use/move from development to product is via [Rules](${manage_url}/#/rules) section. If you have not yet created a rule, you'll need to do so. (Otherwise, jump to step 4.)
 
 1. Click __Create Your First Rule__.
 
