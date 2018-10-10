@@ -42,7 +42,7 @@ After selecting the environment, click on **Save Changes**.
 
 ## Migration
 
-Through the [Management API v2](/api/management/v2), you can automate the migration of assets (rules, database connections, and so forth) between tenants.
+Through the [Management API v2](/api/management/v2), you can automate the migration of assets ([rules](/rules/current), database [connections](/connections), and so forth) between tenants.
 
 For easier configuration management, save your configuration values in the [Dashboard](${manage_url}/#/rules), instead of hardcoding them into your __rules__ or __db connections__ scripts.
 
@@ -55,13 +55,27 @@ function(user, context, callback){
 }
 ```
 
-This code however is not portable since this URL will likely change from development to production.
+This code, however, is not portable since this URL will likely change from development to production.
 
-The recommended way is to navigate to the [Dashboard > Rules](${manage_url}/#/rules), scroll to the bottom of the page, set your configuration value (we will use `log_url` for the key name, and `https://someurl/log` for value), and click __Create__.
+The recommended way is through the [Auth0 Dashboard Rules](${manage_url}/#/rules) section. If you have not yet created a rule, you'll need to do so. (Otherwise, jump to step 4.)
+
+1. Click __Create Your First Rule__.
+
+![Create Your First Rule](/media/articles/lifecycle/rules-create-first.png)
+
+2. Choose the "empty rule" template.
+
+![Rules Templates](/media/articles/lifecycle/rules-template-empty.png)
+
+3. Enter a name for your new rule, and click __Save__.
+
+![Enter Rule Name](/media/articles/lifecycles/rules-enter-name.png)
+
+4. Navigate back to [Auth0 Dashboard Rules](${manage_url}/#/rules), and scroll to the bottom of the page to set your configuration values (we will use `log_url` for the key name, and `https://someurl/log` for value), then click __Create__.
 
 ![Rules Configuration Values](/media/articles/lifecycle/rules-conf-values.png)
 
-Now you can write your rule as follows:
+5. Now, you can write your rule. Edit the rule you created, enter the following code in the code area, and click __Save__.
 
 ```js
 function(user, context, callback){
@@ -70,12 +84,14 @@ function(user, context, callback){
 }
 ```
 
-This code is portable and when you migrate to production you only need to change this setting, instead of searching your scripts.
+![Write Rule Code](/media/articles/lifecycle/rules-rule-code.png)
+
+This code is portable, and when you migrate to production, you only need to change this setting instead of searching your scripts.
 
 ## AD/LDAP Connectors
 
-Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 tenant, if you setup multiple Auth0 tenants, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each tenant that requires this form of authentication.
+If you use multiple Auth0 tenants with AD/LDAP, you will need to create an AD/LDAP Connection and set up an AD/LDAP Connector for each tenant. This is because each AD/LDAP Connector is tied to a specific Connection within an Auth0 tenant.
 
-Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 tenant.
+Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP Connector can only be used by one Connection within one Auth0 tenant.
 
-If you have multiple AD/LDAP directories against which users will authenticate (for example, to support different departments or customers, each with their own directory) you can setup multiple AD/LDAP Connectors within each Auth0 tenant.
+If you have multiple AD/LDAP directories against which users will authenticate (for example, to support different departments or customers, each with their own directory), you can set up multiple AD/LDAP Connectors within each Auth0 tenant.
