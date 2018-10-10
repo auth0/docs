@@ -12,5 +12,5 @@ You can also start the application using the **Debug | Start Debugging** option 
 
 To run it on **macOS**:
 
-1) Open the the AndroidSample.sln or iOSSample.sln solution in [Visual Studio for Mac](https://www.visualstudio.com/vs/). 
+1) Open the AndroidSample.sln or iOSSample.sln solution in [Visual Studio for Mac](https://www.visualstudio.com/vs/). 
 2) Click the **Start** button (the play button), optionally selecting your target device. You can also start the application using the **Run | Start Debugging** option from the application menu

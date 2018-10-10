@@ -65,7 +65,7 @@ How you extract the `state` parameter depends entirely on the server you redirec
 When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
 
 ::: warning
-Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to an `invalid_request` error.
 :::
 
 To distinguish between user-initiated logins and resumed login flows, the `context.protocol` property can be checked:
