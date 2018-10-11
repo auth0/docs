@@ -18,7 +18,7 @@ This tutorial shows you how to use Auth0 to create access roles for your users. 
 ## Before You Start
 
 ::: note
-Be sure that you have completed the [Login](00-login.md/) quickstart.
+Be sure that you have completed the [Login](00-login.md) quickstart.
 :::
 
 Create a rule that assigns the users either an `admin` role, or a simple `user` role. Go to the [new rule page](${manage_url}/#/rules/new) and select the "Set Roles To A User" template, under **Access Control**. Replace the default script contents with the following snippet:

@@ -17,14 +17,14 @@ useCase: quickstart
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project.
-* You are familiar with the `WebAuthProvider` class. To learn more, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorials.
-* You are familiar with the concepts of `userId`, `accessToken` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and the [User Profile](/quickstart/native/android/04-user-profile) tutorials.
+* You are familiar with the `WebAuthProvider` class. To learn more, see the [Login](00-login.md) and the [Session Handling](03-session-handling.md) tutorials.
+* You are familiar with the concepts of `userId`, `accessToken` and `idToken`. You can find info about them in the [Session Handling](03-session-handling.md) and the [User Profile](04-user-profile.md) tutorials.
 
 We recommend that you read the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
 
 ## API scopes on Authentication
 
-As seen previously in the [User Profile](/quickstart/native/android/04-user-profile) tutorial, you need to request the Management API audience and the corresponding scopes to be able to read the full user profile and edit their identities, since they are not part of the OIDC specification. Each identity in the user profile represents details from the authentication provider used to log in. e.g. the user's Facebook account details.
+As seen previously in the [User Profile](04-user-profile.md) tutorial, you need to request the Management API audience and the corresponding scopes to be able to read the full user profile and edit their identities, since they are not part of the OIDC specification. Each identity in the user profile represents details from the authentication provider used to log in. e.g. the user's Facebook account details.
 
 Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email read:current_user update:current_user_identities")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
 

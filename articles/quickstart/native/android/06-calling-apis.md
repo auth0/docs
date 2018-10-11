@@ -20,8 +20,8 @@ This tutorial shows you how to access protected resources in your API.
 ## Before You Start
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
-* You have completed the [Session Handling](/quickstart/native/android/03-session-handling) tutorial and you know how to handle the `Credentials` object.
-* You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/quickstart/backend).
+* You have completed the [Session Handling](03-session-handling.md) tutorial and you know how to handle the `Credentials` object.
+* You have set up a backend application as API. To learn how to do it, follow one of the [backend tutorials](/articles/quickstart/backend).
 
 
 <%= include('../_includes/_calling_api_create_api') %>
