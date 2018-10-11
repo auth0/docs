@@ -44,6 +44,7 @@ Provide the following information for your new Connection:
 * **Connection Name**: The logical identifier for your Connection
 * **Email Domains** (optional): A comma-separated list of domains for [use with Lock](/libraries/lock)
 * **Sign In URL**: The SAML single login URL
+* **Issuer**: (optional) SAML issue name to be validated against the SAML issuer name found in incoming tokens
 * **X509 Signing Certificate**: The signing certificate (encoded in PEM or CER) provided by the identity provider
 * **Sign Out URL** (optional): The SAML single logout URL
 * **User ID Attribute** (optional): The attribute in the SAML token that maps to the Auth0 `user_id` property
