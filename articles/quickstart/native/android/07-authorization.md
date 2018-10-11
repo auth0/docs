@@ -49,13 +49,13 @@ The default rules for assigning access roles are:
 * If the email contains anything else, the user gets the regular user role.
 
 ::: note
-The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world/) for more context about Rules.
+The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
 :::
 
 
 ## Test the Rule in Your Project
 
-Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login.md/) tutorial), save them to access them at any time.
+Once the user credentials had been obtained (as explained in the [Login](00-login.md) tutorial), save them to access them at any time.
 
 The claims added to the ID Token via a Rule are included in the userinfo endpoint response. Use the Access Token to call this endpoint and obtain the user roles.
 
