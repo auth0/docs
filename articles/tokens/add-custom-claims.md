@@ -1,22 +1,34 @@
 ---
-description: How to add custom claims to Access Tokens using Rules
+description: How to add custom claims to tokens using Rules
 topics:
   - tokens
   - access-tokens
+  - id-tokens
+  - custom-claims
+  - scopes
+  - claims
+  - namespaces
 contentType:
   - how-to
 useCase:
   - invoke-api
 ---
 
-# Add Custom Claims to Access Tokens
+# Add Custom Claims to Tokens
 
-You can add custom claims to your Access Token (or [ID Token](/tokens/id-token)) using [Rules](/rules). The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. 
+You can add custom claims to your [Access Tokens](/tokens/overview-access-tokens) or [ID Tokens](/tokens/id-token)) using [Rules](/rules). The claim name must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is not possible to add arbitrary claims to ID Tokens or Access Tokens.
+
+The format you should follow is:  `http://my-namespace/claim-name`.
 
 ::: note
-The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is:  `http://my-namespace/claim-name`.
+You cannot use the following Auth0 namespaces: 
+* `auth0.com`
+* `webtask.io`
+* `webtask.run` 
 :::
 
-For more information on the namespaced format of custom claims, refer to [User Profile Claims and Scope](/api-auth/tutorials/adoption/scope-custom-claims).
+## Keep reading
 
-For an example of how to add a custom claim, refer to [Add Custom Claims](/rules/current#api-authorization-add-claims-to-access-tokens).
+* [User Profile Claims and Scope](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims)
+* [Open ID Standard OIDC Claims Specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)
+

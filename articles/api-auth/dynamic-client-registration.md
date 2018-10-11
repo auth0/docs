@@ -132,7 +132,7 @@ In this section we will see how you can dynamically register and configure an ap
 
 ### Register your application
 
-In order to dynamically register an application with Auth0, you need to send an HTTP `POST` message to the Application Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports **Open Dynamic Registration**, which means that the endpoint will accept a registration request without an [Access Token](/tokens/access-token).
+In order to dynamically register an application with Auth0, you need to send an HTTP `POST` message to the Application Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports **Open Dynamic Registration**, which means that the endpoint will accept a registration request without an [Access Token](/tokens/overview-access-tokens).
 
 To create an application with the name `My Dynamic application` and the callback URLs `https://application.example.com/callback` and `https://application.example.com/callback2`, use the following snippet.
 

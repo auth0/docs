@@ -43,7 +43,7 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 
 ## Limitations
 
-Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
+Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/overview-access-tokens) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 
 ## Enable impersonation
 
@@ -161,7 +161,7 @@ There are various possible values for `scope`:
 You can get more information about this in the [Scopes documentation](/scopes).
 
 ::: note
-Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/overview-access-tokens) to your APIs.
 :::
 
 Your request should look like the following:

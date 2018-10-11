@@ -22,7 +22,7 @@ To help you make an informed decision and be aware of any risks, this article in
 * Information about the tokens issued by each protocol
 * Suggestions on when you should use which protocol
 
-We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/access-token), *not* an [ID Token](/tokens/id-token).
+We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/overview-access-tokens), *not* an [ID Token](/tokens/id-token).
 
 ## Two complementary specifications
 
@@ -122,13 +122,11 @@ Note that the token does not contain any information about the user itself besid
 
 In many cases, you might find it useful to retrieve additional user information at the API, so the token is also valid for call [the /userinfo API](/api/authentication#user-profile), which returns the user's profile information. The intended audience (indicated by the **aud** claim) for this token is both your custom API as specified by its identifier (such as `https://my-api-identifier`) and the **/userinfo** endpoint (such as `https://${account.namespace}/userinfo`).
 
-## Keep reading
+## Next steps
 
-::: next-steps
 * [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
 * [OpenID Connect Overview](/protocols/oidc)
-* [Obtaining and Using Access Tokens](/tokens/access-token)
+* [Obtaining and Using Access Tokens](/tokens/overview-access-tokens)
 * [Obtaining and Using ID Tokens](/tokens/id-token)
-:::

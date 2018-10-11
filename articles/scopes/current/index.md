@@ -1,7 +1,6 @@
 ---
 title: Scopes
 description: Overview of scopes
-toc: true
 topics:
   - scopes
 contentType:

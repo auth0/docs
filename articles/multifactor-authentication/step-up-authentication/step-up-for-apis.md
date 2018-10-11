@@ -18,7 +18,7 @@ With step-up authentication, applications that allow access to different types o
 
 For instance, a user may be allowed to transfer money only after they have confirmed their identity using Multi-factor Authentication (MFA).
 
-When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/access-token) and [rules](/rules). In this article we will explain how you can do that and use a sample implementation to go through the process step-by-step.
+When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/overview-access-tokens) and [rules](/rules). In this article we will explain how you can do that and use a sample implementation to go through the process step-by-step.
 
 ## How to check the Access Token
 
@@ -208,12 +208,13 @@ Each time the API receives a request the following will happen:
 
 That's it, you're done! Now your application allows access to different types of resources using a stronger mechanism to perform certain high-value transactions.
 
-## Keep reading
+## Next steps
 
-::: next-steps
-* [Overview of Access Tokens](/tokens/access-token)
-* [Overview of rules](/rules)
-* [Overview of scopes](/scopes)
 * [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
 * [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)
-:::
+
+## Keep reading
+
+* [Access Tokens](/tokens/overview-access-tokens)
+* [Rules](/rules)
+* [Scopes](/scopes)
