@@ -63,7 +63,7 @@ router.get('/suggested-users',ensureLoggedIn, (req,res) => {
 });
 ```
 
-To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
+To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Tokens](/api/management/v2/tokens) with the `read:users` scope.
 
 ```js
 const request = require('request');

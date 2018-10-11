@@ -54,7 +54,7 @@ In order to call any of the API's endpoints, you will need an valid Access Token
 Each endpoint at the [Management API explorer](/api/management/v2) has a section **Scopes** that lists the scope(s) that the Access Token must contain in order to access it. For example, the [Delete user endpoint](/api/management/v2#!/Users/delete_users_by_id) requires the `delete:users` scope.
 :::
 
-To learn more about these tokens and how you can generate one, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+To learn more about these tokens and how you can generate one, see [Access Tokens for the Management API](/api/management/v2/tokens).
 
 Once you know which endpoint you want to access, and you have a valid Access Token, you are ready to send your request.
 

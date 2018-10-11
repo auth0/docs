@@ -55,7 +55,7 @@ Alternatively, you can update this flag using the [Update tenant settings endpoi
 }
 ```
 
-You need to update the `API2_ACCESS_TOKEN` with a valid token with the scope `update:tenant_settings`. See [How to get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token) for details on how to do so.
+You need to update the `API2_ACCESS_TOKEN` with a valid token with the scope `update:tenant_settings`. See [Access Tokens for the Management API](/api/management/v2/tokens) for details on how to do so.
 
 ### Promote connections
 
@@ -80,7 +80,7 @@ You can promote a connection to domain level using the [Update a Connection endp
 ```
 
 Where:
-- `API2_ACCESS_TOKEN`: [Α valid Auth0 API2 token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token) with the scope `update:connections`
+- `API2_ACCESS_TOKEN`: [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections`
 - `CONNECTION_ID`: Τhe Id of the connection to be promoted
 
 
