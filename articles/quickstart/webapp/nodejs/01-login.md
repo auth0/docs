@@ -70,7 +70,8 @@ var strategy = new Auth0Strategy({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
   clientSecret: 'YOUR_CLIENT_SECRET', // Replace this with the client secret for your app
-  callbackURL: 'http://localhost:3000/callback'
+  callbackURL: 'http://localhost:3000/callback',
+  state: true
  },
  function(accessToken, refreshToken, extraParams, profile, done) {
    // accessToken is the token to call Auth0 API (not needed in the most cases)
