@@ -64,7 +64,7 @@ private void login() {
 ```
 
 ::: note
-For instructions on how to authenticate a user, see the [Login](/quickstart/native/android/00-login) tutorial.
+For instructions on how to authenticate a user, see the [Login](00-login.md) tutorial.
 :::
 
 ## Attach the Token
