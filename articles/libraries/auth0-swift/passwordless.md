@@ -11,10 +11,6 @@ useCase: enable-mobile-auth
 ---
 # Passwordless Authentication with Auth0.Swift
 
-::: warning
-This functionality has been deprecated in native. After June 2017, tenants cannot use the native passwordless flow. The functionality will continue to work for tenants that currently have it enabled. If at some point the passwordless mode feature is changed or removed from service, customers who currently use it will be notified beforehand and given ample time to migrate. 
-:::
-
 -<%= include('../../_includes/_native_passwordless_warning') %>
 
 Passwordless authentication allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
