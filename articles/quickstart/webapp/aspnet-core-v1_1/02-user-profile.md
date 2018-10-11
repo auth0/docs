@@ -35,7 +35,7 @@ public class UserProfileViewModel
 }
 ```
 
-Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
+Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to decorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
 
 ```csharp
 // Controllers/AccountController.cs
@@ -52,7 +52,7 @@ public IActionResult Profile()
 }
 ```
 
-The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID Token, but this does not get automatically matched the the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
+The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the ID Token, but this does not get automatically matched the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
 
 There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC middleware registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the ID Token whenever you access the name of the user using the `User.Identity.Name` property.
 

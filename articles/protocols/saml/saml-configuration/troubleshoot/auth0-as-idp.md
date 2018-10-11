@@ -85,7 +85,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
 
-    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user information. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
 
       1. Click on the row for the POST call in the HAR analyzer.
 
@@ -93,7 +93,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
       3. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
 
-      4. Remve the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
+      4. Remove the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
 
       5. Click **Decode SAML message** and check the following fields:
 

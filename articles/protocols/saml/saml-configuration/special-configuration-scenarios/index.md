@@ -16,7 +16,7 @@ Once you've set up a basic SAML Integration, there are a number of additional re
 
 This article assumes that you've already set up a [Connection](/protocols/saml/saml-configuration/auth0-as-service-provider) or a [Application](/protocols/saml/saml-configuration/auth0-as-identity-provider).
 
-The instructions below assume that you're altering specific settings for an exisiting SAML integration, not configuring an integration from scratch.
+The instructions below assume that you're altering specific settings for an existing SAML integration, not configuring an integration from scratch.
 
 ## Scenarios
 

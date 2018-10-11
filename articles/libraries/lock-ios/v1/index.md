@@ -281,7 +281,7 @@ Your `viewController` should also implement the `A0LockEventDelegate` methods:
 - (void)userAuthenticatedWithToken:(A0Token *)token profile:(A0UserProfile *)profile; - Calls `onAuthenticationBlock` of `A0LockViewController` with token and profile
 ```
 
-After implementating your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
+After implementing your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
 
 **Objective-C**:
 

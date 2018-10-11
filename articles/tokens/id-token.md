@@ -69,7 +69,7 @@ Once the application verifies the token's signature, the next step is to validat
 
 - **Token expiration**: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
 
-- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
 
 - **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Application.
 

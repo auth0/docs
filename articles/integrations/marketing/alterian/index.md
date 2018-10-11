@@ -61,6 +61,6 @@ To import your CSV file into Alterian, follow these steps:
     
     ![Data Import: New Imports](/media/articles/integrations/marketing/alterian/new-data-imports.png)
 
-7. After you've reviewed your settings, click **Run Processess**.
+7. After you've reviewed your settings, click **Run Processes**.
 
 That's it! You successfully imported your Auth0 users into Alterian.

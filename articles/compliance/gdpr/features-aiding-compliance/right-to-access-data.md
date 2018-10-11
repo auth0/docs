@@ -14,7 +14,7 @@ As per articles 15, 16, 17, and 19 of GDPR, users have the right to get a copy o
 
 With Auth0, you can access, edit, and delete user information:
 - manually, using the [Dashboard](${manage_url}/#/users), or
-- programatically, using the [Management API](/api/management/v2)
+- programmatically, using the [Management API](/api/management/v2)
 
 <%= include('./_legal-warning.md') %>
 

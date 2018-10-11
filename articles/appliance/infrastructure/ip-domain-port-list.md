@@ -4,7 +4,7 @@ section: appliance
 topics:
     - appliance
     - infrastructure
-    - ip-addressses
+    - ip-addresses
     - domains
     - ports
 contentType: reference

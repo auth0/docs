@@ -145,7 +145,7 @@ For total separation, you can create a new tenant. To do this, click on tenant n
 
 If you need to restrict some users to certain applications, you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
-You can also restrict users from applications by configuring a new connection and only giving access to a specific application. To enable application access for a connection, go to the the **Settings** section for a connection and click on the **Applications** tab; here you can enable/disable any application.
+You can also restrict users from applications by configuring a new connection and only giving access to a specific application. To enable application access for a connection, go to the **Settings** section for a connection and click on the **Applications** tab; here you can enable/disable any application.
 
 ## Keep reading
 

@@ -56,7 +56,7 @@ Add the new language and ensure that **Lock.strings** is selected
 
 ![xcode add language](/media/articles/libraries/lock-ios/xcode_add_language_step_2.png)
 
-You will notice under **Lock.strings** a new file has been created for your specified language, based upon the the **Reference Language** selection.
+You will notice under **Lock.strings** a new file has been created for your specified language, based upon the **Reference Language** selection.
 
 Now you are ready to translate to your desired language.
 

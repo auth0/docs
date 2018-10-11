@@ -18,7 +18,7 @@ Often, the biggest barrier to learning new things, especially in the tech indust
 ::: panel TL;DR
 This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
 
-We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to login with username/password, Google, or GitHub.
+We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to log in with username/password, Google, or GitHub.
 :::
 
 ## Account and tenants

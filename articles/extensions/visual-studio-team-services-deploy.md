@@ -69,7 +69,7 @@ Copy the **Payload URL** and **HTTP headers** values. You will use them in order
 
 ## Configure the Visual Studio Team Services Webhook
 
-Once you have configured your Auth0 Extension, you will need to configure the the Visual Studio Team Services Webhook to complete the integration.
+Once you have configured your Auth0 Extension, you will need to configure the Visual Studio Team Services Webhook to complete the integration.
 
 In your Visual Studio Team Services account, go to **Overview** and click on the name the project being used for the integration, then click **Service Hooks**.
 

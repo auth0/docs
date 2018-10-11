@@ -33,7 +33,7 @@ The following diagram illustrates AWS IAM role assignments for two different use
 
 ![AWS Roles in Use](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
-For cases where you want to make decisions within your code (for example, you might want a credit check of a user buying a pet), you will want to flow identity as well. This will be demonstrated below in [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5).
+For cases where you want to make decisions within your code (for example, you might want a credit check of a user buying a pet), you will want to flow identity as well. This will be demonstrated below in [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/delegation/part-5).
 
 ### 1. Create the PetPurchase API Resource
 
