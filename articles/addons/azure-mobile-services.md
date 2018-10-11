@@ -25,7 +25,7 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 
 ## 1. Create an application
 
-WAMS endpoints can be used from anywhere. For example: [Android](/articles/quickstart/native/android), [iOS](/articles/quickstart/native/ios-objc), [Windows UWP C#](/articles/quickstart/native/windows-uwp-csharp), [JavaScript](/articles/quickstart/spa/vanillajs) or [Windows Phone](/articles/quickstart/native/wpf-winforms). You can use any of these tutorials for configuring an app that interacts with WAMS.
+WAMS endpoints can be used from anywhere. For example: [Android](/quickstart/native/android), [iOS](/quickstart/native/ios-objc), [Windows UWP C#](/quickstart/native/windows-uwp-csharp), [JavaScript](/quickstart/spa/vanillajs) or [Windows Phone](/quickstart/native/wpf-winforms). You can use any of these tutorials for configuring an app that interacts with WAMS.
 
 The samples that you can download from the Azure Portal are a good starting point.
 
