@@ -133,8 +133,7 @@ For example, after receiving the `mfa_required` error, make a `POST` request to 
     "url": "https://${account.namespace}/mfa/challenge",
     "postData": {
         "mimeType": "application/json",
-        "text": "{ \"mfa_token\": \"Fe26.2**05...\", \"challenge_type\": \"oob\", \"authenticator_id\": \"email|dev_s...O\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}" }"
-    }
+        "text": "{ \"mfa_token\": \"Fe26.2**05...\", \"challenge_type\": \"oob\", \"authenticator_id\": \"email|dev_s...O\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}" }
 }
 ```
 
