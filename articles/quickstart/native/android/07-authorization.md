@@ -18,7 +18,7 @@ This tutorial shows you how to use Auth0 to create access roles for your users. 
 ## Before You Start
 
 ::: note
-Be sure that you have completed the [Login](/quickstart/native/android/00-login) quickstart.
+Be sure that you have completed the [Login](00-login.md/) quickstart.
 :::
 
 Create a rule that assigns the users either an `admin` role, or a simple `user` role. Go to the [new rule page](${manage_url}/#/rules/new) and select the "Set Roles To A User" template, under **Access Control**. Replace the default script contents with the following snippet:
@@ -49,13 +49,13 @@ The default rules for assigning access roles are:
 * If the email contains anything else, the user gets the regular user role.
 
 ::: note
-The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
+The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world/) for more context about Rules.
 :::
 
 
 ## Test the Rule in Your Project
 
-Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login) tutorial), save them to access them at any time.
+Once the user credentials had been obtained (as explained in the [Login](/quickstart/native/android/00-login.md/) tutorial), save them to access them at any time.
 
 The claims added to the ID Token via a Rule are included in the userinfo endpoint response. Use the Access Token to call this endpoint and obtain the user roles.
 
