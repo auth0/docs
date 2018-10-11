@@ -50,7 +50,7 @@ First, we need to add the Auth0 Services to the list of Providers in `config/app
 
 ${snippet(meta.snippets.setup)}
 
-If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.5/facades)):
+If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.7/facades)):
 
 ```php
 // config/app.php
