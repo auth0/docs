@@ -38,7 +38,7 @@ A sample flow for this example is the following:
 
 Note that the API needs to do more validations than just check the scope. These are:
 - Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
-- Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intented recipient of the token)
+- Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
 
 For details on how to do these validations, see the [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token) article.
 
@@ -81,7 +81,7 @@ function (user, context, callback) {
 }
 ```
 
-The `CLIENTS_WITH_MFA` variable holds the Cliend IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
+The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
 
 The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `transfer:funds` then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case we are asking for MFA using [Guardian](/multifactor-authentication/guardian).
 

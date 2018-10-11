@@ -33,7 +33,7 @@ There is one consideration that you might want to take into account when deployi
 
 We recommend creating one application per environment in Auth0 (such as "Dev", "Test", "QA", and so on).
 
-Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depening on the Build Configuration you use. For instance
+Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depending on the Build Configuration you use. For instance
 
 `Web.config`
 ```

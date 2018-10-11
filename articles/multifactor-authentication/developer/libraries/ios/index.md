@@ -144,7 +144,7 @@ Guardian
         .start { result in
             switch result {
             case .success:
-                // the auth request was successfuly allowed
+                // the auth request was successfully allowed
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }
@@ -164,7 +164,7 @@ Guardian
         .start { result in
             switch result {
             case .success:
-                // the auth request was successfuly rejected
+                // the auth request was successfully rejected
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }

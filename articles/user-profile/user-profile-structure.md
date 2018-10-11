@@ -67,7 +67,7 @@ The following attributes are available on the user profile.
 
 * `username` (unique): The user's username.
 
-Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
+Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user details from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
 ](/users/search/best-practices).
 
 ## Blacklisting user attributes

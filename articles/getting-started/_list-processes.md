@@ -35,5 +35,5 @@
 <% } else if (screen === "extensions") { %>
   In this page you can see a list of pre-built addons that we have created for you. You can use them to extend the functionality of the Auth0 base product. You can enable extensions in order to import or export users, export logs to external services, expose the Users dashboard to a group of users (without allowing them access to the rest of the dashboard), manage user authorization, and more. [More info on extensions](/extensions).
 <% } else { %>
-  The last screeen navigates you to our [Support Center](${env.DOMAIN_URL_SUPPORT}). The alternative to users that do not have access to support services is the [Auth0 Community](https://community.auth0.com/). [More info on support options](/support).
+  The last screen navigates you to our [Support Center](${env.DOMAIN_URL_SUPPORT}). The alternative to users that do not have access to support services is the [Auth0 Community](https://community.auth0.com/). [More info on support options](/support).
 <% } %>

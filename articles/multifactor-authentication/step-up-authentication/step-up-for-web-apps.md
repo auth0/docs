@@ -32,7 +32,7 @@ In order to check if a user logged in with MFA follow these steps:
 
 1. Retrieve the ID Token
 1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
-1. Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intented recipient of the token)
+1. Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
 1. Verify that the token contains the `amr` claim.
   - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
   - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
@@ -121,7 +121,7 @@ function (user, context, callback) {
 }
 ```
 
-The `CLIENTS_WITH_MFA` variable holds the Cliend IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
+The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
 
 The `context.request.query.acr_values` property exists only if the web app included it in the authentication request, using the request parameter `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor`. The web app will only include this parameter in the authentication request (as we will see in a while) if the user tries to access salary information and has not authenticated with MFA. In this case we ask for MFA using [Guardian](/multifactor-authentication/guardian) by setting the `context.multifactor` property to the appropriate value.
 

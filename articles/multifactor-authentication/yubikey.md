@@ -144,7 +144,7 @@ You also need to create two new Settings for your [Rules](${manage_url}/#/rules)
 | `WEBTASK_URL` | The URL you saved after running the `CREATE` command in the Webtask CLI |
 | `YUBIKEY_SECRET` | Your YubiKey client secret |
 
-With these settings, you can access the provded values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
+With these settings, you can access the provided values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
 
 ![](/media/articles/mfa/yubi-5.png)
 
