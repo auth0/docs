@@ -17,29 +17,19 @@ Single sign on, therefore, is the solution to the problem of needing sessions-re
 
 ## Managing Your Sessions
 
-When it comes to managing your sessions, there are three "layers" you'll need to consider.
+When it comes to managing your sessions for users of your app, there are three different layers you'll need to consider.
 
 | Session Layer/Type | Description | 
 | - | - |
-| **Application** | This is the session inside  |
-| **Auth0** | Auth0  |
-| **Identity Provider** |  |
-
-When talking about managing sessions, there are typically three layers of sessions we need to consider:
-
-Application Session: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to keep track of the fact that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie.
-
-Auth0 session: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered.
-
-Identity Provider session: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
-
-When developing a web application, you will therefore need to keep track of the fact that the user has logged in to your Web application. You can do this by making use of a cookie-based session to keep track of the fact that the user has signed in, and also store any of the user related information or tokens.
+| **Application** | This is the session inside your application. Though you're using Auth0 for authentication, you'll need to track (within your application) of things like whether a user is logged in or not. |
+| **Auth0** | Auth0 also keeps track of sessions via cookies. These cookies store user information so that when the user redirects to the Lock screen, they will not have to provide their credentials again. |
+| **Identity Provider** | The final sessions layer is the Identity Provider (IdP), such as Facebook or Google. If you allow users to sign in with an IdP, and the user is already logged in with the IdP, they won't be prompted to sign in again. They'll simply be asked to allow the IdP to shared their information with Auth0 (and by extension, your app). |
 
 ## How Single Sign On Works
 
 In short, the single sign on process is managed by what's called the **central server**, and the central server is trusted by all of the applications with which it works.
 
-Any time a user logs into one of the applications, the app checks with the central server to see if there is a valid session for that user (regardless of its origin). If there is, the user may proceed without providing their credentials again.
+Any time a user logs into one of the SSO-enabled applications, the app checks with the central server to see if there is a valid session for that user (regardless of its origin). If there is, the user may proceed without providing their credentials again.
 
 ## How SSO Works in Auth0
 
