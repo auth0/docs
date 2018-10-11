@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
+name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
 topics:
@@ -76,7 +76,7 @@ app.UseJwtBearerAuthentication(options);
 
 ## Using the log files to debug configuration issues
 
-The easiest way to debug potential configuration issuer is by inspecing the log files for your application. For more information please refer to the [Logging in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging) document.
+The easiest way to debug potential configuration issuer is by inspecting the log files for your application. For more information please refer to the [Logging in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging) document.
 
 For this document we will run the application from the command line, and inspect the console log output.
 
@@ -156,7 +156,7 @@ The error message to look for is the following:
 IDX10205: Issuer validation failed.
 ```
 
-The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. For HS256 signed tokens, be sure to specify the correct value for the `ValidIssuer` property of the `TokenValidationParameters`.
+The resolve this issue, ensure that you specify the correct issuer for your JWT middleware. For HS256 signed tokens, be sure to specify the correct value for the `ValidIssuer` property of the `TokenValidationParameters`.
 
 ::: panel Using RS256
 For RS256 tokens the JWT middleware will download the OIDC discovery document from the `Authority` and configure the Issuer based on the `issuer` attribute specified in that document. You will therefore not get this error when using RS256 since because if your specified the wrong `Authority` then the signature validation would have failed first.
@@ -174,4 +174,4 @@ The error message to look for is the following:
 IDX10214: Audience validation failed
 ```
 
-The resolve this issue, ensure that you specify the correct audience for your JWT middeware. Depending on how your JWT middleware was configured this means that you need to set the correct `Audience` property of the `JwtBearerOptions`, or the `ValidAudience` property of the `TokenValidationParameters`.
+The resolve this issue, ensure that you specify the correct audience for your JWT middleware. Depending on how your JWT middleware was configured this means that you need to set the correct `Audience` property of the `JwtBearerOptions`, or the `ValidAudience` property of the `TokenValidationParameters`.

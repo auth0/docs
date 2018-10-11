@@ -1,5 +1,5 @@
 ---
-description: How to enable/disable Hooks using the Auth0 Command-Line Interfance
+description: How to enable/disable Hooks using the Auth0 Command-Line Interface
 beta: true
 topics:
     - hooks

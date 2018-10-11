@@ -22,7 +22,7 @@ you may avoid the integration trouble.
 
 Below is an outline of the steps to get ready to accept Norwegian BankID logins, but you may also view [a short screen cast](https://criipto.com/easyid/auth0/2016/12/07/easyid-and-auth0/) at Criipto's website.
 
-::: panel Process to use NOrwegian BankID in Production
+::: panel Process to use Norwegian BankID in Production
 While the technical integration complexity is simple, to use Norwegian BankID in production you will have to go through a formal process to
 register and obtain the necessary certificate to identify yourself to your users.
 More on this process can be found once you sign into the Criipto Verify service, and with the help of Criipto.

@@ -21,7 +21,7 @@ useCase: quickstart
 
 ## Handle Scopes in the `Auth` Service
 
-Add a local member to your `Auth` service and intialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
+Add a local member to your `Auth` service and initialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js

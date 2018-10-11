@@ -3,7 +3,7 @@ description: This article explains how to install and configure the Google Analy
 topics:
   - google
   - analytics
-  contentType: how-to
+contentType: how-to
 useCase:
   - manage-analytics
   - analyze-external-analytics

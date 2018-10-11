@@ -16,13 +16,13 @@ From an Auth0 integration perspective, the code is the same, regardless of where
 
 To integrate applications supported by the Microsoft Azure platform, consider these tutorials:
 
-* [ASP.NET application](/server-platforms/aspnet) <br />
+* [ASP.NET application](/quickstart/backend/aspnet-core-webapi-v1_1) <br />
 Simple non-intrusive integration with any version of ASP.NET.
 
-* [Node.js application](/server-platforms/nodejs) <br />
+* [Node.js application](/quickstart/backend/nodejs) <br />
 Integration using [passport](http://passportjs.org/).
 
-* [Microsoft Azure Mobile Services](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
+* [Microsoft Azure Mobile Services](https://auth0.com/blog/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
 Blog post explaining how to integrate with a Microsoft Azure Mobile Services backend.
 
 ---
@@ -33,7 +33,7 @@ There is one consideration that you might want to take into account when deployi
 
 We recommend creating one application per environment in Auth0 (such as "Dev", "Test", "QA", and so on).
 
-Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depening on the Build Configuration you use. For instance
+Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depending on the Build Configuration you use. For instance
 
 `Web.config`
 ```

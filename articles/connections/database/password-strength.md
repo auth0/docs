@@ -54,7 +54,8 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 | Good | 8 |
 | Excellent | 10 |
 
-If you provide a minimum password length, this value superceeds that indicated by the password policy.
+
+If you provide a minimum password length, this value supercedes that indicated by the password policy.
 
 ## Change Your Policy
 
@@ -91,7 +92,7 @@ Sign-up errors will return a 400 HTTP status code. The JSON response will contai
 
 The response will also contain additional information that can be used to guide the user to what is incorrect in the selected password:
 
-* A `message` is ready to be formated using the `printf` function (or Node.js `util.format`).
+* A `message` is ready to be formatted using the `printf` function (or Node.js `util.format`).
 * `format` is an array with values to be used in the `message`. (`message` is separate from the `format` to allow easier i18n of error messages in custom UIs.)
 * `verified` can be either `true` or `false`. Returns `false` if the rule has been violated.
 

@@ -69,7 +69,7 @@ The following are legacy grant types:
 
 ## How to Edit the Application's `grant_types` Property
 
-You can set the the `grant_types` property for your Auth0 Application using the Management Dashboard.
+You can set the `grant_types` property for your Auth0 Application using the Management Dashboard.
 
 ::: warning
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.

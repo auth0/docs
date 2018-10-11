@@ -41,7 +41,7 @@ There are a number of third-party testing tools that you can use for performance
 
 * [Apache JMeter](http://jmeter.apache.org/)
 * [Artillery](https://artillery.io/)
-* [Micro Focusa LoadRunner](https://www.radview.com/)
+* [Micro Focus LoadRunner](https://www.radview.com/)
 * [Loader](https://loader.io/)
 * [RadView Webload](https://www.radview.com/)
 * [SmartBear LoadUI](https://smartbear.com/)

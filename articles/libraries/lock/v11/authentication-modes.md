@@ -23,10 +23,6 @@ When you click the IdP button (For example, Facebook) with redirect mode, you ar
 
 If after you click on the IdP button (Facebook for example), a popup (new tab or window) is opened, it means you are using popup mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your web app will recognize that the user has been authenticated. The web app has **never been redirected to any other page**.
 
-::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend only using redirect mode (or if popup mode is absolutely required, detecting these special cases in which popup mode will fail and selectively enabling redirect mode).
-:::
-
 Implementing Lock with Popup Mode is again a simple change of the `redirect` option from its default.
 
 ```js

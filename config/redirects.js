@@ -882,7 +882,7 @@ module.exports = [
   },
   {
     from: '/blacklist-attributes',
-    to: '/tutorials/blacklisting-attributes'
+    to: '/security/blacklisting-attributes'
   },
   {
     from: '/brute-force-protection',

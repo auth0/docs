@@ -76,7 +76,7 @@ Next, follow the same process to create a **Manager** role, and ensure that you 
 
 ### Assign Users to Roles
 
-You will need to assign all users to either the Manager or the User role. You can do this by going to the _Users_ tab in the Authorization Extension and selecting a user. On the user information screen, go to the _Roles_ tab. You can add a role to the user by clicking the **Add Role to User** button, and selecting the approproate role for the user.
+You will need to assign all users to either the Manager or the User role. You can do this by going to the _Users_ tab in the Authorization Extension and selecting a user. On the user information screen, go to the _Roles_ tab. You can add a role to the user by clicking the **Add Role to User** button, and selecting the appropriate role for the user.
 
 ![Add User to Role](/media/articles/architecture-scenarios/mobile-api/add-user-role.png)
 

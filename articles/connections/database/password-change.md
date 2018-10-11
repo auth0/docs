@@ -39,7 +39,7 @@ An interactive password reset flow can be triggered in two ways:
 To start an interactive password reset flow using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
 
 ::: note
-If you're calling this from the browser, don't forget to add your URL to the the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
+If you're calling this from the browser, don't forget to add your URL to the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
 :::
 
 ```har
