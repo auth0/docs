@@ -28,7 +28,7 @@ Tokens are objects used to prove your identity against the Auth0 APIs. Read more
 ## Before You Start
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) tutorial.
+Before you continue with this tutorial, make sure that you have completed the [Login](00-login.md) tutorial.
 :::
 
 Before you launch the login process, make sure you get a valid Refresh Token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
