@@ -19,7 +19,7 @@ yarn add --dev react-native-auth0
 ```
 
 ::: note
-For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/package/jest).
+For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
 :::
 
 ### Link the native module
