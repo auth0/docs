@@ -46,11 +46,17 @@ This will install:
 
 ### Enable Auth0 Login in Laravel
 
-First, we need to add the Auth0 Services to the list of Providers in `config/app.php`:
+#### Add Service Provider and Facade 
+
+##### For Laravel 5.5+
+Once the Auth0 plugin is installed, the Auth0 Service Provider and Facade will be autodiscovered.
+
+##### For Older versions of Laravel
+We need to add the Auth0 Services to the list of Providers in `config/app.php`:
 
 ${snippet(meta.snippets.setup)}
 
-If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.5/facades)):
+Also, if you want to use the `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.5/facades)):
 
 ```php
 // config/app.php
@@ -61,6 +67,7 @@ If you want to use an `Auth0` facade, add an alias in the same file (not require
 );
 ```
 
+#### Bind Class
 Finally, you will need to bind a class that provides the app's User model each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (see the "Custom User Handling" section below).
 
 Add the following to your `AppServiceProvider::register()` method:
