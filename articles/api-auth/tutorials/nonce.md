@@ -27,14 +27,24 @@ For more information on where to include the nonce, see [How to Implement the Im
 
 ```js
 function randomString(length) {
-    var bytes = new Uint8Array(length);
-    var random = window.crypto.getRandomValues(bytes);
-    var result = [];
     var charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._~'
-    random.forEach(function (c) {
-        result.push(charset[c % charset.length]);
-    });
-    return result.join('');
+    result = ''
+
+    while (length > 0) {
+        var bytes = new Uint8Array(16);
+        var random = window.crypto.getRandomValues(bytes);
+
+        random.forEach(function(c) {
+            if (length == 0) {
+                return;
+            }
+            if (c < charset.length) {
+                result += charset[c];
+                length--;
+            }
+        });
+    }
+    return result;
 }
 ```
 
