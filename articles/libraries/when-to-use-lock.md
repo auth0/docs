@@ -139,7 +139,7 @@ Although you cannot alter Lock's behavior, you can configure several [basic opti
 
 Consider using **Lock** if:
 
-* You like structure, look, and feel of **Lock**
+* You like the structure, look, and feel of **Lock**
 * You prefer a quicker and easier implementation of Auth0 and a ready-made responsive UI
 * Your process includes many of the use cases that **Lock** handles out of the box:
   * Enterprise logins
@@ -164,7 +164,7 @@ Unlike with **Lock**, neither of these options includes a user interface. You wi
 Consider implementing a custom user interface in conjunction with an Auth0 library or the Authentication API for your app if:
 
 * You have strict requirements for the appearance of the user interface
-* You have strict requirements for file sizes - the Auth0 libraries are significantly smaller than Lock, and if you instead choose to deal with the API directly, that would require add no additional weight.
+* You have strict requirements for file sizes - the Auth0 libraries are significantly smaller than Lock, and if you instead choose to deal with the API directly, that would not require any additional weight.
 * You are comfortable with HTML, CSS, and JavaScript - you'll be creating your own UI
 * You only need to handle username/password and social provider authentication
 * You have multiple database or Active Directory Connections
