@@ -37,9 +37,9 @@ In `server.js`, include the `express-session` module and configure it. The `secr
 
 ```js
 // server.js
-
+var app = express();
 var session = require('express-session');
-const passport = require('passport');
+var passport = require('passport');
 
 
 //session-related stuff
@@ -197,6 +197,22 @@ router.get('/', protected(), function(req, res, next) {
 
 module.exports = router;
 ```
+### Implement a middleware to make the user available in views
+
+In the views and layouts, it is often necessary to conditionally render content depending on if a user is logged in or not. Other times, the user object might be necessary in order to customize the view.
+
+Follow the steps below to create a middleware for this purpose.
+
+```js
+// lib/middleware/userInViews.js
+
+module.exports = function() {
+  return function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+  };
+}
+```
 
 ### Home router
 
@@ -215,7 +231,8 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-### Including the routers in the app
+### Including the routers and userInViews middleware in the app
+
 Include the new routers and the `userInViews` middleware in your app:
 
 ```js
@@ -240,41 +257,6 @@ app.use('/', user);
 
 //..
 ```
-
-### Implement a middleware to make the user available in views
-
-In the views and layouts, it is often necessary to conditionally render content depending on if a user is logged in or not. Other times, the user object might be necessary in order to customize the view.
-
-Follow the steps below to create a middleware for this purpose.
-
-```js
-// lib/middleware/userInViews.js
-
-module.exports = function() {
-  return function(req, res, next) {
-    res.locals.user = req.user;
-    next();
-  };
-}
-```
-
-In `server.js`, require the middleware at the top and use the middleware to make it available in the views. 
-
-```js
-// server.js
-
-//...
-const userInViews = require('./lib/middleware/userInViews');
-//...
-
-
-app.use(userInViews());
-
-//...
-// Handle auth failure error messages
-app.use(function(req, res, next) {	app.use(function(req, res, next) {
-```
-
 
 ### Implement navigation links 
 
