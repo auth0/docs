@@ -154,4 +154,4 @@ An HTTP Archive (HAR) file shows the sequence of redirects that happen during a 
 
 Check out [Troubleshooting With HAR Files](/support/troubleshooting-with-har-files) for instructions on generating and analyzing HAR files.
 
-## Next Steps
+
