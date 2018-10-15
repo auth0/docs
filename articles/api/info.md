@@ -84,4 +84,4 @@ The Management API allows you to manage every aspect of your Auth0 account. For 
 
 ### Management API v1 - DEPRECATED
 
-The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, refer to the [Management API v1 documentation](/api/v1).
+The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, refer to the [Management API v1 documentation](/api/management/v1).
