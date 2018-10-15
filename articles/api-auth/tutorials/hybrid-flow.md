@@ -32,7 +32,7 @@ The first step is to get the user's consent for authentication (and possibly aut
 https://${account.namespace}/authorize?
     audience=YOUR_API_AUDIENCE&
     scope=YOUR_SCOPE&
-    response_type=code&
+    response_type=YOUR_RESPONSE_TYPE&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
     state=YOUR_OPAQUE_VALUE
@@ -96,12 +96,13 @@ More specifically, here's what you will get back (depending on the value provide
 
 ### Access Tokens
 
-There are two ways to get Access Tokens in the Hybrid Flow:
+There are two ways to get Access Tokens in the Hybrid Flow.
 
-1. By including the `token` value in the `response_type` parameter
-2. By including the `code` value in the `response_type` parameter and exchanging the received Authorization Code for an Access Token
+First, all calls include the `code` value in the `response_type` parameter (e.g., `code id_token`, `code token`, or `code id_token token`). As such, you'll receive an Authorization Code from Auth0 that you can then exchange for an Access Token.
 
-You can therefore receive two Access Tokens for a given transaction. However, it is important to keep the two separate -- we do not recommend that an Access Token obtained when `response_type=token` be used to call APIs.
+Second, you can explicitly request an Access Token directly by setting the `response_type` parameter to `code token` or `code id_token token`.
+
+You can therefore receive two Access Tokens for a given transaction. However, it is important to keep the two separate -- we do not recommend that an Access Token obtained when `response_type=code token` or `code token` or `code id_token token` be used to call APIs.
 
 ## 3. Exchange the Authorization Code for an Access Token
 
