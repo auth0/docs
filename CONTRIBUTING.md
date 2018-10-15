@@ -73,6 +73,41 @@ Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec.
 
 ### Headings
 
+```
+The headings are written in the following manner (the number of hashtags describes the level of the heading in the document.):
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternative for H1 and H2, in a underline-ish manner:
+
+Alt H1
+======
+
+Alt H2
+------
+```
+The above text will give you an output like the one shown below:
+
+The headings are written in the following manner (the number of hashtags describes the level of the heading in the document.):
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternative for H1 and H2, in a underline-ish manner:
+
+Alt H1
+======
+
+Alt H2
+------
+
 One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
 
 INVALID: `#My Heading`
