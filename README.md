@@ -1,3 +1,6 @@
+# Other Languages
+To see this article in PT-BR, please see [PT-BR](README-PT-BR.md).
+
 # Auth0 Documentation
 This is the repository for the Auth0 documentation.
 
