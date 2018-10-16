@@ -48,6 +48,10 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 
 How to install the React Native Auth0 module.
 
+::: note
+Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
+:::
+
 ### npm
 
 ```bash
