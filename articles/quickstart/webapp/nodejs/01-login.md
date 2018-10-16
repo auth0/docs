@@ -241,7 +241,7 @@ Include the new routers and the `userInViews` middleware in your app:
 const userInViews = require('./lib/middleware/userInViews');
 const home = require('./routes/home');
 const routes = require('./routes/auth');
-const user = require('./routes/user');	const user = require('./routes/user');
+const user = require('./routes/user');
 
 //..
 //..
