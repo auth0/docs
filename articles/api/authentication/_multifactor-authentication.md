@@ -488,7 +488,7 @@ After an authenticator is added, it must be verified. To verify the authenticato
 
 A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multi-factor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
 
-To access this endoint, you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
+To access this endpoint, you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
 - `scope`: `enroll`
 - `audience`: `https://${account.namespace}/mfa/`
 
@@ -586,7 +586,7 @@ Content-Type: application/json
 
 Returns a list of authenticators associated with your application.
 
-To access this endoint you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
+To access this endpoint you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
 - `scope`: `read:authenticators`
 - `audience`: `https://${account.namespace}/mfa/`
 
