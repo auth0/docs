@@ -69,8 +69,9 @@ Additionally, you can send variables to the included document:
 
 ## Markdown
 
-Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
-You can test out any markdown [here](http://markdownlivepreview.com) to ensure the formatting is correct.
+Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom Markdown features available as described below.
+
+You should [test your Markdown](http://markdownlivepreview.com) to ensure the formatting is correct.
 
 ### Headings
 
