@@ -70,7 +70,7 @@ Additionally, you can send variables to the included document:
 ## Markdown
 
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
-You can test out any markdown [here](http://markdownlivepreview.com) to ensure the formatting is correct and works.
+You can test out any markdown [here](http://markdownlivepreview.com) to ensure the formatting is correct.
 
 ### Headings
 
