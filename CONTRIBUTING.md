@@ -75,7 +75,27 @@ You should [test your Markdown](http://markdownlivepreview.com) to ensure the fo
 
 ### Headings
 
-One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
+Add one to six `#` symbols before your heading text to create your header. The number of # you use determines the size of the heading.
+
+```
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+```
+
+The header text above renders as follows:
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+One common mistake with formatting of headings is to not include a space between the hashes and the text. Some Markdown processors allow this, but we do not. You must put a space as shown below.
 
 INVALID: `#My Heading`
 
