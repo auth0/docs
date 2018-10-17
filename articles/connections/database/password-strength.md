@@ -40,7 +40,15 @@ The password policy for Auth0 Dashboard Admins will mirror the criteria set for 
 :::
 
 ## Minimum password length
+
 You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
+
+::: warning
+If you are using [Custom Hosted Pages](/hosted-pages) (including the [Password Reset](/hosted-pages/password-reset) Pages), you must
+
+* Update the [Custom Hosted Page](/hosted-pages) to use Lock version **11.9** or later 
+* [Update the Custom Password Reset page](/hosted-pages/password-reset#set-the-minimum-password-length-value) to use Change Password library version **1.5.1** or later.
+:::
 
 The minimum password length you can set is **1**, while the maximum is **128**.
 
@@ -53,7 +61,6 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 | Fair | 8 |
 | Good | 8 |
 | Excellent | 10 |
-
 
 If you provide a minimum password length, this value supercedes that indicated by the password policy.
 
