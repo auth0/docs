@@ -17,7 +17,7 @@ appTypes:
     name: spa
     description: "A JavaScript front-end app that uses an API"
     example: "eg: AngularJS, React"
-    question: "What technology are you using for your web app?"
+    question: "What technology are you using for your SPA?"
     budicon: 349
     slug: application-platforms
 
