@@ -58,7 +58,7 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 If you provide a minimum password length, this value supercedes that indicated by the password policy.
 
 ::: warning
-If you are using [Custom Hosted Pages](/hosted-pages) (including the [Password Reset](/hosted-pages/password-reset) Pages) and you would like to set a minimum password length, you must
+If you are using [Custom Hosted Pages](/hosted-pages) (including the [Password Reset](/hosted-pages/password-reset) Pages), and you would like to set a minimum password length, you must
 
 * Update the [Custom Hosted Page](/hosted-pages) to use Lock version **11.9** or later 
 * [Update the Custom Password Reset page](/hosted-pages/password-reset#set-the-minimum-password-length-value) to use Change Password library version **1.5.1** or later.
