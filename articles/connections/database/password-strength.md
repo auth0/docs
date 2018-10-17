@@ -63,7 +63,7 @@ If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hos
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
-If you're using a customized Password Reset Page and you want to set the password length parameter, you must:
+If you're using a customized [Password Reset Page](/hosted-pages/password-reset) and you want to set the password length parameter, you must:
 
 1. Update your templates to include library version 1.5.1 or later
 2. Add `password_complexity_options` to leverage the new parameter
@@ -103,7 +103,7 @@ Scroll to the bottom and click **Save**.
 
 #### Set minimum password length when using Hosted Login Pages
 
-If you're using a customized Password Reset Page and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/hosted-pages/login/lock#customize-lock-in-the-login-page).
+If you're using a customized [Login Page](/hosted-pages/login) and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/hosted-pages/login/lock#customize-lock-in-the-login-page).
 
 ```text
 <script src="https://cdn.auth0.com/js/lock/11.9/lock.min.js"></script>
