@@ -60,7 +60,7 @@ If your application is not [OIDC conformant](/api-auth/intro), review the [migra
 You can test if an application is OIDC conformant by turning on the OIDC conformant toggle and testing your application.
 
 ::: note
-This setting only applies to older tenants, created before Dec 27th 2017. Newer tenants, created after that date, can only use OIDC conformant behavior.
+  This setting only applies to older tenants, created before Dec 27th 2017. Newer tenants, created after that date, can only use OIDC conformant behavior.
 :::
 
 ## Restrict Delegation
