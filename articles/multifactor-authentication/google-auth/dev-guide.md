@@ -52,10 +52,6 @@ function (user, context, callback) {
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
-::: panel Screen customization
-The Google Authenticator widget inherits from the Guardian widget. To customize the Google Authenticator screen, [customize the Guardian screen](/multifactor-authentication/administrator/customizing-widget) in your [tenant settings](${manage_url}/#/tenant).
-:::
-
 ### Configuring Google Authenticator for Select Users
 
 You may choose to enable Google Authenticator only for select users. Within the Customize MFA code snippet, you may include the conditions for Google Authenticator is enabled.
