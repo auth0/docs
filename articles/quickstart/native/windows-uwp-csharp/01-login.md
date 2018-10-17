@@ -31,6 +31,8 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 #if DEBUG
     if (System.Diagnostics.Debugger.IsAttached)
     {
+        this.DebugSettings.EnableFrameRateCounter = true;
+
         System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
     }
 #endif
