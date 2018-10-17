@@ -13,7 +13,7 @@ useCase:
 
 # Configure an API in Auth0
 
-To configure an [API](/api-auth/apis.md) in Auth0, you will need to access the [Auth0 Dashboard](${manage.url}). Once you have done so, you can follow the instructions below.
+To configure an [API](/api-auth/apis.md) in Auth0, you will need to access the [Auth0 Dashboard](${manage_url}). Once you have done so, you can follow the instructions below.
 
 1. From the left menu, click [APIs](${manage_url}/#/apis).
 
