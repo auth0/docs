@@ -109,6 +109,8 @@ If you're using a customized Password Reset Page and you want to set the passwor
 <script src="https://cdn.auth0.com/js/lock/11.9/lock.min.js"></script>
 ```
 
+Scroll to the bottom and click **Save**.
+
 ## Change Your Policy
 
 To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
