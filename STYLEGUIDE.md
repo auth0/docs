@@ -180,7 +180,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 ### The dashboard
 
-* Dashboard: the [Auth0 management console](${manage_url})
+* Dashboard: the [Auth0 management console](${https://auth0.com/user-management})
 * The dashboard elements are called "section", "tab", "field".
 * Dashboard-related terminology:
 ![](/media/readme/structure.png)
