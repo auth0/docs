@@ -40,7 +40,7 @@ In `app.js`, include the `express-session` module and configure it. The `secret`
 
 var session = require('express-session');
 
-//session-related stuff
+// initialize express-session
 var sess = {
  secret: 'CHANGE THIS SECRET',
  cookie: {},
@@ -65,7 +65,7 @@ In `app.js`, include the `passport` and `passport0-auth0` modules, and configure
 var Auth0Strategy = require('passport-auth0'),
     passport = require('passport');
 
-//passport-auth0
+// passport-auth0
 var strategy = new Auth0Strategy({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
@@ -94,7 +94,8 @@ In a typical web application, the credentials used to authenticate a user are on
 To support login sessions, Passport serializes and deserializes user instances to and from the session. Optionally, you may want to serialize only a subset to reduce the footprint, i.e., `user.id`.
 
 ```js
-//app.js
+// app.js
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -175,6 +176,7 @@ If the user is not logged in, the requested route will be stored in the session 
 
 ```js
 // lib/middleware/protected.js
+
  module.exports = function() {
   return function protected(req, res, next) {
     if (req.user) { return next(); }
@@ -231,7 +233,7 @@ In the views and layouts, it is often necessary to conditionally render content 
 Create a middleware `lib/middleware/userInViews.js` for this purpose.
 
 ```js
-//userInViews.js
+// userInViews.js
 
 module.exports = function() {
     return function(req, res, next) {
@@ -253,12 +255,12 @@ var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//..
+// ..
 app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-//..
+// ..
 ```
 
 ### Implement navigation links 
@@ -288,6 +290,7 @@ Create a `views/user.pug` template. Use `locals.user` to access the user data in
 
 ```pug
 // views/user.pug
+
 extends layout
 
 block content
