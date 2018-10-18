@@ -27,6 +27,6 @@ Click **Add** when you've provided the requested values.
 ![API Scopes](/media/articles/scopes/api-scopes.png)
 
 ::: warning
-By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behavior via [Rules](/rules).
+By default, any user of any application can ask for any scope defined here. You can implement access policies to [restrict requests for available scopes](/api-auth/guides/restrict-api-scopes) via [Rules](/rules).
 :::
 
