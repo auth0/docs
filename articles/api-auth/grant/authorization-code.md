@@ -46,7 +46,7 @@ Learn how to implement this grant flow using Auth0 at [Executing an Authorizatio
 
 ## Will rules run for the Authorization Code Grant flow?
 
-[Rules](/rules) will run for the Authorization Code Grant. If you wish to execute special logic unique to the Authorization Code Grant, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the Authorization Code grant.
+[Rules](/rules) will run for the Authorization Code Grant. If you wish to execute special logic unique to the Authorization Code Grant, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the Authorization Code Grant.
 
 For implementation details, refer to [Execute an Authorization Code Grant Flow: Customize the Tokens](/api-auth/tutorials/authorization-code-grant#optional-customize-the-tokens).
 
