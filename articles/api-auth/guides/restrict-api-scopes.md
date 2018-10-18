@@ -1,5 +1,5 @@
 ---
-  description: Learn how to restrict requests for API scopes.
+  description: Learn how to restrict access to API scopes.
   topics:
   - api-authentication
   - oidc
@@ -11,7 +11,7 @@
   - call-api
 ---
 
-# Restrict Requests for Scopes Issued by Your API
+# Restrict Access to Your API's Scopes
 
 By default, an [application](/applications) can request any [scope you have defined for your API](/scopes#api-scopes), and the end user will be prompted to approve requested scopes during the authorization flow. 
 
