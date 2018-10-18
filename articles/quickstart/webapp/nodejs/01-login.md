@@ -61,6 +61,7 @@ In `app.js`, include the `passport` and `passport0-auth0` modules, and configure
 
 ```js
 // app.js
+
 var Auth0Strategy = require('passport-auth0'),
     passport = require('passport');
 
@@ -69,8 +70,7 @@ var strategy = new Auth0Strategy({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
   clientSecret: 'YOUR_CLIENT_SECRET', // Replace this with the client secret for your app
-  callbackURL: 'http://localhost:3000/callback',
-  state: true
+  callbackURL: 'http://localhost:3000/callback'
  },
  function(accessToken, refreshToken, extraParams, profile, done) {
    // accessToken is the token to call Auth0 API (not needed in the most cases)
