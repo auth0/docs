@@ -1,5 +1,5 @@
 ---
-description: Learn how to call APIs from regular web apps using the Authentication Code Grant.
+description: Learn how to call APIs from regular web apps using the Authorization Code Grant.
 topics:
   - authorization-code
   - api-authorization
@@ -8,7 +8,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Authentication Code Grant
+# Authorization Code Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
