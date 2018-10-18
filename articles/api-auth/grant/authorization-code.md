@@ -12,7 +12,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a allows an application to request an [Access Token](/tokens/access-token), and optionally, an [ID Token](/tokens/id-token) and a [Refresh Token](/tokens/refresh_token), in exchange for an Authorization Code. It is used for [Regular Web Apps](/quickstart/webapp) (traditional, server-rendered applications).
+The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) allows an application to request an [Access Token](/tokens/access-token), and optionally, an [ID Token](/tokens/id-token) and a [Refresh Token](/tokens/refresh_token), in exchange for an Authorization Code. It is used for [Regular Web Apps](/quickstart/webapp) (traditional, server-rendered applications).
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
