@@ -177,7 +177,7 @@ If the user is not logged in, the requested route will be stored in the session 
 ```js
 // lib/middleware/protected.js
 
- module.exports = function() {
+module.exports = function() {
   return function protected(req, res, next) {
     if (req.user) { return next(); }
     req.session.returnTo = req.originalUrl;
