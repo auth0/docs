@@ -14,7 +14,7 @@ API scopes allow you to define the actions that applications calling your API ca
 
 ## Background
 
-When you [create an API in Auth0](/apis), you can use scopes to control what someone can do and access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
+When you [create an API in Auth0](/apis), you can [define scopes](/scopes/current/guides/define-scopes-using-dashboard) to control what someone can do and access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
 
 * `read:contacts` 
 * `delete:contacts`
@@ -39,8 +39,6 @@ Note the differences between the example above and the example on asking for sta
 - `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an ID Token. The Access Token will be sent to the API as credentials.
-
-You can define scopes using the Auth0 Dashboard.
 
 You can also limit API scopes.
 
