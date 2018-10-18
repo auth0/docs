@@ -153,7 +153,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Application Requests for API Scopes</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/guides/limit-api-scopes">Limit API Scopes Issued by Your API</a>
     <p>
       Learn how to restrict users/applications from requesting API scopes for which they don't have access.
     </p>
