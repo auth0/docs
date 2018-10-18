@@ -10,11 +10,11 @@ useCase:
 ---
 # API Scopes
 
-API scopes allow you to define the API data accessible to your applications. 
+API scopes allow you to define the actions that applications calling your API can perform and the data they can access. 
 
 ## Background
 
-When you [create an API in Auth0](/apis), you can use scopes to control how and what someone can access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
+When you [create an API in Auth0](/apis), you can use scopes to control what someone can do and access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
 
 * `read:contacts` 
 * `delete:contacts`
@@ -40,24 +40,6 @@ Note the differences between the example above and the example on asking for sta
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an ID Token. The Access Token will be sent to the API as credentials.
 
-## Define scopes using the Dashboard
-
-::: warning
-By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
-:::
-
-You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
-
-Provide the following parameters:
-
-| Parameter | Description |
-| - | - |
-| Name | The name of your scope |
-| Description | A friendly description for your scope |
-
-Click **Add** when you've provided the requested values.
-
-![API Scopes](/media/articles/scopes/api-scopes.png)
 
 ## Limiting API scopes being issued
 
