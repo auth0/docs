@@ -53,7 +53,7 @@ You will also need to configure the **Allowed Logout URLs**:
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
-Users who have not [migrated to Node.js v8](/migrations/guides/extensibility-node8) will URLs that are slightly different:
+Users who have not [migrated to Node.js v8](/migrations/guides/extensibility-node8) will use URLs that are slightly different:
 
 | Location | Allowed Callback URL |
 | --- | --- |
