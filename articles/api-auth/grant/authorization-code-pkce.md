@@ -18,7 +18,7 @@ The Authorization Code Grant Using PKCE allows an application to request an Acce
 
 The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on [mobile apps](/quickstart/native). Specifically, a malicious attacker can intercept the `authorization_code` returned by Auth0. To mitigate this attack, use the **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) enhancement to the [Authorization Code Grant](/api-auth/grant/authorization-code).
 
-With PKCE-enhanced security, for every authorization request, the application creates a cryptographically-random key called the `code_verifier` and its transformed value called the `code_challenge`. The `code_challenge` is sent to Auth0 to get the `authorization_code`. When the application receives the `authorization_code`, it then sends both it and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
+With PKCE-enhanced security, for every authorization request, the application creates a cryptographically-random key called the `code_verifier` and its transformed value called the `code_challenge`, and uses these to get the requested tokens.
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
