@@ -13,7 +13,7 @@ useCase:
 
 # Define API Scopes Using the Auth0 Dashboard
 
-To define API scopes using the [Dashboard](${manage_url}/#/apis), select the API you want to edit, and open up its **Scopes** tab.
+To define [API scopes](/scopes/current/api-scopes) using the [Dashboard](${manage_url}/#/apis), select the API you want to edit, and open its **Scopes** tab.
 
 Provide the following parameters:
 
