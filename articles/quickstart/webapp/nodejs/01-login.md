@@ -236,11 +236,11 @@ Create a middleware `lib/middleware/userInViews.js` for this purpose.
 // userInViews.js
 
 module.exports = function() {
-    return function(req, res, next) {
-      res.locals.user = req.user;
-      next();
-    };
-  }
+  return function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+  };
+}
 ```
 
 ### Including the routers and userInViews middleware
