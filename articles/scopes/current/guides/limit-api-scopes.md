@@ -1,5 +1,5 @@
 ---
-description: Learn how to limit the API scopes issued to an application.
+description: Learn how to limit the API scopes issued by your API.
 topics:
   - scopes
   - API
@@ -11,7 +11,7 @@ useCase:
   - secure-api
 ---
 
-# Limit API Scopes Issued
+# Limit API Scopes Issued by Your API
 
 An application can request any scope you have defined for your API, and the end user will be prompted to approve requested scopes during the authorization flow. 
 
