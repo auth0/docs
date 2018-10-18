@@ -40,6 +40,5 @@ Note the differences between the example above and the example on asking for sta
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an ID Token. The Access Token will be sent to the API as credentials.
 
-You can also limit API scopes.
 
 
