@@ -55,15 +55,15 @@ For more information on how to implement this extension grant refer to [Executin
 
 Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
-## Rules
+## Will rules run for the Resource Owner Password Grant flow?
 
-[Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
+[Rules](/rules) will run for the Resource Owner Password Grant (including the Password Realm extension grant). However, there is a key difference in the behavior of rules in these flows:
 
 - Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
 
-If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
+If you wish to execute special logic unique to the Resource Owner Password Grant, check that the `context.protocol` property in your rule contains a value of `oauth2-password`. If it does, then the rule is running during the Resource Owner Password Grant.
 
-For details on how to implement this, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
+For implementation details, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
 
 ## MFA Support
 
