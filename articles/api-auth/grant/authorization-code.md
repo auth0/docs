@@ -44,7 +44,7 @@ In OAuth 2.0 terms, the web app is the application, the end user is the Resource
 
 Learn how to implement this grant flow using Auth0 at [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant).
 
-## Rules
+## Will Rules run for the Authorization Code Grant flow?
 
 [Rules](/rules) will run for the Authorization Code Grant. If you wish to execute special logic unique to the Authorization Code Grant, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the Authorization Code grant.
 
