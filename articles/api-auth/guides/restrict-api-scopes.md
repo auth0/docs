@@ -1,5 +1,5 @@
 ---
-  description: Learn how to limit the API scopes issued by your API.
+  description: Learn how to restrict requests for API scopes.
   topics:
   - api-authentication
   - oidc
@@ -11,11 +11,11 @@
   - call-api
 ---
 
-# Limit API Scopes Issued by Your API
+# Restrict Requests for Scopes Issued by Your API
 
 By default, an [application](/applications) can request any [scope you have defined for your API](/scopes#api-scopes), and the end user will be prompted to approve requested scopes during the authorization flow. 
 
-Instead, you may want to limit scopes based on, for example, the user's role, application association, location, and so on. To do so, you can use [rules](/rules). If a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+Instead, you may want to restrict available scopes based on, for example, the user's role, application association, location, and so on. To do so, you can use [rules](/rules). If a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
 
 ## Example: Deny access based on the API audience
