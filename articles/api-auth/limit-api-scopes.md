@@ -1,5 +1,5 @@
 ---
-  description: Writing rules to restrict user/client access to an API
+  description: Learn how to limit the API scopes issued by your API.
   topics:
   - api-authentication
   - oidc
@@ -11,9 +11,12 @@
   - call-api
 ---
 
-# Restrict Application or User Requests for API Scopes
+# Limit API Scopes Issued by Your API
 
-By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes#api-scopes). To restrict access to the API's scopes based on the user's role, application association, location, and so on, use [rules](/rules). If a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+By default, an [application](/applications) can request any [scope you have defined for your API](/scopes#api-scopes), and the end user will be prompted to approve requested scopes during the authorization flow. 
+
+Instead, you may want to limit scopes based on, for example, the user's role, application association, location, and so on. To do so, you can use [rules](/rules). If a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+
 
 ## Example: Deny access based on the API audience
 
@@ -44,6 +47,7 @@ function (user, context, callback) {
 The value of an API's `audience` is displayed at the **API Audience** field, at [Dashboard > APIs](${manage_url}/#/apis).
 :::
 
+
 ## Example: Deny access based on the Client ID
 
 This demonstrates how you deny access to an API depending on the application with which the user is associated. In this example, we deny access to all users if the application through which they log in has an ID equal to `CLIENT_ID`. (This is equivalent to disabling **all** Connections for the application.)
@@ -69,3 +73,7 @@ function (user, context, callback) {
 ::: note
 The value of a client's ID is displayed in the **Client ID** field at [Dashboard > Applications](${manage_url}/#/applications).
 :::
+
+## Example: Deny access based on the user's role
+
+We discuss this approach in depth in our [SPA + API Architecture Scenario](/architecture-scenarios/spa-api), specifically, the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section. In this section, you will learn how to configure the [Authorization Extension](/extensions/authorization-extension) and create a custom [Rule](/rules) that will ensure scopes are granted based on the permissions of a user.
