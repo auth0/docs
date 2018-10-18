@@ -14,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-The Authorization Code Grant Using PKCE allows an application to request an Access Token, and optionally, an ID Token and a Refresh Token, in exchange for an Authorization Code and code verifier. It is used for [mobile apps](/quickstart/native).
+The Authorization Code Grant Using PKCE allows an application to request an Access Token, and optionally, a Refresh Token, in exchange for an Authorization Code and code verifier. It is used for [mobile apps](/quickstart/native).
 
 The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on [mobile apps](/quickstart/native). Specifically, a malicious attacker can intercept the `authorization_code` returned by Auth0. To mitigate this attack, use the **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) enhancement to the [Authorization Code Grant](/api-auth/grant/authorization-code).
 
