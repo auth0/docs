@@ -25,21 +25,22 @@ To get started, install the following dependencies.
 * [passport](http://www.passportjs.org/) - an authentication middleware for Node.js
 * [passport-auth0](https://github.com/auth0/passport-auth0) - an Auth0 authentication strategy for Passport
 * [express-session](https://www.npmjs.com/package/express-session) - a middleware to manage sessions
-* [connect-ensure-login](https://github.com/jaredhanson/connect-ensure-login) - a middleware to ensure a user must be logged in, in order to access certain routes
 
 ```bash
 # installation with npm
-npm install passport passport-auth0 express-session connect-ensure-login --save
+npm install passport passport-auth0 express-session --save
 ```
 
 ### Configure express-session
 
-In `app.js`, include the `express-session` module and configure it. The `secret` parameter is a secret string that is used to sign the session ID cookie. Please use a custom value.
+In `server.js`, include the `express-session` module and configure it. The `secret` parameter is a secret string that is used to sign the session ID cookie. Please use a custom value.
 
 ```js
-// app.js
-
+// server.js
+var app = express();
 var session = require('express-session');
+var passport = require('passport');
+
 
 //session-related stuff
 var sess = {
@@ -54,19 +55,40 @@ if (app.get('env') === 'production') {
 }
 
 app.use(session(sess));
+app.use(passport.initialize());
+app.use(passport.session());
 ```
+
+## Implement login, user profile and logout
+
+In this example, we implement the following routes:
+
+* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the login page as required.
+* `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
+* `/user` displays the user's profile.
+* `/logout` closes the local user session and redirects the user again to the root index `/`.
+
+We will use the following routers:
+
+* `routes/auth.js`, to handle authentication-related routes
+* `routes/home.js`, to serve the home page
+* `routes/user.js`, to serve the user profile
+
 
 ### Configure Passport with the application settings
 
-In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
+In `routes/auth.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
 
 ```js
-// app.js
-var Auth0Strategy = require('passport-auth0'),
-    passport = require('passport');
+// routes/auth.js
+const express = require('express');
+const passport = require('passport');
+const router = express.Router();
+const Auth0Strategy = require('passport-auth0');
 
-//passport-auth0
-var strategy = new Auth0Strategy({
+
+// Configure passport to use Auth0
+const strategy = new Auth0Strategy({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
   clientSecret: 'YOUR_CLIENT_SECRET', // Replace this with the client secret for your app
@@ -82,11 +104,7 @@ var strategy = new Auth0Strategy({
 );
 
 passport.use(strategy);
-
-app.use(passport.initialize());
-app.use(passport.session());
 ```
-Please make sure these last two commands are in your code after the application of the express middleware (`app.use(session(sess)`).
 
 ### Storing and retrieving user data from the session
 
@@ -95,126 +113,154 @@ In a typical web application, the credentials used to authenticate a user are on
 To support login sessions, Passport serializes and deserializes user instances to and from the session. Optionally, you may want to serialize only a subset to reduce the footprint, i.e., `user.id`.
 
 ```js
-//app.js
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
+// routes/auth.js
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
 ```
 
-## Implement login, user profile and logout
+### Authentication router
 
-### Add the routes
-
-In this example, we implement the following routes:
-
-* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the login page as required.
-* `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
-* `/user` displays the user's profile.
-* `/logout` closes the local user session and redirects the user again to the root index `/`.
-
-In the authentication step, make sure to pass the `scope` parameter with values `openid email profile` to access email and the other attributes stored in the user profile. This is needed to display the user's information on the profile page.
-
-The `/user` route (the user's profile) should only be accessible if the user is logged in. Use the `ensureLoggedIn` middleware for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
-
-:::note
-This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to the [logout documentation](/logout). 
-:::
-
-Create a new router `routes/auth.js` to contain the above routes.
+In the authentication step, use `passport.authenticate` to trigger authentication. Make sure to pass the `scope` parameter with values `openid email profile` to access email and the other attributes stored in the user profile. This is needed to display the user's information on the profile page.
 
 ```js
 // routes/auth.js
 
-var express = require('express');
-var router = express.Router();
-var Auth0Strategy = require('passport-auth0'),
-    passport = require('passport');
-var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
-
-// Perform the login, after login Auth0 will redirect to callback
-router.get('/login',
-  passport.authenticate('auth0', {scope: 'openid email profile'}), function (req, res) {
+router.get('/login', passport.authenticate('auth0', {
+  scope: 'openid email profile'
+}), function(req, res) {
   res.redirect("/");
 });
 
-// Perform the final stage of authentication and redirect to '/user'
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
 router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/login' }),
+  passport.authenticate('auth0', {
+    failureRedirect: '/failure'
+  }),
   function(req, res) {
-    if (!req.user) {
-      throw new Error('user null');
-    }
-    res.redirect("/user");
+    const returnTo = req.session.returnTo;
+    delete req.session.returnTo;
+    res.redirect(returnTo || '/');
   }
 );
 
+router.get('/failure', function(req, res) {
+  var error = req.flash("error");
+  var error_description = req.flash("error_description");
+  req.logout();
+  res.render('failure', {
+    error: error[0],
+    error_description: error_description[0],
+  });
+});
+
+module.exports = router;
+```
+
+### Protected middleware and user profile router
+
+Create a middleware to ensure a user is logged in in order to access a route:
+```js
+// lib/middleware/protected.js
+
+module.exports = function() {
+  return function protected(req, res, next) {
+    if (req.user) { return next(); }
+    req.session.returnTo = req.originalUrl;
+    res.redirect('/login');
+  }
+};
+```
+
+Create a router for the user profile and use the protected middleware to secure the profile page.
+
+The `/user` route (the user's profile) should only be accessible if the user is logged in. A middleware `protected` is created for this purpose. To have full access to the user profile on `userProfile`, stringify the `user` object.
+
+
+```js
+// routes/user.js
+
+const express = require('express');
+const protected = require('../lib/middleware/protected');
+const router = express.Router();
+
 /* GET user profile. */
-router.get('/user', ensureLoggedIn, function(req, res, next) {
+router.get('/', protected(), function(req, res, next) {
   res.render('user', {
     user: req.user ,
     userProfile: JSON.stringify(req.user, null, '  ')
   });
 });
 
-// Perform session logout and redirect to homepage
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
+module.exports = router;
+```
+### Implement a middleware to make the user available in views
+
+In the views and layouts, it is often necessary to conditionally render content depending on if a user is logged in or not. Other times, the user object might be necessary in order to customize the view.
+
+Follow the steps below to create a middleware for this purpose.
+
+```js
+// lib/middleware/userInViews.js
+
+module.exports = function() {
+  return function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+  };
+}
+```
+
+### Home router
+
+Create the home router:
+```js
+// routes/home.js
+
+const express = require('express');
+const router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
 });
 
 module.exports = router;
 ```
 
-Include the new router in your app, by requiring the file in the top section of your `app.js`:
+### Including the routers and userInViews middleware in the app
+
+Include the new routers and the `userInViews` middleware in your app:
 
 ```js
-// app.js
+// server.js
 
-var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
+const userInViews = require('./lib/middleware/userInViews');
+const home = require('./routes/home');
+const routes = require('./routes/auth');
+const user = require('./routes/user');
+
+//..
+//..
+app.use(userInViews());
 
 //..
 //..
 
-app.use('/', indexRouter);
-//..
-app.use('/', authRouter);
-//..
-```
+app.use('/', routes);
+app.use('/', home);
+app.use('/', user);
 
-### Implement a helper function to check the user session
 
-In the views and layouts, we need to conditionally render content depending on if a user is logged in or not.
-You can do this by adding a helper function to check if the user is persisted in the session or not.
-
-```js
-// app.js
-
-// Look up session to know if user is logged in 
-app.use(function(req, res, next) {
-  res.locals.loggedIn = false;
-  if (req.session.passport && typeof req.session.passport.user !== 'undefined') {
-    res.locals.loggedIn = true;
-  }
-  next();
-});
-
-// the auth router should be loaded after the function definition
-app.use('/', indexRouter);
-//..
-app.use('/', authRouter);
 //..
 ```
 
 ### Implement navigation links 
 
-In your views, use the helper function defined in the previous step to determine which navigational links to render, depending on whether the user is logged in or not.
-
-Add these navigation links to the application layout `views/layout.pug`.
+Use `locals.user`, as implemented in the middleware, to customize the views. For example, we can use it to conditionally render links related to the user session:
 
 ```pug
 // views/layout.pug
@@ -222,7 +268,7 @@ Add these navigation links to the application layout `views/layout.pug`.
   body
     // ...
     a(href="/") Home
-    if loggedIn
+    if locals.user
       a(href="/user") Profile
       a(href="/logout") Log Out
     else
@@ -234,7 +280,7 @@ Add these navigation links to the application layout `views/layout.pug`.
 
 ### Implement the user profile view 
 
-Create a `views/user.pug` template. Present the information by accessing the `user` object or the pre-populated `userProfile` variable, which contains the stringified user profile.
+Create a `views/user.pug` template. Present the information by accessing the object `locals.user`.
 
 ```pug
 // views/user.pug
@@ -243,11 +289,11 @@ extends layout
 
 block content
   br
-  img(src=user.picture)
-  p Welcome #{user.nickname}!
+  img(src=locals.user.picture)
+  p Welcome #{locals.user.nickname}!
   br
   h2 User Profile
-  pre #{userProfile}
+  pre #{locals.user}
 ```
 
 ## See it in action
