@@ -14,7 +14,7 @@ API scopes allow you to define the actions that applications calling your API ca
 
 ## Background
 
-When you [create an API in Auth0](/apis), you can [define scopes](/scopes/current/guides/define-scopes-using-dashboard) to control what someone can do and access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
+When you [configure an API in Auth0](/api-auth/guides/configure-api), you can [define scopes](/scopes/current/guides/define-scopes-using-dashboard) to control what someone can do and access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
 
 * `read:contacts` 
 * `delete:contacts`
