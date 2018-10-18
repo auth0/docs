@@ -1,7 +1,18 @@
-## Limit API scopes being issued
+---
+description: Learn how to limit the API scopes issued to an application.
+topics:
+  - scopes
+  - API
+  - Dashboard
+contentType:
+  - how-to
+useCase:
+  - development
+  - secure-api
+---
 
-An application can request any scope and the user will be prompted to approve those scopes during the authorization flow. This may not be a desirable situation, as you may want to limit the scopes based on, for example, the permissions (or role) of a user.
+# Limit API Scopes Issued
 
-You can make use of the [Authorization Extension](/extensions/authorization-extension) in conjunction with a custom [Rule](/rules) to ensure that scopes are granted based on the permissions of a user.
+An application can request any scope you have defined for your API, and the end user will be prompted to approve requested scopes during the authorization flow. 
 
-This approach is discussed in more depth in some of our [Architecture Scenarios](/architecture-scenarios). Specifically, you can review the entire [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section of our SPA+API Architecture Scenario which demonstrates how to configure the Authorization Extension, and also create a custom Rule which will ensure scopes are granted based on the permissions of a user.
+Instead, you may want to limit scopes based on, for example, the permissions (or role) of a user. We discuss this approach in more depth in our [SPA + API Architecture Scenario](/architecture-scenarios/spa-api), specifically, the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section. In this section, you will learn how to configure the [Authorization Extension](/extensions/authorization-extension) and create a custom [Rule](/rules) that will ensure scopes are granted based on the permissions of a user.
