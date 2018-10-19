@@ -17,22 +17,12 @@ useCase:
 
 You can authenticate users of your mobile/desktop applications by:
 
-* Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
+* Using [Universal Login](/hosted-pages/login), Auth0's implementation of a centralized authentication flow that provides a standard set of behaviors and a customizable user interface;
 * Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
-This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
+This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints with the [Authorization Code Grant Using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
 
-If you would like to implement this functionality using either Lock or one of the Auth0 SDKs, please refer to the following resources:
-
-* Lock
-  * [Lock for Web](/libraries/lock)
-  * [Lock for iOS](/libraries/lock-ios)
-  * [Lock for Android](/libraries/lock-android)
-* Auth0 SDK
-  * [Auth0 SDK for Web](/libraries/auth0js)
-  * [Auth0 SDK for iOS](/libraries/auth0-swift)
-  * [Auth0 SDK for Android](/libraries/auth0-android)
 
 ## Overview
 
