@@ -21,7 +21,7 @@ You can authenticate users of your mobile/desktop applications by:
 * Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
-This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints with the [Authorization Code Grant Using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
+This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints with the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
 
 
 ## Overview
