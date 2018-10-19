@@ -55,10 +55,10 @@ If you want to use an `Auth0` facade, add an alias in the same file (not require
 ```php
 // config/app.php
 
-'aliases' => array(
+'aliases' => [
     // ...
     'Auth0' => Auth0\Login\Facade\Auth0::class
-);
+];
 ```
 
 Finally, you will need to bind a class that provides the app's User model each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (see the "Custom User Handling" section below).

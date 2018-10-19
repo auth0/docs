@@ -14,7 +14,7 @@ Within the login page, you can use the [Auth0.js SDK](/libraries/auth0js), inste
 
 ## Auth0.js Template for the Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in your Universal Login page. 
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v9 in your Universal Login page. 
 
 In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
 

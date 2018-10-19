@@ -771,7 +771,7 @@ var options = {
 Determines whether or not the user will be automatically signed in after a successful sign up. Defaults to `true`.
 
 ```js
-var option = {
+var options = {
   loginAfterSignUp: false
 };
 ```

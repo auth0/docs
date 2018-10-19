@@ -9,6 +9,8 @@ The first step in adding authentication to your application is to provide a way 
 In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **MainActivity** of the app has a **launchMode** value of `singleTask` and that it has the following intent filter:
 
 ```xml
+// android/app/src/main/AndroidManifest.xml
+
 <intent-filter>
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -23,6 +25,8 @@ In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **
 So your **MainActivity** should look like this:
 
 ```xml
+// android/app/src/main/AndroidManifest.xml
+
 <activity
 android:name=".MainActivity"
 android:label="@string/app_name"
@@ -50,6 +54,8 @@ android:windowSoftInputMode="adjustResize">
 In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 ```objc
+// ios/<YOUR PROJECT>/AppDelegate.m
+
 #import <React/RCTLinkingManager.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
@@ -65,6 +71,8 @@ Next you will need to add a URLScheme using your App's bundle identifier.
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
 ```xml
+// ios/<YOUR PROJECT>/Info.plist
+
 <key>CFBundleIdentifier</key>
 <string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
 ```
@@ -72,6 +80,8 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 and then register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
 
 ```xml
+// ios/<YOUR PROJECT>/Info.plist
+
 <key>CFBundleURLTypes</key>
 <array>
     <dict>

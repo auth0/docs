@@ -48,6 +48,10 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 
 How to install the React Native Auth0 module.
 
+::: note
+Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
+:::
+
 ### npm
 
 ```bash
@@ -61,7 +65,7 @@ yarn add --dev react-native-auth0
 ```
 
 ::: note
-For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/package/jest).
+For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
 :::
 
 ### Link the native module
