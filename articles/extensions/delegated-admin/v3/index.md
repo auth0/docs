@@ -167,6 +167,11 @@ Set the following configuration variables:
 
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
+- **FAVICON_PATH** (optional): Path to custom favicon.
+
+- **FEDERATED_LOGOUT** (optional): sign out from the IDP when users logout.
+
+
 Once done, click **Install**. Your extension is now ready to use!
 
 If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that the extension automatically created an additional application called `auth0-delegated-admin`.
