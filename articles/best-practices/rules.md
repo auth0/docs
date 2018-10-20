@@ -49,3 +49,14 @@ To run a rule for only specific applications, check for a [client metadata field
 This can improve performance as the rule only executes for clients with a certain metadata field, rather than checking Client IDs. It also makes adding new clients and reading the rule code easier.
 
 You can set client metadata for your application on the dashboard by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/). To access client metadata in rules, use the [context object](/rules/current/context).
+
+## Correct application type
+
+Make sure the correct application type is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
+
+## Flag third-party applications
+You should flag first-party and third-party applications. First-party applications can be configured from the Applications page of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the ```is_first_party``` attribute set to false.
+
+## Do not use wildcards or localhost in callbacks or origins fields
+
+Do not use wildcard or localhost URLs in your application callbacks or allowed origins fields. Using redirect URLs with wildcards can make your application vulnerable to attacks.
