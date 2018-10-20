@@ -30,7 +30,7 @@ For example, if a rule has 3 checks to decide if it should run, the first check 
 
 ## Reduce API requests
 
-Try not to use a lot of API calls in rules. Too many can slow down login response time and may cause failures during a timeout.
+Try not to use a lot of API calls in rules. Too many API calls can slow down login response time and may cause failures during a timeout.
 
 Avoid calling the Management API if possible, especially in high volume environments.
 
