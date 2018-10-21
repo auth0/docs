@@ -248,7 +248,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Lock JS CDN URL:** The URL of to the latest available Lock widget in the CDN. Option name is `cdn_url`.
 
-* **Link Users with Same Email:** This option enables the linking of accounts with the same verified e-mail address. Option name is `link_auth0_users`.
+* **Link Users with Same Email:** This option enables the linking of accounts with the same verified email address. Option name is `link_auth0_users`.
 
 * **Auto Provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). Option name is `auto_provisioning`.
 

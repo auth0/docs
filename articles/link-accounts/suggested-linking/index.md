@@ -99,7 +99,7 @@ class Auth0Client {
 
 ## Step 3: Prompt the user to link accounts
 
-If Auth0 returns one or more records with matching email addresses, the user sees the list, as well as the following message prompting them to link the accounts: `We noticed there are other registered users with the same verified e-mail address as EMAIL_ADDRESS. Do you want to link the accounts?`.
+If Auth0 returns one or more records with matching email addresses, the user sees the list, as well as the following message prompting them to link the accounts: `We noticed there are other registered users with the same verified email address as EMAIL_ADDRESS. Do you want to link the accounts?`.
 
 If the user wants to link a given account, they can click **Link** next to the appropriate account.
 

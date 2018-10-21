@@ -271,17 +271,17 @@ For more information and sample scripts, see [Auth0.js > User management](/libra
 ## Scenarios
 
 In this section we will see some scenarios that implement account linking:
-* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same e-mail address
+* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same email address
 * [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
-* [Suggested account linking](#suggested-account-linking): identify accounts with the same e-mail address and prompt the user in your app to link them
+* [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
 
 ::: warning
-For security purposes, link accounts **only if both e-mails are verified**.
+For security purposes, link accounts **only if both emails are verified**.
 :::
 
 ### Automatic account linking
 
-You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same e-mail address.
+You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same email address.
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
 
@@ -299,7 +299,7 @@ You can follow the [Account Linking Using Client Side Code](/link-accounts/user-
 
 ### Suggested account linking
 
-As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified e-mail address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
+As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified email address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
 
 ![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 

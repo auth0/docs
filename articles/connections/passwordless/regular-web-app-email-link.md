@@ -10,7 +10,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Passwordless Authentication with a magic link via e-mail on Regular Web Apps
+# Passwordless Authentication with a magic link via email on Regular Web Apps
 
 :::warning
 Passwordless is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP. If you call it from the server-side, your backend's IP may easily hit these rate limits.
