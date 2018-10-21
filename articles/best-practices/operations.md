@@ -45,4 +45,4 @@ If your rules, hooks, custom database scripts or webtasks call a service in your
 
 The [Auth0 Support Center](https://support.auth0.com/) provides a configuration checker tool. Run the configuration checker periodically during development and again before you launch.
 
-To run the configuration check, go to [Auth0 Support Center -> Tenants](https://support.auth0.com/tenants/public) and select the gear icon and choose **Run Production Check**.
+To run the configuration check, go to [Auth0 Support Center → Tenants](https://support.auth0.com/tenants/public) and select the gear icon and choose **Run Production Check**.
