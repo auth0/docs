@@ -1,0 +1,3 @@
+::: note 
+Magic link transactions must take place with the same browser; both the user's initial request and their response. This is particularly relevant for iOS users where they cannot change their default web browser. For example, if the user makes the initial request using the Chrome browser, when they click on the link in the email, Safari will open and the transaction will fail because it is a different browser. 
+:::

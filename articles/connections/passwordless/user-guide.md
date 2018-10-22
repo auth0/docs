@@ -32,6 +32,9 @@ You may opt to register and authenticate yourself using a magic link sent via em
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-link.png)
 
+<%= include('_single-browser-magic-link') %>
+
+
 ### Authentication Using a One-time Use Code Received via Email
 
 You may opt to register and authenticate yourself using a one-time use code that you receive via email.

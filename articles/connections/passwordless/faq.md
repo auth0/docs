@@ -26,6 +26,8 @@ For frequently visited sites, passwordless authentication offers a streamlined a
 
 Websites and web applications are trending toward longer session expirations so that users are not asked to login frequently, behaving more like native apps on a mobile device. Then, when a user initiates a sensitive operation, users are asked for *step-up* authentication such as a one-time password or a code from an authentication app like Google Authenticator. Auth0’s passwordless authentication takes the same approach. Like the `sudo` command on Linux, when the user initiates an activity that requires elevated privileges, they are presented with an extra challenge. Simple and effective, this procedure eliminates the hassle of multi-factor authentication, except when necessary.
 
+<%= include('_single-browser-magic-link') %>
+
 ### Q: Is it difficult for users to become accustomed to passwordless login?
 
 **A:** Passwordless login is so simple that most users will immediately get it. The user experience is nearly effortless, especially with *magic links* in emails. For most end-users, a passwordless login is easier than recalling a hard-to-remember password.

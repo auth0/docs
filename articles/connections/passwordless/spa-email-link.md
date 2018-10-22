@@ -107,4 +107,7 @@ $(document).ready(function(){
 });
 ```
 
+<%= include('_single-browser-magic-link') %>
+
+
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

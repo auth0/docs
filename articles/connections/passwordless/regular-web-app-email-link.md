@@ -56,6 +56,9 @@ This will open a dialog that asks the user for their email address.
 
 Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`.
 
+<%= include('_single-browser-magic-link') %>
+
+
 ::: note
 You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
 :::

@@ -86,3 +86,6 @@ lock.presentEmailController(controller, fromController: self)
 
 * Because Universal Links do not work on iOS simulators, you'll need an iOS-enabled device to test this implementation.
 * When testing, do not use the Gmail app to open the email that contains the Magic Link. Gmail opens links internally or using Chrome, both of which bypass the detection of the Universal Link by iOS.
+
+<%= include('_single-browser-magic-link') %>
+

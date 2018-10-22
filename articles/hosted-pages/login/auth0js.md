@@ -176,7 +176,12 @@ For this example, replace the code in the login page editor with the following t
 </html>
 ```
 
-This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify. Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
+This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify.
+
+<%= include('_single-browser-magic-link') %>
+
+
+Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
 
 <%= include('./_custom-domains') %>
 
