@@ -1,4 +1,5 @@
 ```js
+// ../src/App.js
 var Auth0 = require('auth0-js');
 var Auth0Cordova = require('@auth0/cordova');
 
