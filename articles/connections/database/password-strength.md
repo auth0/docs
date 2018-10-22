@@ -75,7 +75,7 @@ If you do not [update the Password Reset Page](/hosted-pages/password-reset#edit
 To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
 
 ```text
-<script src="https://cdn.auth0.com/js/change-password-1.4.0.min.js"></script>
+<script src="https://cdn.auth0.com/js/change-password-1.5.1.min.js"></script>
 ```
 
 ##### Step 2: Add `password_complexity_options` to leverage the new parameter
