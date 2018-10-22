@@ -45,6 +45,7 @@ ${snippet(meta.snippets.setup)}
 Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.
 
 ```js
+// ../src/index.js
 var Auth0Cordova =  require('@auth0/cordova');
 var App = require('./App');
 
