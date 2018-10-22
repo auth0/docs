@@ -96,7 +96,7 @@ The scope parameter in the OIDC-conformant pipeline determines:
 
 If you have multiple apps calling an API under a single client ID, you should represent each application with a single Auth0 application, each of which can interact with the resource server representing the API on which these apps depend.
 
-Similarly, if you use [delegation to exchange tokens obtained by one application for tokens for a different application](/tokens/delegation), you should also be using a multi-application solution, each authenticating to the same resource server.
+Similarly, if you use delegation to exchange tokens obtained by one application for tokens for a different application, you should also be using a multi-application solution, each authenticating to the same resource server.
 
 If your applications do not depend on external APIs and you just need to authenticate users, you do not need to define a resource server/API as long as the ID Tokens are:
 

@@ -200,6 +200,8 @@ In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken()` and 
 
 ## Delegation
 
+<%= include('../../../_includes/_deprecate-delegation') %>
+
 Delegation is now done via the `delegation` method, which takes an `options` object containing the following potential parameters:
 
 * __client_id__ (required): a string; the Auth0 application identifier
