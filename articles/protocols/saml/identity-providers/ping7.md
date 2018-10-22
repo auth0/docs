@@ -29,7 +29,7 @@ If you want **IdP-Initiated SSO** make sure to include the connection parameter 
 ### 1. Download Auth0 Metadata File
 
 ::: note
-The following download will work only if you are logged in to Auth0.
+The following download will work only if you are logged in to Auth0. You may also need to manually provide the name of the connection in the URL.
 :::
 
 Download the [metadata file](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
