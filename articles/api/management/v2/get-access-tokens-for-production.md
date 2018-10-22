@@ -13,7 +13,7 @@ useCase: invoke-api
 
 # Get Access Tokens for Production
 
-The manual process might work for you if you want to test an endpoint. But if you need to make scheduled frequent calls then you have to build a process at your backend that will provide you with a token automatically (and thus simulate a non-expiring token).
+To make scheduled frequent calls for a production environment, you have to build a process at your backend that will provide you with a token automatically (and thus simulate a non-expiring token).
 
 ## Prerequisite
 
@@ -21,7 +21,7 @@ The manual process might work for you if you want to test an endpoint. But if yo
 
 ## Get Access Tokens
 
-To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Machine to Machine Application you created at [this step](#1-create-and-authorize-an-application).
+To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Machine-to-Machine Application you created in the prerequisite step.
 
 The payload should be in the following format:
 
@@ -44,8 +44,8 @@ The request parameters are:
 | __Request Parameter__ | __Description__ |
 | ------ | ----------- |
 | __grant_type__ | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`. |
-| __client_id__ | This is the value of the __Client ID__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
-| __client_secret__ | This is the value of the __Client Secret__ field of the Machine to Machine Application you created at [this step](#before-you-start). You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_id__ | This is the value of the __Client ID__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_secret__ | This is the value of the __Client Secret__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
 
 The response will contain a [signed JWT](/jwt), when it expires, the scopes granted, and the token type.
@@ -59,7 +59,7 @@ The response will contain a [signed JWT](/jwt), when it expires, the scopes gran
 }
 ```
 
-From the above we can see that our Access Token is a [bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
+From the above we can see that our Access Token is a [Bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
 ### Use Auth0's Node.js Client Library
 
@@ -97,15 +97,15 @@ For example, in order to [Get all applications](/api/management/v2#!/Clients/get
 You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the __get curl command__ link at the __Test this endpoint__ section.
 :::
 
-## Example: Sample Implementation: Python
+## Example: Python Implementation
 
 This python script gets a Management API v2 Access Token, uses it to call the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
 - `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
-- `DOMAIN`: The __Domain__ of the Machine to Machine Application you created at [this step](#before-you-start).
-- `CLIENT_ID`: The __Client ID__ of the Machine to Machine Application you created at [this step](#before-you-start).
-- `CLIENT_SECRET`: The __Client Secret__ of the Machine to Machine Application you created at [this step](#before-you-start).
+- `DOMAIN`: The __Domain__ of the Machine-to-Machine Application you created.
+- `CLIENT_ID`: The __Client ID__ of the Machine to Machine Application you created.
+- `CLIENT_SECRET`: The __Client Secret__ of the Machine-to-Machine Application you created.
 
 ```python
 def main():

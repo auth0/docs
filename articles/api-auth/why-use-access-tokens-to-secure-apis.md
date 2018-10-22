@@ -122,11 +122,11 @@ Note that the token does not contain any information about the user itself besid
 
 In many cases, you might find it useful to retrieve additional user information at the API, so the token is also valid for call [the /userinfo API](/api/authentication#user-profile), which returns the user's profile information. The intended audience (indicated by the **aud** claim) for this token is both your custom API as specified by its identifier (such as `https://my-api-identifier`) and the **/userinfo** endpoint (such as `https://${account.namespace}/userinfo`).
 
-## Next steps
+## Keep reading
 
-* [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
+* [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [OpenID Connect Overview](/protocols/oidc)
 * [Obtaining and Using Access Tokens](/tokens/overview-access-tokens)
 * [Obtaining and Using ID Tokens](/tokens/id-token)

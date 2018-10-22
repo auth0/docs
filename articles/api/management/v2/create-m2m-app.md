@@ -13,9 +13,9 @@ useCase: invoke-api
 
 # Create and Authorize a Machine-to-Machine Application
 
-You complete the configuration in the Auth0 [Dashboard](${manage_url}) the first time you want to get a token for the Management API. You won't have to do this again, unless you create a new tenant. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have.
+The first time you get a token for the Management API is when you complete the configuration in the Auth0 [Dashboard](${manage_url}). You won't have to do this again unless you create a new tenant. We recommend that you create a token exclusively for authorizing access to the Management API instead of reusing another one you might have.
 
-To create and authorize a Machine to Machine Application for the Management API:
+To create and authorize a Machine-to-Machine Application for the Management API:
 
 1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer)
 2. Click the button __Create & Authorize a Test Application__. A new application has been created and it's authorized to access the Management API.
@@ -34,14 +34,11 @@ The [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint require
 
 If you have multiple applications that should access the Management API, and you need different sets of scopes per app, we recommend creating a new machine-to-machine application for each one. For example, if one application is to read and create users (`create:users`, `read:users`) and another to read and create applications (`create:clients`, `read:clients`) create two applications (one for user scopes, one for applications) instead of one.
 
-## What's next
-
-* [Get Access Tokens for Testing](/v2/get-access-tokens-for-test)
-* [Get Access Tokens for Production](/v2/get-access-tokens-for-production)
-* [Get Access Tokens from the Frontend](/v2/get-access-tokens-from-frontend)
-
 ## Keep reading
 
+* [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test)
+* [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
+* [Get Access Tokens from the Frontend](/api/management/v2/get-access-tokens-from-frontend)
 * [Machine-to-Machine Application](/applications/machine-to-machine)
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)

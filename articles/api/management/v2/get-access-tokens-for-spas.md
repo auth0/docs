@@ -13,9 +13,9 @@ useCase: invoke-api
 
 # Get Access Tokens for Single Page Applications
 
-The other methods cannot be used from single page applications (SPAs) because we are using the **Client Secret** which is sensitive information (same as a password) and cannot be exposed to the browser.
+You cannot get Access Tokens using the other methods for single page applications (SPAs) because we use the **Client Secret** which is sensitive information (same as a password) and cannot be exposed to the browser.
 
-You can still get tokens for the Management API from the frontend, but very limited in scope. You can access only certain scopes and update only the logged-in user's data. In detail, you can access the following scopes, and hence endpoints:
+You can still get tokens for the Management API from the frontend, but with some limitations. You can access only certain scopes and update only the logged-in user's data. You can access the following scopes, and hence endpoints:
 
 | **Endpoint** | **Scope for current user** |
 | ------ | ----------- |
@@ -29,9 +29,9 @@ You can still get tokens for the Management API from the frontend, but very limi
 | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) | `create:current_user_device_credentials` | 
 | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) | `delete:current_user_device_credentials` |
 
-## Example 
-
 If you get an Access Token that contains the scope `read:current_user`, you can retrieve the information of the **currently logged-in user** (the one that the token was issued for).
+
+## Example 
 
 You can get a token, for example to retrieve the information of the currently logged-in user, using the [Authorization endpoint](/api/authentication#authorize-application). This is where you redirect your users to login or sign up.
 
@@ -49,7 +49,7 @@ https://${account.namespace}/authorize?
 ```
 
 ::: note
-If you are not familiar with authentication for Single Page Applications, see [Authentication for Client-side Web Apps](/application-auth/current/client-side-web).
+If you are not familiar with authentication for single page applications, see [Authentication for Client-side Web Apps](/application-auth/current/client-side-web).
 :::
 
 Notice the following:
@@ -89,4 +89,4 @@ Once you have the Access Token, you can use it to call the endpoint. Use the Acc
 ## Keep reading
 
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)

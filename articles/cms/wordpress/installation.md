@@ -61,7 +61,7 @@ This will create and configure an Application and a database connection for this
 
 ![WordPress Installation standard setup fields](/media/articles/cms/wordpress/setup-wizard-social-modal.png)
 
-In the modal that appears, enter the domain name for your tenant and a valid, manually-generated Access Token. To create a token manually using the Dashboard and find your domain, see [Get Access Tokens for Test](/api/management/v2/get-access-tokens-for-test).  
+In the modal that appears, enter the domain name for your tenant and a valid, manually-generated Access Token. To create a token manually using the Dashboard and find your domain, see [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test).  
 
 If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. If not, to go **Auth0 > Settings > Basic**, delete your Client ID and domain, then click **Setup Wizard** in the admin menu to start again. Check the Auth0 Error Log in wp-admin for more information about what went wrong and [post in our Community](https://community.auth0.com/tags/wordpress) if you need support. 
 

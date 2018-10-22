@@ -13,19 +13,21 @@ useCase: invoke-api
 
 # Get Access Tokens for Testing
 
+::: warning
+This method for obtaining Access Tokens is **only for test purposes**. Do not get manually long-lived tokens and use them in your applications, because that nullifies the security advantages that tokens offer. 
+:::
+
 ## Prerequisite
 
 * [Create and Authorize a Machine-to-Machine Application](/api/management/v2/create-m2m-app). 
 
 ## Get Access Tokens Manually
 
-This method for obtaining Access Tokens is only for test purposes. You shouldn't get manually long-lived tokens and use them in your applications, since this is nullifies the security advantages that tokens offer. 
-
 1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer). 
 A token is automatically generated and displayed there. 
 
 2. Click __Copy Token__. 
-You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
+You can now make authorized calls to the [Management API](/api/management/v2) using this token.
 
 ![Test Application](/media/articles/api/tokens/copy-token.png)
 
@@ -42,7 +44,7 @@ To use the Access Token you just created for testing purposes, use the [Manageme
 
 You will also need your tenant's domain (`${account.namespace}`). You can find this on the _Settings_ of any of your [Applications](${manage_url}/#/applications/${account.clientId}/settings).
 
-1. Go to the [Management API v2 explorer page](/api/management/v2).
+1. Go to the [Management API v2 explorer page](/api/management/v2#!).
 1. Click the __Set API Token__ button at the top left.
 1. Set the __Domain__ and __API Token__ fields, and click __Set Token__.
 1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this application.
@@ -50,12 +52,9 @@ You will also need your tenant's domain (`${account.namespace}`). You can find t
 
 ![Set the Token](/media/articles/api/tokens/set-token.png)
 
-## What's next
-
-* [Get Access Tokens for Production](/v2/get-access-tokens-for-production)
-
 ## Keep reading
 
+* [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
 * [Machine-to-Machine Application](/applications/machine-to-machine)
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)

@@ -208,13 +208,10 @@ Each time the API receives a request the following will happen:
 
 That's it, you're done! Now your application allows access to different types of resources using a stronger mechanism to perform certain high-value transactions.
 
-## Next steps
-
-* [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
-* [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)
-
 ## Keep reading
 
 * [Access Tokens](/tokens/overview-access-tokens)
 * [Rules](/rules)
 * [Scopes](/scopes)
+* [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
+* [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)

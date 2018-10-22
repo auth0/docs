@@ -15,9 +15,7 @@ Access Tokens are issued through Auth0's OAuth 2.0 endpoints:
 * [/authorize](/api/authentication#authorize-application)
 * [/oauth/token](/api/authentication#get-token)
 
-You can use any OAuth 2.0-compatible library to obtain Access Tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
-
-To retrieve an Access Token when using a:
+You can get Access Tokens from the following Auth0 endpoints:
   * **Server-side web app**, please see the docs for the [Authorization Code Grant](/api-auth/grant/authorization-code)
   * **Mobile app**, please see the docs for the [Authorization Code using Proof Key for Code Exchange (PKCE) Grant](/api-auth/grant/authorization-code-pkce)
   * **Client-side app**, please see the docs for the [Implicit Grant](/api-auth/grant/implicit)
