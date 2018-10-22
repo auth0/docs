@@ -75,7 +75,14 @@ Note that if you alter the value in `scope`, Auth0 will require consent to be gi
 
 If your call to the `/authorize` endpoint is successful, Auth0 redirects you to a URL similar to the following:
 
-https://YOUR_REDIRECT_URI/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...qk
+```text
+https://YOUR_REDIRECT_URI
+  /#access_token=ey...MhPw
+  &expires_in=7200
+  &token_type=Bearer
+  &code=AUTHORIZATION_CODE
+  &id_token=ey...qk
+```
 
 The URL contains the following components:
 
