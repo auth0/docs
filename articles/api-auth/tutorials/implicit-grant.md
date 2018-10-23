@@ -75,9 +75,9 @@ For example:
 
 After Auth0 has redirected back to the app, the hash fragment of the URL contains the following parameters:
 - `id_token`: contains an [ID Token](/tokens/id-token) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
-- `access_token`: contains an [Access Token](/tokens/access-token) and is present if the request parameter `response_type` included the value `token`
-- `token_type`: denotes the type of the [Access Token](/tokens/access-token)
-- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/access-token) will expire in one hour from the time the response was generated
+- `access_token`: contains an [Access Token](/tokens/overview-access-tokens) and is present if the request parameter `response_type` included the value `token`
+- `token_type`: denotes the type of the [Access Token](/tokens/overview-access-tokens)
+- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/overview-access-tokens) will expire in one hour from the time the response was generated
 - `state`: present in the response if the `state` parameter was present in the request. Holds the exact value received from the client in the request.
 
 You can extract the `access_token`, and other parameters, from the hash fragment of the URL:
@@ -149,12 +149,10 @@ For an example implementation see the [SPA + API](/architecture-scenarios/applic
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
-## Keep reading
+## Next steps
 
-::: next-steps
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
 - [Tokens used by Auth0](/tokens)
-:::

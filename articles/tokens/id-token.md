@@ -105,7 +105,7 @@ The ID Token will contain only the claims specified as the value of the `scope` 
 
 ### Add Custom Claims
 
-You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
+You can add custom claims to your ID Token (or [Access Token](/tokens/overview-access-tokens)) using [Rules](/rules).
 
 The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io`, and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 

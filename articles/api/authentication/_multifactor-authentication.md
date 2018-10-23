@@ -480,15 +480,15 @@ Content-Type: application/json
 
 Associates or adds a new authenticator for multi-factor authentication.
 
-If the user has active authenticators, an [Access Token](/tokens/access-token) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa/` is required to use this endpoint.
+If the user has active authenticators, an [Access Token](/tokens/overview-access-tokens) with the `enroll` scope and the `audience` set to `https://${account.namespace}/mfa/` is required to use this endpoint.
 
-If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/access-token) for this request.
+If the user has no active authenticators, you can use the `mfa_token` from the `mfa_required` error in place of an [Access Token](/tokens/overview-access-tokens) for this request.
 
 After an authenticator is added, it must be verified. To verify the authenticator, use the response values from the `/mfa/associate` request in place of the values returned from the `/mfa/challenge` endpoint and continue with the verification flow.
 
 A `recovery_codes` field is included in the response the first time an authenticator is added. You can use `recovery_codes` to pass multi-factor authentication as shown on [Verify with recovery code](#verify-with-recovery-code) above.
 
-To access this endpoint, you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+To access this endpoint, you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
 - `scope`: `enroll`
 - `audience`: `https://${account.namespace}/mfa/`
 
@@ -586,7 +586,7 @@ Content-Type: application/json
 
 Returns a list of authenticators associated with your application.
 
-To access this endpoint you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+To access this endpoint you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
 - `scope`: `read:authenticators`
 - `audience`: `https://${account.namespace}/mfa/`
 
@@ -647,7 +647,7 @@ Deletes an associated authenticator using its ID.
 
 You can get authenticator IDs by [listing the authenticators](#list-authenticators).
 
-To access this endpoint, you must set an [Access Token](/tokens/access-token) at the Authorization header, with the following claims:
+To access this endpoint, you must set an [Access Token](/tokens/overview-access-tokens) at the Authorization header, with the following claims:
 - `scope`: `remove:authenticators`
 - `audience`: `https://${account.namespace}/mfa/`
 

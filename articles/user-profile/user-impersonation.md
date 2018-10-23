@@ -43,7 +43,7 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 
 ## Limitations
 
-Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/access-token) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
+Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/overview-access-tokens) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 
 ## Enable impersonation
 
@@ -101,7 +101,7 @@ You can use one of two methods to locate the `user_id` of a given user that you 
 
 #### Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [Access Tokens for the Management API](/api/management/v2/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
@@ -161,7 +161,7 @@ There are various possible values for `scope`:
 You can get more information about this in the [Scopes documentation](/scopes).
 
 ::: note
-Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/overview-access-tokens) to your APIs.
 :::
 
 Your request should look like the following:
