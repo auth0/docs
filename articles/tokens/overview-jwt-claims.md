@@ -1,6 +1,34 @@
-rules you should be aware of when it comes to naming (especially if you are using self-defined custom claims).
+---
+url: /overview-jwt-claims
+title: Naming Rules for JSON Web Token (JWT) Claims
+description: Describes the rules you should be aware of when naming JSON Web Token (JWT) claims.
+toc: true
+topics:
+  - tokens
+  - jwt
+  - claims
+contentType:
+  - concept
+useCase:
+  - invoke-api
+  - secure-api
+---
 
-The JWT specification defines seven claims that can be included in a token. These are **registered claim names**, and they are:
+# Naming Rules for JSON Web Token (JWT) Claims
+
+When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims]. When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
+
+## Types of claim names
+
+There are three types of claim names:
+
+* Registered
+* Public
+* Private
+
+### Registed claim names
+
+The JWT specification defines seven claims that can be included in a token:
 
 * iss
 * sub
@@ -10,12 +38,16 @@ The JWT specification defines seven claims that can be included in a token. Thes
 * iat
 * jti
 
-For your specific use case, you might then use what are called **public claim names**. Examples of these include:
+
+### Public claim names
+
+For your specific use case, you can also use public claim names, such as:
 
 * auth_time
 * acr
 * nonce
 
-Finally, there are **private claim names**, which you can use to convey identity-related information, such as name or department.
+### Private claim names
 
-Because public and private claims are not registered, take care to avoid name collisions. If a collision does occur, it can be difficult to tease apart two claims of the same name, but with differing information.
+You can use private claim names to convey identity-related information, such as name or department.
+
