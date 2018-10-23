@@ -36,18 +36,6 @@ Among many possibilities, rules can be used to:
 * Enable __multi-factor authentication__, based on context (such as last login, IP address of the user, location, and so on).
 * Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
 
----
-
-<img align="right" src="/media/articles/rules/extend-rules.svg"> 
-
-## Auth0 Rules in your SaaS
-
-If you like the capabilities of Rules and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
-
-[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=rules-current-paragraph)
-
----
-
 ## Video: Using Rules
 
 Watch this video to learn all about Rules in just a few minutes.
@@ -375,7 +363,7 @@ Notice that the code sandbox in which Rules run can be recycled at any time. Thu
 
 ## Available modules
 
-For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox based on [Extend](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=docs-rules). 
+For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox. 
 
 Within the sandbox, you can access the full power of Node.js with a large number of Node.js modules. For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/) and [Additional Modules Available in Rules](/appliance/modules).
 
