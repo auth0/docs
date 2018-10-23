@@ -47,6 +47,10 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity Scenarios</a>
+    <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity Scenarios</a>
     <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
   </li>
@@ -64,10 +68,6 @@ These scenarios are under construction and will soon be updated. Some describe t
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-saml">Regular Web App (using SAML)</a>
     <p>Traditional web application which needs to authenticate users using SAML2.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity Scenarios</a>
-    <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b-b2e">Business to Business + Enterprise Identity Scenarios</a>
