@@ -89,9 +89,9 @@ You can configure upstream parameters per user. This way when a user authenticat
 
 To do this, use the `upstream_params` element of the `options` attribute to specify a mapping between one of the existing accepted parameters to the parameter accepted by the Identity Provider.
 
-### Parameter list
+### Field list
 
-Here are parameters available for `enum`:
+Here are fields available for the `enum` parameter:
 
 * `acr_values`
 * `audience`
