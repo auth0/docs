@@ -39,19 +39,19 @@ The JWT specification defines seven reserved claims that can be included in a to
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims).
 
-None of these are required to be set, so you can just use your own claims. However, if you don't use the registered claims, don't expect your tokens to have any interoperability with other third-party applications.
+None of these are required to be set, so you can just use your own claims. However, if you don't use the reserved claims, don't expect your tokens to have any interoperability with other third-party applications.
 
 
 ### Custom claims
 
-For your specific use case, you can define your own claim names. You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
+For your specific use case, you can define your own custom claim names. You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
 
 #### Public claims
 
-If you have created custom claims and you plan to allow third-party applications to use them, you should either register them in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) or use a collision-resistant name, such as by adding your domain name as the prefix.
+If you have created custom claims and you plan to allow third-party applications to use them, you should either register them or use a collision-resistant name, such as by adding your domain name as the prefix.
 
-In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims created by OpenID Connect: 
+In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by OpenID Connect: 
 
 * auth_time
 * acr
