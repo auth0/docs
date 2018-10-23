@@ -43,24 +43,13 @@ JSON Web Tokens consist of three Base64-encoded strings separated by dots (`.`),
 - Payload
 - Signature
 
-Therefore, a JWT typically looks like the following.
-
-`xxxxx.yyyyy.zzzzz`
-
-The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret.
+Therefore, a JWT typically looks like the following:
 ![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
 
-If you want to play with JWT and put these concepts into practice, you can use [jwt.io Debugger](http://jwt.io) to decode, verify, and generate JWTs.
-
-![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
-
-Let's break down the different parts:
 
 ### Header
 
-The header *typically* consists of two parts: the type of the token, which is JWT, and the hashing algorithm being used, such as HMAC SHA256 or RSA.
-
-For example:
+The header *typically* consists of two parts: the type of the token (JWT) and the hashing algorithm being used (e.g., HMAC SHA256 or RSA):
 
 ```
 {
@@ -69,35 +58,10 @@ For example:
 }
 ```
 
-Then, this JSON is **Base64Url** encoded to form the first part of the JWT.
 
 ### Payload
 
-The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data.
-
-When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), there are some rules you should be aware of when it comes to naming (especially if you are using self-defined custom claims).
-
-The JWT specification defines seven claims that can be included in a token. These are **registered claim names**, and they are:
-
-* iss
-* sub
-* aud
-* exp
-* nbf
-* iat
-* jti
-
-For your specific use case, you might then use what are called **public claim names**. Examples of these include:
-
-* auth_time
-* acr
-* nonce
-
-Finally, there are **private claim names**, which you can use to convey identity-related information, such as name or department.
-
-Because public and private claims are not registered, take care to avoid name collisions. If a collision does occur, it can be difficult to tease apart two claims of the same name, but with differing information.
-
-An example of payload could be:
+The payload contains statements about the entity (typically, the user) and additional data, which are called claims:
 
 ```
 {
@@ -107,7 +71,9 @@ An example of payload could be:
 }
 ```
 
-The payload is then **Base64Url** encoded to form the second part of the JSON Web Token.
+When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of [naming rules]. 
+
+
 
 ### Signature
 
@@ -123,6 +89,11 @@ HMACSHA256(
 ```
 
 The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
+
+## Practice
+To play with JWT and put these concepts into practice, you can use [jwt.io Debugger](http://jwt.io) to decode, verify, and generate JWTs.
+
+![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
 ## How do JSON Web Tokens work?
 
