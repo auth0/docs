@@ -27,7 +27,7 @@ There are two types of claims:
 
 ### Reserved claims
 
-The JWT specification defines seven reserved claims that can be included in a token:
+The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with other third-party applications. These are:
 
 * iss (issuer): Issuer of the JWT
 * sub (subject): Subject of the JWT (the user)
@@ -39,8 +39,6 @@ The JWT specification defines seven reserved claims that can be included in a to
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims).
 
-None of these are required to be set, so you can just use your own claims. However, if you don't use the reserved claims, don't expect your tokens to have any interoperability with other third-party applications.
-
 
 ### Custom claims
 
@@ -49,7 +47,7 @@ For your specific use case, you can define your own custom claim names. You can 
 
 #### Public claims
 
-If you have created custom claims and you plan to allow third-party applications to use them, you should either register them or use a collision-resistant name, such as by adding your domain name as the prefix.
+If you have created custom claims and you plan to allow third-party applications to use them, you should either register them or use collision-resistant names, such as by adding your domain name as the prefix.
 
 In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by OpenID Connect: 
 
@@ -60,7 +58,7 @@ In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jw
 
 #### Private claims
 
-You can create a custom claim name 
+You can create  custom claim name that you and your users agree on. 
 A producer and consumer of a JWT may agree to any claim name that is not a Reserved Name Section 4.1 or a Public Name Section 4.2. Unlike Public Names, these private names are subject to collision and should be used with caution.
 
 This is usually the information that is more specific to your application. While a public claim might contain information like "name" and "email", private claims would be more specific like "user ID", or "authorization scope".
