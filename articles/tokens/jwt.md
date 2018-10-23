@@ -11,6 +11,7 @@ contentType:
   - concept
 useCase:
   - invoke-api
+  - secure-api
 ---
 
 # JSON Web Tokens (JWT) in Auth0
