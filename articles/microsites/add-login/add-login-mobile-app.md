@@ -54,8 +54,7 @@ When a user clicks **Log In** or **Sign Up**:
 2. Your app redirects the user to a login page hosted by Auth0. The login page displays your configured login prompts (like **Username** and **Password**, or **Login with Google**).
 2. Auth0 verifies your user's identity.
 2. Auth0 redirects the user to your app's configured callback URL, along with a signed ID token containing their basic profile information.
-Since the prize you seek is a token, you need a way to retrieve tokens, otherwise known as a grant type. The one we use for native/mobile apps is the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)]
-(/api-auth/grant/authorization-code-pkce) (pronounced "pixie"). With the Authorization Code Grant, you make two calls: one to get an authorization code and one to exchange that code for your token. PKCE adds enhanced security to make sure no other process can intercept and use the authorization code.
+Since the prize you seek is a token, you need a way to retrieve tokens, otherwise known as a grant type. The one we use for native/mobile apps is the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) (pronounced "pixie"). With the Authorization Code Grant, you make two calls: one to get an authorization code and one to exchange that code for your token. PKCE adds enhanced security to make sure no other process can intercept and use the authorization code.
 
 To find out more about grant types and when each one is used, our handy flowchart, [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use), is a great starting point.
 
