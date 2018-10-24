@@ -107,33 +107,34 @@ Now that you've added login to your native/mobile app, you may want to learn how
 
 :::: further-reading
 ::: guides
-- Customize Login Pages
-- Customize Password Reset Pages
-- Customize Guardian Multi-factor Login Pages
-- Customize Error Pages
-- Implement Authorization Code Grant Using PKCE
-- Single Sign On (SSO)
-- Validate ID Tokens
-- Configure Multiple Pages Using Separate Tenants
-- Get Access Tokens
-- Add Custom Claims to ID Tokens
-- Where to Store Tokens
-- Common Threats and How to Prevent Them
+- Customize Pages
+  - [Login Pages](/hosted-pages/login)
+  - [Password Reset Pages](/hosted-pages/password-reset)
+  - [Guardian Multi-factor Login Pages](/hosted-pages/password-reset)
+  - [Error Pages](/hosted-pages/error-pages)
+- [Implement Authorization Code Grant Using PKCE](/application-auth/current/mobile-desktop)
+- [Single Sign On (SSO)](/sso/current/single-page-apps)
+- [Validate ID Tokens](/tokens/id-token#validate-an-id-token)
+- [Configure Multiple Pages Using Separate Tenants](/hosted-pages/login#configure-multiple-pages-by-using-separate-tenants)
+- [Get Access Tokens](/tokens/access-token)
+- [Add Custom Claims to ID Tokens](/scopes/current#example-add-custom-claims)
+- [Where to Store Tokens](/security/store-tokens)
+- [Common Threats and How to Prevent Them](/security/common-threats)
 :::
 
 ::: concepts
-- Multi-factor Authentication
-- Passwordless Authentication
-- Authentication for Mobile Apps
-- About Universal Login
-- OpenID Connect
-- ID Token
-- OAuth 2.0
-- Access Token
-- Which OAuth 2.0 flow should I use?
-- Calling APIs from Mobile Apps
-- JSON Web Tokens (JWTs) in Auth0
-- Architecture scenario: Mobile + API
+- [Multi-factor Authentication](/multifactor-authentication)
+- [Passwordless Authentication](/connections/passwordless)
+- [Authentication for Mobile Apps](/application-auth/current/mobile-desktop)
+- [About Universal Login](/hosted-pages/login#about-universal-login)
+- [OpenID Connect](/protocols/oidc)
+  - [ID Token](/tokens/id-token)
+- [OAuth 2.0]()
+  - [Access Token]()
+  - [Which OAuth 2.0 flow should I use?]()
+  - [Calling APIs from Mobile Apps]()
+- [[JSON Web Tokens (JWTs) in Auth0]()
+- [Architecture scenario: Mobile + API]()
 :::
 
 ::: references
