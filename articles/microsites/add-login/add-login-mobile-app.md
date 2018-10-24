@@ -27,10 +27,10 @@ Auth0 can also help you:
 - Customize your login experience and process.
 
 ::: prerequisites
-- Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
+* Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
 :::
 
-::: steps
+::: steps [{ data-title="Steps for Adding login" }]
 1. Understand how your app will retrieve tokens
 2. Register your application with Auth0 using the Dashboard
 3. Enable the login options you want to offer your users 
@@ -148,5 +148,9 @@ Auth0 will assist you in authenticating a user, but it is up to you to keep trac
 ::::
 
 ::: whats-next
-Now that you've added login to your native/mobile app, you may want to learn how to [Call an API from a Native/Mobile App](/microsites/call-api/call-api-from-mobile-apps), Manage Users, or [add custom social connections](/connections/social/oauth2). You can also [learn about SSO with Auth0](/sso/current/introduction), or explore how to customize [Auth0-hosted pages](/hosted-pages), [emails for database connections](/email), and the login process using [rules](/rules) and [hooks](/hooks).
+
+* Now that you have the authentication set up and ready to go, learn how you can [manage your users](/microsites/manage-users/connect-users-to-identity-platform).
+* Auth0 offers many ways to personalize your user's login experience. Learn how to [add social connections], customize [Auth0-hosted pages](/hosted-pages) and [emails for database connections](/email), or customize the logic in the login process using [rules](/rules) and [hooks](/hooks).
+* Most native/mobile apps access RESTful APIs to retrieve data. You can do that as well using Auth0. To learn how, see [Call an API from a Native/Mobile App](/microsites/call-api/call-api-from-mobile-apps).
+* If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/register-api).
 :::
