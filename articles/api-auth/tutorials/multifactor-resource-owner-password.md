@@ -116,7 +116,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 7. The Application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
 
-8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
     - `authorization_pending` error: if the challenge has not been accepted nor rejected.
