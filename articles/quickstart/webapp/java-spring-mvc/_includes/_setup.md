@@ -36,7 +36,7 @@ The library we're using has this default behavior:
 - Request the `code` Response Type and later perform a Code Exchange to obtain the tokens.
 - Use the `HS256` Algorithm along with the Client Secret to verify the tokens.
 
-But it also allows us to customize it's behavior:
+But it also allows us to customize its behavior:
 * To use the `RS256` Algorithm along with the Public Key obtained dynamically from the Auth0 hosted JWKs file, pass a `JwkProvider` instance to the `AuthenticationController` builder.
 * To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
 * To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
