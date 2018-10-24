@@ -1,7 +1,17 @@
 ---
 title: Add Login to My Native/Mobile App
 description: Everything you need to know to implement login for a native/mobile app.
+ctaText: Quickstart
+ctaLink: /docs/quickstarts
 template: microsite
+topics:
+  - authentication
+  - oauth2
+  - mobile-apps
+  - desktop-apps
+  - native-apps
+useCase:
+  - add-login
 ---
 
 So you have a native/mobile app, and you need a way for users to log in. Let’s add login functionality with Auth0.
