@@ -24,7 +24,7 @@ OpenID Connect (OIDC) builds on OAuth 2.0. It enables users verify their identit
 OAuth 2.0 comes in different flavors and the one we use for SPAs is the Implicit Grant.
 
 ## How to add login in to your Single App
-::: prequisites
+::: prerequisites
   * Example Prereq One
     - Qui ut quasi praesentium voluptatem explicabo. Sed perferendis est nemo sint asperiores.Architecto vero ut sit sapiente.
   * Example Prereq Two
