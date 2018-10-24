@@ -16,7 +16,7 @@ useCase:
 
 # Add Custom Claims to Tokens
 
-You can add custom claims to your [Access Tokens](/tokens/overview-access-tokens) or [ID Tokens](/tokens/id-token)) using [Rules](/rules). The claim name must conform to a namespaced format to avoid possible collisions with standard OIDC claims. 
+You can add custom claims to your [Access Tokens](/tokens/overview-access-tokens) or [ID Tokens](/tokens/id-token) using [Rules](/rules). The claim name must conform to a namespaced format to avoid possible collisions with standard OIDC claims. 
 
 The format you should follow is:  `http://my-namespace/claim-name`.
 
