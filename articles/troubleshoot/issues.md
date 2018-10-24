@@ -95,7 +95,7 @@ Here's some things to check if the user logged in to one application, but cannot
 
 * Are you using the correct domain?
     - The domain should be the same as that used during authentication.
-* If using an Auth0 [Custom Domain](/custom-domain), it is important to use the same domain as used in the application to invoke authentication.
+* If using an Auth0 [Custom Domain](/custom-domains), it is important to use the same domain as used in the application to invoke authentication.
 
 ## Logout issues
 
