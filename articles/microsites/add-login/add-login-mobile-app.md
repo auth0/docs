@@ -14,25 +14,19 @@ useCase:
   - add-login
 ---
 
-So you have a native/mobile app, and you need a way for users to log in. Let’s add login functionality with Auth0.
+Auth0 provides flexible ways to add login, using one of the following methods:
 
-## What can Auth0 do for you?
+- [Auth0 SDKs](/libraries): The simplest way to implement login for your application's specific technology is to use one of our SDKs which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
+- [Authentication API](/api/authentication): If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-Auth0 can help you:
+Auth0 can also help you:
 
 - Register and authenticate users with multiple authentication sources.
 - Authorize users (e.g., manage groups and permissions).
 - Implement multi-factor authentication.
 - Customize your login experience and process.
 
-Auth0 also provides flexible ways to add login, using one of the following methods:
-
-- [Auth0 SDKs](/libraries): The simplest way to implement login for your application's specific technology is to use one of our SDKs which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
-- [Authentication API](/api/authentication): If you prefer to roll your own, keep reading to learn how to call our API directly.
-
 ::: prerequisites
-Before we begin, you will need to:
-
 - Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
 :::
 
