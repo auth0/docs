@@ -1,7 +1,6 @@
 ---
 title: Access Tokens
 description: Learn what Access Tokens are and how you can use them with Auth0.
-toc: true
 topics:
   - tokens
   - access-tokens
@@ -22,4 +21,4 @@ Depending on how your application needs to use the Access Token, you can:
 * [Get Access Tokens](/tokens/get-access-tokens) using any OAuth 2.0-compatible library or you can use one of Auth0's libraries that work with Auth0 endpoints.
 * [Use Access Tokens](/tokens/use-access-tokens) either in server-to-server or custom API interactions.
 * [Add Custom Claims](/tokens/add-custom-claims) using [Rules](/rules).
-* [Set an Access Token's lifetime](/tokens/set-access-token-lifetime).
+* [Set Access Token lifetime](/tokens/set-access-token-lifetime).
