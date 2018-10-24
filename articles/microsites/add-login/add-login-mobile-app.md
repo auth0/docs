@@ -128,24 +128,24 @@ Now that you've added login to your native/mobile app, you may want to learn how
 - [About Universal Login](/hosted-pages/login#about-universal-login)
 - [OpenID Connect](/protocols/oidc)
   - [ID Token](/tokens/id-token)
-- [OAuth 2.0]()
-  - [Access Token]()
-  - [Which OAuth 2.0 flow should I use?]()
-  - [Calling APIs from Mobile Apps]()
-- [[JSON Web Tokens (JWTs) in Auth0]()
-- [Architecture scenario: Mobile + API]()
+- [OAuth 2.0](/protocols/oauth2)
+  - [Access Token](/tokens/access-token)
+  - [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+  - [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+- [[JSON Web Tokens (JWTs) in Auth0](/jwt)
+- [Architecture scenario: Mobile + API](/architecture-scenarios/mobile-api)
 :::
 
 ::: references
-- Identity Providers supported by Auth0
+- [Identity Providers supported by Auth0](/connections)
 - SDKs
--- Angular Auth0
--- Auth0.js
--- angular2-jwt
--- angular-jwt
--- angular-storage
+  - [Angular Auth0](https://github.com/auth0/angular-auth0)
+  - [Auth0.js](https://github.com/auth0/auth0.js)
+  - [angular2-jwt](https://github.com/auth0/angular2-jwt)
+  - [angular-jwt](https://github.com/auth0/angular-jwt)
+  - [angular-storage](https://github.com/auth0/angular-storage)
 - APIs
--- Auth0 Authentication API
--- Auth0 Management API
+  - [Auth0 Authentication API](https://auth0.com/docs/api/authentication)
+  - [Auth0 Management API](https://auth0.com/docs/api/management/v2)
 :::
 ::::
