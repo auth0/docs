@@ -197,6 +197,8 @@ The `main` function takes the `authResult` object saved in local storage and ren
 
 ### Initiate the Authentication Flow
 
+When it comes to the authentication flow we use in this tutorial, it is the OAuth 2.0 Implicit Grant flow.
+
 The `browser_action.js` file controls the popup view and responds to button clicks, but the logic for the authentication flow still needs to be implemented.
 
 Create a `main.js` file in the `src` directory and set it up to listen for the `authenticate` message that is emitted when the Log In button is clicked.
