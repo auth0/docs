@@ -138,14 +138,14 @@ Auth0 will assist you in authenticating a user, but it is up to you to keep trac
 :::
 
 ::: references
-- [Identity Providers supported by Auth0](/connections)
-- SDKs
+* [Identity Providers supported by Auth0](/connections)
+* SDKs
   - [Angular Auth0](https://github.com/auth0/angular-auth0)
   - [Auth0.js](https://github.com/auth0/auth0.js)
   - [angular2-jwt](https://github.com/auth0/angular2-jwt)
   - [angular-jwt](https://github.com/auth0/angular-jwt)
   - [angular-storage](https://github.com/auth0/angular-storage)
-- APIs
+* APIs
   - [Auth0 Authentication API](https://auth0.com/docs/api/authentication)
   - [Auth0 Management API](https://auth0.com/docs/api/management/v2)
 :::
