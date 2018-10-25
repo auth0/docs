@@ -43,13 +43,13 @@ When a user clicks **Log In** or **Sign Up**:
 :::
 
 ::: steps [{ data-title="Steps for adding login to a native/mobile app" }]
-1. Understand how your app will retrieve tokens
-2. Register your application with Auth0 using the Dashboard
-3. Enable the login options you want to offer your users 
-4. Edit your application code to redirect to Auth0 when a user wants to authenticate
-5. Retrieve your token(s)
-6. Extract user information
-7. Return your user to their desired place in your application
+  1. Understand how your app will retrieve tokens
+  2. Register your application with Auth0 using the Dashboard
+  3. Enable the login options you want to offer your users 
+  4. Edit your application code to redirect to Auth0 when a user wants to authenticate
+  5. Retrieve your token(s)
+  6. Extract user information
+  7. Return your user to their desired place in your application
 :::
 
 ## Understand how your app will retrieve tokens
