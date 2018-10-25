@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides flexible ways to add login, using one of the following methods:
 
-- [Auth0 SDKs](/libraries): The simplest way to implement login for your application's specific technology is to use one of our SDKs which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
+- [Auth0 SDKs](/libraries): The simplest way to implement login for your application's technology is to use one of our SDKs, which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
 - [Authentication API](/api/authentication): If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 Auth0 can also help you:
