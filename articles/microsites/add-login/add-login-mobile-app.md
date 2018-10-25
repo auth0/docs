@@ -36,6 +36,8 @@ When a user clicks **Log In** or **Sign Up**:
 2. Auth0 verifies your user's identity.
 3. Auth0 redirects the user to your app's configured callback URL, along with a signed ID token containing their basic profile information.
 
+# Add login to your native/mobile app
+
 ::: prerequisites
 * Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
 :::
