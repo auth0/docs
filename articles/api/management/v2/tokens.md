@@ -33,6 +33,6 @@ For single page applications (SPAs), you will need to [get an Access Token from 
 * [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
 * [Calling APIs from a Service](/api-auth/grant/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-* [Information on the query string syntax](/users/search/v2/query-string-syntax)
 * [Search for Users](/users/search)
+* [Information on the query string syntax](/users/search/v3/query-syntax)
 
