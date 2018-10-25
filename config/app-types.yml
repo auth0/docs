@@ -32,7 +32,7 @@ appTypes:
   - title: Machine to Machine App
     name: backend
     description: "A CLI, Daemon, or Service running on your backend"
-    example: "eg: Hapi.js API, ASP.NET API"
-    question: "Shell sc"
+    example: "eg: Shell script"
+    question: "Select an API or backend platform"
     budicon: 649
     slug: server-apis
