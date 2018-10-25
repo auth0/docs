@@ -104,45 +104,6 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
   </script>
 ```
 
-## Set the minimum password length value
-
-![](/media/articles/connections/database/password-strength/pw-manage.png)
-
-Customers currently using a customized Password Reset Page who want to use the new password length parameter must:
-
-1. Update their templates to include library version 1.5.1 or later
-2. Add `password_complexity_options` to leverage the new parameter
-
-If you do not update the Password Reset Page, Auth0 ignores any attempt to set the minimum password length.
- ### Step 1: Update the change password library version
- To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
- ```text
-<script src="https://cdn.auth0.com/js/change-password-1.4.0.min.js"></script>
-```
-
-### Step 2: Add `password_complexity_options` to leverage the new parameter
-
-You'll need to add `password_complexity_options` to leverage the new parameter. Add this option to the page's script as follows:
-
-```text
-<script>
-    //code omitted for brevity
-    new Auth0ChangePassword({
-    container:                    "change-password-widget-container",     // required
-    email:                        '{{email}}',                            // DO NOT CHANGE THIS
-    csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
-    ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
-    password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
-    password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
-    
-    //code omitted for brevity
-  
-  });
-</script>
-```
-
-Scroll to the bottom and click **Save**.
-
 ## Revert Your Changes
 
 If you'd like to revert to an earlier design, you have two options:
