@@ -19,7 +19,7 @@ Auth0 provides flexible ways to add login, using one of the following methods:
 - [Auth0 SDKs](/libraries): The simplest way to implement login for your application's technology is to use one of our SDKs, which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
 - [Authentication API](/api/authentication): If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-## Overview
+# What can I do with Auth0?
 
 Auth0 can help you:
 
@@ -27,6 +27,14 @@ Auth0 can help you:
 - Authorize users (e.g., manage groups and permissions).
 - Implement multi-factor authentication.
 - Customize your login experience and process.
+
+# How does login work with Auth0?
+
+When a user clicks **Log In** or **Sign Up**:
+
+1. Your app redirects the user to a login page hosted by Auth0. The login page displays your configured login prompts (like **Username** and **Password**, or **Login with Google**).
+2. Auth0 verifies your user's identity.
+3. Auth0 redirects the user to your app's configured callback URL, along with a signed ID token containing their basic profile information.
 
 ::: prerequisites
 * Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
@@ -43,14 +51,6 @@ Auth0 can help you:
 :::
 
 ## Understand how your app will retrieve tokens
-First, let's understand how login works with Auth0.
-
-When a user clicks **Log In** or **Sign Up**:
-
-1. Your app redirects the user to a login page hosted by Auth0. The login page displays your configured login prompts (like **Username** and **Password**, or **Login with Google**).
-2. Auth0 verifies your user's identity.
-3. Auth0 redirects the user to your app's configured callback URL, along with a signed ID token containing their basic profile information.
-
 Since the prize you seek is a token, you need a way to retrieve tokens, otherwise known as a grant type. The one we use for native/mobile apps is the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) (pronounced "pixie"). With the Authorization Code Grant, you make two calls: one to get an authorization code and one to exchange that code for your token. PKCE adds enhanced security to make sure no other process can intercept and use the authorization code.
 
 To find out more about grant types and when each one is used, our handy flowchart, [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use), is a great starting point.
