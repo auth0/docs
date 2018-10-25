@@ -42,7 +42,7 @@ When a user clicks **Log In** or **Sign Up**:
 * Log in to the Auth0 Dashboard. If you don’t already have an Auth0 account, [sign up for one now](${manage_url}).
 :::
 
-::: steps [{ data-title="Steps for Adding login" }]
+::: steps [{ data-title="Steps for adding login to a native/mobile app" }]
 1. Understand how your app will retrieve tokens
 2. Register your application with Auth0 using the Dashboard
 3. Enable the login options you want to offer your users 
