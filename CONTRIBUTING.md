@@ -69,11 +69,33 @@ Additionally, you can send variables to the included document:
 
 ## Markdown
 
-Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
+Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom Markdown features available as described below.
+
+You should [test your Markdown](http://markdownlivepreview.com) to ensure the formatting is correct.
 
 ### Headings
 
-One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
+Add one to six `#` symbols before your heading text to create your header. The number of # you use determines the size of the heading.
+
+```
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+```
+
+The header text above renders as follows:
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+One common mistake with formatting of headings is to not include a space between the hashes and the text. Some Markdown processors allow this, but we do not. You must put a space as shown below.
 
 INVALID: `#My Heading`
 
@@ -82,8 +104,8 @@ VALID: `# My Heading`
 ### UI Components
 
 General advice:
-- Don't add custom UI components with HTML unless it's really necessary.
-- Don't add any element before the main title. If you want to show some general information for the whole doc put the element after the main title.
+- Do not add custom UI components with HTML unless it's really necessary.
+- Do not add any element before the main title. If you want to show some general information for the whole doc put the element after the main title.
 - Try to keep the amount of UI components on your docs to a minimum. They make the documentation more difficult to read and cut the reading flow.
 - Only use the `blockquote` element (`>` in markdown) to represent actual quotes. Use a `note` or a `panel` if you want to highlight the information.
 
@@ -266,7 +288,7 @@ For close-ups and other screenshots that do not include the browser window, appl
 
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
-`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it's disabled. Set it to `true` to display the dropdown.
+`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it is disabled. Set it to `true` to display the dropdown.
 
 Example front matter:
 
@@ -297,14 +319,14 @@ url: /path/to/document
 We use a pre-commit hook that lints the edited files to ensure a consistent style in the docs.
 We use [markdownlint](https://github.com/DavidAnson/markdownlint) with the rules specified in the `.markdownlint.json` file in the root of the repo to do this. You can [check more about the linting rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md).
 
-You won't be able to commit if your edited file don't follow these guidelines.
+You will not be able to commit if your edited file does not follow these guidelines.
 
-If you are using VS Code as your code editor, it's highly recommended to install the [MarkdownLint VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
+If you are using VS Code as your code editor, it is highly recommended to install the [MarkdownLint VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 ## Sidebar
 
 When you are adding a new article you should always add a link to it in the `config/sidebar.yml` file.
-It's really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
+It is really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
 
 You can add titles to the sidebar using the attribute `category`:
 
@@ -369,10 +391,10 @@ To create and submit a job to Wordy:
 You will need to provide the following pieces of information:
 * **Language**: Set to *English (US)*.
 * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of language. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
-* **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
+* **Brief to editor**: Provide any information you would like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
 * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
-6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
+6. After you have completed the above steps, you will get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
 
 ### Word Count and Wordy Submissions
 
@@ -386,7 +408,7 @@ It is helpful to include some instructions for the Wordy editors to let them kno
 
 ### Notes
 
-* You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
+* You can cancel a job if it has not been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
 * During the editing process, you can contact your editor from the job's page. You can include last-minute instructions, corrections, and so on. Conversely, your editor can contact you during the process if they have any questions about your text. You will be notified by email if you receive any messages.
 * If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
 
@@ -563,7 +585,7 @@ In this way, each section of the quickstart has a sample showing the appropriate
 
 ##### Sample README’s
 
-The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It’s important to make content within each README specific to the subject sample.
+The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It is important to make content within each README specific to the subject sample.
 
 * **Example**: 02-User-Profile
 * **Title**: “User Profile”
@@ -587,7 +609,7 @@ Each sample repo should have appropriate CI setup. You should use the appropriat
 In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: <https://travis-ci.org/auth0/Auth0.swift>
 
 1. No need to write code or specialized guide for mobile
-2. We don't have a lot of stuff finished to be doing this one in mobile.
+2. We do not have a lot of stuff finished to be doing this one in mobile.
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
@@ -867,7 +889,7 @@ example/
   index.yml
 ```
 
-This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
+This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it is a desired behavior we can always add it later.
 
 #### Case Sensitive
 

@@ -23,7 +23,7 @@ Each endpoint supports only one option.
 
 ### OAuth2 token
 
-In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+In this case, you have to send a valid [Access Token](/tokens/overview-access-tokens) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client ID and Client Secret
 

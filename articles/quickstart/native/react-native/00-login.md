@@ -48,6 +48,10 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 
 How to install the React Native Auth0 module.
 
+::: note
+Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
+:::
+
 ### npm
 
 ```bash
@@ -61,7 +65,7 @@ yarn add --dev react-native-auth0
 ```
 
 ::: note
-For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/package/jest).
+For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
 :::
 
 ### Link the native module
@@ -189,5 +193,5 @@ ${snippet(meta.snippets.use)}
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
 ::: note
-For more information on the `accessToken`, refer to [Access Token](/tokens/access-token).
+For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
 :::

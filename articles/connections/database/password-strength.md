@@ -40,6 +40,7 @@ The password policy for Auth0 Dashboard Admins will mirror the criteria set for 
 :::
 
 ## Minimum password length
+
 You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
 
 The minimum password length you can set is **1**, while the maximum is **128**.
@@ -54,8 +55,61 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 | Good | 8 |
 | Excellent | 10 |
 
-
 If you provide a minimum password length, this value supercedes that indicated by the password policy.
+
+### Minimum password length when using Hosted Pages
+
+If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hosted Password Reset Page](/hosted-pages/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+
+#### Set minimum password length when using Hosted Password Reset Pages
+
+If you're using a customized [Password Reset Page](/hosted-pages/password-reset) and you want to set the password length parameter, you must:
+
+1. Update your templates to include library version 1.5.1 or later
+2. Add `password_complexity_options` to leverage the new parameter
+
+If you do not [update the Password Reset Page](/hosted-pages/password-reset#edit-the-password-reset-page), Auth0 ignores any attempt to set the minimum password length.
+
+##### Step 1: Update the change password library version
+
+To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
+
+```text
+<script src="https://cdn.auth0.com/js/change-password-1.5.1.min.js"></script>
+```
+
+##### Step 2: Add `password_complexity_options` to leverage the new parameter
+
+You'll need to add `password_complexity_options` to leverage the new parameter. Add this option to the page's script as follows:
+
+```text
+<script>
+    //code omitted for brevity
+    new Auth0ChangePassword({
+    container:                    "change-password-widget-container",     // required
+    email:                        '{{email}}',                            // DO NOT CHANGE THIS
+    csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
+    ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
+    password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
+    password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
+    
+    //code omitted for brevity
+  
+  });
+</script>
+```
+
+Scroll to the bottom and click **Save**.
+
+#### Set minimum password length when using Hosted Login Pages
+
+If you're using a customized [Login Page](/hosted-pages/login) and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/hosted-pages/login/lock#customize-lock-in-the-login-page).
+
+```text
+<script src="https://cdn.auth0.com/js/lock/11.9/lock.min.js"></script>
+```
+
+Scroll to the bottom and click **Save**.
 
 ## Change Your Policy
 

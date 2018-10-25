@@ -13,7 +13,7 @@ useCase:
 ---
 # Refresh Token
 
-A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/access-token) or [ID Token](/tokens/id-token).
+A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token).
 
 Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
 
@@ -258,9 +258,7 @@ For more information on using Refresh Tokens with our mobile SDKs refer to:
 
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
-## Keep reading
+## Next steps
 
-::: next-steps
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/access-token#lifetime)
-:::
+* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)

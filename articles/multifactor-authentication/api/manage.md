@@ -1,7 +1,6 @@
 ---
 title: Manage the Authenticators for Multi-factor Authentication
 description: How to manage your MFA authenticators
-beta: true
 topics:
   - mfa
   - mfa-api
@@ -19,7 +18,7 @@ Auth0 provides several API endpoints to help you manage the authenticators you'r
 
 ## Before you start
 
-The MFA endpoints require an [Access Token](/tokens/access-token) with:
+The MFA endpoints require an [Access Token](/tokens/overview-access-tokens) with:
 
 - `audience`: Set to `https://${account.namespace}/mfa/`
 - `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.

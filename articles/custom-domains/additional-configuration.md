@@ -47,7 +47,8 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   configurationBaseUrl: config.clientConfigurationBaseUrl,
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: 'YOUR_CUSTOM_DOMAIN'
+  	__token_issuer: config.authorizationServer.issuer,
+    __jwks_uri: 'https://your-custom-domain/.well-known/jwks.json'
   },
   //code omitted for brevity
 });
@@ -62,7 +63,8 @@ var webAuth = new auth0.WebAuth({
   //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: 'YOUR_CUSTOM_DOMAIN'
+  	__token_issuer: config.authorizationServer.issuer,
+    __jwks_uri: 'https://your-custom-domain/.well-known/jwks.json'
   },
   //code omitted for brevity
 });

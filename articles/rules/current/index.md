@@ -20,7 +20,7 @@ useCase:
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
 1. The user authenticates successfully.
-1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/access-token)) pass through the Rules pipeline and are sent to the app.
+1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/overview-access-tokens)) pass through the Rules pipeline and are sent to the app.
 
 ## What can I use Rules for?
 
@@ -35,18 +35,6 @@ Among many possibilities, rules can be used to:
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
 * Enable __multi-factor authentication__, based on context (such as last login, IP address of the user, location, and so on).
 * Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
-
----
-
-<img align="right" src="/media/articles/rules/extend-rules.svg"> 
-
-## Auth0 Rules in your SaaS
-
-If you like the capabilities of Rules and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
-
-[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=rules-current-paragraph)
-
----
 
 ## Video: Using Rules
 
@@ -63,6 +51,10 @@ A Rule is a function with the following arguments:
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, or location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
 * `callback`: a function to send potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function or else the script will timeout.
+
+## Execution order
+
+Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
 
 ## Examples
 
@@ -375,7 +367,7 @@ Notice that the code sandbox in which Rules run can be recycled at any time. Thu
 
 ## Available modules
 
-For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox based on [Extend](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=docs-rules). 
+For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox. 
 
 Within the sandbox, you can access the full power of Node.js with a large number of Node.js modules. For a list of currently supported sandbox modules, see [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/) and [Additional Modules Available in Rules](/appliance/modules).
 

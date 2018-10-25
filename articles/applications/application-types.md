@@ -40,7 +40,7 @@ You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Cl
 ```
 
 ::: note
-See [How to Get an Access Token for the Management API](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
+See [Access Tokens for the Management API](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
 :::
 
 ### Confidential applications

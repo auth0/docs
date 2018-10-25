@@ -32,7 +32,7 @@ A **scope** is a claim that may be issued as part of the Access Token. With this
 
 ![Select Scopes](/media/articles/applications/m2m-select-scopes.png)
 
-At this point, you're ready to call your API using the Machine to Machine Application.The Quick Start tab will show you how you can call your API using technologies.
+At this point, you're ready to call your API using the Machine to Machine Application. The Quick Start tab will show you how you can call your API using technologies.
 
 ![M2M Quickstarts](/media/articles/applications/m2m-quickstart.png)
 

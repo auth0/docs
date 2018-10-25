@@ -136,7 +136,7 @@ If you use social connections, then you cannot use the Authentication API to cre
 
 What you have to do instead is let your user sign up with the social provider (which will create a user record at Auth0) and then use the [Management API](/api/management/v2) to update the user's information.
 
-Before you call the Management API you need to get a valid token. For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens#1-get-a-token).
+Before you call the Management API you need to get a valid token. For details see [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production).
 
 :::panel Get a token from an SPA
 The linked article uses the [Client Credentials OAuth 2.0 grant](/api-auth/grant/client-credentials) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Implicit Grant](/api-auth/grant/implicit). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).

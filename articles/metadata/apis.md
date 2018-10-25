@@ -21,16 +21,14 @@ In this article, we will cover how you can create and update metadata using the 
 
 When you use the Authentication API's [Signup endpoint](/api/authentication?shell#signup), you can create a new Database Connection user and set the `user_metadata` field.
 
-::: note
-When setting the `user_metadata` field using the Authentication API's [Signup endpoint](/api/authentication?javascript#signup), you are limited a maximum of 10 fields and 500 characters.
-:::
+<%= include('../_includes/_metadata_on_signup_warning') %>
 
 ## Management API
 
 Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata` fields. You can also update these two fields.
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 ### Set Metadata Fields on Creation

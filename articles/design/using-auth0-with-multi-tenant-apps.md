@@ -49,7 +49,7 @@ We recommend that you [create multiple Auth0 tenants](https://github.com/auth0/a
 ### Use multiple connections
 
 ::: warning
-Auth0 enforces a limit of 50 Database Connections for each [application](/applications). Enterprise Connections are not affected by this limit.
+[Lock](https://auth0.com/lock) supports a maximum of **50 Database Connections** per [application](/applications). Enterprise Connections are not affected by this limit.
 :::
 
 While using multiple [Connections](/identityproviders) introduces additional layers of complexity, there are several scenarios where this option might make sense:

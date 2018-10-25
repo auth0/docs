@@ -1864,5 +1864,9 @@ module.exports = [
    {
      from: '/support/troubleshooting-with-har-files',
      to: '/troubleshoot/har'
+   },
+   {
+     from: '/tokens/access-token',
+     to: '/tokens/overview-access-tokens'
    }
 ];

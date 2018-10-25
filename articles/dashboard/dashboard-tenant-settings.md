@@ -30,7 +30,7 @@ Click **SAVE** when finished to submit your changes.
 
 ### API Authorization Settings
 
-**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identifier specified as an audience.
+**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. This will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identifier specified as an audience.
 
 ::: note
 This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behavior that might result in breaking changes for some of your applications. Please contact support if you require assistance.
@@ -80,7 +80,7 @@ Learn more about [Logout](/logout).
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid measured in minutes. The default value is 10080 minutes (or 7 days).
+Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days).
 
 This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
 
