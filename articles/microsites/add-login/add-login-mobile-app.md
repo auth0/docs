@@ -150,7 +150,7 @@ Auth0 will assist you in authenticating a user, but it is up to you to keep trac
 ::: whats-next
 
 * Now that you have the authentication set up and ready to go, learn how you can [Manage Users](/microsites/manage-users/connect-users-to-identity-platform).
-* Auth0 offers many ways to personalize your user's login experience. Learn how to [add social connections], customize [Auth0-hosted pages](/hosted-pages) and [emails for database connections](/email), or customize the logic in the login process using [rules](/rules) and [hooks](/hooks).
+* Auth0 offers many ways to personalize your user's login experience. Learn how to [add custom social connections](/connections/social/oauth2), customize [Auth0-hosted pages](/hosted-pages) and [emails for database connections](/email), or customize the logic in the login process using [rules](/rules) and [hooks](/hooks).
 * Most native/mobile apps access RESTful APIs to retrieve data. You can do that as well using Auth0. To learn how, see [Call an API from a Native/Mobile App](/microsites/call-api/call-api-from-mobile-apps).
 * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/register-api).
 :::
