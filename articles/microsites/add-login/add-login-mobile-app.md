@@ -19,7 +19,7 @@ Auth0 provides flexible ways to add login, using one of the following methods:
 - [Auth0 SDKs](/libraries): The simplest way to implement login for your application's technology is to use one of our SDKs, which will do most of the heavy-lifting for you. Our [Quickstarts](/quickstart/native) will walk you through the process.
 - [Authentication API](/api/authentication): If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-# What can I do with Auth0?
+## What can I do with Auth0?
 
 Auth0 can help you:
 
@@ -28,7 +28,7 @@ Auth0 can help you:
 - Implement multi-factor authentication.
 - Customize your login experience and process.
 
-# How does login work with Auth0?
+## How does login work with Auth0?
 
 When a user clicks **Log In** or **Sign Up**:
 
@@ -52,12 +52,12 @@ When a user clicks **Log In** or **Sign Up**:
   7. Return your user to their desired place in your application
 :::
 
-## Understand how your app will retrieve tokens
+### Understand how your app will retrieve tokens
 Since the prize you seek is a token, you need a way to retrieve tokens, otherwise known as a grant type. The one we use for native/mobile apps is the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) (pronounced "pixie"). With the Authorization Code Grant, you make two calls: one to get an authorization code and one to exchange that code for your token. PKCE adds enhanced security to make sure no other process can intercept and use the authorization code.
 
 To find out more about grant types and when each one is used, our handy flowchart, [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use), is a great starting point.
 
-## Register your application with Auth0
+### Register your application with Auth0
 
 Before you can use Auth0 to add login to your app, you need to [register your application with Auth0 using the Dashboard](/applications/native). Be sure to choose **Native** as the application type; when you do, Auth0 automatically configures your app to allow the Authorization Code Grant type.
 
@@ -67,23 +67,23 @@ On the **Settings** tab, make note of your application's assigned Client ID. Lat
 
 Make sure to follow our [best practices](/best-practices/application-settings) when setting up your application.
 
-## Enable the login options you want to offer your users
+### Enable the login options you want to offer your users
 
 By default, each Auth0 [tenant](/getting-started/the-basics#account-and-tenants) includes a basic user profile data store; however, you can also [connect social identity providers (like Google or Facebook) and enterprise directories (like Active Directory)](/identityproviders), or use other [database connections](/connections/database). You will need to configure the options you want to offer your users in the Auth0 Dashboard. When you enable a new connection, Auth0 will ask you which applications you would like to use it with; by default, all applications are selected.
 
 You may also want to [enable multi-factor authentication with Guardian](/multifactor-authentication) or [configure other options](/getting-started/dashboard-overview).
 
-## Edit your application code to redirect to Auth0 when a user wants to authenticate
+### Edit your application code to redirect to Auth0 when a user wants to authenticate
 
 When a user wants to authenticate, your application will need to redirect them to Auth0. You can do this by [creating a code verifier and a code challenge](/application-auth/current/mobile-desktop#step-1-create-a-random-key-and-the-code-challenge), then including these when calling the endpoint directly through [Auth0's Authentication API](/api/authentication#authorization-code-grant-pkce-). After a successful call, you will receive an authorization code, which you can then exchange for your token(s).
 
-## Retrieve your token(s)
+### Retrieve your token(s)
 
 After it successfully receives an authorization code, your application will need to extract the code, then [exchange it and the code verifier for token(s)](/application-auth/current/mobile-desktop#step-3-obtain-an-id-token). To retrieve your token(s), you will need to make another call to [Auth0's Authentication API](/api/authentication#authorization-code-grant-pkce-). The [ID Token](/tokens/id-token) is what you will need to retrieve for your native/mobile app, but if you also plan to call an API from your application, you can also retrieve an [Access Token](/tokens/access-token) in the same call.
 
 Once retrieved, make sure you [store your token(s) securely](/security/store-tokens).
 
-## Extract user information
+### Extract user information
 
 To extract the returned user information, you will need to [validate and decode the returned ID Token](/tokens/id-token#validate-an-id-token).
 
@@ -99,7 +99,7 @@ To programmatically parse the ID Token, you can either:
 If you choose a third-party library, remember to pick a library that supports the [signing algorithm](/api-auth/concepts/signing-algorithms) selected for your application; when you register an app, Auth0 automatically selects RS256. (To find out why, read all about signing algorithms.) Also, since you will probably use this library when you validate the token, be aware that not all libraries validate all claims. At [JWT.io](https://jwt.io/), you can see which validations each library supports (look for the green check marks).
 :::
 
-## Return your user to their desired place in your application
+### Return your user to their desired place in your application
 
 Finally, you'll want to return your user to their desired place in your application. For example, if they were trying to access their profile information when you asked them to log in, you will want to return them to their profile information once they have authenticated. Once there, you can use the extracted user information to personalize the user's experience.
 
