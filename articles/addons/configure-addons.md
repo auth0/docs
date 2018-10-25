@@ -3,7 +3,8 @@ url: /addons
 description: How to configure third-party addons with your Auth0 application.
 topics:
     - addons
-contentType: how-to
+contentType: 
+   - how-to
 useCase: integrate-third-party-apps
 ---
 

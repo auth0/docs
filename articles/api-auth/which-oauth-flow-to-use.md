@@ -1,18 +1,18 @@
 ---
-title: Which OAuth 2.0 flow should I use?
+title: Which OAuth 2.0 Flow Should I Use?
 toc: true
 description: Helps the user identify the proper OAuth 2.0 grant for each use case.
 topics:
   - api-authentication
   - oidc
   - application-grants
-contentType: discussion
+contentType: concept
 useCase:
   - secure-api
   - call-api
 ---
 
-# Which OAuth 2.0 flow should I use?
+# Which OAuth 2.0 Flow Should I Use?
 
 <%= include('../_includes/_pipeline2') %>
 

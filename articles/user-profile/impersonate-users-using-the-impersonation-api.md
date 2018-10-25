@@ -1,4 +1,5 @@
 ---
+title: Impersonate Users Using the Impersonation API
 description: This page explains how to impersonate a user using the Impersonation API.
 topics:
     - users
@@ -20,7 +21,7 @@ Let's assume that you have two apps, `app1` and `app2`, and you want to imperson
 
 * Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) documentation.
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
@@ -158,9 +159,4 @@ Content-Type: application/json
 }
 ```
 
-## Keep reading
-
-::: next-steps
-- [Troubleshooting? This is what you shouldn’t do](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
-- [Identity Protocols supported by Auth0](/protocols)
-:::
+Congratulations, you are done!

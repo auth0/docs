@@ -41,17 +41,17 @@ Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
 
 You will also need to configure the **Allowed Logout URLs**:
  
 | Location | Allowed Logout URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
 Copy the **Client ID** value.
 
@@ -105,7 +105,6 @@ Auth0 grants the user(s) in your Connection access to the Delegated Administrati
 
 To use the extension, users must have either of these roles defined in one of the following fields of their user profiles:
 
-* `user.roles`
 * `user.app_metadata.roles`
 * `user.app_metadata.authorization.roles`
 
@@ -118,13 +117,12 @@ This rule gives users from the `IT Department` the `Delegated Admin - Administra
 ```js
 function (user, context, callback) {
  if (context.clientID === 'CLIENT_ID') {
+   const namespace = 'https://${account.tenant}.us8.webtask.io/auth0-delegated-admin';
    if (user.groups && user.groups.indexOf('IT Department') > -1) {
-     user.roles = user.roles || [ ];
-     user.roles.push('Delegated Admin - Administrator');
+     context.idToken[namespace] = { roles: [ 'Delegated Admin - Administrator' ] };
      return callback(null, user, context);
    } else if (user.app_metadata && user.app_metadata.isDepartmentManager && user.app_metadata.department && user.app_metadata.department.length) {
-     user.roles = user.roles || [ ];
-     user.roles.push('Delegated Admin - User');
+     context.idToken[namespace] = { roles: [ 'Delegated Admin - User' ] };
      return callback(null, user, context);
    }
 

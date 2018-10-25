@@ -46,3 +46,13 @@ Use Extensions to:
 - [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service)
 - [Deploy rules, and other scripts from external repositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories)
 - [and more](/extensions#what-types-of-actions-can-i-do-with-extensions-)
+
+---
+
+<img align="right" src="/media/articles/topics/extend-extensibility.svg"> 
+
+## Extensibility in your SaaS
+
+If you like the Auth0 extensibility capabilities and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
+
+[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=extensibility-paragraph)

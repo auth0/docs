@@ -18,7 +18,6 @@ The features only available in Management API v1 include:
 * [Application Users](#application-users)
 * [Email](#email)
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
-* [Impersonation](#impersonation)
 * [Rules Configuration](#rules-configuration)
 * [Searching via the PSaaS Appliance](#searching-via-the-auth0-appliance)
 
@@ -52,13 +51,6 @@ Management API v1 allows you to search directly for users authenticated using en
 
 * All users from all enterprise directories:
 GET `/api/enterpriseconnections/users?search={criteria}`
-
-## Impersonation
-
-Management API v1 includes an impersonation endpoint that generates a link that can be used only once to log in as a specific user for troubleshooting purposes.
-
-[`/users/{user_id}/impersonate`](/auth-api#impersonation)
-
 
 ## Rules Configuration
 

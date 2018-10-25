@@ -79,7 +79,7 @@ We have preconfigured a collection that you can [download](https://app.getpostma
 
 ## Errors
 
-When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your applications can tell what the problem is.
+When an error occurs, you will receive an error object. Most of these error objects contain an error code and an error description so that your applications can more efficiently identify the problem.
 
 If you get an `4xx` HTTP response code, then you can assume that there is a bad request from your end. In this case, check the [Standard Error Responses](#standard-error-responses) for more context. 
 

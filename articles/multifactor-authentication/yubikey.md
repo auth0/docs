@@ -45,6 +45,10 @@ No actual key values are hard-coded into the Webtask code. Your Yubico Client ID
 
 ### Step 2: Initialize the Webtask CLI
 
+::: warning
+Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
+:::
+
 Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 
 To use the Webtask CLI, you'll need to install it using instructions that can be found under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 Dashboard.

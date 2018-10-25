@@ -102,6 +102,13 @@ On the other hand, internal users have to login everyday to their different tool
 
 Definitely. In the Dashboard, you can do this by going to the upper right corner, and selecting **Settings** from the drop down menu. Then in the **Subscriptions** tab you can select them depending on your needs. More information about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
 
+## Can we combine billing for multiple tenants?
+
+Unfortunately combined billing is not supported for regular self-service tenants. The only two cases where we support combined billing are:
+
+1. For enterprise customers
+2. For customers whose master tenant is billed at $167 per month (or more). In this case, we mark the testing tenant as [a child tenant](https://auth0.com/docs/dev-lifecycle/child-tenants) and bill only the master tenant.
+
 ## How can I convert my tenant from a free trial to any other version?
 
 You can do this by heading to the upper right corner of the Dashboard, clicking your tenant name and selecting **Settings**. Then in the **Subscriptions** tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).

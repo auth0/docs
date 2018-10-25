@@ -14,7 +14,7 @@ github:
     path: 00-Starter-Seed
 ---
 
-<%= include('../_includes/_getting_started', { library: 'ServiceStack', callback: 'http://localhost:<port>/api/auth/auth0' }) %>
+<%= include('../_includes/_getting_started', { library: 'ServiceStack', callback: 'http://localhost:6132/api/auth/auth0' }) %>
 
 ### Create a ServiceStack application
 

@@ -85,6 +85,7 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 ```
+Please make sure these last two commands are in your code after the application of the express middleware (`app.use(session(sess)`).
 
 ### Storing and retrieving user data from the session
 
@@ -195,7 +196,7 @@ You can do this by adding a helper function to check if the user is persisted in
 // Look up session to know if user is logged in 
 app.use(function(req, res, next) {
   res.locals.loggedIn = false;
-  if (req.session.passport && typeof req.session.passport.user != 'undefined') {
+  if (req.session.passport && typeof req.session.passport.user !== 'undefined') {
     res.locals.loggedIn = true;
   }
   next();

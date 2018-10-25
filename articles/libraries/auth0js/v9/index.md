@@ -442,6 +442,10 @@ Remember to add the URL where the authorization request originates from, to the 
 If the connection is a social connection and you are using Auth0 dev keys, the `checkSession` call will always return `login_required`.
 :::
 
+### Polling with checkSession()
+
+<%= include('../../../_includes/_checksession_polling') %>
+
 ## Password reset requests
 
 If attempting to set up a password reset functionality, you'll use the `changePassword` method and pass in an "options" object, with a "connection" parameter and an "email" parameter.

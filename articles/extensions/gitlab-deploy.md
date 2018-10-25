@@ -36,7 +36,7 @@ The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Datab
 2. Create a new Access Token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
 
 ::: panel-warning API access
-Make sure that you create the token with the `api (Access the authenticated user's API )` permission in Gitlab settings. If your Gitlab token does not contain the necessary permissions, you may receive a "rejecting request of a tenant under quarantine" message because there was some uncaught error in the extension causing the Webtask context to be quarantined. 
+Make sure that you create the token with the `api` permission in Gitlab settings (this grants complete read/write access to the API). If your Gitlab token does not contain the necessary permissions, you may receive a "rejecting request of a tenant under quarantine" message because there was some uncaught error in the extension causing the Webtask context to be quarantined. 
 :::
 
 ![Generate a personal Access Token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
@@ -63,7 +63,7 @@ Make sure that you create the token with the `api (Access the authenticated user
 
 Once you have configured your Auth0 Extension, you will need to configure the GitLab Webhook to complete the integration.
 
-1. In your GitLab repository, click on the gear icon near the top right of the page to open the menu. Click on **Webhooks**.
+1. In your GitLab repository, click on the gear (Settings) icon. In the menu that appears, click on **Integrations**. This brings up the Webhook configuration area.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-settings-menu.png)
 
@@ -76,7 +76,7 @@ Once you have configured your Auth0 Extension, you will need to configure the Gi
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-add-webhook.png)
 
-3. Click **Add Webhook** to save your changes.
+3. Scroll down, and click **Add Webhook** to save your changes.
 
 ## Deployment
 

@@ -16,17 +16,7 @@ If there are user fields that should not be stored in Auth0 databases due to pri
 
 To blacklist attributes make a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API.
 
-<<<<<<< HEAD:articles/security/blacklist-user-attributes.md
 1. Get a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. You can either get one manually from the Dashboard, or automate the process by building a simple command line tool that generates tokens. For detailed steps on how to do either, refer to  [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
-=======
-### Step 1. Get a token
-
-First, you need a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. 
-
-For detailed steps on how to get one, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
-
-### Step 2. Call the API
->>>>>>> 823d95ecdd8698bc44658df2d9873f7fc9bf87bc:articles/security/blacklist-user-attributes.md
 
 2. Call the API. 
 
@@ -62,7 +52,7 @@ Where:
 
 - Only root fields (such as `user.name` or `user.email`) can be blacklisted
 - When you blacklist attributes, they will be still be available via rules and outgoing tokens. However, if any of the following apply, the blacklist attributes will **not** be included in tokens:
-  - You have enabled multi-factor authentication
+  - You have enabled multifactor authentication
   - You have performed a redirect via rules
   - Your app is using delegation (and you haven't set `scope = passthrough`)
   - Your app is using impersonation

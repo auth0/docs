@@ -21,11 +21,11 @@ useCase:
   - build-an-app
 ---
 
-# Mobile + API
+# Implement Mobile + API
 
-In this scenario we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow management of timesheet entries for an employee or a contractor.
+In this scenario, we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow management of timesheet entries for an employee or a contractor.
 
-We will also be building a mobile application which will be used to view and log timesheet entries in the centralized timesheet database using the API.
+We will also build a mobile application, which will be used to view and log timesheet entries in the centralized timesheet database using the API.
 
 
 ::: panel TL;DR

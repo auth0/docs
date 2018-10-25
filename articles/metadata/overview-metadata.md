@@ -1,4 +1,5 @@
 ---
+title: Metadata
 description: Describes how metadata works with Auth0.
 topics: 
    - metadata
@@ -7,8 +8,6 @@ topics:
    - lock
 contentType: concept
 useCase: manage-users
-docsv2: true
-oldDoc: /metadata/index.md
 ---
 # Metadata Overview
 

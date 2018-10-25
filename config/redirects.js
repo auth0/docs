@@ -311,7 +311,11 @@ module.exports = [
     from: `/quickstart/backend/:platform/${apis}`,
     to: '/quickstart/backend/:platform'
   },
-
+  {
+    from: `/quickstart/spa/emberjs`,
+    to: '/quickstart/spa/ember'
+  },
+  
   /* --- Connections --- */
 
   {
@@ -1852,5 +1856,13 @@ module.exports = [
    {
      from: '/applications/application-settings/single-page-app',
      to: '/applications/spa#settings'
+   },
+   {
+     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
+     to: '/hrd'
+   },
+   {
+     from: '/support/troubleshooting-with-har-files',
+     to: '/troubleshoot/har'
    }
 ];

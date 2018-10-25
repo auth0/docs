@@ -65,3 +65,14 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 
 ### Create a SSO dashboard with multiple enterprise applications 
 - [SSO Dashboard Extension](extensions/sso-dashboard)
+
+---
+
+<img align="right" src="/media/articles/extensions/extend-extensions.svg"> 
+
+## Extensions in your SaaS
+
+If you like the capabilities of Auth0 Extensions and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
+
+[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=extensions-paragraph)
+

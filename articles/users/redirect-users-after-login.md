@@ -22,11 +22,8 @@ Because callback URLs can be manipulated by unauthorized parties, Auth0 recogniz
 
 However the callback URL is not necessarily the same URL to which you want users redirected after authentication.
 
-<<<<<<< HEAD:articles/users/redirect-users-after-login.md
-=======
 ## How to redirect to a non-callback URL
 
->>>>>>> 823d95ecdd8698bc44658df2d9873f7fc9bf87bc:articles/users/redirect-users-after-login.md
 To redirect authenticated users to a URL that is *not* the callback URL, you can store the desired URL in web storage (for single page apps, running on the browser), or in a a cookie (for regular web apps, running on the server).
 
 You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want.
