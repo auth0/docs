@@ -28,9 +28,9 @@ useCase: strategize
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/design/creating-invite-only-applications">Invite-Only Applications</a>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/design/creating-invite-only-applications">Invite-Only Applications</a>
     <p>
-      Using Auth0 with invite-only applications, which are those where access is limited to a select group of previously-identified users.
+      Using Auth0 with invite-only applications, which are those where access is limited to a select group of previously-identified users.For more info. visit the link above.
     </p>
   </li>
   <li>
