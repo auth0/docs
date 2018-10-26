@@ -222,7 +222,7 @@ Lock
 
 #### Configuration options
 
-If you needed to tweak Lock behaviour using it's options in v1, you would use the following format:
+If you needed to tweak Lock behaviour using its options in v1, you would use the following format:
 
 ```swift
 let controller = A0Lock.shared().newLockViewController()
