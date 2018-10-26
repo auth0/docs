@@ -20,7 +20,7 @@ useCase:
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
 1. The user authenticates successfully.
-1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/access-token)) pass through the Rules pipeline and are sent to the app.
+1. The tokens ([ID Token](/tokens/id-token) and/or [Access Token](/tokens/overview-access-tokens)) pass through the Rules pipeline and are sent to the app.
 
 ## What can I use Rules for?
 

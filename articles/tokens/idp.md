@@ -13,7 +13,7 @@ useCase:
 ---
 # Identity Provider Access Tokens
 
-Third-party [Access Tokens](/tokens/access-token) are issued by [Identity Providers (IdP)](/identityproviders) when a user authenticates with that provider. These Access Tokens can be used to call the API of the third-party provider that issued them. For example, an Access Token issued after authentication to Facebook could be used to call the Facebook Graph API.
+Third-party [Access Tokens](/tokens/overview-access-tokens) are issued by [Identity Providers (IdP)](/identityproviders) when a user authenticates with that provider. These Access Tokens can be used to call the API of the third-party provider that issued them. For example, an Access Token issued after authentication to Facebook could be used to call the Facebook Graph API.
 
 ## Get an Identity Provider Access Token
 

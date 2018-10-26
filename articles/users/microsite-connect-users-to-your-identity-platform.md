@@ -16,7 +16,7 @@ You can use the Auth0 Authentication API to create client-side and server-side w
 
 * Use one of the **Auth0 SDKs** which are client-side libraries that allow you to customize the authentication behavior and the appearance of the login screen. For more information, refer to [Auth0 Libraries](/libraries).
 
-* Call the **Authentication API** endpoints which help you integrate with Auth0 without requiring the Auth0's libraries. For more information, refer to [Authentication API](/api/authentication). You can call endpoints through an embedded browser in your native application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/access-token).
+* Call the **Authentication API** endpoints which help you integrate with Auth0 without requiring the Auth0's libraries. For more information, refer to [Authentication API](/api/authentication). You can call endpoints through an embedded browser in your native application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
 
 During a user's authentication, the redirect_uri request parameter is used as a callback URL. This is where your application will receive and process the response from Auth0, and where the users will be redirected once the authentication is complete. For more information on how the redirect_uri works, see [OAuth 2.0](/protocols/oauth2).
 :::
@@ -62,7 +62,7 @@ The documents listed below will show you how to perform all these tasks as well 
 * [Passwordless FAQs](/connections/passwordless/faq)
 * [Password Security Tips](/anomaly-detection/password-security-tips)
 * [Identity Providers Supported](/connections/identity-providers-supported)
-* [Identity Provider Access Tokens](/tokens/idp)
+* [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens)
 * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
 * [Authorization Extensions](/extensions/authorization-extension/v2/index)
 * [A Basic Authentication Request](/application-auth/current/client-side-web#a-basic-authentication-request)

@@ -31,7 +31,7 @@ Inside the API section, you will see one API that has been created automatically
 
 ![Create a new API](/media/articles/api/overview/create-api.png)
 
-Once you create your API, you will be able to see your API's *Quick Start*, which will guide you through any API code changes you will need to make to implement your API. These generally consist of choosing a JWT library from a pre-defined list and configuring the library to validate the [Access Tokens](/tokens/access-token) in your API. 
+Once you create your API, you will be able to see your API's *Quick Start*, which will guide you through any API code changes you will need to make to implement your API. These generally consist of choosing a JWT library from a pre-defined list and configuring the library to validate the [Access Tokens](/tokens/overview-access-tokens) in your API. 
 
 You will also see some additional [dashboard views for your API](/api-auth/reference/dashboard/views-apis).
 

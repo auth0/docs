@@ -79,7 +79,7 @@ When a user wants to authenticate, your application will need to redirect them t
 
 ### Retrieve your token(s)
 
-After it successfully receives an authorization code, your application will need to extract the code, then [exchange it and the code verifier for token(s)](/application-auth/current/mobile-desktop#step-3-obtain-an-id-token). To retrieve your token(s), you will need to make another call to [Auth0's Authentication API](/api/authentication#authorization-code-grant-pkce-). The [ID Token](/tokens/id-token) is what you will need to retrieve for your native/mobile app, but if you also plan to call an API from your application, you can also retrieve an [Access Token](/tokens/access-token) in the same call.
+After it successfully receives an authorization code, your application will need to extract the code, then [exchange it and the code verifier for token(s)](/application-auth/current/mobile-desktop#step-3-obtain-an-id-token). To retrieve your token(s), you will need to make another call to [Auth0's Authentication API](/api/authentication#authorization-code-grant-pkce-). The [ID Token](/tokens/id-token) is what you will need to retrieve for your native/mobile app, but if you also plan to call an API from your application, you can also retrieve an [Access Token](/tokens/overview-access-tokens) in the same call.
 
 Once retrieved, make sure you [store your token(s) securely](/security/store-tokens).
 
@@ -116,7 +116,7 @@ Auth0 will assist you in authenticating a user, but it is up to you to keep trac
 - [Single Sign On (SSO)](/sso/current/single-page-apps)
 - [Validate ID Tokens](/tokens/id-token#validate-an-id-token)
 - [Configure Multiple Pages Using Separate Tenants](/hosted-pages/login#configure-multiple-pages-by-using-separate-tenants)
-- [Get Access Tokens](/tokens/access-token)
+- [Get Access Tokens](/tokens/overview-access-tokens)
 - [Add Custom Claims to ID Tokens](/scopes/current#example-add-custom-claims)
 - [Where to Store Tokens](/security/store-tokens)
 - [Common Threats and How to Prevent Them](/security/common-threats)
@@ -130,7 +130,7 @@ Auth0 will assist you in authenticating a user, but it is up to you to keep trac
 - [OpenID Connect](/protocols/oidc)
   - [ID Token](/tokens/id-token)
 - [OAuth 2.0](/protocols/oauth2)
-  - [Access Token](/tokens/access-token)
+  - [Access Token](/tokens/overview-access-tokens)
   - [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
   - [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
 - [[JSON Web Tokens (JWTs) in Auth0](/jwt)

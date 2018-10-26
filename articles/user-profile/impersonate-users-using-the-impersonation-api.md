@@ -79,7 +79,7 @@ There are various possible values for `scope`:
 You can get more information about this in the [Scopes documentation](/scopes).
 
 ::: note
-Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/overview-access-tokens) to your APIs.
 :::
 
 Your request should look like the following:

@@ -14,7 +14,7 @@ useCase:
 
 # Revoke Access to Your API
 
-Let's say that you're using a machine to machine [application](/application) to access your API. You have a partner who calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. You now want to remove your partner's access to your API; however, you've given your partner an [Access Token](/tokens/access-token) that lasts for a month.
+Let's say that you're using a machine to machine [application](/application) to access your API. You have a partner who calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. You now want to remove your partner's access to your API; however, you've given your partner an [Access Token](/tokens/overview-access-tokens) that lasts for a month.
 
 * What can you do in this situation?
 * How might you configure your Auth0 environment to make such situations easier to handle in the future?

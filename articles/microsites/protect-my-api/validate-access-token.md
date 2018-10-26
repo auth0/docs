@@ -35,7 +35,7 @@ If any of these steps fail, then you must reject the request.
 Are you ready to validate an Access Token? Let's go!
 
 ### Extract the Access Token
-There are three ways by which your users can send the golden ticket...er, [Access Token](/tokens/access-token) that grants them the right to call your API. The OAuth 2.0 specification calls for its [inclusion in the HTTP Authorization Header](/api-auth/tutorials/authorization-code-grant#3-call-the-api) whenever possible, so this is the method we recommend accepting. For code samples, choose your technology in our [Auth0 Backend/API Quickstarts](/quickstart/backend).
+There are three ways by which your users can send the golden ticket...er, [Access Token](/tokens/overview-access-tokens) that grants them the right to call your API. The OAuth 2.0 specification calls for its [inclusion in the HTTP Authorization Header](/api-auth/tutorials/authorization-code-grant#3-call-the-api) whenever possible, so this is the method we recommend accepting. For code samples, choose your technology in our [Auth0 Backend/API Quickstarts](/quickstart/backend).
 
 ### Check that the Access Token is well formed
 For your API, Auth0 will generate the Access Token in [JSON Web Token (JWT) format](/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your API should parse the Access Token to make sure it conforms to the structure of a JWT.
@@ -143,7 +143,7 @@ An application requests to access the /create endpoint, but the scope claim do
 ::: card-panel--half
 ### Concepts
 
-[Access Token](/tokens/access-token)
+[Access Token](/tokens/overview-access-tokens)
 [Why You Should Always Use Access Tokens to Secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 [Signing Algorithms](/concepts/signing-algorithms)
 [JSON Web Key Set (JWKS)](/jwks)

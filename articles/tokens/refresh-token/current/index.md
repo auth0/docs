@@ -24,7 +24,7 @@ It will be easier for you to follow this article, if you are already familiar wi
 
 ## What is a Refresh Token
 
-A Refresh Token is a special kind of token that you can use to get a new [Access Token](/tokens/access-token) or [ID Token](/tokens/id-token), when the ones you got expire. This allows you to have short-lived Access Tokens which is a security best practice. You ask for this token during a user’s initial authentication flow, alongside the Access and/or ID Tokens.
+A Refresh Token is a special kind of token that you can use to get a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token), when the ones you got expire. This allows you to have short-lived Access Tokens which is a security best practice. You ask for this token during a user’s initial authentication flow, alongside the Access and/or ID Tokens.
 
 Refresh Tokens are subject to strict storage requirements to ensure that they are not leaked. However, if this happens, [Refresh Tokens can be revoked](#how-to-revoke-a-refresh-token).
 
