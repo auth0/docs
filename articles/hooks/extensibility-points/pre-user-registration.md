@@ -34,7 +34,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {string} user.username - user name
 @param {string} user.password - user's password
 @param {string} user.email - email
-@param {boolean} user.emailVerified - is e-mail verified?
+@param {boolean} user.emailVerified - is email verified?
 @param {string} user.phoneNumber - phone number
 @param {boolean} user.phoneNumberVerified - is phone number verified?
 @param {object} context - Auth0 connection and other context info

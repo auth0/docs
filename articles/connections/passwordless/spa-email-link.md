@@ -8,7 +8,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Authenticate users with a Magic Link via e-mail on SPA
+# Authenticate users with a Magic Link via email on SPA
 
 <%= include('_introduction-email-magic-link') %>
 

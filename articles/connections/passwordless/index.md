@@ -22,27 +22,27 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 ### Passwordless on Single Page Apps
 
  - [Authenticate users with a one time code via SMS](/connections/passwordless/spa-sms)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/spa-email-code)
- - [Authenticate users with a magic link via e-mail](/connections/passwordless/spa-email-link)
+ - [Authenticate users with a one time code via email](/connections/passwordless/spa-email-code)
+ - [Authenticate users with a magic link via email](/connections/passwordless/spa-email-link)
 
 ### Passwordless on Regular Web Apps
 
  - [Authenticate users with a one time code via SMS](/connections/passwordless/regular-web-app-sms)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/regular-web-app-email-code)
- - [Authenticate users with a magic link via e-mail](/connections/passwordless/regular-web-app-email-link)
+ - [Authenticate users with a one time code via email](/connections/passwordless/regular-web-app-email-code)
+ - [Authenticate users with a magic link via email](/connections/passwordless/regular-web-app-email-link)
 
 ### Passwordless on iOS
 
  - [Authenticate users with Universal Login](/connections/passwordless/native-passwordless-universal)
  - [Authenticate users with a one time code via SMS](/connections/passwordless/ios-sms-swift)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/ios-email-swift)
+ - [Authenticate users with a one time code via email](/connections/passwordless/ios-email-swift)
  - [Authenticate users with Magic Link](/connections/passwordless/ios-magic-link)
 
 ### Passwordless on Android
 
  - [Authenticate users with Universal Login](/connections/passwordless/native-passwordless-universal)
  - [Authenticate users with a one time code via SMS](/connections/passwordless/android-sms)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/android-email)
+ - [Authenticate users with a one time code via email](/connections/passwordless/android-email)
  - [Authenticate users with Magic Link](/libraries/lock-android/passwordless-magic-link)
 
 ### Passwordless API

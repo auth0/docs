@@ -21,4 +21,4 @@ useCase: customize-connections
 ## Tutorials for Android
 
  - [Authenticate users with a one-time code via SMS](/connections/passwordless/android-sms)
- - [Authenticate users with a one-time code via e-mail](/connections/passwordless/android-email)
+ - [Authenticate users with a one-time code via email](/connections/passwordless/android-email)

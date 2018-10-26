@@ -1,5 +1,5 @@
 ---
-title: Using Passwordless Authentication on iOS with e-mails - Objective C
+title: Using Passwordless Authentication on iOS with emails - Objective C
 languages:
   - name: Swift
     url: swift

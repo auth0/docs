@@ -102,7 +102,7 @@ Authorization: Bearer {token}
 </div>
 
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
 *   Google Apps: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
@@ -121,7 +121,7 @@ Authorization: Bearer {token}
 
 Search users from all enterprise directories based on the specified `criteria`. The parameter is mandatory.
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
 *   Google Apps: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
