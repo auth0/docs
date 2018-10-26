@@ -40,16 +40,16 @@ In `app.js`, include the `express-session` module and configure it. The `secret`
 
 var session = require('express-session');
 
-// initialize express-session
+// config express-session
 var sess = {
- secret: 'CHANGE THIS SECRET',
- cookie: {},
- resave: false,
- saveUninitialized: true
+  secret: 'CHANGE THIS SECRET',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true
 };
 
 if (app.get('env') === 'production') {
- sess.cookie.secure = true; // serve secure cookies, requires https
+  sess.cookie.secure = true; // serve secure cookies, requires https
 }
 
 app.use(session(sess));
@@ -62,22 +62,24 @@ In `app.js`, include the `passport` and `passport0-auth0` modules, and configure
 ```js
 // app.js
 
-var Auth0Strategy = require('passport-auth0'),
-    passport = require('passport');
+var passport = require('passport');
+var Auth0Strategy = require('passport-auth0');
 
-// passport-auth0
-var strategy = new Auth0Strategy({
-  domain: '${account.namespace}',
-  clientID: '${account.clientId}',
-  clientSecret: 'YOUR_CLIENT_SECRET', // Replace this with the client secret for your app
-  callbackURL: 'http://localhost:3000/callback'
- },
- function(accessToken, refreshToken, extraParams, profile, done) {
-   // accessToken is the token to call Auth0 API (not needed in the most cases)
-   // extraParams.id_token has the JSON Web Token
-   // profile has all the information from the user
-   return done(null, profile);
- }
+// Configure Passport to use Auth0
+var strategy = new Auth0Strategy(
+  {
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL:
+      process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+  },
+  function (accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }
 );
 
 passport.use(strategy);
@@ -96,11 +98,12 @@ To support login sessions, Passport serializes and deserializes user instances t
 ```js
 // app.js
 
-passport.serializeUser(function(user, done) {
+// You can use this section to keep a smaller payload
+passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 ```
@@ -131,26 +134,25 @@ In the authentication step, make sure to pass the `scope` parameter with values 
 
 var express = require('express');
 var router = express.Router();
-var Auth0Strategy = require('passport-auth0'),
-    passport = require('passport');
+var passport = require('passport');
 
 // Perform the login, after login Auth0 will redirect to callback
 router.get('/login', passport.authenticate('auth0', {
   scope: 'openid email profile'
-  }), function (req, res) {
-    res.redirect("/");
+}), function (req, res) {
+  res.redirect('/');
 });
 
 // Perform the final stage of authentication and redirect to previously requested URL or '/user'
-router.get('/callback', function(req, res, next) {
-  passport.authenticate('auth0', function(err, user, info) {
+router.get('/callback', function (req, res, next) {
+  passport.authenticate('auth0', function (err, user, info) {
     if (err) { return next(err); }
     if (!user) { return res.redirect('/login'); }
-    req.logIn(user, function(err) {
+    req.logIn(user, function (err) {
       if (err) { return next(err); }
       const returnTo = req.session.returnTo;
       delete req.session.returnTo;
-      res.redirect(returnTo || "/user");
+      res.redirect(returnTo || '/user');
     });
   })(req, res, next);
 });
@@ -177,12 +179,12 @@ If the user is not logged in, the requested route will be stored in the session 
 ```js
 // lib/middleware/secured.js
 
-module.exports = function() {
-  return function secured(req, res, next) {
+module.exports = function () {
+  return function secured (req, res, next) {
     if (req.user) { return next(); }
     req.session.returnTo = req.originalUrl;
     res.redirect('/login');
-  }
+  };
 };
 ```
 
@@ -198,10 +200,11 @@ var secured = require('../lib/middleware/secured');
 var router = express.Router();
 
 /* GET user profile. */
-router.get('/user', secured(), function(req, res, next) {
+router.get('/user', secured(), function (req, res, next) {
   const { _raw, _json, ...userProfile } = req.user;
   res.render('user', {
     userProfile: JSON.stringify(userProfile, null, 2),
+    title: 'Profile page'
   });
 });
 
@@ -219,8 +222,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+  res.render('index', { title: 'Auth0 Webapp sample Nodejs' });
 });
 
 module.exports = router;
@@ -235,12 +238,12 @@ Create a middleware `lib/middleware/userInViews.js` for this purpose.
 ```js
 // userInViews.js
 
-module.exports = function() {
-  return function(req, res, next) {
+module.exports = function () {
+  return function (req, res, next) {
     res.locals.user = req.user;
     next();
   };
-}
+};
 ```
 
 ### Including the routers and userInViews middleware
