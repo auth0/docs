@@ -1,4 +1,7 @@
 # Auth0 Documentation
+
+[![MIT licensed](https://img.shields.io/dub/l/vibe-d.svg?style=flat)](https://github.com/auth0/docs/blob/master/LICENSE)
+
 This is the repository for the Auth0 documentation.
 
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
