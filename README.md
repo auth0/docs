@@ -1,4 +1,5 @@
 # Auth0 Documentation
+[![PRs Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](http://makeapullrequest.com) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 This is the repository for the Auth0 documentation.
 
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
