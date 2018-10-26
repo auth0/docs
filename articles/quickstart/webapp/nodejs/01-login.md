@@ -170,15 +170,15 @@ This tutorial implements logout by closing the local user session. After logging
 
 ### Middleware to protect routes
 
-Create a `protected` middleware to protect routes and ensure they are only accessible if logged in.
+Create a `secured` middleware to protect routes and ensure they are only accessible if logged in.
 
 If the user is not logged in, the requested route will be stored in the session and the user will be redirected to the login page. Upon successful login, the user will be redirected to the previously requested URL (see callback route above).
 
 ```js
-// lib/middleware/protected.js
+// lib/middleware/secured.js
 
 module.exports = function() {
-  return function protected(req, res, next) {
+  return function secured(req, res, next) {
     if (req.user) { return next(); }
     req.session.returnTo = req.originalUrl;
     res.redirect('/login');
@@ -188,17 +188,17 @@ module.exports = function() {
 
 ### Create the user profile route
 
-The `/user` route (the user's profile) should only be accessible if the user is logged in. Use the protected middleware to secure the route.
+The `/user` route (the user's profile) should only be accessible if the user is logged in. Use the secured middleware to secure the route.
 
 ```js
 // routes/users.js
 
 var express = require('express');
-var protected = require('../lib/middleware/protected');
+var secured = require('../lib/middleware/secured');
 var router = express.Router();
 
 /* GET user profile. */
-router.get('/user', protected(), function(req, res, next) {
+router.get('/user', secured(), function(req, res, next) {
   const { _raw, _json, ...userProfile } = req.user;
   res.render('user', {
     userProfile: JSON.stringify(userProfile, null, 2),
@@ -309,6 +309,6 @@ block content
 
 ## See it in action
 
-Install the dependencies, start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+Install the dependencies, svtart your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
 ![login page](/media/articles/web/hosted-login.png)
