@@ -7,8 +7,8 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 ## Voice
 
 * Address the reader directly: "you". Use "we" only for Auth0's recommendations.
-* Use active voice.
-* For instructions, use imperative mood.
+* Use the active voice.
+* For instructions, use an imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -21,7 +21,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 | --- | --- |
 | The user enters his password. | The user enters their password. |
 
-* Avoid gerunds in headings and main body.
+* Avoid gerunds in headings and the main body.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
