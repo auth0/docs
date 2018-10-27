@@ -25,7 +25,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Saving User Authentication Data | Save User Authentication Data |
+| Saving User Authentication Data. | Save User Authentication Data. |
 | Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
@@ -180,7 +180,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 ### The dashboard
 
-* Dashboard: the [Auth0 management console](${manage_url})
+* Dashboard: the [Auth0 management console](${manage_url}).
 * The dashboard elements are called "section", "tab", "field".
 * Dashboard-related terminology:
 ![](/media/readme/structure.png)
