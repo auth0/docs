@@ -19,7 +19,7 @@ useCase:
 
 # Business to Business Identity Scenarios
 
-Your applications are used by businesses who all have different expectations for how identities should be managed. Auth0 can make setting up idenitity management simple.
+Your applications are used by a number of businesses, each with their own expectations for how identities should be managed. Auth0 can streamline the process of setting up identity management for those applications.
 
 This guide outlines some common requirements for business to business (B2B) application scenarios and how Auth0 can help you meet them. We'll provide tips for setting up all the common requirements like enterprise providers, leveraging existing groups and roles, as well as single sign-on.
 
@@ -75,9 +75,9 @@ Modern applications often leverage a [suite of APIs](/apis) to retrieve and comb
 
 ## Branding
 
-Branding is an important part of any application. Your logo, colors and styles should be consistent in all parts of the application. You can [customize](/libraries/custom-signup) the login, signup, and error pages displayed by Auth0 so it matches your application. Add your own logo, text, and colors. There's also I18N/L10N support for global rollouts. [Emails for verification or password resets](/email/templates) are customizable too. 
+Branding is an important part of any application. Your logo, colors and styles should be consistent in all parts of the application. You can [customize](/hosted-pages#customize-your-hosted-page) the login, signup, and error pages displayed by Auth0 so it matches your application. Add your own logo, text, and colors. There's also I18N/L10N support for global rollouts. [Emails for verification or password resets](/email/templates) are customizable too. 
 
-[Login screens](/libraries/lock/v11/ui-customization) should appear to come from your application’s branded domain name. To maintain consistency, you can define a [custom domain name](/custom-domains) for the login screen displayed by Auth0.
+Login screens should appear to come from your application’s branded domain name. To maintain consistency, you can define a [custom domain name](/custom-domains) for the login screen displayed by Auth0.
 
 ## Multifactor authentication
 
