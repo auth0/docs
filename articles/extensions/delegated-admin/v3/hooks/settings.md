@@ -135,7 +135,7 @@ userFields: [
     - **edit.validateFunction**: stringified function for validation. Note that this validation function will run on both the server- and client-side. Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
 - **create**: false || object => This describes whether the field shows up on the create dialog.
     - Default: if `false` will not show up on the create page
-    - **create.display**: This will override the default display value
+    - **create.placeholder**: Provide placeholder text to show when input is empty.
     - **create.required**: set to true to fail if it does not have a value.  Default is false.
     - **create.type** **required**: text || select || password
     - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo
