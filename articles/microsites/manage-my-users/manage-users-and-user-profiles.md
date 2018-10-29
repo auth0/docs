@@ -6,19 +6,19 @@ template: microsite
 
 Auth0 creates [user profiles](/user-profile/overview-user-profile) that contain specific information about users such as name, email address, contact information, and so on. 
 
-## Where does user profile information come from and how does Auth0 manage it?
+## Where does user profile information come from?
 
 Auth0 gets user profile attributes from authenticating services (such as [Google or Facebook](/connections/identity-providers-supported)), your custom databases, or web services. You can also store custom attributes such as users' favorite color or phone number.
 
-Auth0 refers to all user profile attribute sources as connections because Auth0 connects to them to authenticate the user. Each connection may return a set of attributes about the user, and it's possible that each provider uses different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 provides a Normalized User Profile,  which returns a basic set of information using specific attribute names.
+Auth0 refers to all user profile attribute sources as **connections** because Auth0 "connects" to them to authenticate the user. Each connection may return a set of attributes about the user, and it's possible that each provider uses different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 provides a Normalized User Profile,  which returns a basic set of information using specific attribute names.
 
 Auth0 caches the user profile received from a connection prior to passing it on to your application. This cache is stored in the Auth0 database. The information in the cache that originates from a connection is refreshed each time the user authenticates. 
 
-## Can users provide informtion about themselves?
+## Can users add information to their own profiles?
 
 Auth0 provides a [JS widget](https://github.com/auth0-community/auth0-editprofile-widget) that you can use to allow users to update their own profile information.
 
-## What tools does Auth0 provide to help me manage my user information?
+## What tools can help me manage my user information?
 
 Auth0 provides tools to help you manage user identities, including adding or removing users, modifying user profiles and authorization attributes, and identifying root-cause login issues in minutes with a simple, intuitive and powerful web interface. 
 
@@ -40,11 +40,13 @@ More specifically, you can use the Dashboard and the Management API to complete 
 * [Fix Breached Passwords](/anomaly-detection/breached-passwords)
 * [Import/Export users](/extensions/user-import-export)
 
+## Can I customize user profiles?
+
 If you need to [add additional attributes](/microsites/manage-my-users/define-maintain-custom-user-data) to the user profile, Auth0 provides rules to allow you to augment the user profiles. Rules execute after the user has been authenticated. Auth0 provides several example rules to achieve certain results.
 
-## How can I use my own database to store user information?
+## Can I use my own database as a connection?
 
-If you want to [use a your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you will need to write scripts to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides templates for these scripts, which you can modify for your particular database and schema.
+If you want to [use your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides templates for these scripts, which you can modify for your particular database and schema.
 
 :::: further-reading
 ::: concepts
