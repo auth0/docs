@@ -64,7 +64,9 @@ Beginning with version 3.0 of the Delegated Admin Extension, you can define cust
 
 You may also customize existing fields defined by Auth0, such as email, username, name, and connection.
 
-To utilize custom fields, you must add your list of **userFields** to the Settings Query Hook.
+To utilize custom fields you are required to:
+  - Add your list of **userFields** to the Settings Query Hook
+  - Implement a Write Hook to ensure `app_metadata` and `user_metadata` are correctly updated
 
 Sample schema for **userFields**:
 
