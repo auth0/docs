@@ -8,7 +8,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 * Address the reader directly: "you". Use "we" only for Auth0's recommendations.
 * Use the active voice.
-* For instructions, use an imperative mood.
+* For instructions, use the imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
