@@ -4,12 +4,17 @@ description: Everything you need to know about defining and maintaining custom u
 template: microsite
 ---
 
+## How can I define custom user data?
+
 After you have [setup your user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the metadata field within the user profiles. You can update metadata using Rules, the Lock widget, or APIs, depending on your need.
 
 * [Rules](/rules/current/metadata-in-rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata which, in turn, affect the results of the authorization process.
 * Use the [Lock widget](https://auth0.com/docs/libraries#lock) to add new items to user metadata and read user metadata after authentication. 
 * When you use the **Authentication API**, you can use the Signup endpoint with a database connection, to set the user metadata for a user. You can also use the **Management API** to retrieve, create, or update both the user metadata and app metadata. For more information and examples, refer to [Use Auth0 APIs to Manage Metadata](/metadata/apis).
+
 Depending on the method you choose, you can define, read, update, merge and delete metadata using Auth0 User Profiles in the Auth0 Dashboard. You can also import, export and blacklist metadata.
+
+## How can I maintain the metadata?
 
 After you have customized the user metadata, there are a couple of ways that Auth0 can help you maintain it.
 
@@ -29,6 +34,8 @@ You can search the user metadata name fields and if you have a paid subscription
 ::: concepts
   * [User Profile Overview](/user-profile/overview-user-profile)
   * [Normalized User Profile](/user-profile/normalized/auth0)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [User Search Best Practices](/user-profile/user-search-best-practices)
   * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
   * [Progressive Profiling](/user-profile/progressive-profiling)
   * [GDPR Overview](/compliance/overview-gdpr)
@@ -54,8 +61,6 @@ You can search the user metadata name fields and if you have a paid subscription
 
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
-  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-  * [User Search Best Practices](/user-profile/user-search-best-practices)
   * [User Search Query Syntax](/search/v3/query-syntax)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
   * [Identity Providers Supported](/connections/identity-providers-supported)

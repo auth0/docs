@@ -6,11 +6,15 @@ template: microsite
 
 You can connect users to your identity platforms using popular social media providers like Facebook, Google, and Twitter. Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
 
+## How do I connect users based on their profile?
+
 Use the Auth0 Authentication API to create client- and server-side web apps that use [OpenID Connect](/protocols/oidc) and [OAuth 2.0](protocols/oauth2) standards to authenticate users and get their authorization to access protected resources. Authenticate users of your mobile/desktop applications using one of the following methods:
 
 * Use the [Lock](/libraries#lock) drop-in authentication widget which provides a standard set of behaviors and a customizable user interface. 
 * Use one of the [Auth0 SDKs](/libraries) which are client-side libraries that allow you to customize the authentication behavior and the appearance of the login screen. 
 * Call the [Authentication API](/api/authentication) endpoints which help you integrate with Auth0 without requiring the Auth0's libraries. You can call endpoints through an embedded browser in your native application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/overview-access-tokens).
+
+## Can I determine where to route users after authentication?
 
 To make your login process as easy and seamless as possible, you'll need to decide where you want to route users within your application once they are redirected back to your application. After authentication, Auth0 uses the `redirect_uri` request parameter as the callback URL. This is where your application will receive and process the response from Auth0, and where the users will be redirected once the authentication is complete. For more information on how the `redirect_uri` works, see [OAuth 2.0](/protocols/oauth2).
 
