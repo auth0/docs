@@ -20,7 +20,7 @@ Auth0 offers different ways by which you can search for users:
 * [Users by Email](#users-by-email)
 * [User Export](#user-export)
 
-The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+The following sections contain examples on how to call the various user search endpoints. To do so, you'll need to obtain a valid [Access Token](/api/management/v2/concepts/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
 
 ## Terminology
 

@@ -16,7 +16,7 @@ useCase:
 
 The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) allows an application to request an Access Token (and optionally, an ID Token) and is used for client-side apps, usually Single-Page Applications, which typically consist of a JavaScript app running within a browser, or mobile apps. 
 
-The Implicit Grant is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but instead of exchanging an Authorization Code for an Access Token, the application receives an [Access Token](/tokens/overview-access-tokens) directly. This is because the Single-Page Application is less trusted than a regular web app running on the server, so it cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). For the same reason, no Refresh Tokens are returned. (For a way to simulate a Refresh Token, refer to [Silent Authentication for SPAs](/api-auth/tutorials/silent-authentication)).
+The Implicit Grant is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but instead of exchanging an Authorization Code for an Access Token, the application receives an [Access Token](/tokens/concepts/overview-access-tokens) directly. This is because the Single-Page Application is less trusted than a regular web app running on the server, so it cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). For the same reason, no Refresh Tokens are returned. (For a way to simulate a Refresh Token, refer to [Silent Authentication for SPAs](/api-auth/tutorials/silent-authentication)).
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
@@ -30,7 +30,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
  1. Auth0 authenticates the user. The first time the user goes through this flow, a consent page will be shown that lists the permissions that will be given to the application (for example: post messages, list contacts, and so forth).
 
- 1. Auth0 redirects the user to the app with an [Access Token](/tokens/overview-access-tokens) (and optionally an [ID Token](/tokens/id-token)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA), this would be done using Javascript, and in a Mobile Application, this is typically handled by interacting with a Web View.
+ 1. Auth0 redirects the user to the app with an [Access Token](/tokens/concepts/overview-access-tokens) (and optionally an [ID Token](/tokens/id-token)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA), this would be done using Javascript, and in a Mobile Application, this is typically handled by interacting with a Web View.
 
  1. The app uses the Access Token to call the API on behalf of the user.
 

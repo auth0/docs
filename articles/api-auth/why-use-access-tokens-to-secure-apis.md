@@ -22,7 +22,7 @@ To help you make an informed decision and be aware of any risks, this article in
 * Information about the tokens issued by each protocol
 * Suggestions on when you should use which protocol
 
-We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/overview-access-tokens), *not* an [ID Token](/tokens/id-token).
+We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/concepts/overview-access-tokens), *not* an [ID Token](/tokens/id-token).
 
 ## Two complementary specifications
 
@@ -129,6 +129,6 @@ In many cases, you might find it useful to retrieve additional user information 
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
 * [OpenID Connect Overview](/protocols/oidc)
-* [Obtaining and Using Access Tokens](/tokens/overview-access-tokens)
+* [Obtaining and Using Access Tokens](/tokens/concepts/overview-access-tokens)
 * [Obtaining and Using ID Tokens](/tokens/id-token)
 :::

@@ -207,7 +207,7 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
 }
 ```
 
-You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/tokens).
+You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/concepts/tokens).
 
 ## Avoid putting all your application data in the Auth0 data store
 

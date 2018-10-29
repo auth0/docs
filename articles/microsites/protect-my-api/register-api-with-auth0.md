@@ -15,7 +15,7 @@ So you’ve built a shiny new API and you want to share it with the world. On se
 
 ## What can Auth0 do for you?
 
-Auth0 helps you authenticate your users and issue the appropriate [Access Token](/tokens/overview-access-tokens). With an Access Token in hand, your users can then call your API.
+Auth0 helps you authenticate your users and issue the appropriate [Access Token](/tokens/concepts/overview-access-tokens). With an Access Token in hand, your users can then call your API.
 
 Auth0 also helps you:
 

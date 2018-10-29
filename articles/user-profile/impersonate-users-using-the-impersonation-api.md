@@ -21,7 +21,7 @@ Let's assume that you have two apps, `app1` and `app2`, and you want to imperson
 
 * Option A: Use the Management API
 
-First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
 The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
@@ -79,7 +79,7 @@ There are various possible values for `scope`:
 You can get more information about this in the [Scopes documentation](/scopes).
 
 ::: note
-Impersonation cannot be used to return [JWT Access Tokens](/tokens/overview-access-tokens) to your APIs.
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/concepts/overview-access-tokens) to your APIs.
 :::
 
 Your request should look like the following:

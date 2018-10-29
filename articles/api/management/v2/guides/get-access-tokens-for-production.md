@@ -17,7 +17,7 @@ To make scheduled frequent calls for a production environment, you have to build
 
 ## Prerequisite
 
-* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/create-m2m-app). 
+* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/guides/create-m2m-app). 
 
 ## Get Access Tokens
 
@@ -156,6 +156,6 @@ if __name__ == '__main__':
 
 * [Machine-to-Machine Application](/applications/machine-to-machine)
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/v2/references/faq-management-api-access-tokens)
 
 

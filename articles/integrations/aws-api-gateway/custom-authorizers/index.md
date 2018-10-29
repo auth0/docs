@@ -59,7 +59,7 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 
 ::: next-steps
 * [API Authorization](/api-auth)
-* [Obtain an Auth0 Access Token](/tokens/get-access-tokens)
+* [Obtain an Auth0 Access Token](/tokens/guides/get-access-tokens)
 * [JSON Web Key Sets (JWKS)](/jwks)
 :::
 

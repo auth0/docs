@@ -32,7 +32,7 @@ You can rotate your application's secret by making a `POST` call to the [Rotate 
 Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 ::: note
-To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
+To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/concepts/tokens).
 :::
 
 ```har

@@ -89,4 +89,4 @@ Once you have the Access Token, you can use it to call the endpoint. Use the Acc
 ## Keep reading
 
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/api/management/v2/references/faq-management-api-access-tokens)

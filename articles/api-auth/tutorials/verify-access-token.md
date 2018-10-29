@@ -14,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-When a custom API receives a request with a bearer [Access Token](/tokens/overview-access-tokens), the first thing to do is to validate the token. 
+When a custom API receives a request with a bearer [Access Token](/tokens/concepts/overview-access-tokens), the first thing to do is to validate the token. 
 
 At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt) which must be validated before use.
 

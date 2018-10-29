@@ -20,7 +20,7 @@ You can use the Auth0 Authentication API to create client-side web applications 
 
 ## Overview
 
-Auth0 exposes endpoints that you can use to authenticate users and get their authorization. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, get their authorization for the resources your app wants to access, and then redirect the user back to a pre-configured callback URL, returning an [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens) in the hash fragment of the request.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, get their authorization for the resources your app wants to access, and then redirect the user back to a pre-configured callback URL, returning an [ID Token](/tokens/id-token) and [Access Token](/tokens/concepts/overview-access-tokens) in the hash fragment of the request.
 
 ## The Authentication Flow
 

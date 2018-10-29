@@ -106,7 +106,7 @@ Here's some things to check if the user logged in to one application, but cannot
 
 ## Issues with calling the Management API
 
-* Do you have a [Management API Access Token](/api/management/v2/tokens)?
+* Do you have a [Management API Access Token](/api/management/v2/concepts/tokens)?
 * Did the access token expire?
 * Did the access token contain the scopes needed for the call you made?
 * If a rule adjusts the scopes in the access token or checks whether specific users are allowed to have the scopes, have you checked the rule to make sure it is executing correctly?  

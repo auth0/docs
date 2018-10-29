@@ -11,7 +11,7 @@ useCase: manage-users
 
 You can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
-1. First, you have to generate an Access Token to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+1. First, you have to generate an Access Token to call the Management API. For information on how to do that refer to [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
 2. Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. 
 

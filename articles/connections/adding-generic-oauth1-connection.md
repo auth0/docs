@@ -25,7 +25,7 @@ curl -X POST
 ```
 
 :::note
-Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 :::
 
 ```json

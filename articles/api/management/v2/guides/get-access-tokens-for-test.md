@@ -19,7 +19,7 @@ This method for obtaining Access Tokens is **only for test purposes**. Do not ge
 
 ## Prerequisite
 
-* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/create-m2m-app). 
+* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/guides/create-m2m-app). 
 
 ## Get Access Tokens Manually
 
@@ -54,7 +54,7 @@ You will also need your tenant's domain (`${account.namespace}`). You can find t
 
 ## Keep reading
 
-* [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
+* [Get Access Tokens for Production](/api/management/v2/guides/get-access-tokens-for-production)
 * [Machine-to-Machine Application](/applications/machine-to-machine)
 * [Management API Explorer](/api/management/v2#!)
-* [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
+* [Management API Access Tokens FAQs](/api/management/v2/references/faq-management-api-access-tokens)

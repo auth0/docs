@@ -63,7 +63,7 @@ router.get('/suggested-users',ensureLoggedIn, (req,res) => {
 });
 ```
 
-To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
+To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/concepts/tokens) with the `read:users` scope.
 
 ```js
 const request = require('request');
@@ -185,7 +185,7 @@ function _mergeMetadata(primaryUser, secondaryUser){
 
 Once you've found the user accounts, prompted the user to merge the selected accounts, and verified/merged the metadata associated with the primary and secondary identities, you're ready to actually link the accounts.
 
-To link accounts, your app needs to call the Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities). You need to call the API using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope.
+To link accounts, your app needs to call the Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities). You need to call the API using a [Management API Access Token](/api/management/v2/concepts/tokens) with the `update:users` scope.
 
 ```js
 const request = require('request');

@@ -46,5 +46,5 @@ For a filtered list of available libraries that can be set as required, check th
 :::
 
 ::: note
-The Access Token for the Management API, which is available through `auth0.accessToken`, is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes, you can [request a token using the Client Credentials Grant](/api/management/v2/tokens#automate-the-process).
+The Access Token for the Management API, which is available through `auth0.accessToken`, is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes, you can [request a token using the Client Credentials Grant](/api/management/v2/tokens/guides/get-access-tokens-for-production).
 :::

@@ -25,7 +25,7 @@ That way was very easy but it was also __very insecure__. So we changed it.
 The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client-credentials).
 
 ::: note
-For details on how to follow this new process refer to [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+For details on how to follow this new process refer to [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 :::
 
 #### Why this changed
@@ -49,7 +49,7 @@ Having a token that never expires can be very risky, in case an attacker gets ho
 
 ## Can I still get a non-expiring token?
 
-Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens#1-get-a-token).
+Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/tokens/guides/set-access-token-lifetime).
 
 Furthermore, you can generate a token using [JWT.io](https://jwt.io/):
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.

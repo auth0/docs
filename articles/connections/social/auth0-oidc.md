@@ -32,7 +32,7 @@ The requirement for the **OIDC-Conformant** toggle to be **off** is a temporary 
 
 ## Configure the Relying Party Auth0 Tenant
 
-The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
+The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/concepts/tokens) with `create:connections` scope.
 
 Here is a sample request:
 

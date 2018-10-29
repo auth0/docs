@@ -180,7 +180,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Cache Time (in minutes):** How long the JWKS information should be stored. Option name is `cache_expiration`.
 
-* **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/tokens) with the appropriate scopes listed here. Option name is `auth0_app_token`.
+* **API token:** The token required to allow the plugin to communicate with Auth0 to update your tenant settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/management/v2/concepts/tokens) with the appropriate scopes listed here. Option name is `auth0_app_token`.
 
 * **WordPress Login Enabled:** If enabled, displays a link on the login page to access the regular WordPress login. Option name is `wordpress_login_enabled`.
 

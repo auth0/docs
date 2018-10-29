@@ -21,7 +21,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
+You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/overview-access-tokens).
 
 ## The Authentication Flow
 
@@ -34,7 +34,7 @@ After the user has authenticated, Auth0 will redirect the browser back to the **
 The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes regarding the user, such as the user's name, email address, profile picture and so on. These attributes are referred to as **Claims** and they can be extracted from the ID Token and used in your application (for example, to display a user's name and profile image).
 
 ::: note
-You will also receive an [Access Token](/tokens/overview-access-tokens) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+You will also receive an [Access Token](/tokens/concepts/overview-access-tokens) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 :::
 
 ![Authentication flow for server-side web apps](/media/articles/client-auth/server-side-web/server-side-web-flow.png)

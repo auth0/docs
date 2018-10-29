@@ -41,7 +41,7 @@ The documents listed below will show you how to perform all these tasks as well 
 - [Single Sign On (SSO)](/sso/current/single-page-apps)
 - [How to validate an ID Token](/tokens/id-token#validate-an-id-token)
 - [How to configure multiple login pages](/hosted-pages/login#configure-multiple-pages-by-using-separate-tenants)
-- [How to get an Access Token](/tokens/overview-access-tokens)
+- [How to get an Access Token](/tokens/concepts/overview-access-tokens)
 - [How to add custom claims to your ID Token](/scopes/current#example-add-custom-claims)
 - [Renew Tokens when using Safari](/api-auth/token-renewal-in-safari)
 
@@ -54,7 +54,7 @@ The documents listed below will show you how to perform all these tasks as well 
 - [An introduction to OpenID Connect](/protocols/oidc)
 - [ID Token](/tokens/id-token)
 - [An introduction to OAuth 2.0](/protocols/oauth2)
-- [Access Token](/tokens/overview-access-tokens)
+- [Access Token](/tokens/concepts/overview-access-tokens)
 - [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
 - [How the Authorization Code Grant works](/api-auth/grant/authorization-code)
 - [An introduction to JSON Web Tokens (JWTs)](/jwt)

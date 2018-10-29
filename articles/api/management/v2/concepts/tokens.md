@@ -18,18 +18,18 @@ To call an endpoint for test purposes, you can get a token manually using the Da
 
 To call endpoints, you will need to do the following:
 
-* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/create-m2m-app)
-* [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test)
-* [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
+* [Create and Authorize a Machine-to-Machine Application](/api/management/v2/guides/create-m2m-app)
+* [Get Access Tokens for Testing](/api/management/v2/guides/get-access-tokens-for-test)
+* [Get Access Tokens for Production](/api/management/v2/guides/get-access-tokens-for-production)
 
 ::: note
-For single page applications (SPAs), you will need to [get an Access Token from the frontend](/api/management/v2/get-access-tokens-for-spas).
+For single page applications (SPAs), you will need to [get an Access Token from the frontend](/api/management/v2/guides/get-access-tokens-for-spas).
 :::
 
 ## Keep reading
 
-* [Access Tokens](/tokens/overview-access-tokens)
-* [Management API Access Token FAQs](/api/management/v2/faq-management-api-access-tokens)
+* [Access Tokens](/tokens/concepts/overview-access-tokens)
+* [Management API Access Token FAQs](/api/management/v2/references/faq-management-api-access-tokens)
 * [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
 * [Calling APIs from a Service](/api-auth/grant/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)

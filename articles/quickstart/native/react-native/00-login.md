@@ -189,5 +189,5 @@ ${snippet(meta.snippets.use)}
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
 ::: note
-For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
+For more information on the `accessToken`, refer to [Access Token](/tokens/concepts/overview-access-tokens).
 :::
