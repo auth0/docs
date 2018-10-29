@@ -12,13 +12,15 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Write Hook
 
-Whenever you're creating new users, and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
+The Write Hook will run any time a user is create or updated. For example changing the user's password, changing their email address, updating their profile, and so on.
+
+When using Custom Fields, the user object passed to the callback must be updated to include `user_metadata` and `app_metadata` from the context provided to the hook (`ctx` object). See example below.
+
+Other use cases of the Write Hook could include setting default values for newly created users. For example whenever you're creating new users, and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
 
 ::: warning
 Auth0 only supports user creation with Database Connections.
 :::
-
-The Write Hook will run anytime a user is updated if you are using custom fields. The activities that trigger the Write Hook to run include changing the user's password, changing their email address, updating their profile, and so on.
 
 ## The Hook Contract
 
@@ -29,6 +31,8 @@ The Write Hook will run anytime a user is updated if you are using custom fields
      - **email**: The email address of the user
      - **password**: The password of the user
      - **connection**: The name of the user
+     - **app_metadata**: Included if a Custom Field being modified is saved in `app_metadata`.
+     - **user_metadata**: Included if a Custom Field being modified is saved in `user_metadata`.
    - **userFields**: The user fields array (if specified in the [settings query](#the-settings-query-hook))
    - **method**: Either **create** or **update** depending on whether this is being called as a result of a create or an update call
  - **callback(error, user)**: The callback to which you can return an error and the user object that should be sent to the Management API
