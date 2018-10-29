@@ -1,0 +1,68 @@
+---
+title: Define and Maintain Custom User Data
+description: Everything you need to know about defining and maintaining custom user data. 
+template: microsite
+---
+
+After you have [setup your user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the metadata field within the user profiles. You can update metadata using Rules, the Lock widget, or APIs, depending on your need.
+
+* [Rules](/rules/current/metadata-in-rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata which, in turn, affect the results of the authorization process.
+* Use the [Lock widget](https://auth0.com/docs/libraries#lock) to add new items to user metadata and read user metadata after authentication. 
+* When you use the **Authentication API**, you can use the Signup endpoint with a database connection, to set the user metadata for a user. You can also use the **Management API** to retrieve, create, or update both the user metadata and app metadata. For more information and examples, refer to [Use Auth0 APIs to Manage Metadata](/metadata/apis).
+Depending on the method you choose, you can define, read, update, merge and delete metadata using Auth0 User Profiles in the Auth0 Dashboard. You can also import, export and blacklist metadata.
+
+After you have customized the user metadata, there are a couple of ways that Auth0 can help you maintain it.
+
+* You can use Auth0 Lock or the Management API depending on how complex your apps are and how much metadata you have.
+* You can manage and store data related to each of your users (that doesn't originate from identity providers) in the Auth0 data store or your own custom database.
+
+## What kinds of custom user data can I manage with Auth0?
+
+There are two kinds of metadata in Auth0:
+
+* `user_metadata` stores user attributes (such as preferences) that do not impact users' core functionality. An authenticated user can modify this type of data. 
+* `app_metadata` stores information (such as users' support plans, security roles, and access control groups) that can impact users' core functionality. For example, how an application functions or what the user can access. A user cannot modify this type of data. 
+
+You can search the user metadata name fields and if you have a paid subscription, you can search the app metadata fields. 
+
+:::: further-reading
+::: concepts
+  * [User Profile Overview](/user-profile/overview-user-profile)
+  * [Normalized User Profile](/user-profile/normalized/auth0)
+  * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
+  * [Progressive Profiling](/user-profile/progressive-profiling)
+  * [GDPR Overview](/compliance/overview-gdpr)
+:::
+
+::: guides
+  * [Search for Users](/search/v3)
+  * [View User Profiles](/user-profile/view-users)
+  * [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+  * [Create Users Using the Dashboard](/dashboard/create-users)
+  * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
+  * [Delete Users](/user-profile/delete-users)
+  * [Change User Pictures](/user-profile/change-user-pictures)
+  * [Change User Passwords](/connections/database/password-change)
+  * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
+  * [Redirect Users After Login](redirect-users-after-login)
+  * [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
+  * [Block and Unblock Users](/user-profile/block-and-unblock-users)
+  * [User Import/Export Extension](/extensions/user-import-export)
+  * [Authorization Extension](/extensions/authorization-extension/v2)
+  * [Fix Breached Passwords](/anomaly-detection/breached-passwords)
+:::
+
+::: references
+  * [User Profile Structure](/user-profile/user-profile-structure)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [User Search Best Practices](/user-profile/user-search-best-practices)
+  * [User Search Query Syntax](/search/v3/query-syntax)
+  * [Password Security Tips](/anomaly-detection/password-security-tips)
+  * [Identity Providers Supported](/connections/identity-providers-supported)
+  * [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
+:::
+::::
+
+::: whats-next
+* [Connect Users to my Identity Platform](/microsites/manage-my-users/connect-users-to-my-identity-platform)
+:::
