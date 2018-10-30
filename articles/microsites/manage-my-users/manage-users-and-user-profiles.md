@@ -10,7 +10,7 @@ Auth0 creates [user profiles](/user-profile/overview-user-profile) that contain 
 
 Auth0 gets user profile attributes from authenticating services (such as [Google or Facebook](/connections/identity-providers-supported)), your custom databases, or web services. You can also store custom attributes such as users' favorite color or phone number.
 
-Auth0 refers to all user profile attribute sources as **connections** because Auth0 "connects" to them to authenticate the user. Each connection may return a set of attributes about the user, and it's possible that each provider uses different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 provides a Normalized User Profile,  which returns a basic set of information using specific attribute names.
+Auth0 refers to all user profile attribute sources as **connections** because Auth0 "connects" to them to authenticate the user. Each connection may return a set of attributes about the user, and it's possible that each provider uses different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 provides a [Normalized User Profile](/user-profile/normalized/auth0), which returns a basic set of information using specific attribute names.
 
 Auth0 caches the user profile received from a connection prior to passing it on to your application. This cache is stored in the Auth0 database. The information in the cache that originates from a connection is refreshed each time the user authenticates. 
 
@@ -24,7 +24,7 @@ Auth0 provides tools to help you manage user identities, including adding or rem
 
 You can modify information contained in a user profile in a number of ways.
 
-* **Dashboard**: Edit the user_metadata and app_metadata portions of the user profile using the Dashboard.
+* **Dashboard**: Edit the `user_metadata` and `app_metadata` portions of the user profile using the Dashboard.
 * **Management API**: Read, update, and delete user profiles stored in the Auth0 database by making the appropriate calls to the Management API.
 
 More specifically, you can use the Dashboard and the Management API to complete tasks like the following:
@@ -46,12 +46,15 @@ If you need to [add additional attributes](/microsites/manage-my-users/define-ma
 
 ## Can I use my own database as a connection?
 
-If you want to [use your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides templates for these scripts, which you can modify for your particular database and schema.
+If you want to [use your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you can write [scripts](/connections/database/custom-db/templates) to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides templates for these scripts, which you can modify for your particular database and schema.
 
 :::: further-reading
 ::: concepts
   * [User Profile Overview](/user-profile/overview-user-profile)
   * [Normalized User Profile](/user-profile/normalized/auth0)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [User Search Best Practices](/user-profile/user-search-best-practices)
+  * [Custom Database Script Templates](/connections/database/custom-db/templates)
   * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
   * [Progressive Profiling](/user-profile/progressive-profiling)
   * [GDPR Overview](/compliance/overview-gdpr)
@@ -77,8 +80,6 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
 
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
-  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-  * [User Search Best Practices](/user-profile/user-search-best-practices)
   * [User Search Query Syntax](/search/v3/query-syntax)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
   * [Identity Providers Supported](/connections/identity-providers-supported)
