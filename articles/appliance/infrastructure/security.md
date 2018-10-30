@@ -50,7 +50,11 @@ MY-PUBLIC-KEY
 PARENT
 -----END CERTIFICATE-----
 ```
-
+If uploading the private and Public Key separately, then convert the private key starting and end note as follows>
+```-----BEGIN RSA PRIVATE KEY-----
+PRIVATE-KEY
+-----END RSA PRIVATE KEY-----
+```
 ## Transparent Proxies
 
 If you are behind a transparent proxy, you will need to:
