@@ -20,7 +20,6 @@ The PSaaS Appliance ships with a feature called Instrumentation, which makes it 
 Please contact your Auth0 Customer Success Manager if you would like to enable Instrumentation for your PSaaS Appliance (please note that this feature is not available for PSaaS Appliances hosted by Auth0).
 :::
 
-* [Software Components Utilized](/appliance/instrumentation/components)
 * [Available Metrics](/appliance/instrumentation/available-metrics)
 * [Visualize Your Data](/appliance/instrumentation/visualize-data)
 * [Add Users in Grafana](/appliance/instrumentation/add-grafana-users)
