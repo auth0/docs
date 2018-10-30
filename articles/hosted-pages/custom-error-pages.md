@@ -63,6 +63,14 @@ If you use the API instead, use the `PATCH /api/v2/tenants/settings` endpoint. U
 
 ### Render a custom error page
 
+** Mark: ToDo **
+
+You can customise your error page by rendering following fields:
+
+* Error : the code corresponding to the error that occurred; Liquid tag: {{error}}
+* Error Description : a description of the error that occurred; Liquid tag: {{error_description}}
+* ...
+
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the `html` element:
 
 ```har
