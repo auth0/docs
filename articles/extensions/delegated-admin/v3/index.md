@@ -167,7 +167,10 @@ Set the following configuration variables:
 
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
-- **SEARCH_ENGINE** (optional): Most tenants should use the default search engine; if you're not, you can specify you choice here.
+- **FAVICON_PATH** (optional): Path to custom favicon.
+
+- **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
+
 
 Once done, click **Install**. Your extension is now ready to use!
 
