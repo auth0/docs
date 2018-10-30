@@ -1,10 +1,10 @@
 ---
 title: Connect Users to My Identity Platform
-description: Everything you need to know about connecting users to your identity platform.
+description: An introduction to the concepts and tasks related to how Auth0 enables you to connect users to your apps based on their user profile information. 
 template: microsite
 ---
 
-You can connect users to your identity platforms using popular social media providers like Facebook, Google, and Twitter. Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
+You can connect users to your identity platforms using popular social media providers like [Facebook, Google, and Twitter](/identityproviders). Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
 
 ## How do I connect users based on their profile?
 
@@ -21,8 +21,9 @@ To make your login process as easy and seamless as possible, you'll need to deci
 :::: further-reading
 ::: concepts
   * [Identity Provider Access Tokens](/tokens/concepts/overview-idp-access-tokens)
-  * [Authentication Modes with Lock](/libraries/lock/v11/authentication-modes)
+  * [Lock Authentication Modes](/libraries/lock/v11/authentication-modes)
   * [The Authentication Flow](/application-auth/current/client-side-web#the-authentication-flow)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
   * [GDPR Overview](/compliance/overview-gdpr)
 :::
 
@@ -30,7 +31,7 @@ To make your login process as easy and seamless as possible, you'll need to deci
   * [Request the Name and Profile Picture](/application-auth/current/client-side-web#request-the-name-and-profile-picture)
   * [Request a User Login with GitHub](/application-auth/current/client-side-web#request-a-user-log-in-with-github)
   * [Call an Identity Provider API](/connections/calling-an-external-idp-api)
-  * [Add Scopes/Permissions to Call Identity Provider's APIs]((/connections/adding-scopes-for-an-external-idp)
+  * [Add Scopes/Permissions to Call Identity Provider's APIs](/connections/adding-scopes-for-an-external-idp)
   * [Pass Parameters to Identity Providers](/connections/pass-parameters-to-idps)
   * [Test a Partner Connection](/connections/how-to-test-partner-connection)
   * [Create Database Connections](/connections/database)
@@ -48,8 +49,7 @@ To make your login process as easy and seamless as possible, you'll need to deci
 ::: references
   * [Passwordless FAQs](/connections/passwordless/faq)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
-  * [Identity Providers Supported](/connections/identity-providers-supported)
-  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [Identity Providers Supported](/identityproviders)
   * [Authorization Extensions](/extensions/authorization-extension/v2/index)
   * [A Basic Authentication Request](/application-auth/current/client-side-web#a-basic-authentication-request)
   * [Lock Library](https://github.com/auth0/lock)

@@ -1,6 +1,6 @@
 ---
 title: Manage Users and User Profiles
-description: Everything you need to know about managing users and user profiles
+description: An introduction to the concepts and tasks related to how Auth0 helps you manage your users and their profile information. 
 template: microsite
 ---
 
@@ -8,7 +8,7 @@ Auth0 creates [user profiles](/user-profile/overview-user-profile) that contain 
 
 ## Where does user profile information come from?
 
-Auth0 gets user profile attributes from authenticating services (such as [Google or Facebook](/connections/identity-providers-supported)), your custom databases, or web services. You can also store custom attributes such as users' favorite color or phone number.
+Auth0 gets user profile attributes from authenticating services (such as [Google or Facebook](/identityproviders)), your custom databases, or web services. You can also store custom attributes such as users' favorite color or phone number.
 
 Auth0 refers to all user profile attribute sources as **connections** because Auth0 "connects" to them to authenticate the user. Each connection may return a set of attributes about the user, and it's possible that each provider uses different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 provides a [Normalized User Profile](/user-profile/normalized/auth0), which returns a basic set of information using specific attribute names.
 
@@ -31,13 +31,13 @@ More specifically, you can use the Dashboard and the Management API to complete 
 
 * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
 * [Create users](/dashboard/create-users)
-* [Search users](/search/v3)
+* [Search for users](/users/search/v3)
 * [View users](/user-profile/view-users)
 * [Delete users](/user-profile/delete-users)
 * [Block and unblock users](/user-profile/block-and-unblock-users)
 * [Change user pictures](/user-profile/change-user-pictures)
 * [Change user passwords](/connections/database/password-change)
-* [Fix Breached Passwords](/anomaly-detection/breached-passwords)
+* [Breached Password Security](/anomaly-detection/breached-passwords)
 * [Import/Export users](/extensions/user-import-export)
 
 ## Can I customize user profiles?
@@ -53,7 +53,7 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
   * [User Profile Overview](/user-profile/overview-user-profile)
   * [Normalized User Profile](/user-profile/normalized/auth0)
   * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-  * [User Search Best Practices](/user-profile/user-search-best-practices)
+  * [User Search Best Practices](/users/search/best-practices)
   * [Custom Database Script Templates](/connections/database/custom-db/templates)
   * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
   * [Progressive Profiling](/user-profile/progressive-profiling)
@@ -61,7 +61,7 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
 :::
 
 ::: guides
-  * [Search for Users](/search/v3)
+  * [Search for Users](/users/search/v3)
   * [View User Profiles](/user-profile/view-users)
   * [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
   * [Create Users Using the Dashboard](/dashboard/create-users)
@@ -71,7 +71,6 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
   * [Change User Passwords](/connections/database/password-change)
   * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
   * [Redirect Users After Login](redirect-users-after-login)
-  * [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
   * [Block and Unblock Users](/user-profile/block-and-unblock-users)
   * [User Import/Export Extension](/extensions/user-import-export)
   * [Authorization Extension](/extensions/authorization-extension/v2)
@@ -81,8 +80,9 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
   * [User Search Query Syntax](/search/v3/query-syntax)
+  * [Breached Password Security](/anomaly-detection/breached-passwords)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
-  * [Identity Providers Supported](/connections/identity-providers-supported)
+  * [Identity Providers Supported](/identityproviders)
   * [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
 :::
 ::::
