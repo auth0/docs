@@ -29,24 +29,23 @@ You can modify information contained in a user profile in a number of ways.
 
 More specifically, you can use the Dashboard and the Management API to complete tasks like the following:
 
+* [Create Users Using the Dashboard](/dashboard/create-users)
 * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
-* [Create users](/dashboard/create-users)
 * [Search for users](/users/search/v3)
 * [View users](/user-profile/view-users)
 * [Delete users](/user-profile/delete-users)
 * [Block and unblock users](/user-profile/block-and-unblock-users)
 * [Change user pictures](/user-profile/change-user-pictures)
 * [Change user passwords](/connections/database/password-change)
-* [Breached Password Security](/anomaly-detection/breached-passwords)
 * [Import/Export users](/extensions/user-import-export)
 
 ## Can I customize user profiles?
 
-If you need to [add additional attributes](/microsites/manage-my-users/define-maintain-custom-user-data) to the user profile, Auth0 provides rules to allow you to augment the user profiles. Rules execute after the user has been authenticated. Auth0 provides several example rules to achieve certain results.
+If you need to [add additional attributes](/microsites/manage-my-users/define-maintain-custom-user-data) to the user profile, Auth0 provides [Rules](/rules/current/metadata-in-rules) to allow you to augment the user profiles. Rules execute after the user has been authenticated. Auth0 provides several example rules to achieve certain results.
 
 ## Can I use my own database as a connection?
 
-If you want to [use your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you can write [scripts](/connections/database/custom-db/templates) to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides templates for these scripts, which you can modify for your particular database and schema.
+If you want to [use your own database](/user-profile/update-user-profiles-using-your-database) as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete, and password change. Auth0 provides [templates](/connections/database/custom-db/templates) for these scripts, which you can modify for your particular database and schema.
 
 :::: further-reading
 ::: concepts
@@ -69,13 +68,14 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
   * [Delete Users](/user-profile/delete-users)
   * [Change User Pictures](/user-profile/change-user-pictures)
   * [Change User Passwords](/connections/database/password-change)
+  * [Request the Name and Profile Picture](/application-auth/current/client-side-web#request-the-name-and-profile-picture)
+  * [Request a User Login with GitHub](/application-auth/current/client-side-web#request-a-user-log-in-with-github)
   * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
   * [Redirect Users After Login](redirect-users-after-login)
   * [Block and Unblock Users](/user-profile/block-and-unblock-users)
   * [User Import/Export Extension](/extensions/user-import-export)
   * [Authorization Extension](/extensions/authorization-extension/v2)
-  * [Fix Breached Passwords](/anomaly-detection/breached-passwords)
-:::
+ :::
 
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
