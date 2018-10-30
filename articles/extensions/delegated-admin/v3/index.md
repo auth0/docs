@@ -169,7 +169,7 @@ Set the following configuration variables:
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
 
-- **FEDERATED_LOGOUT** (optional): sign out from the IDP when users logout.
+- **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 
 
 Once done, click **Install**. Your extension is now ready to use!
