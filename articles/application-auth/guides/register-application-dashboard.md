@@ -1,4 +1,19 @@
-## Register your Application
+---
+title: Register Your Application with Auth0
+description: Explains how to register an application with Auth0 using the Dashboard.
+toc: true
+topics:
+  - authentication
+  - oauth2
+  - mobile-apps
+  - desktop-apps
+  - dashboard
+contentType: 
+  - how-to
+useCase:
+  - add-login
+---
+# Register Your Application with Auth0
 
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
