@@ -194,6 +194,8 @@ Once you provide valid credentials, you'll be redirected to the *Delegated Admin
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
+<%= include('./_session-timeout.md') %>
+
 ## Keep Reading
 
 * [Customizing the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
