@@ -63,13 +63,15 @@ If you use the API instead, use the `PATCH /api/v2/tenants/settings` endpoint. U
 
 ### Render a custom error page
 
-** Mark: ToDo **
+You can render your custom error page with Liquid syntax using following variables:
 
-You can customise your error page by rendering following fields:
-
-* Error : the code corresponding to the error that occurred; Liquid tag: {{error}}
-* Error Description : a description of the error that occurred; Liquid tag: {{error_description}}
-* ...
+* `{client_id}`
+* `{connection}`
+* `{lang}`
+* `{error}`
+* `{error_description}`
+* `{tracking}`
+* `{logo_url}`
 
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the `html` element:
 
