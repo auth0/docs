@@ -19,14 +19,6 @@ Use the **Delegated Administration** Extension (DAE) to grant a group of people 
 The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
 :::
 
-## Prerequisites
-
-Prior to configuring the extension, you will need to:
-
-* [Create and configure an Auth0 Application](#create-an-application)
-* [Enable a Connection on the Application](#enable-a-connection-on-the-application)
-* [Add a user to the Connection](#add-a-user-to-the-new-connection)
-
 ## Create a delegated administration application 
 
 1. Log into the [Management Dashboard](${manage_url}).
@@ -188,7 +180,7 @@ Once you provide valid credentials, you'll be redirected to the *Delegated Admin
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
-## What's next
+## Keep reading
 
 * [Customize the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
 * [Manage Users in the Delegated Administration Extension](/extensions/delegated-admin/manage-users)
