@@ -31,6 +31,6 @@ The **Create Application** window will open, allowing you to enter the name of y
 * Add the appropriate callback URL to the **Allowed Callback URLs** field.
 * Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
-5. Scroll to the bottom of the page and click **Save**.
-
 ![](/media/articles/client-auth/mobile-desktop/allowed-callback-url.png)
+
+5. Scroll to the bottom of the page and click **Save**.
