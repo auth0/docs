@@ -31,7 +31,7 @@ Please be aware that we use the following sample values throughout this document
 
 * IP address of the node on the replica set to be backed up: `192.168.1.186`. Generically, the node may also be referred to as `<target node>`.
 * Password used for encryption: `Passw0rd`.
-* The replica set connection string: `a0/a0-1:27017,a0-2:27017,a0-3:27017`
+* The replica set connection string: `a0/a0-1:27017,a0-2:27017,a0-3:27017`.
 
 ## Generate a New Backup
 
@@ -47,7 +47,7 @@ For example, if you were to run the above command using the provided sample valu
 a0cli -t 192.168.1.186 backup --password Passw0rd
 ```
 
-If the command successfully begins the backup process, you will see the message, "Backup in progress."
+If the command successfully begins the backup process, you will see the message, "Backup in progress" :
 
 ![](/media/articles/appliance/cli/backup-in-progress.png)
 
@@ -65,10 +65,10 @@ To do this, you can use the `backup-sensitive` command, which works the same way
 
 The full instructions (along with the commands you'll need to run) are as follows:
 
-1. Request a backup: `a0cli -t node_IP_address backup-sensitive --password 0therPassw0rd`
-2. Check the status of a backup: `a0cli -t node_IP_address backup-sensitive-status`
-3. Retrieve backup of sensitive information: `a0cli -t node_IP_address backup-sensitive-retrieve`
-4. Delete the sensitive backup from the node: `a0cli -t node_IP_address backup-sensitive-delete`
+1. Request a backup: `a0cli -t node_IP_address backup-sensitive --password 0therPassw0rd`;
+2. Check the status of a backup: `a0cli -t node_IP_address backup-sensitive-status`;
+3. Retrieve backup of sensitive information: `a0cli -t node_IP_address backup-sensitive-retrieve`;
+4. Delete the sensitive backup from the node: `a0cli -t node_IP_address backup-sensitive-delete`.
 
 ## Check the Status of the Backup
 

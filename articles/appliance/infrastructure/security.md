@@ -24,7 +24,7 @@ You need to create and install a unique SSL certificate for each PSaaS Appliance
 
 The SSL Certificate:
 
-* must be created by a public certificate authority. They cannot be self-signed.
+* must be created by a public certificate authority. They cannot be self-signed;
 * may be a wildcard *or* a multi-domain (SAN) certificate;
 * must contain all required DNS/domain names, including those for the:
     * Management Dashboard;
