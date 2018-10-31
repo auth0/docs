@@ -18,8 +18,8 @@ If you're a user assigned the **Delegated Admin - Administrator** role, you can 
 
 To access the configuration area:
 
-1. Log in to the Delegated Administration Dashboard
-2. Click on your name in the top right corner. You'll see a drop-down menu; click on the **Configure** option.
+1. Log in to the Delegated Administration Dashboard.
+2. Click on your name in the top right corner. You'll see a drop-down menu. Click on the **Configure** option.
 3. Use the **Configuration** page to manage your Hooks and queries.
 
 ## Hooks signature
@@ -173,8 +173,8 @@ Supported action names:
 
 The following Hooks are available for use with your Delegated Administration extension:
 
-* [The Access Hook](/extensions/delegated-admin/v3/hooks/access)
-* [The Filter Hook](/extensions/delegated-admin/v3/hooks/filter)
-* [The Memberships Query Hook](/extensions/delegated-admin/v3/hooks/membership)
-* [The Settings Query Hook](/extensions/delegated-admin/v3/hooks/settings)
-* [The Write Hook](/extensions/delegated-admin/v3/hooks/write)
+* [Access Hook](/extensions/delegated-admin/v3/hooks/access)
+* [Filter Hook](/extensions/delegated-admin/v3/hooks/filter)
+* [Memberships Query Hook](/extensions/delegated-admin/v3/hooks/membership)
+* [Settings Query Hook](/extensions/delegated-admin/v3/hooks/settings)
+* [Write Hook](/extensions/delegated-admin/v3/hooks/write)

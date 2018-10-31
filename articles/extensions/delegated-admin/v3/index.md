@@ -182,5 +182,5 @@ Once you provide valid credentials, you'll be redirected to the *Delegated Admin
 
 ## Keep reading
 
-* [Customize the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
-* [Manage Users in the Delegated Administration Extension](/extensions/delegated-admin/manage-users)
+* [Customize the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/v3/hooks)
+* [Manage Users in the Delegated Administration Extension](/extensions/delegated-admin/v3/manage-users)
