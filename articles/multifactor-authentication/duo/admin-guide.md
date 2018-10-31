@@ -49,13 +49,7 @@ function (user, context, callback) {
         allowRememberBrowser: false,
 
         // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
-        // username: user.nickname,
-
-        // optional. Admin credentials. If you provide an Admin SDK type of credentials. auth0 will update the realname and email in DuoSecurity.
-        // admin: {
-        //  ikey: 'DIAN...NV6UM',
-        //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
-        // },
+        // username: user.nickname
       };
     // }
   }
