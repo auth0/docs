@@ -15,21 +15,22 @@ useCase:
 ---
 # Register Your Application with Auth0
 
-Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
-The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed. By default, the Authorization Code Grant using PKCE will be enabled for your app.
+1. Go to the [Auth0 Dashboard](${manage_url}), and click on [Applications](${manage_url}/#/applications) in the left-hand nav bar. 
 
-::: warning
-The Authorization Code flow with PKCE can only be used for Native Applications.
-:::
+2. Click **Create Application**.
+
+The **Create Application** window will open, allowing you to enter the name of your new Application. 
+
+3. Choose the [**Application Type**](/application-auth/reference/dashboard/app-settings.md), and click **Create** to proceed.
 
 ![](/media/articles/client-auth/mobile-desktop/create-client.png)
 
-Once Auth0 creates the Application, navigate to the Application's **Settings** tab to:
+4. Once Auth0 creates the Application, navigate to the Application's **Settings** tab to:
 
-* Add the following URL to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`;
+* Add the appropriate callback URL to the **Allowed Callback URLs** field.
 * Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
-Scroll to the bottom of the page and click **Save**.
+5. Scroll to the bottom of the page and click **Save**.
 
 ![](/media/articles/client-auth/mobile-desktop/allowed-callback-url.png)
