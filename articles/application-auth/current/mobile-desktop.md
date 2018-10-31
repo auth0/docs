@@ -15,7 +15,10 @@ useCase:
 ---
 # Authentication for Mobile & Desktop Apps
 
-You can authenticate users of your mobile/desktop applications by:
+
+
+
+You can authenticate users of your mobile/desktop [applications](/applications) by:
 
 * Using [Universal Login](/hosted-pages/login), Auth0's implementation of a centralized authentication flow that provides a standard set of behaviors and a customizable user interface;
 * Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
@@ -23,6 +26,7 @@ You can authenticate users of your mobile/desktop applications by:
 
 This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints with the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
 
+For most common types of applications, we have SDKs available which handle the PKCE protocol for you. The exact implementation will be different based on the technology being used. Please refer to our [Mobile / Native App Quickstarts](/quickstart/native), select the appropriate Quickstart based on your application, and follow the code samples provided.
 
 ## Overview
 
@@ -34,13 +38,18 @@ You can call these endpoints through an embedded browser in your **native** appl
 Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
 :::
 
-## Register your application
+## Prerequisites
 
-If you haven't already created a new [Application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
+1. Register your Application
+
+Before implementing authentication, you will need to [register your Application](/applications) with Auth0 using the Dashboard.
+
+
+## Register your Application
 
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
-The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed.
+The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed. By default, the Authorization Code Grant using PKCE will be enabled for your app.
 
 ::: warning
 The Authorization Code flow with PKCE can only be used for Native Applications.
