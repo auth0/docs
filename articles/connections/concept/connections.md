@@ -11,4 +11,9 @@ useCase:
 ---
 # Connections
 
-Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different applications.
+A connection is the relationship between Auth0 and a source of users. Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
+
+Connections can be categorized as:
+- Identity Provider
+- Database
+- Passwordless
