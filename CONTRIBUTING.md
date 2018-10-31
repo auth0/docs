@@ -556,7 +556,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 
 #### Libraries
 
-As appropriate every framework/language should have libraries to help with common functions. THese libraries will include things like:
+As appropriate, every framework/language should have libraries to help with common functions. These libraries will include things like:
 
 * Management API Libraries
 * Authentication API Libraries
@@ -614,7 +614,7 @@ In the case of things like iOS and Android samples, we should build with multipl
 
 ### Seed Projects
 
-Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+Each quickstart should have a seed project. The seed projects are hosted on github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
@@ -630,7 +630,7 @@ These values can be replaced in any file in the repo. Common examples of where y
 | `TENANT` | `{TENANT}` | The tenant name of the currentAuth0 account.
 | `CALLBACK_URL` | `{CALLBACK_URL}` |  This sets the callback url for the application. |
 | `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons, we set this with a reasonable default so if end-users forget to change them, they won't all be something like `YOUR_ENCRYPTION_KEY`. |
 
 Example `.env` file:
 
