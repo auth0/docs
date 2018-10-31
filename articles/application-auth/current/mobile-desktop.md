@@ -13,7 +13,7 @@ contentType:
 useCase:
   - add-login
 ---
-# Authentication for Mobile & Desktop Apps
+# Implement Authentication for Mobile & Desktop Apps
 
 
 
@@ -36,39 +36,29 @@ You can call these endpoints through an embedded browser in your **native** appl
 
 ::: note
 Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
+
+For our mobile app, we will implement the [OAuth 2.0 Authorization Code Grant using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce).
+:::
+
+::: warning
+The Authorization Code Grant using PKCE should only be used for Native Applications.
 :::
 
 ## Prerequisites
 
 1. Register your Application
 
-Before implementing authentication, you will need to [register your Application](/applications) with Auth0 using the Dashboard.
+Before implementing authentication, you will need to [register your Application](/applications) with Auth0 using the Dashboard. When registering, select an **Application Type** of Native, and add an **Allowed Callback URL** of `https://${account.namespace}/mobile`.
+
+## Steps
+
+1. Create the code challenge and code verifier
+2. Authorize the user
+3. Obtain an ID Token
+4. Extract Info from the ID Token
 
 
-## Register your Application
 
-Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
-
-The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed. By default, the Authorization Code Grant using PKCE will be enabled for your app.
-
-::: warning
-The Authorization Code flow with PKCE can only be used for Native Applications.
-:::
-
-![](/media/articles/client-auth/mobile-desktop/create-client.png)
-
-Once Auth0 creates the Application, navigate to the Application's **Settings** tab to:
-
-* Add the following URL to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`;
-* Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
-
-Scroll to the bottom of the page and click **Save**.
-
-![](/media/articles/client-auth/mobile-desktop/allowed-callback-url.png)
-
-## Implement Authentication
-
-For our mobile app, we will implement the [OAuth 2.0 Authorization Code Grant Flow using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce).
 
 ### Step 1: Create a Random Key and the Code Challenge
 
