@@ -24,11 +24,22 @@ import Auth0
 
 ### Credentials Manager
 
-Setup the Credentials Manager and enable Touch ID authentication, you can pass the title to show in the Touch ID prompt:
+Before retrieving credentials, you can also engage the biometric authentication supported by your device, such as Face ID or Touch ID.
+
+First, setup the Credentials Manager, then enable biometrics. You can also pass in a title to show in the prompt.
 
 ```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
-credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
+credentialsManager.enableBiometrics(withTitle: "Touch ID / Face ID Login")
+```
+
+It is also strongly recommended that you add the [NSFaceIDUsageDescription](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW75) setting to your project's `Info.plist` in order to display a reason for using Face ID. In some cases, if a description string is not provided and Face ID authentication is attempted, the effort may fail.
+
+```swift
+...
+<key>NSFaceIDUsageDescription</key>
+<string>Reason Why We Use Face ID Here</string>
+...
 ```
 
 ### Login
@@ -54,7 +65,7 @@ Auth0
 
 ### Renew User Credentials
 
-When you need to renew the user's credentials you can call the `credentials` method from the Credentials Manager to take care of this. The user will be promoted for Touch ID.
+When you need to renew the user's credentials you can call the `credentials` method from the Credentials Manager to take care of this.
 
 ```swift
 credentialsManager.credentials { error, credentials in
@@ -70,4 +81,4 @@ There is no need manually store the new credentials as this is handled by the Cr
 
 ## Next Steps
 
-You can download a sample project and follow the tutorial in our [Touch ID Authentication](/quickstart/native/ios-swift/08-touch-id-authentication) quickstart. 
+You can download a sample project and follow the tutorial in our [Biometric Authentication in iOS](/quickstart/native/ios-swift/08-touch-id-authentication) quickstart. 
