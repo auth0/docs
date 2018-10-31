@@ -15,7 +15,7 @@ In the Application exposed by the Delegated Administration extension (DAE), ther
 
 By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/v3/hooks/filter).
 
-<%= include('../_session-timeout.md') %>
+<%= include('../../extensions/delegated-admin/v3/_session-timeout.md') %>
 
 ## Prerequisite
 
