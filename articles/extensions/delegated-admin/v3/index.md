@@ -78,7 +78,7 @@ The **Delegated Administration** extension requires applications to disable the 
 
 7. Click **Save Changes** to proceed.
 
-<%= include('../../extensions/delegated-admin/v3/_session-timeout.md') %>
+<%= include('./_session-timeout.md') %>
 
 ## Enable a connection on the application
 
