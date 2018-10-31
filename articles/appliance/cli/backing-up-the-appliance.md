@@ -47,7 +47,7 @@ For example, if you were to run the above command using the provided sample valu
 a0cli -t 192.168.1.186 backup --password Passw0rd
 ```
 
-If the command successfully begins the backup process, you will see the message, "Backup in progress" :
+If the command successfully begins the backup process, you will see the message, "Backup in progress."
 
 ![](/media/articles/appliance/cli/backup-in-progress.png)
 
