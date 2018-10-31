@@ -84,7 +84,7 @@ The **Delegated Administration** extension requires applications to disable the 
 
 When you create a new Application, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. 
 
-::: security-warning
+::: warning
 Auth0 recommends that you disable all Connections to help keep the Application secure. That way no one can add themselves using one of our existing Connections, create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
 :::
 
