@@ -1,6 +1,5 @@
 ---
 description: How to customize the behavior of the Delegated Administration extension using Hooks
-toc: true
 topics:
   - extensions
   - delegated-admin
@@ -8,12 +7,10 @@ topics:
   - hooks
 contentType:
   - how-to
-  - concept
-  - index
 useCase: extensibility-extensions
 ---
 
-# Delegated Administration: Hooks
+# Customize the Delegated Administration Extension Using Hooks
 
 If you're a user assigned the **Delegated Admin - Administrator** role, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension. 
 
@@ -23,10 +20,9 @@ To access the configuration area:
 
 1. Log in to the Delegated Administration Dashboard
 2. Click on your name in the top right corner. You'll see a drop-down menu; click on the **Configure** option.
+3. Use the **Configuration** page to manage your Hooks and queries.
 
-The **Configuration** page to which you're redirected is where you can manage your Hooks and queries.
-
-## Hooks Signature
+## Hooks signature
 
 Hooks always have the following signature:
 
@@ -119,7 +115,7 @@ var request = require('request');
 }
 ```
 
-### The Hook contract:
+### The Hook contract
 
  - `ctx`: The context object
    - `payload`: The payload object

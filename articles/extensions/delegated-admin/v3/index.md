@@ -11,13 +11,15 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# Delegated Administration
+# Delegate Administration to a User Group
 
-The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area. This is done by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 application.
+Use the **Delegated Administration** Extension (DAE) to grant a group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 application.
 
 :::panel PSaaS Appliance Availability
 The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
 :::
+
+## Prerequisites
 
 Prior to configuring the extension, you will need to:
 
@@ -25,19 +27,14 @@ Prior to configuring the extension, you will need to:
 * [Enable a Connection on the Application](#enable-a-connection-on-the-application)
 * [Add a user to the Connection](#add-a-user-to-the-new-connection)
 
-## Create an Application
+## Create a delegated administration application 
 
-The first step is to create the Application that the extension exposes to those who should have administrative privileges to the Users page.
-
-After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications) and click on **+Create Application**. Provide a name for your Application (such as `Users Dashboard`) and set the Application type to `Single Page Web Applications`. Click **Create** to proceed.
+1. Log into the [Management Dashboard](${manage_url}).
+2. Navigate to [Applications](${manage_url}/#/applications) and click on **+Create Application**. Provide a name for your Application (such as `Users Dashboard`) and set the Application type to `Single Page Web Applications`. Click **Create** to proceed.
 
 ![Create an Application](/media/articles/extensions/delegated-admin/create-client.png)
 
-### Configure Application Settings
-
-Once you've created your Application, you'll need to make the following Application configuration changes.
-
-Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies based on your location:
+3. Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies based on your location:
 
 | Location | Allowed Callback URL |
 | --- | --- |
@@ -45,7 +42,7 @@ Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
 
-You will also need to configure the **Allowed Logout URLs**:
+4. Configure the **Allowed Logout URLs**:
  
 | Location | Allowed Logout URL |
 | --- | --- |
@@ -69,11 +66,9 @@ You will also need to configure the **Allowed Logout URLs**:
 | Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin` |
 
-Copy the **Client ID** value.
+5. Copy the **Client ID** value. Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
 
-Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
-
-Next, set the **JsonWebToken Signature Algorithm** to `RS256`, and make sure the **OIDC Conformant** toggle is disabled.
+6. Set the **JsonWebToken Signature Algorithm** to `RS256`, and make sure the **OIDC Conformant** toggle is disabled.
 
 ::: note
 The **Delegated Administration** extension requires applications to disable the **OIDC Conformant** flag. After turning off **OIDC Conformant** on the dashboard, ensure your application's authentication code is updated as well.
@@ -81,39 +76,39 @@ The **Delegated Administration** extension requires applications to disable the 
 
 ![Change Advanced OAuth Settings](/media/articles/extensions/delegated-admin/oauth-settings.png)
 
-Click **Save Changes** to proceed.
+7. Click **Save Changes** to proceed.
 
-### Enable a Connection on the Application
+<%= include('../_session-timeout.md') %>
 
-When you create a new Application, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Application secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
+## Enable a connection on the application
 
-#### Disable All Existing Connections
+When you create a new Application, Auth0 enables all [Connections](/identityproviders) associated with your tenant by default. 
 
-Switch over to the Application's **Connections** tab and disable all the Connections using the associated switches.
+::: security-warning
+Auth0 recommends that you disable all Connections to help keep the Application secure. That way no one can add themselves using one of our existing Connections, create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
+:::
 
-#### Create a New Connection
+1. To disable all existing connetions, click on the Application's **Connections** tab and disable all the Connections using the associated switches.
 
-In the navigation pane of the Management Dashboard, click on **Connections** > [Database Connections](${manage_url}/#/connections/database).
+2. Create a new connection in the navigation pane of the Management Dashboard. Click on **Connections** > [Database Connections](${manage_url}/#/connections/database). 
 
-On the Database Connections page, click on **+Create DB Connection**. Provide a name for your Connection, such as `Helpdesk`. 
+3. On the Database Connections page, click on **+Create DB Connection**. Provide a name for your Connection, such as `Helpdesk`. 
 
-Click **Save** to proceed.
+4. Click **Save** to proceed.
 
 ![Create DB Connection](/media/articles/extensions/delegated-admin/create-connection.png)
 
-Navigate to the **Settings** tab of your new Connection and enable the **Disable Sign Ups** option. For security reasons, this ensures that even users who have the link to our Connection cannot sign themselves up.
+5. Navigate to the **Settings** tab of your new Connection and enable the **Disable Sign Ups** option. For security reasons, this ensures that even users who have the link to our Connection cannot sign themselves up.
 
 ![Disable Sign Ups](/media/articles/extensions/delegated-admin/disable-signup.png)
 
-Under the **Applications Using This Connection** section, enable this Connection for your `Users Dashboard` Application.
+6. Under the **Applications Using This Connection** section, enable this Connection for your `Users Dashboard` Application.
 
-### Add a User to the New Connection
+## Add a user to the new connection and assign roles
 
-You will need to add at least one user to your Connection. You can do this via the [Users page](${manage_url}/#/users), where you can specify the Connection for the user during the configuration process.
+1. You need to add at least one user to your Connection. You can do this on the [Users page](${manage_url}/#/users), where you can specify the Connection for the user during the configuration process.
 
-### Assign Roles to Users
-
-Auth0 grants the user(s) in your Connection access to the Delegated Administration extension based on their roles:
+2. Auth0 grants the user(s) in your Connection access to the Delegated Administration extension based on their roles:
 
 - **Delegated Admin - Auditor**: Grants permission to search for users and view users information, but does not allow the user to make any changes. This role will also change the UI to remove action based buttons;
 
@@ -126,9 +121,9 @@ To use the extension, users must have either of these roles defined in one of th
 * `user.app_metadata.roles`
 * `user.app_metadata.authorization.roles`
 
-You can set these fields manually or via [rules](/rules).
+You can set these fields manually or use [Rules](/rules).
 
-#### Set User Roles via Rules
+### Example: Set user roles using Rules
 
 This rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role.
 
@@ -151,15 +146,15 @@ function (user, context, callback) {
 }
 ```
 
-## Install the Extension
+## Install the extension
 
-Now that we've created and configured an Application, a Connection, and our users, we can install and configure the extension itself.
+1. On the Management Dashboard, navigate to the [Extensions](${manage_url}/#/extensions) page. 
 
-On the Management Dashboard, navigate to the [Extensions](${manage_url}/#/extensions) page. Click on the **Delegated Administration** box in the list of provided extensions. The **Install Extension** window will open.
+2. Click on the **Delegated Administration** box in the list of provided extensions. The **Install Extension** window will open.
 
 ![Install Extension](/media/articles/extensions/delegated-admin/install-extension.png)
 
-Set the following configuration variables:
+3. Set the following configuration variables:
 
 - **EXTENSION_CLIENT_ID**: The **Client ID** value of the Application you will use. You can find this value on the **Settings** page of your Application.
 
@@ -171,8 +166,7 @@ Set the following configuration variables:
 
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 
-
-Once done, click **Install**. Your extension is now ready to use!
+4. Once done, click **Install**. Your extension is now ready to use!
 
 If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that the extension automatically created an additional application called `auth0-delegated-admin`.
 
@@ -180,7 +174,7 @@ If you navigate back to the [Applications](${manage_url}/#/applications) view, y
 
 Because the application is authorized to access the [Management API](/api/management/v2), you shouldn't modify it.
 
-## Use the Extension
+## Use the extension
 
 To access your newly created users dashboard, navigate to [**Extensions**](${manage_url}/#/extensions) > **Installed Extensions** > **Delegated Administration Dashboard**.
 
@@ -194,8 +188,7 @@ Once you provide valid credentials, you'll be redirected to the *Delegated Admin
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
-## Keep Reading
+## What's next
 
-* [Customizing the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
-
-* [Managing Users in the Delegated Administration Extension Dashboard](/extensions/delegated-admin/manage-users)
+* [Customize the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
+* [Manage Users in the Delegated Administration Extension](/extensions/delegated-admin/manage-users)

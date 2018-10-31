@@ -1,23 +1,27 @@
 ---
 description: How to manage users in the Delegated Administration extension
-toc: true
 topics:
   - extensions
   - delegated-admin
   - users
 contentType:
   - how-to
-  - concept
 useCase: extensibility-extensions
 ---
 
-# Delegated Administration: Manage Users
+# Manage Users in the Delegated Administration Extension
 
-In the Application exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
+In the Application exposed by the Delegated Administration extension (DAE), there are two views available: *Users* and *Logs*. On the **Users** view, you can see the display and modify users associated with your Auth0 account.
 
 By default, all users are displayed, but you can filter the displayed list by configuring a [filter hook](/extensions/delegated-admin/v3/hooks/filter).
 
-## Available User Actions in the Delegated Administration Dashboard
+<%= include('../_session-timeout.md') %>
+
+## Prerequisite
+
+* [Delegate Administration to a User Group](/extensions/delegated-admin/v3)
+
+## User actions
 
 The table below lists the options you can perform on users, as well as information on whether the option is available via the [Management Dashboard](${manage_url}/#/) and/or the Delegated Administration extension. To limit the number of options someone with access to the Dashboard exposed by the Delegated Administration extension, configure an [access hook](/extensions/delegated-admin/v3/hooks/access).
 
@@ -76,21 +80,17 @@ The table below lists the options you can perform on users, as well as informati
   </tbody>
 </table>
 
-The *Change Profile* option is available only if you have configured custom fields.
+::: note
+The **Change Profile** option is available only if you have configured custom fields.
+:::
 
-Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.
+## Create users
 
-![](/media/articles/extensions/delegated-admin/reset-pass-01.png)
+1. Click on the **+ Create User** button on the *Users* view. 
 
-This will send an email to the user, containing a link to change the password.
+2. Specify email and password. 
 
-If your profile indicates that you have the `Delegated Admin - Administrator` role, the *Logs* view allows you to see a list of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs). The Log Dashboard also displays data on administrative actions taken in the Dashboard.
-
-## Create Users
-
-You can create a new user by selecting the **+ Create User** button on the *Users* view. You need to specify are email and password. Depending on your role, you may not be able to set the *Department* to which the new user belongs.
-
-For example, users with the `Delegated Admin - Administrator` role can see the **Department** field and select any of its values.
+Depending on your role, you may not be able to set the *Department* to which the new user belongs. For example, users with the `Delegated Admin - Administrator` role can see the **Department** field and select any of its values.
 
 ![](/media/articles/extensions/delegated-admin/create-user-admin.png)
 
