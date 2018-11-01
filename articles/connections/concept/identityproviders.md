@@ -11,10 +11,16 @@ useCase:
 ---
 # Identity Providers
 
-A connection is the relationship between Auth0 and a source of users. Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
+An Identity Provider is a server that can provide identity information to other servers. For example, Google is an Identity Provider. If you log in to a site using your Google account, then a Google server will send your identity information to that site.
 
-Connections can be categorized as:
+Auth0 is an identity hub that supports many Identity Providers using various protocols (like OpenID Connect, SAML, WS-Federation, and more). Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation.
 
-- [Identity Providers](/connections/concept/identity-provider): Provide identity information from their servers to other servers. Example: Google; if you log in to a site using your Google account, then a Google server will send your identity information to that site.
-- [Databases](/connections/concept/database-connection): Function as your own user store, allowing you to authenticate users with an email (or username) and a password. Credentials can be securely stored with Auth0 or in your own database.
-- [Passwordless](/connections/concept/passwordless): Allow users to login without the need to remember a password. Use an authentication channel like SMS or email.
+Identity Providers can be categorized as:
+
+- [Social](/connections/concept/identity-provider): Provide identity information from their servers to other servers. Example: Google; if you log in to a site using your Google account, then a Google server will send your identity information to that site.
+- [Enterprise](/connections/concept/database-connection): Function as your own user store, allowing you to authenticate users with an email (or username) and a password. Credentials can be securely stored with Auth0 or in your own database.
+- [Legal](/connections/concept/passwordless): Allow users to login without the need to remember a password. Use an authentication channel like SMS or email.
+
+## Keep Reading
+
+- [Identity Providers supported by Auth0]()
