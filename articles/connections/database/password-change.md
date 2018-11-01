@@ -11,7 +11,9 @@ useCase: customize-connections
 ---
 # Change Users' Passwords
 
+::: note
 This article will help you learn how to reset a user's password. If you are trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+:::
 
 
 :::panel-warning Notice
