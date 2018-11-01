@@ -67,7 +67,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
 ### Database
 
@@ -578,22 +577,6 @@ var options = {
 ::: note
 When the `responseType` is set to `code`, Lock will never show the **Last time you logged in with** message, and will always prompt the user for credentials.
 :::
-
-#### sso {Boolean}
-
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
-
-::: warning
-Failing to set this to true will result in multi-factor authentication not working correctly.
-:::
-
-```js
-var options = {
-  auth: {
-    sso: true
-  }
-};
-```
 
 ## Database Options
 
