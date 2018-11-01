@@ -14,7 +14,7 @@ useCase:
     - customize-connections
 ---
 
-# Database Identity Providers
+# Using Database Connections
 
 Auth0 provides database connections to authenticate users with an email/username and password. These credentials are securely stored in the Auth0 user store or in your own database.
 
