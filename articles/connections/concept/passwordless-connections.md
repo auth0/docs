@@ -18,12 +18,17 @@ Without passwords, your app will not need to implement a password reset procedur
 ## Keep Reading
 
 - [Passwordless Authentication Overview](/connections/passwordless)
+
+<ul>
 <% cache.find('articles/connections/passwordless', {sort: 'connection'}).forEach(article => { %>
   <% if (article.connection) { %>
+    <li>
       <% if (article.public === false) { %>
         <%- article.connection %>
       <% } else { %>
         <a href="<%- article.url %>"><%- article.connection %></a>
       <% } %>
+    </li>
   <% } %>
 <% }); %>
+</ul>
