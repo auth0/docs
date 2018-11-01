@@ -186,28 +186,27 @@ articles:
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
-  - title: "Connections"
-    url: "/connections"
+ - title: "Connections"
+    url: "/connections/concept/connections"
+    
     children:
-      - title: "Overview"
-        url: "/connections"
-
-      - title: "Username/Password"
-        url: "/connections/database"
-
-      - title: "Social/Enterprise"
-        url: "/identityproviders"
+      - title: "Identity Providers"
+        url: "/connections/concept/identity-providers"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
+          - title: "Send extra parameters"
+            url: "/connections/pass-parameters-to-idps"
 
-      - title: "Your Database"
-        url: "/connections/database/custom-db"
-
-      - title: "Passwordless Authentication"
-        url: "/connections/passwordless"
+      - title: "Database Connections"
+        url: "/connections/concept/database-connections"
         children:
+          - title: "Your Database"
+            url: "/connections/database/custom-db"
 
+      - title: "Passwordless Connections"
+        url: "/connections/concept/passwordless"
+        children:
           - title: "Native Passwordless"
             url: "/connections/passwordless/native-passwordless-universal"
 
@@ -219,9 +218,56 @@ articles:
 
           - title: "FAQ"
             url: "/connections/passwordless/faq"
+        
+  - title: "Connections"
+    url: "/connections"
+    hidden: true
+    
+    children:
+      - title: "Overview"
+        url: "/connections"
+        hidden: true
+
+      - title: "Username/Password"
+        url: "/connections/database"
+        hidden: true
+
+      - title: "Social/Enterprise"
+        url: "/identityproviders"
+        hidden: true
+        children:
+          - title: "Custom Social Extensions"
+            url: "/extensions/custom-social-extensions"
+            hidden: true
+
+      - title: "Your Database"
+        url: "/connections/database/custom-db"
+        hidden: true
+
+      - title: "Passwordless Authentication"
+        url: "/connections/passwordless"
+        hidden: true
+        children:
+
+          - title: "Native Passwordless"
+            url: "/connections/passwordless/native-passwordless-universal"
+            hidden: true
+
+          - title: "Using Email"
+            url: "/connections/passwordless/email"
+            hidden: true
+
+          - title: "Using SMS"
+            url: "/connections/passwordless/sms"
+            hidden: true
+
+          - title: "FAQ"
+            url: "/connections/passwordless/faq"
+            hidden: true
 
       - title: "Send extra parameters"
         url: "/connections/pass-parameters-to-idps"
+        hidden: true
 
   - title: "Hosted Pages"
     url: "/hosted-pages"
