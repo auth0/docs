@@ -1205,7 +1205,7 @@ appliance:
           - title: Troubleshoot
             url: /appliance/dashboard/troubleshoot
         
-      - title: Monitoring Tools
+      - title: Monitoring
         url: /appliance/monitoring
         children:
           - title: Instrumentation
