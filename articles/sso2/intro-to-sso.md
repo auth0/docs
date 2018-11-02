@@ -1,24 +1,24 @@
 # An Introduction to Single Sign On (SSO) with Auth0
 
-With the number of passwords that end users have to remember on a day-to-day basis, single sign on (SSO) is a great option to implement. 
+With the number of passwords that end users have to remember on a day-to-day basis, single sign on (SSO) is a great option to implement.
 
-In short, single sign on is the process where your user, after signing in to one site, no longer have to sign in to any of your affiliate sites (assuming that their sign in is still valid). SSO helps minimize the number of times a user has to log in, as well as the number of websites with which they have to register.
+Single sign on is the process where your user signs into one site and is able to access all of your affiliate sites without any additional signups or logins. SSO minimizes the number of times a user has to log in, as well as the number of websites with which they have to register.
 
 For example, let's say that you own Example1.com and Example2.com. If a user signs in to Example1.com, they should be automatically signed in to Example2.com (as long as they haven't signed out themselves or been forced to log out).
 
 ## How single sign on works
 
-In short, the single sign on process is managed by what's called the **central server**, and the central server is trusted by all of the applications with which it works.
+The single sign on process is managed by what's called the **central server**, and the central server is trusted by all of the applications for which you want to implement single sign on.
 
 Any time a user logs into one of the SSO-enabled applications, the app checks with the central server to see if there is a valid session for that user (regardless of its origin). If there is, the user may proceed without providing their credentials again.
 
 ## How SSO works in Auth0
 
-With Auth0, SSO works by helping you streamline the login process for your users working with the apps you've built, as well as any third-party apps with which you're using.
+Auth0 helps you streamline the SSO implementation process. You write your application code to integrate with Auth0. Then, whenever you want to use a specific identity service with your app, you configure that connection with Auth0 (instead of writing additional code for your app).
 
-Auth0 acts as the central server, and by adding [applications](/applications) to your Auth0 tenant, you have a streamlined SSO implementation that works for all of your apps, regardless of whether they are web apps or single page apps.
+### Multiple Auth0 applications
 
-Your users can log into any of the applications associated with your Auth0 tenant and access any of the other associated applications without providing their credentials again.
+You're not limited to using just one [application](/applications) with Auth0 -- you can easily create multiple applications for use with one Auth0 tenant. Just know that SSO is tenant-wide, so all applications for a given tenant will share behavior.
 
 ### Auth0 sessions
 
@@ -28,7 +28,11 @@ Auth0 creates a session every time it interacts with the end user (e.g., your we
 
 If the transaction, such as the one for login, completes, Auth0 removes the state-related information.
 
-## Sessions and cookies
+## SSO and your application
+
+We've covered a bit on how SSO works on Auth0's end, but there are some considerations you need to know when implementing SSO for your app.
+
+### Sessions and cookies
 
 To store sign in (and other authentication-related) information and have it readily accessible by your application (or domain), you'll need to implement your own session management scheme and store the related cookies in a way that's accessible to your app.
 
@@ -45,13 +49,7 @@ There are two ways of using cookies to store your session-related information: s
 
 **Stateful cookies** are those that act simply as a pointer to a database record. All of the session-related information is stored in the database record itself, and whenever your app needs to access this information, it will need to call your database.
 
-### A note about same-origin policies
-
-However, browsers enforce what is called the *same origin policy* for security purposes, which essentially means that only the creator of the sessions cookie (and other locally stored data) can access it. That is, only Example1.com has access to the cookies it creates, not Example2.com.
-
-Single sign on, therefore, is the solution to the problem of needing sessions-related information across multiple domains.
-
-## Managing your sessions
+### Managing your sessions
 
 We mentioned session management in a previous session, so let's take a step back and look at the big picture.
 

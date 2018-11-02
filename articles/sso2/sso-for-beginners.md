@@ -15,3 +15,7 @@ Let's say that you want to allow your users to log in with their Facebook and Go
 Rather than writing three sets of code for your application to handle this (or rolling your own identity solution to handle multiple forms of authentication), you can let Auth0 act as the service hub for these identity systems.
 
 Furthermore, Auth0 simplifies the process of adding additional identity services in the future. Rather than adding to your app's code, you can configure the additional connections in Auth0 and let Auth0 handle the integration.
+
+## Next Steps
+
+Ready to get started? Read on for steps on setting up your first SSO integration using Auth0!
