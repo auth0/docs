@@ -9,9 +9,9 @@ http://localhost:3000/callback
 
 ```bash
 # In Linux / macOS
-./gradlew clean bootRun
-# In Windows
 gradlew clean bootRun
+# In Windows
+./gradlew clean bootRun
 ```
 
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
