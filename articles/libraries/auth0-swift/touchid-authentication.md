@@ -81,4 +81,4 @@ There is no need manually store the new credentials as this is handled by the Cr
 
 ## Next Steps
 
-You can download a sample project and follow the tutorial in our [Biometric Authentication in iOS](/quickstart/native/ios-swift/08-touch-id-authentication) quickstart. 
+You can download a sample project and follow the tutorial in the section of our iOS quickstart dealing with [Touch ID and Face ID in iOS](/quickstart/native/ios-swift/08-touch-id-authentication).
