@@ -24,7 +24,7 @@ import Auth0
 
 ### Credentials Manager
 
-Before retrieving credentials, you can also engage the biometric authentication supported by your device, such as Face ID or Touch ID.
+Before retrieving credentials, you can also engage the biometric authentication supported by your iOS device (Face ID or Touch ID).
 
 First, setup the Credentials Manager, then enable biometrics. You can also pass in a title to show in the prompt.
 
