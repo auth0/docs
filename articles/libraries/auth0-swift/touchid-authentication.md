@@ -24,16 +24,16 @@ import Auth0
 
 ### Credentials Manager
 
-Before retrieving credentials, you can also engage the biometric authentication supported by your iOS device (Face ID or Touch ID).
+Before retrieving credentials, you can also engage the biometric authentication (Face ID or Touch ID) supported by your iOS device.
 
-First, setup the Credentials Manager, then enable biometrics. You can also pass in a title to show in the prompt.
+Begin by setting up the Credentials Manager. Then enable biometrics. You can also pass in a title to show in the prompt.
 
 ```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
 credentialsManager.enableBiometrics(withTitle: "Touch ID / Face ID Login")
 ```
 
-It is also strongly recommended that you add the [NSFaceIDUsageDescription](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW75) setting to your project's `Info.plist` in order to display a reason for using Face ID. In some cases, if a description string is not provided and Face ID authentication is attempted, the effort may fail.
+We also strongly recommend that you add the [NSFaceIDUsageDescription](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW75) setting to your project's `Info.plist` to display a reason for using Face ID. In some cases, if you do not provide a description string and the user attempts Face ID authentication, the user's attempt may fail.
 
 ```swift
 ...
@@ -65,7 +65,7 @@ Auth0
 
 ### Renew User Credentials
 
-When you need to renew the user's credentials you can call the `credentials` method from the Credentials Manager to take care of this.
+When you need to renew the user's credentials, you can call the `credentials` method from the Credentials Manager.
 
 ```swift
 credentialsManager.credentials { error, credentials in
@@ -81,4 +81,4 @@ There is no need manually store the new credentials as this is handled by the Cr
 
 ## Next Steps
 
-You can download a sample project and follow the tutorial in the section of our iOS quickstart dealing with [Touch ID and Face ID in iOS](/quickstart/native/ios-swift/08-touch-id-authentication).
+You can download a sample project and follow the instructions in the iOS quickstart section on [Touch ID and Face ID in iOS](/quickstart/native/ios-swift/08-touch-id-authentication).
