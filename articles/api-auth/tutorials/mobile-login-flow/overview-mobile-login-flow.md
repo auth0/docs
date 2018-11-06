@@ -38,8 +38,7 @@ Before beginning this tutorial, please:
 * [Register your Application with Auth0](/application-auth/guides/register-application-dashboard). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
-  * Make sure your Application's [Grant Type property](/applications/application-grant-types) is set to Authorization Code.
-
+  * Make sure your Application's **[Grant Types]**(/applications/guides/change-app-grant-type-dashboard) include **Authorization Code**.
 * [Register your API with Auth0](/api-auth/guides/register-api)
 
 
