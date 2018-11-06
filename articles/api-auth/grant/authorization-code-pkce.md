@@ -14,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-When you are building a [mobile app](/quickstart/native), the mobile login flow is the best way to control access to your app. Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant, in this case the Authorization Code Grant with Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)).
+When you are building a [mobile app](/quickstart/native), the mobile login flow is the best way to control access to your app. Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant; in this case, we use the Authorization Code Grant with Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)).
 
 ## What is the mobile login flow?
 
