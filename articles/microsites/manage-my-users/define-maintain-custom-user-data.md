@@ -2,7 +2,10 @@
 title: Define and Maintain Custom User Data
 description: An introduction to the concepts and tasks related to how Auth0 helps you manage metadata associated with your users' profile information. 
 template: microsite
+v2: True
 ---
+
+# Define and Maintain Custom User Data
 
 After you have set up your [user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the metadata within the user profiles using Rules, the Lock widget, or APIs, depending on your need.
 
@@ -54,7 +57,7 @@ After you have customized the user metadata, there are a couple of ways that Aut
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
   * [User Search Query Syntax](/search/v3/query-syntax)
-  * [Identity Providers Supported](/identityproviders)
+  * [Identity Providers Supported by Auth0](/identityproviders)
   * [Lock Library](https://github.com/auth0/lock)
   * [User Import/Export Extension](/extensions/user-import-export)
   * [Authorization Extension](/extensions/authorization-extension/v2)

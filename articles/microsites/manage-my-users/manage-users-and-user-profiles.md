@@ -2,7 +2,10 @@
 title: Manage Users and User Profiles
 description: An introduction to the concepts and tasks related to how Auth0 helps you manage your users and their profile information. 
 template: microsite
+v2: True
 ---
+
+# Manage Users and User Profiles
 
 Auth0 creates [user profiles](/user-profile/overview-user-profile) that contain specific information about users such as name, email address, contact information, and so on. 
 
@@ -68,18 +71,14 @@ If you want to [use your own database](/user-profile/update-user-profiles-using-
   * [Delete Users](/user-profile/delete-users)
   * [Change User Pictures](/user-profile/change-user-pictures)
   * [Change User Passwords](/connections/database/password-change)
-  * [Request the Name and Profile Picture](/application-auth/current/client-side-web#request-the-name-and-profile-picture)
-  * [Request a User Login with GitHub](/application-auth/current/client-side-web#request-a-user-log-in-with-github)
-  * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
-  * [Redirect Users After Login](redirect-users-after-login)
   * [Block and Unblock Users](/user-profile/block-and-unblock-users)
-  * [User Import/Export Extension](/extensions/user-import-export)
-  * [Authorization Extension](/extensions/authorization-extension/v2)
- :::
+  :::
 
 ::: references
   * [User Profile Structure](/user-profile/user-profile-structure)
   * [User Search Query Syntax](/search/v3/query-syntax)
+  * [Authorization Extension](/extensions/authorization-extension/v2)
+  * [User Import/Export Extension](/extensions/user-import-export)
   * [Breached Password Security](/anomaly-detection/breached-passwords)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
   * [Identity Providers Supported](/identityproviders)

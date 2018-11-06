@@ -2,9 +2,12 @@
 title: Connect Users to My Identity Platform
 description: An introduction to the concepts and tasks related to how Auth0 enables you to connect users to your apps based on their user profile information. 
 template: microsite
+v2: True
 ---
 
-You can connect users to your identity platforms using popular social media providers like [Facebook, Google, and Twitter](/identityproviders). Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
+# Connect Users to My Identity Platform
+
+You can connect users to your identity platform using popular social media providers like [Facebook, Google, and Twitter](/identityproviders). Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
 
 ## How do I connect users based on their profile?
 
@@ -28,8 +31,6 @@ To make your login process as easy and seamless as possible, you'll need to deci
 :::
 
 ::: guides
-  * [Request the Name and Profile Picture](/application-auth/current/client-side-web#request-the-name-and-profile-picture)
-  * [Request a User Login with GitHub](/application-auth/current/client-side-web#request-a-user-log-in-with-github)
   * [Call an Identity Provider API](/connections/calling-an-external-idp-api)
   * [Add Scopes/Permissions to Call Identity Provider's APIs](/connections/adding-scopes-for-an-external-idp)
   * [Pass Parameters to Identity Providers](/connections/pass-parameters-to-idps)
@@ -49,7 +50,7 @@ To make your login process as easy and seamless as possible, you'll need to deci
 ::: references
   * [Passwordless FAQs](/connections/passwordless/faq)
   * [Password Security Tips](/anomaly-detection/password-security-tips)
-  * [Identity Providers Supported](/identityproviders)
+  * [Identity Providers Supported by Auth0](/identityproviders)
   * [Authorization Extensions](/extensions/authorization-extension/v2/index)
   * [A Basic Authentication Request](/application-auth/current/client-side-web#a-basic-authentication-request)
   * [Lock Library](https://github.com/auth0/lock)
