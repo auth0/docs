@@ -15,7 +15,7 @@ The PSaaS Appliance allows you to collect time series data about individual proc
 
 To collect and analyze time series data, you must:
 
-* Have instrumentation enabled
+* Have instrumentation enabled (please contact Auth0 for assistance with this)
 * Export the data collected to DataDog
 
 If you've chosen to host the PSaaS Appliance in your on-premise data center or in a cloud data center to which you've subscribed (e.g. AWS or Azure), you must use the instrumentation feature to monitor your PSaaS Appliance.
