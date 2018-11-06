@@ -1,4 +1,18 @@
-
+---
+description: Learn how to authorize a user while implementing the mobile login flow.
+toc: false
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+  - mobile-login-flow
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - add-login
+---
 
 
 # Authorize the User
