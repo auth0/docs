@@ -1,10 +1,23 @@
-
-
-
+---
+description: Learn how to create a code challenge while implementing the mobile login flow.
+toc: false
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+  - mobile-login-flow
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - add-login
+---
 
 # Create a Code Challenge
 
-Using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request.
+Generate a `code_challenge` from the `code_verifier` that, along with the `code_verifier`, will be sent to Auth0 to request an `authorization_code`.
+
 
 <div class="code-picker">
   <div class="languages-bar">
