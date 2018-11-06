@@ -51,7 +51,7 @@ With PKCE, the code verifier acts like a secret. And since your code verifier an
 
 ## How do I implement the mobile login flow?
 
-Learn how to implement this flow using Auth0 at [Execute a Mobile Login Flow](/api-auth/tutorials/authorization-code-grant-pkce).
+Learn how to implement this flow at [Execute a Mobile Login Flow](/api-auth/tutorials/authorization-code-grant-pkce).
 
 ## Will rules run for the mobile login flow?
 
