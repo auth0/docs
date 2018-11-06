@@ -24,11 +24,11 @@ In this page, we have collected some of the common troubleshooting questions we 
 
 ### I'm seeing the error message "Invalid state" that prevents me from logging in
 
-State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This error message is usually caused by a cached callback URL (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide on GitHub](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/blob/master/README.md). 
+State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This error message is usually caused by a cached callback URL (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide](/cms/wordpress/invalid-state). 
 
 ### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
-This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to what time is being used. 
+This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to what time is being used.
 
 ### I'm seeing the error message "This account does not have an email associated..." that prevents me from logging in
 
@@ -38,15 +38,15 @@ If you get this error, make sure you are requesting an email from each provider 
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
-### How do I setup Passwordless login? 
+### How do I setup Passwordless login?
 
 Passwordless login is possible any Auth0-enabled website using email or SMS. To make this work on your WordPress site:
 
 1. Turn on "Passwordless Login" from the plugin settings' **Features** tab and save
 2. In your Auth0 dashboard, go to **[Connections > Passwordless](${manage_url}/#/connections/passwordless)**
-  - To use email, turn on the **Email** connection and modify the settings, if desired. This will turn on email code login (users are emailed a code which is then typed into the login form on your site). 
-  - To use a "magic link" (emailed link will automatically log users in), add `{passwordlessMethod: 'code'}` to the "Extra Settings" field in the plugin settings' **Advanced** tab. 
-  - To use SMS login, turn on the **SMS** connection and follow the steps to setup a Twilio developer account (this will require a paid Twilio account depending on usage). 
+  - To use email, turn on the **Email** connection and modify the settings, if desired. This will turn on email code login (users are emailed a code which is then typed into the login form on your site).
+  - To use a "magic link" (emailed link will automatically log users in), add `{passwordlessMethod: 'code'}` to the "Extra Settings" field in the plugin settings' **Advanced** tab.
+  - To use SMS login, turn on the **SMS** connection and follow the steps to setup a Twilio developer account (this will require a paid Twilio account depending on usage).
 
 The Auth0 login form will select a Passwordless method depending on which connection is activated above. If you have both connections active, it will default to email. In this case, either turn off the email connection to show SMS or add `sms` to the **Connections** field in the plugin settings' **Advanced** tab.
 
@@ -60,7 +60,7 @@ The plugin can be accessed using valid WordPress credentials through the regular
 
 ### I am having problems when a user logs in. Where can I find a log of what is happening?
 
-The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** plugin menu. The [logs](${manage_url}/#/logs) in your Auth0 dashboard can also provide additional information. 
+The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** plugin menu. The [logs](${manage_url}/#/logs) in your Auth0 dashboard can also provide additional information.
 
 ### How can I show the widget or shortcode in signup mode as default?
 
@@ -136,13 +136,13 @@ Your server needs to allow inbound connections from Auth0.
 
 The Auth0 plugin does not handle sessions, it uses the WordPress settings. By default, user sessions are kept alive for 2 days. You can enable the `Remember users session` setting on the plugin settings' **Advanced** tab to allow sessions to remain live for up to 14 hours.
 
-### How do I implement a refresh token? 
+### How do I implement a refresh token?
 
-We implemented additional parameters in the login methods used by the plugin to allow for refresh tokens. Use the [`auth0_auth_scope`](/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](/cms/wordpress/extending#auth0_user_login) action to accomplish this. 
+We implemented additional parameters in the login methods used by the plugin to allow for refresh tokens. Use the [`auth0_auth_scope`](/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](/cms/wordpress/extending#auth0_user_login) action to accomplish this.
 
-### Profile data saved in WordPress is not being synced to the Auth0 user account. 
+### Profile data saved in WordPress is not being synced to the Auth0 user account.
 
-This is a current limitation of the plugin but something we're looking at in a future release. The one exception to this is the user password. If the password is changed in WordPress and it passes the security policy set for the database connection being used then that password will update for the Auth0 user as well. We'll be adding an error message in a future release to stop the process if the password is not strong enough. 
+This is a current limitation of the plugin but something we're looking at in a future release. The one exception to this is the user password. If the password is changed in WordPress and it passes the security policy set for the database connection being used then that password will update for the Auth0 user as well. We'll be adding an error message in a future release to stop the process if the password is not strong enough.
 
 ### Keep Reading
 

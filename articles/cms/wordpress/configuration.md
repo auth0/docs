@@ -48,12 +48,12 @@ First, we'll check for the Application created for your WordPress site.
 1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
 
     ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
-    
+
     ::: warning
-    These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information. 
+    These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information.
     :::
 
-    
+
 1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
 1. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
@@ -82,6 +82,8 @@ First, we'll check for the Application created for your WordPress site.
 ### Authorize the Application for the Management API
 
 In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API.
+
+1. Make sure your Application allows the Client Credential grant (step 11 above)
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
@@ -188,13 +190,18 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 ### Features
 
-* **Password Policy:** Select the level of complexity you want to enforce for user passwords. Activating this setting will attempt to cahnge the Password Policy for the database Connection being used in the Auth0 dashboard (requires a valid API token to make this change). For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength). Option name is `password_policy`.
+* **Password Policy:** Select the level of complexity you want to enforce for user passwords. Activating this setting will attempt to change the Password Policy for the database Connection being used in the Auth0 dashboard (requires a valid API token to make this change). For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength). Option name is `password_policy`.
 
 * **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso). Activating this setting will attempt to turn on "Use Auth0 instead of the IdP to do Single Sign On" in the Application settings in the Auth0 dashboard (requires a valid API token to make this change). Option name is `sso`.
 
-* **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-). This will be hidden (and automatically disabled) if SSO is turned on. Option name is `singlelogout`.
+* **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-). This will be hidden (and automatically disabled) if SSO is turned off. Option name is `singlelogout`.
 
 * **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless. Option name is `passwordless_enabled`.
+
+* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for authentication using all active Connections for this Application. Option name is `auto_login`.
+
+* **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
+
 
 * **Multi-factor Authentication (MFA):** Enable this option for multi-factor authentication with Google Authenticator. (See [Multi-factor Authentication in Auth0](/multifactor-authentication) for more information). You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor). Option name is `mfa`.
 
@@ -232,6 +239,8 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some Connections from working properly if they do not provide an email address or an `email_verified` flag in the user profile data. Option name is `requires_verified_email`.
 
+* **Skip Strategies:** If Require Verified Email is turned on, this setting will display. This field accepts strategy names to skip the verified email requirement on login and account association. This should only be used for strategies that do not provide an `email_verified` flag.
+
 * **Remember User Session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days. Option name is `remember_users_session`.
 
 * **Login Redirection URL:** If set, redirects users to the specified URL after login. This does not affect logging in via the `[auth0]` shortcode. Option name is `default_login_redirection`. To change the redirect for the shortcode, add a `redirect_to` attribute, like so:
@@ -259,10 +268,6 @@ All sites in a WordPress multi-site network will use the same constant value mak
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the Connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating). Option name is `migration_ws`.
 
 * **Migration IPs Whitelist:** Only requests from listed IPs will be allowed access to the migration webservice. Option name is `migration_ips_filter`.
-
-* **Auto Login:** Redirects the `wp-login.php` page to the Universal Login Page for authentication using all active Connections for this Application. Option name is `auto_login`.
-
-* **Auto Login Method:** A single, active connection to use for authentication when **Auto Login** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
 * **Implicit Login Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-applications-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. Option name is `auth0_implicit_workflow`.
 
