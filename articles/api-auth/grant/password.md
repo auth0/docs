@@ -1,6 +1,6 @@
 ---
-title: Call APIs from Highly Trusted Applications
-description: Describes how to call APIs from highly trusted applications using the Resource Owner Password Grant.
+title: Resource Owner Password Grant
+description: Learn how to call APIs from highly trusted applications using the Resource Owner Password Grant.
 topics:
   - implicit
   - api-authorization
@@ -10,40 +10,38 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call APIs from Highly Trusted Applications
+# Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
-Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an Access Token, and optionally, a Refresh Token. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
 
 You should use this flow **only if** the following apply:
 - The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+
+This grant type can eliminate the need for the application to store user credentials for future use by exchanging the credentials with a long-lived Access Token or Refresh Token.
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
-## Overview
-
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an Access Token, and optionally a Refresh Token. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
-
-This grant type can eliminate the need for the application to store the user credentials for future use, by exchanging the credentials with a long-lived Access Token or Refresh Token.
+## What is the Resource Owner Password Grant flow?
 
 ![Resource Owner Password Grant](/media/articles/api-auth/password-grant.png)
 
- 1. The end user enters the credentials into the application.
+ 1. The end user enters the credentials (username/password) into the application.
  1. The application forwards the credentials to Auth0.
- 1. Auth0 validates the information and returns an Access Token, and optionally a Refresh Token.
- 1. The application can use the Access Token to call the API on behalf of the end user.
+ 1. Auth0 validates the information and returns an Access Token, and optionally, a Refresh Token.
+ 1. The application uses the Access Token to call the API on behalf of the end user.
 
 ::: note
-In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+In OAuth 2.0 terms, the web app is the Client, the end user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.
 :::
 
-## How to implement the flow
+## How do I implement the Resource Owner Password Grant flow?
 
-For details on how to implement this using Auth0, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
+Learn how to implement this grant flow using Auth0 at [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
 ## Realm Support
 
@@ -57,15 +55,15 @@ For more information on how to implement this extension grant refer to [Executin
 
 Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
-## Rules
+## Will rules run for the Resource Owner Password Grant flow?
 
-[Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
+[Rules](/rules) will run for the Resource Owner Password Grant (including the Password Realm extension grant). However, there is a key difference in the behavior of rules in these flows:
 
 - Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
 
-If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
+If you wish to execute special logic unique to the Resource Owner Password Grant, check that the `context.protocol` property in your rule contains a value of `oauth2-password`. If it does, then the rule is running during the Resource Owner Password Grant.
 
-For details on how to implement this, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
+For implementation details, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
 
 ## MFA Support
 

@@ -75,9 +75,9 @@ For example:
 
 After Auth0 has redirected back to the app, the hash fragment of the URL contains the following parameters:
 - `id_token`: contains an [ID Token](/tokens/id-token) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
-- `access_token`: contains an [Access Token](/tokens/overview-access-tokens) and is present if the request parameter `response_type` included the value `token`
-- `token_type`: denotes the type of the [Access Token](/tokens/overview-access-tokens)
-- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/overview-access-tokens) will expire in one hour from the time the response was generated
+- `access_token`: contains an [Access Token](/tokens/concepts/overview-access-tokens) and is present if the request parameter `response_type` included the value `token`
+- `token_type`: denotes the type of the [Access Token](/tokens/concepts/overview-access-tokens)
+- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/concepts/overview-access-tokens) will expire in one hour from the time the response was generated
 - `state`: present in the response if the `state` parameter was present in the request. Holds the exact value received from the client in the request.
 
 You can extract the `access_token`, and other parameters, from the hash fragment of the URL:

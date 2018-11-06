@@ -18,7 +18,7 @@ Auth0 provides several API endpoints to help you manage the authenticators you'r
 
 ## Before you start
 
-The MFA endpoints require an [Access Token](/tokens/overview-access-tokens) with:
+The MFA endpoints require an [Access Token](/tokens/concepts/overview-access-tokens) with:
 
 - `audience`: Set to `https://${account.namespace}/mfa/`
 - `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.

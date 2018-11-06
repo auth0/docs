@@ -10,7 +10,8 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 :::
 
 When a user logs in, Auth0 returns three items:
-* `access_token`: to learn more, see the [Access Token documentation](/tokens/overview-access-tokens)
+
+* `access_token`: to learn more, see the [Access Token documentation](/tokens/concepts/overview-access-tokens)
 * `id_token`: to learn more, see the [ID Token documentation](/tokens/id-token)
 * `expires_in`: the number of seconds before the Access Token expires
 

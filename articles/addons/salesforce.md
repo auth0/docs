@@ -5,12 +5,12 @@ alias:
 url: addons/salesforce  
 thirdParty: true
 image: /media/addons/salesforce.svg
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce services.
+description: Use the Auth0 to authenticate and authorize your Salesforce services.
 topics:
   - salesforce
   - addons
 useCase: integrate-third-party-apps
-contentType: how-to
+contentType: reference
 ---
 
 # Salesforce Addon
@@ -28,7 +28,7 @@ community_url_section: 'members'
 ```
 
 ::: note
-  Under the hood, Auth0 uses <a href="https://help.salesforce.com/HTViewHelpDoc?id=remoteaccess_oauth_jwt_flow.htm&language=en_US">OAuth 2.0 JWT Bearer Token Flow</a> to obtain an Access Token. All details of construction of the right JWT are taken care of by Auth0.
+  Auth0 uses <a href="https://help.salesforce.com/HTViewHelpDoc?id=remoteaccess_oauth_jwt_flow.htm&language=en_US">OAuth 2.0 JWT Bearer Token Flow</a> to obtain an Access Token. All details of construction of the right JWT are taken care of by Auth0.
 :::
 
 ![Salesforce data flow](/media/articles/server-apis/salesforce-data-flow.png)

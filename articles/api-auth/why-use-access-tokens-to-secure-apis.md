@@ -1,16 +1,16 @@
 ---
-title: Why you Should Always Use Access Tokens to Secure an API
+title: Why You Should Always Use Access Tokens to Secure an API
 description: Explains the differences between Access Token and ID Token and why the latter should never be used to access an API.
 topics:
   - api-authentication
   - oidc
   - access-tokens
-contentType: discussion
+contentType: concept
 useCase:
   - secure-api
   - call-api
 ---
-# Why you Should Always Use Access Tokens to Secure an API
+# Why You Should Always Use Access Tokens to Secure an API
 
 <%= include('../_includes/_pipeline2') %>
 
@@ -22,7 +22,7 @@ To help you make an informed decision and be aware of any risks, this article in
 * Information about the tokens issued by each protocol
 * Suggestions on when you should use which protocol
 
-We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/overview-access-tokens), *not* an [ID Token](/tokens/id-token).
+We'll wrap things up with a discussion of why you should always secure an API with an [Access Token](/tokens/concepts/overview-access-tokens), *not* an [ID Token](/tokens/id-token).
 
 ## Two complementary specifications
 
@@ -128,5 +128,5 @@ In many cases, you might find it useful to retrieve additional user information 
 * [OAuth 2.0 Overview](/protocols/oauth2)
 * [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [OpenID Connect Overview](/protocols/oidc)
-* [Obtaining and Using Access Tokens](/tokens/overview-access-tokens)
+* [Obtaining and Using Access Tokens](/tokens/concepts/overview-access-tokens)
 * [Obtaining and Using ID Tokens](/tokens/id-token)

@@ -9,67 +9,54 @@ topics:
   - desktop-apps
 contentType: 
     - concept
-    - how-to
+    - tutorial
 useCase:
   - add-login
 ---
-# Authentication for Mobile & Desktop Apps
 
-You can authenticate users of your mobile/desktop applications by:
+# Implement Authentication for Mobile & Desktop Apps
 
-* Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
+You can authenticate users of your mobile/desktop [applications](/applications) by:
+
+* Using [Universal Login](/hosted-pages/login), Auth0's implementation of a centralized authentication flow that provides a standard set of behaviors and a customizable user interface;
 * Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
-This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
+This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints with the [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
 
-If you would like to implement this functionality using either Lock or one of the Auth0 SDKs, please refer to the following resources:
-
-* Lock
-  * [Lock for Web](/libraries/lock)
-  * [Lock for iOS](/libraries/lock-ios)
-  * [Lock for Android](/libraries/lock-android)
-* Auth0 SDK
-  * [Auth0 SDK for Web](/libraries/auth0js)
-  * [Auth0 SDK for iOS](/libraries/auth0-swift)
-  * [Auth0 SDK for Android](/libraries/auth0-android)
+For most common types of applications, we have SDKs available which handle the PKCE protocol for you. The exact implementation will be different based on the technology being used. Please refer to our [Mobile / Native App Quickstarts](/quickstart/native), select the appropriate Quickstart based on your application, and follow the code samples provided.
 
 ## Overview
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
+You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/overview-access-tokens).
 
 ::: note
 Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
+
+For our mobile app, we will implement the [OAuth 2.0 Authorization Code Grant using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce).
 :::
-
-## Register your application
-
-If you haven't already created a new [Application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
-
-Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
-
-The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Native** as the **Application Type**. When done, click on **Create** to proceed.
 
 ::: warning
-The Authorization Code flow with PKCE can only be used for Native Applications.
+The Authorization Code Grant using PKCE should only be used for Native Applications.
 :::
 
-![](/media/articles/client-auth/mobile-desktop/create-client.png)
+## Prerequisites
 
-Once Auth0 creates the Application, navigate to the Application's **Settings** tab to:
+1. Register your Application
 
-* Add the following URL to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`;
-* Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+Before implementing authentication, you will need to [register your Application](/applications) with Auth0 using the Dashboard. When registering, select an **Application Type** of Native, and add an **Allowed Callback URL** of `https://${account.namespace}/mobile`.
 
-Scroll to the bottom of the page and click **Save**.
+## Steps
 
-![](/media/articles/client-auth/mobile-desktop/allowed-callback-url.png)
+1. Create the code challenge and code verifier
+2. Authorize the user
+3. Obtain an ID Token
+4. Extract Info from the ID Token
 
-## Implement Authentication
 
-For our mobile app, we will implement the [OAuth 2.0 Authorization Code Grant Flow using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce).
+
 
 ### Step 1: Create a Random Key and the Code Challenge
 

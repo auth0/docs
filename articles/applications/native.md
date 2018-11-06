@@ -1,6 +1,11 @@
 ---
 description: Explains the basics of creating and using Auth0 Native applications.
 toc: true
+contentType:
+    - reference
+useCase:
+  - add-login
+  - build-an-app
 ---
 # Native Applications
 

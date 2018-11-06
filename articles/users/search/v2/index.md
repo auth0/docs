@@ -31,7 +31,7 @@ The user search endpoint allows you to return a maximum of **10,000** users. For
 
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
-In order to make requests to the Management API, you will need a token. Please refer to [Access Tokens for the Management API](/api/management/v2/tokens) for more information.
+In order to make requests to the Management API, you will need a token. Please refer to [Access Tokens for the Management API](/api/management/v2/concepts/tokens) for more information.
 
 ### Search using the API Explorer
 

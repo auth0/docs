@@ -3,6 +3,7 @@ description: Overview of OIDC Connect scopes
 topics:
   - scopes
 contentType:
+  - reference
   - how-to
 useCase:
   - development
@@ -27,7 +28,7 @@ The basic claim returned for the `openid` scope is the `sub` claim, which unique
 - `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
 - `email`: will request the `email` and `email_verified` claims.
 
-## Example: ask for standard claims
+## Example: Ask for standard claims
 
 In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
 
@@ -44,7 +45,7 @@ https://${account.namespace}/authorize?
 ```
 
 ::: note
-For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+For details on the params and how to implement this flow, refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
 :::
 
 Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).

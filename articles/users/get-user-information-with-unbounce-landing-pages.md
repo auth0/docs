@@ -5,10 +5,8 @@ topics:
   - user-management
   - search
   - unbounce
-contentType:
-  - how-to
-useCase:
-  - manage-users
+contentType: how-to
+useCase: manage-users
 ---
 # Get User Information on Unbounce Landing Pages
 
@@ -22,8 +20,8 @@ useCase:
 
 ## Unbounce Configuration
 
-* Add a button (or whatever UI element you consider) that will trigger the login with the provider. Take note of the button ID under **Properties > Element Metadata**.
-* Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
+1. Add a button (or whatever UI element you consider) that will trigger the login with the provider. Take note of the button ID under **Properties > Element Metadata**.
+1. Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
 ```html
 <script src="${auth0js_url}"></script>
@@ -43,9 +41,9 @@ useCase:
 You should use the clientID and Domain of the application you just configured.
 :::
 
-* You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and adding `Hidden fields` for each field. In the following example we are using the fields `name` and `email`.
+1. You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and adding `Hidden fields` for each field. In the following example we are using the fields `name` and `email`.
   ![](/media/articles/scenarios/unbounce/custom-fields.png)
-* Finally, go back to the JavaScript editor at Unbounce and add a click handler for each button to trigger the social authentication. Here, you must replace the button ID you took note of previously and the connection name, which can be seen in the [dashboard](${manage_url}) under under **Connections > Social** and expanding the provider. For example, for Google you would use `google-oauth2` and for LinkedIn, `linkedin`. Also, make sure that you replace the IDs properly, so instead of `#name` and `#email` you should put the ID of the form fields in question (you can see them while editing the form, under `Field Name and ID`).
+1. Go back to the JavaScript editor at Unbounce and add a click handler for each button to trigger the social authentication. Here, you must replace the button ID you took note of previously and the connection name, which can be seen in the [dashboard](${manage_url}) under under **Connections > Social** and expanding the provider. For example, for Google you would use `google-oauth2` and for LinkedIn, `linkedin`. Also, make sure that you replace the IDs properly, so instead of `#name` and `#email` you should put the ID of the form fields in question (you can see them while editing the form, under `Field Name and ID`).
 
 ```js
 $('#REPLACE_WITH_BUTTON_ID').bind('click', function() { 

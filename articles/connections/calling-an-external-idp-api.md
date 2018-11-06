@@ -45,7 +45,7 @@ The steps to follow are:
 
 You will need an Access Token to call the [Management API](/api/management/v2).
 
-If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure an application that can be used to call the API.
+If this is the first time you are requesting a [Management APIv2 Access Token](/api/management/v2/concepts/tokens), you will need to create and configure an application that can be used to call the API.
 
 To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer) and click **Create & Authorize a Test Application**.
 
@@ -83,7 +83,7 @@ The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 
 The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time. The maximum value you can set is 2592000 seconds (30 days) however our recommendation is to keep the default value.
 
 ::: panel-warning Security warning
-These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/get-access-tokens-for-production#Example:-Python-Implementation).
+These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a [sample implementation in Python](/api/management/v2/guides/get-access-tokens-for-production).
 :::
 
 ### Step 2: Get the full User Profile
@@ -118,7 +118,11 @@ Replace these values:
 Within the user's `identities` array, there will be an Access Token that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
+<<<<<<< HEAD
+For certain Identity Providers, Auth0 will store a Refresh Token which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/concepts/overview-idp-access-tokens#renewing-the-token).
+=======
 For certain Identity Providers, Auth0 will store a Refresh Token which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
+>>>>>>> master
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.

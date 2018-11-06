@@ -8,9 +8,8 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Testing a partner connection
 
-Testing a connection in Auth0 is very easy: 
+# Test Partner Connections
 
 1. Click on the __Try__ button on each connection.
 1. Login with the identity provider.
