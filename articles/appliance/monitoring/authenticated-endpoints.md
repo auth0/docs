@@ -67,9 +67,7 @@ curl -v http://{manage-dashboard-domain}/health/status/cpu --user api_keys_healt
 
 ### Response Codes
 
-Each endpoint will return one of three status codes. None of the responses will include a body.
-
-The HTTP status codes returned by the endpoint communicates the status of the resource in question:
+Each endpoint will return one of three status codes to communicate the status of the resource in question:
 
 | Response Code | Response |
 | ------------- | -------- |
@@ -78,6 +76,8 @@ The HTTP status codes returned by the endpoint communicates the status of the re
 | 520 | Warning |
 
 Additionally, each status code conveys additional information depending on the endpoint being queried. You'll find more information on this in the following sections that cover the specific endpoints available to you.
+
+None of the responses will include a body.
 
 #### GET /status/memory
 
