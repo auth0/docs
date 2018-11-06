@@ -5,10 +5,12 @@ topics:
   - pkce
   - api-authorization
   - grants
+  - authentication
 contentType: concept
 useCase:
   - secure-api
   - call-api
+  - add-login
 ---
 # Mobile Login Flow
 
