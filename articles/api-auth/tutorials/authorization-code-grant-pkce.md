@@ -1,5 +1,5 @@
 ---
-description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
+description: Learn how to execute a mobile login flow.
 toc: true
 topics:
   - api-authentication
@@ -10,21 +10,45 @@ contentType: tutorial
 useCase:
   - secure-api
   - call-api
+  - add-login
 ---
-# Execute an Authorization Code Grant Flow with PKCE
+# Execute a Mobile Login Flow
 
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Calling APIs from Mobile App](/api-auth/grant/authorization-code-pkce).
+This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/api-auth/grant/authorization-code-pkce).
 :::
 
-The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
+Auth0 makes it easy for your app to implement the mobile login flow.
+
+The easiest way is to follow our [Mobile Quickstarts](/quickstart/native). You can also refer to our Auth0 Mobile SDKs (iOS and Android).
+
+If you prefer to embed your own login pages within your mobile app, you can implement our login widget (Lock UI) directly into your app with our:
+
+* [iOS Lock UI Component library](/libraries/lock-ios/v2)
+* [Android Lock UI Component library](/libraries/lock-android/v2)
+
+
+## Prerequisites
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
-* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
+* Register your Application with Auth0
+* [Register your API with Auth0](/apis#how-to-configure-an-api-in-auth0)
+* Make sure your Application's [Grant Type property](/applications/application-grant-types) is set to Authorization Code.
+
+## Steps
+1. Create a code verifier
+2. Create a code challenge
+3. Get the user's authorization
+4. Exchange the Authorization Code for an Access Token
+5. Call an API
+6. Verify the Token
+Optional: Customize the Tokens
+
+Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information and the Access Token can be used to call Auth0 or your own protected APIs.
+
 
 ## 1. Create a Code Verifier
 
@@ -258,14 +282,14 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Sample application
 
-For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
+For an example implementation, see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
 
-This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a mobile app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
+This is a series of tutorials that describe a scenario for a fictitious company, which wants to implement a mobile app that its employees can use to send timesheets to the company's Timesheet API. The tutorials are accompanied by a code sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
 ## Keep reading
 
 ::: next-steps
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Mobile & Desktop Apps](/Application-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
