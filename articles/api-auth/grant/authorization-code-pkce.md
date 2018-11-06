@@ -14,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-When you are building a [mobile app](/quickstart/native), the mobile login flow, which uses the Authorization Code Grant with the Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)), is the best way to control access to your app.
+When you are building a [mobile app](/quickstart/native), the mobile login flow is the best way to control access to your app. Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant, in this case the Authorization Code Grant with Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)).
 
 ## What is the mobile login flow?
 
@@ -45,7 +45,7 @@ This flow provides an extra level of security, which is necessary because:
 * mobile apps cannot securely store a client secret
 * mobile redirects use app:// protocols, which allow malicious attackers to intercept the `authorization_code` as it is being passed through the mobile operating system
 
-With PKCE, the code verifier acts like a secret to keep the Authorization Code flow secure. And since your code verifier and code challenge are both sent over HTTPS, a malicious attacker can only intercept the authorization code.
+With PKCE, the code verifier acts like a secret to keep the Authorization Code flow secure. And since your code verifier and code challenge are both sent over HTTPS, malicious attackers can only intercept the authorization code.
 
 ## How do I implement the mobile login flow?
 
