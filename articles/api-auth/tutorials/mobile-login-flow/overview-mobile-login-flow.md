@@ -52,7 +52,7 @@ Before beginning this tutorial, please:
 6. Verify the Token
 Optional: Customize the Tokens
 
-Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information and the Access Token can be used to call Auth0 or your own protected APIs.
+Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call Auth0 or your own protected APIs.
 
 
 ## Keep Reading
