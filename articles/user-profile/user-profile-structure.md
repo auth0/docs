@@ -41,7 +41,7 @@ The following attributes are available on the user profile.
 
 * `last_ip`: The IP address associated with the user's last login.
 
-* `last_login`: The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
+* `last_login`: The timestamp of when the user last logged in. In case you want to use this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
 
 * `logins_count`: The number of times the user has logged in.
 
