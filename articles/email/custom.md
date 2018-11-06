@@ -38,7 +38,7 @@ function (user, context, callback) {
     json: {
       user: user,
       context: context,
-      secretToken: ";ojhsajk;h;Kh:Jh",
+      secretToken: configuration.MY_SECRET_TOKEN,
     },
     timeout: 5000
   }, function(err, response, body){
