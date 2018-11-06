@@ -12,7 +12,7 @@ useCase:
   - call-api
   - add-login
 ---
-# Execute a Mobile Login Flow
+# Implement the Mobile Login Flow
 
 <%= include('../../_includes/_pipeline2') %>
 
