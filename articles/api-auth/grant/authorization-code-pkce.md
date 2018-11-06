@@ -47,7 +47,7 @@ This flow provides an extra level of security, which is necessary because:
 * mobile apps cannot securely store a client secret
 * mobile redirects use app:// protocols, which allow malicious attackers to intercept the `authorization_code` as it is being passed through the mobile operating system
 
-With PKCE, the code verifier acts like a secret to keep the Authorization Code flow secure. And since your code verifier and code challenge are both sent over HTTPS, malicious attackers can only intercept the authorization code.
+With PKCE, the code verifier acts like a secret. And since your code verifier and code challenge are both sent over HTTPS, malicious attackers can only intercept the authorization code.
 
 ## How do I implement the mobile login flow?
 
