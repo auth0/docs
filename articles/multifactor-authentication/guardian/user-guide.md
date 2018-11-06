@@ -59,7 +59,7 @@ For more information about Google Authenticator, see [Install Google Authenticat
 
 ### SMS
 
-Depending on the applications settings, SMS may be an option to use for two-factor authentication. Click on the the **SMS** link after entering your email and password.
+Depending on the applications settings, SMS may be an option to use for two-factor authentication. Click on the **SMS** link after entering your email and password.
 
 Then select your phone number's country code and enter your mobile phone number. You must be able to receive SMS to your device to use this option.
 

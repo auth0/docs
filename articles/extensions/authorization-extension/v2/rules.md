@@ -55,7 +55,7 @@ You can also write rules that are executed after the Authorization Extension rul
 
 ### Step 1: Set the Application Metadata's `required_roles`
 
-In this step, you'll set the Application's metadata with it's roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Application so that the rules you'll set up in the next step know which Application to act on.
+In this step, you'll set the Application's metadata with its roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Application so that the rules you'll set up in the next step know which Application to act on.
 
 ⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, begin by selecting the application you want to work with [in the dashboard](${manage_url}/#/applications).
 

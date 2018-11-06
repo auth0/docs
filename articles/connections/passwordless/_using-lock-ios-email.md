@@ -46,7 +46,7 @@ After the passwordless login process begins, ask the user for the one-time code.
 <% } %>
 </div>
 
-## Authenticate users with a Magic Link via e-mail
+## Authenticate users with a Magic Link via email
 
 <%= include('./_introduction-email-magic-link') %>
 

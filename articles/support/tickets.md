@@ -1,5 +1,5 @@
 ---
-decription: How to open and manage tickets with Support Center.
+description: How to open and manage tickets with Support Center.
 topics:
     - support
     - support-tickets

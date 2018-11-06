@@ -42,7 +42,7 @@ Navigate to **Platform Tools > Apps**. Under **App Manager**, click **New Connec
 
 ## 3. Get your Consumer Key and Consumer Secret
 
-Once your app is registered, the page will diplay your `Consumer Key` and `Consumer Secret`:
+Once your app is registered, the page will display your `Consumer Key` and `Consumer Secret`:
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-3.png)
 

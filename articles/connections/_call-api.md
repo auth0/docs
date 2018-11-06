@@ -1,4 +1,4 @@
-Once you successfully authenticate a user, ${idp} includes an [Access Token](/tokens/concepts/overview-access-tokens) in the user profile it returns to Auth0. 
+Once you successfully authenticate a user, ${idp} includes an [Access Token](/tokens/concepts/overview-access-tokens) in the user profile it returns to Auth0.
 
 You can then use this token to call their API.
 

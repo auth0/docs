@@ -25,18 +25,6 @@ When using [Database Connections](/connections/database), Hooks allow you to cus
 
 ---
 
-<img align="right" src="/media/articles/hooks/extend-hooks.svg"> 
-
-## Hooks in your SaaS
-
-If you like the capabilities of Hooks and would like to provide a similar experience in your own SaaS product, try Extend by Auth0. Extend is an embedded scripting environment for enabling integration and customization of your SaaS.
-
-[Try Extend &#9658;](https://goextend.io?utm_source=docs&utm_medium=page&utm_campaign=auth0-com&utm_content=hooks-paragraph)
-
-
-
----
-
 ## Work with Hooks
 
 <ul class="topic-links">

@@ -25,15 +25,15 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 1. The web app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant)), so the user can authenticate.
 
-1. Auth0 authenticates the user (via the browser). The first time the user goes through this flow, a consent page is shown that lists the permissions that will be given to the application (for example: post messages, list contacts, and so forth).
+2. Auth0 authenticates the user (via the browser). The first time the user goes through this flow, a consent page is shown that lists the permissions that will be given to the application (for example: post messages, list contacts, and so forth).
 
-1. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
+3. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
 
-1. The web app sends the Authorization Code to Auth0 and asks to exchange it with an Access Token (and optionally an ID Token and a Refresh Token). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0 using the Client Id and Client Secret.
+4. The web app sends the Authorization Code to Auth0 and asks to exchange it with an Access Token (and optionally an ID Token and a Refresh Token). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0 using the Client Id and Client Secret.
 
-1. Auth0 authenticates the web app, validates the Authorization Code, and responds back with the token.
+5. Auth0 authenticates the web app, validates the Authorization Code, and responds back with the token.
 
-1. The web app uses the Access Token to call the API on behalf of the user.
+6. The web app uses the Access Token to call the API on behalf of the user.
 
 ::: note
 In OAuth 2.0 terms, the web app is the application, the end user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.

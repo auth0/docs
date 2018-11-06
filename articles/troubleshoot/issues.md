@@ -16,7 +16,7 @@ In this guide you'll find tips for troubleshooting each authentication step and 
 
 ## Login issues
 
-Here are things to check to help you narrow down where issues are occuring during login.
+Here are things to check to help you narrow down where issues are occurring during login.
 
 ### Is the user prompted for login credentials?
 
@@ -95,7 +95,7 @@ Here's some things to check if the user logged in to one application, but cannot
 
 * Are you using the correct domain?
     - The domain should be the same as that used during authentication.
-* If using an Auth0 [Custom Domain](/custom-domain), it is important to use the same domain as used in the application to invoke authentication.
+* If using an Auth0 [Custom Domain](/custom-domains), it is important to use the same domain as used in the application to invoke authentication.
 
 ## Logout issues
 
@@ -124,7 +124,7 @@ Here's some things to check if the user logged in to one application, but cannot
 
 * Check the user's profile, browser, or device for any issues.
 * Check to see if it happens in all browsers for the affected users (indicating a data issue) or just certain types of browsers (indicating a browser-specific issue).
-* Check to see if the browswer has enabled JavaScript and cookies.
+* Check to see if the browser has enabled JavaScript and cookies.
 * Check that the caps lock key is disabled.
 * If the user is using a mobile device, check to see if there's any software that might impact authentication and/or authorization (such as not running some type of required software).
 * Check to see if the user can access some of the application's key URLs, such as the identity provider's single sign-on URL (indicating a network connectivity issue).

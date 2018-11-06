@@ -19,7 +19,7 @@ Beginning with version `8986`, the PSaaS Appliance supports extensions. This is 
 Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the PSaaS Appliance. As such, these do not appear as options in the PSaaS Appliance's Dashboard.
 :::
 
-Beginning with version `10755`, the PSaaS Appliance supports User Search using Elasticsearch. This allows you to use extensions that require User Search, including the [Delegated Admininstration extension](/extensions/delegated-admin)
+Beginning with version `10755`, the PSaaS Appliance supports User Search using Elasticsearch. This allows you to use extensions that require User Search, including the [Delegated Administration extension](/extensions/delegated-admin).
 
 ## Requirements for Enabling User Search
 
@@ -55,7 +55,7 @@ Your Development and/or Production environments must meet the following requirem
 
 Once you have met the requirements for enabling Webtasks, submit a Support ticket to request that Auth0:
 
-* Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`)
+* Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`);
 * Update your PSaaS Appliance to version `8986`. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
 
 ## Dedicated Domains
@@ -69,7 +69,7 @@ If you are planning on using Extensions, you **must** implement Webtask dedicate
 ::: next-steps
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
 * [Extensions](/extensions)
-* [Delegated Admininstration extension](/extensions/delegated-admin)
+* [Delegated Administration extension](/extensions/delegated-admin)
 * [Webtasks](/appliance/webtasks)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
 :::

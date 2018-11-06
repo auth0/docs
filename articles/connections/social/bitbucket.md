@@ -22,7 +22,7 @@ To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *S
 
 1. Login to [Bitbucket](https://bitbucket.org/). Click on your account icon in the upper right and select **Bitbucket settings**. Select **OAuth**  in the left nav.
 
-2. To create your app, click **Add consumer**. Provide a name for your app. In the **Callback URL** field, enter the folowing:
+2. To create your app, click **Add consumer**. Provide a name for your app. In the **Callback URL** field, enter the following:
 
 `https://${account.namespace}/login/callback`
 

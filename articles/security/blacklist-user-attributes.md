@@ -16,6 +16,7 @@ If there are user fields that should not be stored in Auth0 databases due to pri
 
 To blacklist attributes make a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API.
 
+
 1. Get a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. You can either get one manually from the Dashboard, or automate the process by building a simple command line tool that generates tokens. For information on how to do either, refer to [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
 2. Call the API. 

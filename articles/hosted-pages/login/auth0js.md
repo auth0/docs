@@ -10,11 +10,11 @@ useCase: customize-hosted-pages
 ---
 # Using Auth0.js in the Hosted Login Page
 
-Within the login page, you can use the the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI.
+Within the login page, you can use the [Auth0.js SDK](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI.
 
 ## Auth0.js Template for the Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in your Universal Login page. 
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v9 in your Universal Login page. 
 
 In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
 
@@ -176,7 +176,12 @@ For this example, replace the code in the login page editor with the following t
 </html>
 ```
 
-This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify. Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
+This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify.
+
+<%= include('../../connections/passwordless/_single-browser-magic-link') %>
+
+
+Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
 
 <%= include('./_custom-domains') %>
 

@@ -222,7 +222,7 @@ Lock
 
 #### Configuration options
 
-If you needed to tweak Lock behaviour using it's options in v1, you would use the following format:
+If you needed to tweak Lock behaviour using its options in v1, you would use the following format:
 
 ```swift
 let controller = A0Lock.shared().newLockViewController()
@@ -284,6 +284,8 @@ Auth0
 
 ### Delegation
 
-Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017, but delegation is deprecated and not recommended for most use cases. See the [migrations notice](/migrations#api-authorization-with-third-party-vendor-apis) for more details.
+Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017.
+
+<%= include('../../../_includes/_deprecate-delegation') %>
 
 <%= include('../_includes/_roadmap') %>

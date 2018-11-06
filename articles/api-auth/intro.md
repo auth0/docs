@@ -175,6 +175,8 @@ For more information, refer to [Resource Owner Password Credentials exchange](/a
 
 ### Delegation
 
+<%= include('../_includes/_deprecate-delegation') %>
+
 [Delegation](/api/authentication#delegation) is used for many operations:
 - Exchanging an ID Token issued to one application for a new one issued to a different application
 - Using a Refresh Token to obtain a fresh ID Token

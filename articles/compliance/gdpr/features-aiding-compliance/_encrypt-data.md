@@ -29,3 +29,4 @@ For example, to save the encrypted `passportNumber` in the user's profile, send 
 :::note
 Replace the `YOUR_ACCESS_TOKEN` placeholder with a token that will allow you to access this endpoint. This should be a [Management API Token](/api/management/v2/concepts/tokens), with the scopes `update:users` and `update:users_app_metadata`.
 :::
+

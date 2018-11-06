@@ -248,7 +248,7 @@ After authentication, your users are taken to the `/callback` route. They see th
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `authService` service processes the hash. 
 
-Call the `handleAuthentication` method in your app's run block. The method processess the authentication hash while your app loads. 
+Call the `handleAuthentication` method in your app's run block. The method processes the authentication hash while your app loads.
 
 ```js
 // app/app.run.js

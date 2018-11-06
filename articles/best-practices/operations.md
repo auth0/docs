@@ -25,11 +25,11 @@ Also, make sure to [configure and customize the templates](/email/templates) for
 
 ## Subscribe to updates on the Auth0 status page
 
-Head over to the [Auth0 status page](http://status.auth0.com/) and sign up for notifications. If there are any Auth0 outages, you or your support staff will be notified.
+Head over to the [Auth0 status page](https://status.auth0.com/) and sign up for notifications. If there are any Auth0 outages, you or your support staff will be notified.
 
 ## Store custom code in a source code repository
 
-If you have custom code for rules, hooks, custom database scripts or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has [extensions to help deploy code stored on external respositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories).
+If you have custom code for rules, hooks, custom database scripts or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has [extensions to help deploy code stored on external repositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories).
 
 If you have a full continuous integration/continuous deployment pipeline, use the [Auth0 Deploy CLI tool](https://github.com/auth0/auth0-deploy-cli) for greater flexibility.
 

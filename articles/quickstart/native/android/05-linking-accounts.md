@@ -41,7 +41,7 @@ WebAuthProvider.init(auth0)
 ```
 
 ::: note
-Note that the Management API audience value ends in `/` in constrast to the User Info audience. 
+Note that the Management API audience value ends in `/` in contrast to the User Info audience.
 :::
 
 

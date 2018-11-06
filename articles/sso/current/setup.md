@@ -21,7 +21,7 @@ For information on SSO Integrations, check out the [Single Sign On Integrations]
 
 Before enabling SSO on an [application](/applications), create and configure a Connection for each [Identity Provider](/identityproviders) you want to use.
 
-For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/devkeys).
+For Social Identity Providers, make sure the Connection is not using [developer keys](/connections/social/devkeys).
 
 ## 2. Configure SSO
 
@@ -52,7 +52,7 @@ To see this, navigate to the Applications section of the [Dashboard](${manage_ur
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign Up** feature.
+You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign On** feature.
 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 

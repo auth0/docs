@@ -37,7 +37,6 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'google-authenticator',
         // issuer: 'Label on Google Authenticator App', // optional
-        // key: 'YOUR_KEY_HERE', //  optional, the key to use for TOTP. by default one is generated for you
 
         // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
@@ -51,10 +50,6 @@ function (user, context, callback) {
 ```
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
-
-::: panel Screen customization
-The Google Authenticator widget inherits from the Guardian widget. To customize the Google Authenticator screen, [customize the Guardian screen](/multifactor-authentication/administrator/customizing-widget) in your [tenant settings](${manage_url}/#/tenant).
-:::
 
 ### Configuring Google Authenticator for Select Users
 

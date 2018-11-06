@@ -144,7 +144,7 @@ The `action` added to the **Log In** control makes the appropriate call to the `
 
 ### Process the Authentication Result
 
-When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` function in `auth.js` is responsible for processing the hash.
 
 Call `handleAuthentication` in `app.js` so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 

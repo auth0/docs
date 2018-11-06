@@ -26,7 +26,7 @@ The following sections contain examples on how to call the various user search e
 
 * **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
 
-* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
+* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
 
 ## General principles
 

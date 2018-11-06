@@ -26,7 +26,7 @@ Click the _Install_ button.
 
 ![](/media/articles/extensions/realtime-webtask-logs/view-realtime-logs.png)
 
-To clear the logs and start fresh select the the red _CLEAR CONSOLE_ button at the bottom right.
+To clear the logs and start fresh select the red _CLEAR CONSOLE_ button at the bottom right.
 
 ## Debugging Rules
 

@@ -8,12 +8,16 @@ The next step is to add the **auth0-java-mvc-commons** library. This one allows 
 If you are using Gradle, add it to your `build.gradle`:
 
 ```java
+// build.gradle
+
 compile 'com.auth0:mvc-auth-commons:1.+'
 ```
 
 If you are using Maven, add it to your `pom.xml`:
 
 ```xml
+//pom.xml
+
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>mvc-auth-commons</artifactId>
@@ -26,6 +30,8 @@ If you are using Maven, add it to your `pom.xml`:
 Your Java Spring Security App needs some information in order to authenticate against your Auth0 account. The samples read this information from the properties file `src/main/resources/auth0.properties`, but you could store them anywhere else. The required information is:
 
 ```xml
+// src/main/resources/auth0.properties
+
 com.auth0.domain: ${account.namespace}
 com.auth0.clientId: ${account.clientId}
 com.auth0.clientSecret: 'YOUR_CLIENT_SECRET'
@@ -36,7 +42,7 @@ The library we're using has this default behavior:
 - Request the `code` Response Type and later perform a Code Exchange to obtain the tokens.
 - Use the `HS256` Algorithm along with the Client Secret to verify the tokens.
 
-But it also allows us to customize it's behavior:
+But it also allows us to customize its behavior:
 * To use the `RS256` Algorithm along with the Public Key obtained dynamically from the Auth0 hosted JWKs file, pass a `JwkProvider` instance to the `AuthenticationController` builder.
 * To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
 * To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.

@@ -33,7 +33,7 @@ For a full detail on options and parameters you can check the [Auth0Lock initial
 
 Open the widget on `signin` mode with `signup` and `reset` button actions if enabled for the configured/default account connection.
 
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
+You may call this method with a single parameter, two or even none. The following examples illustrate this:
 
 ```js
 var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
@@ -62,7 +62,7 @@ Check the [Auth0Lock customization][lock-customization] article for more example
 
 Open the widget on `signin` mode, but without the bottom `signup` nor `reset` button actions. This method is useful when your site has custom *signup* and *reset* links at a different form.
 
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
+You may call this method with a single parameter, two or even none. The following examples illustrate this:
 
 ```js
 var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
@@ -90,7 +90,7 @@ Check the [Auth0Lock customization][lock-customization] article for more example
 
 Open the widget on `signup` mode, but without the `cancel` button action to go back to `signin`. This method is useful when your site has custom *signin* and *reset* links at a different form.
 
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
+You may call this method with a single parameter, two or even none. The following examples illustrate this:
 
 ```js
 var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
@@ -118,7 +118,7 @@ Check the [Auth0Lock customization][lock-customization] article for more example
 
 Open the widget on `reset` mode, but without the bottom `cancel` button action to go back to `signin`.  This method is useful when your site has custom *signin* and *signup* links at a different form.
 
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
+You may call this method with a single parameter, two or even none. The following examples illustrate this:
 
 ```js
 var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');

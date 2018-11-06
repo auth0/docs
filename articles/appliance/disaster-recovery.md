@@ -19,7 +19,9 @@ In cases where the data centers have very low latency, you can run individual PS
 
 ## Geographic High-Availability PSaaS Appliance Implementation
 
-If your requirements demand very little to no downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover with recovery on the order of 1 minute.
+If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover between data centers.
+
+Issue detection and failover typically occur at the database level in 30 seconds or less. However, switching over and rerouting traffic from one datacenter to another is an expensive operation, so we've configured the infrastructure to detect false positives and *not* switch over in the event that one occurs. This secondary detection process reroutes client traffic through failure detection time-out mechanisms that result in an *effective* failover time of approximately ten minutes.
 
 **Advantages**:
 
@@ -34,7 +36,7 @@ Geo-HA involves:
 * A higher cost due to increased complexity;
 * Additional PSaaS Appliance Virtual Machines (VM) that need maintenance;
 * An additional layer in front of the load balancer for GEO failover, such as F5 Global Traffic Manager or AWS Route 53;
-* Additional configuration to handle logical corruption, since this is not a scenario that is covered by the typical setup.
+* Additional configuration to handle logical corruption.
 
 For more information, please see:
 * [Geo HA](/appliance/geo-ha)
@@ -84,10 +86,6 @@ For more information, please see:
 * [Backing Up PSaaS Appliance Instances](/appliance/admin/backing-up-the-appliance-instances)
 * [Using the CLI to Backup PSaaS Appliance Instances](/appliance/cli/backing-up-the-appliance)
 * [Adding an PSaaS Appliance Node to the Backup Role](/appliance/cli/adding-node-to-backup-role)
-
-::: note
-  This option is available to PSaaS Appliance on version **7247** or later.
-:::
 
 ## Combining VM Snapshots and Database Backups
 

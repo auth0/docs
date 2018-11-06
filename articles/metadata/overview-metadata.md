@@ -52,7 +52,147 @@ You can use the [Management API](/api/management/v2) in order to retrieve, creat
 For examples and more info you can also refer to [How to Create and Update User Metadata With the Auth0 APIs](/metadata/apis).
 :::
 
+<<<<<<< HEAD:articles/metadata/overview-metadata.md
 ## Lock
+=======
+#### Search Metadata
+
+Beginning **1 September 2017**, new tenants cannot search any of the  `app_metadata` fields. 
+
+Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+
+As for `user_metadata`, you can only search for profile-related information, such as
+- `name`
+- `nickname`
+- `given_name`
+- `family_name`
+
+## Metadata Usage
+
+Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+::: note
+Any valid JSON snippet can be used as metadata.
+:::
+
+To read metadata, simply access the correct property as you would from any JSON object. For example, if you were working with the above example metadata within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
+
+```js
+console.log(user.email); // "jane.doe@example.com"
+console.log(user.user_metadata.hobby); // "surfing"
+console.log(user.app_metadata.plan); // "full"
+```
+
+::: note
+With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
+:::
+
+### Rules on Naming Metadata Fields
+
+The following sections cover best practices when setting the names of your metadata fields.
+
+#### Avoid Periods and Ellipses
+
+Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
+
+```json
+{
+    "preference.color": "pink"
+}
+```
+
+One way of handling this limitation is to nest attributes:
+
+```json
+{
+    "preference": {
+        "color": "pink"
+    }
+}
+```
+
+Alternately, you can use any delimiter that is not  `.` or `$`.
+
+However, the usage of the `.` delimiter is acceptable in the data **values** such as in the below example:
+
+```json
+{
+    "preference": "light.blue"
+}
+```
+
+#### Avoid Dynamic Field Names
+
+Do not use dynamic field names. For example, instead of using the following structure:
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+Use this:
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
+```
+
+## Metadata Restrictions
+
+There are some restrictions when using metadata of which you should be aware:
+
+### Field Restrictions
+
+The following fields may not be stored in the `app_metadata` field:
+
+* `blocked`
+* `clientID`
+* `created_at`
+* `email`
+* `email_verified`
+* `global_client_id`
+* `globalClientID`
+* `identities`
+* `lastIP`
+* `lastLogin`
+* `metadata`
+* `user_id`
+* `loginsCount`
+
+### Metadata Size Limits
+
+Currently, Auth0 limits the total size of your user metadata to **16 MB**. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
+
+<%= include('../_includes/_metadata_on_signup_warning') %>
+
+## Using Lock to Manage Metadata
+>>>>>>> master:articles/metadata/index.md
 
 Users of the [Lock](/libraries/lock) widget are able to add new items to `user_metadata`, as well as read `user_metadata` after authentication.
 

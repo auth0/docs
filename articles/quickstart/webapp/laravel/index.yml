@@ -24,7 +24,7 @@ github:
 requirements:
   - Composer 1.5
   - PHP 7.0
-  - Laravel 5.5
+  - Laravel 5.7
 next_steps:
   - path: 01-login
     list:

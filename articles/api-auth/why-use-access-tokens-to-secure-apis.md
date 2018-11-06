@@ -124,11 +124,9 @@ In many cases, you might find it useful to retrieve additional user information 
 
 ## Keep reading
 
-::: next-steps
-* [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
+* [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [OpenID Connect Overview](/protocols/oidc)
 * [Obtaining and Using Access Tokens](/tokens/concepts/overview-access-tokens)
 * [Obtaining and Using ID Tokens](/tokens/id-token)
-:::

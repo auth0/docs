@@ -39,6 +39,3 @@ Note the differences between the example above and the example on asking for sta
 - `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an Access Token as well, not only an ID Token. The Access Token will be sent to the API as credentials.
-
-
-

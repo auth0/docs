@@ -38,7 +38,7 @@ The project contains also five Controllers:
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
-Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
+Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle its creation.
 
 ## Trigger Authentication
 
@@ -145,6 +145,8 @@ To run the sample from a terminal, change the directory to the root folder of th
 ```bash
 ./gradlew clean bootRun
 ```
+
+If you are using a Windows environment, execute `gradlew clean appRun`
 
 After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 

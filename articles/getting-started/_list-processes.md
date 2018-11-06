@@ -9,7 +9,7 @@
   [More info on APIs](/apis).
 <% } else if (screen === "sso") { %>
   Single Sign On (SSO) Integrations enable the use of external services for single sign-on. In this page you can see a list of the available external services that you can use, such as Office 365, Salesforce, and others. Here you can create a new SSO integration, find tutorials on how to configure it, and review and update the settings of a particular integration.
-  [More info on SSO Integrations](/sso/integrations).
+  [More info on SSO Integrations](/integrations/sso).
 <% } else if (screen === "connections") { %>
   Use this page to manage the identity providers that you use to login to your apps. There are four types:
   - [Database](${manage_url}/#/connections/database): securely store and manage username / password credentials either in an Auth0 Database or in your own. To connect to an existing database you can use JavaScript scripts (we provide the templates) that run on Auth0's server on every authentication. Furthermore, you can migrate an existing legacy credentials database to Auth0 gradually as users authenticate (no password reset required). [More info on Database Connections](/connections/database).
@@ -35,5 +35,5 @@
 <% } else if (screen === "extensions") { %>
   In this page you can see a list of pre-built addons that we have created for you. You can use them to extend the functionality of the Auth0 base product. You can enable extensions in order to import or export users, export logs to external services, expose the Users dashboard to a group of users (without allowing them access to the rest of the dashboard), manage user authorization, and more. [More info on extensions](/extensions).
 <% } else { %>
-  The last screeen navigates you to our [Support Center](${env.DOMAIN_URL_SUPPORT}). The alternative to users that do not have access to support services is the [Auth0 Community](https://community.auth0.com/). [More info on support options](/support).
+  The last screen navigates you to our [Support Center](${env.DOMAIN_URL_SUPPORT}). The alternative to users that do not have access to support services is the [Auth0 Community](https://community.auth0.com/). [More info on support options](/support).
 <% } %>

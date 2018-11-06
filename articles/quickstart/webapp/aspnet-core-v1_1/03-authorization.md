@@ -88,7 +88,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-At this point the you have integrated with the the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism of ASP.NET Core, which means that your can ensure that a user belongs to a particular role by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
+At this point the you have integrated with the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism of ASP.NET Core, which means that your can ensure that a user belongs to a particular role by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
 The sample code below will restrict the particular action only to users who have the "admin" role:
 
