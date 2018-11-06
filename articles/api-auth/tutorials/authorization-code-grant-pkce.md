@@ -20,9 +20,10 @@ useCase:
 This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/api-auth/grant/authorization-code-pkce).
 :::
 
-Auth0 makes it easy for your app to implement the mobile login flow.
+Auth0 makes it easy for your app to implement the mobile login flow using:
 
-The easiest way is to follow our [Mobile Quickstarts](/quickstart/native). You can also refer to our [Auth0 Mobile SDKs](/libraries) (iOS and Android).
+* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
+* Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 If you prefer to embed your own login pages within your mobile app, you can implement our login widget (Lock UI) directly into your app with our:
 
