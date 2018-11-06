@@ -10,48 +10,52 @@ useCase:
   - secure-api
   - call-api
 ---
-# Authorization Code Grant Using PKCE
+# Mobile Login Flow
 
 <%= include('../../_includes/_pipeline2') %>
 
-The Authorization Code Grant Using PKCE allows an application to request an Access Token, and optionally, a Refresh Token, in exchange for an Authorization Code and code verifier. It is used for [mobile apps](/quickstart/native).
+When you are building a [mobile app](/quickstart/native), the mobile login flow, which uses the Authorization Code Grant with the Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)), is the best way to control access to your app.
 
-The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on [mobile apps](/quickstart/native). Specifically, a malicious attacker can intercept the `authorization_code` returned by Auth0. To mitigate this attack, use the **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) enhancement to the [Authorization Code Grant](/api-auth/grant/authorization-code).
+## What is the mobile login flow?
 
-With PKCE-enhanced security, for every authorization request, the application creates a cryptographically-random key called the `code_verifier` and its transformed value called the `code_challenge`, and uses these to get the requested tokens.
-
-::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
-:::
-
-
-## What is the Authentication Code Grant Using PKCE flow?
+The Authorization Code Grant with PKCE is similar to the standard Authorization Code Grant, but contains a few extra steps.
 
 ![Authorization Code Grant using PKCE](/media/articles/api-auth/authorization-code-grant-pkce.png)
 
- 1. The native app initiates the flow and redirects the user to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters.
+ 1. Your app generates a cryptographically-random key called a `code_verifier` and creates a `code_challenge` from the verifier. Then it initiates the flow and redirects the user to Auth0 ([/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters. The user authenticates.
 
- 2. Auth0 redirects the user to the native app with an `authorization_code` in the querystring.
+ 2. Auth0 redirects the user to your app with an `authorization_code` in the querystring.
 
- 3. The native app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0. This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-).
+ 3. Your app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0 ([/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-)).
 
- 4. Auth0 validates this information and returns an Access Token (and optionally, a Refresh Token).
+ 4. Auth0 validates this info and returns an Access Token and an ID Token (and optionally, a Refresh Token).
 
- 5. The native app uses the Access Token to call the API on behalf of the user.
+ 5. Your app can use the Access Token to call an API on behalf of the user. For example, you may want to call Auth0's /userinfo API and retrieve the user's profile.
 
 ::: note
-In OAuth 2.0 terms, the native app is the Client, the end user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.
+In OAuth 2.0 terms, your mobile app is the Client, the user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.
+
+If you need a refresher on the OAuth 2.0 protocol, visit [OAuth 2.0](/protocols/oauth2).
 :::
 
-## How do I implement the Authorization Code Grant Using PKCE flow?
+## Why should I use the mobile login flow?
 
-Learn how to implement this grant flow using Auth0 at [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
+This flow provides an extra level of security, which is necessary because:
 
-## Will rules run for the Authorization Code Grant Using PKCE flow?
+* mobile apps cannot securely store a client secret
+* mobile redirects use app:// protocols, which allow malicious attackers to intercept the `authorization_code` as it is being passed through the mobile operating system
 
-[Rules](/rules) will run for the Authorization Code Grant Using PKCE. If you wish to execute special logic unique to the Authorization Code Grant Using PKCE, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the Authorization Code Grant Using PKCE.
+With PKCE, the code verifier acts like a secret to keep the Authorization Code flow secure. And since your code verifier and code challenge are both sent over HTTPS, a malicious attacker can only intercept the authorization code.
 
-For implementation details, refer to [Execute an Authorization Code Grant Flow with PKCE: Customize the Tokens](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens).
+## How do I implement the mobile login flow?
+
+Learn how to implement this flow using Auth0 at [Execute a Mobile Login Flow](/api-auth/tutorials/authorization-code-grant-pkce).
+
+## Will rules run for the mobile login flow?
+
+Yes, [rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
+
+Learn how to implement this at [Execute a Mobile Login Flow: Customize the Tokens](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens).
 
 ## Keep reading
 
