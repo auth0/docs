@@ -44,8 +44,8 @@ Before beginning this tutorial, please:
 
 ## Steps
 
-1. Create a code verifier
-2. Create a code challenge
+1. [Create a code verifier](/api-auth/tutorials/mobile-login-flow/create-code-verifier)
+2. [Create a code challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge)
 3. Get the user's authorization
 4. Exchange the Authorization Code for an Access Token
 5. Call an API
