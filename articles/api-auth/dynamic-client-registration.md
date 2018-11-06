@@ -80,6 +80,7 @@ You can promote a connection to domain level using the [Update a Connection endp
 ```
 
 Where:
+
 - `API2_ACCESS_TOKEN`: [Α valid Auth0 API2 token](/api/management/v2/concepts/tokens) with the scope `update:connections`
 - `CONNECTION_ID`: Τhe Id of the connection to be promoted
 

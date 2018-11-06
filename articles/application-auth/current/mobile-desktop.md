@@ -13,10 +13,8 @@ contentType:
 useCase:
   - add-login
 ---
+
 # Implement Authentication for Mobile & Desktop Apps
-
-
-
 
 You can authenticate users of your mobile/desktop [applications](/applications) by:
 

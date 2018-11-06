@@ -17,7 +17,7 @@ For [Database Connections](/connections/database), the `post-user-registration` 
 
 This allows you to implement scenarios including (but not limited to):
 
-* Sending notifications to Slack or via e-mail about the user's new account;
+* Sending notifications to Slack or via email about the user's new account;
 * Creating a new user record in a CRM system.
 
 ## How to Implement This
@@ -37,7 +37,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {string} user.tenant - Auth0 tenant name
 @param {string} user.username - user name
 @param {string} user.email - email
-@param {boolean} user.emailVerified - is e-mail verified?
+@param {boolean} user.emailVerified - is email verified?
 @param {string} user.phoneNumber - phone number
 @param {boolean} user.phoneNumberVerified - is phone number verified?
 @param {object} user.user_metadata - user metadata

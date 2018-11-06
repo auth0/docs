@@ -19,7 +19,7 @@ useCase:
 <%= include('../_includes/_lock-version') %>
 
 :::note
-We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **uthentication failed**
+We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **Authentication failed**
 :::
 
 Add the following dependencies to your project:

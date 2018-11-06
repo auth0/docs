@@ -2,13 +2,13 @@
 
 This style guide covers the terminology and content specific to Auth0, along with some comments on common writing issues.
 
-For general software-industry styles and terminology, see the [Microsoft Manual of Style](https://eucalyptus.atlassian.net/wiki/download/attachments/76611622/microsoft_manual_of_style_fourth_edition.pdf?version=2&modificationDate=1424379604164&api=v2).
+For general software-industry styles and terminology, see the [Microsoft Writing Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/).
 
 ## Voice
 
 * Address the reader directly: "you". Use "we" only for Auth0's recommendations.
-* Use active voice.
-* For instructions, use imperative mood.
+* Use the active voice.
+* For instructions, use the imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -21,11 +21,11 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | --- | --- |
 | The user enters his password. | The user enters their password. |
 
-* Avoid gerunds in headings and main body.
+* Avoid gerunds in headings and the main body.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Saving User Authentication Data | Save User Authentication Data |
+| Saving User Authentication Data. | Save User Authentication Data. |
 | Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
@@ -122,10 +122,10 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | 14 plugins are available. | Fourteen plugins are available. |
 | Configure 12 50GB drives | Configure twelve 50GB drives. |
 
-* For additional information that is up to four lines long, use [notes](/blob/master/CONTRIBUTING.md#note).
-* For additional information that is longer than four lines, use [panels](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panels).
-* For critical security information up to four lines long, use [warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#warning).
-* For critical security information longer than four lines, use [panel warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panel-warning).
+* For additional information that is up to four lines long, use [notes](CONTRIBUTING.md#note).
+* For additional information that is longer than four lines, use [panels](CONTRIBUTING.md#panels).
+* For critical security information up to four lines long, use [warnings](CONTRIBUTING.md#warning).
+* For critical security information longer than four lines, use [panel warnings](CONTRIBUTING.md#panel-warning).
 
 ## Vocabulary
 
@@ -180,7 +180,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ### The dashboard
 
-* Dashboard: the [Auth0 management console](${manage_url})
+* Dashboard: the [Auth0 management console](${manage_url}).
 * The dashboard elements are called "section", "tab", "field".
 * Dashboard-related terminology:
 ![](/media/readme/structure.png)

@@ -11,6 +11,11 @@ useCase: customize-connections
 ---
 # Change User Passwords
 
+::: note
+This article will help you learn how to reset a user's password. If you are trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+:::
+
+
 :::panel-warning Notice
 This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock 8, check the notice panels like this one for information on differences between the two flows.
 
@@ -39,7 +44,7 @@ An interactive password reset flow can be triggered in two ways:
 To start an interactive password reset flow using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
 
 ::: note
-If you're calling this from the browser, don't forget to add your URL to the the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
+If you're calling this from the browser, don't forget to add your URL to the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
 :::
 
 ```har

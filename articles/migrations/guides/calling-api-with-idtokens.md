@@ -189,9 +189,9 @@ The changes in this functionality are the following:
 
 For a detailed overview of these changes and migration steps per use case, see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
 
-## Keep reading
+## Next steps
 
-:::next-steps
+::: next-steps
 - [How to get an Access Token](/tokens/guides/get-access-tokens)
 - [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 :::

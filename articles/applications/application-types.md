@@ -1,6 +1,6 @@
 ---
 title: Application Types
-description: Read about the the different applications types - public vs confidential, and first vs third-party
+description: Read about the different applications types - public vs confidential, and first vs third-party
 toc: true
 topics:
   - applications

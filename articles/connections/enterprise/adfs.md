@@ -75,7 +75,7 @@ If you are using the [custom domains](/custom-domains) feature, you will need to
 
 #### 2. Creates rules to output common attributes
 
-The script also creates rules to output the most common attribures, such as email, UPN, given name, or surname:
+The script also creates rules to output the most common attributes, such as email, UPN, given name, or surname:
 
 ```powershell
 $rules = @'

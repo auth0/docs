@@ -149,12 +149,10 @@ For an example implementation see the [SPA + API](/architecture-scenarios/applic
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
-## Keep reading
+## Next steps
 
-::: next-steps
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
 - [Tokens used by Auth0](/tokens)
-:::

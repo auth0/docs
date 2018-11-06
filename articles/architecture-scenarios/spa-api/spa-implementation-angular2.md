@@ -275,7 +275,7 @@ During the authorization process we already stored the actual scopes which a use
 
 If the `scope` returned in `authResult` is issued is empty, it means the user was granted all the scopes that were requested, and we can therefore use the requested scopes to determine the scopes granted to the user.
 
-Here is the code we wroter earlier for the `setSession` function that does that check:
+Here is the code we wrote earlier for the `setSession` function that does that check:
 
 ```js
 private setSession(authResult): void {
@@ -310,7 +310,7 @@ export class AuthService {
 }
 ```
 
-You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to deteremine whether that link should be displayed or not.
+You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to determine whether that link should be displayed or not.
 
 ```html
 <nav class="navbar navbar-default">

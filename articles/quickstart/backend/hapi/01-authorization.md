@@ -66,7 +66,7 @@ server.register(jwt, err => {
 });
 ```
 
-The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires a function which is the final stop for accepting or rejecting authorization for a given request. This function must return a callback with either `true` or `false` to indicate the the request can proceed. The function can also operate on the decoded payload of the JWT and supply a modified `req.auth.credentials` object based on custom logic.
+The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires a function which is the final stop for accepting or rejecting authorization for a given request. This function must return a callback with either `true` or `false` to indicate the request can proceed. The function can also operate on the decoded payload of the JWT and supply a modified `req.auth.credentials` object based on custom logic.
 
 When you request multiple `scope`s in an Auth0 authentication transaction, they come back as a space-delimited string in the Access Token payload. However, the **hapi-auth-jwt2** plugin expects an array when multiple `scope`s are used. This conversion can be handled in the `validateFunc` function.
 

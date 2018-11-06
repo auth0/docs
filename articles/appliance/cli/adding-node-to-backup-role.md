@@ -13,10 +13,6 @@ applianceId: appliance11
 
 # PSaaS Appliance: Adding a Node to the Backup Role
 
-::: note
-  This document applies beginning with PSaaS Appliance update **build 7247**.
-:::
-
 ## Prerequisites
 
 * Backup can be configured on single or multiple-node setups. In multi-node setups, the backup must be placed on a non-primary device.

@@ -38,7 +38,7 @@ To remove these restrictions in your testing or to setup your production level e
 After you have configured your own email service provider, the [Emails](${manage_url}/#/emails) dashboard will allow you to customize your emails beyond the existing templates. 
 
 ::: note
-For users with the **Free Subscription** plan, email workflows and using the custom email provider features are available. However a paid subscription plan is required for email customizations. See the [subscription pricing page](https://auth0.com/pricing) for more details.
+For users with the **Free Subscription** plan, email workflows and using the custom email provider features are available. However, a paid subscription plan is required for email customizations. See the [subscription pricing page](https://auth0.com/pricing) for more details.
 :::
 
 For more information see [Customizing Your Emails](/email/templates).

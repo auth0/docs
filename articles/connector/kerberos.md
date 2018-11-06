@@ -100,7 +100,7 @@ To enable verbose logging of Kerberos requests, add a system level environment v
 
 ## Firefox support for Kerberos
 
-By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negociate" requests required to authenticate users with Kerberos](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication). If you wish to use Firefox with Kerberos, you need to whitelist the server where the connector is installed. To do that:
+By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negotiate" requests required to authenticate users with Kerberos](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication). If you wish to use Firefox with Kerberos, you need to whitelist the server where the connector is installed. To do that:
 
 * Open a Firefox tab and type `about:config` in the address bar.
 * Dismiss any warning message, and in the search box type `negotiate`.

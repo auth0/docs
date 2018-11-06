@@ -41,7 +41,7 @@ window.auth0AnalyticsOptions = {
 
 ## Using Facebook Pixel
 
-If you already have the Facebook Pixel installed on your site you can use that configuration mode. Note that with the Facebook Pixel, certain features of Facebook Analytics are not availible. The configuration for using the pixel is shown below.
+If you already have the Facebook Pixel installed on your site you can use that configuration mode. Note that with the Facebook Pixel, certain features of Facebook Analytics are not available. The configuration for using the pixel is shown below.
 
 ```
 <script>
@@ -52,3 +52,11 @@ window.auth0AnalyticsOptions = {
 }
 </script>
 ```
+
+<%= include('../_usage', { name: "Facebook Analytics" }) %>
+
+## Reporting
+
+For the most up to date information on using Facebook Analytics, check out the [Facebook Analytics documentation](https://www.facebook.com/help/analytics/1710582659188030).
+
+We recommend [creating funnels](https://www.facebook.com/help/analytics/935921203105136) to measure the success of your acquisition and registration flows using these new events.

@@ -72,7 +72,7 @@ Once consent has been given, the user will no longer see the consent dialog on s
 
 ## Scope Descriptions 
 
-By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **resource_name:action** format.
+By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **action:resource_name** format.
 
 ![API Scopes](/media/articles/api-auth/consent-scopes.png)
 
@@ -120,7 +120,7 @@ Note that this option only allows __verifiable__ first-party applications to ski
 127.0.0.1       myapp.example
 ```
 
-Once you do this, remember to update your application configuration URLs, such as the **Allowed Callback URLs** (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)), and the callback URL you configured in your application, to match the updated domain-mapping.
+Similarly, you **cannot** skip consent (even for first-party applications) if `localhost` appears in any domain in the **Allowed Callback URLs** setting (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)). Make sure to update **Allowed Callback URLs**, and the callback URL you configured in your application, to match the updated domain-mapping.
 :::
 
 Since third-party applications are assumed to be untrusted, they are not able to skip consent dialogs.

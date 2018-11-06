@@ -33,7 +33,7 @@ Click **SAVE** when finished to submit your changes.
 **Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [Access Tokens](/tokens/concepts/overview-access-tokens) issued by Auth0 to have this API Identitifier specified as an audience.
 
 ::: note
-This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behaviour that might result in breaking changes for some of your applications. Please contact support if you require assistance.
+This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behavior that might result in breaking changes for some of your applications. Please contact support if you require assistance.
 :::
 
 **Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
@@ -80,7 +80,7 @@ Learn more about [Logout](/logout).
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid measured in minutes. The default value is 10080 minutes (or 7 days).
+Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days).
 
 This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
 

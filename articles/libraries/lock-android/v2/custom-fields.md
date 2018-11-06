@@ -46,7 +46,7 @@ Lock lock = Lock.newBuilder(auth0, callback)
               .build(this);
 ```
 
-Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
+That's it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
 
 ::: note
 The user must fill all of the custom fields before being able to complete signup.

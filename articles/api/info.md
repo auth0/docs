@@ -24,7 +24,7 @@ Auth0 exposes two APIs for developers to consume in their applications:
 
 ## Authentication API
 
-The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as OpenID Connect, OAuth, and SAML). Typically, you would consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js), or a library, like [Lock](/libraries/lock). If you are building your authentication UI manually, you would need to interface directly with the Authentication API.
+The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as OpenID Connect, OAuth, and SAML). Typically, you consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js) or a library like [Lock](/libraries/lock). If you are building your authentication UI manually, you will need to interface directly with the Authentication API.
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -84,4 +84,4 @@ The Management API allows you to manage every aspect of your Auth0 account. For 
 
 ### Management API v1 - DEPRECATED
 
-The Management API v1 is deprecated and **should not** be used for new projects. If your existing application uses Management API v1, you can reference its API explorer [here](/api/v1).
+The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, refer to the [Management API v1 documentation](/api/management/v1).

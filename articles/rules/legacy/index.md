@@ -225,7 +225,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 ![Rules Editor](/media/articles/rules/rule-editor.png)
 
-1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
+1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
 ![Try this Rule](/media/articles/rules/try-rule.png)
 

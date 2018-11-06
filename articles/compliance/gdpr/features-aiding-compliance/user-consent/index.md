@@ -65,7 +65,7 @@ Note that every time your Terms and Conditions change, you **must** ask the user
 
 According to GDPR, you should be able to show that the user has consented to the processing of their personal data. 
 
-With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipilate this information using our Management API.
+With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipulate this information using our Management API.
 
 :::note
 To access the Management API you will need an [Access Token](/api/management/v2/concepts/tokens).

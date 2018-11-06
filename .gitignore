@@ -10,7 +10,7 @@ config.json
 .idea
 
 # Visual Studio Code
-.vscode/*
+.vscode
 
 # Sublime Text
 *.sublime-project

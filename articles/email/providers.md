@@ -17,7 +17,7 @@ Auth0 currently supports the following providers:
 * [Mandrill](#configure-mandrill)
 * [SendGrid](#configure-sendgrid)
 * [SparkPost](#configure-sparkpost)
-* [Other SMTP](#configure-a-custom-smtp-server)
+* [Other SMTP](#configure-a-custom-smtp-server) (e.g., Gmail, Yahoo)
 
 You can only configure one email provider (Amazon SES, Sendgrid, and so on.) which will be used for all emails.
 

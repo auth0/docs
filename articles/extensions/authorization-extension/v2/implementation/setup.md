@@ -112,7 +112,7 @@ You can create different types of Roles such as: Expense Admins, Expense Manager
 
 ![Roles](/media/articles/extensions/authorization/roles.png)
 
-To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
+To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an existing Role.
 
 ![Add a New Role](/media/articles/extensions/authorization/add-role.png)
 

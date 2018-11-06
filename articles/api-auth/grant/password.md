@@ -67,7 +67,7 @@ For implementation details, refer to [Execute the Resource Owner Password Grant:
 
 ## MFA Support
 
-For details on how to implement multi-factor authentication, refer to [Multi-factor Αuthentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+For details on how to implement multi-factor authentication, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 ## Keep reading
 

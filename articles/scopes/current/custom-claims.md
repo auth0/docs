@@ -56,7 +56,7 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 `auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
 :::
 
-The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
+The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
 
 ::: note
 Adding custom claims to the Access Token is very similar to the process of adding custom claims to the ID Token. However, you would use `context.accessToken` instead of `context.idToken`.

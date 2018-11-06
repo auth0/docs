@@ -59,7 +59,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 
 ## Custom User Profile data storage
 
-You can use `user_profile` to store custom attributes such as the user's favorite color or phone number.
+You can use `user_metadata` to store custom attributes such as the user's favorite color or phone number.
 
 Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information.
 

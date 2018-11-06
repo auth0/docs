@@ -47,9 +47,9 @@ The following attributes are available on the user profile.
 
 * `password_set_date`: The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
 
-* `phone_number`: The user's phone number.
+* `phone_number`: The user's phone number. Only valid for users with SMS connections.
 
-* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified (only valid for users with SMS connections).
+* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
 
 * `picture`: [The user's profile picture](/user-profile/user-picture).
 

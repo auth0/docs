@@ -14,7 +14,7 @@ useCase:
 
 [Rules](/rules) allow you to define arbitrary code which can be used to fulfill custom authentication and authorization requirements, log events, retrieve information from external services, and much more.
 
-Rules can also be used to programatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
+Rules can also be used to programmatically redirect users before an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user, such as:
 
 * Requiring users to provide additional verification when logging in from unknown locations.
 * Implementing custom verification mechanisms (such as proprietary multi factor authentication providers).
@@ -65,7 +65,7 @@ How you extract the `state` parameter depends entirely on the server you redirec
 When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
 
 ::: warning
-Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to an `invalid_request` error.
 :::
 
 To distinguish between user-initiated logins and resumed login flows, the `context.protocol` property can be checked:

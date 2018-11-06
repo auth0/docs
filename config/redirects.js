@@ -882,7 +882,7 @@ module.exports = [
   },
   {
     from: '/blacklist-attributes',
-    to: '/tutorials/blacklisting-attributes'
+    to: '/security/blacklisting-attributes'
   },
   {
     from: '/brute-force-protection',
@@ -1864,5 +1864,9 @@ module.exports = [
    {
      from: '/support/troubleshooting-with-har-files',
      to: '/troubleshoot/har'
+   },
+   {
+     from: '/tokens/access-token',
+     to: '/tokens/overview-access-tokens'
    }
 ];

@@ -8,7 +8,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Authenticate users with a Magic Link via e-mail on SPA
+# Authenticate users with a Magic Link via email on SPA
 
 <%= include('_introduction-email-magic-link') %>
 
@@ -106,5 +106,8 @@ $(document).ready(function(){
   });
 });
 ```
+
+<%= include('./_single-browser-magic-link') %>
+
 
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

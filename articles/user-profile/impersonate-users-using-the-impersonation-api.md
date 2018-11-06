@@ -9,6 +9,7 @@ topics:
 contentType: how-to
 useCase: manage-users
 ---
+
 # Impersonate Users Using the Impersonation API
 
 You can also use the [Impersonation API](/api/authentication/reference#impersonation). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
