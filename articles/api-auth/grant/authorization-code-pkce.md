@@ -62,7 +62,7 @@ Learn how to implement this at [Implement the Mobile Login Flow: Customize the T
 ## Keep reading
 
 ::: next-steps
-- [Execute a Mobile Login Flow](/api-auth/tutorials/authorization-code-grant-pkce)
+- [Implement the Mobile Login Flow](/api-auth/tutorials/mobile-login-flow)
 - [How to configure an API in Auth0](/api-auth/guides/configure-api)
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Mobile & Desktop Apps](/application-auth/mobile-desktop)
