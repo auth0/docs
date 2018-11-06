@@ -9,7 +9,7 @@ contentType:
 useCase: appliance
 applianceId: appliance45
 ---
-PSaaS Appliance Monitoring: Instrumentation
+# PSaaS Appliance Monitoring: Instrumentation
 
 The PSaaS Appliance allows you to collect time series data about individual processes and the overall cluster.
 
@@ -22,9 +22,11 @@ If you've chosen to host the PSaaS Appliance in your on-premise data center or 
 
 If Auth0 hosts the PSaaS Appliance on your behalf, you do not have access to this feature – Auth0's Managed Service Engineering (MSE) team will use instrumentation to monitor the PSaaS Appliance for you.
 
+## Alerts
+
 The PSaaS Appliance does not come with any built-in tool for sending alerts. To remedy this, we rely on DataDog and Telegraf to help implement robust monitoring and alerting strategies for the PSaaS Appliance.
 
-## Signals
+### Signals to Monitor
 
 These are the signals that the PSaaS Appliance makes available to DataDog via the Telegraf agent. The Telegraf agent defines these signals automatically.
 
@@ -41,7 +43,7 @@ These are the signals that the PSaaS Appliance makes available to DataDog via t
 * [RabbitMQ](https://github.com/influxdata/telegraf/tree/34b7a4c3611d1ede908ef275401544c34a4a3ba3/plugins/inputs/rabbitmq)
 * [Procstat](https://github.com/influxdata/telegraf/blob/34b7a4c3611d1ede908ef275401544c34a4a3ba3/plugins/inputs/procstat/README.md)
 
-## Auth0 Signals to Monitor
+### Auth0 Signals to Monitor
 
 Please note that Auth0 exposes many internal metrics that will be visible in your DataDog console. The names of these metrics typically begin with `auth0_`.
 
