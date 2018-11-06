@@ -1,5 +1,5 @@
 ---
-description: Learn how to call APIs from mobile apps using the Authorization Code Grant with PKCE.
+description: Learn how the mobile login flow works and why you should use it for mobile apps.
 topics:
   - authorization-code
   - pkce
@@ -62,9 +62,9 @@ Learn how to implement this at [Execute a Mobile Login Flow: Customize the Token
 ## Keep reading
 
 ::: next-steps
-- [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+- [Execute a Mobile Login Flow](/api-auth/tutorials/authorization-code-grant-pkce)
 - [How to configure an API in Auth0](/api-auth/guides/configure-api)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Mobile & Desktop Apps](/application-auth/mobile-desktop)
 - [Tokens used by Auth0](/tokens)
 :::
