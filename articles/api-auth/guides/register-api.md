@@ -1,6 +1,6 @@
 ---
-title: Configure an API in Auth0
-description: Learn how to configure an API using the Auth0 Dashboard.
+title: Register an API witj Auth0
+description: Learn how to register an API with Auth0 using the Auth0 Dashboard.
 topics:
   - api-authentication
   - oidc
@@ -11,9 +11,9 @@ useCase:
   - call-api
 ---
 
-# Configure an API in Auth0
+# Register an API with Auth0
 
-To configure an [API](/api-auth/apis.md) in Auth0, you will need to access the [Auth0 Dashboard](${manage_url}). Once you have done so, you can follow the instructions below.
+To register an [API](/api-auth/apis.md) with Auth0, you will need to access the [Auth0 Dashboard](${manage_url}). Once you have done so, you can follow the instructions below.
 
 1. From the left menu, click [APIs](${manage_url}/#/apis).
 
