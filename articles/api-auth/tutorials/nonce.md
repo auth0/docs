@@ -23,7 +23,7 @@ For more information on where to include the nonce, see [How to Implement the Im
 
 ## Generate a cryptographically random nonce
 
-[Modern browsers](http://caniuse.com/#feat=cryptography) can use the [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/) to generate cryptographically secure random strings for use as nonces.
+One way to generate a cryptographically random nonce is to use a tool like [Nano ID](https://github.com/ai/nanoid) or similar. This does require you to bundle the tool with your JavaScript code, however. If that's not possible, you can take advantage of the fact that [modern browsers](http://caniuse.com/#feat=cryptography) can use the [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/) to generate cryptographically secure random strings for use as nonces.
 
 ```js
 function randomString(length) {
