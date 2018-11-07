@@ -1,5 +1,6 @@
 ---
 description: Explains the basics of Auth0 user profiles.
+toc: true
 topics:
     - users
     - user-management
@@ -83,7 +84,7 @@ The [API Explorer](/api/v2) allows users to interactively explore the Management
 
 Finally, there is the Authentication API specifically used for authentication flows. The documentation for these Authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/api/authentication/reference#get-user-info), which will be discussed later in this article.
 
-## User Profile vs Tokens
+## User Profile vs. Tokens
 
 In the authentication flows described above, Auth0 returns a set of tokens in lieu of a full User Profile.
 
@@ -93,11 +94,11 @@ The claims within a JWT generally contain a subset of the information available 
 
 There are three other types of tokens that can be returned during authentication:
 
-* an Auth0 Access Token;
-* a 3rd party provider Access Token;
-* a Refresh Token.
+* Auth0 Access Token
+* Third-party provider Access Token
+* Refresh Token
 
-For more information on tokens and claims see the [Token Overview](/tokens).
+For more information on tokens and claims see the [Tokens](/tokens).
 
 ## User Profile data modification
 
@@ -105,13 +106,13 @@ The information contained in a User Profile and in an ID Token can be modified i
 
 ### Scopes
 
-The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the ID Token (JWT). Examples of different scopes are discussed [here](/scopes).
+The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the ID Token (JWT). See [Scopes](/scopes) for examples of different kinds of scopes.
 
 ### Dashboard
 
 The User Profile can also be modified through the Auth0 Management Dashboard. The dashboard allows administrators to manually edit portions of the User Profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the User Profile.
 
-In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
+In the Auth0 dashboard, click **Users**, then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
 
 ::: note
 The User Details page will show “pending” when a user is first created until they have logged in for the first time.
@@ -209,10 +210,7 @@ Information on linking accounts and examples of profiles are located [here](/lin
 
 ## Keep reading
 
-::: next-steps
 * [User Profile Attributes](/user-profile/user-profile-structure)
 * [Auth0 Normalized User Profile](/user-profile/normalized)
 * [User Metadata](/metadata)
 * [User Profile: In-Depth Details](/user-profile/user-profile-details)
-* [Update Users using a Custom Database](/user-profile/customdb)
-:::

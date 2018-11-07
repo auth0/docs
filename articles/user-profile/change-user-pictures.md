@@ -5,22 +5,17 @@ topics:
     - user-management
     - user-profiles
     - user-picture
-contentType:
-  - concept
-  - how-to
-useCase:
-  - manage-users
+contentType: how-to
+useCase: manage-users
 ---
 
-# User Picture
+# Change User Pictures
 
 Auth0 [normalizes](/user-profile/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
 
 ![User Picture](/media/articles/user-profile/user-picture.png)
 
-## Change a User's Picture
-
-The `user.picture` attribute is not directly editable. As an alternative, you can use the [User Metadata](/metadata) to store a picture attribute which you can then use in your application as desired. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
+1. The `user.picture` attribute is not directly editable. As an alternative, you can use the [User Metadata](/metadata) to store a picture attribute which you can then use in your application as desired. You can update the `user_metadata` field by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
 
 For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`:
 
@@ -48,7 +43,7 @@ For example, if your app provides a way to upload profile pictures, once the pic
 }
 ```
 
-If you want to ensure that the picture from the `user_metadata` is returned in the ID Token, you will need to create a [Rule](/rules) which will check whether the `user.user_metadata.picture` attribute is present, and if so replace the `user.picture` attribute with that value. This will ensure that the picture from the `user_metadata` is returned in the `picture` claim of the ID Token.
+2. To ensure that the picture from the `user_metadata` is returned in the ID Token, you need to create a [Rule](/rules) to check whether the `user.user_metadata.picture` attribute is present, and if so replace the `user.picture` attribute with that value. This will ensure that the picture from the `user_metadata` is returned in the `picture` claim of the ID Token.
 
 Here is an example of the code you can use in your Rule:
 
@@ -63,7 +58,7 @@ function (user, context, callback) {
 
 ## Change the default picture for all users
 
-If you want to change the default picture of all users who do not have a profile picture set, you can use a rule to do this.
+To change the default picture of all users who do not have a profile picture set, you can use a rule to do this.
 
 Example:
 
