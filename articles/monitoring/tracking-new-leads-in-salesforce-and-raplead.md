@@ -1,10 +1,10 @@
 ---
-description: How to track new leads in Salesforce and augment user profile with Rapleaf.
+description: How to track new leads in Salesforce and augment user profile with Towerdata.
 topics:
   - monitoring
   - marketing
   - salesforce
-  - rapleaf
+  - towerdata
 contentType:
   - how-to
 useCase:
@@ -14,7 +14,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Tracking new leads in Salesforce, augmenting user profile with RapLeaf
+# Tracking new leads in Salesforce, augmenting user profile with Towerdata
 
 Upon a signup of a new user to a website with any social credential, we want to:
 
@@ -25,11 +25,11 @@ Implementing this with Auth0 is very easy. You just need 2 [Rules](/rules) in yo
 
 ![](/media/articles/tutorials/rapleaf-salesforce.png)
 
-## 1. Augment User Profile with RapLeaf
+## 1. Augment User Profile with Towerdata
 
-The 1st step is to obtain more information about this user using their email address. __RapLeaf__ provides an API to retrieve public information about a user using the email as input that is extremely easy to use.
+The 1st step is to obtain more information about this user using their email address. Towerdata provides an API to retrieve public information about a user using the email as input that is extremely easy to use.
 
-Once the call to RapLeaf completes, we store this additional information in a property called `rapLeafData`:
+Once the call to Towerdata completes, we store this additional information in a property called `towerdata`:
 
 :::note
 We are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`). The entire rule is ignored if the user has already signed up (signaled by the `user.signedUp` property setup after recording a new lead in step 2 below).
@@ -38,27 +38,29 @@ We are ignoring certain conditions that exist in the API and only doing this whe
 ```js
 function (user, context, callback) {
 
-  if(user.signedUp) return callback(null,user,callback);
+  //Filter by app
+  //if(context.clientName !== 'AN APP') return callback(null, user, context);
 
-  var rapLeafAPIKey = 'YOUR RAPLEAF API KEY';
-
-  if(user.email){
-    request('https://personalize.rapleaf.com/v4/dr?email=' +
-            encodeURIComponent(user.email) +
-            '&api_key=' + rapLeafAPIKey,
-            function(e,r,b){  
-              if(e) return callback(e);
-
-              if(r.statusCode===200){
-               user.rapLeafData = JSON.parse(b);
-              }
-
-              return callback(null,user,context);
-            });
+  if (!user.email || !user.email_verified) {
+    return callback(null, user, context);
   }
-  else {
-    return callback(null,user,context);
-  }
+
+  request.get('https://api.towerdata.com/v5/td', {
+      qs: {
+        email: user.email,
+        api_key: configuration.TOWERDATA_API_KEY
+      },
+      json: true
+    },
+    (err, response, body) => {
+      if (err) return callback(err);
+
+      if (response.statusCode === 200) {
+        context.idToken['https://example.com/towerdata'] = body;
+      }
+
+      return callback(null, user, context);
+    });
 }
 ```
 
@@ -72,57 +74,94 @@ In this second step we record the information as a __New Lead__ in Salesforce, s
 
 ```js
 function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
+  if (user.app_metadata.recordedAsLead) {
+    return callback(null,user,context);
+  }
 
-  if(user.signedUp) return callback(null, user, callback);
+  const MY_SLACK_WEBHOOK_URL = 'YOUR SLACK WEBHOOK URL';
+  const slack = require('slack-notify')(MY_SLACK_WEBHOOK_URL);
 
-  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD,
-            function(err, response){
-                    if(err) return callback(err);
+  //Populate the variables below with appropriate values
+  const SFCOM_CLIENT_ID = configuration.SALESFORCE_CLIENT_ID;
+  const SFCOM_CLIENT_SECRET = configuration.SALESFORCE_CLIENT_SECRET;
+  const USERNAME = configuration.SALESFORCE_USERNAME;
+  const PASSWORD = configuration.SALESFORCE_PASSWORD;
+  getAccessToken(
+    SFCOM_CLIENT_ID,
+    SFCOM_CLIENT_SECRET,
+    USERNAME,
+    PASSWORD,
+    (response) => {
+      if (!response.instance_url || !response.access_token) {
+        slack.alert({
+          channel: '#some_channel',
+          text: 'Error Getting SALESFORCE Access Token',
+          fields: {
+            error: response
+          }
+        });
 
-                    createLead(response.instance_url, response.access_token, function(err, result){
-                        if(err) return callback(err);
-                        //Everyhting worked fine. We signal this signup was successful.
-                        user.persistent.signedUp = true;
-                        return callback(null, user, context);
-                    });
-                });
+        return;
+      }
 
+      createLead(
+        response.instance_url,
+        response.access_token,
+        (err, result) => {
+        if (err || !result || !result.id) {
+          slack.alert({
+            channel: '#some_channel',
+            text: 'Error Creating SALESFORCE Lead',
+            fields: {
+              error: err || result
+            }
+          });
+
+          return;
+        }
+
+        user.app_metadata.recordedAsLead = true;
+        auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+      });
+    });
+
+  //See http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_lead.htm
   function createLead(url, access_token, callback){
-
-    //Just a few fields. The Lead object is much richer.
-    var data = {
-        LastName: user.name,
-        Company: 'Web channel signups'
+    //Can use many more fields
+    const data = {
+      LastName: user.name,
+      Company: 'Web channel signups'
     };
 
     request.post({
-        url: url + "/services/data/v20.0/sobjects/Lead/",
-        headers: {
-            "Authorization": "OAuth " + access_token,
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-        }, function(err, response, body){
-            if(err) return callback(err);
-            return callback(null,body);
-        });
+      url: url + "/services/data/v20.0/sobjects/Lead",
+      headers: {
+        "Authorization": "OAuth " + access_token
+      },
+      json: data
+      }, (err, response, body) => {
+        return callback(err, body);
+      });
   }
 
-  //Helper function to get an Access Token from Salesforce
-  function getAccessToken(client_id, client_secret, username, password, callback){
+  //Obtains a SFCOM access_token with user credentials
+  function getAccessToken(client_id, client_secret, username, password, callback) {
     request.post({
-        url: 'https://login.salesforce.com/services/oauth2/token',
-        form: {
-            grant_type: 'password',
-            client_id: client_id,
-            client_secret: client_secret,
-            username: username,
-            password: password
-        }}, function(e,r,b){
-            if(e) return callback(e);
-            return callback(null,JSON.parse(b));
-        });
+      url: 'https://login.salesforce.com/services/oauth2/token',
+      form: {
+        grant_type: 'password',
+        client_id: client_id,
+        client_secret: client_secret,
+        username: username,
+        password: password
+      }}, (err, respose, body) => {
+        return callback(JSON.parse(body));
+      });
   }
+
+  // don’t wait for the SF API call to finish, return right away (the request will continue on the sandbox)`
+  callback(null, user, context);
 }
 ```
 That's it!
