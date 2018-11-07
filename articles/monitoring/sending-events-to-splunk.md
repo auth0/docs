@@ -36,43 +36,46 @@ This example has your Splunk credentials hard-coded into the rule, but if you pr
 :::
 
 ```js
-function(user, context, callback) {
+function (user, context, callback) {
+  const request = require('request');
+
   user.app_metadata = user.app_metadata || {};
-  var splunkBaseUrl = 'YOUR SPLUNK SERVER, like: https://your server:8089';
+  const endpoint = 'https://http-inputs-mysplunkcloud.example.com:443/services/collector'; // replace with your Splunk HEC endpoint;
 
   //Add any interesting info to the event
-  var event = {
-    message: user.app_metadata.signedUp ? 'Login' : 'SignUp',
-    application: context.clientName,
-    clientIP: context.request.ip,
-    protocol: context.protocol,
-    userName: user.name,
-    userId: user.user_id
+  const hec_event = {
+    event: {
+      message: user.app_metadata.signedUp ? 'Login' : 'SignUp',
+      application: context.clientName,
+      clientIP: context.request.ip,
+      protocol: context.protocol,
+      userName: user.name,
+      userId: user.user_id
+    },
+    source: 'auth0',
+    sourcetype: 'auth0_activity'
   };
 
-  request.post( {
-    url: splunkBaseUrl + '/services/receivers/simple',
-    auth: {
-        'user': 'YOUR SPLUNK USER',
-        'pass': 'YOUR SPLUNK PASSWORD',
-      },
-    json: event,
-    qs: {
-      'source': 'auth0',
-      'sourcetype': 'auth0_activity'
-    }
-  }, function(e,r,b) {
-    if (e) return callback(e);
-    if (r.statusCode !== 200) return callback(new Error('Invalid operation'));
+  request.post({
+    url: endpoint,
+    headers: {
+      'Authorization': 'Splunk ' + configuration.SPLUNK_HEC_TOKEN
+    },
+    strictSSL: true, // set to false if using a self-signed cert
+    json: hec_event
+  }, function(error, response, body) {
+    if (error) return callback(error);
+    if (response.statusCode !== 200) return callback(new Error('Invalid operation'));
     user.app_metadata.signedUp = true;
     auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-    .then(function(){
-      callback(null, user, context);
-    })
-    .catch(function(err){
-      callback(err);
-    });
+      .then(function () {
+        callback(null, user, context);
+      })
+      .catch(function (err) {
+        callback(err);
+      });
   });
+
 }
 ```
 

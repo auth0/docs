@@ -33,16 +33,16 @@ After you toggle the slider to enable using Duo, a portal displays a code editin
 function (user, context, callback) {
 
   var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
-  // run only for the specified applications
+  // run only for the specified clients
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){
       context.multifactor = {
         //required
         provider: 'duo',
-        ikey: 'DIXBMN...LZO8IOS8',
-        skey: 'nZLxq8GK7....saKCOLPnh',
-        host: 'api-3....049.duosecurity.com',
+        ikey: configuration.DUO_IKEY,
+        skey: configuration.DUO_SKEY,
+        host: configuration.DUO_HOST, // e.g.: 'api-XXXXXXXX.duosecurity.com',
 
         // optional, defaults to true. Set to false to force DuoSecurity every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
