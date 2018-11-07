@@ -41,6 +41,8 @@ The following attributes are available on the user profile.
 
 * `last_ip`: The IP address associated with the user's last login.
 
+* `last_login`: The timestamp of when the user last logged in.
+
 * `logins_count`: The number of times the user has logged in.
 
 * `name`: The user's name.
