@@ -22,23 +22,54 @@ Before you begin, you will need to:
 
 ## Secure the authorization and token requests
 
-Use the Proof Key for Code Exchange (PKCE) grant to get an authorization code. A PKCE grant Authorization Code grant variant designed to handle the security issues that may be present with native applications. These apps are susceptible to authorization code interception attack. A party can intercept the authorization code returned by Auth0 and exchange it for Access and Refresh Tokens to which it would otherwise not have rights. PKCE was introduced to defend against such attacks. PKCE works by establishing a secure binding between the authorization request and the subsequent token request.
+[Use the Proof Key for Code Exchange (PKCE) grant type](/api-auth/tutorials/authorization-code-grant-pkce) to get tokens from Auth0. The PKCE grant authorization code variant is designed to handle the security issues that can occur with native applications. These types of applicationss can be susceptible to authorization code interception attacks. A party can intercept the authorization code returned by Auth0 and exchange it for Access and Refresh Tokens to which it would otherwise not have rights. The PKCE grant defends against such attacks by establishing a secure binding between the authorization request and the subsequent token request. 
 
-The Authorization Code using PKCE grant is identical to the Authorization Code Grant, but with one significant change. With PKCE, your application creates a cryptographically random key called the *code verifier*, as well as a transformed value called the *code challenge*. Your application then sends both values to Auth0 when requesting the authorization code.
+To secure the authorization and token requests, do the following steps:
 
-When your app receives the authorization code and it needs to exchange it for an Access Token, it will send the authorization code and the code verifier to Auth0's token endpoint.
+* Get an Access Token.
+  * Create a [code verifier](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier) and [code challenge](/api-auth/tutorials/authorization-code-grant-pkce#2-create-a-code-challenge).
+  * Get the users's authorization and redirect them to Aut0 to receive an authorization code.
+  * [Exchange the user's authorization code for an Access Token](/api-auth/tutorials/authorization-code-grant#2-exchange-the-authorization-code-for-an-access-token).
+* Call your API including your new Access Token in the Authorization header.
+* [Refresh your Access Token](/tokens/refresh-token/current#use-a-refresh-token) if it expires.
 
-## Call an API
+### Get an Access Token by PKCE grant
 
-Your application sends the user (with the code challenge you create, per PKCE spec) to Auth0's authorization endpoint to ask them if your application can access the resources they control. Auth0 then responds to your application via the Redirect URI, which now includes the authorization code appended to the end. Finally, your application will send the authorization code back to Auth0 in exchange for your brand new Access Token.
+With PKCE, your application creates a cryptographically random key, the *code verifier*, and a transformed value, the *code challenge*. You configure the code challenge, according to the PKCE specification, and the user sends it to Auth0's authorization endpoint to ask if your application can access the resources it controls. The endpoint responds to your application via the Redirect URI, which now includes the authorization code appended to the end. 
 
-There are three ways that you can include the Access Token that grants you the right to call the API, but the OAuth 2.0 specification calls for its inclusion in the HTTP Authorization header whenever possible. As such, this is the method we recommend you use.
+When your application receives the authorization code exchanges it for an Access Token. It sends the authorization code and the code verifier to Auth0's token endpoint. 
 
-## Refresh your Access Tokens
+### Call your API
 
-Your Access Token shouldn't last forever, and this means that sometime in the future, your Access Token will expire.  Use Refresh Tokens to get a new Access Token without having to bother the end user (or whomever the resource owner is) for permissions again. 
+There are three ways to include the Access Token that grants you the right to call the API, but the OAuth 2.0 specification calls for its inclusion in the [HTTP Authorization header](/api-auth/tutorials/authorization-code-grant#3-call-the-api) whenever possible. 
 
-If you requested that Auth0 send a Refresh Token whenever it grants an Access Token, you can use it to refresh your Access Token without going through the authorization song-and-dance again.
+### Refresh your Access Tokens
 
+Your Access Token has a limited lifetime and therefore your Access Token will eventually expire. Use Refresh Tokens to get new Access Tokens without having to bother the end user for permissions again. 
 
+We recommend that you request Auth0 send a Refresh Token whenever it grants an Access Token. You can use it to refresh your Access Token without going through the authorization process again.
 
+## What's next
+
+* [Call APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+
+:::: further-reading
+::: concepts
+* [Application Grant Types](/applications/application-grant-types)
+* [Access Tokens](/tokens/overview-access-tokens)
+
+:::
+
+::: guides
+* [Authorization Code Grant PKCE Tutorial](/api-auth/tutorials/authorization-code-grant-pkce)
+* [Register Web Applications](/applications/webapps)
+* [Refresh your Access Token](/tokens/refresh-token/current#use-a-refresh-token)
+* [Authorization Code Grant](/api-auth/tutorials/authorization-code-grant)
+:::
+
+::: references
+* [API Authorization](/api-auth)
+* [Authentication API](/api/authentication)
+* [0Auth 2.0](/protocols/oauth2)
+:::
+::::
