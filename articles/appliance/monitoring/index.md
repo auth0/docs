@@ -55,16 +55,16 @@ With that said, Auth0 suggests the following as a starting point for monitoring 
 
 | Signal | Trigger | Action |
 | - | - | - |
-| [/testall at load balancer level](/appliance/monitoring/testall) | Does not return 200 with body OK | [Submit a support ticket](/support/tickets) with a status of **Urgent** |
-| [/testall at node level](/appliance/monitoring/testall#monitoring-individual-nodes) | Does not return 200 with body OK | [Submit a support ticket](/support/tickets) with a status of **High** |
-| [GET /status/memory](/appliance/monitoring/authenticated-endpoints#get-status-memory) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/disk](/appliance/monitoring/authenticated-endpoints#get-status-disk) at node level  | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/network](/appliance/monitoring/authenticated-endpoints#get-status-network) at node level	| Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/internet](/appliance/monitoring/authenticated-endpoints#get-status-internet) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/email](/appliance/monitoring/authenticated-endpoints#get-status-email) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/db](/appliance/monitoring/authenticated-endpoints#get-status-db) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| [GET /status/replicaset](/appliance/monitoring/authenticated-endpoints#get-status-replicaset) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a status of **Normal** |
-| Synthetic Transaction: Login | Synthetic login failed | [Submit a support ticket](/support/tickets) with a status of **Normal** |
+| [/testall at load balancer level](/appliance/monitoring/testall) | Does not return 200 with body OK | [Submit a support ticket](/support/tickets) with a severity of **Urgent** |
+| [/testall at node level](/appliance/monitoring/testall#monitoring-individual-nodes) | Does not return 200 with body OK | [Submit a support ticket](/support/tickets) with a severity of **High** |
+| [GET /status/memory](/appliance/monitoring/authenticated-endpoints#get-status-memory) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/disk](/appliance/monitoring/authenticated-endpoints#get-status-disk) at node level  | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/network](/appliance/monitoring/authenticated-endpoints#get-status-network) at node level	| Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/internet](/appliance/monitoring/authenticated-endpoints#get-status-internet) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/email](/appliance/monitoring/authenticated-endpoints#get-status-email) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/db](/appliance/monitoring/authenticated-endpoints#get-status-db) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| [GET /status/replicaset](/appliance/monitoring/authenticated-endpoints#get-status-replicaset) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
+| Synthetic Transaction: Login | Synthetic login failed | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
 
 When building your monitoring strategy for a PSaaS Appliance implementation hosted on an environment you own or control, remember that you are responsible for using the instrumentation and tenant log data to watch for anomalies.
 
