@@ -1014,6 +1014,10 @@ module.exports = [
     to: '/appliance/critical-issue'
   },
   {
+    from: '/appliance/dashboard/instrumentation',
+    to: '/appliance/instrumentation'
+  },
+  {
     from: '/tutorials/local-testing-and-development',
     to: '/dev-lifecycle/local-testing-and-development'
   },
